@@ -92,6 +92,13 @@ window.MoolSocialScreenbook = {
       file: "screens/08-social-create.html",
       status: "Approved",
       purpose: "Approved all-in-one social creation hub for text, photo, shorts, videos, stories, live, threads, polls and creator earning path."
+    },
+    {
+      id: "09",
+      name: "Buy",
+      file: "screens/09-buy.html",
+      status: "Approved",
+      purpose: "Approved Buy commerce entry with QR shop session, live purchase choices, compact category browsing, medicine boundary, basket logic and decision-ready product cards."
     }
   ]
 };

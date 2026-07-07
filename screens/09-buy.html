@@ -1,0 +1,3191 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>09 Buy - MoolSocial Screenbook</title>
+  <link rel="stylesheet" href="../shared/moolsocial-ui-foundation.css" />
+  <style>
+    .screen-shell {
+      display: grid;
+      gap: 18px;
+    }
+
+    .back-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .screen-link-home {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--ms-navy);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .back-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--ms-navy);
+      border-radius: var(--ms-radius);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .buy-preview {
+      display: grid;
+      grid-template-columns: minmax(320px, 390px) minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+      padding: 18px;
+      border-bottom: 1px solid var(--ms-navy);
+      background: var(--ms-white);
+    }
+
+    .phone {
+      width: min(100%, 370px);
+      min-height: 742px;
+      display: grid;
+      justify-self: center;
+      border: 10px solid var(--ms-navy);
+      border-radius: 32px;
+      background: var(--ms-navy);
+      overflow: hidden;
+      box-shadow: 0 28px 60px rgba(0, 0, 128, .22);
+    }
+
+    .buy-app {
+      position: relative;
+      min-height: 742px;
+      display: grid;
+      grid-template-rows: auto auto 1fr auto;
+      background:
+        radial-gradient(circle at 12% 8%, rgba(255, 153, 51, .17), transparent 24%),
+        radial-gradient(circle at 88% 16%, rgba(19, 136, 8, .12), transparent 24%),
+        linear-gradient(180deg, var(--ms-navy) 0 176px, #f5f7fb 176px 100%);
+      color: var(--ms-white);
+      overflow: hidden;
+      font-family: var(--ms-font);
+    }
+
+    .status-row {
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 18px 0;
+      color: var(--ms-white);
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    .top-zone {
+      display: grid;
+      gap: 10px;
+      padding: 9px 12px 14px;
+    }
+
+    .brand-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .brand-lockup {
+      display: grid;
+      gap: 4px;
+      min-width: 0;
+    }
+
+    .brand-lockup b {
+      overflow: hidden;
+      color: var(--ms-white);
+      font-size: 19px;
+      line-height: 1;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .brand-lockup span {
+      color: rgba(255, 255, 255, .75);
+      font-size: 10px;
+      font-weight: 850;
+    }
+
+    .identity-line {
+      width: 100px;
+      height: 3px;
+      display: grid;
+      grid-template-columns: 45fr 14fr 41fr;
+      border-radius: var(--ms-pill);
+      overflow: hidden;
+    }
+
+    .identity-line span:nth-child(1) { background: var(--ms-saffron); }
+    .identity-line span:nth-child(2) { background: var(--ms-white); }
+    .identity-line span:nth-child(3) { background: var(--ms-green); }
+
+    .top-actions {
+      display: flex;
+      gap: 7px;
+    }
+
+    .icon-circle,
+    .search-action,
+    .dock-tab,
+    .mool-button,
+    .chat-button,
+    .card-action,
+    .mini-button,
+    .close-sheet {
+      appearance: none;
+      font-family: var(--ms-font);
+      cursor: pointer;
+    }
+
+    .icon-circle {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, .28);
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .12);
+      color: var(--ms-white);
+    }
+
+    .icon-circle svg,
+    .search-action svg,
+    .tab-chip svg,
+    .dock-tab svg,
+    .mool-button svg,
+    .chat-button svg,
+    .card-action svg,
+    .mini-button svg,
+    .decision-icon svg,
+    .sheet-chip svg {
+      width: 18px;
+      height: 18px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .command-bar {
+      min-height: 44px;
+      display: grid;
+      grid-template-columns: 1fr repeat(3, 34px);
+      gap: 6px;
+      align-items: center;
+      border: 1px solid rgba(255, 255, 255, .86);
+      border-radius: var(--ms-pill);
+      padding: 5px 5px 5px 13px;
+      background: rgba(255, 255, 255, .1);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .08);
+    }
+
+    .command-text {
+      min-width: 0;
+      overflow: hidden;
+      color: var(--ms-white);
+      font-size: 11px;
+      font-weight: 900;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .search-action {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border: 0;
+      border-radius: 50%;
+      color: var(--ms-navy);
+      background: var(--ms-white);
+    }
+
+    .buy-scroll {
+      min-height: 0;
+      overflow-y: auto;
+      padding: 12px 12px 104px;
+      color: var(--ms-navy);
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .buy-scroll::-webkit-scrollbar,
+    .tab-rail::-webkit-scrollbar,
+    .quick-rail::-webkit-scrollbar {
+      display: none;
+    }
+
+    .tab-rail,
+    .quick-rail {
+      display: flex;
+      gap: 7px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .tab-rail {
+      position: sticky;
+      top: 0;
+      z-index: 4;
+      margin: -1px -1px 10px;
+      padding: 0 0 5px;
+      background: linear-gradient(180deg, #f5f7fb 0 72%, rgba(245, 247, 251, 0));
+    }
+
+    .buy-scroll > .tab-rail {
+      display: none;
+    }
+
+    .tab-chip {
+      flex: 0 0 auto;
+      min-height: 35px;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      border: 1px solid rgba(0, 0, 128, .2);
+      border-radius: var(--ms-pill);
+      padding: 0 12px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      font-size: 10.5px;
+      font-weight: 950;
+      white-space: nowrap;
+      box-shadow: 0 7px 16px rgba(0, 0, 128, .06);
+    }
+
+    .tab-chip.active {
+      border-color: var(--ms-navy);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: 0 10px 22px rgba(0, 0, 128, .2);
+    }
+
+    .panel {
+      display: none;
+      gap: 11px;
+    }
+
+    .panel.active {
+      display: grid;
+    }
+
+    .hero-card,
+    .decision-card,
+    .mini-card,
+    .basket-card {
+      border: 1px solid rgba(0, 0, 128, .16);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, .98);
+      color: var(--ms-navy);
+      box-shadow: 0 16px 36px rgba(0, 0, 128, .11);
+    }
+
+    .hero-card {
+      display: grid;
+      gap: 10px;
+      padding: 13px;
+      overflow: hidden;
+    }
+
+    .hero-visual {
+      min-height: 125px;
+      border-radius: 18px;
+      background:
+        linear-gradient(180deg, rgba(0, 0, 128, .04), rgba(0, 0, 128, .28)),
+        url("../assets/shorts-market-grocery.png") center/cover;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-visual::after {
+      content: "Local basket matched";
+      position: absolute;
+      left: 10px;
+      bottom: 10px;
+      min-height: 28px;
+      display: inline-flex;
+      align-items: center;
+      border-radius: var(--ms-pill);
+      padding: 0 11px;
+      background: rgba(255, 255, 255, .92);
+      color: var(--ms-navy);
+      font-size: 10px;
+      font-weight: 950;
+    }
+
+    .card-head {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      align-items: start;
+    }
+
+    .card-title {
+      display: grid;
+      gap: 3px;
+      min-width: 0;
+    }
+
+    .card-title b {
+      color: var(--ms-navy);
+      font-size: 18px;
+      line-height: 1.05;
+    }
+
+    .card-title span,
+    .mini-copy span,
+    .provider-copy span {
+      color: rgba(0, 0, 128, .66);
+      font-size: 11px;
+      font-weight: 760;
+      line-height: 1.28;
+    }
+
+    .score-pill {
+      min-height: 28px;
+      display: inline-flex;
+      align-items: center;
+      border-radius: var(--ms-pill);
+      padding: 0 10px;
+      background: rgba(19, 136, 8, .1);
+      color: var(--ms-green);
+      font-size: 10px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .decision-row {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .decision-chip {
+      min-height: 46px;
+      display: grid;
+      align-content: center;
+      gap: 2px;
+      border: 1px solid rgba(0, 0, 128, .1);
+      border-radius: 13px;
+      padding: 7px 6px;
+      background: #f8f9ff;
+      text-align: center;
+    }
+
+    .decision-chip b {
+      overflow: hidden;
+      color: var(--ms-navy);
+      font-size: 10px;
+      line-height: 1;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .decision-chip span {
+      overflow: hidden;
+      color: var(--ms-green);
+      font-size: 8.4px;
+      font-weight: 920;
+      line-height: 1;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .card-actions {
+      display: grid;
+      grid-template-columns: 1fr 44px;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .provider-strip {
+      min-width: 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(0, 0, 128, .11);
+      border-radius: 16px;
+      padding: 8px;
+      background: #fbfcff;
+    }
+
+    .provider-icon,
+    .decision-icon {
+      flex: 0 0 auto;
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      border-radius: 13px;
+      background: linear-gradient(145deg, var(--ms-navy), #1f21bb);
+      color: var(--ms-white);
+      font-size: 11px;
+      font-weight: 950;
+    }
+
+    .provider-copy {
+      min-width: 0;
+      display: grid;
+      gap: 2px;
+    }
+
+    .provider-copy b {
+      overflow: hidden;
+      color: var(--ms-navy);
+      font-size: 12px;
+      line-height: 1.1;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .card-action {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border: 0;
+      border-radius: 50%;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: 0 10px 20px rgba(0, 0, 128, .22);
+    }
+
+    .decision-card {
+      display: grid;
+      grid-template-columns: 68px 1fr;
+      gap: 11px;
+      padding: 11px;
+    }
+
+    .decision-thumb {
+      min-height: 92px;
+      border-radius: 17px;
+      background:
+        radial-gradient(circle at 35% 35%, rgba(255, 153, 51, .72), transparent 28%),
+        radial-gradient(circle at 72% 68%, rgba(19, 136, 8, .62), transparent 30%),
+        linear-gradient(145deg, #000080, #eff3ff);
+    }
+
+    .decision-copy {
+      display: grid;
+      gap: 7px;
+      min-width: 0;
+    }
+
+    .decision-copy h3,
+    .basket-card h3,
+    .mini-card h3 {
+      margin: 0;
+      color: var(--ms-navy);
+      font-size: 14px;
+      line-height: 1.12;
+    }
+
+    .decision-copy p,
+    .basket-card p,
+    .mini-card p {
+      margin: 0;
+      color: rgba(0, 0, 128, .68);
+      font-size: 10.5px;
+      font-weight: 720;
+      line-height: 1.36;
+    }
+
+    .cart-lines,
+    .price-choice-row,
+    .quality-row {
+      display: grid;
+      gap: 6px;
+    }
+
+    .cart-line {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 8px;
+      align-items: center;
+      border: 1px solid rgba(0, 0, 128, .1);
+      border-radius: 14px;
+      padding: 8px 9px;
+      background: #f8f9ff;
+    }
+
+    .cart-line b {
+      display: block;
+      overflow: hidden;
+      color: var(--ms-navy);
+      font-size: 11px;
+      line-height: 1.05;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .cart-line small {
+      display: block;
+      overflow: hidden;
+      margin-top: 3px;
+      color: rgba(0, 0, 128, .58);
+      font-size: 9px;
+      font-weight: 820;
+      line-height: 1.1;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .line-price {
+      color: var(--ms-navy);
+      font-size: 11px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .quality-row {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .quality-pill {
+      min-height: 38px;
+      display: grid;
+      align-content: center;
+      gap: 2px;
+      border: 1px solid rgba(0, 0, 128, .12);
+      border-radius: 13px;
+      padding: 6px 7px;
+      background: var(--ms-white);
+      text-align: center;
+    }
+
+    .quality-pill b {
+      overflow: hidden;
+      color: var(--ms-navy);
+      font-size: 10px;
+      line-height: 1;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .quality-pill span {
+      overflow: hidden;
+      color: var(--ms-green);
+      font-size: 8.2px;
+      font-weight: 930;
+      line-height: 1;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .price-choice-row {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .price-choice {
+      border: 1px solid rgba(0, 0, 128, .12);
+      border-radius: 15px;
+      padding: 9px;
+      background: #fbfcff;
+    }
+
+    .price-choice.active {
+      border-color: var(--ms-green);
+      background: rgba(19, 136, 8, .06);
+      box-shadow: inset 0 0 0 1px rgba(19, 136, 8, .08);
+    }
+
+    .price-choice b,
+    .price-total b {
+      display: block;
+      color: var(--ms-navy);
+      font-size: 13px;
+      line-height: 1;
+    }
+
+    .price-choice span,
+    .price-total span {
+      display: block;
+      margin-top: 4px;
+      color: rgba(0, 0, 128, .62);
+      font-size: 9px;
+      font-weight: 820;
+      line-height: 1.2;
+    }
+
+    .buy-method-row {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .buy-method-row .price-choice {
+      padding: 8px 6px;
+    }
+
+    .buy-method-row .price-choice b {
+      overflow: hidden;
+      font-size: 10.4px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .buy-method-row .price-choice span {
+      font-size: 7.8px;
+    }
+
+    .price-total {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      align-items: center;
+      border: 1px solid rgba(0, 0, 128, .12);
+      border-radius: 16px;
+      padding: 10px;
+      background: linear-gradient(135deg, rgba(255, 153, 51, .12), rgba(19, 136, 8, .08));
+    }
+
+    .price-total strong {
+      color: var(--ms-green);
+      font-size: 18px;
+      line-height: 1;
+    }
+
+    .micro-row {
+      display: flex;
+      gap: 5px;
+      overflow: hidden;
+    }
+
+    .micro-chip {
+      min-height: 23px;
+      display: inline-flex;
+      align-items: center;
+      border-radius: var(--ms-pill);
+      padding: 0 8px;
+      background: #f2f5ff;
+      color: var(--ms-green);
+      font-size: 8.8px;
+      font-weight: 940;
+      white-space: nowrap;
+    }
+
+    .quick-rail {
+      margin: 1px 0;
+    }
+
+    .mini-button {
+      flex: 0 0 auto;
+      min-height: 33px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: var(--ms-pill);
+      padding: 0 11px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      font-size: 9.5px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .mini-card,
+    .basket-card {
+      display: grid;
+      gap: 10px;
+      padding: 12px;
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 9px;
+    }
+
+    .mini-card {
+      min-height: 122px;
+      align-content: start;
+    }
+
+    .mini-card .decision-icon {
+      width: 38px;
+      height: 38px;
+      margin-bottom: 2px;
+      background:
+        radial-gradient(circle at 35% 28%, rgba(255, 255, 255, .62), transparent 19%),
+        linear-gradient(145deg, var(--ms-green), var(--ms-navy));
+    }
+
+    .basket-items {
+      display: grid;
+      gap: 7px;
+    }
+
+    .basket-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      align-items: center;
+      border: 1px solid rgba(0, 0, 128, .1);
+      border-radius: 14px;
+      padding: 8px 9px;
+      background: #f8f9ff;
+      color: var(--ms-navy);
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    .basket-item span {
+      color: rgba(0, 0, 128, .58);
+      font-size: 10px;
+      font-weight: 850;
+    }
+
+    .bottom-dock {
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+      display: grid;
+      grid-template-columns: 52px minmax(0, 1fr) 52px;
+      grid-template-areas: "mool tabs chat";
+      align-items: center;
+      gap: 6px;
+      border: 1px solid rgba(0, 0, 128, .78);
+      border-radius: 22px;
+      padding: 7px;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, .99), rgba(244, 247, 252, .99));
+      box-shadow:
+        0 -14px 32px rgba(0, 0, 128, .16),
+        0 2px 0 rgba(255, 255, 255, .95) inset,
+        0 -2px 0 rgba(0, 0, 128, .07) inset;
+      z-index: 10;
+    }
+
+    .mool-button,
+    .chat-button {
+      width: 50px;
+      height: 50px;
+      position: relative;
+      min-width: 0;
+      display: grid;
+      place-items: center;
+      gap: 3px;
+      border-radius: 50%;
+      text-decoration: none;
+      font-size: 8.8px;
+      font-weight: 950;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .mool-button {
+      grid-area: mool;
+      border: 1px solid rgba(255, 255, 255, .38);
+      background:
+        radial-gradient(circle at 36% 24%, rgba(255, 255, 255, .30), transparent 32%),
+        linear-gradient(145deg, #1717ba, var(--ms-navy) 72%);
+      color: var(--ms-white);
+      box-shadow:
+        0 9px 19px rgba(0, 0, 128, .24),
+        inset 0 1px 0 rgba(255, 255, 255, .34),
+        inset 0 -5px 0 rgba(0, 0, 90, .36);
+    }
+
+    .dock-tabs {
+      grid-area: tabs;
+      min-width: 0;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      align-items: center;
+      gap: 3px;
+      overflow: hidden;
+      border: 1px solid rgba(0, 0, 128, .20);
+      border-radius: 18px;
+      padding: 4px;
+      background:
+        linear-gradient(180deg, rgba(0, 0, 128, .16), rgba(255, 255, 255, .70) 44%, rgba(0, 0, 128, .08)),
+        radial-gradient(circle at 50% 0, rgba(255, 255, 255, .92), transparent 58%);
+      box-shadow:
+        inset 0 9px 16px rgba(0, 0, 128, .16),
+        inset 0 -8px 14px rgba(255, 255, 255, .92),
+        0 7px 17px rgba(0, 0, 128, .07);
+      mask-image: none;
+      -webkit-mask-image: none;
+    }
+
+    .dock-tabs::-webkit-scrollbar {
+      display: none;
+    }
+
+    .dock-tab {
+      appearance: none;
+      min-width: 0;
+      width: 100%;
+      min-height: 46px;
+      display: grid;
+      place-items: center;
+      gap: 2px;
+      border: 0;
+      border-radius: 13px;
+      background: transparent;
+      color: var(--ms-navy);
+      font-family: var(--ms-font);
+      font-size: 7.2px;
+      font-weight: 950;
+      line-height: 1;
+      white-space: nowrap;
+      cursor: pointer;
+      padding: 0 2px;
+    }
+
+    .dock-tab svg {
+      width: 15px;
+      height: 15px;
+      stroke-width: 2.15;
+    }
+
+    .dock-tab.active {
+      background: var(--ms-navy);
+      color: var(--ms-white);
+    }
+
+    .chat-button svg {
+      width: 16px;
+      height: 16px;
+      stroke-width: 2.15;
+    }
+
+    .chat-button {
+      grid-area: chat;
+      border: 1px solid rgba(0, 0, 128, .16);
+      background:
+        radial-gradient(circle at 50% 12%, rgba(255, 255, 255, .96), rgba(255, 255, 255, .78) 44%, rgba(240, 244, 248, .98));
+      color: var(--ms-navy);
+      font-family: var(--ms-font);
+      box-shadow:
+        0 9px 18px rgba(0, 0, 128, .12),
+        inset 0 1px 0 rgba(255, 255, 255, .96),
+        inset 0 -3px 0 rgba(0, 0, 128, .06);
+    }
+
+    .chat-badge {
+      position: absolute;
+      top: 4px;
+      right: 5px;
+      width: 17px;
+      height: 17px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--ms-saffron);
+      color: var(--ms-navy);
+      font-size: 8px;
+      font-weight: 950;
+    }
+
+    .action-sheet {
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      bottom: 86px;
+      z-index: 12;
+      display: none;
+      gap: 10px;
+      border: 1px solid rgba(0, 0, 128, .18);
+      border-radius: 25px;
+      padding: 13px;
+      background: rgba(255, 255, 255, .98);
+      color: var(--ms-navy);
+      box-shadow: 0 24px 48px rgba(0, 0, 128, .22);
+    }
+
+    .action-sheet.open {
+      display: grid;
+    }
+
+    .sheet-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: start;
+    }
+
+    .sheet-head b {
+      display: block;
+      color: var(--ms-navy);
+      font-size: 15px;
+      line-height: 1.12;
+    }
+
+    .sheet-head span {
+      color: rgba(0, 0, 128, .65);
+      font-size: 11px;
+      font-weight: 760;
+      line-height: 1.3;
+    }
+
+    .close-sheet {
+      width: 32px;
+      height: 32px;
+      display: grid;
+      place-items: center;
+      border: 0;
+      border-radius: 50%;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 16px;
+      font-weight: 950;
+    }
+
+    .sheet-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 7px;
+    }
+
+    .sheet-chip {
+      min-height: 48px;
+      display: grid;
+      align-content: center;
+      gap: 2px;
+      border: 1px solid rgba(0, 0, 128, .11);
+      border-radius: 14px;
+      padding: 8px;
+      background: #f8f9ff;
+      color: var(--ms-navy);
+    }
+
+    .sheet-chip strong {
+      overflow: hidden;
+      font-size: 11px;
+      line-height: 1;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .sheet-chip span {
+      color: var(--ms-green);
+      font-size: 9px;
+      font-weight: 900;
+    }
+
+    .commerce-home,
+    .category-browser,
+    .detail-view {
+      display: none;
+      gap: 12px;
+    }
+
+    .commerce-home.active,
+    .category-browser.active,
+    .detail-view.active {
+      display: grid;
+    }
+
+    .legacy-buy-block {
+      display: none;
+    }
+
+    .offer-band {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 7px;
+      align-items: center;
+      border-radius: 15px;
+      padding: 8px 10px;
+      background:
+        radial-gradient(circle at 92% 20%, rgba(255, 255, 255, .32), transparent 30%),
+        linear-gradient(135deg, #fff4dc, #ffe28f);
+      color: var(--ms-navy);
+      box-shadow: 0 14px 28px rgba(0, 0, 128, .09);
+    }
+
+    .offer-band b,
+    .section-title b,
+    .category-title b {
+      color: var(--ms-navy);
+      font-size: 12px;
+      line-height: 1.08;
+    }
+
+    .offer-band span,
+    .section-title span,
+    .category-title span {
+      color: rgba(0, 0, 128, .64);
+      font-size: 8.6px;
+      font-weight: 820;
+      line-height: 1.25;
+    }
+
+    .offer-code {
+      min-height: 25px;
+      display: inline-flex;
+      align-items: center;
+      border-radius: var(--ms-pill);
+      padding: 0 8px;
+      background: var(--ms-white);
+      color: var(--ms-green);
+      font-size: 8px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .section-title,
+    .category-title {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .category-home-grid {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .category-home-grid::-webkit-scrollbar {
+      display: none;
+    }
+
+    .category-tile {
+      appearance: none;
+      flex: 0 0 auto;
+      min-width: 86px;
+      min-height: 50px;
+      display: grid;
+      grid-template-columns: 24px minmax(0, 1fr);
+      align-items: center;
+      column-gap: 6px;
+      border: 1px solid rgba(0, 0, 128, .11);
+      border-radius: 14px;
+      padding: 7px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      box-shadow: 0 12px 24px rgba(0, 0, 128, .08);
+      font-family: var(--ms-font);
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .category-art {
+      width: 24px;
+      min-height: 24px;
+      grid-row: 1 / span 2;
+      border-radius: 9px;
+      background:
+        radial-gradient(circle at 25% 35%, rgba(255, 153, 51, .78), transparent 28%),
+        radial-gradient(circle at 72% 60%, rgba(19, 136, 8, .7), transparent 32%),
+        #f6f8ff;
+    }
+
+    .category-tile b {
+      overflow: hidden;
+      color: var(--ms-navy);
+      font-size: 8.4px;
+      line-height: 1.1;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .category-tile span {
+      overflow: hidden;
+      color: rgba(0, 0, 128, .58);
+      font-size: 7.2px;
+      font-weight: 850;
+      line-height: 1.15;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .category-browser {
+      grid-template-columns: 72px minmax(0, 1fr);
+      align-items: start;
+    }
+
+    .side-category-rail {
+      position: sticky;
+      top: 48px;
+      display: grid;
+      gap: 8px;
+      max-height: 470px;
+      overflow-y: auto;
+      padding-bottom: 6px;
+      scrollbar-width: none;
+    }
+
+    .side-category-rail::-webkit-scrollbar {
+      display: none;
+    }
+
+    .side-cat {
+      appearance: none;
+      min-height: 72px;
+      display: grid;
+      place-items: center;
+      gap: 4px;
+      border: 1px solid rgba(0, 0, 128, .11);
+      border-radius: 16px;
+      padding: 7px 5px;
+      background: var(--ms-white);
+      color: rgba(0, 0, 128, .66);
+      font-family: var(--ms-font);
+      font-size: 8.4px;
+      font-weight: 920;
+      line-height: 1.08;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .side-cat.active {
+      border-color: var(--ms-green);
+      background: rgba(19, 136, 8, .07);
+      color: var(--ms-navy);
+      box-shadow: inset 3px 0 0 var(--ms-green);
+    }
+
+    .side-cat i {
+      width: 34px;
+      height: 34px;
+      display: block;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 35% 35%, rgba(255, 153, 51, .76), transparent 28%),
+        radial-gradient(circle at 68% 62%, rgba(19, 136, 8, .72), transparent 31%),
+        #eef2ff;
+    }
+
+    .product-area {
+      display: grid;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .product-card {
+      position: relative;
+      display: grid;
+      gap: 6px;
+      border: 1px solid rgba(0, 0, 128, .12);
+      border-radius: 16px;
+      padding: 7px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      box-shadow: 0 12px 24px rgba(0, 0, 128, .08);
+    }
+
+    .product-image {
+      min-height: 76px;
+      border-radius: 13px;
+      background:
+        radial-gradient(circle at 36% 39%, rgba(255, 153, 51, .9), transparent 28%),
+        radial-gradient(circle at 68% 60%, rgba(19, 136, 8, .74), transparent 30%),
+        linear-gradient(145deg, #fff7ef, #eef3ff);
+    }
+
+    .product-card:nth-child(2n) .product-image,
+    .category-tile:nth-child(2n) .category-art,
+    .side-cat:nth-child(2n) i {
+      background:
+        radial-gradient(circle at 34% 37%, rgba(19, 136, 8, .72), transparent 28%),
+        radial-gradient(circle at 70% 62%, rgba(255, 153, 51, .76), transparent 30%),
+        linear-gradient(145deg, #f4fff6, #fff6e9);
+    }
+
+    .product-title {
+      display: grid;
+      gap: 2px;
+    }
+
+    .product-title b {
+      overflow: hidden;
+      color: var(--ms-navy);
+      font-size: 11.5px;
+      line-height: 1.12;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+
+    .product-title span {
+      color: rgba(0, 0, 128, .58);
+      font-size: 9px;
+      font-weight: 820;
+      line-height: 1.15;
+    }
+
+    .product-price-row {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 6px;
+    }
+
+    .product-price {
+      display: grid;
+      gap: 2px;
+    }
+
+    .product-price b {
+      color: var(--ms-navy);
+      font-size: 16px;
+      line-height: 1;
+    }
+
+    .product-price span {
+      color: rgba(0, 0, 128, .5);
+      font-size: 9px;
+      font-weight: 820;
+      text-decoration: line-through;
+    }
+
+    .add-button,
+    .qty-stepper {
+      min-width: 64px;
+      min-height: 36px;
+      display: inline-grid;
+      place-items: center;
+      border: 1px solid var(--ms-green);
+      border-radius: 12px;
+      background: var(--ms-white);
+      color: var(--ms-green);
+      font-family: var(--ms-font);
+      font-size: 12px;
+      font-weight: 950;
+      cursor: pointer;
+    }
+
+    .qty-stepper {
+      grid-template-columns: repeat(3, 1fr);
+      background: var(--ms-green);
+      color: var(--ms-white);
+      border-color: var(--ms-green);
+    }
+
+    .product-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    .product-meta {
+      min-height: 20px;
+      display: inline-flex;
+      align-items: center;
+      border-radius: var(--ms-pill);
+      padding: 0 6px;
+      background: #f2f5ff;
+      color: rgba(0, 0, 128, .72);
+      font-size: 7.8px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .mode-strip {
+      display: flex;
+      gap: 5px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      border: 1px solid rgba(0, 0, 128, .12);
+      border-radius: var(--ms-pill);
+      padding: 4px;
+      background: rgba(255, 255, 255, .94);
+      box-shadow: 0 7px 14px rgba(0, 0, 128, .05);
+    }
+
+    .mode-strip::-webkit-scrollbar {
+      display: none;
+    }
+
+    .mode-option {
+      appearance: none;
+      flex: 0 0 auto;
+      min-height: 28px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      border: 1px solid rgba(0, 0, 128, .1);
+      border-radius: var(--ms-pill);
+      padding: 0 9px;
+      background: #f8f9ff;
+      color: var(--ms-navy);
+      font-family: var(--ms-font);
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .mode-option.active {
+      border-color: var(--ms-navy);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: 0 8px 18px rgba(0, 0, 128, .18);
+    }
+
+    .mode-option b {
+      overflow: hidden;
+      font-size: 8.6px;
+      line-height: 1;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .mode-option span {
+      overflow: hidden;
+      color: currentColor;
+      font-size: 7.6px;
+      font-weight: 820;
+      line-height: 1;
+      opacity: .75;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .best-price-hint {
+      min-height: 24px;
+      display: flex;
+      justify-content: space-between;
+      gap: 5px;
+      align-items: center;
+      border: 1px solid rgba(19, 136, 8, .16);
+      border-radius: var(--ms-pill);
+      padding: 0 8px;
+      background: rgba(19, 136, 8, .06);
+      color: var(--ms-navy);
+    }
+
+    .best-price-hint b {
+      overflow: hidden;
+      font-size: 8.6px;
+      line-height: 1.1;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .buy-ladder {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 4px;
+    }
+
+    .buy-choice {
+      min-height: 46px;
+      display: grid;
+      align-content: center;
+      gap: 2px;
+      border: 1px solid rgba(0, 0, 128, .1);
+      border-radius: 12px;
+      padding: 5px 4px;
+      background: #f8f9ff;
+      color: var(--ms-navy);
+      text-align: center;
+    }
+
+    .buy-choice.active {
+      border-color: rgba(19, 136, 8, .34);
+      background: rgba(19, 136, 8, .07);
+      box-shadow: inset 0 0 0 1px rgba(19, 136, 8, .11), 0 5px 12px rgba(19, 136, 8, .08);
+    }
+
+    .buy-choice.pulse,
+    .price-choice.pulse {
+      animation: choicePulse .42s ease;
+    }
+
+    @keyframes choicePulse {
+      0% { transform: scale(1); }
+      48% { transform: scale(1.035); }
+      100% { transform: scale(1); }
+    }
+
+    .buy-choice b,
+    .buy-choice strong,
+    .buy-choice span {
+      overflow: hidden;
+      line-height: 1;
+      text-overflow: ellipsis;
+    }
+
+    .buy-choice b {
+      color: rgba(0, 0, 128, .68);
+      font-size: 7.2px;
+      font-weight: 950;
+      line-height: 1.05;
+      text-transform: uppercase;
+    }
+
+    .buy-choice strong,
+    .buy-choice span {
+      white-space: nowrap;
+    }
+
+    .buy-choice strong {
+      font-size: 10.2px;
+      font-weight: 1000;
+    }
+
+    .buy-choice span {
+      color: var(--ms-green);
+      font-size: 7.4px;
+      font-weight: 950;
+    }
+
+    .best-price-hint span {
+      color: var(--ms-green);
+      font-size: 7.4px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .shop-session-card {
+      display: grid;
+      gap: 6px;
+      border: 1px solid rgba(0, 0, 128, .16);
+      border-radius: 15px;
+      padding: 8px;
+      background:
+        linear-gradient(135deg, rgba(0, 0, 128, .08), rgba(19, 136, 8, .07)),
+        var(--ms-white);
+      box-shadow: 0 10px 22px rgba(0, 0, 128, .08);
+    }
+
+    .shop-session-head {
+      display: grid;
+      grid-template-columns: 28px minmax(0, 1fr) auto;
+      gap: 7px;
+      align-items: center;
+    }
+
+    .shop-mark {
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      border-radius: 10px;
+      background:
+        radial-gradient(circle at 35% 24%, rgba(255, 255, 255, .72), transparent 25%),
+        linear-gradient(145deg, var(--ms-green), var(--ms-navy));
+      color: var(--ms-white);
+      font-size: 9px;
+      font-weight: 1000;
+    }
+
+    .shop-copy {
+      min-width: 0;
+      display: grid;
+      gap: 2px;
+      color: var(--ms-navy);
+    }
+
+    .shop-copy b,
+    .shop-copy span {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .shop-copy b {
+      font-size: 10px;
+      line-height: 1;
+    }
+
+    .shop-copy span {
+      color: rgba(0, 0, 128, .68);
+      font-size: 7.8px;
+      font-weight: 850;
+      line-height: 1.15;
+    }
+
+    .shop-badge {
+      border-radius: var(--ms-pill);
+      padding: 5px 6px;
+      background: rgba(19, 136, 8, .1);
+      color: var(--ms-green);
+      font-size: 7px;
+      font-weight: 1000;
+      white-space: nowrap;
+    }
+
+    .shop-context-line {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+      border: 1px solid rgba(19, 136, 8, .16);
+      border-radius: var(--ms-pill);
+      padding: 5px 7px;
+      background: rgba(19, 136, 8, .06);
+      color: var(--ms-navy);
+      font-size: 7.6px;
+      font-weight: 900;
+      line-height: 1.22;
+    }
+
+    .shop-context-line.is-updated {
+      animation: shopContextPulse .5s ease;
+    }
+
+    @keyframes shopContextPulse {
+      0% { background: rgba(255, 153, 51, .16); }
+      100% { background: rgba(19, 136, 8, .06); }
+    }
+
+    .shop-context-line b {
+      border-radius: var(--ms-pill);
+      padding: 3px 5px;
+      background: var(--ms-green);
+      color: var(--ms-white);
+      font-size: 6.5px;
+      line-height: 1;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .shop-action-grid {
+      display: flex;
+      gap: 5px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .shop-action-grid::-webkit-scrollbar {
+      display: none;
+    }
+
+    .shop-action {
+      flex: 0 0 auto;
+      min-height: 26px;
+      display: inline-grid;
+      place-items: center;
+      border: 1px solid rgba(0, 0, 128, .12);
+      border-radius: var(--ms-pill);
+      padding: 0 8px;
+      background: rgba(255, 255, 255, .92);
+      color: var(--ms-navy);
+      font-family: var(--ms-font);
+      font-size: 7.2px;
+      font-weight: 1000;
+      line-height: 1.05;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .shop-action.primary {
+      border-color: var(--ms-navy);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+    }
+
+    .shop-action.active {
+      border-color: var(--ms-green);
+      background: rgba(19, 136, 8, .1);
+      color: var(--ms-green);
+    }
+
+    .shop-action.primary.active {
+      border-color: var(--ms-navy);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+    }
+
+    .price-path-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 5px;
+    }
+
+    .product-card .price-path-row {
+      display: none;
+    }
+
+    .price-path {
+      min-height: 44px;
+      display: grid;
+      align-content: center;
+      gap: 2px;
+      border: 1px solid rgba(0, 0, 128, .11);
+      border-radius: 13px;
+      padding: 6px 5px;
+      background: #f8f9ff;
+      color: var(--ms-navy);
+      text-align: center;
+    }
+
+    .price-path.active {
+      border-color: var(--ms-green);
+      background: rgba(19, 136, 8, .07);
+      box-shadow: inset 0 0 0 1px rgba(19, 136, 8, .1);
+    }
+
+    .price-path b {
+      overflow: hidden;
+      font-size: 10.5px;
+      line-height: 1;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .price-path span {
+      overflow: hidden;
+      color: rgba(0, 0, 128, .62);
+      font-size: 7.8px;
+      font-weight: 850;
+      line-height: 1;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .lock-meter {
+      display: grid;
+      gap: 5px;
+      border: 1px solid rgba(0, 0, 128, .12);
+      border-radius: 15px;
+      padding: 9px;
+      background: rgba(255, 153, 51, .09);
+    }
+
+    .lock-copy {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      align-items: center;
+      color: var(--ms-navy);
+      font-size: 10px;
+      font-weight: 900;
+    }
+
+    .lock-copy span {
+      color: var(--ms-green);
+      font-size: 9px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .lock-track {
+      height: 7px;
+      border-radius: var(--ms-pill);
+      background: rgba(0, 0, 128, .1);
+      overflow: hidden;
+    }
+
+    .lock-fill {
+      width: var(--lock, 62%);
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--ms-saffron), var(--ms-green));
+    }
+
+    .cart-float {
+      position: absolute;
+      left: 50%;
+      bottom: 88px;
+      z-index: 11;
+      min-width: 230px;
+      min-height: 54px;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 10px;
+      align-items: center;
+      border: 0;
+      border-radius: 28px;
+      padding: 8px 11px;
+      background: var(--ms-green);
+      color: var(--ms-white);
+      font-family: var(--ms-font);
+      font-weight: 950;
+      box-shadow: 0 16px 32px rgba(19, 136, 8, .36);
+      transform: translateX(-50%);
+      cursor: pointer;
+    }
+
+    .detail-view.active ~ .cart-float {
+      display: none;
+    }
+
+    .cart-bubbles {
+      display: flex;
+      align-items: center;
+    }
+
+    .cart-bubbles i {
+      width: 34px;
+      height: 34px;
+      display: block;
+      border: 2px solid var(--ms-white);
+      border-radius: 50%;
+      margin-left: -8px;
+      background:
+        radial-gradient(circle at 38% 38%, rgba(255, 153, 51, .86), transparent 29%),
+        radial-gradient(circle at 68% 64%, rgba(0, 0, 128, .7), transparent 31%),
+        #eef5ff;
+    }
+
+    .cart-bubbles i:first-child {
+      margin-left: 0;
+    }
+
+    .cart-copy {
+      display: grid;
+      gap: 1px;
+      text-align: left;
+    }
+
+    .cart-copy b {
+      font-size: 14px;
+      line-height: 1;
+    }
+
+    .cart-copy span {
+      font-size: 11px;
+      font-weight: 820;
+      opacity: .9;
+    }
+
+    .detail-view {
+      margin: -12px;
+      padding-bottom: 98px;
+      background: #f5f7fb;
+    }
+
+    .detail-hero {
+      position: relative;
+      min-height: 260px;
+      background:
+        radial-gradient(circle at 50% 36%, rgba(255, 153, 51, .92), transparent 28%),
+        radial-gradient(circle at 70% 54%, rgba(19, 136, 8, .28), transparent 34%),
+        linear-gradient(180deg, #fff8ef, #eef3ff);
+    }
+
+    .detail-top-actions {
+      position: absolute;
+      left: 14px;
+      right: 14px;
+      top: 14px;
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .detail-mini-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .detail-circle {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .9);
+      color: var(--ms-navy);
+      box-shadow: 0 10px 22px rgba(0, 0, 128, .12);
+      cursor: pointer;
+    }
+
+    .detail-card {
+      display: grid;
+      gap: 12px;
+      margin: -34px 12px 0;
+      border: 1px solid rgba(0, 0, 128, .12);
+      border-radius: 24px;
+      padding: 15px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      box-shadow: 0 18px 36px rgba(0, 0, 128, .12);
+    }
+
+    .unit-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .unit-option {
+      position: relative;
+      min-height: 72px;
+      display: grid;
+      align-content: center;
+      gap: 4px;
+      border: 1px solid rgba(0, 0, 128, .16);
+      border-radius: 16px;
+      padding: 10px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+    }
+
+    .unit-option.active {
+      border-color: var(--ms-green);
+      background: rgba(19, 136, 8, .08);
+      box-shadow: inset 0 0 0 1px rgba(19, 136, 8, .1);
+    }
+
+    .unit-option b {
+      font-size: 13px;
+      line-height: 1;
+    }
+
+    .unit-option strong {
+      font-size: 18px;
+      line-height: 1;
+    }
+
+    .unit-option span {
+      color: rgba(0, 0, 128, .58);
+      font-size: 10px;
+      font-weight: 820;
+      text-decoration: line-through;
+    }
+
+    .detail-proof-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 7px;
+    }
+
+    .detail-bottom-buy {
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+      z-index: 13;
+      display: grid;
+      grid-template-columns: 1fr 132px;
+      gap: 9px;
+      align-items: center;
+      border-radius: 24px;
+      padding: 10px;
+      background: var(--ms-white);
+      box-shadow: 0 -10px 28px rgba(0, 0, 128, .14);
+    }
+
+    .detail-bottom-buy .price-total {
+      padding: 8px 0;
+      border: 0;
+      background: transparent;
+    }
+
+    .detail-add {
+      min-height: 52px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 0;
+      border-radius: 16px;
+      background: var(--ms-green);
+      color: var(--ms-white);
+      font-family: var(--ms-font);
+      font-size: 16px;
+      font-weight: 950;
+    }
+
+    .verdict-stack {
+      display: grid;
+      gap: 12px;
+    }
+
+    .verdict-card,
+    .state-table {
+      border: 1px solid var(--ms-navy);
+      border-radius: var(--ms-radius);
+      background: var(--ms-white);
+      overflow: hidden;
+    }
+
+    .verdict-card {
+      padding: 16px;
+    }
+
+    .verdict-card h3,
+    .verdict-card p {
+      margin: 0;
+    }
+
+    .verdict-card h3 {
+      color: var(--ms-green);
+      font-size: 13px;
+      text-transform: uppercase;
+    }
+
+    .verdict-card p {
+      margin-top: 8px;
+      color: var(--ms-navy);
+      font-size: 13px;
+      line-height: 1.48;
+    }
+
+    .state-row {
+      display: grid;
+      grid-template-columns: .8fr 1.1fr 1.2fr;
+      border-bottom: 1px solid var(--ms-navy);
+    }
+
+    .state-row:last-child {
+      border-bottom: 0;
+    }
+
+    .state-cell {
+      display: grid;
+      gap: 5px;
+      border-right: 1px solid var(--ms-navy);
+      padding: 13px;
+      color: var(--ms-navy);
+      font-size: 12.5px;
+      line-height: 1.44;
+    }
+
+    .state-cell:last-child {
+      border-right: 0;
+    }
+
+    .state-cell b {
+      color: var(--ms-green);
+      font-size: 11px;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 860px) {
+      .buy-preview {
+        grid-template-columns: 1fr;
+      }
+
+      .phone {
+        width: min(100%, 390px);
+      }
+    }
+
+    @media (max-width: 460px) {
+      .ms-page {
+        padding: 16px;
+      }
+
+      .phone {
+        border-width: 7px;
+        border-radius: 27px;
+      }
+
+      .decision-row {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .decision-chip:nth-child(n+4) {
+        min-height: 38px;
+      }
+    }
+  </style>
+</head>
+<body class="ms-doc">
+  <main class="ms-page screen-shell">
+    <div class="back-row">
+      <a class="screen-link-home" href="../index.html">
+        <span class="back-mark">09</span>
+        Back to screenbook
+      </a>
+      <span class="ms-status">Draft for approval</span>
+    </div>
+
+    <header class="ms-topbar">
+      <div>
+        <h1 class="ms-title">Screen 09: Buy</h1>
+        <p class="ms-lead">
+          Buy is the first commerce surface after the universal screen. It must not behave like a marketplace or endless product grid.
+          The user should see a small number of action-ready options where price, time, trust, payment and next step are already clear.
+        </p>
+      </div>
+    </header>
+
+    <section class="ms-panel">
+      <div class="ms-section-head">Production-Facing Draft <span>Shop QR, Browse, Meds, Basket</span></div>
+      <div class="buy-preview">
+        <section class="phone" aria-label="Screen 09 mobile preview">
+          <div class="buy-app">
+            <div class="status-row">
+              <span>9:41</span>
+              <span>5G 100%</span>
+            </div>
+
+            <header class="top-zone">
+              <div class="brand-row">
+                <div class="brand-lockup">
+                  <b>MoolSocial Buy</b>
+                  <div class="identity-line" aria-hidden="true"><span></span><span></span><span></span></div>
+                  <span>Jodhpur · delivery and pickup ready</span>
+                </div>
+                <div class="top-actions">
+                  <button class="icon-circle" type="button" aria-label="Saved baskets">
+                    <svg viewBox="0 0 24 24"><path d="M6 4h12v16l-6-3-6 3Z"/></svg>
+                  </button>
+                  <button class="icon-circle" type="button" aria-label="Profile">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.4-4 4.1-6 8-6s6.6 2 8 6"/></svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="command-bar" aria-label="Buy search, scan and voice">
+                <span class="command-text" data-command-text>Search products, scan bill, speak list...</span>
+                <button class="search-action" type="button" aria-label="Search">
+                  <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4 4"/></svg>
+                </button>
+                <button class="search-action" type="button" aria-label="Scan">
+                  <svg viewBox="0 0 24 24"><path d="M4 8V5a1 1 0 0 1 1-1h3"/><path d="M16 4h3a1 1 0 0 1 1 1v3"/><path d="M20 16v3a1 1 0 0 1-1 1h-3"/><path d="M8 20H5a1 1 0 0 1-1-1v-3"/><path d="M8 12h8"/></svg>
+                </button>
+                <button class="search-action" type="button" aria-label="Voice">
+                  <svg viewBox="0 0 24 24"><path d="M12 4a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V7a3 3 0 0 0-3-3Z"/><path d="M5 11a7 7 0 0 0 14 0"/><path d="M12 18v3"/></svg>
+                </button>
+              </div>
+            </header>
+
+            <main class="buy-scroll">
+              <nav class="tab-rail" aria-label="Buy sub-actions">
+                <button class="tab-chip active" type="button" data-buy-tab="grocery">
+                  <svg viewBox="0 0 24 24"><path d="M6 8h15l-2 9H8Z"/><path d="M6 8 5 4H3"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>
+                  Shop
+                </button>
+                <button class="tab-chip" type="button" data-buy-tab="categories">
+                  <svg viewBox="0 0 24 24"><path d="M4 4h7v7H4Z"/><path d="M13 4h7v7h-7Z"/><path d="M4 13h7v7H4Z"/><path d="M13 13h7v7h-7Z"/></svg>
+                  Browse
+                </button>
+                <button class="tab-chip" type="button" data-buy-tab="medicine">
+                  <svg viewBox="0 0 24 24"><path d="M10 21a7 7 0 0 1-7-7V8a5 5 0 0 1 10 0v6a3 3 0 0 1-6 0V9"/><path d="M14 14h7"/><path d="M17.5 10.5v7"/></svg>
+                  Meds
+                </button>
+                <button class="tab-chip" type="button" data-buy-tab="basket">
+                  <svg viewBox="0 0 24 24"><path d="m6 9 2-5"/><path d="m18 9-2-5"/><path d="M3 9h18l-2 11H5Z"/><path d="M8 13h8"/></svg>
+                  Basket
+                </button>
+              </nav>
+
+              <section class="panel active" data-panel="grocery">
+                <section class="commerce-home active" data-buy-state="home">
+                  <div class="offer-band">
+                    <span>
+                      <b>Decide by price, quantity and delivery</b>
+                      <span>See fastest price, pack saving, wholesale basket and offer before add.</span>
+                    </span>
+                    <strong class="offer-code">Free delivery</strong>
+                  </div>
+
+                  <article class="shop-session-card" aria-label="Walk-in QR shop session">
+                    <div class="shop-session-head">
+                      <span class="shop-mark">QR</span>
+                      <span class="shop-copy">
+                        <b>Shopping at Mahadev Fresh Mart</b>
+                        <span>QR + location matched</span>
+                      </span>
+                      <strong class="shop-badge">Near shop</strong>
+                    </div>
+                    <div class="shop-context-line">
+                      <b>Live</b>
+                      <span>Buy in app, collect at counter or take delivery from this shop.</span>
+                    </div>
+                    <div class="shop-action-grid">
+                      <button class="shop-action primary active" type="button" data-shop-action="buy">Buy Here</button>
+                      <button class="shop-action" type="button" data-shop-action="scan">Scan Item</button>
+                      <button class="shop-action" type="button" data-shop-action="pickup">Pickup</button>
+                      <button class="shop-action" type="button" data-shop-action="delivery">Delivery</button>
+                    </div>
+                  </article>
+
+                  <div class="mode-strip" aria-label="Price mode">
+                    <button class="mode-option active" type="button" data-price-mode="retail">
+                      <b>Buy Now</b>
+                      <span>Rs 37 · 11 min</span>
+                    </button>
+                    <button class="mode-option" type="button" data-price-mode="pack">
+                      <b>Buy Pack</b>
+                      <span>Rs 34/unit</span>
+                    </button>
+                    <button class="mode-option" type="button" data-price-mode="wholesale">
+                      <b>Join Wholesale</b>
+                      <span>Rs 31 target</span>
+                    </button>
+                    <button class="mode-option" type="button" data-price-mode="basket">
+                      <b>Use Offer</b>
+                      <span>free delivery</span>
+                    </button>
+                  </div>
+
+                  <div class="section-title">
+                    <span>
+                      <b>Categories</b>
+                      <span>Tap to browse.</span>
+                    </span>
+                    <span>Jodhpur</span>
+                  </div>
+
+                  <div class="category-home-grid" aria-label="Buy categories">
+                    <button class="category-tile" type="button" data-open-category="vegetables">
+                      <i class="category-art"></i>
+                      <b>Vegetables & Fruits</b>
+                      <span>98 products</span>
+                    </button>
+                    <button class="category-tile" type="button" data-open-category="staples">
+                      <i class="category-art"></i>
+                      <b>Atta, Rice & Oil</b>
+                      <span>152 products</span>
+                    </button>
+                    <button class="category-tile" type="button" data-open-category="dairy">
+                      <i class="category-art"></i>
+                      <b>Dairy & Bread</b>
+                      <span>42 products</span>
+                    </button>
+                    <button class="category-tile" type="button" data-open-category="snacks">
+                      <i class="category-art"></i>
+                      <b>Chips & Snacks</b>
+                      <span>357 products</span>
+                    </button>
+                    <button class="category-tile" type="button" data-open-category="home">
+                      <i class="category-art"></i>
+                      <b>Home Care</b>
+                      <span>123 products</span>
+                    </button>
+                    <button class="category-tile" type="button" data-open-category="personal">
+                      <i class="category-art"></i>
+                      <b>Personal Care</b>
+                      <span>88 products</span>
+                    </button>
+                  </div>
+
+                  <div class="section-title">
+                    <span>
+                      <b>Ready to order</b>
+                      <span>Price, pack, wholesale and delivery shown.</span>
+                    </span>
+                    <span>11-45 min</span>
+                  </div>
+
+                  <div class="product-grid">
+                    <article class="product-card" data-open-detail="tomato">
+                      <div class="product-image"></div>
+                      <div class="product-title">
+                        <b>Hybrid Tomato</b>
+                        <span>500 g · Grade A local</span>
+                      </div>
+                      <div class="product-price-row">
+                        <span class="product-price"><b>Rs 37</b><span>MRP Rs 46</span></span>
+                        <button class="add-button" type="button" data-add-item>ADD</button>
+                      </div>
+                      <div class="price-path-row">
+                        <span class="price-path active"><b>Rs 37</b><span>Now</span></span>
+                        <span class="price-path"><b>Rs 34</b><span>Pack</span></span>
+                        <span class="price-path"><b>Rs 31</b><span>Lock</span></span>
+                      </div>
+                      <div class="buy-ladder">
+                        <span class="buy-choice active" data-choice="retail"><b>Buy Now</b><strong>Rs 37</strong><span>11 min</span></span>
+                        <span class="buy-choice" data-choice="pack"><b>Buy Pack</b><strong>Rs 34</strong><span>2 kg</span></span>
+                        <span class="buy-choice" data-choice="wholesale"><b>Join Wholesale</b><strong>Rs 31</strong><span>basket</span></span>
+                      </div>
+                      <div class="product-meta-row">
+                        <span class="product-meta">11 min</span>
+                        <span class="product-meta">Photo proof</span>
+                        <span class="product-meta">Replace</span>
+                      </div>
+                    </article>
+
+                    <article class="product-card" data-open-detail="chilli">
+                      <div class="product-image"></div>
+                      <div class="product-title">
+                        <b>Green Chilli</b>
+                        <span>100 g · spicy fresh</span>
+                      </div>
+                      <div class="product-price-row">
+                        <span class="product-price"><b>Rs 16</b><span>MRP Rs 19</span></span>
+                        <button class="add-button" type="button" data-add-item>ADD</button>
+                      </div>
+                      <div class="price-path-row">
+                        <span class="price-path active"><b>Rs 16</b><span>Now</span></span>
+                        <span class="price-path"><b>Rs 14</b><span>Pack</span></span>
+                        <span class="price-path"><b>Rs 12</b><span>Lock</span></span>
+                      </div>
+                      <div class="buy-ladder">
+                        <span class="buy-choice active" data-choice="retail"><b>Buy Now</b><strong>Rs 16</strong><span>11 min</span></span>
+                        <span class="buy-choice" data-choice="pack"><b>Buy Pack</b><strong>Rs 14</strong><span>500 g</span></span>
+                        <span class="buy-choice" data-choice="wholesale"><b>Join Wholesale</b><strong>Rs 12</strong><span>basket</span></span>
+                      </div>
+                      <div class="product-meta-row">
+                        <span class="product-meta">11 min</span>
+                        <span class="product-meta">Quality</span>
+                        <span class="product-meta">Local</span>
+                      </div>
+                    </article>
+
+                    <article class="product-card" data-open-detail="atta">
+                      <div class="product-image"></div>
+                      <div class="product-title">
+                        <b>Aashirvaad Atta</b>
+                        <span>10 kg · sealed brand pack</span>
+                      </div>
+                      <div class="product-price-row">
+                        <span class="product-price"><b>Rs 495</b><span>MRP Rs 520</span></span>
+                        <button class="add-button" type="button" data-add-item>ADD</button>
+                      </div>
+                      <div class="price-path-row">
+                        <span class="price-path active"><b>Rs 495</b><span>Now</span></span>
+                        <span class="price-path"><b>Rs 475</b><span>Pack</span></span>
+                        <span class="price-path"><b>Rs 455</b><span>Lock</span></span>
+                      </div>
+                      <div class="buy-ladder">
+                        <span class="buy-choice active" data-choice="retail"><b>Buy Now</b><strong>Rs 495</strong><span>today</span></span>
+                        <span class="buy-choice" data-choice="pack"><b>Buy Pack</b><strong>Rs 475</strong><span>2 bags</span></span>
+                        <span class="buy-choice" data-choice="wholesale"><b>Join Wholesale</b><strong>Rs 455</strong><span>basket</span></span>
+                      </div>
+                      <div class="product-meta-row">
+                        <span class="product-meta">Today</span>
+                        <span class="product-meta">Invoice</span>
+                        <span class="product-meta">Brand</span>
+                      </div>
+                    </article>
+
+                    <article class="product-card" data-open-detail="oil">
+                      <div class="product-image"></div>
+                      <div class="product-title">
+                        <b>Fortune Oil</b>
+                        <span>5 L · source price ready</span>
+                      </div>
+                      <div class="product-price-row">
+                        <span class="product-price"><b>Rs 849</b><span>MRP Rs 875</span></span>
+                        <button class="add-button" type="button" data-add-item>ADD</button>
+                      </div>
+                      <div class="price-path-row">
+                        <span class="price-path active"><b>Rs 849</b><span>Now</span></span>
+                        <span class="price-path"><b>Rs 829</b><span>Pack</span></span>
+                        <span class="price-path"><b>Rs 799</b><span>Lock</span></span>
+                      </div>
+                      <div class="buy-ladder">
+                        <span class="buy-choice active" data-choice="retail"><b>Buy Now</b><strong>Rs 849</strong><span>tomorrow</span></span>
+                        <span class="buy-choice" data-choice="pack"><b>Buy Pack</b><strong>Rs 829</strong><span>2 cans</span></span>
+                        <span class="buy-choice" data-choice="wholesale"><b>Join Wholesale</b><strong>Rs 799</strong><span>basket</span></span>
+                      </div>
+                      <div class="product-meta-row">
+                        <span class="product-meta">Tomorrow</span>
+                        <span class="product-meta">Wholesale</span>
+                        <span class="product-meta">Invoice</span>
+                      </div>
+                    </article>
+                  </div>
+                </section>
+
+                <section class="category-browser" data-buy-state="category">
+                  <nav class="side-category-rail" aria-label="Category rail">
+                    <button class="side-cat active" type="button" data-side-category="vegetables"><i></i>Vegetables</button>
+                    <button class="side-cat" type="button" data-side-category="fruits"><i></i>Fruits</button>
+                    <button class="side-cat" type="button" data-side-category="staples"><i></i>Staples</button>
+                    <button class="side-cat" type="button" data-side-category="dairy"><i></i>Dairy</button>
+                    <button class="side-cat" type="button" data-side-category="snacks"><i></i>Snacks</button>
+                    <button class="side-cat" type="button" data-side-category="home"><i></i>Home</button>
+                  </nav>
+
+                  <section class="product-area">
+                    <div class="category-title">
+                      <span>
+                        <b data-category-title>Vegetables & Fruits</b>
+                        <span data-category-note>Product price, quality and proof visible before add.</span>
+                      </span>
+                      <button class="mini-button" type="button" data-buy-home>
+                        <svg viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg>
+                        Back
+                      </button>
+                    </div>
+
+                    <div class="product-grid" data-category-products>
+                      <article class="product-card" data-open-detail="tomato">
+                        <div class="product-image"></div>
+                        <div class="product-title">
+                          <b>Hybrid Tomato</b>
+                          <span>500 g · Grade A local</span>
+                        </div>
+                        <div class="product-price-row">
+                          <span class="product-price"><b>Rs 37</b><span>MRP Rs 46</span></span>
+                          <button class="add-button" type="button" data-add-item>ADD</button>
+                        </div>
+                        <div class="price-path-row">
+                          <span class="price-path active"><b>Rs 37</b><span>Now</span></span>
+                          <span class="price-path"><b>Rs 34</b><span>Pack</span></span>
+                          <span class="price-path"><b>Rs 31</b><span>Lock</span></span>
+                        </div>
+                        <div class="buy-ladder">
+                          <span class="buy-choice active" data-choice="retail"><b>Buy Now</b><strong>Rs 37</strong><span>11 min</span></span>
+                          <span class="buy-choice" data-choice="pack"><b>Buy Pack</b><strong>Rs 34</strong><span>2 kg</span></span>
+                          <span class="buy-choice" data-choice="wholesale"><b>Join Wholesale</b><strong>Rs 31</strong><span>basket</span></span>
+                        </div>
+                        <div class="product-meta-row">
+                          <span class="product-meta">11 min</span>
+                          <span class="product-meta">Photo proof</span>
+                          <span class="product-meta">Replace</span>
+                        </div>
+                      </article>
+
+                      <article class="product-card" data-open-detail="coriander">
+                        <div class="product-image"></div>
+                        <div class="product-title">
+                          <b>Coriander Bunch</b>
+                          <span>100 g · 4 left nearby</span>
+                        </div>
+                        <div class="product-price-row">
+                          <span class="product-price"><b>Rs 24</b><span>MRP Rs 29</span></span>
+                          <button class="add-button" type="button" data-add-item>ADD</button>
+                        </div>
+                        <div class="price-path-row">
+                          <span class="price-path active"><b>Rs 24</b><span>Now</span></span>
+                          <span class="price-path"><b>Rs 21</b><span>Pack</span></span>
+                          <span class="price-path"><b>Rs 19</b><span>Lock</span></span>
+                        </div>
+                        <div class="buy-ladder">
+                          <span class="buy-choice active" data-choice="retail"><b>Buy Now</b><strong>Rs 24</strong><span>11 min</span></span>
+                          <span class="buy-choice" data-choice="pack"><b>Buy Pack</b><strong>Rs 21</strong><span>3 bunch</span></span>
+                          <span class="buy-choice" data-choice="wholesale"><b>Join Wholesale</b><strong>Rs 19</strong><span>basket</span></span>
+                        </div>
+                        <div class="product-meta-row">
+                          <span class="product-meta">11 min</span>
+                          <span class="product-meta">Stock low</span>
+                          <span class="product-meta">Fresh</span>
+                        </div>
+                      </article>
+
+                      <article class="product-card" data-open-detail="banana">
+                        <div class="product-image"></div>
+                        <div class="product-title">
+                          <b>Banana Robusta</b>
+                          <span>3 pcs · yellow fresh</span>
+                        </div>
+                        <div class="product-price-row">
+                          <span class="product-price"><b>Rs 42</b><span>MRP Rs 50</span></span>
+                          <button class="add-button" type="button" data-add-item>ADD</button>
+                        </div>
+                        <div class="price-path-row">
+                          <span class="price-path active"><b>Rs 42</b><span>Now</span></span>
+                          <span class="price-path"><b>Rs 39</b><span>Pack</span></span>
+                          <span class="price-path"><b>Rs 35</b><span>Lock</span></span>
+                        </div>
+                        <div class="buy-ladder">
+                          <span class="buy-choice active" data-choice="retail"><b>Buy Now</b><strong>Rs 42</strong><span>18 min</span></span>
+                          <span class="buy-choice" data-choice="pack"><b>Buy Pack</b><strong>Rs 39</strong><span>dozen</span></span>
+                          <span class="buy-choice" data-choice="wholesale"><b>Join Wholesale</b><strong>Rs 35</strong><span>basket</span></span>
+                        </div>
+                        <div class="product-meta-row">
+                          <span class="product-meta">18 min</span>
+                          <span class="product-meta">Quality</span>
+                          <span class="product-meta">Replace</span>
+                        </div>
+                      </article>
+
+                      <article class="product-card" data-open-detail="apple">
+                        <div class="product-image"></div>
+                        <div class="product-title">
+                          <b>Apple Regular</b>
+                          <span>1 kg · value grade</span>
+                        </div>
+                        <div class="product-price-row">
+                          <span class="product-price"><b>Rs 155</b><span>MRP Rs 180</span></span>
+                          <button class="add-button" type="button" data-add-item>ADD</button>
+                        </div>
+                        <div class="price-path-row">
+                          <span class="price-path active"><b>Rs 155</b><span>Now</span></span>
+                          <span class="price-path"><b>Rs 145</b><span>Pack</span></span>
+                          <span class="price-path"><b>Rs 132</b><span>Lock</span></span>
+                        </div>
+                        <div class="buy-ladder">
+                          <span class="buy-choice active" data-choice="retail"><b>Buy Now</b><strong>Rs 155</strong><span>60 min</span></span>
+                          <span class="buy-choice" data-choice="pack"><b>Buy Pack</b><strong>Rs 145</strong><span>3 kg</span></span>
+                          <span class="buy-choice" data-choice="wholesale"><b>Join Wholesale</b><strong>Rs 132</strong><span>basket</span></span>
+                        </div>
+                        <div class="product-meta-row">
+                          <span class="product-meta">60 min</span>
+                          <span class="product-meta">Grade</span>
+                          <span class="product-meta">Invoice</span>
+                        </div>
+                      </article>
+                    </div>
+                  </section>
+                </section>
+
+                <section class="detail-view" data-buy-state="detail">
+                  <div class="detail-hero">
+                    <div class="detail-top-actions">
+                      <button class="detail-circle" type="button" data-back-category aria-label="Back to products">
+                        <svg viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg>
+                      </button>
+                      <div class="detail-mini-actions">
+                        <button class="detail-circle" type="button" aria-label="Save">
+                          <svg viewBox="0 0 24 24"><path d="M19 14c1.5-1.4 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3.4.9-4.5 2.2A5.8 5.8 0 0 0 7.5 3 5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.1 3 5.5l7 7Z"/></svg>
+                        </button>
+                        <button class="detail-circle" type="button" aria-label="Share">
+                          <svg viewBox="0 0 24 24"><path d="M4 12v8h16v-8"/><path d="M12 16V3"/><path d="m7 8 5-5 5 5"/></svg>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <article class="detail-card">
+                    <div class="card-head">
+                      <div class="card-title">
+                        <b>Hybrid Tomato (Tamatar)</b>
+                        <span>Grade A local · fresh checked today · Mahadev Fresh Mart</span>
+                      </div>
+                      <span class="score-pill">11 min</span>
+                    </div>
+                    <div class="unit-row">
+                      <span class="unit-option active"><b>500 g</b><strong>Rs 37</strong><span>MRP Rs 46</span></span>
+                      <span class="unit-option"><b>2 x 500 g</b><strong>Rs 73</strong><span>MRP Rs 92</span></span>
+                    </div>
+                    <div class="section-title">
+                      <span>
+                        <b>Choose how to buy</b>
+                        <span>Retail, pack saving and wholesale basket price are shown before add.</span>
+                      </span>
+                    </div>
+                    <div class="price-choice-row buy-method-row">
+                      <span class="price-choice active" data-choice="retail"><b>Buy Now</b><span>Rs 37 · retail · 11 min · 500 g</span></span>
+                      <span class="price-choice" data-choice="pack"><b>Buy Pack</b><span>Rs 34/unit · 2 kg · evening</span></span>
+                      <span class="price-choice" data-choice="wholesale"><b>Join Wholesale</b><span>Rs 31/unit · basket target</span></span>
+                    </div>
+                    <div class="lock-meter" style="--lock: 64%">
+                      <div class="lock-copy">
+                        <b>Wholesale basket: Rs 31/unit if 1000 units complete</b>
+                        <span>642/1000</span>
+                      </div>
+                      <div class="lock-track"><div class="lock-fill"></div></div>
+                      <div class="lock-copy">
+                        <b>If wholesale target fails, retail fallback is guaranteed</b>
+                        <span>Rs 37 max</span>
+                      </div>
+                    </div>
+                    <div class="detail-proof-grid">
+                      <span class="quality-pill"><b>Quality</b><span>Grade A</span></span>
+                      <span class="quality-pill"><b>Offer</b><span>Free delivery</span></span>
+                      <span class="quality-pill"><b>Refund</b><span>Replace</span></span>
+                    </div>
+                    <div class="cart-lines">
+                      <div class="cart-line">
+                        <span><b>Why this seller?</b><small>Nearer shop, stock confirmed, lower complaint risk.</small></span>
+                        <strong class="line-price">Picked</strong>
+                      </div>
+                      <div class="cart-line">
+                        <span><b>Other option</b><small>Premium tomato Rs 49 · 22 min delivery.</small></span>
+                        <strong class="line-price">View</strong>
+                      </div>
+                    </div>
+                  </article>
+
+                  <div class="detail-bottom-buy">
+                    <span class="price-total">
+                      <span><b>500 g</b><span>Inclusive of taxes</span></span>
+                      <strong>Rs 37</strong>
+                    </span>
+                    <button class="detail-add" type="button" data-add-item>Add</button>
+                  </div>
+                </section>
+
+                <button class="cart-float" type="button" data-cart-float>
+                  <span class="cart-bubbles"><i></i><i></i><i></i></span>
+                  <span class="cart-copy"><b>View cart</b><span data-cart-count>4 items · Rs 256</span></span>
+                  <svg viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg>
+                </button>
+
+                <div class="legacy-buy-block">
+                <article class="hero-card">
+                  <div class="hero-visual"></div>
+                  <div class="card-head">
+                    <div class="card-title">
+                      <b>Today vegetable order</b>
+                      <span>4 visible items. Change quantity, quality or shop before placing order.</span>
+                    </div>
+                    <span class="score-pill">45 min</span>
+                  </div>
+                  <div class="cart-lines">
+                    <div class="cart-line">
+                      <span><b>Tomato 1 kg</b><small>Grade A local · fresh checked today</small></span>
+                      <strong class="line-price">Rs 42</strong>
+                    </div>
+                    <div class="cart-line">
+                      <span><b>Onion 1 kg</b><small>Nashik medium · no sprout quality</small></span>
+                      <strong class="line-price">Rs 36</strong>
+                    </div>
+                    <div class="cart-line">
+                      <span><b>Potato 2 kg</b><small>Agra regular · replace if damaged</small></span>
+                      <strong class="line-price">Rs 58</strong>
+                    </div>
+                    <div class="cart-line">
+                      <span><b>Green veg combo</b><small>Coriander, chilli, seasonal greens</small></span>
+                      <strong class="line-price">Rs 95</strong>
+                    </div>
+                  </div>
+                  <div class="quality-row">
+                    <span class="quality-pill"><b>Regular</b><span>Rs 231</span></span>
+                    <span class="quality-pill"><b>Premium</b><span>Rs 269</span></span>
+                    <span class="quality-pill"><b>Organic</b><span>if ready</span></span>
+                  </div>
+                  <div class="decision-row">
+                    <span class="decision-chip"><b>Rs 256</b><span>total</span></span>
+                    <span class="decision-chip"><b>45 min</b><span>time</span></span>
+                    <span class="decision-chip"><b>3 shops</b><span>stock</span></span>
+                    <span class="decision-chip"><b>UPI</b><span>payment</span></span>
+                    <span class="decision-chip"><b>Clear</b><span>refund</span></span>
+                  </div>
+                  <div class="card-actions">
+                    <div class="provider-strip">
+                      <span class="provider-icon">3</span>
+                      <span class="provider-copy">
+                        <b>Mahadev Fresh Mart selected</b>
+                        <span>Invoice, photo proof, backup shop and item replacement rule ready.</span>
+                      </span>
+                    </div>
+                    <button class="card-action" type="button" data-open-sheet="grocery">
+                      <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+                    </button>
+                  </div>
+                </article>
+
+                <div class="quick-rail" aria-label="Fast grocery intents">
+                  <button class="mini-button" type="button"><svg viewBox="0 0 24 24"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h10"/></svg>Monthly</button>
+                  <button class="mini-button" type="button"><svg viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M5 10h14"/><path d="M7 17h10"/></svg>Staples</button>
+                  <button class="mini-button" type="button"><svg viewBox="0 0 24 24"><path d="M8 3h8l1 6H7Z"/><path d="M6 9h12l-1 12H7Z"/></svg>Fresh</button>
+                  <button class="mini-button" type="button"><svg viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M12 4v16"/></svg>Repeat</button>
+                </div>
+
+                <article class="decision-card">
+                  <div class="decision-thumb"></div>
+                  <div class="decision-copy">
+                    <h3>Monthly staples order</h3>
+                    <p>Brand visible before order. User can choose cheapest, preferred brand or price-lock route.</p>
+                    <div class="cart-lines">
+                      <div class="cart-line">
+                        <span><b>Aashirvaad Atta 10 kg</b><small>MRP Rs 520 · sealed pack</small></span>
+                        <strong class="line-price">Rs 495</strong>
+                      </div>
+                      <div class="cart-line">
+                        <span><b>Fortune Oil 5 L</b><small>MRP Rs 875 · invoice proof</small></span>
+                        <strong class="line-price">Rs 849</strong>
+                      </div>
+                      <div class="cart-line">
+                        <span><b>India Gate Rice 5 kg</b><small>Brand or equivalent choice</small></span>
+                        <strong class="line-price">Rs 499</strong>
+                      </div>
+                    </div>
+                    <div class="price-total">
+                      <span><b>Total now</b><span>Tomorrow 9-11 AM · invoice · refund rule</span></span>
+                      <strong>Rs 1,843</strong>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="decision-card">
+                  <div class="decision-thumb"></div>
+                  <div class="decision-copy">
+                    <h3>Fruit order with quality choice</h3>
+                    <p>Shows exact fruits, grade and price so a price-conscious user can decide.</p>
+                    <div class="cart-lines">
+                      <div class="cart-line">
+                        <span><b>Apple 1 kg</b><small>Regular Rs 155 · Premium Rs 210</small></span>
+                        <strong class="line-price">Rs 155</strong>
+                      </div>
+                      <div class="cart-line">
+                        <span><b>Banana 1 dozen</b><small>Fresh yellow · replacement if overripe</small></span>
+                        <strong class="line-price">Rs 62</strong>
+                      </div>
+                      <div class="cart-line">
+                        <span><b>Pomegranate 500 g</b><small>Optional add-on</small></span>
+                        <strong class="line-price">+Rs 95</strong>
+                      </div>
+                    </div>
+                    <div class="price-choice-row">
+                      <span class="price-choice active"><b>Value</b><span>Rs 217 · 60 min</span></span>
+                      <span class="price-choice"><b>Premium</b><span>Rs 367 · 90 min</span></span>
+                    </div>
+                  </div>
+                </article>
+                </div>
+              </section>
+
+              <section class="panel" data-panel="categories">
+                <article class="hero-card">
+                  <div class="card-head">
+                    <div class="card-title">
+                      <b>Choose category, get a ready route</b>
+                      <span>Categories open into decision cards from local shops, source partners or fulfilment-ready suppliers.</span>
+                    </div>
+                    <span class="score-pill">No endless grid</span>
+                  </div>
+                  <div class="decision-row">
+                    <span class="decision-chip"><b>Local</b><span>nearby</span></span>
+                    <span class="decision-chip"><b>Source</b><span>if ready</span></span>
+                    <span class="decision-chip"><b>Proof</b><span>trust</span></span>
+                    <span class="decision-chip"><b>Pay</b><span>safe</span></span>
+                    <span class="decision-chip"><b>Return</b><span>rule</span></span>
+                  </div>
+                </article>
+                <div class="category-grid">
+                  <article class="mini-card">
+                    <span class="decision-icon"><svg viewBox="0 0 24 24"><path d="M4 7h16v13H4Z"/><path d="M8 7V5a4 4 0 0 1 8 0v2"/></svg></span>
+                    <h3>Home Needs</h3>
+                    <p>Cleaning, kitchen, pooja, daily utility and household repeat items.</p>
+                  </article>
+                  <article class="mini-card">
+                    <span class="decision-icon"><svg viewBox="0 0 24 24"><path d="M4 7h16"/><path d="M7 7v14h10V7"/><path d="M9 3h6l1 4H8Z"/></svg></span>
+                    <h3>Personal Care</h3>
+                    <p>Trusted brands, local availability, delivery and easy reorder.</p>
+                  </article>
+                  <article class="mini-card">
+                    <span class="decision-icon"><svg viewBox="0 0 24 24"><path d="M6 5h12v14H6Z"/><path d="M9 9h6"/><path d="M9 13h4"/></svg></span>
+                    <h3>Electronics</h3>
+                    <p>Only serviceable offers with warranty, invoice and pickup rule.</p>
+                  </article>
+                  <article class="mini-card">
+                    <span class="decision-icon"><svg viewBox="0 0 24 24"><path d="M4 19V5l8-3 8 3v14l-8 3Z"/><path d="M12 2v20"/></svg></span>
+                    <h3>School & Family</h3>
+                    <p>Books, stationery, uniforms and family purchase planning.</p>
+                  </article>
+                </div>
+              </section>
+
+              <section class="panel" data-panel="medicine">
+                <article class="hero-card">
+                  <div class="card-head">
+                    <div class="card-title">
+                      <b>Medicine from verified pharmacy</b>
+                      <span>Shown only where licensed pharmacy workflow, pharmacist check, invoice and delivery proof are active.</span>
+                    </div>
+                    <span class="score-pill">Compliant</span>
+                  </div>
+                  <div class="decision-row">
+                    <span class="decision-chip"><b>Rx</b><span>if needed</span></span>
+                    <span class="decision-chip"><b>Pharmacy</b><span>verified</span></span>
+                    <span class="decision-chip"><b>Invoice</b><span>proof</span></span>
+                    <span class="decision-chip"><b>Batch</b><span>record</span></span>
+                    <span class="decision-chip"><b>Policy</b><span>return</span></span>
+                  </div>
+                  <div class="card-actions">
+                    <div class="provider-strip">
+                      <span class="provider-icon">Rx</span>
+                      <span class="provider-copy">
+                        <b>Upload prescription or refill list</b>
+                        <span>Pharmacist approval before packing or delivery.</span>
+                      </span>
+                    </div>
+                    <button class="card-action" type="button" data-open-sheet="medicine">
+                      <svg viewBox="0 0 24 24"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+                    </button>
+                  </div>
+                </article>
+                <article class="decision-card">
+                  <div class="decision-thumb"></div>
+                  <div class="decision-copy">
+                    <h3>Monthly refill reminder</h3>
+                    <p>Repeat medicine demand can be saved privately and routed only to compliant pharmacy flow.</p>
+                    <div class="micro-row">
+                      <span class="micro-chip">Private</span>
+                      <span class="micro-chip">Reminder</span>
+                      <span class="micro-chip">Pharmacy</span>
+                    </div>
+                  </div>
+                </article>
+                <article class="decision-card">
+                  <div class="decision-thumb"></div>
+                  <div class="decision-copy">
+                    <h3>Health essentials</h3>
+                    <p>Non-prescription products appear only with seller, invoice, delivery and return rule.</p>
+                    <div class="micro-row">
+                      <span class="micro-chip">Invoice</span>
+                      <span class="micro-chip">Today</span>
+                      <span class="micro-chip">Verified</span>
+                    </div>
+                  </div>
+                </article>
+              </section>
+
+              <section class="panel" data-panel="basket">
+                <article class="basket-card">
+                  <div class="card-head">
+                    <div class="card-title">
+                      <b>Your household basket</b>
+                      <span>Save repeat needs, join wholesale basket prices and reorder without browsing products again.</span>
+                    </div>
+                    <span class="score-pill">Repeat</span>
+                  </div>
+                  <div class="basket-items">
+                    <div class="basket-item">Fresh vegetables <span>Rs 160 · 45 min</span></div>
+                    <div class="basket-item">Atta 10 kg <span>wholesale basket forming</span></div>
+                    <div class="basket-item">Oil 5 L <span>source route ready</span></div>
+                    <div class="basket-item">Milk + bread <span>morning repeat</span></div>
+                  </div>
+                  <div class="decision-row">
+                    <span class="decision-chip"><b>Rs 1,249</b><span>today</span></span>
+                    <span class="decision-chip"><b>2 slots</b><span>delivery</span></span>
+                    <span class="decision-chip"><b>Saved</b><span>repeat</span></span>
+                    <span class="decision-chip"><b>Lock</b><span>price</span></span>
+                    <span class="decision-chip"><b>Proof</b><span>invoice</span></span>
+                  </div>
+                  <div class="card-actions">
+                    <div class="provider-strip">
+                      <span class="provider-icon">B</span>
+                      <span class="provider-copy">
+                        <b>Place basket or save for price</b>
+                        <span>User sees Wholesale Basket; backend may run campaign/demand pool.</span>
+                      </span>
+                    </div>
+                    <button class="card-action" type="button" data-open-sheet="basket">
+                      <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+                    </button>
+                  </div>
+                </article>
+              </section>
+            </main>
+
+            <section class="action-sheet" data-action-sheet aria-label="Buy decision sheet">
+              <div class="sheet-head">
+                <div>
+                  <b data-sheet-title>Decision proof</b>
+                  <span data-sheet-note>Price, time, trust, payment and refund rule appear before the user commits.</span>
+                </div>
+                <button class="close-sheet" type="button" data-close-sheet aria-label="Close">x</button>
+              </div>
+              <div class="sheet-grid" data-sheet-grid></div>
+            </section>
+
+            <nav class="bottom-dock" aria-label="Buy navigation">
+              <a class="mool-button" href="04-universal-focus-shell.html" aria-label="Open Mool">
+                Mool
+              </a>
+              <div class="dock-tabs" aria-label="Buy sub-actions">
+                <button class="dock-tab active" type="button" data-buy-tab="grocery" aria-label="Open shop buying">
+                  <svg viewBox="0 0 24 24"><path d="M6 8h15l-2 9H8Z"/><path d="M6 8 5 4H3"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>
+                  Shop
+                </button>
+                <button class="dock-tab" type="button" data-buy-tab="categories" aria-label="Browse categories">
+                  <svg viewBox="0 0 24 24"><path d="M4 4h7v7H4Z"/><path d="M13 4h7v7h-7Z"/><path d="M4 13h7v7H4Z"/><path d="M13 13h7v7h-7Z"/></svg>
+                  Browse
+                </button>
+                <button class="dock-tab" type="button" data-buy-tab="medicine" aria-label="Order medicines">
+                  <svg viewBox="0 0 24 24"><path d="M10 21a7 7 0 0 1-7-7V8a5 5 0 0 1 10 0v6a3 3 0 0 1-6 0V9"/><path d="M14 14h7"/><path d="M17.5 10.5v7"/></svg>
+                  Meds
+                </button>
+                <button class="dock-tab" type="button" data-buy-tab="basket" aria-label="Open basket">
+                  <svg viewBox="0 0 24 24"><path d="m6 9 2-5"/><path d="m18 9-2-5"/><path d="M3 9h18l-2 11H5Z"/></svg>
+                  Basket
+                </button>
+              </div>
+              <button class="chat-button" type="button" aria-label="Open chat">
+                <span class="chat-badge">2</span>
+                <svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z"/></svg>
+                Chat
+              </button>
+            </nav>
+          </div>
+        </section>
+
+        <aside class="verdict-stack">
+          <article class="verdict-card">
+            <h3>UX Verdict</h3>
+            <p>
+              Screen 09 should default to grocery because it is a high-frequency household use case. But Buy must remain bigger than grocery:
+              categories, medicine and repeat basket stay one tap away without changing the MoolSocial universal pattern.
+            </p>
+          </article>
+          <article class="verdict-card">
+            <h3>Decision Card Rule</h3>
+            <p>
+              The backend may evaluate thousands of shops, suppliers, manufacturers, stockists and source partners, but the consumer sees
+              only serviceable cards that answer price, fulfilment time, trust proof, payment option, refund/cancellation and next action.
+            </p>
+          </article>
+          <article class="verdict-card">
+            <h3>Campaign Wording</h3>
+            <p>
+              Do not show "campaign engine" to consumers. Surface it as Buy Now, Buy Pack, Join Wholesale, Use Offer or Ready Offer.
+              The campaign/demand-pool logic remains backend architecture.
+            </p>
+          </article>
+          <article class="verdict-card">
+            <h3>Medicine Boundary</h3>
+            <p>
+              Medicine appears only in active compliant areas with licensed pharmacy workflow, pharmacist approval, invoice, batch/expiry record
+              and delivery proof. No open medicine marketplace.
+            </p>
+          </article>
+        </aside>
+      </div>
+    </section>
+
+    <section class="ms-panel">
+      <div class="ms-section-head">Screen Contract <span>What Screen 09 must preserve</span></div>
+      <div class="state-table">
+        <div class="state-row">
+          <div class="state-cell"><b>Entry</b>From Screen 04 Buy action or Mool dock root action.</div>
+          <div class="state-cell">Default content opens on Grocery with local decision cards, not a product listing page.</div>
+          <div class="state-cell">If entry is a shop QR, the app opens a saved shop session after install/login and keeps purchase actions tied to that verified shop.</div>
+        </div>
+        <div class="state-row">
+          <div class="state-cell"><b>QR Walk-In</b>Store-specific purchase.</div>
+          <div class="state-cell">QR payload carries shop id, branch id, campaign/ref token and optional basket intent. If app is not installed, Play Store/referrer stores the pending shop session.</div>
+          <div class="state-cell">After app open, location permission or repeat counter QR confirms whether user is near that shop. If matched, show Buy Here, Scan Item, Pickup and Delivery before generic local options.</div>
+        </div>
+        <div class="state-row">
+          <div class="state-cell"><b>Location Match</b>Consent-first logic.</div>
+          <div class="state-cell">Do not silently collect precise location during download. Use install referrer for shop identity, then verify distance after consent, approximate area, Wi-Fi/shop beacon if available or another QR scan.</div>
+          <div class="state-cell">If user is not near the saved shop later, keep the shop session as saved and show nearby serviceable shops separately. Never force the old shop context when the user is at another place.</div>
+        </div>
+        <div class="state-row">
+          <div class="state-cell"><b>First Behavior</b>Show matched outcomes.</div>
+          <div class="state-cell">The first card should show exact product lines, quantity, quality/brand, line price, total, ETA, proof, payment and refund rule.</div>
+          <div class="state-cell">Search, scan and voice are always available because many users will speak a list, scan an offline bill or compare brand/quality before ordering.</div>
+        </div>
+        <div class="state-row">
+          <div class="state-cell"><b>Provider Logic</b>Hide supply complexity.</div>
+          <div class="state-cell">The UI never asks the consumer to compare 10,000 shops or manufacturers manually.</div>
+          <div class="state-cell">Backend ranks supply by location, stock, wholesale target, proof, fulfilment capacity, backup availability, complaint risk and margin.</div>
+        </div>
+        <div class="state-row">
+          <div class="state-cell"><b>Demand Logic</b>User wording stays simple.</div>
+          <div class="state-cell">User sees clear purchase choices: Buy Now, Buy Pack, Join Wholesale and Use Offer.</div>
+          <div class="state-cell">Wholesale Basket must show target progress and fallback maximum price before user joins. Backend may create a demand pool, supplier opportunity, source campaign, delivery task or wholesale workflow.</div>
+        </div>
+        <div class="state-row">
+          <div class="state-cell"><b>Compliance</b>Medicine is gated.</div>
+          <div class="state-cell">Medicine does not appear where a licensed pharmacy/vendor workflow is not active.</div>
+          <div class="state-cell">Prescription, pharmacist approval, invoice, batch/expiry, return policy and delivery proof are API-level gates.</div>
+        </div>
+        <div class="state-row">
+          <div class="state-cell"><b>Regression</b>Dock remains usable.</div>
+          <div class="state-cell">Mool and Chat stay visible with the approved Screen 04 dock geometry: round Mool, center action rail, round Chat.</div>
+          <div class="state-cell">No dock word should be clipped; the center rail must scroll or fit gracefully on small screens.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ms-panel">
+      <div class="ms-section-head">Full-Stack Implementation Notes <span>For later production build</span></div>
+      <div class="ms-grid-4">
+        <article class="ms-card">
+          <h3>Decision API</h3>
+          <ul class="ms-list">
+            <li>Input: user area, intent, cart/list, category, urgency and payment readiness.</li>
+            <li>Output: small set of ranked decision cards, not provider directory results.</li>
+            <li>Every card must expose price, ETA, proof, payment, refund/cancel and next action.</li>
+          </ul>
+        </article>
+        <article class="ms-card">
+          <h3>Supply Graph</h3>
+          <ul class="ms-list">
+            <li>Rank shops, distributors, source partners and fulfilment routes by readiness.</li>
+            <li>Support backup supplier rules before promising delivery.</li>
+            <li>Do not expose manufacturers directly unless category and fulfilment permit it.</li>
+          </ul>
+        </article>
+        <article class="ms-card">
+          <h3>Demand Pool</h3>
+          <ul class="ms-list">
+            <li>Wholesale Basket or Saved Basket can create demand signals behind the scenes.</li>
+            <li>Campaign, demand wallet and ledger are backend terms.</li>
+            <li>User-facing states must stay simple: Buy Now, Buy Pack, Join Wholesale, Use Offer, Save Repeat.</li>
+            <li>Wholesale Basket needs target quantity, current joined quantity, target price and fallback maximum price.</li>
+          </ul>
+        </article>
+        <article class="ms-card">
+          <h3>Safety Gates</h3>
+          <ul class="ms-list">
+            <li>Medicine requires licensed pharmacy activation and pharmacist workflow.</li>
+            <li>High-value products require invoice, return, warranty and dispute rules.</li>
+            <li>Payment capture should occur only when fulfilment dependency is ready enough.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const tabButtons = Array.from(document.querySelectorAll("[data-buy-tab]"));
+    const panels = Array.from(document.querySelectorAll("[data-panel]"));
+    const scrollArea = document.querySelector(".buy-scroll");
+    const command = document.querySelector("[data-command-text]");
+    const sheet = document.querySelector("[data-action-sheet]");
+    const sheetTitle = document.querySelector("[data-sheet-title]");
+    const sheetNote = document.querySelector("[data-sheet-note]");
+    const sheetGrid = document.querySelector("[data-sheet-grid]");
+    const buyStates = Array.from(document.querySelectorAll("[data-buy-state]"));
+    const sideCategoryButtons = Array.from(document.querySelectorAll("[data-side-category]"));
+    const modeOptions = Array.from(document.querySelectorAll("[data-price-mode]"));
+    const shopActionButtons = Array.from(document.querySelectorAll("[data-shop-action]"));
+    const shopContextLine = document.querySelector(".shop-context-line");
+    const shopContextText = document.querySelector(".shop-context-line span");
+    const categoryTitle = document.querySelector("[data-category-title]");
+    const categoryNote = document.querySelector("[data-category-note]");
+    const cartCount = document.querySelector("[data-cart-count]");
+    let cartItems = 4;
+    let cartTotal = 256;
+
+    const categoryCopy = {
+      vegetables: ["Vegetables & Fruits", "Fresh items with grade, weight, shop proof and replacement rule."],
+      fruits: ["Fresh Fruits", "Quality grade and ripeness rule shown before add."],
+      staples: ["Atta, Rice & Oil", "Brand, MRP, source price and invoice proof visible."],
+      dairy: ["Dairy & Bread", "Morning delivery, expiry date and cold-chain proof where needed."],
+      snacks: ["Chips & Snacks", "Brand packs, MRP and instant availability."],
+      home: ["Home Care", "Cleaning, kitchen and repeat household items with return rules."],
+      personal: ["Personal Care", "Trusted brands, local availability and invoice proof."]
+    };
+
+    const commandCopy = {
+      grocery: "Buy: retail, pack, wholesale basket or offer...",
+      categories: "Buy: choose category, compare price and delivery...",
+      medicine: "Medicine: upload Rx, search refill, ask pharmacy...",
+      basket: "Basket: build monthly order, compare wholesale and offers..."
+    };
+
+    const sheetContent = {
+      grocery: {
+        title: "Today vegetable order",
+        note: "A Buy card must show exact items and prices first. The backend can still check stock, distance, backup and fulfilment risk quietly.",
+        items: [
+          ["Items", "4"],
+          ["Quality", "Regular"],
+          ["Price", "Rs 256"],
+          ["Time", "45 min"],
+          ["Proof", "Photo"],
+          ["Refund", "Replace"]
+        ]
+      },
+      medicine: {
+        title: "Pharmacy workflow",
+        note: "Medicine is active only when pharmacy licence, pharmacist approval, invoice and delivery proof are ready.",
+        items: [
+          ["Rx", "Upload"],
+          ["Check", "Pharmacist"],
+          ["Invoice", "Required"],
+          ["Batch", "Record"],
+          ["Delivery", "Proof"],
+          ["Return", "Policy"]
+        ]
+      },
+      basket: {
+        title: "Saved basket",
+        note: "Wholesale Basket can quietly create a demand pool, but the user should only see clear purchase states.",
+        items: [
+          ["Today", "Buy"],
+          ["Repeat", "Save"],
+          ["Pool", "Wholesale"],
+          ["Route", "Backup"],
+          ["Proof", "Invoice"],
+          ["Pay", "Ready"]
+        ]
+      }
+    };
+
+    function setBuyTab(tab) {
+      tabButtons.forEach((button) => {
+        button.classList.toggle("active", button.dataset.buyTab === tab);
+      });
+      panels.forEach((panel) => {
+        panel.classList.toggle("active", panel.dataset.panel === tab);
+      });
+      if (command) command.textContent = commandCopy[tab] || commandCopy.grocery;
+      if (scrollArea) scrollArea.scrollTo({ top: 0, behavior: "smooth" });
+      closeSheet();
+      if (tab === "grocery") showBuyState("home");
+    }
+
+    function showBuyState(state) {
+      buyStates.forEach((section) => {
+        section.classList.toggle("active", section.dataset.buyState === state);
+      });
+      if (scrollArea) scrollArea.scrollTo({ top: 0, behavior: "smooth" });
+      closeSheet();
+    }
+
+    function openCategory(category) {
+      setBuyTab("grocery");
+      showBuyState("category");
+      sideCategoryButtons.forEach((button) => {
+        button.classList.toggle("active", button.dataset.sideCategory === category);
+      });
+      const copy = categoryCopy[category] || categoryCopy.vegetables;
+      if (categoryTitle) categoryTitle.textContent = copy[0];
+      if (categoryNote) categoryNote.textContent = copy[1];
+      if (command) command.textContent = `Buy: ${copy[0]}, compare price, quality and delivery`;
+    }
+
+    function openDetail() {
+      setBuyTab("grocery");
+      showBuyState("detail");
+      if (command) command.textContent = "Buy: product details, unit, quality, proof and add";
+    }
+
+    function updateCart(delta = 1, amount = 37) {
+      cartItems += delta;
+      cartTotal += amount;
+      if (cartCount) cartCount.textContent = `${cartItems} items · Rs ${cartTotal}`;
+    }
+
+    function openSheet(type) {
+      const content = sheetContent[type] || sheetContent.grocery;
+      if (!sheet || !sheetTitle || !sheetNote || !sheetGrid) return;
+      sheetTitle.textContent = content.title;
+      sheetNote.textContent = content.note;
+      sheetGrid.innerHTML = content.items.map(([label, value]) => `
+        <span class="sheet-chip"><strong>${value}</strong><span>${label}</span></span>
+      `).join("");
+      sheet.classList.add("open");
+    }
+
+    function closeSheet() {
+      sheet?.classList.remove("open");
+    }
+
+    const modeText = {
+      retail: "Buy Now: quickest delivery at visible retail price",
+      pack: "Buy Pack: buy more quantity at lower unit price",
+      wholesale: "Join Wholesale: lower basket target price with fallback",
+      basket: "Use Offer: combine basket offers and scheduled delivery"
+    };
+
+    const shopActionText = {
+      buy: "Buy in app, collect at counter or take delivery from this shop.",
+      scan: "Scan shelf items to add them directly into this shop cart.",
+      pickup: "Counter pickup selected. Pay now or pay at Mahadev counter.",
+      delivery: "Delivery selected. Address and ETA will be checked for this shop."
+    };
+
+    function pulseElement(element) {
+      if (!element) return;
+      element.classList.remove("pulse", "is-updated");
+      void element.offsetWidth;
+      if (element.classList.contains("buy-choice") || element.classList.contains("price-choice")) {
+        element.classList.add("pulse");
+        setTimeout(() => element.classList.remove("pulse"), 500);
+      } else {
+        element.classList.add("is-updated");
+        setTimeout(() => element.classList.remove("is-updated"), 600);
+      }
+    }
+
+    function setPurchaseMode(mode, shouldScroll = false) {
+      modeOptions.forEach((option) => {
+        option.classList.toggle("active", option.dataset.priceMode === mode);
+      });
+
+      if (mode !== "basket") {
+        document.querySelectorAll(".buy-ladder").forEach((ladder) => {
+          let activeChoice = null;
+          ladder.querySelectorAll("[data-choice]").forEach((choice) => {
+            const isActive = choice.dataset.choice === mode;
+            choice.classList.toggle("active", isActive);
+            if (isActive) activeChoice = choice;
+          });
+          pulseElement(activeChoice);
+        });
+
+        document.querySelectorAll(".buy-method-row [data-choice]").forEach((choice) => {
+          const isActive = choice.dataset.choice === mode;
+          choice.classList.toggle("active", isActive);
+          if (isActive) pulseElement(choice);
+        });
+      }
+
+      if (mode === "basket") openSheet("basket");
+      if (command) command.textContent = modeText[mode] || commandCopy.grocery;
+      if (shouldScroll) document.querySelector(".product-grid")?.scrollIntoView({ block: "nearest", behavior: "smooth" });
+    }
+
+    function setShopAction(action) {
+      shopActionButtons.forEach((button) => {
+        button.classList.toggle("active", button.dataset.shopAction === action);
+      });
+      if (shopContextText) shopContextText.textContent = shopActionText[action] || shopActionText.buy;
+      pulseElement(shopContextLine);
+    }
+
+    tabButtons.forEach((button) => {
+      button.addEventListener("click", () => setBuyTab(button.dataset.buyTab));
+    });
+
+    document.querySelectorAll("[data-open-category]").forEach((button) => {
+      button.addEventListener("click", () => openCategory(button.dataset.openCategory));
+    });
+
+    sideCategoryButtons.forEach((button) => {
+      button.addEventListener("click", () => openCategory(button.dataset.sideCategory));
+    });
+
+    modeOptions.forEach((button) => {
+      button.addEventListener("click", () => setPurchaseMode(button.dataset.priceMode, true));
+    });
+
+    shopActionButtons.forEach((button) => {
+      button.addEventListener("click", () => setShopAction(button.dataset.shopAction));
+    });
+
+    document.querySelectorAll(".buy-choice").forEach((choice) => {
+      choice.addEventListener("click", (event) => {
+        event.stopPropagation();
+        const mode = choice.dataset.choice;
+        choice.closest(".buy-ladder")?.querySelectorAll(".buy-choice").forEach((item) => {
+          item.classList.toggle("active", item === choice);
+        });
+        modeOptions.forEach((option) => option.classList.toggle("active", option.dataset.priceMode === mode));
+        pulseElement(choice);
+        if (command) command.textContent = modeText[mode] || commandCopy.grocery;
+      });
+    });
+
+    document.querySelectorAll(".price-choice[data-choice]").forEach((choice) => {
+      choice.addEventListener("click", () => {
+        const mode = choice.dataset.choice;
+        document.querySelectorAll(".buy-method-row .price-choice").forEach((item) => {
+          item.classList.toggle("active", item === choice);
+        });
+        setPurchaseMode(mode);
+      });
+    });
+
+    document.querySelectorAll("[data-open-detail]").forEach((card) => {
+      card.addEventListener("click", () => openDetail());
+    });
+
+    document.querySelectorAll("[data-add-item]").forEach((button) => {
+      button.addEventListener("click", (event) => {
+        event.stopPropagation();
+        updateCart();
+        if (button.classList.contains("detail-add")) {
+          button.textContent = "Added";
+          setTimeout(() => { button.textContent = "Add"; }, 1000);
+          return;
+        }
+        button.outerHTML = '<span class="qty-stepper"><span>-</span><strong>1</strong><span>+</span></span>';
+      });
+    });
+
+    document.querySelector("[data-buy-home]")?.addEventListener("click", () => showBuyState("home"));
+    document.querySelector("[data-back-category]")?.addEventListener("click", () => showBuyState("category"));
+    document.querySelector("[data-cart-float]")?.addEventListener("click", () => openSheet("basket"));
+
+    document.querySelectorAll("[data-open-sheet]").forEach((button) => {
+      button.addEventListener("click", () => openSheet(button.dataset.openSheet));
+    });
+
+    document.querySelector("[data-close-sheet]")?.addEventListener("click", closeSheet);
+  </script>
+</body>
+</html>
