@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MoolSocial UI/UX Screenbook</title>
+  <link rel="stylesheet" href="shared/styles.css" />
+</head>
+<body>
+  <main class="shell">
+    <header class="screenbook-header">
+      <div>
+        <div class="brand-mark">
+          <span class="brand-icon">BR</span>
+          MoolSocial UI/UX Screenbook
+        </div>
+        <h1>Brand-first, screen-wise architecture for production-grade buildout.</h1>
+        <p class="lead">
+          This folder is the visual and textual source of truth before coding each screen.
+          Every screen must be approved here, then implemented, tested, and regression-locked before the next screen starts.
+        </p>
+      </div>
+      <span class="status-pill">Foundation locked</span>
+    </header>
+
+    <section class="hero-grid">
+      <div class="panel">
+        <p class="kicker">Build Rule</p>
+        <h2>Foundation first, production code second.</h2>
+        <p class="lead">
+          The HTML files in this folder are not the final app. They are the locked brand and UI/UX architecture reference
+          for Codex before building the production frontend, backend APIs, and tests.
+        </p>
+        <div class="note">
+          No screen should move into production until brand usage, entry conditions, visible UI, tap behavior,
+          data needs, failure states, compliance gates, and regression checklist are written here.
+        </div>
+      </div>
+
+      <div class="panel">
+        <p class="kicker">Current Scope</p>
+        <h2>Foundation is ready. Screens start next.</h2>
+        <div class="screen-list">
+          <a class="screen-link" href="moolsocial-approved-logo-specs.html">
+            <span class="screen-num">LG</span>
+            <span>
+              <strong>MoolSocial Approved Logo Specs</strong>
+              <span>Final logo, colours, logotype, tagline and usage rules.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="moolsocial-freeze-brand-system.html">
+            <span class="screen-num">FR</span>
+            <span>
+              <strong>Freeze Brand System</strong>
+              <span>Locked brand, product principles, legal boundary and usage rules.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="moolsocial-domain-strategy.html">
+            <span class="screen-num">DM</span>
+            <span>
+              <strong>Domain Names</strong>
+              <span>Main domain, defensive domains, redirects and production subdomains.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="moolsocial-shared-ui-foundation.html">
+            <span class="screen-num">UI</span>
+            <span>
+              <strong>Shared UI Foundation</strong>
+              <span>Reusable tokens, controls, decision cards and universal screen primitives.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/00-install-app.html">
+            <span class="screen-num">00</span>
+            <span>
+              <strong>Install App</strong>
+              <span>Approved Play Store listing, install action, and open-app handoff.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/01-app-splash-first-open.html">
+            <span class="screen-num">01</span>
+            <span>
+              <strong>App Splash / First Open Handoff</strong>
+              <span>Approved splash, boot checks, route logic, and first setup handoff.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/02-first-setup-language-location.html">
+            <span class="screen-num">02</span>
+            <span>
+              <strong>First Setup / Language + Location</strong>
+              <span>Approved auto language, smart location consent, login handoff, travel and home-area logic.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/03-login-account-handoff.html">
+            <span class="screen-num">03</span>
+            <span>
+              <strong>Login / Account Handoff</strong>
+              <span>Approved one-method login, OTP autofill logic, provider routes, and clean route to Screen 04.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/04-universal-focus-shell.html">
+            <span class="screen-num">04</span>
+            <span>
+              <strong>Universal Focus Shell</strong>
+              <span>Approved one-focused-world main app screen with one-tap switching.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/05-social-shorts.html">
+            <span class="screen-num">05</span>
+            <span>
+              <strong>Social &gt; Shorts</strong>
+              <span>Approved full-screen Shorts viewer with creator identity, social actions, hidden details and Mool/Chat access.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/06-social-videos.html">
+            <span class="screen-num">06</span>
+            <span>
+              <strong>Social &gt; Videos</strong>
+              <span>Approved video feed/watch flow with YouTube-style chips, Shorts link, verified proof and action context.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/07-social-feed.html">
+            <span class="screen-num">07</span>
+            <span>
+              <strong>Social &gt; Feed</strong>
+              <span>Approved social feed with post detail, comments, repost/share and verified action context.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/08-social-create.html">
+            <span class="screen-num">08</span>
+            <span>
+              <strong>Social &gt; Create</strong>
+              <span>Approved all-in-one social creation hub for text, photo, shorts, videos, stories, live, threads, polls and creator earning path.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="panel">
+        <p class="kicker">Regression Discipline</p>
+        <h2>Lock one screen before touching the next.</h2>
+        <ul class="list">
+          <li>Brand foundation must remain stable across every screen.</li>
+          <li>Screen spec approved in this screenbook.</li>
+          <li>Production screen implemented against the approved spec.</li>
+          <li>API/data contract written before backend integration.</li>
+          <li>Happy, empty, loading, and error states tested.</li>
+          <li>Screenshot or visual baseline saved for regression checks.</li>
+          <li>Future changes must keep all locked tests passing.</li>
+        </ul>
+      </div>
+    </section>
+
+    <p class="footer-note">
+      Source folder: C:\GUARANTEED OUTCOME\supermandi-uiux-screenbook
+    </p>
+  </main>
+  <script src="shared/screen-data.js"></script>
+</body>
+</html>

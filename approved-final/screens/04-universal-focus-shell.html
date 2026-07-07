@@ -1,0 +1,2091 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>04 Universal Focus Shell - MoolSocial Screenbook</title>
+  <link rel="stylesheet" href="../shared/moolsocial-ui-foundation.css" />
+  <style>
+    .screen-shell {
+      display: grid;
+      gap: 18px;
+    }
+
+    .back-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .screen-link-home {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--ms-navy);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .back-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--ms-navy);
+      border-radius: var(--ms-radius);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .focus-preview {
+      display: grid;
+      grid-template-columns: minmax(320px, 390px) minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+      padding: 18px;
+      border-bottom: 1px solid var(--ms-navy);
+      background: var(--ms-white);
+    }
+
+    .phone {
+      width: min(100%, 370px);
+      min-height: 742px;
+      display: grid;
+      grid-template-rows: 32px 1fr;
+      justify-self: center;
+      border: 10px solid var(--ms-navy);
+      border-radius: 32px;
+      background: var(--ms-navy);
+      overflow: hidden;
+    }
+
+    .phone-status {
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 16px 0;
+      color: var(--ms-white);
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    .app-shell {
+      position: relative;
+      min-height: 700px;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      background: #f6f8fb;
+      color: var(--ms-navy);
+      overflow: hidden;
+    }
+
+    .app-top {
+      display: grid;
+      gap: 7px;
+      padding: 10px 12px 9px;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+    }
+
+    .brand-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .brand-lockup {
+      display: grid;
+      gap: 5px;
+      min-width: 0;
+    }
+
+    .wordmark {
+      color: var(--ms-white);
+      font-size: 22px;
+      font-weight: 950;
+      line-height: .95;
+      letter-spacing: 0;
+      white-space: nowrap;
+    }
+
+    .identity-line {
+      width: 118px;
+      height: 3px;
+      display: grid;
+      grid-template-columns: 45fr 14fr 41fr;
+      border-radius: var(--ms-pill);
+      overflow: hidden;
+    }
+
+    .identity-line span:nth-child(1) { background: var(--ms-saffron); }
+    .identity-line span:nth-child(2) { background: var(--ms-white); }
+    .identity-line span:nth-child(3) { background: var(--ms-green); }
+
+    .icon-pill {
+      width: 30px;
+      height: 30px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, .9);
+      border-radius: 50%;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+    }
+
+    .icon-pill svg,
+    .search-action svg,
+    .dock-icon svg,
+    .quick-icon svg,
+    .card-icon svg,
+    .mini-icon svg,
+    .action-button svg {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .command-bar {
+      min-height: 40px;
+      display: grid;
+      grid-template-columns: 1fr repeat(3, 30px);
+      gap: 5px;
+      align-items: center;
+      border: 1px solid rgba(255, 255, 255, .92);
+      border-radius: var(--ms-pill);
+      padding: 4px 5px 4px 11px;
+      color: var(--ms-white);
+      background: rgba(255, 255, 255, .08);
+    }
+
+    .command-text {
+      min-width: 0;
+      font-size: 11px;
+      font-weight: 850;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .search-action {
+      width: 30px;
+      height: 30px;
+      display: grid;
+      place-items: center;
+      border: 0;
+      border-radius: 50%;
+      color: var(--ms-navy);
+      background: var(--ms-white);
+      font-family: var(--ms-font);
+    }
+
+    .focus-body {
+      min-height: 512px;
+      display: grid;
+      align-content: start;
+      gap: 12px;
+      padding: 14px 14px 94px;
+      overflow-y: auto;
+      scrollbar-width: none;
+    }
+
+    .focus-body::-webkit-scrollbar {
+      display: none;
+    }
+
+    .sub-action-strip {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      min-width: 0;
+      margin: -2px -1px 0;
+      padding: 0 0 2px;
+      overflow-x: auto;
+      scroll-snap-type: x proximity;
+      scrollbar-width: none;
+      overscroll-behavior-inline: contain;
+      touch-action: pan-x;
+      background: linear-gradient(180deg, #f5f7fb 0 72%, rgba(245, 247, 251, 0));
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .sub-action-strip::-webkit-scrollbar {
+      display: none;
+    }
+
+    .sub-action-chip {
+      appearance: none;
+      flex: 0 0 auto;
+      min-width: 72px;
+      min-height: 34px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(0, 0, 128, .18);
+      border-radius: var(--ms-pill);
+      padding: 0 12px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      font-family: var(--ms-font);
+      font-size: 10px;
+      font-weight: 950;
+      line-height: 1;
+      white-space: nowrap;
+      cursor: pointer;
+      scroll-snap-align: center;
+      box-shadow: 0 6px 14px rgba(0, 0, 128, .06);
+    }
+
+    .sub-action-chip.active {
+      border-color: var(--ms-navy);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+    }
+
+    .world {
+      display: none;
+      gap: 12px;
+      align-content: start;
+    }
+
+    .world.active {
+      display: grid;
+    }
+
+    .tab-panel {
+      display: none;
+      gap: 12px;
+      align-content: start;
+    }
+
+    .tab-panel.active {
+      display: grid;
+    }
+
+    .world-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .world-title {
+      display: grid;
+      gap: 2px;
+      min-width: 0;
+    }
+
+    .world-title h2 {
+      margin: 0;
+      color: var(--ms-navy);
+      font-size: 24px;
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    .world-title span {
+      color: #31456a;
+      font-size: 11px;
+      font-weight: 760;
+      line-height: 1.25;
+    }
+
+    .focus-chip {
+      min-height: 26px;
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--ms-green);
+      border-radius: var(--ms-pill);
+      padding: 0 9px;
+      color: var(--ms-green);
+      background: var(--ms-white);
+      font-size: 10px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .video-card {
+      min-height: 330px;
+      display: grid;
+      grid-template-rows: 1fr auto;
+      border: 1px solid var(--ms-navy);
+      border-radius: var(--ms-radius);
+      overflow: hidden;
+      color: var(--ms-white);
+      background:
+        linear-gradient(180deg, rgba(0, 0, 128, 0), rgba(0, 0, 128, .95)),
+        radial-gradient(circle at 30% 20%, rgba(255, 153, 51, .9), transparent 28%),
+        linear-gradient(140deg, #1c2a80, #11764f 60%, #04104e);
+    }
+
+    .video-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding: 12px;
+    }
+
+    .live-tag {
+      min-height: 24px;
+      display: inline-flex;
+      align-items: center;
+      border-radius: var(--ms-pill);
+      padding: 0 8px;
+      color: var(--ms-white);
+      background: rgba(255, 255, 255, .18);
+      font-size: 10px;
+      font-weight: 950;
+    }
+
+    .play-orb {
+      width: 54px;
+      height: 54px;
+      align-self: center;
+      justify-self: center;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--ms-navy);
+      background: var(--ms-white);
+      box-shadow: 0 14px 32px rgba(0, 0, 0, .22);
+    }
+
+    .play-orb svg {
+      width: 24px;
+      height: 24px;
+      fill: currentColor;
+      stroke: none;
+      transform: translateX(2px);
+    }
+
+    .video-copy {
+      display: grid;
+      gap: 8px;
+      padding: 14px;
+    }
+
+    .video-copy b {
+      color: var(--ms-white);
+      font-size: 18px;
+      line-height: 1.16;
+    }
+
+    .video-copy span {
+      color: var(--ms-white);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    .quick-row {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .quick-action {
+      min-width: 0;
+      display: grid;
+      justify-items: center;
+      gap: 6px;
+      border: 1px solid #d8dff0;
+      border-radius: var(--ms-radius);
+      padding: 9px 4px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      font-size: 10px;
+      font-weight: 900;
+      text-align: center;
+      font-family: var(--ms-font);
+    }
+
+    .quick-icon {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--ms-white);
+      background: var(--ms-navy);
+    }
+
+    .quick-action:nth-child(2) .quick-icon { background: var(--ms-green); }
+    .quick-action:nth-child(3) .quick-icon { background: var(--ms-saffron); color: var(--ms-navy); }
+    .quick-action:nth-child(4) .quick-icon { background: #18243b; }
+
+    .decision-card {
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 11px;
+      align-items: start;
+      border: 1px solid var(--ms-navy);
+      border-radius: var(--ms-radius);
+      padding: 12px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+    }
+
+    .card-icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: rgba(19, 136, 8, .12);
+      color: var(--ms-green);
+    }
+
+    .decision-copy {
+      display: grid;
+      gap: 6px;
+      min-width: 0;
+    }
+
+    .decision-copy b {
+      color: var(--ms-navy);
+      font-size: 14px;
+      line-height: 1.15;
+    }
+
+    .decision-copy span {
+      color: #31456a;
+      font-size: 11px;
+      line-height: 1.35;
+    }
+
+    .proof-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .proof-row i {
+      min-height: 22px;
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid #d8dff0;
+      border-radius: var(--ms-pill);
+      padding: 0 7px;
+      color: var(--ms-green);
+      font-size: 9px;
+      font-style: normal;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .need-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .need-tile {
+      min-height: 82px;
+      display: grid;
+      align-content: center;
+      justify-items: center;
+      gap: 6px;
+      border: 1px solid #d8dff0;
+      border-radius: var(--ms-radius);
+      padding: 8px 4px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      text-align: center;
+      font-size: 10px;
+      font-weight: 920;
+      font-family: var(--ms-font);
+    }
+
+    .need-tile .mini-icon {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--ms-white);
+      background: var(--ms-navy);
+    }
+
+    .need-tile:nth-child(2) .mini-icon,
+    .need-tile:nth-child(5) .mini-icon { background: var(--ms-green); }
+    .need-tile:nth-child(3) .mini-icon,
+    .need-tile:nth-child(6) .mini-icon { background: var(--ms-saffron); color: var(--ms-navy); }
+
+    .money-strip {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 9px;
+    }
+
+    .money-box {
+      min-height: 96px;
+      display: grid;
+      align-content: center;
+      gap: 5px;
+      border: 1px solid var(--ms-navy);
+      border-radius: var(--ms-radius);
+      padding: 12px;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+    }
+
+    .money-box:nth-child(2) {
+      background: var(--ms-white);
+      color: var(--ms-navy);
+    }
+
+    .money-box b {
+      color: currentColor;
+      font-size: 20px;
+      line-height: 1.05;
+    }
+
+    .money-box span {
+      color: currentColor;
+      font-size: 11px;
+      line-height: 1.3;
+    }
+
+    .profile-upgrade {
+      display: grid;
+      gap: 8px;
+      border: 1px solid var(--ms-green);
+      border-radius: var(--ms-radius);
+      padding: 12px;
+      background: rgba(19, 136, 8, .08);
+    }
+
+    .profile-upgrade b {
+      color: var(--ms-green);
+      font-size: 13px;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+
+    .profile-upgrade span {
+      color: var(--ms-navy);
+      font-size: 12px;
+      line-height: 1.38;
+    }
+
+    .bottom-dock {
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+      display: grid;
+      grid-template-columns: 56px minmax(0, 1fr) 56px;
+      grid-template-areas: "mool tabs chat";
+      align-items: center;
+      gap: 7px;
+      border: 1px solid rgba(0, 0, 128, .78);
+      border-radius: 22px;
+      padding: 8px;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, .99), rgba(244, 247, 252, .99));
+      box-shadow:
+        0 -14px 32px rgba(0, 0, 128, .16),
+        0 2px 0 rgba(255, 255, 255, .95) inset,
+        0 -2px 0 rgba(0, 0, 128, .07) inset;
+      z-index: 3;
+    }
+
+    [data-context-dock] {
+      grid-area: tabs;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+      overflow-x: auto;
+      scroll-snap-type: x proximity;
+      scrollbar-width: none;
+      overscroll-behavior-inline: contain;
+      touch-action: pan-x;
+      scroll-padding-inline: 76px;
+      border: 1px solid rgba(0, 0, 128, .20);
+      border-radius: 19px;
+      padding: 5px 9px;
+      background:
+        linear-gradient(180deg, rgba(0, 0, 128, .16), rgba(255, 255, 255, .70) 44%, rgba(0, 0, 128, .08)),
+        radial-gradient(circle at 50% 0, rgba(255, 255, 255, .92), transparent 58%);
+      box-shadow:
+        inset 0 9px 16px rgba(0, 0, 128, .16),
+        inset 0 -8px 14px rgba(255, 255, 255, .92),
+        0 7px 17px rgba(0, 0, 128, .07);
+      transition: opacity .16s ease, transform .16s ease;
+      mask-image: linear-gradient(90deg, transparent 0, #000 20px, #000 calc(100% - 20px), transparent 100%);
+      -webkit-overflow-scrolling: touch;
+      -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 20px, #000 calc(100% - 20px), transparent 100%);
+    }
+
+    [data-context-dock]::-webkit-scrollbar {
+      display: none;
+    }
+
+    [data-context-dock][data-dock-density="fit"] .dock-button {
+      flex: 1 1 0;
+      min-width: 0;
+    }
+
+    .mool-trigger {
+      appearance: none;
+      grid-area: mool;
+      width: 52px;
+      height: 52px;
+      display: inline-grid;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, .38);
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 36% 24%, rgba(255, 255, 255, .30), transparent 32%),
+        linear-gradient(145deg, #1717ba, var(--ms-navy) 72%);
+      color: var(--ms-white);
+      font-family: var(--ms-font);
+      font-size: 10px;
+      font-weight: 950;
+      line-height: 1;
+      cursor: pointer;
+      box-shadow:
+        0 9px 19px rgba(0, 0, 128, .24),
+        inset 0 1px 0 rgba(255, 255, 255, .34),
+        inset 0 -5px 0 rgba(0, 0, 90, .36);
+    }
+
+    .mool-trigger.active {
+      background: linear-gradient(135deg, var(--ms-navy), #1111b8);
+    }
+
+    .chat-trigger {
+      appearance: none;
+      grid-area: chat;
+      width: 52px;
+      height: 52px;
+      position: relative;
+      display: grid;
+      place-items: center;
+      gap: 3px;
+      border: 1px solid rgba(0, 0, 128, .16);
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 50% 12%, rgba(255, 255, 255, .96), rgba(255, 255, 255, .78) 44%, rgba(240, 244, 248, .98));
+      color: var(--ms-navy);
+      font-family: var(--ms-font);
+      font-size: 9px;
+      font-weight: 950;
+      cursor: pointer;
+      box-shadow:
+        0 9px 18px rgba(0, 0, 128, .12),
+        inset 0 1px 0 rgba(255, 255, 255, .96),
+        inset 0 -3px 0 rgba(0, 0, 128, .06);
+    }
+
+    .chat-trigger.active {
+      border-color: var(--ms-navy);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+    }
+
+    .chat-trigger svg {
+      width: 17px;
+      height: 17px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .chat-badge {
+      min-width: 16px;
+      height: 16px;
+      position: absolute;
+      top: 5px;
+      right: 2px;
+      display: inline-grid;
+      place-items: center;
+      border-radius: var(--ms-pill);
+      padding: 0 4px;
+      background: var(--ms-saffron);
+      color: var(--ms-navy);
+      font-size: 8px;
+      font-weight: 950;
+      line-height: 1;
+    }
+
+    .chat-trigger.active .chat-badge {
+      background: var(--ms-white);
+      color: var(--ms-navy);
+    }
+
+    .mool-symbol {
+      display: none;
+    }
+
+    .mool-symbol::before {
+      display: none;
+    }
+
+    .mool-symbol::after {
+      display: none;
+    }
+
+    .root-action-button {
+      appearance: none;
+      flex: 0 0 auto;
+      width: max-content;
+      min-width: 58px;
+      min-height: 42px;
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid transparent;
+      border-radius: var(--ms-pill);
+      padding: 0 clamp(12px, 3.3vw, 18px);
+      background: transparent;
+      color: rgba(0, 0, 128, .62);
+      font-family: var(--ms-font);
+      font-size: 9px;
+      font-weight: 950;
+      white-space: nowrap;
+      cursor: pointer;
+      scroll-snap-align: center;
+      box-shadow: none;
+      transition: background .18s ease, color .18s ease, border-color .18s ease, transform .18s ease, opacity .18s ease, box-shadow .18s ease;
+    }
+
+    .root-action-button.active {
+      border-color: rgba(255, 255, 255, .34);
+      background:
+        radial-gradient(circle at 50% 0, rgba(255, 255, 255, .24), transparent 42%),
+        linear-gradient(180deg, #1515b8, var(--ms-navy));
+      color: var(--ms-white);
+      transform: translateY(-2px);
+      box-shadow:
+        0 12px 22px rgba(0, 0, 128, .26),
+        0 0 0 1px rgba(0, 0, 128, .10),
+        inset 0 1px 0 rgba(255, 255, 255, .26),
+        inset 0 -1px 0 rgba(0, 0, 80, .42);
+    }
+
+    .root-action-button:not(.active) {
+      opacity: .62;
+    }
+
+    .root-action-button.near-active {
+      opacity: .96;
+      color: rgba(0, 0, 128, .74);
+      text-shadow: 0 1px 0 rgba(255, 255, 255, .82);
+      background: rgba(255, 255, 255, .34);
+    }
+
+    .root-action-button:active,
+    .mool-trigger:active,
+    .chat-trigger:active {
+      transform: translateY(1px) scale(.98);
+    }
+
+    .dock-button {
+      appearance: none;
+      flex: 0 0 auto;
+      min-width: 64px;
+      min-height: 50px;
+      display: grid;
+      place-items: center;
+      gap: 4px;
+      border: 0;
+      border-radius: 16px;
+      background: transparent;
+      color: var(--ms-navy);
+      font-family: var(--ms-font);
+      font-size: 9px;
+      font-weight: 950;
+      line-height: 1;
+      white-space: nowrap;
+      cursor: pointer;
+      scroll-snap-align: center;
+      padding: 0 8px;
+    }
+
+    .dock-button.active {
+      background: var(--ms-navy);
+      color: var(--ms-white);
+    }
+
+    .dock-icon {
+      width: 22px;
+      height: 22px;
+      display: grid;
+      place-items: center;
+    }
+
+    .content-action-rail {
+      position: absolute;
+      top: 202px;
+      right: 12px;
+      display: grid;
+      gap: 9px;
+      z-index: 5;
+    }
+
+    .action-button {
+      width: 42px;
+      min-height: 52px;
+      display: grid;
+      gap: 3px;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, .72);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, .9);
+      color: var(--ms-navy);
+      box-shadow: 0 7px 16px rgba(0, 0, 128, .12);
+      font-family: var(--ms-font);
+      font-size: 8px;
+      font-weight: 950;
+      cursor: pointer;
+    }
+
+    .mool-trigger:focus-visible {
+      outline: 2px solid var(--ms-saffron);
+      outline-offset: 2px;
+    }
+
+    .launcher {
+      display: grid;
+      gap: 12px;
+      align-content: start;
+    }
+
+    .verdict-card {
+      display: grid;
+      gap: 10px;
+      border: 1px solid var(--ms-navy);
+      border-radius: var(--ms-radius);
+      padding: 16px;
+      background: var(--ms-white);
+    }
+
+    .verdict-card h2,
+    .verdict-card h3,
+    .verdict-card p {
+      margin: 0;
+    }
+
+    .verdict-card h2 {
+      color: var(--ms-navy);
+      font-size: 25px;
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+
+    .verdict-card h3 {
+      color: var(--ms-green);
+      font-size: 12px;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+
+    .verdict-card p,
+    .verdict-card li {
+      color: var(--ms-navy);
+      font-size: 13px;
+      line-height: 1.46;
+    }
+
+    .focus-map {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .focus-map button {
+      appearance: none;
+      min-height: 64px;
+      border: 1px solid var(--ms-navy);
+      border-radius: var(--ms-radius);
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      font-family: var(--ms-font);
+      font-size: 12px;
+      font-weight: 950;
+      cursor: pointer;
+    }
+
+    .focus-map button.active {
+      color: var(--ms-white);
+      background: var(--ms-navy);
+    }
+
+    .state-table {
+      display: grid;
+      border-bottom: 1px solid var(--ms-navy);
+    }
+
+    .state-row {
+      display: grid;
+      grid-template-columns: 220px 1fr 1fr;
+      border-top: 1px solid var(--ms-navy);
+    }
+
+    .state-row:first-child {
+      border-top: 0;
+    }
+
+    .state-cell {
+      min-height: 82px;
+      display: grid;
+      align-content: start;
+      gap: 6px;
+      padding: 14px;
+      border-right: 1px solid var(--ms-navy);
+      color: var(--ms-navy);
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .state-cell:last-child {
+      border-right: 0;
+    }
+
+    .state-cell b {
+      color: var(--ms-green);
+      font-size: 12px;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 1100px) {
+      .focus-preview,
+      .state-row {
+        grid-template-columns: 1fr;
+      }
+
+      .state-cell {
+        border-right: 0;
+        border-bottom: 1px solid var(--ms-navy);
+      }
+
+      .state-cell:last-child {
+        border-bottom: 0;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .back-row {
+        display: grid;
+      }
+
+      .focus-preview {
+        padding: 14px;
+      }
+
+      .phone {
+        min-height: 700px;
+        border-width: 9px;
+      }
+
+      .app-shell {
+        min-height: 668px;
+      }
+
+      .focus-map {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+  </style>
+</head>
+<body class="ms-doc">
+  <main class="ms-page screen-shell">
+    <header>
+      <div class="back-row">
+        <a class="screen-link-home" href="../index.html">
+          <span class="back-mark">BR</span>
+          Back to Screenbook
+        </a>
+        <span class="ms-status">Draft for review</span>
+      </div>
+      <h1 class="ms-title">Screen 04: Universal Focus Shell</h1>
+      <p class="ms-lead">
+        Screen 04 is the first main app screen after login. It opens directly into social content, not a Home choice screen.
+        Social, Buy, Eat, Ride, Book, Pay and Work stay accessible inside the Mool slider, while Chat is pinned permanently for incoming messages.
+        The screen must not become a static dashboard, yellow pages, product grid or visible role switcher.
+      </p>
+    </header>
+
+    <section class="ms-panel">
+      <div class="ms-section-head">Interactive User-Facing UI <span>Click dock buttons inside the phone</span></div>
+      <div class="focus-preview">
+        <section class="phone" aria-label="MoolSocial universal focus shell phone preview">
+          <div class="phone-status">
+            <span>9:41</span>
+            <span>5G 100%</span>
+          </div>
+          <div class="app-shell">
+            <header class="app-top">
+              <div class="brand-row">
+                <div class="brand-lockup">
+                  <div class="wordmark">MoolSocial</div>
+                  <div class="identity-line" aria-hidden="true"><span></span><span></span><span></span></div>
+                </div>
+                <span class="icon-pill" aria-label="Profile and upgrade">
+                  <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+                </span>
+              </div>
+              <div class="command-bar" aria-label="Search ask scan voice">
+                <span class="command-text" data-command-text>Search reels, people or local posts</span>
+                <button class="search-action" type="button" aria-label="Search">
+                  <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="m16 16 4 4"/></svg>
+                </button>
+                <button class="search-action" type="button" aria-label="Scan">
+                  <svg viewBox="0 0 24 24"><path d="M4 7V4h3"/><path d="M17 4h3v3"/><path d="M20 17v3h-3"/><path d="M7 20H4v-3"/><path d="M8 12h8"/></svg>
+                </button>
+                <button class="search-action" type="button" aria-label="Voice">
+                  <svg viewBox="0 0 24 24"><path d="M12 4a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V7a3 3 0 0 0-3-3Z"/><path d="M6 11a6 6 0 0 0 12 0"/><path d="M12 17v3"/></svg>
+                </button>
+              </div>
+            </header>
+
+            <main class="focus-body">
+              <div class="sub-action-strip" data-subaction-strip aria-label="Focused action choices"></div>
+              <section class="world active" data-world="social">
+                <div class="tab-panel active" data-tab-panel="shorts">
+                  <article class="video-card">
+                    <div class="video-top">
+                      <span class="live-tag">Shorts</span>
+                      <span class="live-tag">Swipe</span>
+                    </div>
+                    <div class="play-orb" aria-hidden="true">
+                      <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7Z"/></svg>
+                    </div>
+                    <div class="video-copy">
+                      <b>Short videos start instantly</b>
+                      <span>Local shorts, reels, creators, offers and daily moments. User scrolls vertically without commerce clutter.</span>
+                    </div>
+                  </article>
+                  <article class="decision-card">
+                    <span class="card-icon"><svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></span>
+                    <span class="decision-copy">
+                      <b>Create short</b>
+                      <span>Record, upload, trim, caption and post. Creator monetisation unlocks only after verification.</span>
+                      <span class="proof-row"><i>Record</i><i>Caption</i><i>Post</i></span>
+                    </span>
+                  </article>
+                </div>
+
+                <div class="tab-panel" data-tab-panel="video">
+                  <article class="video-card">
+                    <div class="video-top">
+                      <span class="live-tag">Video</span>
+                      <span class="live-tag">12:48</span>
+                    </div>
+                    <div class="play-orb" aria-hidden="true">
+                      <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7Z"/></svg>
+                    </div>
+                    <div class="video-copy">
+                      <b>Watch long videos without distraction</b>
+                      <span>Creator channels, education, product explainers, local stories and live commerce videos can play in one dedicated view.</span>
+                    </div>
+                  </article>
+                  <article class="decision-card">
+                    <span class="card-icon"><svg viewBox="0 0 24 24"><path d="M4 7h16v10H4Z"/><path d="m10 10 5 3-5 3Z"/></svg></span>
+                    <span class="decision-copy">
+                      <b>Continue watching</b>
+                      <span>Resume, subscribe, save, share or open creator channel. Buying remains contextual, not forced.</span>
+                      <span class="proof-row"><i>Resume</i><i>Channel</i><i>Save</i></span>
+                    </span>
+                  </article>
+                </div>
+
+                <div class="tab-panel" data-tab-panel="feed">
+                  <article class="decision-card">
+                    <span class="card-icon"><svg viewBox="0 0 24 24"><path d="M4 6h16v12H4Z"/><path d="M8 10h8"/><path d="M8 14h5"/></svg></span>
+                    <span class="decision-copy">
+                      <b>Local feed post</b>
+                      <span>People, shops, creators and communities can post updates, photos, opinions, offers and local alerts.</span>
+                      <span class="proof-row"><i>Like</i><i>Comment</i><i>Share</i></span>
+                    </span>
+                  </article>
+                  <article class="decision-card">
+                    <span class="card-icon"><svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></span>
+                    <span class="decision-copy">
+                      <b>Create post</b>
+                      <span>Write, upload image, tag area, mention people or attach a service experience.</span>
+                      <span class="proof-row"><i>Text</i><i>Photo</i><i>Area</i></span>
+                    </span>
+                  </article>
+                </div>
+
+                <div class="tab-panel" data-tab-panel="create">
+                  <article class="decision-card">
+                    <span class="card-icon"><svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></span>
+                    <span class="decision-copy">
+                      <b>Create social post</b>
+                      <span>Start with text, photo, short video, long video or local business proof. Creator tools unlock after verification.</span>
+                      <span class="proof-row"><i>Text</i><i>Photo</i><i>Video</i><i>Proof</i></span>
+                    </span>
+                  </article>
+                  <div class="need-grid">
+                    <button class="need-tile" type="button"><span class="mini-icon"><svg viewBox="0 0 24 24"><path d="M4 6h16v12H4Z"/><path d="M8 10h8"/></svg></span>Text</button>
+                    <button class="need-tile" type="button"><span class="mini-icon"><svg viewBox="0 0 24 24"><path d="m9 6 8 6-8 6Z"/><path d="M5 5v14"/></svg></span>Short</button>
+                    <button class="need-tile" type="button"><span class="mini-icon"><svg viewBox="0 0 24 24"><path d="M4 7h16v10H4Z"/><path d="m10 10 5 3-5 3Z"/></svg></span>Video</button>
+                  </div>
+                </div>
+              </section>
+
+              <section class="world" data-world="buy">
+                <div class="tab-panel active" data-tab-panel="grocery">
+                  <article class="decision-card">
+                    <span class="card-icon"><svg viewBox="0 0 24 24"><path d="M3 7h18"/><path d="M6 7v13h12V7"/><path d="M9 11h6"/></svg></span>
+                    <span class="decision-copy">
+                      <b>Grocery basket in 45 min</b>
+                      <span>Price shown, fulfilment time shown, shop proof and cancellation rule visible before order.</span>
+                      <span class="proof-row"><i>Price</i><i>45 min</i><i>Refund rule</i></span>
+                    </span>
+                  </article>
+                  <div class="need-grid">
+                    <button class="need-tile" type="button"><span class="mini-icon"><svg viewBox="0 0 24 24"><path d="M6 7h12l-1 13H7L6 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg></span>Fresh</button>
+                    <button class="need-tile" type="button"><span class="mini-icon"><svg viewBox="0 0 24 24"><path d="M6 7h12l-1 13H7L6 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg></span>Monthly</button>
+                    <button class="need-tile" type="button"><span class="mini-icon"><svg viewBox="0 0 24 24"><path d="M6 7h12l-1 13H7L6 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg></span>Nearby</button>
+                  </div>
+                </div>
+                <div class="tab-panel" data-tab-panel="medicine">
+                  <article class="decision-card">
+                    <span class="card-icon"><svg viewBox="0 0 24 24"><path d="M10 3h4v7h7v4h-7v7h-4v-7H3v-4h7Z"/></svg></span>
+                    <span class="decision-copy">
+                      <b>Medicine refill near you</b>
+                      <span>Only compliant pharmacy flows appear. Prescription, stock, price, delivery and cancellation rule stay visible before order.</span>
+                      <span class="proof-row"><i>Compliant</i><i>Stock</i><i>Receipt</i></span>
+                    </span>
+                  </article>
+                </div>
+                <div class="tab-panel" data-tab-panel="categories">
+                  <article class="decision-card">
+                    <span class="card-icon"><svg viewBox="0 0 24 24"><path d="M4 10h16"/><path d="M5 10l1-5h12l1 5"/><path d="M6 10v10h12V10"/><path d="M9 20v-5h6v5"/></svg></span>
+                    <span class="decision-copy">
+                      <b>Categories ready to buy</b>
+                      <span>All other product choices open here: personal care, home needs, baby care, electronics, clothing, wellness and local shop products where serviceable.</span>
+                      <span class="proof-row"><i>Categories</i><i>Delivery</i><i>Refund rule</i></span>
+                    </span>
+                  </article>
+                </div>
+                <div class="tab-panel" data-tab-panel="basket">
+                  <article class="decision-card">
+                    <span class="card-icon"><svg viewBox="0 0 24 24"><path d="M6 7h12l-1 13H7L6 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg></span>
+                    <span class="decision-copy">
+                      <b>Household basket</b>
+                      <span>Repeat monthly basket, family demand, price lock and local fulfilment can become one decision-ready order.</span>
+                      <span class="proof-row"><i>Repeat</i><i>Family</i><i>Price lock</i></span>
+                    </span>
+                  </article>
+                </div>
+              </section>
+
+              <section class="world" data-world="eat">
+                <div class="tab-panel active" data-tab-panel="order-food">
+                  <article class="decision-card">
+                    <span class="card-icon"><svg viewBox="0 0 24 24"><path d="M4 11h16"/><path d="M5 11a7 7 0 0 1 14 0"/><path d="M6 16h12"/></svg></span>
+                    <span class="decision-copy">
+                      <b>Lunch delivered in 28 min</b>
+                      <span>Final price, kitchen rating, delivery time, packaging fee and cancellation window visible upfront.</span>
+                      <span class="proof-row"><i>Rs 149</i><i>28 min</i><i>Rated shop</i></span>
+                    </span>
+                  </article>
+                </div>
+                <div class="tab-panel" data-tab-panel="book-table">
+                  <article class="decision-card">
+                    <span class="card-icon"><svg viewBox="0 0 24 24"><path d="M4 10h16"/><path d="M7 10v10"/><path d="M17 10v10"/><path d="M8 4h8v6H8Z"/></svg></span>
+                    <span class="decision-copy">
+                      <b>Table booking for dinner</b>
+                      <span>Time slot, menu range, offer terms, cancellation window and restaurant proof stay visible before booking.</span>
+                      <span class="proof-row"><i>Slot</i><i>Menu</i><i>Cancel rule</i></span>
+                    </span>
+                  </article>
+                </div>
+                <div class="tab-panel" data-tab-panel="tiffin">
+                  <article class="decision-card">
+                    <span class="card-icon"><svg viewBox="0 0 24 24"><path d="M5 7h14v12H5Z"/><path d="M8 7V5h8v2"/><path d="M8 12h8"/><path d="M8 16h5"/></svg></span>
+                    <span class="decision-copy">
+                      <b>Tiffin plan available</b>
+                      <span>Daily meal, weekly plan, delivery time, pause rule and kitchen proof appear before subscription or order.</span>
+                      <span class="proof-row"><i>Daily</i><i>Weekly</i><i>Pause rule</i></span>
+                    </span>
+                  </article>
+                </div>
+              </section>
+
+              <section class="world" data-world="ride">
+                <div class="tab-panel active" data-tab-panel="bike">
+                  <article class="decision-card">
+                    <span class="card-icon"><svg viewBox="0 0 24 24"><path d="M12 21s7-5.3 7-11a7 7 0 0 0-14 0c0 5.7 7 11 7 11Z"/><circle cx="12" cy="10" r="2"/></svg></span>
+                    <span class="decision-copy">
+                      <b>Bike ride in 6 min</b>
+                      <span>Fare, pickup time, captain rating, cancellation fee and payment method visible before booking.</span>
+                      <span class="proof-row"><i>Rs 84</i><i>6 min</i><i>Cancel rule</i></span>
+                    </span>
+                  </article>
+                </div>
+                <div class="tab-panel" data-tab-panel="auto">
+                  <article class="decision-card">
+                    <span class="card-icon"><svg viewBox="0 0 24 24"><path d="M5 16h14l-2-6H7Z"/><path d="M7 16v3"/><path d="M17 16v3"/><circle cx="8" cy="19" r="1.5"/><circle cx="16" cy="19" r="1.5"/></svg></span>
+                    <span class="decision-copy">
+                      <b>Auto ride nearby</b>
+                      <span>Pickup, fare, driver rating, wait time and cancellation rule are shown before confirmation.</span>
+                      <span class="proof-row"><i>Fare</i><i>Pickup</i><i>Rating</i></span>
+                    </span>
+                  </article>
+                </div>
+                <div class="tab-panel" data-tab-panel="cab">
+                  <article class="decision-card">
+                    <span class="card-icon"><svg viewBox="0 0 24 24"><path d="M5 16h14l-1.5-5h-11Z"/><path d="M7 16v3"/><path d="M17 16v3"/><path d="M8 11l1-4h6l1 4"/></svg></span>
+                    <span class="decision-copy">
+                      <b>Cab ride estimate</b>
+                      <span>Fare, vehicle type, pickup time, cancellation fee and payment method remain clear before booking.</span>
+                      <span class="proof-row"><i>Cab</i><i>ETA</i><i>Fare</i></span>
+                    </span>
+                  </article>
+                </div>
+              </section>
+
+              <section class="world" data-world="book">
+                <div class="tab-panel active" data-tab-panel="get-done">
+                  <article class="decision-card">
+                    <span class="card-icon"><svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
+                    <span class="decision-copy">
+                      <b>Get it done by a verified local partner</b>
+                      <span>Book local help for pickup, document print/scan, appointment token, gift delivery or city-to-city fulfilment where partners are active.</span>
+                      <span class="proof-row"><i>Defined scope</i><i>Proof</i><i>OTP</i></span>
+                    </span>
+                  </article>
+                </div>
+                <div class="tab-panel" data-tab-panel="services">
+                  <div class="need-grid">
+                    <button class="need-tile" type="button"><span class="mini-icon"><svg viewBox="0 0 24 24"><path d="M4 21v-7a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v7"/><circle cx="12" cy="5" r="3"/></svg></span>Salon</button>
+                    <button class="need-tile" type="button"><span class="mini-icon"><svg viewBox="0 0 24 24"><path d="m14 7 3 3"/><path d="m5 19 8-8"/><path d="m15 5 4 4-2 2-4-4Z"/></svg></span>Repair</button>
+                    <button class="need-tile" type="button"><span class="mini-icon"><svg viewBox="0 0 24 24"><path d="M4 10h16"/><path d="M7 10v10"/><path d="M17 10v10"/></svg></span>Laundry</button>
+                  </div>
+                </div>
+                <div class="tab-panel" data-tab-panel="doctor">
+                  <article class="decision-card">
+                    <span class="card-icon"><svg viewBox="0 0 24 24"><path d="M10 3h4v7h7v4h-7v7h-4v-7H3v-4h7Z"/></svg></span>
+                    <span class="decision-copy">
+                      <b>Doctor appointment slots</b>
+                      <span>Clinic proof, available time, fee, cancellation rule and follow-up option appear before booking.</span>
+                      <span class="proof-row"><i>Slot</i><i>Fee</i><i>Proof</i></span>
+                    </span>
+                  </article>
+                </div>
+                <div class="tab-panel" data-tab-panel="salon">
+                  <article class="decision-card">
+                    <span class="card-icon"><svg viewBox="0 0 24 24"><path d="M4 21v-7a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v7"/><circle cx="12" cy="5" r="3"/></svg></span>
+                    <span class="decision-copy">
+                      <b>Salon slot today</b>
+                      <span>Service menu, price, slot time, hygiene proof and cancellation rule appear before booking.</span>
+                      <span class="proof-row"><i>Service</i><i>Slot</i><i>Cancel rule</i></span>
+                    </span>
+                  </article>
+                </div>
+              </section>
+
+              <section class="world" data-world="work">
+                <div class="tab-panel active" data-tab-panel="earn-today">
+                  <article class="decision-card">
+                    <span class="card-icon"><svg viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M17 7H9.5a3 3 0 0 0 0 6H14a3 3 0 0 1 0 6H6"/></svg></span>
+                    <span class="decision-copy">
+                      <b>Earn from verified work</b>
+                      <span>Only funded or value-backed work appears here. Each card shows task, location, proof, payout rule and review time.</span>
+                      <span class="proof-row"><i>Funded</i><i>Proof</i><i>Payout rule</i></span>
+                    </span>
+                  </article>
+                </div>
+                <div class="tab-panel" data-tab-panel="verify">
+                  <article class="decision-card">
+                    <span class="card-icon"><svg viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M12 4v16"/><path d="M6 6h12v12H6Z"/></svg></span>
+                    <span class="decision-copy">
+                      <b>Verify local proof</b>
+                      <span>Earn only from funded verification work like price proof, QR proof, shop status, bill assist or service readiness checks.</span>
+                      <span class="proof-row"><i>Funded</i><i>Geo proof</i><i>Review</i></span>
+                    </span>
+                  </article>
+                </div>
+                <div class="tab-panel" data-tab-panel="onboard">
+                  <article class="decision-card">
+                    <span class="card-icon"><svg viewBox="0 0 24 24"><path d="M4 6h16v10H7l-3 3V6Z"/></svg></span>
+                    <span class="decision-copy">
+                      <b>Onboard a verified economic node</b>
+                      <span>Shop, restaurant, salon, clinic, hospital, pharmacy, supplier, manufacturer or household basket onboarding opens only when funded.</span>
+                      <span class="proof-row"><i>Business</i><i>Household</i><i>Source</i></span>
+                    </span>
+                  </article>
+                </div>
+                <div class="tab-panel" data-tab-panel="delivery">
+                  <article class="decision-card">
+                    <span class="card-icon"><svg viewBox="0 0 24 24"><path d="M3 7h18"/><path d="M6 7v13h12V7"/><path d="M9 11h6"/></svg></span>
+                    <span class="decision-copy">
+                      <b>Delivery slot available</b>
+                      <span>Accept only if route, payout, proof requirement and settlement timing are clear.</span>
+                      <span class="proof-row"><i>Route</i><i>Payout</i><i>Proof</i></span>
+                    </span>
+                  </article>
+                </div>
+                <div class="tab-panel" data-tab-panel="workspace">
+                  <article class="profile-upgrade">
+                    <b>Create workspace</b>
+                    <span>Create or request verification for creator, retailer, restaurant, salon, doctor, hospital, pharmacy, delivery, manufacturer or supplier workspace.</span>
+                  </article>
+                </div>
+              </section>
+
+              <section class="world" data-world="pay">
+                <div class="tab-panel active" data-tab-panel="scan-pay">
+                  <div class="money-strip">
+                    <div class="money-box">
+                      <span>Scan Pay</span>
+                      <b>QR</b>
+                      <span>Pay verified merchants</span>
+                    </div>
+                    <div class="money-box">
+                      <span>UPI ready</span>
+                      <b>Scan</b>
+                      <span>Receipt after success</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-panel" data-tab-panel="bills">
+                  <article class="decision-card">
+                    <span class="card-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 9h8"/><path d="M8 13h5"/></svg></span>
+                    <span class="decision-copy">
+                      <b>Pay bills and recharge</b>
+                      <span>Only live in-app services appear. No outside link, no dead button, no unsupported biller.</span>
+                      <span class="proof-row"><i>Bill fetch</i><i>Pay</i><i>Receipt</i></span>
+                    </span>
+                  </article>
+                </div>
+                <div class="tab-panel" data-tab-panel="recharge">
+                  <article class="decision-card">
+                    <span class="card-icon"><svg viewBox="0 0 24 24"><path d="M6 2h9l3 3v17H6Z"/><path d="M9 13h6"/><path d="M9 17h4"/></svg></span>
+                    <span class="decision-copy">
+                      <b>Recharge</b>
+                      <span>Mobile, DTH, FASTag and supported prepaid services appear only when the operator is live and tested.</span>
+                      <span class="proof-row"><i>Mobile</i><i>DTH</i><i>FASTag</i></span>
+                    </span>
+                  </article>
+                </div>
+                <div class="tab-panel" data-tab-panel="receipts">
+                  <article class="decision-card">
+                    <span class="card-icon"><svg viewBox="0 0 24 24"><path d="M6 2h9l3 3v17H6Z"/><path d="M9 13h6"/><path d="M9 17h4"/></svg></span>
+                    <span class="decision-copy">
+                      <b>Receipts and payment proof</b>
+                      <span>Successful recharge, bill, order, booking and QR payment receipts stay inside the account for trust and support.</span>
+                      <span class="proof-row"><i>Receipt</i><i>Status</i><i>Support</i></span>
+                    </span>
+                  </article>
+                </div>
+              </section>
+
+              <section class="world" data-world="chat">
+                <div class="tab-panel active" data-tab-panel="people">
+                  <article class="decision-card">
+                    <span class="card-icon"><svg viewBox="0 0 24 24"><path d="M4 6h16v10H7l-3 3V6Z"/><path d="M8 10h8"/></svg></span>
+                    <span class="decision-copy">
+                      <b>Chats stay inside MoolSocial</b>
+                      <span>People, shops, doctors, delivery partners, creators, groups and support can talk without leaving the app.</span>
+                      <span class="proof-row"><i>People</i><i>Business</i><i>Support</i></span>
+                    </span>
+                  </article>
+                </div>
+                <div class="tab-panel" data-tab-panel="business-chat">
+                  <article class="decision-card">
+                    <span class="card-icon"><svg viewBox="0 0 24 24"><path d="M4 20V8l8-4 8 4v12"/><path d="M9 20v-6h6v6"/></svg></span>
+                    <span class="decision-copy">
+                      <b>Business and service chat</b>
+                      <span>Order questions, booking help, proof requests, customer support and repeat customer messages stay connected to the transaction.</span>
+                      <span class="proof-row"><i>Order</i><i>Booking</i><i>Proof</i></span>
+                    </span>
+                  </article>
+                </div>
+                <div class="tab-panel" data-tab-panel="orders">
+                  <article class="decision-card">
+                    <span class="card-icon"><svg viewBox="0 0 24 24"><path d="M6 7h12l-1 13H7L6 7Z"/><path d="M8 12h8"/><path d="M9 7a3 3 0 0 1 6 0"/></svg></span>
+                    <span class="decision-copy">
+                      <b>Order conversations</b>
+                      <span>Every order, booking, ride, delivery or service chat stays attached to the transaction and proof timeline.</span>
+                      <span class="proof-row"><i>Order</i><i>Proof</i><i>Status</i></span>
+                    </span>
+                  </article>
+                </div>
+                <div class="tab-panel" data-tab-panel="support">
+                  <article class="decision-card">
+                    <span class="card-icon"><svg viewBox="0 0 24 24"><path d="M9.5 9a2.5 2.5 0 1 1 4.3 1.7c-.9.6-1.8 1.3-1.8 2.8"/><path d="M12 17h.01"/><circle cx="12" cy="12" r="9"/></svg></span>
+                    <span class="decision-copy">
+                      <b>Support and issue help</b>
+                      <span>Payment, order, booking, delivery, refund, proof and account issues route through support without leaving MoolSocial.</span>
+                      <span class="proof-row"><i>Issue</i><i>Proof</i><i>Resolution</i></span>
+                    </span>
+                  </article>
+                </div>
+              </section>
+            </main>
+
+            <aside class="content-action-rail" aria-label="Content actions" data-action-rail></aside>
+
+            <nav class="bottom-dock" aria-label="Current mode tabs">
+              <button class="mool-trigger" type="button" data-mool-open aria-label="Open Mool actions">
+                Mool
+              </button>
+              <div data-context-dock data-dock-mode="context"></div>
+              <button class="chat-trigger" type="button" data-switch="chat" aria-label="Open chats, 2 unread messages">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v10H7l-3 3V6Z"/><path d="M8 10h8"/></svg>
+                Chat
+                <span class="chat-badge" aria-hidden="true">2</span>
+              </button>
+            </nav>
+
+          </div>
+        </section>
+
+        <aside class="launcher">
+          <article class="verdict-card">
+            <h3>Navigation verdict</h3>
+            <h2>One app. One focused action at a time. One-tap switch anytime.</h2>
+            <p>The app opens in Social first. Mool temporarily changes the same dock into universal actions, Chat stays pinned for unread messages, and each selected action immediately opens its default useful flow.</p>
+          </article>
+          <article class="verdict-card">
+            <h3>Try focus switching</h3>
+            <p>Main action words stay visible in the bottom dock. Tap Buy, Eat, Ride, Book, Pay or Work to open that world directly; the focused sub-actions appear inside the screen.</p>
+            <div class="focus-map" aria-label="External focus switch controls">
+              <button class="active" type="button" data-switch="social">Social</button>
+              <button type="button" data-switch="buy">Buy</button>
+              <button type="button" data-switch="eat">Eat</button>
+              <button type="button" data-switch="ride">Ride</button>
+              <button type="button" data-switch="book">Book</button>
+              <button type="button" data-switch="pay">Pay</button>
+              <button type="button" data-switch="work">Work</button>
+              <button type="button" data-switch="chat">Chat</button>
+            </div>
+          </article>
+          <article class="verdict-card">
+            <h3>First impression</h3>
+            <p>The default is engagement-first, not a static utility dashboard. The universal launcher uses direct action words while each focused action shows only its own relevant tabs.</p>
+          </article>
+        </aside>
+      </div>
+
+      <div class="ms-section-head">Screen Contract <span>Entry, behavior and exit</span></div>
+      <div class="ms-grid-3">
+        <article class="ms-card">
+          <h3>Entry Condition</h3>
+          <p>Screen 03 has created a valid individual session and merged Screen 02 language, area and anonymous setup state.</p>
+        </article>
+        <article class="ms-card">
+          <h3>Primary Behavior</h3>
+          <p>Open one focused action at a time. Default action is Social with immediate Shorts consumption. The bottom rolling strip keeps main actions visible; focused sub-actions appear inside the active world.</p>
+        </article>
+        <article class="ms-card">
+          <h3>Exit Paths</h3>
+          <p>Each action opens its full feature flow: social activity, product buying, food, rides, bookings, payments, work or chat.</p>
+        </article>
+      </div>
+
+      <div class="ms-section-head">Focus Worlds <span>Not static action words</span></div>
+      <div class="state-table">
+        <div class="state-row">
+          <div class="state-cell"><b>Social</b>Default after login.</div>
+          <div class="state-cell">Sub-actions are Shorts, Videos, Feed and Create. Shorts are vertical clips, Videos are long-form viewing, Feed is posts and updates.</div>
+          <div class="state-cell">Goal: keep user engaged immediately. No product grid or earning cards should interrupt the social focus.</div>
+        </div>
+        <div class="state-row">
+          <div class="state-cell"><b>Buy</b>Product commerce and household buying focus.</div>
+          <div class="state-cell">Grocery, medicine where compliant, product categories and household basket appear only when serviceable.</div>
+          <div class="state-cell">Cards must answer price, time, trust, payment/refund and next action.</div>
+        </div>
+        <div class="state-row">
+          <div class="state-cell"><b>Eat / Ride / Book</b>Service action focus.</div>
+          <div class="state-cell">Prepared food, rides, doctor, salon, repair, diagnostics and service booking stay separate from Buy.</div>
+          <div class="state-cell">Each action shows exact service tabs, not generic category browsing.</div>
+        </div>
+        <div class="state-row">
+          <div class="state-cell"><b>Pay / Work / Chat</b>Utility, task and communication focus.</div>
+          <div class="state-cell">Recharge, bills, scan pay, receipts, earn today, delivery work, onboarding work, verification work, workspace creation and in-app chat.</div>
+          <div class="state-cell">Only live API/in-app services appear. Unsupported services stay hidden.</div>
+        </div>
+      </div>
+
+      <div class="ms-section-head">Role Layer Rule <span>Consumer access remains</span></div>
+      <div class="ms-grid-3">
+        <article class="ms-card">
+          <h3>No Role Switch Tabs</h3>
+          <p>Do not show Personal, Retailer, Taxi, Creator, Doctor or Manufacturer tabs on this screen. Main action words open product/service worlds, not manual user roles.</p>
+        </article>
+        <article class="ms-card">
+          <h3>Upgrade Path</h3>
+          <p>Profile can invite the user to add verified workspaces such as shop, clinic, creator, captain, service provider or manufacturer.</p>
+        </article>
+        <article class="ms-card">
+          <h3>Automatic Panel Later</h3>
+          <p>After a workspace is verified, relevant role actions can appear inside Social, Buy, Eat, Ride, Book, Pay, Work or Chat based on priority, time, location and pending work.</p>
+        </article>
+      </div>
+
+      <div class="ms-section-head">Full-Stack Implementation Contract <span>What production must build</span></div>
+      <div class="ms-grid-3">
+        <article class="ms-card">
+          <h3>Frontend State</h3>
+          <ul class="ms-list">
+            <li>activeWorld: social, buy, eat, ride, book, pay, work or chat.</li>
+            <li>Bottom dock keeps main action words visible. Focused sub-actions appear inside the active world.</li>
+            <li>Universal action strip switches Social, Buy, Eat, Ride, Book, Pay and Work in one tap. Chat stays pinned separately.</li>
+            <li>Right-side action rail is reserved for current content actions such as like, comment, share, remix, save or apply.</li>
+            <li>Chat is one-tap inside the universal app strip and opens the chat stack.</li>
+            <li>Command bar routes direct intents into the correct world.</li>
+            <li>World state is restored on app resume unless a priority route exists.</li>
+          </ul>
+        </article>
+        <article class="ms-card">
+          <h3>Backend Bootstrap</h3>
+          <ul class="ms-list">
+            <li>Return user session, area state, language, enabled worlds and live service registry.</li>
+            <li>Return social feed bootstrap for default engagement.</li>
+            <li>Return serviceability flags for Buy, Eat, Ride and Book cards.</li>
+            <li>Return funded opportunity flags for Work.</li>
+            <li>Return payment, bill/recharge and receipt status for Pay.</li>
+          </ul>
+        </article>
+        <article class="ms-card">
+          <h3>Regression Gates</h3>
+          <ul class="ms-list">
+            <li>No visible role switch appears.</li>
+            <li>No unsupported service button appears.</li>
+            <li>Switching worlds removes distracting content from the previous world.</li>
+            <li>Consumer access remains even after workspace activation.</li>
+            <li>Screen 04 shows only MoolSocial as public app identity.</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="ms-section-head">API Flow <span>Screen 04 network contract</span></div>
+      <div class="state-table">
+        <div class="state-row">
+          <div class="state-cell"><b>1. Bootstrap</b>GET /v1/app/focus/bootstrap</div>
+          <div class="state-cell">Input: userSession, device, language, area state, activeWorld preference and pending route.</div>
+          <div class="state-cell">Output: enabled modes, defaultMode, user profile summary, chat unread count and feature flags.</div>
+        </div>
+        <div class="state-row">
+          <div class="state-cell"><b>2. Social Feed</b>GET /v1/social/feed</div>
+          <div class="state-cell">Input: userId, area, language, cursor, interest graph and safety filters.</div>
+          <div class="state-cell">Output: feed cards, reels, posts, creators, local updates and commerce attribution metadata.</div>
+        </div>
+        <div class="state-row">
+          <div class="state-cell"><b>3. Action Cards</b>GET /v1/actions/decision-cards</div>
+          <div class="state-cell">Input: area, serviceability, user intent, active providers, live offers and compliance flags.</div>
+          <div class="state-cell">Output: decision-ready cards with price, time, trust/proof, payment/refund and next action.</div>
+        </div>
+        <div class="state-row">
+          <div class="state-cell"><b>4. Work Board</b>GET /v1/work/opportunities</div>
+          <div class="state-cell">Input: user verification, area, skills, workspace status and funded task registry.</div>
+          <div class="state-cell">Output: paid delivery work, onboarding work, verification work, workspace status, payout condition, review state and blocked reasons.</div>
+        </div>
+        <div class="state-row">
+          <div class="state-cell"><b>5. Pay Summary</b>GET /v1/pay/summary</div>
+          <div class="state-cell">Input: userId, service registry, settlement state and payment permissions.</div>
+          <div class="state-cell">Output: recharge, bill, scan pay, receipt status, refunds and payment support state.</div>
+        </div>
+      </div>
+
+      <div class="ms-section-head">What This Screen Must Not Do <span>Regression-sensitive</span></div>
+      <div class="ms-grid-3">
+        <article class="ms-card">
+          <h3>No Static Dashboard</h3>
+          <p>Do not fill the first screen with permanent utility buttons. The user should feel one active action at a time.</p>
+        </article>
+        <article class="ms-card">
+          <h3>No Listing App</h3>
+          <p>Do not show endless providers, products or categories. Show outcome-ready cards only when serviceable.</p>
+        </article>
+        <article class="ms-card">
+          <h3>No Distraction During Focus</h3>
+          <p>When user is in Social, commerce/work cards stay quiet. When user is in Buy, Eat, Ride, Book, Pay or Work, video/social content stays quiet.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const icons = {
+      clips: '<svg viewBox="0 0 24 24"><path d="m9 6 8 6-8 6Z"/><path d="M5 5v14"/></svg>',
+      shorts: '<svg viewBox="0 0 24 24"><path d="m9 6 8 6-8 6Z"/><path d="M5 5v14"/></svg>',
+      video: '<svg viewBox="0 0 24 24"><path d="M4 7h16v10H4Z"/><path d="m10 10 5 3-5 3Z"/></svg>',
+      feed: '<svg viewBox="0 0 24 24"><path d="M4 6h16v12H4Z"/><path d="M8 10h8"/><path d="M8 14h5"/></svg>',
+      create: '<svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>',
+      social: '<svg viewBox="0 0 24 24"><path d="M4 6h16v10H7l-3 3V6Z"/></svg>',
+      buy: '<svg viewBox="0 0 24 24"><path d="M6 7h12l-1 13H7L6 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>',
+      grocery: '<svg viewBox="0 0 24 24"><path d="M6 7h12l-1 13H7L6 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>',
+      medicine: '<svg viewBox="0 0 24 24"><path d="M10 3h4v7h7v4h-7v7h-4v-7H3v-4h7Z"/></svg>',
+      categories: '<svg viewBox="0 0 24 24"><path d="M4 10h16"/><path d="M5 10l1-5h12l1 5"/><path d="M6 10v10h12V10"/><path d="M9 20v-5h6v5"/></svg>',
+      basket: '<svg viewBox="0 0 24 24"><path d="M6 7h12l-1 13H7L6 7Z"/><path d="M8 12h8"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>',
+      eat: '<svg viewBox="0 0 24 24"><path d="M4 11h16"/><path d="M5 11a7 7 0 0 1 14 0"/><path d="M6 16h12"/></svg>',
+      food: '<svg viewBox="0 0 24 24"><path d="M4 11h16"/><path d="M5 11a7 7 0 0 1 14 0"/><path d="M6 16h12"/></svg>',
+      "order-food": '<svg viewBox="0 0 24 24"><path d="M4 11h16"/><path d="M5 11a7 7 0 0 1 14 0"/><path d="M6 16h12"/></svg>',
+      tiffin: '<svg viewBox="0 0 24 24"><path d="M5 7h14v12H5Z"/><path d="M8 7V5h8v2"/><path d="M8 12h8"/><path d="M8 16h5"/></svg>',
+      table: '<svg viewBox="0 0 24 24"><path d="M4 10h16"/><path d="M7 10v10"/><path d="M17 10v10"/><path d="M8 4h8v6H8Z"/></svg>',
+      "book-table": '<svg viewBox="0 0 24 24"><path d="M4 10h16"/><path d="M7 10v10"/><path d="M17 10v10"/><path d="M8 4h8v6H8Z"/></svg>',
+      ride: '<svg viewBox="0 0 24 24"><path d="M12 21s7-5.3 7-11a7 7 0 0 0-14 0c0 5.7 7 11 7 11Z"/><circle cx="12" cy="10" r="2"/></svg>',
+      bike: '<svg viewBox="0 0 24 24"><path d="M12 21s7-5.3 7-11a7 7 0 0 0-14 0c0 5.7 7 11 7 11Z"/><circle cx="12" cy="10" r="2"/></svg>',
+      auto: '<svg viewBox="0 0 24 24"><path d="M5 16h14l-2-6H7Z"/><path d="M7 16v3"/><path d="M17 16v3"/><circle cx="8" cy="19" r="1.5"/><circle cx="16" cy="19" r="1.5"/></svg>',
+      cab: '<svg viewBox="0 0 24 24"><path d="M5 16h14l-1.5-5h-11Z"/><path d="M7 16v3"/><path d="M17 16v3"/><path d="M8 11l1-4h6l1 4"/></svg>',
+      book: '<svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4"/><path d="M16 3v4"/><path d="M4 10h16"/></svg>',
+      "get-done": '<svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>',
+      services: '<svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5v14"/></svg>',
+      doctor: '<svg viewBox="0 0 24 24"><path d="M10 3h4v7h7v4h-7v7h-4v-7H3v-4h7Z"/></svg>',
+      salon: '<svg viewBox="0 0 24 24"><path d="M4 21v-7a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v7"/><circle cx="12" cy="5" r="3"/></svg>',
+      more: '<svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5v14"/></svg>',
+      work: '<svg viewBox="0 0 24 24"><path d="M6 6h12v12H6Z"/><path d="M9 12h6"/></svg>',
+      "earn-today": '<svg viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M17 7H9.5a3 3 0 0 0 0 6H14a3 3 0 0 1 0 6H6"/></svg>',
+      delivery: '<svg viewBox="0 0 24 24"><path d="M3 13h13l3 4h2"/><path d="M5 17a2 2 0 1 0 0 .1"/><path d="M17 17a2 2 0 1 0 0 .1"/></svg>',
+      onboard: '<svg viewBox="0 0 24 24"><path d="M4 20V8l8-4 8 4v12"/><path d="M8 12h8"/><path d="M8 16h5"/></svg>',
+      verify: '<svg viewBox="0 0 24 24"><path d="M5 4h14v16H5Z"/><path d="m8 12 3 3 5-6"/></svg>',
+      workspace: '<svg viewBox="0 0 24 24"><path d="M4 20V8l8-4 8 4v12"/><path d="M9 20v-6h6v6"/></svg>',
+      business: '<svg viewBox="0 0 24 24"><path d="M4 20V8l8-4 8 4v12"/><path d="M9 20v-6h6v6"/></svg>',
+      pay: '<svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M7 10h.01"/><path d="M17 14h.01"/></svg>',
+      "scan-pay": '<svg viewBox="0 0 24 24"><path d="M4 7V4h3"/><path d="M17 4h3v3"/><path d="M20 17v3h-3"/><path d="M7 20H4v-3"/><path d="M8 12h8"/></svg>',
+      bills: '<svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 8h8"/><path d="M8 12h6"/></svg>',
+      recharge: '<svg viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/><path d="M12 6v5"/><path d="m9 9 3 3 3-3"/></svg>',
+      receipts: '<svg viewBox="0 0 24 24"><path d="M6 2h9l3 3v17H6Z"/><path d="M9 13h6"/><path d="M9 17h4"/></svg>',
+      like: '<svg viewBox="0 0 24 24"><path d="M7 10v11H4V10Z"/><path d="M7 10l5-7 1 1a3 3 0 0 1 .5 3L13 9h6a2 2 0 0 1 2 2l-2 8a2 2 0 0 1-2 2H7"/></svg>',
+      comment: '<svg viewBox="0 0 24 24"><path d="M4 6h16v10H7l-3 3V6Z"/></svg>',
+      share: '<svg viewBox="0 0 24 24"><path d="M4 12v7h16v-7"/><path d="M12 15V3"/><path d="m7 8 5-5 5 5"/></svg>',
+      remix: '<svg viewBox="0 0 24 24"><path d="M4 7h11a5 5 0 0 1 0 10H9"/><path d="m12 13-3 4 3 4"/><path d="M20 7v4h-4"/></svg>',
+      save: '<svg viewBox="0 0 24 24"><path d="M6 4h12v17l-6-4-6 4Z"/></svg>',
+      repost: '<svg viewBox="0 0 24 24"><path d="M17 3l4 4-4 4"/><path d="M3 7h18"/><path d="M7 21l-4-4 4-4"/><path d="M21 17H3"/></svg>',
+      compare: '<svg viewBox="0 0 24 24"><path d="M7 4v16"/><path d="M17 4v16"/><path d="M4 8h6"/><path d="M14 16h6"/></svg>',
+      chat: '<svg viewBox="0 0 24 24"><path d="M4 6h16v10H7l-3 3V6Z"/><path d="M8 10h8"/></svg>',
+      people: '<svg viewBox="0 0 24 24"><path d="M4 6h16v10H7l-3 3V6Z"/><path d="M8 10h8"/></svg>',
+      "business-chat": '<svg viewBox="0 0 24 24"><path d="M4 20V8l8-4 8 4v12"/><path d="M9 20v-6h6v6"/></svg>',
+      orders: '<svg viewBox="0 0 24 24"><path d="M6 7h12l-1 13H7L6 7Z"/><path d="M8 12h8"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>',
+      support: '<svg viewBox="0 0 24 24"><path d="M9.5 9a2.5 2.5 0 1 1 4.3 1.7c-.9.6-1.8 1.3-1.8 2.8"/><path d="M12 17h.01"/><circle cx="12" cy="12" r="9"/></svg>',
+      apply: '<svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>',
+      proof: '<svg viewBox="0 0 24 24"><path d="M5 4h14v16H5Z"/><path d="m8 12 3 3 5-6"/></svg>',
+      scan: '<svg viewBox="0 0 24 24"><path d="M4 7V4h3"/><path d="M17 4h3v3"/><path d="M20 17v3h-3"/><path d="M7 20H4v-3"/><path d="M8 12h8"/></svg>',
+      help: '<svg viewBox="0 0 24 24"><path d="M9.5 9a2.5 2.5 0 1 1 4.3 1.7c-.9.6-1.8 1.3-1.8 2.8"/><path d="M12 17h.01"/><circle cx="12" cy="12" r="9"/></svg>'
+    };
+
+    const actionConfig = {
+      shorts: [
+        { id: "like", label: "Like" },
+        { id: "comment", label: "Chat" },
+        { id: "share", label: "Share" },
+        { id: "remix", label: "Remix" }
+      ],
+      video: [
+        { id: "like", label: "Like" },
+        { id: "comment", label: "Chat" },
+        { id: "share", label: "Share" },
+        { id: "save", label: "Save" }
+      ],
+      feed: [
+        { id: "like", label: "Like" },
+        { id: "comment", label: "Reply" },
+        { id: "repost", label: "Repost" },
+        { id: "share", label: "Share" }
+      ],
+      create: [
+        { id: "apply", label: "Post" },
+        { id: "scan", label: "Upload" },
+        { id: "help", label: "Help" }
+      ],
+      grocery: [
+        { id: "compare", label: "Compare" },
+        { id: "save", label: "Save" },
+        { id: "chat", label: "Chat" },
+        { id: "share", label: "Share" }
+      ],
+      medicine: [
+        { id: "save", label: "Save" },
+        { id: "chat", label: "Chat" },
+        { id: "help", label: "Help" }
+      ],
+      categories: [
+        { id: "compare", label: "Compare" },
+        { id: "save", label: "Save" },
+        { id: "chat", label: "Chat" }
+      ],
+      basket: [
+        { id: "save", label: "Save" },
+        { id: "share", label: "Family" },
+        { id: "chat", label: "Chat" }
+      ],
+      "order-food": [
+        { id: "save", label: "Save" },
+        { id: "chat", label: "Chat" },
+        { id: "share", label: "Share" }
+      ],
+      "book-table": [
+        { id: "save", label: "Save" },
+        { id: "chat", label: "Chat" },
+        { id: "share", label: "Share" }
+      ],
+      tiffin: [
+        { id: "save", label: "Save" },
+        { id: "chat", label: "Chat" },
+        { id: "share", label: "Family" }
+      ],
+      bike: [
+        { id: "save", label: "Save" },
+        { id: "chat", label: "Chat" },
+        { id: "share", label: "Share" }
+      ],
+      auto: [
+        { id: "save", label: "Save" },
+        { id: "chat", label: "Chat" },
+        { id: "share", label: "Share" }
+      ],
+      cab: [
+        { id: "save", label: "Save" },
+        { id: "chat", label: "Chat" },
+        { id: "share", label: "Share" }
+      ],
+      ride: [
+        { id: "save", label: "Save" },
+        { id: "chat", label: "Chat" },
+        { id: "share", label: "Share" }
+      ],
+      more: [
+        { id: "save", label: "Save" },
+        { id: "chat", label: "Chat" }
+      ],
+      services: [
+        { id: "save", label: "Save" },
+        { id: "chat", label: "Chat" }
+      ],
+      "get-done": [
+        { id: "apply", label: "Book" },
+        { id: "proof", label: "Proof" },
+        { id: "chat", label: "Chat" }
+      ],
+      doctor: [
+        { id: "save", label: "Save" },
+        { id: "chat", label: "Chat" },
+        { id: "help", label: "Help" }
+      ],
+      salon: [
+        { id: "save", label: "Save" },
+        { id: "chat", label: "Chat" },
+        { id: "share", label: "Share" }
+      ],
+      "earn-today": [
+        { id: "apply", label: "Apply" },
+        { id: "proof", label: "Proof" },
+        { id: "save", label: "Save" }
+      ],
+      verify: [
+        { id: "apply", label: "Apply" },
+        { id: "proof", label: "Proof" },
+        { id: "save", label: "Save" }
+      ],
+      onboard: [
+        { id: "apply", label: "Apply" },
+        { id: "proof", label: "Proof" },
+        { id: "chat", label: "Chat" }
+      ],
+      delivery: [
+        { id: "apply", label: "Accept" },
+        { id: "proof", label: "Proof" },
+        { id: "chat", label: "Chat" }
+      ],
+      workspace: [
+        { id: "apply", label: "Create" },
+        { id: "proof", label: "Verify" },
+        { id: "help", label: "Help" }
+      ],
+      "scan-pay": [
+        { id: "scan", label: "Scan" },
+        { id: "help", label: "Help" }
+      ],
+      bills: [
+        { id: "save", label: "Save" },
+        { id: "help", label: "Help" }
+      ],
+      recharge: [
+        { id: "save", label: "Save" },
+        { id: "help", label: "Help" }
+      ],
+      receipts: [
+        { id: "save", label: "Save" },
+        { id: "share", label: "Share" },
+        { id: "help", label: "Help" }
+      ],
+      people: [
+        { id: "chat", label: "Chat" },
+        { id: "share", label: "Share" },
+        { id: "help", label: "Help" }
+      ],
+      "business-chat": [
+        { id: "chat", label: "Chat" },
+        { id: "proof", label: "Proof" },
+        { id: "help", label: "Help" }
+      ],
+      orders: [
+        { id: "chat", label: "Chat" },
+        { id: "proof", label: "Proof" },
+        { id: "help", label: "Help" }
+      ],
+      support: [
+        { id: "help", label: "Help" },
+        { id: "proof", label: "Proof" },
+        { id: "chat", label: "Chat" }
+      ]
+    };
+
+    const worldConfig = {
+      social: {
+        command: "Search shorts, videos, feeds or people",
+        defaultTab: "shorts",
+        tabs: [
+          { id: "shorts", label: "Shorts" },
+          { id: "video", label: "Videos" },
+          { id: "feed", label: "Feed" },
+          { id: "create", label: "Create" }
+        ]
+      },
+      buy: {
+        command: "Search grocery, categories, medicine or household basket",
+        defaultTab: "grocery",
+        tabs: [
+          { id: "grocery", label: "Grocery" },
+          { id: "categories", label: "Categories" },
+          { id: "medicine", label: "Medicine" },
+          { id: "basket", label: "Basket" }
+        ]
+      },
+      eat: {
+        command: "Search restaurants, tiffin, cafes or tables",
+        defaultTab: "order-food",
+        tabs: [
+          { id: "order-food", label: "Order Food" },
+          { id: "book-table", label: "Book Table" },
+          { id: "tiffin", label: "Tiffin" }
+        ]
+      },
+      ride: {
+        command: "Search bike, auto or cab",
+        defaultTab: "bike",
+        tabs: [
+          { id: "bike", label: "Bike" },
+          { id: "auto", label: "Auto" },
+          { id: "cab", label: "Cab" }
+        ]
+      },
+      book: {
+        command: "Search get it done, services, doctor or salon",
+        defaultTab: "get-done",
+        tabs: [
+          { id: "get-done", label: "Get It Done" },
+          { id: "services", label: "Services" },
+          { id: "doctor", label: "Doctor" },
+          { id: "salon", label: "Salon" }
+        ]
+      },
+      work: {
+        command: "Search earn today, delivery, onboarding, verification or workspace",
+        defaultTab: "earn-today",
+        tabs: [
+          { id: "earn-today", label: "Earn Today" },
+          { id: "delivery", label: "Delivery" },
+          { id: "onboard", label: "Onboard" },
+          { id: "verify", label: "Verify" },
+          { id: "workspace", label: "Workspace" }
+        ]
+      },
+      pay: {
+        command: "Search recharge, bills, scan pay or receipts",
+        defaultTab: "recharge",
+        tabs: [
+          { id: "recharge", label: "Recharge" },
+          { id: "bills", label: "Bills" },
+          { id: "scan-pay", label: "Scan Pay" },
+          { id: "receipts", label: "Receipts" }
+        ]
+      },
+      chat: {
+        command: "Search people, business, orders or support",
+        defaultTab: "people",
+        tabs: [
+          { id: "people", label: "People" },
+          { id: "business-chat", label: "Business" },
+          { id: "orders", label: "Orders" },
+          { id: "support", label: "Support" }
+        ]
+      }
+    };
+
+    const activeTabs = {
+      social: "shorts",
+      buy: "grocery",
+      eat: "order-food",
+      ride: "bike",
+      book: "get-done",
+      pay: "recharge",
+      work: "earn-today",
+      chat: "people"
+    };
+
+    const actionLabels = {
+      social: "Social",
+      buy: "Buy",
+      eat: "Eat",
+      ride: "Ride",
+      book: "Book",
+      pay: "Pay",
+      work: "Work",
+      chat: "Chat"
+    };
+
+    const rootActions = [
+      { id: "social", label: "Social", icon: "social", aria: "Open social" },
+      { id: "buy", label: "Buy", icon: "buy", aria: "Open product buying" },
+      { id: "eat", label: "Eat", icon: "eat", aria: "Open food" },
+      { id: "ride", label: "Ride", icon: "ride", aria: "Open ride" },
+      { id: "book", label: "Book", icon: "book", aria: "Open booking" },
+      { id: "pay", label: "Pay", icon: "pay", aria: "Open payments" },
+      { id: "work", label: "Work", icon: "work", aria: "Open work" }
+    ];
+
+    let activeWorldName = "social";
+    let rootLoopGuard = false;
+
+    function getRootNeighborIds(world) {
+      const index = rootActions.findIndex((action) => action.id === world);
+      if (index < 0) return [];
+      return [
+        rootActions[(index - 1 + rootActions.length) % rootActions.length].id,
+        rootActions[(index + 1) % rootActions.length].id
+      ];
+    }
+
+    function renderRootStrip() {
+      const dock = document.querySelector("[data-context-dock]");
+      const bottomDock = document.querySelector(".bottom-dock");
+      if (!dock) return;
+      const neighborIds = getRootNeighborIds(activeWorldName);
+      dock.dataset.dockMode = "root";
+      dock.dataset.dockDensity = "scroll";
+      dock.setAttribute("aria-label", "Universal actions");
+      bottomDock?.style.removeProperty("--dock-count");
+      dock.innerHTML = [0, 1, 2].map((cycle) => rootActions.map((action) => `
+        <button class="root-action-button ${activeWorldName === action.id ? "active" : ""} ${neighborIds.includes(action.id) ? "near-active" : ""}" type="button" data-root-action="${action.id}" data-root-cycle="${cycle}" aria-label="${action.aria}" title="${action.label}">
+          ${action.label}
+        </button>
+      `).join("")).join("");
+      dock.querySelectorAll("[data-root-action]").forEach((button) => {
+        button.addEventListener("click", (event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          setWorld(button.dataset.rootAction, { resetToDefault: true });
+        });
+      });
+      dock.onscroll = () => {
+        if (rootLoopGuard || dock.dataset.dockMode !== "root") return;
+        const segment = dock.scrollWidth / 3;
+        if (!segment) return;
+        if (dock.scrollLeft < segment * .55) {
+          rootLoopGuard = true;
+          dock.scrollLeft += segment;
+          requestAnimationFrame(() => { rootLoopGuard = false; });
+        } else if (dock.scrollLeft > segment * 1.45) {
+          rootLoopGuard = true;
+          dock.scrollLeft -= segment;
+          requestAnimationFrame(() => { rootLoopGuard = false; });
+        }
+      };
+      requestAnimationFrame(() => {
+        dock.querySelector(`[data-root-action="${activeWorldName}"][data-root-cycle="1"]`)?.scrollIntoView({ inline: "center", block: "nearest", behavior: "smooth" });
+      });
+    }
+
+    function renderSubActionStrip(world) {
+      const strip = document.querySelector("[data-subaction-strip]");
+      const config = worldConfig[world] || worldConfig.social;
+      if (!strip) return;
+      strip.setAttribute("aria-label", `${world} focused choices`);
+      strip.innerHTML = config.tabs.map((tab) => `
+        <button class="sub-action-chip ${activeTabs[world] === tab.id ? "active" : ""}" type="button" data-sub-action="${tab.id}">
+          ${tab.label}
+        </button>
+      `).join("");
+      strip.querySelectorAll("[data-sub-action]").forEach((button) => {
+        button.addEventListener("click", () => setTab(world, button.dataset.subAction));
+      });
+    }
+
+    function renderActionRail(tab) {
+      const rail = document.querySelector("[data-action-rail]");
+      const actions = actionConfig[tab] || [];
+      if (!rail) return;
+      rail.innerHTML = actions.map((action) => `
+        <button class="action-button" type="button" aria-label="${action.label}">
+          ${icons[action.id] || icons.more}
+          <span>${action.label}</span>
+        </button>
+      `).join("");
+    }
+
+    function setTab(world, tab) {
+      activeTabs[world] = tab;
+      const activeWorld = document.querySelector(`[data-world="${world}"]`);
+      if (activeWorld) {
+        activeWorld.querySelectorAll("[data-tab-panel]").forEach((panel) => {
+          panel.classList.toggle("active", panel.dataset.tabPanel === tab);
+        });
+      }
+      document.querySelectorAll("[data-sub-action]").forEach((button) => {
+        button.classList.toggle("active", button.dataset.subAction === tab);
+      });
+      renderActionRail(tab);
+      requestAnimationFrame(() => {
+        document.querySelector(`[data-sub-action="${tab}"]`)?.scrollIntoView({ inline: "center", block: "nearest", behavior: "smooth" });
+      });
+    }
+
+    function setWorld(world, options = {}) {
+      const config = worldConfig[world] || worldConfig.social;
+      activeWorldName = world;
+      if (options.resetToDefault || !activeTabs[world]) activeTabs[world] = config.defaultTab;
+      const focusBody = document.querySelector(".focus-body");
+      document.querySelectorAll("[data-world]").forEach((section) => {
+        section.classList.toggle("active", section.dataset.world === world);
+      });
+      document.querySelectorAll("[data-switch]").forEach((button) => {
+        button.classList.toggle("active", button.dataset.switch === world);
+      });
+      const command = document.querySelector("[data-command-text]");
+      if (command) command.textContent = `${actionLabels[world] || "Social"}: ${config.command}`;
+      renderRootStrip();
+      renderSubActionStrip(world);
+      setTab(world, activeTabs[world] || config.defaultTab);
+      if (focusBody) focusBody.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    document.addEventListener("click", (event) => {
+      const switchButton = event.target.closest("[data-switch]");
+      if (switchButton) setWorld(switchButton.dataset.switch);
+    });
+
+    document.querySelector("[data-mool-open]")?.addEventListener("click", () => setWorld("social", { resetToDefault: true }));
+
+    setWorld("social");
+  </script>
+</body>
+</html>

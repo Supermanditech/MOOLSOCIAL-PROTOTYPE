@@ -1,0 +1,1757 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>05 Social Shorts - MoolSocial Screenbook</title>
+  <link rel="stylesheet" href="../shared/moolsocial-ui-foundation.css" />
+  <style>
+    .screen-shell {
+      display: grid;
+      gap: 18px;
+    }
+
+    .back-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .screen-link-home {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--ms-navy);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .back-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--ms-navy);
+      border-radius: var(--ms-radius);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .shorts-preview {
+      display: grid;
+      grid-template-columns: minmax(320px, 390px) minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+      padding: 18px;
+      border-bottom: 1px solid var(--ms-navy);
+      background: var(--ms-white);
+    }
+
+    .phone {
+      width: min(100%, 370px);
+      min-height: 742px;
+      display: grid;
+      grid-template-rows: 1fr;
+      justify-self: center;
+      border: 10px solid var(--ms-navy);
+      border-radius: 32px;
+      background: var(--ms-navy);
+      overflow: hidden;
+    }
+
+    .shorts-app {
+      position: relative;
+      min-height: 742px;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      background: #030512;
+      color: var(--ms-white);
+      overflow: hidden;
+    }
+
+    .status-row {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 6;
+      height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 18px 0;
+      color: var(--ms-white);
+      font-size: 11px;
+      font-weight: 900;
+      text-shadow: 0 1px 8px rgba(0, 0, 0, .42);
+      pointer-events: none;
+    }
+
+    .top-overlay {
+      position: absolute;
+      top: 38px;
+      left: 0;
+      right: 0;
+      z-index: 6;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 8px 16px 0;
+    }
+
+    .feed-tabs-overlay {
+      display: none;
+    }
+
+    .feed-tabs-overlay::-webkit-scrollbar {
+      display: none;
+    }
+
+    .feed-pill {
+      appearance: none;
+      flex: 0 0 auto;
+      min-height: 28px;
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid rgba(255, 255, 255, .34);
+      border-radius: var(--ms-pill);
+      padding: 0 11px;
+      background: rgba(0, 0, 0, .18);
+      color: rgba(255, 255, 255, .78);
+      font-family: var(--ms-font);
+      font-size: 10px;
+      font-weight: 950;
+      cursor: pointer;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .feed-pill.active {
+      background: var(--ms-white);
+      color: var(--ms-navy);
+    }
+
+    .shorts-app.idle .top-overlay,
+    .shorts-app.idle .feed-tabs-overlay,
+    .shorts-app.idle .progress-dots {
+      opacity: .68;
+      transform: translateY(-2px);
+    }
+
+    .top-overlay,
+    .feed-tabs-overlay,
+    .progress-dots {
+      transition: opacity .24s ease, transform .24s ease;
+    }
+
+    .mini-brand {
+      display: none;
+      gap: 4px;
+      min-width: 0;
+    }
+
+    .mini-wordmark {
+      color: var(--ms-white);
+      font-size: 17px;
+      font-weight: 950;
+      line-height: 1;
+      letter-spacing: 0;
+      text-shadow: 0 1px 10px rgba(0, 0, 0, .45);
+    }
+
+    .identity-line {
+      width: 82px;
+      height: 3px;
+      display: grid;
+      grid-template-columns: 45fr 14fr 41fr;
+      border-radius: var(--ms-pill);
+      overflow: hidden;
+      box-shadow: 0 1px 8px rgba(0, 0, 0, .28);
+    }
+
+    .identity-line span:nth-child(1) { background: var(--ms-saffron); }
+    .identity-line span:nth-child(2) { background: var(--ms-white); }
+    .identity-line span:nth-child(3) { background: var(--ms-green); }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .icon-circle {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border: 0;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, .20);
+      color: var(--ms-white);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .icon-circle.creator-entry {
+      background: rgba(0, 0, 0, .24);
+      color: var(--ms-white);
+    }
+
+    .icon-circle.top-back svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .icon-circle svg,
+    .rail-action svg,
+    .social-tab svg,
+    .mool-button svg,
+    .chat-button svg,
+    .mini-button svg {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .rail-action svg {
+      width: 15px;
+      height: 15px;
+    }
+
+    .social-tab svg,
+    .chat-button svg {
+      width: 15px;
+      height: 15px;
+    }
+
+    .shorts-stage {
+      position: relative;
+      min-height: 742px;
+      isolation: isolate;
+    }
+
+    .short-card {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      align-content: end;
+      padding: 72px 62px 82px 18px;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(100%);
+      transition: opacity .26s ease, transform .26s ease;
+      overflow: hidden;
+    }
+
+    .short-card.active {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0) scale(1);
+    }
+
+    .short-card.prev {
+      transform: translateY(-100%);
+    }
+
+    .short-card.next {
+      transform: translateY(100%);
+    }
+
+    .short-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -3;
+      background:
+        url("../assets/shorts-market-grocery.png") center / cover no-repeat;
+      background-size: cover;
+      background-position: center;
+      transform: scale(1.02);
+      filter: saturate(1.08) contrast(1.02);
+    }
+
+    .short-card[data-scene="market"]::before {
+      background:
+        url("../assets/shorts-market-grocery.png") center / cover no-repeat;
+    }
+
+    .short-card[data-scene="food"]::before {
+      background:
+        linear-gradient(180deg, rgba(80, 25, 0, .10), rgba(0, 0, 0, .10)),
+        url("../assets/shorts-market-grocery.png") center / cover no-repeat;
+      filter: hue-rotate(18deg) saturate(1.12) contrast(1.02);
+    }
+
+    .short-card[data-scene="work"]::before {
+      background:
+        linear-gradient(180deg, rgba(0, 0, 128, .18), rgba(0, 0, 0, .14)),
+        url("../assets/shorts-market-grocery.png") center / cover no-repeat;
+      filter: hue-rotate(125deg) saturate(.95) contrast(1.06);
+    }
+
+    .short-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background:
+        linear-gradient(180deg, rgba(0, 0, 0, .28), transparent 24%, transparent 48%, rgba(0, 0, 0, .72)),
+        linear-gradient(90deg, rgba(0, 0, 0, .42), transparent 48%, rgba(0, 0, 0, .24));
+    }
+
+    .scene-shape {
+      display: none;
+    }
+
+    .shape-a {
+      width: 142px;
+      height: 190px;
+      left: 22px;
+      top: 130px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, .18), rgba(255, 153, 51, .32));
+      box-shadow: 0 22px 60px rgba(0, 0, 0, .25);
+    }
+
+    .shape-b {
+      width: 120px;
+      height: 250px;
+      right: 10px;
+      top: 178px;
+      background: linear-gradient(180deg, rgba(19, 136, 8, .34), rgba(0, 0, 128, .4));
+      border-radius: 42px;
+    }
+
+    .shape-c {
+      width: 210px;
+      height: 90px;
+      left: 54px;
+      bottom: 190px;
+      background:
+        repeating-linear-gradient(90deg, rgba(255, 153, 51, .72) 0 18px, rgba(19, 136, 8, .72) 18px 36px, rgba(255, 255, 255, .7) 36px 50px);
+      transform: rotate(-8deg);
+      border-radius: 999px;
+      opacity: .52;
+    }
+
+    .video-badge-row {
+      display: none;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 10px;
+    }
+
+    .video-badge {
+      min-height: 24px;
+      display: inline-flex;
+      align-items: center;
+      border-radius: var(--ms-pill);
+      padding: 0 9px;
+      background: rgba(255, 255, 255, .18);
+      color: var(--ms-white);
+      font-size: 10px;
+      font-weight: 900;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .creator-line {
+      appearance: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex: 1 1 auto;
+      min-width: 0;
+      margin-bottom: 0;
+      border: 0;
+      padding: 0;
+      background: transparent;
+      color: inherit;
+      font-family: var(--ms-font);
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .short-meta-line {
+      width: min(100%, 300px);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-width: 0;
+    }
+
+    .short-detail-button {
+      appearance: none;
+      flex: 0 0 auto;
+      min-height: 27px;
+      border: 1px solid rgba(255, 255, 255, .42);
+      border-radius: var(--ms-pill);
+      padding: 0 10px;
+      background: rgba(0, 0, 0, .34);
+      color: var(--ms-white);
+      font-family: var(--ms-font);
+      font-size: 9px;
+      font-weight: 950;
+      line-height: 1;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      cursor: pointer;
+    }
+
+    .avatar {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border: 2px solid rgba(255, 255, 255, .86);
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--ms-saffron), var(--ms-green));
+      color: var(--ms-white);
+      font-size: 11px;
+      font-weight: 950;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, .22);
+    }
+
+    .creator-copy {
+      display: grid;
+      min-width: 0;
+      gap: 2px;
+    }
+
+    .creator-copy b {
+      color: var(--ms-white);
+      font-size: 13px;
+      line-height: 1.1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .creator-copy span {
+      color: rgba(255, 255, 255, .78);
+      font-size: 10px;
+      line-height: 1.2;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .caption {
+      display: grid;
+      gap: 7px;
+      margin: 0;
+      color: var(--ms-white);
+      font-size: 13px;
+      line-height: 1.34;
+      text-shadow: 0 1px 10px rgba(0, 0, 0, .42);
+    }
+
+    .caption b {
+      font-size: 16px;
+      line-height: 1.14;
+    }
+
+    .context-mini {
+      width: fit-content;
+      max-width: min(100%, 190px);
+      min-height: 32px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 8px;
+      border: 1px solid rgba(255, 255, 255, .42);
+      border-radius: var(--ms-pill);
+      padding: 5px 5px 5px 10px;
+      background: rgba(0, 0, 0, .34);
+      color: var(--ms-white);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 10px 22px rgba(0, 0, 0, .20);
+      cursor: pointer;
+    }
+
+    .context-mini.expanded {
+      background: rgba(0, 0, 0, .48);
+      color: var(--ms-white);
+    }
+
+    .audio-line {
+      width: min(100%, 250px);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 10px;
+      color: rgba(255, 255, 255, .84);
+      font-size: 10px;
+      font-weight: 850;
+      line-height: 1.2;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .audio-line svg {
+      flex: 0 0 auto;
+      width: 13px;
+      height: 13px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .context-mini b,
+    .context-mini span {
+      display: block;
+      min-width: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .context-mini b {
+      font-size: 9.5px;
+      line-height: 1.2;
+    }
+
+    .context-mini span {
+      color: rgba(255, 255, 255, .78);
+      font-size: 7.6px;
+      line-height: 1.2;
+      margin-top: 2px;
+    }
+
+    .context-mini.expanded span {
+      color: rgba(255, 255, 255, .78);
+    }
+
+    .context-proof {
+      display: none;
+      grid-column: 1 / -1;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px;
+      padding-top: 2px;
+    }
+
+    .context-mini.expanded .context-proof {
+      display: none;
+    }
+
+    .context-proof i {
+      min-height: 24px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      place-items: center;
+      border: 1px solid rgba(0, 0, 128, .16);
+      border-radius: var(--ms-pill);
+      padding: 0 8px;
+      color: var(--ms-green);
+      background: var(--ms-white);
+      font-size: 8.5px;
+      font-style: normal;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .caption,
+    .context-mini,
+    .audio-line {
+      display: none;
+    }
+
+    .mini-button {
+      width: 26px;
+      height: 26px;
+      display: grid;
+      place-items: center;
+      border: 0;
+      border-radius: 50%;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+    }
+
+    .right-rail {
+      position: absolute;
+      right: 10px;
+      bottom: 86px;
+      z-index: 8;
+      display: grid;
+      gap: 7px;
+    }
+
+    .rail-action {
+      appearance: none;
+      width: 38px;
+      min-height: 40px;
+      display: grid;
+      place-items: center;
+      gap: 2px;
+      border: 1px solid rgba(255, 255, 255, .40);
+      border-radius: 15px;
+      background: rgba(0, 0, 0, .20);
+      color: var(--ms-white);
+      font-family: var(--ms-font);
+      font-size: 7px;
+      font-weight: 950;
+      cursor: pointer;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 10px 22px rgba(0, 0, 0, .18);
+    }
+
+    .rail-action.creator-follow {
+      background: rgba(255, 255, 255, .92);
+      color: var(--ms-navy);
+    }
+
+    .follow-avatar {
+      width: 22px;
+      height: 22px;
+      position: relative;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--ms-saffron), var(--ms-green));
+      color: var(--ms-white);
+      font-size: 8px;
+      font-weight: 950;
+    }
+
+    .follow-avatar::after {
+      content: "+";
+      width: 13px;
+      height: 13px;
+      position: absolute;
+      right: -4px;
+      bottom: -4px;
+      display: grid;
+      place-items: center;
+      border: 2px solid var(--ms-white);
+      border-radius: 50%;
+      background: var(--ms-saffron);
+      color: var(--ms-navy);
+      font-size: 10px;
+      line-height: 1;
+    }
+
+    .rail-action.creator-follow.active .follow-avatar::after {
+      content: "✓";
+      background: var(--ms-green);
+      color: var(--ms-white);
+    }
+
+    .rail-action.active {
+      background: var(--ms-white);
+      color: var(--ms-navy);
+    }
+
+    .rail-action small {
+      color: currentColor;
+      font-size: 7px;
+      line-height: 1;
+    }
+
+    .progress-dots {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 72px;
+      z-index: 9;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0;
+    }
+
+    .progress-dot {
+      height: 3px;
+      border-radius: 0;
+      background: rgba(255, 255, 255, .22);
+      overflow: hidden;
+    }
+
+    .progress-dot.active::before {
+      content: "";
+      display: block;
+      width: 72%;
+      height: 100%;
+      border-radius: inherit;
+      background: var(--ms-saffron);
+    }
+
+    .bottom-dock {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 8;
+      display: grid;
+      grid-template-columns: 50px minmax(0, 1fr) 50px;
+      gap: 5px;
+      align-items: center;
+      border: 0;
+      border-radius: 0;
+      padding: 7px 10px 10px;
+      background:
+        linear-gradient(180deg, rgba(0, 0, 0, .10), rgba(0, 0, 0, .88) 34%, rgba(0, 0, 0, .96));
+      color: var(--ms-white);
+      box-shadow:
+        0 -18px 42px rgba(0, 0, 0, .34);
+    }
+
+    .mool-button,
+    .chat-button {
+      appearance: none;
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      gap: 2px;
+      border: 1px solid rgba(0, 0, 128, .18);
+      border-radius: 50%;
+      font-family: var(--ms-font);
+      font-size: 8px;
+      font-weight: 950;
+      cursor: pointer;
+    }
+
+    .mool-button {
+      background:
+        radial-gradient(circle at 36% 24%, rgba(255, 255, 255, .30), transparent 32%),
+        linear-gradient(145deg, #1717ba, var(--ms-navy) 72%);
+      color: var(--ms-white);
+      font-size: 9px;
+      box-shadow:
+        0 9px 19px rgba(0, 0, 128, .24),
+        inset 0 1px 0 rgba(255, 255, 255, .34),
+        inset 0 -5px 0 rgba(0, 0, 90, .36);
+    }
+
+    .chat-button {
+      position: relative;
+      border-color: transparent;
+      background: transparent;
+      color: var(--ms-white);
+      box-shadow: none;
+    }
+
+    .chat-badge {
+      min-width: 15px;
+      height: 15px;
+      position: absolute;
+      top: 3px;
+      right: 0;
+      display: inline-grid;
+      place-items: center;
+      border-radius: var(--ms-pill);
+      padding: 0 4px;
+      background: var(--ms-saffron);
+      color: var(--ms-navy);
+      font-size: 7px;
+      font-weight: 950;
+      line-height: 1;
+    }
+
+    .social-tabs {
+      min-width: 0;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      touch-action: pan-x;
+      -webkit-overflow-scrolling: touch;
+      border: 0;
+      border-radius: 0;
+      padding: 0;
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .social-tabs::-webkit-scrollbar {
+      display: none;
+    }
+
+    .social-tab {
+      appearance: none;
+      flex: 1 1 0;
+      min-width: 0;
+      min-height: 46px;
+      display: grid;
+      place-items: center;
+      gap: 2px;
+      border: 0;
+      border-radius: 13px;
+      background: transparent;
+      color: var(--ms-white);
+      font-family: var(--ms-font);
+      font-size: 8px;
+      font-weight: 950;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .social-tab.active {
+      border-color: transparent;
+      background: rgba(255, 255, 255, .14);
+      color: var(--ms-white);
+    }
+
+    .launcher {
+      display: grid;
+      gap: 12px;
+      align-content: start;
+    }
+
+    .verdict-card {
+      display: grid;
+      gap: 10px;
+      border: 1px solid var(--ms-navy);
+      border-radius: var(--ms-radius);
+      padding: 16px;
+      background: var(--ms-white);
+    }
+
+    .verdict-card h2,
+    .verdict-card h3,
+    .verdict-card p {
+      margin: 0;
+    }
+
+    .verdict-card h2 {
+      color: var(--ms-navy);
+      font-size: 24px;
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+
+    .verdict-card h3 {
+      color: var(--ms-green);
+      font-size: 12px;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+
+    .verdict-card p,
+    .verdict-card li {
+      color: var(--ms-navy);
+      font-size: 13px;
+      line-height: 1.46;
+    }
+
+    .demo-controls {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .demo-controls button {
+      appearance: none;
+      min-height: 54px;
+      border: 1px solid var(--ms-navy);
+      border-radius: var(--ms-radius);
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      font-family: var(--ms-font);
+      font-size: 11px;
+      font-weight: 950;
+      cursor: pointer;
+    }
+
+    .demo-controls button.active {
+      background: var(--ms-navy);
+      color: var(--ms-white);
+    }
+
+    .state-table {
+      display: grid;
+      border-bottom: 1px solid var(--ms-navy);
+    }
+
+    .state-row {
+      display: grid;
+      grid-template-columns: 220px 1fr 1fr;
+      border-top: 1px solid var(--ms-navy);
+    }
+
+    .state-row:first-child {
+      border-top: 0;
+    }
+
+    .state-cell {
+      min-height: 82px;
+      display: grid;
+      align-content: start;
+      gap: 6px;
+      padding: 14px;
+      border-right: 1px solid var(--ms-navy);
+      color: var(--ms-navy);
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .state-cell:last-child {
+      border-right: 0;
+    }
+
+    .state-cell b {
+      color: var(--ms-green);
+      font-size: 12px;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 1100px) {
+      .shorts-preview,
+      .state-row {
+        grid-template-columns: 1fr;
+      }
+
+      .state-cell {
+        border-right: 0;
+        border-bottom: 1px solid var(--ms-navy);
+      }
+
+      .state-cell:last-child {
+        border-bottom: 0;
+      }
+    }
+
+    .action-sheet {
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      bottom: 82px;
+      z-index: 12;
+      display: none;
+      border: 1px solid rgba(255, 255, 255, .50);
+      border-radius: 22px;
+      padding: 12px;
+      background: rgba(255, 255, 255, .96);
+      color: var(--ms-navy);
+      box-shadow: 0 -18px 44px rgba(0, 0, 0, .30);
+    }
+
+    .action-sheet.open {
+      display: grid;
+      gap: 10px;
+    }
+
+    .action-sheet.creator-sheet .sheet-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .action-sheet.detail-sheet .sheet-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .sheet-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .sheet-head b {
+      color: var(--ms-navy);
+      font-size: 13px;
+      line-height: 1.2;
+    }
+
+    .sheet-close {
+      appearance: none;
+      width: 30px;
+      height: 30px;
+      display: grid;
+      place-items: center;
+      border: 0;
+      border-radius: 50%;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-family: var(--ms-font);
+      font-size: 13px;
+      font-weight: 950;
+      cursor: pointer;
+    }
+
+    .sheet-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .sheet-chip {
+      min-height: 52px;
+      display: grid;
+      place-items: center;
+      gap: 4px;
+      border: 1px solid rgba(0, 0, 128, .18);
+      border-radius: 16px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      font-size: 9px;
+      font-weight: 950;
+      text-align: center;
+      line-height: 1.1;
+    }
+
+    .sheet-chip strong {
+      color: var(--ms-green);
+      font-size: 10px;
+      line-height: 1;
+    }
+
+    .sheet-note {
+      color: rgba(0, 0, 128, .72);
+      font-size: 10px;
+      line-height: 1.34;
+    }
+
+    @media (max-width: 640px) {
+      .back-row {
+        display: grid;
+      }
+
+      .shorts-preview {
+        padding: 14px;
+      }
+
+      .phone {
+        border-width: 9px;
+      }
+
+      .shorts-app,
+      .shorts-stage {
+        min-height: 700px;
+      }
+
+      .short-card {
+        padding-right: 68px;
+      }
+    }
+  </style>
+</head>
+<body class="ms-doc">
+  <main class="ms-page screen-shell">
+    <header>
+      <div class="back-row">
+        <a class="screen-link-home" href="../index.html">
+          <span class="back-mark">BR</span>
+          Back to Screenbook
+        </a>
+        <span class="ms-status">Draft for review</span>
+      </div>
+      <h1 class="ms-title">Screen 05: Social &gt; Shorts</h1>
+      <p class="ms-lead">
+        Screen 05 is the first focused content experience after the Universal Focus Shell. It is the MoolSocial Shorts creator product: vertical video discovery for users, reach and attribution for creators, and contextual commerce/work proof only when relevant.
+        It must feel as complete as a major short-video product while keeping Mool navigation and Chat one tap away.
+      </p>
+    </header>
+
+    <section class="ms-panel">
+      <div class="ms-section-head">Interactive User-Facing UI <span>Tap right actions or sample shorts</span></div>
+      <div class="shorts-preview">
+        <section class="phone" aria-label="MoolSocial Social Shorts phone preview">
+          <div class="shorts-app">
+            <div class="status-row">
+              <span>9:41</span>
+              <span>5G 100%</span>
+            </div>
+
+            <header class="top-overlay">
+              <button class="icon-circle top-back" type="button" aria-label="Back to social">
+                <svg viewBox="0 0 24 24"><path d="M15 18 9 12l6-6"/><path d="M10 12h10"/></svg>
+              </button>
+              <div class="top-actions">
+                <button class="icon-circle creator-entry" type="button" aria-label="Create short" data-open-sheet="create">
+                  <svg viewBox="0 0 24 24"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+                </button>
+                <button class="icon-circle" type="button" aria-label="Search shorts">
+                  <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="m16 16 4 4"/></svg>
+                </button>
+                <button class="icon-circle" type="button" aria-label="More actions" data-open-sheet="more">
+                  <svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg>
+                </button>
+              </div>
+            </header>
+
+            <div class="feed-tabs-overlay" aria-label="Shorts feed modes">
+              <button class="feed-pill active" type="button">For You</button>
+              <button class="feed-pill" type="button">Following</button>
+              <button class="feed-pill" type="button">Near You</button>
+              <button class="feed-pill" type="button">Trending</button>
+            </div>
+
+            <main class="shorts-stage" data-stage>
+              <div class="progress-dots" aria-hidden="true">
+                <span class="progress-dot active" data-dot="0"></span>
+                <span class="progress-dot" data-dot="1"></span>
+                <span class="progress-dot" data-dot="2"></span>
+              </div>
+
+              <article class="short-card active" data-short="0" data-scene="market" data-detail-title="Fresh basket packed this morning" data-detail-note="Tomato, onion, potato and green vegetables ready for nearby delivery. #localbasket #fresh" data-detail-context="Basket Rs 399" data-detail-proof="45 min · shop proof · refund rule" data-detail-audio="Original audio · Fresh market beat" data-detail-items="Price:Rs 399|Time:45 min|Proof:Shop|Refund:Rule">
+                <span class="scene-shape shape-a"></span>
+                <span class="scene-shape shape-b"></span>
+                <span class="scene-shape shape-c"></span>
+                <div class="video-badge-row">
+                  <span class="video-badge">Shorts</span>
+                  <span class="video-badge">Near you</span>
+                </div>
+                <div class="short-meta-line">
+                  <button class="creator-line" type="button" data-open-sheet="creator">
+                    <span class="avatar">MS</span>
+                    <span class="creator-copy">
+                      <b>Mahadev Fresh Mart</b>
+                      <span>Verified local shop · Jodhpur</span>
+                    </span>
+                  </button>
+                  <button class="short-detail-button" type="button" data-open-short-details>Details</button>
+                </div>
+                <p class="caption">
+                  <b>Fresh basket packed this morning</b>
+                  <span>Tomato, onion, potato and green vegetables ready for nearby delivery. #localbasket #fresh</span>
+                </p>
+                <div class="context-mini" data-context-card>
+                  <span>
+                    <b>Basket Rs 399</b>
+                    <span>45 min · proof</span>
+                  </span>
+                  <button class="mini-button" type="button" aria-label="Open basket">
+                    <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+                  </button>
+                  <span class="context-proof">
+                    <i>Price</i><i>45 min</i><i>Refund</i>
+                  </span>
+                </div>
+                <div class="audio-line">
+                  <svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+                  Original audio · Fresh market beat
+                </div>
+              </article>
+
+              <article class="short-card" data-short="1" data-scene="food" data-detail-title="Lunch thali going out now" data-detail-note="Fresh roti, dal, rice and sabzi. Delivery slot and final price are visible before order. #foodshorts" data-detail-context="Order Rs 129" data-detail-proof="28 min · kitchen proof · cancel rule" data-detail-audio="Original audio · Rasoi lunch sound" data-detail-items="Price:Rs 129|Time:28 min|Proof:Kitchen|Cancel:Rule">
+                <span class="scene-shape shape-a"></span>
+                <span class="scene-shape shape-b"></span>
+                <span class="scene-shape shape-c"></span>
+                <div class="video-badge-row">
+                  <span class="video-badge">Shorts</span>
+                  <span class="video-badge">Food</span>
+                </div>
+                <div class="short-meta-line">
+                  <button class="creator-line" type="button" data-open-sheet="creator">
+                    <span class="avatar">RK</span>
+                    <span class="creator-copy">
+                      <b>Rasoi Kitchen</b>
+                      <span>Verified restaurant · Lunch live</span>
+                    </span>
+                  </button>
+                  <button class="short-detail-button" type="button" data-open-short-details>Details</button>
+                </div>
+                <p class="caption">
+                  <b>Lunch thali going out now</b>
+                  <span>Fresh roti, dal, rice and sabzi. Delivery slot and final price are visible before order. #foodshorts</span>
+                </p>
+                <div class="context-mini" data-context-card>
+                  <span>
+                    <b>Order Rs 129</b>
+                    <span>28 min · cancel</span>
+                  </span>
+                  <button class="mini-button" type="button" aria-label="Open food">
+                    <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+                  </button>
+                  <span class="context-proof">
+                    <i>Price</i><i>28 min</i><i>Cancel</i>
+                  </span>
+                </div>
+                <div class="audio-line">
+                  <svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+                  Original audio · Rasoi lunch sound
+                </div>
+              </article>
+
+              <article class="short-card" data-short="2" data-scene="work" data-detail-title="Shop QR proof task is open" data-detail-note="Visit, capture proof, submit for review. Payout rule appears before accepting. #earntoday" data-detail-context="Earn Today" data-detail-proof="Funded · geo proof · review time" data-detail-audio="Original audio · Ground ops update" data-detail-items="Status:Funded|Proof:Geo|Review:Time|Payout:Rule">
+                <span class="scene-shape shape-a"></span>
+                <span class="scene-shape shape-b"></span>
+                <span class="scene-shape shape-c"></span>
+                <div class="video-badge-row">
+                  <span class="video-badge">Shorts</span>
+                  <span class="video-badge">Earn</span>
+                </div>
+                <div class="short-meta-line">
+                  <button class="creator-line" type="button" data-open-sheet="creator">
+                    <span class="avatar">GO</span>
+                    <span class="creator-copy">
+                      <b>Ground Ops</b>
+                      <span>Verified work · Paid task</span>
+                    </span>
+                  </button>
+                  <button class="short-detail-button" type="button" data-open-short-details>Details</button>
+                </div>
+                <p class="caption">
+                  <b>Shop QR proof task is open</b>
+                  <span>Visit, capture proof, submit for review. Payout rule appears before accepting. #earntoday</span>
+                </p>
+                <div class="context-mini" data-context-card>
+                  <span>
+                    <b>Earn Today</b>
+                    <span>Funded · proof</span>
+                  </span>
+                  <button class="mini-button" type="button" aria-label="Open work">
+                    <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+                  </button>
+                  <span class="context-proof">
+                    <i>Funded</i><i>Proof</i><i>Payout</i>
+                  </span>
+                </div>
+                <div class="audio-line">
+                  <svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+                  Original audio · Ground ops update
+                </div>
+              </article>
+
+              <aside class="right-rail" aria-label="Short actions">
+                <button class="rail-action creator-follow" type="button" data-rail-action="follow" aria-label="Follow creator">
+                  <span class="follow-avatar">MS</span>
+                  <small>Follow</small>
+                </button>
+                <button class="rail-action" type="button" data-rail-action="like" aria-label="Like short">
+                  <svg viewBox="0 0 24 24"><path d="M7 10v11H4V10Z"/><path d="M7 10l5-7 1 1a3 3 0 0 1 .5 3L13 9h6a2 2 0 0 1 2 2l-2 8a2 2 0 0 1-2 2H7"/></svg>
+                  <small data-like-count>12K</small>
+                </button>
+                <button class="rail-action" type="button" aria-label="Comments" data-open-sheet="comments">
+                  <svg viewBox="0 0 24 24"><path d="M4 6h16v10H7l-3 3V6Z"/><path d="M8 10h8"/></svg>
+                  <small>294</small>
+                </button>
+                <button class="rail-action" type="button" aria-label="Share" data-open-sheet="share">
+                  <svg viewBox="0 0 24 24"><path d="M4 12v7h16v-7"/><path d="M12 15V3"/><path d="m7 8 5-5 5 5"/></svg>
+                  <small>Share</small>
+                </button>
+                <button class="rail-action" type="button" aria-label="Remix" data-open-sheet="remix">
+                  <svg viewBox="0 0 24 24"><path d="M4 7h11a5 5 0 0 1 0 10H9"/><path d="m12 13-3 4 3 4"/><path d="M20 7v4h-4"/></svg>
+                  <small>Remix</small>
+                </button>
+                <button class="rail-action" type="button" aria-label="Save">
+                  <svg viewBox="0 0 24 24"><path d="M6 4h12v17l-6-4-6 4Z"/></svg>
+                  <small>Save</small>
+                </button>
+                <button class="rail-action" type="button" aria-label="More actions" data-open-sheet="more">
+                  <svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg>
+                  <small>More</small>
+                </button>
+              </aside>
+              <section class="action-sheet" data-action-sheet aria-live="polite">
+                <div class="sheet-head">
+                  <b data-sheet-title>Creator actions</b>
+                  <button class="sheet-close" type="button" data-close-sheet aria-label="Close sheet">×</button>
+                </div>
+                <div class="sheet-grid" data-sheet-grid></div>
+                <div class="sheet-note" data-sheet-note>Choose an action to continue.</div>
+              </section>
+            </main>
+
+            <nav class="bottom-dock" aria-label="Social navigation">
+              <button class="mool-button" type="button" aria-label="Open Mool actions">
+                Mool
+              </button>
+              <div class="social-tabs" aria-label="Social sub-actions">
+                <button class="social-tab active" type="button" aria-label="Shorts">
+                  <svg viewBox="0 0 24 24"><path d="m9 6 8 6-8 6Z"/><path d="M5 5v14"/></svg>
+                  Shorts
+                </button>
+                <a class="social-tab" href="06-social-videos.html" aria-label="Open Videos">
+                  <svg viewBox="0 0 24 24"><path d="M4 7h16v10H4Z"/><path d="m10 10 5 3-5 3Z"/></svg>
+                  Videos
+                </a>
+                <a class="social-tab" href="07-social-feed.html" aria-label="Open Feed">
+                  <svg viewBox="0 0 24 24"><path d="M4 6h16v12H4Z"/><path d="M8 10h8"/><path d="M8 14h5"/></svg>
+                  Feed
+                </a>
+                <a class="social-tab" href="08-social-create.html" aria-label="Open Create">
+                  <svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+                  Create
+                </a>
+              </div>
+              <button class="chat-button" type="button" aria-label="Open chats, 2 unread messages">
+                <svg viewBox="0 0 24 24"><path d="M4 6h16v10H7l-3 3V6Z"/><path d="M8 10h8"/></svg>
+                Chat
+                <span class="chat-badge" aria-hidden="true">2</span>
+              </button>
+            </nav>
+          </div>
+        </section>
+
+        <aside class="launcher">
+          <article class="verdict-card">
+            <h3>Screen verdict</h3>
+            <h2>MoolSocial Shorts is a creator product, not only a content feed.</h2>
+            <p>The user lands in vertical video consumption immediately. Creators get reach, follow, remix, save, audio/source, attribution and monetisation paths without turning the screen into a marketplace.</p>
+          </article>
+          <article class="verdict-card">
+            <h3>Try sample content</h3>
+            <p>These samples show how Shorts can carry consumer, food and earning signals without becoming a marketplace grid.</p>
+            <div class="demo-controls">
+              <button class="active" type="button" data-short-control="0">Grocery</button>
+              <button type="button" data-short-control="1">Food</button>
+              <button type="button" data-short-control="2">Work</button>
+            </div>
+          </article>
+          <article class="verdict-card">
+            <h3>UX lock</h3>
+            <p>One vertical full-screen feed, one active short, minimal floating top controls, one right creator action rail, one thin bottom social nav. Mool and Chat stay reachable without covering the main content.</p>
+          </article>
+          <article class="verdict-card">
+            <h3>Creator product</h3>
+            <p>Creator journey later expands into Create, Studio, Insights, Attribution, Campaigns and Payouts. On this screen, the visible creator hooks are follow, remix, save, original audio and contextual proof.</p>
+          </article>
+        </aside>
+      </div>
+
+      <div class="ms-section-head">Screen Contract <span>Entry, behavior and exit</span></div>
+      <div class="ms-grid-3">
+        <article class="ms-card">
+          <h3>Entry Condition</h3>
+          <p>Screen 04 activeWorld is Social and active sub-action is Shorts. User has a valid individual session, area state and language state.</p>
+        </article>
+        <article class="ms-card">
+          <h3>Primary Behavior</h3>
+          <p>Load a vertical full-screen short-video feed instantly. Discovery modes exist in ranking/search, but the default viewer should not show a bulky header or category rail.</p>
+        </article>
+        <article class="ms-card">
+          <h3>Exit Paths</h3>
+          <p>Mool opens universal actions, Chat opens messages, Videos/Feed/Create route to their own social screens, and contextual cards route to the relevant world.</p>
+        </article>
+      </div>
+
+      <div class="ms-section-head">MoolSocial Shorts Product Scope <span>Creator product baseline</span></div>
+      <div class="ms-grid-4">
+        <article class="ms-card">
+          <h3>Watch</h3>
+          <p>Vertical swipe feed, For You, Following, Near You, Trending, search, captions, hashtags, local relevance, creator profile and original audio.</p>
+        </article>
+        <article class="ms-card">
+          <h3>Engage</h3>
+          <p>Follow, like, comments, share, save, remix, more/report, not interested, mute creator, block creator and safety moderation.</p>
+        </article>
+        <article class="ms-card">
+          <h3>Create</h3>
+          <p>Record, upload, trim, cover, captions, hashtags, location tag, original audio, remix permission, drafts and creator verification route.</p>
+        </article>
+        <article class="ms-card">
+          <h3>Earn</h3>
+          <p>Attribution, campaign eligibility, product/service proof, lead/order/booking signal, insights and payout route through verified workspace.</p>
+        </article>
+      </div>
+
+      <div class="ms-section-head">Competitor Parity And MoolSocial Edge <span>User, creator and business view</span></div>
+      <div class="state-table">
+        <div class="state-row">
+          <div class="state-cell"><b>User expectation</b>YouTube, Instagram, Facebook pattern.</div>
+          <div class="state-cell">Instant vertical full-screen feed, swipe up for next, swipe down for previous, follow, like, comments, share, save, remix, original audio, captions, hashtags, report and not interested.</div>
+          <div class="state-cell">MoolSocial must match this expectation so users do not feel they are using a weaker social product.</div>
+        </div>
+        <div class="state-row">
+          <div class="state-cell"><b>Creator expectation</b>Growth and control.</div>
+          <div class="state-cell">Creator needs creation tools, drafts, audio, templates, remix permission, comments control, profile growth, insights, safety and monetisation path.</div>
+          <div class="state-cell">Screen 05 shows the viewer side; Screen 08 should become the creator creation/studio entry.</div>
+        </div>
+        <div class="state-row">
+          <div class="state-cell"><b>MoolSocial edge</b>Socio-commerce attribution.</div>
+          <div class="state-cell">A short can generate verified product demand, food orders, bookings, work tasks, local campaigns and creator-attributed outcomes.</div>
+          <div class="state-cell">The creator is not paid only for views; future payout logic should connect to verified demand, transactions, campaigns and trust.</div>
+        </div>
+        <div class="state-row">
+          <div class="state-cell"><b>UI/UX rule</b>No clutter.</div>
+          <div class="state-cell">Advanced actions open in sheets. Top chrome fades when idle; context proof expands only on tap.</div>
+          <div class="state-cell">This keeps the experience familiar, cleaner and still gives MoolSocial its own operating-system layer.</div>
+        </div>
+      </div>
+
+      <div class="ms-section-head">UI/UX Rules <span>Production-facing behavior</span></div>
+      <div class="state-table">
+        <div class="state-row">
+          <div class="state-cell"><b>Content Focus</b>Vertical short-video feed.</div>
+          <div class="state-cell">Full screen visual content with only creator identity, follow state and one small Details affordance visible by default.</div>
+          <div class="state-cell">Caption, hashtags, product/service proof, earning proof and audio attribution stay hidden until the user asks.</div>
+        </div>
+        <div class="state-row">
+          <div class="state-cell"><b>Short Navigation</b>Back and forth through shorts.</div>
+          <div class="state-cell">Mobile: swipe up opens next short; swipe down returns to previous short. Prototype also supports mouse wheel and ArrowUp/ArrowDown.</div>
+          <div class="state-cell">Navigation changes the active short only; it must not change root app world or bottom Social sub-action.</div>
+        </div>
+        <div class="state-row">
+          <div class="state-cell"><b>Discovery Modes</b>Creator reach surfaces.</div>
+          <div class="state-cell">For You, Following, Near You and Trending are feed modes, but they should not permanently occupy video space in the MVP viewer.</div>
+          <div class="state-cell">Mode change can happen through search/filter/sheet later; the default view remains full-screen.</div>
+        </div>
+        <div class="state-row">
+          <div class="state-cell"><b>Right Rail</b>Content actions only.</div>
+          <div class="state-cell">Follow creator, like, comments/chat, share, remix, save and more/report. Counts update optimistically, then reconcile with server state.</div>
+          <div class="state-cell">Right rail must not be used for root navigation because video actions need this space.</div>
+        </div>
+        <div class="state-row">
+          <div class="state-cell"><b>Context Card</b>Only when relevant.</div>
+          <div class="state-cell">A short may contain product, food, service, ride, booking or earning opportunity context.</div>
+          <div class="state-cell">That context opens through Details as a proof sheet for price/time/proof/cancellation or payout rule, so the video remains primary.</div>
+        </div>
+        <div class="state-row">
+          <div class="state-cell"><b>Creator Profile</b>One tap from avatar/name.</div>
+          <div class="state-cell">Creator mini-sheet shows follow, message, profile, workspace proof, more shorts and safety controls.</div>
+          <div class="state-cell">This keeps creator discovery strong without putting a full profile card over every short.</div>
+        </div>
+        <div class="state-row">
+          <div class="state-cell"><b>Bottom Dock</b>Mool, Social tabs and Chat.</div>
+          <div class="state-cell">Mool is fixed, Chat is fixed, Social sub-actions remain scrollable and readable: Shorts, Videos, Feed, Create.</div>
+          <div class="state-cell">Mool button shape is a shared brand anchor and must remain visually consistent across all focused sub-screens.</div>
+        </div>
+        <div class="state-row">
+          <div class="state-cell"><b>Creator Product</b>Growth and monetisation path.</div>
+          <div class="state-cell">Shorts must support creator profile, follow graph, remix/original audio, content analytics, attribution, campaign eligibility, moderation and monetisation signals.</div>
+          <div class="state-cell">Payouts and creator campaigns are not shown as wallet UI here; they route to Work, Workspace or creator studio later.</div>
+        </div>
+      </div>
+
+      <div class="ms-section-head">Full-Stack Implementation Contract <span>Deferred backend, defined needs</span></div>
+      <div class="ms-grid-4">
+        <article class="ms-card">
+          <h3>Required Data</h3>
+          <ul class="ms-list">
+            <li>shortId, creatorId, mediaUrl, posterUrl, duration and playback cursor.</li>
+            <li>creator name, verification state, creator type, location/category and follow state.</li>
+            <li>caption, hashtags, audio/source attribution, remix permission and moderation labels.</li>
+            <li>like/comment/share/remix/save/report counts and viewer action state.</li>
+            <li>feed mode, ranking reason, optional commerce/work context card with serviceability and proof.</li>
+            <li>creator eligibility state for studio, campaigns, insights and monetisation.</li>
+          </ul>
+        </article>
+        <article class="ms-card">
+          <h3>API Intent</h3>
+          <ul class="ms-list">
+            <li>GET /v1/social/shorts/feed for initial and paginated feed.</li>
+            <li>POST /v1/social/shorts/action for follow, like, save, share, remix, report, mute and not interested.</li>
+            <li>GET /v1/social/shorts/comments for comments and creator replies.</li>
+            <li>POST /v1/social/shorts/create for upload/record handoff from Screen 08 Create.</li>
+            <li>POST /v1/social/shorts/view-event for watch time and completion signals.</li>
+            <li>GET /v1/social/shorts/audio/:id for original audio and remix source.</li>
+            <li>GET /v1/context-card/:id for verified product/service/work attribution.</li>
+          </ul>
+        </article>
+        <article class="ms-card">
+          <h3>States To Design</h3>
+          <ul class="ms-list">
+            <li>Loading first short with skeleton poster.</li>
+            <li>Network loss while current short is already loaded.</li>
+            <li>No local shorts available, fallback to wider interest feed.</li>
+            <li>Removed or unsafe content state.</li>
+            <li>Creator blocked/muted, not interested, report flow and remix-disabled state.</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="ms-section-head">Regression Gates <span>Before production lock</span></div>
+      <div class="ms-grid-3">
+        <article class="ms-card">
+          <h3>No Marketplace Drift</h3>
+          <p>Shorts cannot become a product listing screen. Product/service/work context must stay compact, verified and attached to the short.</p>
+        </article>
+        <article class="ms-card">
+          <h3>No Navigation Conflict</h3>
+          <p>Right rail remains content actions only. Root action switching stays with Mool and Screen 04 navigation logic.</p>
+        </article>
+        <article class="ms-card">
+          <h3>No Role Switching</h3>
+          <p>Creator, retailer, doctor, captain or manufacturer identity appears only as verified creator/business context, not as manual role tabs.</p>
+        </article>
+        <article class="ms-card">
+          <h3>No Platform Copy</h3>
+          <p>Use familiar short-video behavior, but keep MoolSocial's own layout, brand, creator attribution and socio-commerce proof system.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const shortCards = Array.from(document.querySelectorAll("[data-short]"));
+    const dots = Array.from(document.querySelectorAll("[data-dot]"));
+    const controls = Array.from(document.querySelectorAll("[data-short-control]"));
+    const feedPills = Array.from(document.querySelectorAll(".feed-pill"));
+    const followButton = document.querySelector("[data-rail-action='follow']");
+    const likeButton = document.querySelector("[data-rail-action='like']");
+    const likeCount = document.querySelector("[data-like-count]");
+    const sheet = document.querySelector("[data-action-sheet]");
+    const sheetTitle = document.querySelector("[data-sheet-title]");
+    const sheetGrid = document.querySelector("[data-sheet-grid]");
+    const sheetNote = document.querySelector("[data-sheet-note]");
+    const appShell = document.querySelector(".shorts-app");
+    const stage = document.querySelector("[data-stage]");
+    const contextCards = Array.from(document.querySelectorAll("[data-context-card]"));
+    const shortDetailButtons = Array.from(document.querySelectorAll("[data-open-short-details]"));
+    let liked = false;
+    let followed = false;
+    let idleTimer;
+    let currentShortIndex = 0;
+    let wheelLock = false;
+    let touchStartY = 0;
+
+    const sheetContent = {
+      creator: {
+        title: "Creator profile",
+        note: "Creator profile must show follow, message, workspace proof, more videos and verified commerce/work attribution.",
+        items: [
+          ["Follow", "Creator"],
+          ["Message", "Chat"],
+          ["Profile", "Open"],
+          ["Workspace", "Proof"],
+          ["More shorts", "Watch"],
+          ["Report", "Safety"]
+        ]
+      },
+      create: {
+        title: "Create on MoolSocial Shorts",
+        note: "Creator flow opens fully in Screen 08. This entry keeps creator creation one tap away from viewing.",
+        items: [
+          ["Record", "Camera"],
+          ["Upload", "Gallery"],
+          ["Drafts", "Saved"],
+          ["Templates", "Fast edit"],
+          ["Audio", "Original"],
+          ["Studio", "Later"]
+        ]
+      },
+      context: {
+        title: "Verified opportunity",
+        note: "MoolSocial keeps price, time, proof and refund or payout rule behind one tap so the short remains full-screen.",
+        items: [
+          ["Price", "Shown"],
+          ["Time", "Shown"],
+          ["Proof", "Verified"],
+          ["Refund", "Rule"],
+          ["Payment", "Ready"],
+          ["Open", "Next"]
+        ]
+      },
+      comments: {
+        title: "Comments and replies",
+        note: "Production needs pinned comments, creator replies, filters, abuse control and translation where available.",
+        items: [
+          ["Top", "294"],
+          ["Creator", "Reply"],
+          ["Mention", "Tag"],
+          ["Filter", "Safe"],
+          ["Translate", "Lang"],
+          ["Report", "Abuse"]
+        ]
+      },
+      share: {
+        title: "Share short",
+        note: "Sharing should support in-app chat, external share, link copy and attribution-safe forwarding.",
+        items: [
+          ["Chat", "In app"],
+          ["Status", "Post"],
+          ["Copy", "Link"],
+          ["QR", "Offline"],
+          ["Group", "Local"],
+          ["Embed", "Later"]
+        ]
+      },
+      remix: {
+        title: "Remix and reuse",
+        note: "Creator can allow or disable remix. Reuse must keep original source and attribution intact.",
+        items: [
+          ["Remix", "Video"],
+          ["Use audio", "Sound"],
+          ["Template", "Edit"],
+          ["Duet", "Later"],
+          ["Sequence", "Later"],
+          ["Permission", "On"]
+        ]
+      },
+      more: {
+        title: "More actions",
+        note: "Safety and control must be visible without distracting from the main short.",
+        items: [
+          ["Not interested", "Rank"],
+          ["Mute", "Creator"],
+          ["Report", "Safety"],
+          ["Block", "User"],
+          ["Captions", "Auto"],
+          ["Quality", "Data"]
+        ]
+      }
+    };
+
+    function setShort(index) {
+      const count = shortCards.length;
+      currentShortIndex = (Number(index) + count) % count;
+      const prevIndex = (currentShortIndex - 1 + count) % count;
+      const nextIndex = (currentShortIndex + 1) % count;
+      shortCards.forEach((card) => {
+        const cardIndex = Number(card.dataset.short);
+        card.classList.toggle("active", cardIndex === currentShortIndex);
+        card.classList.toggle("prev", cardIndex === prevIndex);
+        card.classList.toggle("next", cardIndex === nextIndex);
+      });
+      dots.forEach((dot) => dot.classList.toggle("active", dot.dataset.dot === String(currentShortIndex)));
+      controls.forEach((button) => button.classList.toggle("active", button.dataset.shortControl === String(currentShortIndex)));
+      contextCards.forEach((card) => card.classList.remove("expanded"));
+      closeSheet();
+      wakeChrome();
+    }
+
+    function nextShort() {
+      setShort(currentShortIndex + 1);
+    }
+
+    function previousShort() {
+      setShort(currentShortIndex - 1);
+    }
+
+    controls.forEach((button) => {
+      button.addEventListener("click", () => setShort(button.dataset.shortControl));
+    });
+
+    function renderSheet(content, type = "") {
+      if (!sheet || !content) return;
+      sheet.classList.toggle("creator-sheet", type === "creator");
+      sheet.classList.toggle("detail-sheet", type === "details");
+      if (sheetTitle) sheetTitle.textContent = content.title;
+      if (sheetNote) sheetNote.textContent = content.note;
+      if (sheetGrid) {
+        sheetGrid.innerHTML = content.items.map(([label, value]) => `
+          <span class="sheet-chip"><strong>${value}</strong>${label}</span>
+        `).join("");
+      }
+      sheet.classList.add("open");
+      wakeChrome();
+    }
+
+    function openSheet(type) {
+      const content = sheetContent[type];
+      renderSheet(content, type);
+    }
+
+    function openShortDetails(button) {
+      const card = button.closest("[data-short]");
+      if (!card) return;
+      const detailItems = (card.dataset.detailItems || "")
+        .split("|")
+        .filter(Boolean)
+        .map((item) => {
+          const [label, ...valueParts] = item.split(":");
+          return [label || "Detail", valueParts.join(":") || "Shown"];
+        });
+      const note = [
+        card.dataset.detailNote,
+        card.dataset.detailContext,
+        card.dataset.detailProof,
+        card.dataset.detailAudio
+      ].filter(Boolean).join(" · ");
+      renderSheet({
+        title: card.dataset.detailTitle || "Short details",
+        note,
+        items: detailItems.length ? detailItems : [["Details", "Open"]]
+      }, "details");
+    }
+
+    function closeSheet() {
+      sheet?.classList.remove("open");
+      sheet?.classList.remove("creator-sheet");
+      sheet?.classList.remove("detail-sheet");
+    }
+
+    function wakeChrome() {
+      appShell?.classList.remove("idle");
+      window.clearTimeout(idleTimer);
+      idleTimer = window.setTimeout(() => {
+        if (!sheet?.classList.contains("open")) appShell?.classList.add("idle");
+      }, 2200);
+    }
+
+    document.querySelectorAll("[data-open-sheet]").forEach((button) => {
+      button.addEventListener("click", () => openSheet(button.dataset.openSheet));
+    });
+
+    document.querySelector("[data-close-sheet]")?.addEventListener("click", closeSheet);
+
+    shortDetailButtons.forEach((button) => {
+      button.addEventListener("click", () => openShortDetails(button));
+    });
+
+    contextCards.forEach((card) => {
+      card.addEventListener("click", (event) => {
+        event.preventDefault();
+        contextCards.forEach((other) => other.classList.remove("expanded"));
+        card.classList.add("expanded");
+        openSheet("context");
+        wakeChrome();
+      });
+    });
+
+    appShell?.addEventListener("pointerdown", wakeChrome);
+    stage?.addEventListener("pointerdown", wakeChrome);
+    stage?.addEventListener("wheel", (event) => {
+      if (Math.abs(event.deltaY) < 22 || wheelLock || sheet?.classList.contains("open")) return;
+      event.preventDefault();
+      wheelLock = true;
+      if (event.deltaY > 0) nextShort();
+      else previousShort();
+      window.setTimeout(() => { wheelLock = false; }, 360);
+    }, { passive: false });
+
+    stage?.addEventListener("touchstart", (event) => {
+      touchStartY = event.touches[0]?.clientY || 0;
+      wakeChrome();
+    }, { passive: true });
+
+    stage?.addEventListener("touchend", (event) => {
+      if (sheet?.classList.contains("open")) return;
+      const endY = event.changedTouches[0]?.clientY || touchStartY;
+      const deltaY = endY - touchStartY;
+      if (Math.abs(deltaY) < 42) return;
+      if (deltaY < 0) nextShort();
+      else previousShort();
+    }, { passive: true });
+
+    document.addEventListener("keydown", (event) => {
+      if (sheet?.classList.contains("open")) return;
+      if (event.key === "ArrowDown") nextShort();
+      if (event.key === "ArrowUp") previousShort();
+    });
+
+    setShort(0);
+    wakeChrome();
+
+    feedPills.forEach((button) => {
+      button.addEventListener("click", () => {
+        feedPills.forEach((pill) => pill.classList.toggle("active", pill === button));
+        closeSheet();
+      });
+    });
+
+    followButton?.addEventListener("click", () => {
+      followed = !followed;
+      followButton.classList.toggle("active", followed);
+      const label = followButton.querySelector("small");
+      if (label) label.textContent = followed ? "Following" : "Follow";
+    });
+
+    likeButton?.addEventListener("click", () => {
+      liked = !liked;
+      likeButton.classList.toggle("active", liked);
+      if (likeCount) likeCount.textContent = liked ? "12.1K" : "12K";
+    });
+  </script>
+</body>
+</html>

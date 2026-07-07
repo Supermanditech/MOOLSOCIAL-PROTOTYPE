@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MoolSocial Shared UI Foundation</title>
+  <link rel="stylesheet" href="shared/moolsocial-ui-foundation.css" />
+</head>
+<body class="ms-doc">
+  <main class="ms-page">
+    <header class="ms-topbar">
+      <div>
+        <h1 class="ms-title">MoolSocial Shared UI Foundation</h1>
+        <p class="ms-lead">
+          Reusable UI tokens and components for all upcoming screen-by-screen UX work. This file is the starting kit for splash, onboarding,
+          universal screen, decision cards, chat, work, money and commerce surfaces.
+        </p>
+      </div>
+      <span class="ms-status">UI Foundation</span>
+    </header>
+
+    <section class="ms-panel">
+      <div class="ms-section-head">Brand Lockup Component <span>Use on splash, header, store and public pages</span></div>
+      <div style="display:grid;place-items:center;padding:28px;border-bottom:1px solid var(--ms-navy);">
+        <div class="ms-logo-board" style="width:min(760px,100%);">
+          <div class="ms-logo-lockup">
+            <div class="ms-logo-wordmark">MoolSocial</div>
+            <div class="ms-identity-line" aria-hidden="true"><span></span><span></span><span></span></div>
+            <div class="ms-logo-tagline">India Ka Socio Commerce App</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ms-section-head">Design Tokens <span>Use these names in app theme</span></div>
+      <div class="ms-grid-4">
+        <article class="ms-swatch">
+          <div class="ms-swatch-color ms-saffron"></div>
+          <div class="ms-swatch-copy"><b>--ms-saffron</b><span>#FF9933</span><span>Energy, identity line, high-attention accents.</span></div>
+        </article>
+        <article class="ms-swatch">
+          <div class="ms-swatch-color ms-white"></div>
+          <div class="ms-swatch-copy"><b>--ms-white</b><span>#FFFFFF</span><span>Primary surface and reverse wordmark.</span></div>
+        </article>
+        <article class="ms-swatch">
+          <div class="ms-swatch-color ms-green"></div>
+          <div class="ms-swatch-copy"><b>--ms-green</b><span>#138808</span><span>Trust, completion, proof, growth and positive states.</span></div>
+        </article>
+        <article class="ms-swatch">
+          <div class="ms-swatch-color ms-navy"></div>
+          <div class="ms-swatch-copy"><b>--ms-navy</b><span>#000080</span><span>Main brand field, text, app shell and signboard visibility.</span></div>
+        </article>
+      </div>
+
+      <div class="ms-section-head">Core Controls <span>Buttons, chips and action surfaces</span></div>
+      <div class="ms-grid-3">
+        <article class="ms-card">
+          <h3>Buttons</h3>
+          <div class="ms-actions">
+            <a class="ms-button ms-button-primary" href="#">Continue</a>
+            <a class="ms-button ms-button-secondary" href="#">Later</a>
+            <a class="ms-button ms-button-success" href="#">Verified</a>
+          </div>
+        </article>
+        <article class="ms-card">
+          <h3>Chips</h3>
+          <div class="ms-actions">
+            <span class="ms-chip">Social</span>
+            <span class="ms-chip">Commerce</span>
+            <span class="ms-chip">Work</span>
+            <span class="ms-chip">Money</span>
+            <span class="ms-chip">Chat</span>
+          </div>
+        </article>
+        <article class="ms-card">
+          <h3>Search / Ask / Scan / Voice</h3>
+          <div class="ms-search-bar">
+            <span>Search or ask MoolSocial</span>
+            <span class="ms-icon-button">A</span>
+            <span class="ms-icon-button">S</span>
+            <span class="ms-icon-button">V</span>
+          </div>
+        </article>
+      </div>
+
+      <div class="ms-section-head">Decision Card Standard <span>Products and services must be decision-ready</span></div>
+      <div class="ms-grid-2">
+        <article class="ms-card">
+          <h3>Card Must Answer</h3>
+          <ul class="ms-list">
+            <li>Price or estimated price.</li>
+            <li>Delivery, fulfilment or service time.</li>
+            <li>Trust proof, rating, verification or receipt.</li>
+            <li>Payment, EMI or money option when available.</li>
+            <li>Refund, cancellation or support expectation.</li>
+            <li>Clear next action.</li>
+          </ul>
+        </article>
+        <article class="ms-card">
+          <div class="ms-decision-card">
+            <h3>Monthly Grocery Pack</h3>
+            <div class="ms-data-row"><b>Price</b><span>₹2,480 estimated</span></div>
+            <div class="ms-data-row"><b>Time</b><span>Today by 8 PM</span></div>
+            <div class="ms-data-row"><b>Trust</b><span>Verified local fulfilment, invoice proof</span></div>
+            <div class="ms-data-row"><b>Payment</b><span>UPI, wallet, pay later if eligible</span></div>
+            <div class="ms-data-row"><b>Refund</b><span>Item-level replacement or refund</span></div>
+            <a class="ms-button ms-button-primary" href="#">Check Options</a>
+          </div>
+        </article>
+      </div>
+
+      <div class="ms-section-head">Universal Screen Primitive <span>Consumer access stays always-on</span></div>
+      <div class="ms-grid-2">
+        <article class="ms-card" style="display:grid;place-items:center;">
+          <div class="ms-phone">
+            <div class="ms-phone-header">
+              <div style="font-size:24px;font-weight:950;line-height:1;">MoolSocial</div>
+              <div class="ms-search-bar">
+                <span>Ask, search, scan or speak</span>
+                <span class="ms-icon-button">A</span>
+                <span class="ms-icon-button">S</span>
+                <span class="ms-icon-button">V</span>
+              </div>
+            </div>
+            <div style="display:grid;gap:12px;padding:14px;">
+              <div class="ms-decision-card">
+                <h3>Smart Role Panel</h3>
+                <p style="margin:0;font-size:13px;line-height:1.45;">Appears automatically from verified workspace, pending work, behavior, time, location and priority. No visible role switch.</p>
+              </div>
+              <div class="ms-actions">
+                <span class="ms-chip">Social</span>
+                <span class="ms-chip">Commerce</span>
+                <span class="ms-chip">Work</span>
+                <span class="ms-chip">Money</span>
+                <span class="ms-chip">Chat</span>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="ms-card">
+          <h3>Universal Screen Rules</h3>
+          <ul class="ms-list">
+            <li>No visible Personal | Retailer | Taxi | Creator role-switch row.</li>
+            <li>Personal consumer access never disappears.</li>
+            <li>Social, commerce, work, money and chat stay one-tap reachable.</li>
+            <li>Products/services appear as decision cards, not endless grids.</li>
+            <li>Smart role panel should feel helpful, not like a separate mode.</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="ms-section-head">Implementation Tokens <span>Import this CSS before screen styling</span></div>
+      <div style="padding:18px;border-bottom:1px solid var(--ms-navy);">
+        <pre class="ms-code">&lt;link rel=&quot;stylesheet&quot; href=&quot;../shared/moolsocial-ui-foundation.css&quot; /&gt;</pre>
+      </div>
+
+      <div class="ms-section-head">Regression Rule <span>Before production coding</span></div>
+      <div class="ms-grid-2">
+        <article class="ms-card">
+          <h3>Every New Screen Must Use</h3>
+          <p>Brand tokens, logo lockup, 8px card radius, pill controls, decision-card data structure and always-on consumer access pattern.</p>
+        </article>
+        <article class="ms-card">
+          <h3>Do Not Add</h3>
+          <p>Unapproved colours, decorative blobs, new brand marks, role-switch tabs, product grids as the main commerce experience, or vague marketplace copy.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,1816 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>06 Social Videos - MoolSocial Screenbook</title>
+  <link rel="stylesheet" href="../shared/moolsocial-ui-foundation.css" />
+  <style>
+    .screen-shell {
+      display: grid;
+      gap: 18px;
+    }
+
+    .back-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .screen-link-home {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--ms-navy);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .back-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--ms-navy);
+      border-radius: var(--ms-radius);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .videos-preview {
+      display: grid;
+      grid-template-columns: minmax(320px, 390px) minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+      padding: 18px;
+      border-bottom: 1px solid var(--ms-navy);
+      background: var(--ms-white);
+    }
+
+    .phone {
+      width: min(100%, 370px);
+      min-height: 742px;
+      display: grid;
+      justify-self: center;
+      border: 10px solid var(--ms-navy);
+      border-radius: 32px;
+      background: var(--ms-navy);
+      overflow: hidden;
+    }
+
+    .video-app {
+      position: relative;
+      min-height: 742px;
+      display: grid;
+      grid-template-rows: auto auto 1fr auto;
+      background: #050505;
+      color: var(--ms-white);
+      overflow: hidden;
+    }
+
+    .video-app.watch-mode {
+      grid-template-rows: auto 1fr auto;
+    }
+
+    .status-row {
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 18px 0;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    .app-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 9px 14px 11px;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+    }
+
+    .video-app.watch-mode .app-bar,
+    .video-app.watch-mode .feed-state,
+    .video-app:not(.watch-mode) .watch-scroll {
+      display: none;
+    }
+
+    .brand-lockup {
+      display: grid;
+      gap: 4px;
+      min-width: 0;
+    }
+
+    .brand-lockup b {
+      color: var(--ms-white);
+      font-size: 18px;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .identity-line {
+      width: 98px;
+      height: 3px;
+      display: grid;
+      grid-template-columns: 45fr 14fr 41fr;
+      border-radius: var(--ms-pill);
+      overflow: hidden;
+    }
+
+    .identity-line span:nth-child(1) { background: var(--ms-saffron); }
+    .identity-line span:nth-child(2) { background: var(--ms-white); }
+    .identity-line span:nth-child(3) { background: var(--ms-green); }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .icon-circle {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, .28);
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .12);
+      color: var(--ms-white);
+      cursor: pointer;
+    }
+
+    .icon-circle svg,
+    .watch-action svg,
+    .video-tab svg,
+    .mool-button svg,
+    .chat-button svg,
+    .play-control svg,
+    .compact-action svg {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .watch-scroll {
+      min-height: 0;
+      overflow-y: auto;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+      background: #050505;
+    }
+
+    .watch-scroll::-webkit-scrollbar {
+      display: none;
+    }
+
+    .feed-state {
+      min-height: 0;
+      overflow-y: auto;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 86px;
+      background: #050505;
+      color: var(--ms-white);
+    }
+
+    .feed-state::-webkit-scrollbar {
+      display: none;
+    }
+
+    .topic-rail {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 10px 12px;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+      background: #050505;
+    }
+
+    .topic-rail::-webkit-scrollbar {
+      display: none;
+    }
+
+    .topic-chip {
+      appearance: none;
+      flex: 0 0 auto;
+      min-height: 36px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 0;
+      border-radius: 10px;
+      padding: 0 14px;
+      background: #202020;
+      color: var(--ms-white);
+      font-family: var(--ms-font);
+      font-size: 13px;
+      font-weight: 850;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+
+    .topic-chip.icon {
+      width: 42px;
+      padding: 0;
+    }
+
+    .topic-chip svg {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .topic-chip.active {
+      background: var(--ms-white);
+      color: #050505;
+    }
+
+    .feed-stack {
+      display: grid;
+      gap: 18px;
+      padding: 0 12px 16px;
+    }
+
+    .sponsored-card,
+    .feed-video-card {
+      appearance: none;
+      display: grid;
+      gap: 9px;
+      border: 0;
+      padding: 0;
+      background: transparent;
+      color: var(--ms-white);
+      font-family: var(--ms-font);
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .feed-video-card,
+    .short-tile,
+    .video-tab {
+      text-decoration: none;
+    }
+
+    .wide-thumb {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      border-radius: 0;
+      background:
+        linear-gradient(180deg, transparent 45%, rgba(0, 0, 0, .72)),
+        url("../assets/shorts-market-grocery.png") center / cover no-repeat;
+    }
+
+    .wide-thumb.food {
+      filter: hue-rotate(25deg) saturate(1.08);
+    }
+
+    .wide-thumb.work {
+      filter: hue-rotate(122deg) saturate(.96);
+    }
+
+    .wide-thumb .duration,
+    .wide-thumb .mute,
+    .wide-thumb .cc {
+      position: absolute;
+      min-height: 22px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 7px;
+      padding: 0 7px;
+      background: rgba(0, 0, 0, .76);
+      color: var(--ms-white);
+      font-size: 10px;
+      font-weight: 950;
+    }
+
+    .wide-thumb .duration {
+      right: 8px;
+      bottom: 8px;
+    }
+
+    .smart-badge {
+      position: absolute;
+      left: 8px;
+      bottom: 8px;
+      min-height: 24px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      border-radius: var(--ms-pill);
+      padding: 0 9px;
+      background: rgba(255, 255, 255, .94);
+      color: var(--ms-navy);
+      font-size: 9px;
+      font-weight: 950;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, .26);
+    }
+
+    .smart-badge i {
+      width: 6px;
+      height: 6px;
+      display: inline-block;
+      border-radius: 50%;
+      background: var(--ms-green);
+    }
+
+    .wide-thumb .mute {
+      right: 8px;
+      top: 8px;
+      width: 28px;
+      padding: 0;
+    }
+
+    .wide-thumb .cc {
+      right: 8px;
+      top: 38px;
+      width: 28px;
+      padding: 0;
+    }
+
+    .feed-copy-row {
+      display: grid;
+      grid-template-columns: 38px 1fr auto;
+      gap: 9px;
+      align-items: start;
+    }
+
+    .feed-avatar {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--ms-saffron), var(--ms-green));
+      color: var(--ms-white);
+      font-size: 11px;
+      font-weight: 950;
+    }
+
+    .feed-copy {
+      display: grid;
+      gap: 4px;
+      min-width: 0;
+    }
+
+    .feed-copy b {
+      color: var(--ms-white);
+      font-size: 14px;
+      line-height: 1.24;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .feed-copy span {
+      color: rgba(255, 255, 255, .62);
+      font-size: 11px;
+      line-height: 1.25;
+      font-weight: 800;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .feed-proof-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+      margin-top: 2px;
+    }
+
+    .feed-proof-row::-webkit-scrollbar {
+      display: none;
+    }
+
+    .feed-proof-row i {
+      flex: 0 0 auto;
+      min-height: 24px;
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid rgba(255, 255, 255, .14);
+      border-radius: var(--ms-pill);
+      padding: 0 8px;
+      background: rgba(255, 255, 255, .08);
+      color: rgba(255, 255, 255, .82);
+      font-size: 8.5px;
+      font-style: normal;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .quick-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 7px;
+      margin-top: 3px;
+    }
+
+    .quick-chip {
+      min-height: 32px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255, 255, 255, .12);
+      border-radius: var(--ms-pill);
+      background: #1d1d1d;
+      color: var(--ms-white);
+      font-size: 10px;
+      font-weight: 950;
+      line-height: 1;
+    }
+
+    .quick-chip.primary {
+      border-color: transparent;
+      background: var(--ms-white);
+      color: #050505;
+    }
+
+    .feed-more {
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      border: 0;
+      background: transparent;
+      color: var(--ms-white);
+      font-size: 20px;
+      font-weight: 950;
+    }
+
+    .ad-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .ad-action {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 0;
+      border-radius: var(--ms-pill);
+      background: #222;
+      color: var(--ms-white);
+      font-family: var(--ms-font);
+      font-size: 13px;
+      font-weight: 950;
+    }
+
+    .ad-action.primary {
+      background: var(--ms-white);
+      color: #050505;
+    }
+
+    .shorts-section {
+      display: grid;
+      gap: 10px;
+    }
+
+    .shorts-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--ms-white);
+      font-size: 17px;
+      font-weight: 950;
+    }
+
+    .shorts-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .short-tile {
+      position: relative;
+      min-height: 180px;
+      display: grid;
+      align-content: end;
+      overflow: hidden;
+      border-radius: 10px;
+      padding: 9px;
+      background:
+        linear-gradient(180deg, transparent 42%, rgba(0, 0, 0, .76)),
+        url("../assets/shorts-market-grocery.png") center / cover no-repeat;
+      color: var(--ms-white);
+    }
+
+    .short-tile:nth-child(2) {
+      filter: hue-rotate(35deg) saturate(1.1);
+    }
+
+    .short-tile:nth-child(3) {
+      filter: hue-rotate(125deg) saturate(.92);
+    }
+
+    .short-tile:nth-child(4) {
+      filter: hue-rotate(260deg) saturate(.98);
+    }
+
+    .short-tile b {
+      font-size: 12px;
+      line-height: 1.25;
+      text-shadow: 0 1px 9px rgba(0, 0, 0, .46);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .short-label {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      min-height: 24px;
+      display: inline-flex;
+      align-items: center;
+      border-radius: 7px;
+      padding: 0 8px;
+      background: var(--ms-white);
+      color: #050505;
+      font-size: 10px;
+      font-weight: 950;
+    }
+
+    .video-player {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, rgba(0, 0, 0, .08), rgba(0, 0, 0, .40)),
+        url("../assets/shorts-market-grocery.png") center / cover no-repeat;
+      color: var(--ms-white);
+    }
+
+    .video-player::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(0, 0, 0, .36), transparent 48%, rgba(0, 0, 0, .20)),
+        linear-gradient(180deg, transparent 50%, rgba(0, 0, 0, .48));
+    }
+
+    .player-top,
+    .player-bottom {
+      position: absolute;
+      left: 12px;
+      right: 12px;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .player-top {
+      top: 10px;
+    }
+
+    .player-bottom {
+      bottom: 10px;
+    }
+
+    .player-pill {
+      appearance: none;
+      min-height: 26px;
+      display: inline-flex;
+      align-items: center;
+      border-radius: var(--ms-pill);
+      border: 0;
+      padding: 0 9px;
+      background: rgba(0, 0, 0, .34);
+      color: var(--ms-white);
+      font-family: var(--ms-font);
+      font-size: 9px;
+      font-weight: 950;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .play-control {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      display: grid;
+      place-items: center;
+      pointer-events: none;
+    }
+
+    .play-control span {
+      width: 56px;
+      height: 56px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .94);
+      color: var(--ms-navy);
+      box-shadow: 0 18px 38px rgba(0, 0, 0, .24);
+    }
+
+    .progress-line {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 3;
+      height: 3px;
+      background: rgba(255, 255, 255, .28);
+    }
+
+    .progress-line i {
+      display: block;
+      width: 38%;
+      height: 100%;
+      background: var(--ms-saffron);
+    }
+
+    .watch-body {
+      display: grid;
+      gap: 10px;
+      padding: 12px 12px 86px;
+    }
+
+    .video-title-card,
+    .channel-row,
+    .comments-card,
+    .recommend-card,
+    .proof-strip {
+      border: 1px solid rgba(255, 255, 255, .10);
+      border-radius: 18px;
+      background: #151515;
+      color: var(--ms-white);
+      box-shadow: none;
+    }
+
+    .video-title-card {
+      display: grid;
+      gap: 8px;
+      padding: 12px;
+    }
+
+    .video-title-card h2 {
+      margin: 0;
+      color: var(--ms-white);
+      font-size: 15px;
+      line-height: 1.22;
+      letter-spacing: 0;
+    }
+
+    .meta-line {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px;
+      color: rgba(0, 0, 128, .66);
+      color: rgba(255, 255, 255, .62);
+      font-size: 10px;
+      font-weight: 850;
+      line-height: 1.25;
+    }
+
+    .more-text {
+      appearance: none;
+      border: 0;
+      padding: 0;
+      background: transparent;
+      color: var(--ms-green);
+      font-family: var(--ms-font);
+      font-size: 10px;
+      font-weight: 950;
+      cursor: pointer;
+    }
+
+    .watch-actions {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 7px;
+    }
+
+    .watch-action {
+      appearance: none;
+      min-height: 48px;
+      display: grid;
+      place-items: center;
+      gap: 3px;
+      border: 1px solid rgba(0, 0, 128, .12);
+      border-radius: 15px;
+      background: #1f1f1f;
+      color: var(--ms-white);
+      font-family: var(--ms-font);
+      font-size: 8.5px;
+      font-weight: 950;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .watch-action.active {
+      background: var(--ms-navy);
+      color: var(--ms-white);
+    }
+
+    .channel-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 11px;
+    }
+
+    .channel-identity {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      min-width: 0;
+    }
+
+    .avatar {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--ms-saffron), var(--ms-green));
+      color: var(--ms-white);
+      font-size: 11px;
+      font-weight: 950;
+      box-shadow: 0 10px 18px rgba(0, 0, 0, .16);
+    }
+
+    .channel-copy {
+      display: grid;
+      gap: 2px;
+      min-width: 0;
+    }
+
+    .channel-copy b {
+      color: var(--ms-white);
+      font-size: 12px;
+      line-height: 1.15;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .channel-copy span {
+      color: rgba(255, 255, 255, .62);
+      font-size: 9.5px;
+      font-weight: 850;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .follow-button {
+      appearance: none;
+      min-height: 34px;
+      border: 0;
+      border-radius: var(--ms-pill);
+      padding: 0 14px;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-family: var(--ms-font);
+      font-size: 10px;
+      font-weight: 950;
+      cursor: pointer;
+    }
+
+    .proof-strip {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 11px;
+      background: linear-gradient(135deg, rgba(255, 153, 51, .14), rgba(19, 136, 8, .12), rgba(255, 255, 255, .05));
+    }
+
+    .proof-mark {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      font-size: 10px;
+      font-weight: 950;
+    }
+
+    .proof-copy {
+      display: grid;
+      gap: 3px;
+      min-width: 0;
+    }
+
+    .proof-copy b {
+      color: var(--ms-white);
+      font-size: 11px;
+      line-height: 1.15;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .proof-copy span {
+      color: rgba(255, 255, 255, .62);
+      font-size: 9px;
+      font-weight: 850;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .compact-action {
+      appearance: none;
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border: 0;
+      border-radius: 50%;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      cursor: pointer;
+    }
+
+    .comments-card {
+      display: grid;
+      gap: 8px;
+      padding: 11px;
+    }
+
+    .comments-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .comments-head b,
+    .recommend-head b {
+      color: var(--ms-white);
+      font-size: 12px;
+      line-height: 1.1;
+    }
+
+    .comments-head span,
+    .recommend-head span {
+      color: rgba(255, 255, 255, .58);
+      font-size: 9px;
+      font-weight: 850;
+    }
+
+    .comment-line {
+      display: flex;
+      gap: 7px;
+      align-items: flex-start;
+      color: var(--ms-white);
+      font-size: 10px;
+      line-height: 1.35;
+    }
+
+    .comment-dot {
+      width: 24px;
+      height: 24px;
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .10);
+      color: var(--ms-white);
+      font-size: 8px;
+      font-weight: 950;
+    }
+
+    .recommend-card {
+      display: grid;
+      grid-template-columns: 112px 1fr;
+      gap: 10px;
+      padding: 8px;
+    }
+
+    .thumb {
+      position: relative;
+      min-height: 66px;
+      overflow: hidden;
+      border-radius: 14px;
+      background:
+        linear-gradient(180deg, transparent, rgba(0, 0, 0, .40)),
+        url("../assets/shorts-market-grocery.png") center / cover no-repeat;
+    }
+
+    .thumb.alt {
+      filter: hue-rotate(35deg) saturate(1.1);
+    }
+
+    .thumb.work {
+      filter: hue-rotate(128deg) saturate(.9);
+    }
+
+    .thumb span {
+      position: absolute;
+      right: 6px;
+      bottom: 6px;
+      min-height: 18px;
+      display: inline-flex;
+      align-items: center;
+      border-radius: var(--ms-pill);
+      padding: 0 6px;
+      background: rgba(0, 0, 0, .72);
+      color: var(--ms-white);
+      font-size: 8px;
+      font-weight: 950;
+    }
+
+    .recommend-copy {
+      display: grid;
+      align-content: center;
+      gap: 4px;
+      min-width: 0;
+    }
+
+    .recommend-copy b {
+      color: var(--ms-white);
+      font-size: 11px;
+      line-height: 1.25;
+    }
+
+    .recommend-copy span {
+      color: rgba(255, 255, 255, .62);
+      font-size: 9px;
+      line-height: 1.25;
+      font-weight: 850;
+    }
+
+    .bottom-dock {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 12;
+      display: grid;
+      grid-template-columns: 62px 1fr 60px;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 10px 10px;
+      background: rgba(3, 5, 18, .94);
+      color: var(--ms-white);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .mool-button {
+      appearance: none;
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, .30);
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 36% 25%, rgba(255, 255, 255, .45), transparent 23%),
+        radial-gradient(circle at 50% 52%, rgba(255, 255, 255, .16), transparent 33%),
+        var(--ms-navy);
+      color: var(--ms-white);
+      font-family: var(--ms-font);
+      font-size: 10px;
+      font-weight: 950;
+      box-shadow: 0 12px 24px rgba(0, 0, 128, .28);
+      cursor: pointer;
+    }
+
+    .video-tabs {
+      min-width: 0;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      align-items: center;
+      gap: 4px;
+    }
+
+    .video-tab,
+    .chat-button {
+      appearance: none;
+      min-width: 0;
+      min-height: 48px;
+      display: grid;
+      place-items: center;
+      gap: 3px;
+      border: 0;
+      border-radius: 15px;
+      background: transparent;
+      color: var(--ms-white);
+      font-family: var(--ms-font);
+      font-size: 8px;
+      font-weight: 950;
+      cursor: pointer;
+    }
+
+    .video-tab.active {
+      background: rgba(255, 255, 255, .14);
+    }
+
+    .chat-button {
+      position: relative;
+      border: 1px solid rgba(255, 255, 255, .22);
+      background: rgba(255, 255, 255, .08);
+    }
+
+    .chat-badge {
+      position: absolute;
+      top: 7px;
+      right: 8px;
+      width: 16px;
+      height: 16px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--ms-saffron);
+      color: var(--ms-navy);
+      font-size: 8px;
+      font-weight: 950;
+    }
+
+    .action-sheet {
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      bottom: 82px;
+      z-index: 20;
+      display: none;
+      border: 1px solid rgba(255, 255, 255, .50);
+      border-radius: 22px;
+      padding: 12px;
+      background: rgba(255, 255, 255, .97);
+      color: var(--ms-navy);
+      box-shadow: 0 -18px 44px rgba(0, 0, 0, .30);
+    }
+
+    .action-sheet.open {
+      display: grid;
+      gap: 10px;
+    }
+
+    .sheet-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .sheet-head b {
+      color: var(--ms-navy);
+      font-size: 13px;
+      line-height: 1.2;
+    }
+
+    .sheet-close {
+      appearance: none;
+      width: 30px;
+      height: 30px;
+      display: grid;
+      place-items: center;
+      border: 0;
+      border-radius: 50%;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-family: var(--ms-font);
+      font-size: 13px;
+      font-weight: 950;
+      cursor: pointer;
+    }
+
+    .sheet-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .sheet-chip {
+      min-height: 52px;
+      display: grid;
+      place-items: center;
+      gap: 4px;
+      border: 1px solid rgba(0, 0, 128, .18);
+      border-radius: 16px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      font-size: 9px;
+      font-weight: 950;
+      text-align: center;
+      line-height: 1.1;
+    }
+
+    .sheet-chip strong {
+      color: var(--ms-green);
+      font-size: 10px;
+      line-height: 1;
+    }
+
+    .sheet-note {
+      color: rgba(0, 0, 128, .72);
+      font-size: 10px;
+      line-height: 1.34;
+    }
+
+    .launcher {
+      display: grid;
+      gap: 12px;
+      align-content: start;
+    }
+
+    .verdict-card {
+      display: grid;
+      gap: 10px;
+      border: 1px solid var(--ms-navy);
+      border-radius: var(--ms-radius);
+      padding: 16px;
+      background: var(--ms-white);
+    }
+
+    .verdict-card h2,
+    .verdict-card h3,
+    .verdict-card p,
+    .verdict-card ul {
+      margin: 0;
+    }
+
+    .verdict-card h2 {
+      color: var(--ms-navy);
+      font-size: 24px;
+      line-height: 1.08;
+    }
+
+    .verdict-card h3 {
+      color: var(--ms-green);
+      font-size: 12px;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+
+    .verdict-card p,
+    .verdict-card li {
+      color: var(--ms-navy);
+      font-size: 13px;
+      line-height: 1.46;
+    }
+
+    .state-table {
+      display: grid;
+      border-bottom: 1px solid var(--ms-navy);
+    }
+
+    .state-row {
+      display: grid;
+      grid-template-columns: 220px 1fr 1fr;
+      border-top: 1px solid var(--ms-navy);
+    }
+
+    .state-row:first-child {
+      border-top: 0;
+    }
+
+    .state-cell {
+      min-height: 72px;
+      display: grid;
+      align-content: start;
+      gap: 6px;
+      padding: 14px;
+      border-right: 1px solid var(--ms-navy);
+      color: var(--ms-navy);
+      font-size: 12px;
+      line-height: 1.42;
+    }
+
+    .state-cell:last-child {
+      border-right: 0;
+    }
+
+    .state-cell b {
+      color: var(--ms-green);
+      font-size: 11px;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 1100px) {
+      .videos-preview,
+      .state-row {
+        grid-template-columns: 1fr;
+      }
+
+      .state-cell {
+        border-right: 0;
+        border-bottom: 1px solid var(--ms-navy);
+      }
+
+      .state-cell:last-child {
+        border-bottom: 0;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .back-row {
+        display: grid;
+      }
+
+      .videos-preview {
+        padding: 12px;
+      }
+
+      .phone {
+        width: min(100%, 360px);
+        border-width: 7px;
+      }
+
+      .watch-actions {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        gap: 5px;
+      }
+
+      .watch-action {
+        min-height: 46px;
+        font-size: 7.5px;
+      }
+    }
+  </style>
+</head>
+<body class="ms-doc">
+  <main class="ms-page screen-shell">
+    <div class="back-row">
+      <a class="screen-link-home" href="../index.html">
+        <span class="back-mark">06</span>
+        Back to screenbook
+      </a>
+      <span class="ms-status">Draft for review</span>
+    </div>
+
+    <header class="ms-topbar">
+      <div>
+        <h1 class="ms-title">Screen 06: Social &gt; Videos</h1>
+        <p class="ms-lead">
+          Screen 06 is the long-form video experience inside Social. It opens like a YouTube-style Videos feed with topic chips,
+          mixed long-form cards and Shorts previews; once a video is tapped, it becomes a focused watch page with creator/channel trust,
+          comments, recommendations and MoolSocial decision proof only when relevant.
+        </p>
+      </div>
+    </header>
+
+    <section class="ms-panel">
+      <div class="ms-section-head">Production-Facing Preview <span>Videos feed to watch mode</span></div>
+      <div class="videos-preview">
+        <section class="phone" aria-label="MoolSocial Social Videos phone preview">
+          <div class="video-app" data-video-app>
+            <div class="status-row">
+              <span>9:41</span>
+              <span>5G 100%</span>
+            </div>
+
+            <header class="app-bar">
+              <div class="brand-lockup">
+                <b>MoolSocial Videos</b>
+                <span class="identity-line" aria-hidden="true"><span></span><span></span><span></span></span>
+              </div>
+              <div class="top-actions">
+                <button class="icon-circle" type="button" aria-label="Cast video">
+                  <svg viewBox="0 0 24 24"><path d="M4 8V6h16v12h-6"/><path d="M4 18a4 4 0 0 1 4 4"/><path d="M4 14a8 8 0 0 1 8 8"/><circle cx="5" cy="21" r="1"/></svg>
+                </button>
+                <button class="icon-circle" type="button" aria-label="Search videos">
+                  <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+                </button>
+                <button class="icon-circle" type="button" aria-label="Account">
+                  <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+                </button>
+              </div>
+            </header>
+
+            <section class="feed-state" data-feed-state aria-label="Videos feed">
+              <div class="topic-rail" aria-label="Video topics">
+                <button class="topic-chip icon" type="button" aria-label="Explore">
+                  <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m15 9-2 5-5 2 2-5Z"/></svg>
+                </button>
+                <button class="topic-chip active" type="button">All</button>
+                <button class="topic-chip" type="button">Live</button>
+                <button class="topic-chip" type="button">News</button>
+                <button class="topic-chip" type="button">Forensic Science</button>
+                <button class="topic-chip" type="button">Music</button>
+                <button class="topic-chip" type="button">Podcasts</button>
+                <button class="topic-chip" type="button">Live television</button>
+                <button class="topic-chip" type="button">Electric vehicles</button>
+                <button class="topic-chip" type="button">Products</button>
+                <button class="topic-chip" type="button">Consumer Electronics</button>
+                <button class="topic-chip" type="button">Indian Music</button>
+                <button class="topic-chip" type="button">Recently uploaded</button>
+                <button class="topic-chip" type="button">New to you</button>
+              </div>
+
+              <div class="feed-stack">
+                <article class="sponsored-card">
+                  <div class="wide-thumb food">
+                    <span class="mute">Off</span>
+                    <span class="cc">CC</span>
+                    <span class="duration">Sponsored</span>
+                    <span class="smart-badge"><i></i>Verified tools</span>
+                  </div>
+                  <div class="feed-copy-row">
+                    <span class="feed-avatar">MS</span>
+                    <span class="feed-copy">
+                      <b>Grow your shop with verified product videos and local orders.</b>
+                      <span>Sponsored - MoolSocial for Business</span>
+                      <span class="feed-proof-row">
+                        <i>Verified</i><i>Lead ready</i><i>No clutter</i>
+                      </span>
+                      <span class="ad-actions">
+                        <span class="ad-action">Watch</span>
+                        <span class="ad-action primary">Start now</span>
+                      </span>
+                    </span>
+                    <span class="feed-more">⋮</span>
+                  </div>
+                </article>
+
+                <section class="shorts-section" aria-label="Shorts preview">
+                  <div class="shorts-head">
+                    <span>Shorts</span>
+                    <span>⋮</span>
+                  </div>
+                  <div class="shorts-grid">
+                    <a class="short-tile" href="05-social-shorts.html">
+                      <span class="short-label">New</span>
+                      <b>Fresh basket packed before morning delivery</b>
+                    </a>
+                    <a class="short-tile" href="05-social-shorts.html">
+                      <span class="short-label">Near</span>
+                      <b>Lunch thali ready in the kitchen now</b>
+                    </a>
+                    <a class="short-tile" href="05-social-shorts.html">
+                      <span class="short-label">Work</span>
+                      <b>QR proof task open for verified payout</b>
+                    </a>
+                    <a class="short-tile" href="05-social-shorts.html">
+                      <span class="short-label">Live</span>
+                      <b>Local store shelf refill and offers</b>
+                    </a>
+                  </div>
+                </section>
+
+                <button class="feed-video-card" type="button" data-open-watch>
+                  <span class="wide-thumb">
+                    <span class="mute">Off</span>
+                    <span class="cc">CC</span>
+                    <span class="duration">12:48</span>
+                    <span class="smart-badge"><i></i>Order ready</span>
+                  </span>
+                  <span class="feed-copy-row">
+                    <span class="feed-avatar">MS</span>
+                    <span class="feed-copy">
+                      <b>How this Jodhpur shop packs a fresh morning basket</b>
+                      <span>Mahadev Fresh Mart - 82K views - today</span>
+                      <span class="feed-proof-row">
+                        <i>Rs 399</i><i>45 min</i><i>Refund rule</i>
+                      </span>
+                      <span class="quick-row">
+                        <span class="quick-chip primary">Watch</span>
+                        <span class="quick-chip">Get basket</span>
+                        <span class="quick-chip">Save</span>
+                      </span>
+                    </span>
+                    <span class="feed-more">⋮</span>
+                  </span>
+                </button>
+
+                <button class="feed-video-card" type="button" data-open-watch>
+                  <span class="wide-thumb work">
+                    <span class="duration">8:20</span>
+                    <span class="smart-badge"><i></i>Paid task</span>
+                  </span>
+                  <span class="feed-copy-row">
+                    <span class="feed-avatar">GO</span>
+                    <span class="feed-copy">
+                      <b>How QR proof tasks are checked before payout</b>
+                      <span>Ground Ops - 18K views - 2 hours ago</span>
+                      <span class="feed-proof-row">
+                        <i>Funded</i><i>Geo proof</i><i>Payout rule</i>
+                      </span>
+                      <span class="quick-row">
+                        <span class="quick-chip primary">Watch</span>
+                        <span class="quick-chip">Apply</span>
+                        <span class="quick-chip">Proof</span>
+                      </span>
+                    </span>
+                    <span class="feed-more">⋮</span>
+                  </span>
+                </button>
+              </div>
+            </section>
+
+            <section class="watch-scroll" data-watch-scroll aria-label="Video watch">
+              <section class="video-player" aria-label="Playing video">
+                <div class="player-top">
+                  <button class="player-pill" type="button" data-back-feed aria-label="Back to videos">Back</button>
+                  <span class="player-pill">Near you</span>
+                  <span class="player-pill">12:48</span>
+                </div>
+                <div class="play-control" aria-hidden="true">
+                  <span>
+                    <svg viewBox="0 0 24 24"><path d="m9 6 9 6-9 6Z"/></svg>
+                  </span>
+                </div>
+                <div class="player-bottom">
+                  <span class="player-pill">HD</span>
+                  <span class="player-pill">Full screen</span>
+                </div>
+                <span class="progress-line" aria-hidden="true"><i></i></span>
+              </section>
+
+              <section class="watch-body">
+                <article class="video-title-card">
+                  <h2>How this Jodhpur shop packs a fresh morning basket</h2>
+                  <div class="meta-line">
+                    <span>82K views</span>
+                    <span>Today</span>
+                    <span>#localbasket</span>
+                    <button class="more-text" type="button" data-open-sheet="details">More</button>
+                  </div>
+                </article>
+
+                <div class="watch-actions" aria-label="Video actions">
+                  <button class="watch-action active" type="button" data-like>
+                    <svg viewBox="0 0 24 24"><path d="M7 10v11H4V10Z"/><path d="M7 10l5-7 1 1a3 3 0 0 1 .5 3L13 9h6a2 2 0 0 1 2 2l-2 8a2 2 0 0 1-2 2H7"/></svg>
+                    18K
+                  </button>
+                  <button class="watch-action" type="button" data-open-sheet="comments">
+                    <svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z"/></svg>
+                    Comments
+                  </button>
+                  <button class="watch-action" type="button" data-open-sheet="share">
+                    <svg viewBox="0 0 24 24"><path d="M4 12v7h16v-7"/><path d="M12 15V3"/><path d="m7 8 5-5 5 5"/></svg>
+                    Share
+                  </button>
+                  <button class="watch-action" type="button" data-open-sheet="proof">
+                    <svg viewBox="0 0 24 24"><path d="M9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                    Proof
+                  </button>
+                  <button class="watch-action" type="button" data-save>
+                    <svg viewBox="0 0 24 24"><path d="M6 4h12v17l-6-4-6 4Z"/></svg>
+                    Save
+                  </button>
+                  <button class="watch-action" type="button" data-open-sheet="more">
+                    <svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg>
+                    More
+                  </button>
+                </div>
+
+                <article class="channel-row">
+                  <div class="channel-identity">
+                    <span class="avatar">MS</span>
+                    <span class="channel-copy">
+                      <b>Mahadev Fresh Mart</b>
+                      <span>Verified local shop - 21K followers</span>
+                    </span>
+                  </div>
+                  <button class="follow-button" type="button" data-follow>Follow</button>
+                </article>
+
+                <article class="proof-strip">
+                  <span class="proof-mark">OK</span>
+                  <span class="proof-copy">
+                    <b>Verified basket decision</b>
+                    <span>Rs 399 - 45 min - shop proof - refund rule</span>
+                  </span>
+                  <button class="compact-action" type="button" aria-label="Open proof" data-open-sheet="proof">
+                    <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+                  </button>
+                </article>
+
+                <article class="comments-card">
+                  <div class="comments-head">
+                    <b>Comments</b>
+                    <span>924</span>
+                  </div>
+                  <div class="comment-line">
+                    <span class="comment-dot">R</span>
+                    <span>Looks clean. Need this basket before 8 pm in Sardarpura.</span>
+                  </div>
+                </article>
+
+                <article class="recommend-card">
+                  <span class="thumb alt"><span>8:20</span></span>
+                  <span class="recommend-copy">
+                    <b>Lunch thali packing live from Rasoi Kitchen</b>
+                    <span>Rasoi Kitchen - food video - order context</span>
+                  </span>
+                </article>
+
+                <article class="recommend-card">
+                  <span class="thumb work"><span>6:44</span></span>
+                  <span class="recommend-copy">
+                    <b>How QR proof tasks are checked before payout</b>
+                    <span>Ground Ops - work video - verified task</span>
+                  </span>
+                </article>
+              </section>
+            </section>
+
+            <section class="action-sheet" data-action-sheet aria-live="polite">
+              <div class="sheet-head">
+                <b data-sheet-title>Video details</b>
+                <button class="sheet-close" type="button" data-close-sheet aria-label="Close sheet">X</button>
+              </div>
+              <div class="sheet-grid" data-sheet-grid></div>
+              <div class="sheet-note" data-sheet-note>Choose an action to continue.</div>
+            </section>
+
+            <nav class="bottom-dock" aria-label="Social navigation">
+              <button class="mool-button" type="button" aria-label="Open Mool actions">Mool</button>
+              <div class="video-tabs" aria-label="Social sub-actions">
+                <a class="video-tab" href="05-social-shorts.html" aria-label="Open Shorts">
+                  <svg viewBox="0 0 24 24"><path d="m9 6 8 6-8 6Z"/><path d="M5 5v14"/></svg>
+                  Shorts
+                </a>
+                <button class="video-tab active" type="button" aria-label="Videos">
+                  <svg viewBox="0 0 24 24"><path d="M4 7h16v10H4Z"/><path d="m10 10 5 3-5 3Z"/></svg>
+                  Videos
+                </button>
+                <a class="video-tab" href="07-social-feed.html" aria-label="Open Feed">
+                  <svg viewBox="0 0 24 24"><path d="M4 6h16v12H4Z"/><path d="M8 10h8"/><path d="M8 14h5"/></svg>
+                  Feed
+                </a>
+                <a class="video-tab" href="08-social-create.html" aria-label="Open Create">
+                  <svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+                  Create
+                </a>
+              </div>
+              <button class="chat-button" type="button" aria-label="Open chat">
+                <span class="chat-badge">2</span>
+                <svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z"/></svg>
+                Chat
+              </button>
+            </nav>
+          </div>
+        </section>
+
+        <aside class="launcher">
+          <article class="verdict-card">
+            <h2>UX Verdict</h2>
+            <p>
+              Videos should first feel like a familiar video home feed, then become smarter than a normal watch product after tap.
+              MoolSocial improves the model with verified proof, local/action context and one-tap next action without turning the feed into ads.
+            </p>
+          </article>
+          <article class="verdict-card">
+            <h3>Primary Behavior</h3>
+            <ul class="ms-list">
+              <li>Open Videos into a feed with category chips, video cards and Shorts preview.</li>
+              <li>Tap a long-form video to enter watch mode; Back returns to the feed.</li>
+              <li>Show proof/action chips only when the video has a real product, service or work context.</li>
+              <li>Title and description stay collapsed by default.</li>
+              <li>Proof opens only when the video is commerce, booking or work-linked.</li>
+              <li>Mool and Chat remain visible without forcing role switching.</li>
+            </ul>
+          </article>
+          <article class="verdict-card">
+            <h3>Creator Product</h3>
+            <p>
+              Long-form Videos supports deeper education, product demos, service explanation, professional proof,
+              local business storytelling and creator monetisation without blocking consumer viewing.
+            </p>
+          </article>
+        </aside>
+      </div>
+    </section>
+
+    <section class="ms-panel">
+      <div class="ms-section-head">Screen Contract <span>What Screen 06 must preserve</span></div>
+      <div class="state-table">
+        <div class="state-row">
+          <div class="state-cell"><b>Entry</b>From Screen 04 Social &gt; Videos or Screen 05 bottom Videos tab.</div>
+          <div class="state-cell">User lands in a Videos feed with topic chips, long-form cards and Shorts preview.</div>
+          <div class="state-cell">The active Social sub-action is Videos; tap a long-form card to enter watch mode.</div>
+        </div>
+        <div class="state-row">
+          <div class="state-cell"><b>Player</b>Appears after tap.</div>
+          <div class="state-cell">Player supports play/pause, seek progress, HD/data state, cast, full-screen, captions and orientation handling.</div>
+          <div class="state-cell">When full-screen player opens, bottom dock can hide and return after tap/swipe, but Chat/Mool access must be recoverable.</div>
+        </div>
+        <div class="state-row">
+          <div class="state-cell"><b>Details</b>Collapsed by default.</div>
+          <div class="state-cell">Title, views, time and creator are visible. Description, hashtags, source links and proof open in sheets or expanded sections.</div>
+          <div class="state-cell">This avoids the Screen 05 issue where text blocks video content.</div>
+        </div>
+        <div class="state-row">
+          <div class="state-cell"><b>Proof</b>Decision-ready only when relevant.</div>
+          <div class="state-cell">Product/service/work-linked videos can show small verified chips in feed and a compact proof strip in watch mode.</div>
+          <div class="state-cell">Proof opens price, fulfilment time, trust proof, refund/cancel or payout rule. No endless product grid inside the video screen.</div>
+        </div>
+        <div class="state-row">
+          <div class="state-cell"><b>Actions</b>Familiar video actions.</div>
+          <div class="state-cell">Like, comments, share, save, more/report, follow creator, search and recommendations.</div>
+          <div class="state-cell">Creator studio, monetisation and campaigns route later; they do not clutter the viewer screen.</div>
+        </div>
+        <div class="state-row">
+          <div class="state-cell"><b>Backend</b>API-ready contract.</div>
+          <div class="state-cell">Needs video feed API, playback manifest, creator profile, engagement state, comments, recommendations and proof object.</div>
+          <div class="state-cell">Playback analytics, moderation, copyright/audio rights and creator monetisation events must be recorded server-side.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ms-panel">
+      <div class="ms-section-head">Full-Stack Implementation Notes <span>For later production build</span></div>
+      <div class="ms-grid-4">
+        <article class="ms-card">
+          <h3>Video Data</h3>
+          <ul class="ms-list">
+            <li>video id, title, description, thumbnail, playback URL or manifest.</li>
+            <li>duration, language, captions, category, location relevance.</li>
+            <li>creator id, verification, workspace proof and follower state.</li>
+          </ul>
+        </article>
+        <article class="ms-card">
+          <h3>Engagement</h3>
+          <ul class="ms-list">
+            <li>like/save/share/comment actions with optimistic UI and reconciliation.</li>
+            <li>watch progress, resume position and recommendation feedback.</li>
+            <li>report, not interested, mute creator and safety controls.</li>
+          </ul>
+        </article>
+        <article class="ms-card">
+          <h3>Proof Object</h3>
+          <ul class="ms-list">
+            <li>price, delivery/fulfilment time, proof, cancellation/refund.</li>
+            <li>work videos can expose funded task, proof requirement and payout rule.</li>
+            <li>proof opens as a sheet or next flow, not as a permanent overlay.</li>
+          </ul>
+        </article>
+        <article class="ms-card">
+          <h3>Regression Tests</h3>
+          <ul class="ms-list">
+            <li>player visible above fold on mobile.</li>
+            <li>text does not cover video content.</li>
+            <li>Mool, Videos and Chat remain tappable.</li>
+            <li>sheets open and close without layout shift.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const sheet = document.querySelector("[data-action-sheet]");
+    const sheetTitle = document.querySelector("[data-sheet-title]");
+    const sheetGrid = document.querySelector("[data-sheet-grid]");
+    const sheetNote = document.querySelector("[data-sheet-note]");
+    const videoApp = document.querySelector("[data-video-app]");
+    const watchScroll = document.querySelector("[data-watch-scroll]");
+    const feedState = document.querySelector("[data-feed-state]");
+    const openWatchButtons = Array.from(document.querySelectorAll("[data-open-watch]"));
+    const backFeedButton = document.querySelector("[data-back-feed]");
+    const topicChips = Array.from(document.querySelectorAll(".topic-chip"));
+    const likeButton = document.querySelector("[data-like]");
+    const saveButton = document.querySelector("[data-save]");
+    const followButton = document.querySelector("[data-follow]");
+
+    const sheetContent = {
+      details: {
+        title: "Video details",
+        note: "Description, hashtags and source context open only when user asks, keeping the watch surface clean.",
+        items: [
+          ["Video", "12:48"],
+          ["Language", "Hindi"],
+          ["Location", "Jodhpur"],
+          ["Caption", "Auto"],
+          ["Hashtags", "Local"],
+          ["Source", "Creator"]
+        ]
+      },
+      proof: {
+        title: "Basket decision proof",
+        note: "This proof object is available because the video is linked to a verified local basket offer.",
+        items: [
+          ["Price", "Rs 399"],
+          ["Time", "45 min"],
+          ["Proof", "Shop"],
+          ["Refund", "Rule"],
+          ["Payment", "Ready"],
+          ["Open", "Order"]
+        ]
+      },
+      comments: {
+        title: "Comments",
+        note: "Production comments need creator replies, pinned comments, filters, abuse controls and translation where available.",
+        items: [
+          ["Top", "924"],
+          ["Creator", "Reply"],
+          ["Mention", "Tag"],
+          ["Filter", "Safe"],
+          ["Translate", "Lang"],
+          ["Report", "Abuse"]
+        ]
+      },
+      share: {
+        title: "Share video",
+        note: "Video sharing must preserve creator attribution and safe links.",
+        items: [
+          ["Chat", "In app"],
+          ["Post", "Feed"],
+          ["Copy", "Link"],
+          ["QR", "Offline"],
+          ["Group", "Local"],
+          ["Embed", "Later"]
+        ]
+      },
+      more: {
+        title: "More actions",
+        note: "Safety and preference controls must stay available without distracting from viewing.",
+        items: [
+          ["Not interested", "Rank"],
+          ["Mute", "Creator"],
+          ["Report", "Safety"],
+          ["Block", "User"],
+          ["Captions", "Auto"],
+          ["Quality", "Data"]
+        ]
+      }
+    };
+
+    function openSheet(type) {
+      const content = sheetContent[type];
+      if (!sheet || !content) return;
+      if (sheetTitle) sheetTitle.textContent = content.title;
+      if (sheetNote) sheetNote.textContent = content.note;
+      if (sheetGrid) {
+        sheetGrid.innerHTML = content.items.map(([label, value]) => `
+          <span class="sheet-chip"><strong>${value}</strong>${label}</span>
+        `).join("");
+      }
+      sheet.classList.add("open");
+    }
+
+    function closeSheet() {
+      sheet?.classList.remove("open");
+    }
+
+    function openWatch() {
+      videoApp?.classList.add("watch-mode");
+      closeSheet();
+      if (watchScroll) watchScroll.scrollTop = 0;
+    }
+
+    function openFeed() {
+      videoApp?.classList.remove("watch-mode");
+      closeSheet();
+      if (feedState) feedState.scrollTop = 0;
+    }
+
+    document.querySelectorAll("[data-open-sheet]").forEach((button) => {
+      button.addEventListener("click", () => openSheet(button.dataset.openSheet));
+    });
+
+    document.querySelector("[data-close-sheet]")?.addEventListener("click", closeSheet);
+    openWatchButtons.forEach((button) => button.addEventListener("click", openWatch));
+    backFeedButton?.addEventListener("click", openFeed);
+    topicChips.forEach((chip) => {
+      chip.addEventListener("click", () => {
+        if (chip.classList.contains("icon")) return;
+        topicChips.forEach((other) => other.classList.remove("active"));
+        chip.classList.add("active");
+      });
+    });
+
+    likeButton?.addEventListener("click", () => likeButton.classList.toggle("active"));
+    saveButton?.addEventListener("click", () => saveButton.classList.toggle("active"));
+    followButton?.addEventListener("click", () => {
+      followButton.textContent = followButton.textContent.trim() === "Follow" ? "Following" : "Follow";
+    });
+  </script>
+</body>
+</html>

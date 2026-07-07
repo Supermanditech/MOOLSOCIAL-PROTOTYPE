@@ -1,0 +1,1540 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Screen 08: Social &gt; Create | MoolSocial</title>
+  <link rel="stylesheet" href="../shared/moolsocial-ui-foundation.css" />
+  <style>
+    .screen-shell {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 20% 8%, rgba(255, 153, 51, .14), transparent 25%),
+        radial-gradient(circle at 80% 18%, rgba(19, 136, 8, .12), transparent 28%),
+        #f6f7ff;
+    }
+
+    .create-preview {
+      display: grid;
+      grid-template-columns: minmax(340px, 430px) minmax(280px, 1fr);
+      gap: 24px;
+      align-items: start;
+      padding: 20px;
+    }
+
+    .phone {
+      width: min(100%, 410px);
+      margin: 0 auto;
+      border: 10px solid var(--ms-navy);
+      border-radius: 34px;
+      background: var(--ms-navy);
+      box-shadow: 0 26px 65px rgba(0, 0, 128, .24);
+      overflow: hidden;
+    }
+
+    .create-app {
+      position: relative;
+      height: 812px;
+      display: grid;
+      grid-template-rows: auto auto auto 1fr auto;
+      overflow: hidden;
+      border-radius: 22px;
+      background:
+        radial-gradient(circle at 14% 5%, rgba(255, 153, 51, .28), transparent 22%),
+        radial-gradient(circle at 92% 8%, rgba(19, 136, 8, .3), transparent 24%),
+        linear-gradient(180deg, #000080 0%, #07086d 34%, #f8f9ff 34%, #f8f9ff 100%);
+      color: var(--ms-white);
+      font-family: var(--ms-font);
+    }
+
+    .status-row,
+    .top-bar,
+    .mode-rail,
+    .composer-area,
+    .bottom-dock {
+      position: relative;
+      z-index: 2;
+    }
+
+    .status-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 14px 22px 7px;
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .top-bar {
+      display: grid;
+      grid-template-columns: 38px 1fr auto;
+      gap: 10px;
+      align-items: center;
+      padding: 6px 16px 10px;
+    }
+
+    .icon-button,
+    .round-action {
+      appearance: none;
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, .26);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .12);
+      color: currentColor;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .icon-button svg,
+    .mode-chip svg,
+    .tool-chip svg,
+    .dock-tab svg,
+    .mool-button svg,
+    .chat-button svg,
+    .post-action svg,
+    .creator-link svg {
+      width: 18px;
+      height: 18px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2.15;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .title-lockup {
+      display: grid;
+      gap: 2px;
+      min-width: 0;
+    }
+
+    .title-lockup b {
+      overflow: hidden;
+      font-size: 21px;
+      line-height: 1;
+      letter-spacing: 0;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .title-lockup span {
+      overflow: hidden;
+      color: rgba(255, 255, 255, .72);
+      font-size: 11px;
+      font-weight: 780;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .top-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .mode-rail {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 0 16px 15px;
+      scroll-snap-type: x proximity;
+      scrollbar-width: none;
+    }
+
+    .mode-rail::-webkit-scrollbar,
+    .composer-area::-webkit-scrollbar,
+    .upload-tools::-webkit-scrollbar {
+      display: none;
+    }
+
+    .mode-chip {
+      appearance: none;
+      flex: 0 0 auto;
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      border: 1px solid rgba(255, 255, 255, .22);
+      border-radius: 999px;
+      padding: 0 13px;
+      background: rgba(255, 255, 255, .1);
+      color: var(--ms-white);
+      font-size: 12px;
+      font-weight: 930;
+      letter-spacing: 0;
+      scroll-snap-align: start;
+      cursor: pointer;
+    }
+
+    .mode-chip.active {
+      border-color: transparent;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, .18);
+    }
+
+    .composer-area {
+      display: grid;
+      gap: 12px;
+      overflow-y: auto;
+      padding: 0 14px 106px;
+      color: var(--ms-navy);
+      scrollbar-width: none;
+    }
+
+    .composer-card {
+      display: grid;
+      gap: 13px;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: 25px;
+      padding: 14px;
+      background: rgba(255, 255, 255, .97);
+      box-shadow: 0 18px 44px rgba(0, 0, 128, .16);
+    }
+
+    .identity-row {
+      display: grid;
+      grid-template-columns: 42px 1fr auto;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .avatar {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border: 2px solid var(--ms-white);
+      border-radius: 50%;
+      background: linear-gradient(145deg, var(--ms-green), var(--ms-navy));
+      color: var(--ms-white);
+      font-size: 13px;
+      font-weight: 950;
+      box-shadow: 0 0 0 1px rgba(0, 0, 128, .16);
+    }
+
+    .identity-copy {
+      display: grid;
+      gap: 2px;
+      min-width: 0;
+    }
+
+    .identity-copy b {
+      overflow: hidden;
+      color: var(--ms-navy);
+      font-size: 14px;
+      line-height: 1.1;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .identity-copy span {
+      color: rgba(0, 0, 128, .62);
+      font-size: 11px;
+      font-weight: 780;
+    }
+
+    .audience-pill {
+      min-height: 31px;
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid rgba(19, 136, 8, .34);
+      border-radius: 999px;
+      padding: 0 11px;
+      background: rgba(19, 136, 8, .1);
+      color: var(--ms-green);
+      font-size: 11px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .compose-box {
+      display: grid;
+      gap: 12px;
+      border: 1px solid rgba(0, 0, 128, .1);
+      border-radius: 21px;
+      padding: 13px;
+      background:
+        linear-gradient(180deg, rgba(246, 247, 255, .72), rgba(255, 255, 255, .96));
+    }
+
+    .compose-label {
+      color: var(--ms-green);
+      font-size: 11px;
+      font-weight: 950;
+      text-transform: uppercase;
+    }
+
+    .compose-box textarea {
+      width: 100%;
+      min-height: 105px;
+      resize: none;
+      border: 0;
+      outline: 0;
+      background: transparent;
+      color: var(--ms-navy);
+      font: 850 21px/1.25 var(--ms-font);
+      letter-spacing: 0;
+    }
+
+    .compose-box textarea::placeholder {
+      color: rgba(0, 0, 128, .44);
+    }
+
+    .upload-panel {
+      min-height: 130px;
+      display: grid;
+      grid-template-columns: 82px 1fr;
+      gap: 12px;
+      align-items: center;
+      border-radius: 20px;
+      padding: 12px;
+      background:
+        radial-gradient(circle at 26% 22%, rgba(255, 255, 255, .48), transparent 20%),
+        linear-gradient(135deg, rgba(0, 0, 128, .96), rgba(19, 136, 8, .88));
+      color: var(--ms-white);
+      overflow: hidden;
+    }
+
+    .upload-art {
+      height: 82px;
+      border: 1px solid rgba(255, 255, 255, .32);
+      border-radius: 24px;
+      background:
+        radial-gradient(circle at 32% 25%, rgba(255, 153, 51, .8), transparent 20%),
+        linear-gradient(145deg, rgba(255, 255, 255, .18), rgba(255, 255, 255, .03));
+    }
+
+    .upload-copy {
+      display: grid;
+      gap: 4px;
+      min-width: 0;
+    }
+
+    .upload-copy b {
+      font-size: 16px;
+      line-height: 1.15;
+    }
+
+    .upload-copy span {
+      color: rgba(255, 255, 255, .78);
+      font-size: 11px;
+      font-weight: 760;
+      line-height: 1.3;
+    }
+
+    .upload-tools {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .tool-chip {
+      appearance: none;
+      flex: 0 0 auto;
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      border: 1px solid rgba(0, 0, 128, .12);
+      border-radius: 999px;
+      padding: 0 12px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      font-size: 11px;
+      font-weight: 930;
+      cursor: pointer;
+    }
+
+    .publish-map,
+    .suite-card {
+      display: grid;
+      gap: 10px;
+      border: 1px solid rgba(0, 0, 128, .13);
+      border-radius: 22px;
+      padding: 13px;
+      background: rgba(255, 255, 255, .95);
+      color: var(--ms-navy);
+    }
+
+    .map-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .map-head b {
+      color: var(--ms-navy);
+      font-size: 14px;
+      line-height: 1.15;
+    }
+
+    .map-head span {
+      color: rgba(0, 0, 128, .64);
+      font-size: 11px;
+      font-weight: 770;
+      line-height: 1.35;
+    }
+
+    .soft-badge {
+      min-height: 27px;
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      padding: 0 10px;
+      background: rgba(255, 153, 51, .16);
+      color: var(--ms-green);
+      font-size: 10px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .channel-row {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 7px;
+    }
+
+    .channel-pill {
+      min-height: 54px;
+      display: grid;
+      place-items: center;
+      gap: 4px;
+      border: 1px solid rgba(0, 0, 128, .12);
+      border-radius: 17px;
+      background: #f6f7ff;
+      color: var(--ms-navy);
+      font-size: 10px;
+      font-weight: 950;
+      text-align: center;
+    }
+
+    .channel-pill b {
+      font-size: 12px;
+    }
+
+    .channel-pill.active {
+      border-color: transparent;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+    }
+
+    .suite-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .suite-tool {
+      appearance: none;
+      min-height: 62px;
+      display: grid;
+      place-items: center;
+      gap: 4px;
+      border: 1px solid rgba(0, 0, 128, .12);
+      border-radius: 18px;
+      background: linear-gradient(180deg, #fff, #f6f7ff);
+      color: var(--ms-navy);
+      font-size: 10px;
+      font-weight: 950;
+      cursor: pointer;
+    }
+
+    .suite-tool svg {
+      width: 18px;
+      height: 18px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2.15;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .creator-card,
+    .draft-card,
+    .safety-card {
+      display: grid;
+      gap: 10px;
+      border: 1px solid rgba(0, 0, 128, .13);
+      border-radius: 22px;
+      padding: 13px;
+      background: rgba(255, 255, 255, .95);
+      color: var(--ms-navy);
+    }
+
+    .creator-card {
+      grid-template-columns: 48px 1fr;
+      align-items: center;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(255, 153, 51, .22), transparent 26%),
+        linear-gradient(135deg, rgba(0, 0, 128, .08), rgba(19, 136, 8, .08) 50%, rgba(255, 153, 51, .12));
+    }
+
+    .creator-medal {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      background:
+        radial-gradient(circle at 28% 18%, rgba(255, 255, 255, .6), transparent 18%),
+        linear-gradient(145deg, #2022c6, var(--ms-navy) 68%);
+      color: var(--ms-white);
+      font-size: 18px;
+      font-weight: 950;
+      box-shadow: inset 0 -5px 12px rgba(0, 0, 0, .2);
+    }
+
+    .creator-copy {
+      display: grid;
+      gap: 5px;
+      min-width: 0;
+    }
+
+    .creator-copy b,
+    .card-title {
+      color: var(--ms-navy);
+      font-size: 14px;
+      line-height: 1.15;
+    }
+
+    .creator-copy span,
+    .card-note {
+      color: rgba(0, 0, 128, .64);
+      font-size: 11px;
+      font-weight: 770;
+      line-height: 1.35;
+    }
+
+    .creator-link {
+      width: fit-content;
+      min-height: 32px;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      border-radius: 999px;
+      padding: 0 11px;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 11px;
+      font-weight: 950;
+      text-decoration: none;
+    }
+
+    .creator-mini-row {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 5px;
+    }
+
+    .creator-mini-row span {
+      min-height: 27px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .78);
+      color: var(--ms-navy);
+      font-size: 9px;
+      font-weight: 950;
+      line-height: 1;
+      text-align: center;
+    }
+
+    .draft-card {
+      grid-template-columns: 56px 1fr auto;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .draft-thumb {
+      height: 56px;
+      border-radius: 17px;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255, 255, 255, .6), transparent 16%),
+        linear-gradient(135deg, #000080, #138808);
+    }
+
+    .draft-copy {
+      display: grid;
+      gap: 2px;
+      min-width: 0;
+    }
+
+    .draft-copy b {
+      overflow: hidden;
+      color: var(--ms-navy);
+      font-size: 13px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .draft-copy span {
+      color: rgba(0, 0, 128, .6);
+      font-size: 11px;
+      font-weight: 780;
+    }
+
+    .safety-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 7px;
+    }
+
+    .safety-item {
+      display: grid;
+      gap: 3px;
+      border-radius: 15px;
+      padding: 9px 8px;
+      background: #f6f7ff;
+      color: var(--ms-navy);
+    }
+
+    .safety-item b {
+      font-size: 11px;
+      line-height: 1.05;
+    }
+
+    .safety-item span {
+      color: rgba(0, 0, 128, .58);
+      font-size: 9px;
+      font-weight: 800;
+    }
+
+    .post-row {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 9px;
+    }
+
+    .post-action {
+      appearance: none;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border: 1px solid var(--ms-navy);
+      border-radius: 999px;
+      padding: 0 14px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      font-size: 12px;
+      font-weight: 950;
+      cursor: pointer;
+    }
+
+    .post-action.primary {
+      background: var(--ms-navy);
+      color: var(--ms-white);
+    }
+
+    .bottom-dock {
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+      display: grid;
+      grid-template-columns: 58px minmax(0, 1fr) 58px;
+      gap: 6px;
+      align-items: stretch;
+      border: 1px solid rgba(0, 0, 128, .18);
+      border-radius: 27px;
+      padding: 7px;
+      background: rgba(255, 255, 255, .96);
+      box-shadow: 0 12px 30px rgba(0, 0, 128, .2);
+    }
+
+    .mool-button,
+    .chat-button,
+    .dock-tab {
+      appearance: none;
+      text-decoration: none;
+      min-width: 0;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      gap: 3px;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: 20px;
+      background: #fff;
+      color: var(--ms-navy);
+      font-size: 9px;
+      font-weight: 950;
+      line-height: 1;
+      cursor: pointer;
+      overflow: visible;
+    }
+
+    .mool-button {
+      position: relative;
+      border-color: transparent;
+      background:
+        radial-gradient(circle at 34% 22%, rgba(255, 255, 255, .72), transparent 18%),
+        linear-gradient(145deg, #2022c6, #000080 68%);
+      color: var(--ms-white);
+      box-shadow: inset 0 -5px 12px rgba(0, 0, 0, .18);
+    }
+
+    .mool-button::after {
+      content: "";
+      width: 27px;
+      height: 4px;
+      display: block;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--ms-saffron) 0 43%, var(--ms-white) 43% 55%, var(--ms-green) 55% 100%);
+    }
+
+    .mool-button svg,
+    .dock-tab svg,
+    .chat-button svg {
+      width: 17px;
+      height: 17px;
+    }
+
+    .dock-tabs {
+      min-width: 0;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(46px, 1fr));
+      gap: 5px;
+    }
+
+    .dock-tab.active {
+      border-color: transparent;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: 0 9px 20px rgba(0, 0, 128, .22);
+    }
+
+    .chat-button {
+      position: relative;
+    }
+
+    .chat-badge {
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      min-width: 18px;
+      height: 18px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      background: var(--ms-saffron);
+      color: var(--ms-navy);
+      font-size: 10px;
+      font-weight: 950;
+    }
+
+    .sheet {
+      position: absolute;
+      left: 12px;
+      right: 12px;
+      bottom: 92px;
+      z-index: 5;
+      display: none;
+      gap: 12px;
+      border: 1px solid rgba(0, 0, 128, .18);
+      border-radius: 24px;
+      padding: 14px;
+      background: rgba(255, 255, 255, .98);
+      color: var(--ms-navy);
+      box-shadow: 0 20px 46px rgba(0, 0, 128, .26);
+    }
+
+    .sheet.open {
+      display: grid;
+    }
+
+    .sheet-title {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .sheet-title b {
+      font-size: 15px;
+    }
+
+    .sheet-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .sheet-item {
+      min-height: 58px;
+      display: grid;
+      align-content: center;
+      gap: 3px;
+      border-radius: 16px;
+      padding: 9px;
+      background: #f6f7ff;
+    }
+
+    .sheet-item b {
+      font-size: 12px;
+    }
+
+    .sheet-item span {
+      color: rgba(0, 0, 128, .62);
+      font-size: 10px;
+      font-weight: 780;
+    }
+
+    .launcher {
+      display: grid;
+      gap: 12px;
+      align-content: start;
+    }
+
+    .verdict-card {
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: 8px;
+      padding: 16px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+    }
+
+    .verdict-card h2,
+    .verdict-card h3,
+    .verdict-card p {
+      margin: 0;
+    }
+
+    .verdict-card h2 {
+      font-size: 23px;
+      line-height: 1.1;
+    }
+
+    .verdict-card h3 {
+      color: var(--ms-green);
+      font-size: 13px;
+      text-transform: uppercase;
+    }
+
+    .verdict-card p {
+      margin-top: 8px;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .state-table {
+      display: grid;
+      border-top: 1px solid var(--ms-navy);
+    }
+
+    .state-row {
+      display: grid;
+      grid-template-columns: 210px 1fr;
+      border-bottom: 1px solid var(--ms-navy);
+    }
+
+    .state-label,
+    .state-cell {
+      padding: 13px 16px;
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .state-label {
+      border-right: 1px solid var(--ms-navy);
+      color: var(--ms-green);
+      font-weight: 940;
+      text-transform: uppercase;
+    }
+
+    .state-cell {
+      color: var(--ms-navy);
+    }
+
+    @media (max-width: 940px) {
+      .create-preview {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .ms-page {
+        padding: 16px;
+      }
+
+      .create-preview {
+        padding: 12px;
+      }
+
+      .phone {
+        border-width: 7px;
+      }
+
+      .create-app {
+        height: 790px;
+      }
+
+      .bottom-dock {
+        grid-template-columns: 56px minmax(0, 1fr) 56px;
+        gap: 5px;
+      }
+
+      .dock-tabs {
+        grid-template-columns: repeat(4, minmax(43px, 1fr));
+        gap: 4px;
+      }
+
+      .dock-tab,
+      .mool-button,
+      .chat-button {
+        font-size: 8.5px;
+      }
+
+      .state-row {
+        grid-template-columns: 1fr;
+      }
+
+      .state-label {
+        border-right: 0;
+        border-bottom: 1px solid var(--ms-navy);
+      }
+    }
+  </style>
+</head>
+<body class="ms-doc">
+  <main class="ms-page screen-shell">
+    <header class="ms-topbar">
+      <div>
+        <a class="screen-link-home" href="../index.html">
+          <span class="back-mark">08</span>
+          Back to screenbook
+        </a>
+        <h1 class="ms-title">Screen 08: Social &gt; Create</h1>
+        <p class="ms-lead">
+          Public social creation for every signed-in user: text, photo, short, video and thread-style posts.
+          Creator earning is an upgrade path, not a posting barrier.
+        </p>
+      </div>
+      <span class="ms-status">Draft for review</span>
+    </header>
+
+    <section class="ms-panel">
+      <div class="ms-section-head">Interactive User-Facing UI <span>Pure social composer, creator path optional</span></div>
+      <div class="create-preview">
+        <section class="phone" aria-label="MoolSocial Create phone preview">
+          <div class="create-app">
+            <div class="status-row">
+              <span>9:41</span>
+              <span>5G 100%</span>
+            </div>
+
+            <header class="top-bar">
+              <a class="icon-button" href="07-social-feed.html" aria-label="Back to Feed">
+                <svg viewBox="0 0 24 24"><path d="M15 18 9 12l6-6"/><path d="M10 12h10"/></svg>
+              </a>
+              <div class="title-lockup">
+                <b>Create on MoolSocial</b>
+                <span data-mode-subtitle>Text, photo, short, video, story or live</span>
+              </div>
+              <div class="top-actions">
+                <button class="icon-button" type="button" aria-label="Open drafts" data-open-sheet="drafts">
+                  <svg viewBox="0 0 24 24"><path d="M6 4h12v16l-6-3-6 3Z"/></svg>
+                </button>
+                <button class="icon-button" type="button" aria-label="Creator tools" data-open-sheet="creator">
+                  <svg viewBox="0 0 24 24"><path d="M12 3 15 9l6 .8-4.4 4.2 1.1 6-5.7-3.1L6.3 20l1.1-6L3 9.8 9 9Z"/></svg>
+                </button>
+              </div>
+            </header>
+
+            <nav class="mode-rail" aria-label="Create mode">
+              <button class="mode-chip active" type="button" data-mode="Text">
+                <svg viewBox="0 0 24 24"><path d="M5 6h14"/><path d="M5 12h11"/><path d="M5 18h8"/></svg>
+                Text
+              </button>
+              <button class="mode-chip" type="button" data-mode="Photo">
+                <svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="14" rx="2"/><circle cx="9" cy="10" r="1.5"/><path d="m7 17 4-4 3 3 2-2 2 3"/></svg>
+                Photo
+              </button>
+              <button class="mode-chip" type="button" data-mode="Short">
+                <svg viewBox="0 0 24 24"><path d="m9 6 8 6-8 6Z"/><path d="M5 5v14"/></svg>
+                Short
+              </button>
+              <button class="mode-chip" type="button" data-mode="Video">
+                <svg viewBox="0 0 24 24"><path d="M4 7h16v10H4Z"/><path d="m10 10 5 3-5 3Z"/></svg>
+                Video
+              </button>
+              <button class="mode-chip" type="button" data-mode="Story">
+                <svg viewBox="0 0 24 24"><rect x="7" y="3" width="10" height="18" rx="3"/><path d="M10 17h4"/><path d="M12 7v6"/><path d="M9 10h6"/></svg>
+                Story
+              </button>
+              <button class="mode-chip" type="button" data-mode="Live">
+                <svg viewBox="0 0 24 24"><path d="M8 9a5 5 0 0 1 8 0"/><path d="M5 6a9 9 0 0 1 14 0"/><path d="M12 13v8"/><circle cx="12" cy="10" r="2"/></svg>
+                Live
+              </button>
+              <button class="mode-chip" type="button" data-mode="Thread">
+                <svg viewBox="0 0 24 24"><path d="M7 7h10"/><path d="M7 12h7"/><path d="M7 17h10"/><circle cx="4" cy="7" r="1"/><circle cx="4" cy="12" r="1"/><circle cx="4" cy="17" r="1"/></svg>
+                Thread
+              </button>
+              <button class="mode-chip" type="button" data-mode="Poll">
+                <svg viewBox="0 0 24 24"><path d="M7 8h10"/><path d="M7 12h7"/><path d="M7 16h12"/></svg>
+                Poll
+              </button>
+            </nav>
+
+            <main class="composer-area">
+              <section class="composer-card">
+                <div class="identity-row">
+                  <span class="avatar">MS</span>
+                  <span class="identity-copy">
+                    <b>Supermandi Tech</b>
+                    <span>@supermanditech · public profile</span>
+                  </span>
+                  <span class="audience-pill">Public</span>
+                </div>
+
+                <div class="compose-box">
+                  <span class="compose-label" data-compose-label>New Text Post</span>
+                  <textarea aria-label="Create text" placeholder="What is happening?"></textarea>
+                  <div class="upload-panel" data-upload-panel>
+                    <span class="upload-art"></span>
+                    <span class="upload-copy">
+                      <b data-upload-title>Write first, add media anytime</b>
+                      <span data-upload-note>Share thoughts, updates, links, photos, short videos or long videos from mobile and web.</span>
+                    </span>
+                  </div>
+                </div>
+
+                <div class="upload-tools" aria-label="Creation tools">
+                  <button class="tool-chip" type="button" data-open-sheet="media">
+                    <svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="14" rx="2"/><path d="m7 16 3-3 2 2 3-4 3 5"/></svg>
+                    Gallery
+                  </button>
+                  <button class="tool-chip" type="button" data-open-sheet="camera">
+                    <svg viewBox="0 0 24 24"><path d="M5 8h3l2-2h4l2 2h3v10H5Z"/><circle cx="12" cy="13" r="3"/></svg>
+                    Camera
+                  </button>
+                  <button class="tool-chip" type="button" data-open-sheet="video">
+                    <svg viewBox="0 0 24 24"><path d="M4 7h16v10H4Z"/><path d="m10 10 5 3-5 3Z"/></svg>
+                    Upload
+                  </button>
+                  <button class="tool-chip" type="button" data-open-sheet="tags">
+                    <svg viewBox="0 0 24 24"><path d="M4 9V5h4"/><path d="M20 15v4h-4"/><path d="M4 15v4h4"/><path d="M20 9V5h-4"/></svg>
+                    Tags
+                  </button>
+                  <button class="tool-chip" type="button" data-open-sheet="music">
+                    <svg viewBox="0 0 24 24"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg>
+                    Music
+                  </button>
+                  <button class="tool-chip" type="button" data-open-sheet="schedule">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v5l3 2"/></svg>
+                    Schedule
+                  </button>
+                </div>
+
+                <section class="publish-map">
+                  <div class="map-head">
+                    <span>
+                      <b>Publish where it fits</b>
+                      <span>Same creator space can become feed post, short, long video, story or live.</span>
+                    </span>
+                    <span class="soft-badge">One create</span>
+                  </div>
+                  <div class="channel-row" aria-label="Publish destinations">
+                    <span class="channel-pill active"><b>Feed</b><span>Public post</span></span>
+                    <span class="channel-pill"><b>Shorts</b><span>Vertical</span></span>
+                    <span class="channel-pill"><b>Videos</b><span>Long</span></span>
+                    <span class="channel-pill"><b>Story</b><span>24 hr</span></span>
+                  </div>
+                </section>
+
+                <section class="suite-card">
+                  <div class="map-head">
+                    <span>
+                      <b>Creator toolkit</b>
+                      <span>Tools users expect from top social platforms, kept compact for mobile.</span>
+                    </span>
+                    <span class="soft-badge">Studio ready</span>
+                  </div>
+                  <div class="suite-grid">
+                    <button class="suite-tool" type="button" data-open-sheet="template">
+                      <svg viewBox="0 0 24 24"><path d="M4 5h16v14H4Z"/><path d="M8 5v14"/><path d="M4 10h16"/></svg>
+                      Templates
+                    </button>
+                    <button class="suite-tool" type="button" data-open-sheet="captions">
+                      <svg viewBox="0 0 24 24"><path d="M4 6h16v12H4Z"/><path d="M8 11h4"/><path d="M8 15h8"/></svg>
+                      Captions
+                    </button>
+                    <button class="suite-tool" type="button" data-open-sheet="thumbnail">
+                      <svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="14" rx="2"/><path d="m9 14 2-2 2 2 3-4 2 6"/></svg>
+                      Cover
+                    </button>
+                    <button class="suite-tool" type="button" data-open-sheet="collab">
+                      <svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="16" cy="10" r="2"/><path d="M3 20a6 6 0 0 1 12 0"/><path d="M14 20a4 4 0 0 1 7 0"/></svg>
+                      Collab
+                    </button>
+                    <button class="suite-tool" type="button" data-open-sheet="live">
+                      <svg viewBox="0 0 24 24"><path d="M8 9a5 5 0 0 1 8 0"/><path d="M12 13v7"/><circle cx="12" cy="10" r="2"/></svg>
+                      Live
+                    </button>
+                    <button class="suite-tool" type="button" data-open-sheet="analytics">
+                      <svg viewBox="0 0 24 24"><path d="M5 19V9"/><path d="M12 19V5"/><path d="M19 19v-7"/></svg>
+                      Insights
+                    </button>
+                  </div>
+                </section>
+
+                <section class="creator-card">
+                  <span class="creator-medal">C</span>
+                  <span class="creator-copy">
+                    <b>Become creator and earn</b>
+                    <span>Anyone can post now. Upgrade when ready for Studio, monetisation, campaigns, brand work and payouts after verification.</span>
+                    <span class="creator-mini-row">
+                      <span>Studio</span>
+                      <span>Campaigns</span>
+                      <span>Payouts</span>
+                      <span>Analytics</span>
+                    </span>
+                    <a class="creator-link" href="#" data-open-sheet="creator">
+                      Creator path
+                      <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+                    </a>
+                  </span>
+                </section>
+
+                <div class="post-row">
+                  <button class="post-action" type="button" data-save-draft>
+                    <svg viewBox="0 0 24 24"><path d="M6 4h12v16l-6-3-6 3Z"/></svg>
+                    Draft
+                  </button>
+                  <button class="post-action primary" type="button" data-open-sheet="publish">
+                    <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+                    Post
+                  </button>
+                </div>
+              </section>
+
+              <section class="safety-card">
+                <span>
+                  <b class="card-title">All-in-one social creation</b>
+                  <span class="card-note">Text like X, photos like Instagram, videos like YouTube, feed like Facebook, threads like Threads.</span>
+                </span>
+                <div class="safety-grid">
+                  <span class="safety-item">
+                    <b>Text</b>
+                    <span>Post</span>
+                  </span>
+                  <span class="safety-item">
+                    <b>Photo</b>
+                    <span>Album</span>
+                  </span>
+                  <span class="safety-item">
+                    <b>Short</b>
+                    <span>Vertical</span>
+                  </span>
+                  <span class="safety-item">
+                    <b>Video</b>
+                    <span>Long form</span>
+                  </span>
+                  <span class="safety-item">
+                    <b>Live</b>
+                    <span>Later</span>
+                  </span>
+                  <span class="safety-item">
+                    <b>Earn</b>
+                    <span>Creator</span>
+                  </span>
+                </div>
+              </section>
+
+              <section class="draft-card">
+                <span class="draft-thumb"></span>
+                <span class="draft-copy">
+                  <b>Jodhpur creator intro - draft</b>
+                  <span>Short video saved 80%</span>
+                </span>
+                <button class="round-action" type="button" aria-label="Open draft" data-open-sheet="drafts">
+                  <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+                </button>
+              </section>
+            </main>
+
+            <section class="sheet" data-sheet aria-label="Action sheet">
+              <div class="sheet-title">
+                <b data-sheet-title>Create options</b>
+                <button class="icon-button" type="button" aria-label="Close sheet" data-close-sheet>
+                  <svg viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                </button>
+              </div>
+              <div class="sheet-grid" data-sheet-grid></div>
+            </section>
+
+            <nav class="bottom-dock" aria-label="Social navigation">
+              <button class="mool-button" type="button" aria-label="Open Mool">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="2"/></svg>
+                Mool
+              </button>
+              <div class="dock-tabs" aria-label="Social sub-actions">
+                <a class="dock-tab" href="05-social-shorts.html" aria-label="Open Shorts">
+                  <svg viewBox="0 0 24 24"><path d="m9 6 8 6-8 6Z"/><path d="M5 5v14"/></svg>
+                  Shorts
+                </a>
+                <a class="dock-tab" href="06-social-videos.html" aria-label="Open Videos">
+                  <svg viewBox="0 0 24 24"><path d="M4 7h16v10H4Z"/><path d="m10 10 5 3-5 3Z"/></svg>
+                  Videos
+                </a>
+                <a class="dock-tab" href="07-social-feed.html" aria-label="Open Feed">
+                  <svg viewBox="0 0 24 24"><path d="M4 6h16v12H4Z"/><path d="M8 10h8"/><path d="M8 14h5"/></svg>
+                  Feed
+                </a>
+                <button class="dock-tab active" type="button" aria-label="Create">
+                  <svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+                  Create
+                </button>
+              </div>
+              <button class="chat-button" type="button" aria-label="Open chat">
+                <span class="chat-badge">2</span>
+                <svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z"/></svg>
+                Chat
+              </button>
+            </nav>
+          </div>
+        </section>
+
+        <aside class="launcher">
+          <article class="verdict-card">
+            <h2>UX Verdict</h2>
+            <p>
+              Screen 08 is a public social composer first. It should feel familiar to users of X, Facebook, Threads,
+              Instagram and YouTube, while staying MoolSocial-branded and cleaner than a creator studio.
+            </p>
+          </article>
+          <article class="verdict-card">
+            <h3>Posting Model</h3>
+            <p>
+              MoolSocial should allow any signed-in user to post text, images, shorts and videos. Earning, campaigns,
+              analytics and payouts require creator setup later, but posting itself should not be blocked.
+            </p>
+          </article>
+          <article class="verdict-card">
+            <h3>Mobile + Web</h3>
+            <p>
+              Mobile supports camera, gallery and quick capture. Web later supports long-form upload, thumbnails,
+              captions and creator studio, but the same Create entry remains the mental model.
+            </p>
+          </article>
+        </aside>
+      </div>
+    </section>
+
+    <section class="ms-panel" style="margin-top: 18px;">
+      <div class="ms-section-head">Screen Contract <span>What Screen 08 must preserve</span></div>
+      <div class="state-table">
+        <div class="state-row">
+          <div class="state-label">Entry</div>
+          <div class="state-cell">User arrives from Shorts, Videos, Feed or future website create entry. No role switch is required.</div>
+        </div>
+        <div class="state-row">
+          <div class="state-label">Primary Modes</div>
+          <div class="state-cell">Text, Photo, Short, Video, Story, Live, Thread and Poll are the visible social creation modes for MVP.</div>
+        </div>
+        <div class="state-row">
+          <div class="state-label">Creator Logic</div>
+          <div class="state-cell">Everyone can post. Creator profile, monetisation, campaign access and payout setup are upgrade paths after account verification.</div>
+        </div>
+        <div class="state-row">
+          <div class="state-label">Business Logic</div>
+          <div class="state-cell">Product/service/work proof must not dominate this screen. It can appear later as an optional contextual attachment from verified workspace flows.</div>
+        </div>
+        <div class="state-row">
+          <div class="state-label">Dock</div>
+          <div class="state-cell">Mool, Shorts, Videos, Feed, Create and Chat remain one tap accessible. Create must never be clipped in the bottom dock.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ms-panel" style="margin-top: 18px;">
+      <div class="ms-section-head">Full Stack Contract <span>API and backend logic for later production</span></div>
+      <div class="ms-grid-3">
+        <article class="ms-card">
+          <h3>Data Needed</h3>
+          <ul class="ms-list">
+            <li>user profile, handle, avatar, language, location permission and audience defaults.</li>
+            <li>post type, destination channel, text, media assets, captions, hashtags, mentions, schedule and draft state.</li>
+            <li>creator eligibility state: normal user, creator setup pending, verified creator, monetisation ready.</li>
+          </ul>
+        </article>
+        <article class="ms-card">
+          <h3>API Intent</h3>
+          <ul class="ms-list">
+            <li>POST /v1/social/drafts/upsert for autosave and manual draft save.</li>
+            <li>POST /v1/social/media/upload-url for photo, short and video upload.</li>
+            <li>POST /v1/social/create/submit for public post publish.</li>
+            <li>GET /v1/creator/status for creator earning and studio eligibility.</li>
+          </ul>
+        </article>
+        <article class="ms-card">
+          <h3>States To Design</h3>
+          <ul class="ms-list">
+            <li>text-only post, image selected, short selected, long video selected, story draft, live scheduled and thread draft.</li>
+            <li>uploading, paused upload, upload failed, unsafe content, copyright warning and offline draft.</li>
+            <li>creator setup available, creator setup pending and monetisation not yet eligible.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const modeCopy = {
+      Text: {
+        subtitle: "Text, photo, short, video, story or live",
+        label: "New Text Post",
+        placeholder: "What is happening?",
+        title: "Write first, add media anytime",
+        note: "Share thoughts, updates, links, photos, short videos or long videos from mobile and web."
+      },
+      Photo: {
+        subtitle: "Share photos from phone or web",
+        label: "New Photo Post",
+        placeholder: "Say something about this photo...",
+        title: "Add one or more photos",
+        note: "Gallery, camera, captions, tags and public audience controls stay in one flow."
+      },
+      Short: {
+        subtitle: "Create vertical short video",
+        label: "New Short",
+        placeholder: "Add a short caption...",
+        title: "Record or upload a short",
+        note: "Shorts are public social content. Creator earning can be enabled later."
+      },
+      Video: {
+        subtitle: "Upload long-form video",
+        label: "New Video",
+        placeholder: "Add title or description...",
+        title: "Upload video for mobile or web",
+        note: "Long-form supports creator channels, education, reviews and public video posts."
+      },
+      Story: {
+        subtitle: "Quick photo or video moment",
+        label: "New Story",
+        placeholder: "Add a story caption...",
+        title: "Share a 24-hour moment",
+        note: "Stories keep light updates, behind-the-scenes moments and creator teasers easy."
+      },
+      Live: {
+        subtitle: "Go live or schedule live session",
+        label: "New Live",
+        placeholder: "Name your live session...",
+        title: "Start or schedule live",
+        note: "Live is planned for creators, local events, classes, launches and community sessions."
+      },
+      Thread: {
+        subtitle: "Write connected posts",
+        label: "New Thread",
+        placeholder: "Start a thread...",
+        title: "Create multi-part post",
+        note: "Thread posts support text, photos, links and replies in sequence."
+      },
+      Poll: {
+        subtitle: "Ask people and collect responses",
+        label: "New Poll",
+        placeholder: "Ask a question...",
+        title: "Add poll choices",
+        note: "Polls work for public questions, community feedback and creator engagement."
+      }
+    };
+
+    const sheetContent = {
+      media: {
+        title: "Choose media",
+        items: [
+          ["Gallery", "Pick photo or video"],
+          ["Camera", "Capture now"],
+          ["Files", "Web upload later"],
+          ["Recent", "Continue draft"]
+        ]
+      },
+      camera: {
+        title: "Camera",
+        items: [
+          ["Photo", "Quick capture"],
+          ["Short", "Vertical video"],
+          ["Video", "Long capture"],
+          ["Flip", "Front/back camera"]
+        ]
+      },
+      video: {
+        title: "Video upload",
+        items: [
+          ["Short", "Up to short format"],
+          ["Long video", "Creator/web ready"],
+          ["Thumbnail", "Choose cover"],
+          ["Captions", "Add subtitles"]
+        ]
+      },
+      music: {
+        title: "Music and sound",
+        items: [
+          ["Trending audio", "Use safely"],
+          ["Original audio", "Keep yours"],
+          ["Voiceover", "Record"],
+          ["Mute", "No audio"]
+        ]
+      },
+      schedule: {
+        title: "Schedule",
+        items: [
+          ["Post now", "Immediate"],
+          ["Tonight", "Suggested"],
+          ["Pick time", "Calendar"],
+          ["Draft queue", "Later"]
+        ]
+      },
+      template: {
+        title: "Templates",
+        items: [
+          ["Creator intro", "Profile"],
+          ["Product review", "Video"],
+          ["Local update", "Post"],
+          ["Before/after", "Short"]
+        ]
+      },
+      captions: {
+        title: "Captions",
+        items: [
+          ["Auto captions", "Generate"],
+          ["Edit text", "Manual"],
+          ["Translate", "Later"],
+          ["Style", "Readable"]
+        ]
+      },
+      thumbnail: {
+        title: "Cover",
+        items: [
+          ["Pick frame", "Video"],
+          ["Upload cover", "Image"],
+          ["Title card", "Template"],
+          ["Preview", "Check"]
+        ]
+      },
+      collab: {
+        title: "Collab",
+        items: [
+          ["Invite creator", "Tag"],
+          ["Co-post", "Approval"],
+          ["Mention", "Public"],
+          ["Split later", "Creator tools"]
+        ]
+      },
+      live: {
+        title: "Live",
+        items: [
+          ["Start live", "Later"],
+          ["Schedule", "Notify"],
+          ["Invite guest", "Creator"],
+          ["Live shopping", "Future"]
+        ]
+      },
+      analytics: {
+        title: "Insights",
+        items: [
+          ["Views", "After post"],
+          ["Engagement", "After post"],
+          ["Audience", "Creator"],
+          ["Earnings", "Eligible"]
+        ]
+      },
+      tags: {
+        title: "Tags and audience",
+        items: [
+          ["Hashtags", "Add topics"],
+          ["Mention", "Tag people"],
+          ["Public", "Everyone"],
+          ["Followers", "Limited"]
+        ]
+      },
+      drafts: {
+        title: "Drafts",
+        items: [
+          ["Jodhpur creator intro", "Short 80% ready"],
+          ["Market photo post", "Caption saved"],
+          ["Long video upload", "Paused"],
+          ["Thread idea", "Text saved"]
+        ]
+      },
+      creator: {
+        title: "Creator path",
+        items: [
+          ["Post now", "No setup needed"],
+          ["Creator profile", "Start anytime"],
+          ["Earn", "After eligibility"],
+          ["Studio", "Web/mobile later"],
+          ["Campaigns", "Verified creators"],
+          ["Payouts", "KYC required later"]
+        ]
+      },
+      publish: {
+        title: "Post",
+        items: [
+          ["Post now", "Public"],
+          ["Schedule", "Later"],
+          ["Save draft", "Continue later"],
+          ["Preview", "Check first"]
+        ]
+      }
+    };
+
+    const modeButtons = Array.from(document.querySelectorAll("[data-mode]"));
+    const subtitle = document.querySelector("[data-mode-subtitle]");
+    const label = document.querySelector("[data-compose-label]");
+    const textarea = document.querySelector("textarea");
+    const uploadTitle = document.querySelector("[data-upload-title]");
+    const uploadNote = document.querySelector("[data-upload-note]");
+    const sheet = document.querySelector("[data-sheet]");
+    const sheetTitle = document.querySelector("[data-sheet-title]");
+    const sheetGrid = document.querySelector("[data-sheet-grid]");
+    const saveDraft = document.querySelector("[data-save-draft]");
+
+    function setMode(mode) {
+      const copy = modeCopy[mode] || modeCopy.Text;
+      modeButtons.forEach((button) => button.classList.toggle("active", button.dataset.mode === mode));
+      subtitle.textContent = copy.subtitle;
+      label.textContent = copy.label;
+      textarea.placeholder = copy.placeholder;
+      uploadTitle.textContent = copy.title;
+      uploadNote.textContent = copy.note;
+    }
+
+    function openSheet(type) {
+      const content = sheetContent[type] || sheetContent.media;
+      sheetTitle.textContent = content.title;
+      sheetGrid.innerHTML = content.items
+        .map(([title, note]) => `<span class="sheet-item"><b>${title}</b><span>${note}</span></span>`)
+        .join("");
+      sheet.classList.add("open");
+    }
+
+    modeButtons.forEach((button) => {
+      button.addEventListener("click", () => setMode(button.dataset.mode));
+    });
+
+    document.querySelectorAll("[data-open-sheet]").forEach((button) => {
+      button.addEventListener("click", (event) => {
+        event.preventDefault();
+        openSheet(button.dataset.openSheet);
+      });
+    });
+
+    document.querySelector("[data-close-sheet]").addEventListener("click", () => {
+      sheet.classList.remove("open");
+    });
+
+    saveDraft.addEventListener("click", () => {
+      const original = saveDraft.innerHTML;
+      saveDraft.textContent = "Saved";
+      setTimeout(() => {
+        saveDraft.innerHTML = original;
+      }, 1200);
+    });
+  </script>
+</body>
+</html>

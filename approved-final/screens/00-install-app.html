@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>00 Install App - MoolSocial Screenbook</title>
+  <link rel="stylesheet" href="../shared/styles.css" />
+  <link rel="stylesheet" href="../shared/moolsocial-ui-foundation.css" />
+  <style>
+    .brand-icon.mool-back {
+      background: var(--ms-navy);
+      box-shadow: none;
+      color: var(--ms-white);
+      font-size: 12px;
+      letter-spacing: 0;
+    }
+
+    .app-icon.mool-app-icon {
+      background: var(--ms-navy);
+      box-shadow: none;
+      padding: 8px;
+      color: var(--ms-white);
+      font-size: 10px;
+      line-height: 1;
+      text-align: center;
+    }
+
+    .mool-mini-wordmark {
+      display: block;
+      color: var(--ms-white);
+      font-size: 11px;
+      font-weight: 950;
+      line-height: .95;
+      letter-spacing: 0;
+      white-space: nowrap;
+      transform: scaleX(.9);
+    }
+
+    .mool-mini-line {
+      width: 58px;
+      height: 4px;
+      display: grid;
+      grid-template-columns: 45fr 14fr 41fr;
+      margin: 7px auto 0;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .mool-mini-line span:nth-child(1) { background: var(--ms-saffron); }
+    .mool-mini-line span:nth-child(2) { background: var(--ms-white); }
+    .mool-mini-line span:nth-child(3) { background: var(--ms-green); }
+
+    .app-title {
+      letter-spacing: 0;
+    }
+
+    .install-button {
+      background: var(--ms-navy);
+      box-shadow: none;
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="screenbook-header">
+      <div>
+        <a class="brand-mark" href="../index.html">
+          <span class="brand-icon mool-back">BR</span>
+          Back to Screenbook
+        </a>
+        <p class="kicker" style="margin-top: 18px;">Screen 00</p>
+        <h1>Install App</h1>
+        <p class="lead">
+          The user starts from the Play Store listing. This screen must create trust, explain the app simply,
+          avoid false promises, and hand the user cleanly into the first app-open flow.
+        </p>
+      </div>
+      <span class="status-pill">Approved</span>
+    </header>
+
+    <section class="spec-grid">
+      <aside class="panel sticky">
+        <p class="kicker">Purpose</p>
+        <h2>Download trust before app trust.</h2>
+        <p class="lead">
+          The Play Store screen is not a marketplace screen. It should position MoolSocial as a direct operating
+          socio-commerce app for social identity, daily needs, business growth, verified earning, money tools and chat.
+        </p>
+        <div class="note">
+          This screen should not mention role switching. Work and business value can be visible, but every user is still
+          entering as an individual consumer first.
+        </div>
+
+        <div class="spec-card" style="margin-top: 16px;">
+          <h3>Approved Frontend Words</h3>
+          <div class="badge-row">
+            <span class="badge">Social</span>
+            <span class="badge">Daily needs</span>
+            <span class="badge">Business</span>
+            <span class="badge">Earn</span>
+            <span class="badge">Money</span>
+            <span class="badge">Services</span>
+            <span class="badge">Chat</span>
+            <span class="badge">Creator</span>
+            <span class="badge">Retailer</span>
+            <span class="badge">Captain</span>
+            <span class="badge">Manufacturer</span>
+          </div>
+        </div>
+
+        <div class="spec-card">
+          <h3>Words To Avoid</h3>
+          <ul class="list">
+            <li>Guaranteed income</li>
+            <li>Marketplace</li>
+            <li>Yellow pages</li>
+            <li>Demand Vault</li>
+            <li>Campaign Engine</li>
+            <li>Ledger Unit</li>
+          </ul>
+        </div>
+      </aside>
+
+      <section class="phone-shell" aria-label="Mobile visual mockup">
+        <div class="phone-screen">
+          <div class="phone-status">
+            <span>9:41</span>
+            <span>5G 100%</span>
+          </div>
+
+          <div class="play-header">
+            <div class="play-search">
+              <span>Search apps</span>
+            </div>
+            <span style="font-weight: 950;">J</span>
+          </div>
+
+          <div class="phone-body">
+            <div class="app-identity">
+              <div class="app-icon mool-app-icon">
+                <span class="mool-mini-wordmark">MoolSocial</span>
+                <span class="mool-mini-line" aria-hidden="true"><span></span><span></span><span></span></span>
+              </div>
+              <div>
+                <div class="app-title">MoolSocial</div>
+                <div class="app-subtitle">Social, business, earn, money and daily needs</div>
+                <div class="copy" style="margin-top: 5px;">India Ka Socio Commerce App</div>
+              </div>
+            </div>
+
+            <div class="app-meta">
+              <div class="meta-item">
+                <b>4.6</b>
+                <span>rating target</span>
+              </div>
+              <div class="meta-item">
+                <b>12 MB</b>
+                <span>lean MVP</span>
+              </div>
+              <div class="meta-item">
+                <b>3+</b>
+                <span>rated for</span>
+              </div>
+            </div>
+
+            <button class="install-button">Install</button>
+
+            <div class="section-title">Screens preview</div>
+            <div class="screen-strip">
+              <div class="preview-card">
+                <b>Social life plus daily actions</b>
+                <span class="preview-chip">Consumer first</span>
+              </div>
+              <div class="preview-card">
+                <b>Business pages, orders and bookings</b>
+                <span class="preview-chip">Shops and services</span>
+              </div>
+              <div class="preview-card">
+                <b>Earn from verified funded tasks</b>
+                <span class="preview-chip">Proof based</span>
+              </div>
+            </div>
+
+            <div class="section-title">About this app</div>
+            <p class="copy">
+              MoolSocial helps consumers, families, businesses, creators, workers, captains, retailers and manufacturers
+              connect social activity with daily needs, services, orders, payments, money tools, chat and verified earning opportunities where available.
+            </p>
+
+            <div class="badge-row">
+              <span class="badge">Consumer first</span>
+              <span class="badge">Business tools</span>
+              <span class="badge">Proof-based earning</span>
+              <span class="badge">Social commerce</span>
+              <span class="badge">Money and chat</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="spec-stack">
+        <div class="panel">
+          <p class="kicker">Screen Contract</p>
+          <h2>Entry, install, and open-app handoff.</h2>
+          <table class="field-table">
+            <tr>
+              <th>Entry condition</th>
+              <td>User reaches Play Store from search, ad, QR, referral, website, or direct link.</td>
+            </tr>
+            <tr>
+              <th>Primary action</th>
+              <td>Install. After install completes, the system button changes to Open.</td>
+            </tr>
+            <tr>
+              <th>Secondary action</th>
+              <td>Read screenshots, app description, privacy details, ratings, and reviews.</td>
+            </tr>
+            <tr>
+              <th>Exit to next screen</th>
+              <td>Open app -> Screen 01 First Open / Splash. Screen 01 is not designed yet.</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="panel">
+          <p class="kicker">Decision Rules</p>
+          <h2>What this screen must communicate.</h2>
+          <div class="decision">
+            <div class="decision-row">
+              <b>Positioning</b>
+              <span>Direct operating socio-commerce app, not ecommerce listing, local directory, or marketplace.</span>
+            </div>
+            <div class="decision-row">
+              <b>User identity</b>
+              <span>Every user starts as an individual consumer first; business, creator, captain and work layers activate only when verified.</span>
+            </div>
+            <div class="decision-row">
+              <b>Earn promise</b>
+              <span>Say verified funded earning opportunities, never fixed income, guaranteed income, or free money.</span>
+            </div>
+            <div class="decision-row">
+              <b>Service promise</b>
+              <span>Only show social, business, commerce, money, service, ride or medicine claims that are enabled in launch geography.</span>
+            </div>
+            <div class="decision-row">
+              <b>Trust promise</b>
+              <span>Make payment, receipt, proof, refund, and support expectations visible in screenshots or copy.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <p class="kicker">Data Needed</p>
+          <h2>Production inputs before launch.</h2>
+          <ul class="list">
+            <li>Final MoolSocial app name, wordmark app icon, package name, and Play Store short description.</li>
+            <li>Approved screenshots for social, daily needs, business, earn, money, services, and chat.</li>
+            <li>Privacy policy URL, support email, and developer identity.</li>
+            <li>Age rating, data safety declarations, and permissions list.</li>
+            <li>Launch city and feature availability claims that match real operational readiness.</li>
+          </ul>
+        </div>
+
+        <div class="panel">
+          <p class="kicker">Compliance Gates</p>
+          <h2>Must pass before production.</h2>
+          <div class="lock-check">
+            <div class="check-item">
+              <span class="check-box">✓</span>
+              <span>No unsupported bill, ride, medicine, or local service claim appears in public listing.</span>
+            </div>
+            <div class="check-item">
+              <span class="check-box">✓</span>
+              <span>No outside-link or webview dependency is promised as a completed MoolSocial service.</span>
+            </div>
+            <div class="check-item">
+              <span class="check-box">✓</span>
+              <span>Income wording is outcome-funded and proof-based, not fixed salary or free money.</span>
+            </div>
+            <div class="check-item">
+              <span class="check-box">✓</span>
+              <span>Privacy policy and data safety disclosures match actual app behavior.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <p class="kicker">Regression Lock</p>
+          <h2>Do not move to Screen 01 until this is true.</h2>
+          <div class="lock-check">
+            <div class="check-item">
+              <span class="check-box">✓</span>
+              <span>Final Play Store title and short description approved.</span>
+            </div>
+            <div class="check-item">
+              <span class="check-box">✓</span>
+              <span>Install -> Open -> first app screen handoff defined.</span>
+            </div>
+            <div class="check-item">
+              <span class="check-box">✓</span>
+              <span>Feature claims match MVP readiness and geo activation rules.</span>
+            </div>
+            <div class="check-item">
+              <span class="check-box">✓</span>
+              <span>Production test plan includes install/open smoke test and store-listing content review.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+</body>
+</html>

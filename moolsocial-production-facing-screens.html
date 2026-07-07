@@ -1,0 +1,1354 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MoolSocial Production Screens</title>
+  <style>
+    :root {
+      --navy: #000080;
+      --saffron: #ff9933;
+      --green: #138808;
+      --white: #ffffff;
+      --ink: #101a3f;
+      --muted: #58637c;
+      --line: #dce3f2;
+      --soft: #f4f7fb;
+      --font: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --radius: 18px;
+      --pill: 999px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--soft);
+      color: var(--ink);
+      font-family: var(--font);
+    }
+
+    .page {
+      width: min(100%, 1480px);
+      margin: 0 auto;
+      padding: 28px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 22px;
+      padding: 18px 20px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: var(--white);
+    }
+
+    .brand {
+      display: grid;
+      gap: 7px;
+    }
+
+    .wordmark {
+      color: var(--navy);
+      font-size: 34px;
+      font-weight: 950;
+      line-height: .92;
+      letter-spacing: 0;
+    }
+
+    .brand-line,
+    .mini-line {
+      display: grid;
+      grid-template-columns: 45fr 14fr 41fr;
+      overflow: hidden;
+      border-radius: var(--pill);
+    }
+
+    .brand-line {
+      width: 164px;
+      height: 5px;
+    }
+
+    .mini-line {
+      width: 118px;
+      height: 4px;
+    }
+
+    .brand-line span:nth-child(1),
+    .mini-line span:nth-child(1) {
+      background: var(--saffron);
+    }
+
+    .brand-line span:nth-child(2),
+    .mini-line span:nth-child(2) {
+      background: var(--white);
+    }
+
+    .brand-line span:nth-child(3),
+    .mini-line span:nth-child(3) {
+      background: var(--green);
+    }
+
+    .tag {
+      min-height: 34px;
+      display: inline-flex;
+      align-items: center;
+      border-radius: var(--pill);
+      padding: 0 18px;
+      background: var(--navy);
+      color: var(--white);
+      font-size: 13px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(310px, 1fr));
+      gap: 18px;
+      align-items: start;
+    }
+
+    .panel {
+      display: grid;
+      gap: 12px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 14px;
+      background: var(--white);
+      box-shadow: 0 18px 40px rgba(0, 0, 128, .08);
+    }
+
+    .panel-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--navy);
+      font-size: 14px;
+      font-weight: 950;
+      line-height: 1.2;
+    }
+
+    .panel-title span {
+      min-height: 26px;
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: var(--pill);
+      padding: 0 10px;
+      color: var(--green);
+      font-size: 10px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .logo-board {
+      min-height: 320px;
+      display: grid;
+      place-items: center;
+      border-radius: 22px;
+      padding: 26px;
+      background: var(--navy);
+    }
+
+    .logo-card {
+      width: min(100%, 500px);
+      display: grid;
+      justify-items: center;
+      gap: 12px;
+      border: 1px solid rgba(255, 255, 255, .9);
+      border-radius: 9px;
+      padding: 34px 28px;
+      background: var(--navy);
+    }
+
+    .logo-wordmark {
+      color: var(--white);
+      font-size: clamp(34px, 6vw, 56px);
+      font-weight: 950;
+      line-height: .92;
+      letter-spacing: 0;
+    }
+
+    .logo-tagline {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      border-radius: var(--pill);
+      padding: 0 18px;
+      background: var(--white);
+      color: var(--navy);
+      font-size: 16px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .app-icon-preview {
+      width: 86px;
+      height: 86px;
+      display: grid;
+      place-items: center;
+      border-radius: 22px;
+      background: var(--navy);
+      box-shadow: 0 14px 34px rgba(0, 0, 128, .24);
+    }
+
+    .app-icon-preview b {
+      color: var(--white);
+      font-size: 12px;
+      line-height: .9;
+    }
+
+    .phone {
+      width: min(100%, 360px);
+      min-height: 700px;
+      display: grid;
+      grid-template-rows: 32px 1fr;
+      justify-self: center;
+      overflow: hidden;
+      border: 9px solid var(--navy);
+      border-radius: 32px;
+      background: var(--navy);
+    }
+
+    .status {
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 16px 0;
+      color: var(--white);
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    .screen {
+      min-height: 668px;
+      overflow: hidden;
+      background: var(--white);
+    }
+
+    .download-screen {
+      display: grid;
+      grid-template-rows: auto 1fr;
+      background: var(--white);
+    }
+
+    .play-header {
+      display: grid;
+      grid-template-columns: 1fr 34px;
+      gap: 10px;
+      align-items: center;
+      padding: 14px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .play-search {
+      min-height: 40px;
+      display: flex;
+      align-items: center;
+      border-radius: var(--pill);
+      padding: 0 14px;
+      background: #eef2f7;
+      color: #667085;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .avatar {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--navy);
+      color: var(--white);
+      font-size: 13px;
+      font-weight: 950;
+    }
+
+    .store-body {
+      display: grid;
+      align-content: start;
+      gap: 14px;
+      padding: 18px 14px 22px;
+    }
+
+    .app-row {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      gap: 13px;
+      align-items: center;
+    }
+
+    .store-icon {
+      width: 72px;
+      height: 72px;
+      display: grid;
+      place-items: center;
+      border-radius: 19px;
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .store-icon > div {
+      width: 100%;
+      display: grid;
+      justify-items: center;
+    }
+
+    .store-icon b {
+      font-size: 10px;
+      line-height: .9;
+    }
+
+    .store-icon .mini-line {
+      width: 54px;
+      height: 3px;
+      margin-top: 5px;
+    }
+
+    .store-title {
+      color: var(--ink);
+      font-size: 21px;
+      font-weight: 950;
+      line-height: 1.05;
+    }
+
+    .store-subtitle,
+    .copy {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 760;
+      line-height: 1.35;
+    }
+
+    .meta-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .meta {
+      display: grid;
+      gap: 3px;
+      place-items: center;
+      min-height: 60px;
+      border-right: 1px solid var(--line);
+      color: var(--ink);
+      font-size: 11px;
+      font-weight: 850;
+    }
+
+    .meta:last-child {
+      border-right: 0;
+    }
+
+    .meta b {
+      color: var(--ink);
+      font-size: 15px;
+      line-height: 1;
+    }
+
+    .primary-button {
+      min-height: 44px;
+      display: grid;
+      place-items: center;
+      border: 0;
+      border-radius: var(--pill);
+      background: var(--navy);
+      color: var(--white);
+      font-family: var(--font);
+      font-size: 14px;
+      font-weight: 950;
+    }
+
+    .preview-strip {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: 132px;
+      gap: 10px;
+      overflow: hidden;
+    }
+
+    .preview-card {
+      min-height: 168px;
+      display: grid;
+      align-content: end;
+      border-radius: 16px;
+      padding: 12px;
+      color: var(--white);
+      background:
+        linear-gradient(180deg, rgba(0, 0, 128, 0), rgba(0, 0, 128, .92)),
+        radial-gradient(circle at 34% 24%, rgba(255, 153, 51, .9), transparent 31%),
+        linear-gradient(140deg, #14218c, #138808);
+      font-size: 12px;
+      font-weight: 950;
+      line-height: 1.2;
+    }
+
+    .section-title {
+      color: var(--ink);
+      font-size: 13px;
+      font-weight: 950;
+      line-height: 1.2;
+    }
+
+    .splash-screen {
+      min-height: 668px;
+      display: grid;
+      grid-template-rows: 1fr auto;
+      padding: 44px 22px 28px;
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .splash-center {
+      display: grid;
+      place-items: center;
+      align-content: center;
+      gap: 12px;
+    }
+
+    .splash-wordmark {
+      color: var(--white);
+      font-size: 32px;
+      font-weight: 950;
+      line-height: .95;
+    }
+
+    .splash-tagline {
+      min-height: 31px;
+      display: inline-flex;
+      align-items: center;
+      border-radius: var(--pill);
+      padding: 0 16px;
+      background: var(--white);
+      color: var(--navy);
+      font-size: 12px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .loader {
+      height: 5px;
+      display: grid;
+      grid-template-columns: 45fr 14fr 41fr;
+      border-radius: var(--pill);
+      overflow: hidden;
+    }
+
+    .loader span:nth-child(1) {
+      background: var(--saffron);
+    }
+
+    .loader span:nth-child(2) {
+      background: var(--white);
+    }
+
+    .loader span:nth-child(3) {
+      background: var(--green);
+    }
+
+    .boot-copy {
+      display: grid;
+      grid-template-columns: 10px 1fr;
+      gap: 9px;
+      align-items: center;
+      color: var(--white);
+      font-size: 12px;
+      font-weight: 850;
+    }
+
+    .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--green);
+    }
+
+    .setup-screen,
+    .login-screen,
+    .focus-screen {
+      min-height: 668px;
+      display: grid;
+      grid-template-rows: auto 1fr;
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .phone-top {
+      display: grid;
+      justify-items: center;
+      gap: 6px;
+      padding: 22px 18px 14px;
+      background: var(--navy);
+    }
+
+    .phone-wordmark {
+      color: var(--white);
+      font-size: 25px;
+      font-weight: 950;
+      line-height: .95;
+    }
+
+    .phone-tagline {
+      min-height: 28px;
+      display: inline-flex;
+      align-items: center;
+      border-radius: var(--pill);
+      padding: 0 14px;
+      background: var(--white);
+      color: var(--navy);
+      font-size: 11px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .body-card {
+      min-height: 100%;
+      display: grid;
+      align-content: start;
+      gap: 12px;
+      border-radius: 24px 24px 0 0;
+      padding: 18px;
+      background: var(--white);
+      color: var(--ink);
+    }
+
+    .body-card h2 {
+      margin: 0;
+      color: var(--navy);
+      font-size: 23px;
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    .body-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.4;
+      font-weight: 760;
+    }
+
+    .choice-list {
+      display: grid;
+      gap: 9px;
+      margin-top: 4px;
+    }
+
+    .choice {
+      min-height: 70px;
+      display: grid;
+      grid-template-columns: 46px 1fr;
+      gap: 12px;
+      align-items: center;
+      border: 1px solid rgba(255, 255, 255, .75);
+      border-radius: 13px;
+      padding: 10px;
+      background: var(--navy);
+      color: var(--white);
+      text-align: left;
+      font-family: var(--font);
+    }
+
+    .choice svg {
+      width: 42px;
+      height: 42px;
+      display: block;
+    }
+
+    .choice b,
+    .provider b,
+    .login-choice b {
+      display: block;
+      color: currentColor;
+      font-size: 13px;
+      line-height: 1.15;
+    }
+
+    .choice span,
+    .login-choice span {
+      display: block;
+      margin-top: 3px;
+      color: currentColor;
+      font-size: 10px;
+      line-height: 1.25;
+      font-weight: 760;
+    }
+
+    .provider-card {
+      display: grid;
+      gap: 10px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 12px;
+      background: var(--soft);
+    }
+
+    .provider-card h3 {
+      margin: 0;
+      color: var(--navy);
+      font-size: 12px;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+
+    .provider-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 7px;
+    }
+
+    .provider {
+      min-height: 62px;
+      display: grid;
+      place-items: center;
+      gap: 5px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--white);
+      color: var(--ink);
+      font-family: var(--font);
+      font-size: 9px;
+      font-weight: 950;
+    }
+
+    .provider svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .google svg path:nth-child(1) { fill: #4285f4; }
+    .google svg path:nth-child(2) { fill: #34a853; }
+    .google svg path:nth-child(3) { fill: #fbbc05; }
+    .google svg path:nth-child(4) { fill: #ea4335; }
+    .apple { color: #111; }
+    .x { color: #111; }
+    .instagram { color: #d62976; }
+    .facebook { color: #1877f2; }
+
+    .login-list {
+      display: grid;
+      gap: 9px;
+    }
+
+    .login-choice {
+      min-height: 58px;
+      display: grid;
+      grid-template-columns: 40px 1fr;
+      gap: 10px;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 9px;
+      background: var(--white);
+      color: var(--navy);
+    }
+
+    .login-icon {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--navy);
+      color: var(--white);
+      font-size: 15px;
+      font-weight: 950;
+    }
+
+    .otp-preview {
+      display: grid;
+      gap: 8px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 12px;
+      background: var(--soft);
+    }
+
+    .otp-row {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 7px;
+    }
+
+    .otp-cell {
+      min-height: 42px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--white);
+      color: var(--navy);
+      font-size: 17px;
+      font-weight: 950;
+    }
+
+    .focus-screen {
+      position: relative;
+      grid-template-rows: auto 1fr auto;
+      background: #f6f8fb;
+      color: var(--navy);
+    }
+
+    .focus-top {
+      display: grid;
+      gap: 10px;
+      padding: 14px;
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .focus-brand-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .round-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .round {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--white);
+      color: var(--navy);
+      font-weight: 950;
+    }
+
+    .command {
+      min-height: 46px;
+      display: grid;
+      grid-template-columns: 1fr repeat(3, 34px);
+      gap: 7px;
+      align-items: center;
+      border: 1px solid rgba(255, 255, 255, .92);
+      border-radius: var(--pill);
+      padding: 5px 6px 5px 13px;
+      background: rgba(255, 255, 255, .08);
+      color: var(--white);
+    }
+
+    .command-text {
+      overflow: hidden;
+      color: var(--white);
+      font-size: 12px;
+      font-weight: 850;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .focus-body {
+      display: grid;
+      align-content: start;
+      gap: 12px;
+      padding: 14px 14px 86px;
+      overflow: hidden;
+    }
+
+    .video-card {
+      min-height: 330px;
+      display: grid;
+      grid-template-rows: 1fr auto;
+      overflow: hidden;
+      border: 1px solid var(--navy);
+      border-radius: 14px;
+      color: var(--white);
+      background:
+        linear-gradient(180deg, rgba(0, 0, 128, 0), rgba(0, 0, 128, .95)),
+        radial-gradient(circle at 30% 20%, rgba(255, 153, 51, .9), transparent 28%),
+        linear-gradient(140deg, #1c2a80, #11764f 60%, #04104e);
+    }
+
+    .video-top {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px;
+    }
+
+    .pill-label {
+      min-height: 24px;
+      display: inline-flex;
+      align-items: center;
+      border-radius: var(--pill);
+      padding: 0 8px;
+      background: rgba(255, 255, 255, .2);
+      color: var(--white);
+      font-size: 10px;
+      font-weight: 950;
+    }
+
+    .play {
+      width: 54px;
+      height: 54px;
+      align-self: center;
+      justify-self: center;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--white);
+      color: var(--navy);
+      font-size: 24px;
+    }
+
+    .video-copy {
+      display: grid;
+      gap: 8px;
+      padding: 14px;
+    }
+
+    .video-copy b {
+      color: var(--white);
+      font-size: 18px;
+      line-height: 1.16;
+    }
+
+    .video-copy span {
+      color: var(--white);
+      font-size: 12px;
+      line-height: 1.35;
+      padding-right: 54px;
+    }
+
+    .content-actions {
+      position: absolute;
+      top: 198px;
+      right: 12px;
+      display: grid;
+      gap: 9px;
+      z-index: 2;
+    }
+
+    .content-actions button {
+      width: 42px;
+      min-height: 52px;
+      display: grid;
+      place-items: center;
+      gap: 3px;
+      border: 1px solid rgba(255, 255, 255, .72);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, .92);
+      color: var(--navy);
+      box-shadow: 0 7px 16px rgba(0, 0, 128, .12);
+      font-family: var(--font);
+      font-size: 8px;
+      font-weight: 950;
+    }
+
+    .decision-card {
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 11px;
+      border: 1px solid var(--navy);
+      border-radius: 14px;
+      padding: 12px;
+      background: var(--white);
+      color: var(--navy);
+    }
+
+    .card-icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: rgba(19, 136, 8, .12);
+      color: var(--green);
+      font-size: 22px;
+      font-weight: 950;
+    }
+
+    .decision-card b {
+      display: block;
+      color: var(--navy);
+      font-size: 14px;
+      line-height: 1.15;
+    }
+
+    .decision-card span {
+      display: block;
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.35;
+      font-weight: 760;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 8px;
+    }
+
+    .chips i {
+      min-height: 22px;
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: var(--pill);
+      padding: 0 7px;
+      color: var(--green);
+      font-size: 9px;
+      font-style: normal;
+      font-weight: 900;
+    }
+
+    .dock {
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+      display: grid;
+      grid-template-columns: 48px repeat(3, minmax(0, 1fr));
+      gap: 5px;
+      border: 1px solid var(--navy);
+      border-radius: 22px;
+      padding: 7px;
+      background: rgba(255, 255, 255, .96);
+      box-shadow: 0 -10px 28px rgba(0, 0, 128, .14);
+      z-index: 4;
+    }
+
+    .dock button {
+      min-width: 0;
+      min-height: 50px;
+      display: grid;
+      place-items: center;
+      gap: 4px;
+      border: 0;
+      border-radius: 16px;
+      background: transparent;
+      color: var(--navy);
+      font-family: var(--font);
+      font-size: 9px;
+      font-weight: 950;
+    }
+
+    .dock button.active {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .mool-mark {
+      width: 30px;
+      height: 30px;
+      position: relative;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--navy);
+      box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, .42),
+        0 8px 16px rgba(0, 0, 128, .2);
+      animation: mool-breathe 2.8s ease-in-out infinite;
+    }
+
+    .dock .mool-mark svg {
+      width: 30px;
+      height: 30px;
+      display: block;
+    }
+
+    .mool-base {
+      fill: var(--navy);
+    }
+
+    .mool-whirl {
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 3.2;
+    }
+
+    .mool-whirl.saffron {
+      stroke: var(--saffron);
+    }
+
+    .mool-whirl.green {
+      stroke: var(--green);
+    }
+
+    .mool-whirl.signal {
+      stroke: var(--white);
+      stroke-width: 1.45;
+      opacity: .82;
+    }
+
+    .mool-core {
+      fill: var(--white);
+    }
+
+    .mool-core-dot {
+      fill: var(--navy);
+    }
+
+    .mool-label {
+      color: var(--navy);
+      font-size: 8px;
+      font-weight: 950;
+      letter-spacing: 0;
+    }
+
+    @keyframes mool-breathe {
+      0%, 100% {
+        transform: scale(1);
+        box-shadow:
+          inset 0 0 0 1px rgba(255, 255, 255, .42),
+          0 8px 16px rgba(0, 0, 128, .2);
+      }
+      50% {
+        transform: scale(1.04);
+        box-shadow:
+          inset 0 0 0 1px rgba(255, 255, 255, .62),
+          0 10px 20px rgba(0, 0, 128, .26);
+      }
+    }
+
+    .dock svg,
+    .content-actions svg,
+    .command svg,
+    .round svg {
+      width: 18px;
+      height: 18px;
+      fill: none;
+      stroke: currentColor;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 2.2;
+    }
+
+    @media (max-width: 1120px) {
+      .grid {
+        grid-template-columns: repeat(2, minmax(310px, 1fr));
+      }
+    }
+
+    @media (max-width: 720px) {
+      .page {
+        padding: 14px;
+      }
+
+      .topbar {
+        display: grid;
+      }
+
+      .tag {
+        justify-self: start;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media print {
+      @page {
+        size: A4 portrait;
+        margin: 10mm;
+      }
+
+      body {
+        background: var(--white);
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .page {
+        width: 100%;
+        padding: 0;
+      }
+
+      .topbar {
+        display: none;
+      }
+
+      .panel {
+        break-inside: avoid;
+        box-shadow: none;
+      }
+
+      .grid {
+        display: block;
+      }
+
+      .panel {
+        min-height: 270mm;
+        display: grid;
+        align-content: start;
+        justify-items: center;
+        gap: 14px;
+        margin: 0;
+        padding: 10mm;
+        border: 0;
+        border-radius: 0;
+        break-after: page;
+      }
+
+      .panel:last-child {
+        break-after: auto;
+      }
+
+      .panel-title {
+        width: min(100%, 390px);
+      }
+
+      .logo-board {
+        width: min(100%, 620px);
+        min-height: 520px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="topbar">
+      <div class="brand">
+        <div class="wordmark">MoolSocial</div>
+        <div class="brand-line" aria-hidden="true"><span></span><span></span><span></span></div>
+      </div>
+      <div class="tag">India Ka Socio Commerce App</div>
+    </header>
+
+    <section class="grid">
+      <article class="panel">
+        <div class="panel-title">Logo <span>Brand</span></div>
+        <div class="logo-board">
+          <div class="logo-card">
+            <div class="logo-wordmark">MoolSocial</div>
+            <div class="mini-line" aria-hidden="true"><span></span><span></span><span></span></div>
+            <div class="logo-tagline">India Ka Socio Commerce App</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="panel">
+        <div class="panel-title">Download <span>Play Store</span></div>
+        <section class="phone" aria-label="Download screen">
+          <div class="status"><span>9:41</span><span>5G 100%</span></div>
+          <div class="screen download-screen">
+            <div class="play-header">
+              <div class="play-search">Search apps</div>
+              <div class="avatar">J</div>
+            </div>
+            <div class="store-body">
+              <div class="app-row">
+                <div class="store-icon">
+                  <div>
+                    <b>MoolSocial</b>
+                    <div class="mini-line" aria-hidden="true"><span></span><span></span><span></span></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="store-title">MoolSocial</div>
+                  <div class="store-subtitle">Social, business, earn, money and daily needs</div>
+                  <div class="copy" style="margin-top:5px;">India Ka Socio Commerce App</div>
+                </div>
+              </div>
+              <div class="meta-row">
+                <div class="meta"><b>4.6</b><span>Rating</span></div>
+                <div class="meta"><b>10M+</b><span>Downloads</span></div>
+                <div class="meta"><b>12+</b><span>Rated</span></div>
+              </div>
+              <button class="primary-button" type="button">Install</button>
+              <div class="section-title">Screens preview</div>
+              <div class="preview-strip">
+                <div class="preview-card">Social life plus daily actions</div>
+                <div class="preview-card">Get products and services</div>
+                <div class="preview-card">Earn from verified work</div>
+              </div>
+              <div class="section-title">About this app</div>
+              <p class="copy">MoolSocial connects social activity with daily needs, services, orders, payments, money tools, chat and verified earning opportunities where available.</p>
+            </div>
+          </div>
+        </section>
+      </article>
+
+      <article class="panel">
+        <div class="panel-title">Screen 01 <span>Open</span></div>
+        <section class="phone" aria-label="Splash screen">
+          <div class="status"><span>9:41</span><span>5G 100%</span></div>
+          <div class="splash-screen">
+            <div class="splash-center">
+              <div class="splash-wordmark">MoolSocial</div>
+              <div class="mini-line" aria-hidden="true"><span></span><span></span><span></span></div>
+              <div class="splash-tagline">India Ka Socio Commerce App</div>
+            </div>
+            <div style="display:grid;gap:10px;">
+              <div class="boot-copy"><span class="dot"></span><span>Opening your MoolSocial space</span></div>
+              <div class="loader" aria-hidden="true"><span></span><span></span><span></span></div>
+            </div>
+          </div>
+        </section>
+      </article>
+
+      <article class="panel">
+        <div class="panel-title">Screen 02 <span>Setup</span></div>
+        <section class="phone" aria-label="Language and area setup screen">
+          <div class="status"><span>9:41</span><span>5G 100%</span></div>
+          <div class="setup-screen">
+            <div class="phone-top">
+              <div class="phone-wordmark">MoolSocial</div>
+              <div class="mini-line" aria-hidden="true"><span></span><span></span><span></span></div>
+              <div class="phone-tagline">India Ka Socio Commerce App</div>
+            </div>
+            <div class="body-card">
+              <h2>Set your area</h2>
+              <p>Your app language is set from this phone. Choose how MoolSocial should set your area.</p>
+              <div class="choice-list">
+                <button class="choice" type="button">
+                  <svg viewBox="0 0 48 48" aria-hidden="true"><defs><linearGradient id="pinA" x1="14" y1="6" x2="34" y2="42" gradientUnits="userSpaceOnUse"><stop stop-color="#ff6a3d"/><stop offset=".55" stop-color="#e42d2d"/><stop offset="1" stop-color="#b4132d"/></linearGradient></defs><path fill="url(#pinA)" d="M24 4.5c-7.3 0-13.2 5.8-13.2 13 0 9.9 13.2 25.8 13.2 25.8s13.2-15.9 13.2-25.8c0-7.2-5.9-13-13.2-13Z"/><circle cx="24" cy="17.7" r="7.7" fill="#fff"/><circle cx="24" cy="17.7" r="4.1" fill="#0b57d0"/></svg>
+                  <span><b>Use current location</b><span>Best when you are at the place now</span></span>
+                </button>
+                <button class="choice" type="button">
+                  <svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#f7c948" d="m8 13 10-5 12 5 10-5v28l-10 5-12-5-10 5Z"/><path fill="#29a3ef" d="m18 8 12 5v28l-12-5Z"/><path fill="#35a853" d="M8 13v28l10-5V8Z"/><path fill="#ea4335" d="M30 13v28l10-5V8Z"/><path fill="#fff" d="M31 17a5 5 0 0 0-5 5c0 3.7 5 9.6 5 9.6s5-5.9 5-9.6a5 5 0 0 0-5-5Z"/><circle cx="31" cy="22" r="2" fill="#ea4335"/></svg>
+                  <span><b>Set manually</b><span>Search area, pin code, address or choose on map</span></span>
+                </button>
+                <button class="choice" type="button">
+                  <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="18" fill="#34a853"/><path fill="#ffdf47" d="m17 14 19 10-19 10Z"/><path fill="#fff" d="M14 13h4v22h-4Z"/><path fill="#fff" d="M14 24h14"/></svg>
+                  <span><b>Skip now</b><span>Continue to login and set area after signup</span></span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </article>
+
+      <article class="panel">
+        <div class="panel-title">Screen 03 <span>Login</span></div>
+        <section class="phone" aria-label="Login screen">
+          <div class="status"><span>9:41</span><span>5G 100%</span></div>
+          <div class="login-screen">
+            <div class="phone-top">
+              <div class="phone-wordmark">MoolSocial</div>
+              <div class="mini-line" aria-hidden="true"><span></span><span></span><span></span></div>
+              <div class="phone-tagline">India Ka Socio Commerce App</div>
+            </div>
+            <div class="body-card">
+              <h2>Sign in</h2>
+              <p>Choose one method to continue.</p>
+              <div class="provider-card">
+                <h3>Social account</h3>
+                <div class="provider-grid">
+                  <button class="provider google" type="button" aria-label="Google">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22.6 12.2c0-.8-.1-1.5-.2-2.2H12v4.2h5.9c-.3 1.4-1 2.5-2.1 3.3v2.7h3.4c2-1.9 3.4-4.6 3.4-8Z"/><path d="M12 23c3 0 5.5-1 7.3-2.8l-3.4-2.7c-1 .6-2.2 1-3.9 1-3 0-5.5-2-6.4-4.7H2.1v2.8A11 11 0 0 0 12 23Z"/><path d="M5.6 13.8a6.6 6.6 0 0 1 0-3.6V7.4H2.1a11 11 0 0 0 0 9.2l3.5-2.8Z"/><path d="M12 5.5c1.6 0 3 .6 4.1 1.6l3.1-3.1A10.5 10.5 0 0 0 12 1 11 11 0 0 0 2.1 7.4l3.5 2.8c.9-2.7 3.4-4.7 6.4-4.7Z"/></svg>
+                    <b>Google</b>
+                  </button>
+                  <button class="provider apple" type="button" aria-label="Apple">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.6 13.1c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.5-.1-2.8.9-3.6.9-.7 0-1.9-.9-3.1-.8-1.6 0-3 .9-3.8 2.3-1.6 2.8-.4 6.8 1.1 9.1.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7 1.4 0 1.8.7 3.1.7 1.3 0 2.1-1.1 2.8-2.2.9-1.3 1.2-2.5 1.3-2.6-.1 0-2.3-.9-2.3-3.7ZM14.3 6.2c.6-.7 1-1.7.9-2.7-.9 0-2 .6-2.6 1.3-.6.7-1.1 1.7-.9 2.6 1 .1 2-.5 2.6-1.2Z"/></svg>
+                    <b>Apple</b>
+                  </button>
+                  <button class="provider x" type="button" aria-label="X">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M14.3 10.2 22 2h-1.8l-6.7 7.1L8.2 2H2l8.1 10.8L2 22h1.8l7.1-7.6 5.7 7.6H22l-7.7-11.8Zm-2.5 2.7-.8-1.1L4.5 3.4h2.8l5.2 6.9.8 1.1 6.8 9.2h-2.8l-5.5-7.7Z"/></svg>
+                    <b>X</b>
+                  </button>
+                  <button class="provider instagram" type="button" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="5" width="14" height="14" rx="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="3.2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16.8 7.4h.1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                    <b>Insta</b>
+                  </button>
+                  <button class="provider facebook" type="button" aria-label="Facebook">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M15.1 8H17V4.8c-.3 0-1.5-.1-2.8-.1-2.8 0-4.6 1.7-4.6 4.8V12H6.5v3.6h3.1V22h3.7v-6.4h3.1l.5-3.6h-3.6V9.8c0-1 .3-1.8 1.8-1.8Z"/></svg>
+                    <b>Facebook</b>
+                  </button>
+                </div>
+              </div>
+              <div class="login-list">
+                <div class="login-choice"><div class="login-icon">@</div><span><b>Email OTP</b><span>Use any email address</span></span></div>
+                <div class="login-choice"><div class="login-icon">91</div><span><b>Mobile OTP</b><span>OTP can autofill where supported</span></span></div>
+              </div>
+              <div class="otp-preview">
+                <p>OTP</p>
+                <div class="otp-row"><div class="otp-cell">4</div><div class="otp-cell">8</div><div class="otp-cell">2</div><div class="otp-cell">1</div><div class="otp-cell">9</div><div class="otp-cell">6</div></div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </article>
+
+      <article class="panel">
+        <div class="panel-title">Screen 04 <span>Main App</span></div>
+        <section class="phone" aria-label="Universal focus shell screen">
+          <div class="status"><span>9:41</span><span>5G 100%</span></div>
+          <div class="focus-screen">
+            <div class="focus-top">
+              <div class="focus-brand-row">
+                <div>
+                  <div class="phone-wordmark">MoolSocial</div>
+                  <div class="mini-line" aria-hidden="true"><span></span><span></span><span></span></div>
+                </div>
+                <div class="round-actions">
+                  <div class="round"><svg viewBox="0 0 24 24"><path d="M4 4h6v6H4Z"/><path d="M14 4h6v6h-6Z"/><path d="M4 14h6v6H4Z"/><path d="M14 14h6v6h-6Z"/></svg></div>
+                  <div class="round"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M5 21a7 7 0 0 1 14 0"/></svg></div>
+                </div>
+              </div>
+              <div class="command">
+                <div class="command-text">Search clips, videos, people or posts</div>
+                <div class="round"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m16 16 4 4"/></svg></div>
+                <div class="round"><svg viewBox="0 0 24 24"><path d="M4 7V4h3"/><path d="M17 4h3v3"/><path d="M20 17v3h-3"/><path d="M7 20H4v-3"/><path d="M8 12h8"/></svg></div>
+                <div class="round"><svg viewBox="0 0 24 24"><path d="M12 4v9"/><path d="M8 9v4a4 4 0 0 0 8 0V9"/><path d="M12 17v3"/></svg></div>
+              </div>
+            </div>
+            <div class="focus-body">
+              <div class="video-card">
+                <div class="video-top"><span class="pill-label">Clips</span><span class="pill-label">Swipe</span></div>
+                <div class="play">▶</div>
+                <div class="video-copy">
+                  <b>Short videos start instantly</b>
+                  <span>Local clips, creators, offers and daily moments. User scrolls vertically without commerce clutter.</span>
+                </div>
+              </div>
+              <div class="decision-card">
+                <div class="card-icon">+</div>
+                <div>
+                  <b>Create clip</b>
+                  <span>Record, upload, trim, caption and post.</span>
+                  <div class="chips"><i>Record</i><i>Caption</i><i>Post</i></div>
+                </div>
+              </div>
+            </div>
+            <div class="content-actions">
+              <button type="button"><svg viewBox="0 0 24 24"><path d="M7 10v11H4V10Z"/><path d="M7 10l5-7 1 1a3 3 0 0 1 .5 3L13 9h6a2 2 0 0 1 2 2l-2 8a2 2 0 0 1-2 2H7"/></svg>Like</button>
+              <button type="button"><svg viewBox="0 0 24 24"><path d="M4 6h16v10H7l-3 3V6Z"/></svg>Chat</button>
+              <button type="button"><svg viewBox="0 0 24 24"><path d="M4 12v7h16v-7"/><path d="M12 15V3"/><path d="m7 8 5-5 5 5"/></svg>Share</button>
+              <button type="button"><svg viewBox="0 0 24 24"><path d="M4 7h11a5 5 0 0 1 0 10H9"/><path d="m12 13-3 4 3 4"/><path d="M20 7v4h-4"/></svg>Remix</button>
+            </div>
+            <nav class="dock" aria-label="MoolSocial focus dock">
+              <button type="button" aria-label="Mool">
+                <span class="mool-mark">
+                  <svg viewBox="0 0 36 36" aria-hidden="true">
+                    <circle class="mool-base" cx="18" cy="18" r="15"></circle>
+                    <path class="mool-whirl saffron" d="M9.8 15.8c3.4-6.5 13.2-6.5 16.5-.2"></path>
+                    <path class="mool-whirl green" d="M26.2 20.2c-3.4 6.5-13.2 6.5-16.5.2"></path>
+                    <path class="mool-whirl signal" d="M10.8 18c2.8-1.9 5.1-1.9 7.2 0s4.4 1.9 7.2 0"></path>
+                    <circle class="mool-core" cx="18" cy="18" r="3.35"></circle>
+                    <circle class="mool-core-dot" cx="18" cy="18" r="1.35"></circle>
+                  </svg>
+                </span>
+                <span class="mool-label">Mool</span>
+              </button>
+              <button class="active" type="button"><svg viewBox="0 0 24 24"><path d="m9 6 8 6-8 6Z"/><path d="M5 5v14"/></svg>Clips</button>
+              <button type="button"><svg viewBox="0 0 24 24"><path d="M4 7h16v10H4Z"/><path d="m10 10 5 3-5 3Z"/></svg>Video</button>
+              <button type="button"><svg viewBox="0 0 24 24"><path d="M4 6h16v12H4Z"/><path d="M8 10h8"/><path d="M8 14h5"/></svg>Feed</button>
+            </nav>
+          </div>
+        </section>
+      </article>
+    </section>
+  </main>
+</body>
+</html>
