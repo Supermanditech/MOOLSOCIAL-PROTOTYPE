@@ -1,0 +1,1291 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>16 Order Completed Bill Rating - MoolSocial Screenbook</title>
+  <link rel="stylesheet" href="../shared/moolsocial-ui-foundation.css" />
+  <style>
+    .screen-shell {
+      display: grid;
+      gap: 18px;
+    }
+
+    .back-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .screen-link-home {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--ms-navy);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .back-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--ms-navy);
+      border-radius: var(--ms-radius);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 11px;
+      font-weight: 950;
+    }
+
+    .preview {
+      display: grid;
+      grid-template-columns: minmax(320px, 390px) minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+      padding: 18px;
+      border-bottom: 1px solid var(--ms-navy);
+      background: var(--ms-white);
+    }
+
+    .phone {
+      width: min(100%, 370px);
+      height: 742px;
+      justify-self: center;
+      border: 10px solid var(--ms-navy);
+      border-radius: 32px;
+      background: var(--ms-navy);
+      overflow: hidden;
+      box-shadow: 0 28px 60px rgba(0, 0, 128, .22);
+    }
+
+    .app {
+      position: relative;
+      height: 100%;
+      display: grid;
+      grid-template-rows: auto auto 1fr auto;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 10% 8%, rgba(255, 153, 51, .18), transparent 24%),
+        radial-gradient(circle at 88% 8%, rgba(19, 136, 8, .14), transparent 25%),
+        linear-gradient(180deg, var(--ms-navy) 0 150px, #f5f7fb 150px 100%);
+      color: var(--ms-white);
+      font-family: var(--ms-font);
+    }
+
+    .status-row {
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 18px 0;
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    .top-zone {
+      display: grid;
+      gap: 10px;
+      padding: 8px 12px 12px;
+    }
+
+    .brand-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .title-lockup {
+      min-width: 0;
+      display: grid;
+      gap: 4px;
+    }
+
+    .title-lockup b {
+      overflow: hidden;
+      color: var(--ms-white);
+      font-size: 19px;
+      line-height: 1;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .title-lockup span {
+      overflow: hidden;
+      color: rgba(255, 255, 255, .76);
+      font-size: 10px;
+      font-weight: 850;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .identity-line {
+      width: 98px;
+      height: 3px;
+      display: grid;
+      grid-template-columns: 45fr 14fr 41fr;
+      border-radius: var(--ms-pill);
+      overflow: hidden;
+    }
+
+    .identity-line span:nth-child(1) { background: var(--ms-saffron); }
+    .identity-line span:nth-child(2) { background: var(--ms-white); }
+    .identity-line span:nth-child(3) { background: var(--ms-green); }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    button {
+      appearance: none;
+      font-family: var(--ms-font);
+      cursor: pointer;
+    }
+
+    svg {
+      width: 18px;
+      height: 18px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .top-buttons {
+      display: flex;
+      gap: 7px;
+    }
+
+    .circle-btn {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, .26);
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .12);
+      color: var(--ms-white);
+      text-decoration: none;
+    }
+
+    .content {
+      min-height: 0;
+      overflow: auto;
+      display: grid;
+      align-content: start;
+      gap: 10px;
+      padding: 0 10px 104px;
+      color: var(--ms-navy);
+      scrollbar-width: none;
+    }
+
+    .content::-webkit-scrollbar {
+      display: none;
+    }
+
+    .complete-hero,
+    .panel-card {
+      display: grid;
+      gap: 10px;
+      border: 1px solid rgba(0, 0, 128, .15);
+      border-radius: 22px;
+      padding: 10px;
+      background: rgba(255, 255, 255, .98);
+      color: var(--ms-navy);
+      box-shadow: 0 16px 34px rgba(0, 0, 128, .12);
+    }
+
+    .complete-hero {
+      background:
+        radial-gradient(circle at 92% 12%, rgba(19, 136, 8, .12), transparent 30%),
+        var(--ms-white);
+      border-color: rgba(19, 136, 8, .24);
+    }
+
+    .hero-top {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .hero-copy {
+      min-width: 0;
+      display: grid;
+      gap: 4px;
+    }
+
+    .hero-copy b {
+      color: var(--ms-navy);
+      font-size: 18px;
+      line-height: 1.05;
+    }
+
+    .hero-copy span {
+      color: rgba(0, 0, 128, .68);
+      font-size: 10px;
+      font-weight: 850;
+      line-height: 1.25;
+    }
+
+    .done-badge {
+      min-width: 70px;
+      min-height: 58px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      background: var(--ms-green);
+      color: var(--ms-white);
+      font-size: 8px;
+      font-weight: 950;
+      text-align: center;
+      box-shadow: inset 0 -4px 0 rgba(0, 0, 70, .28);
+    }
+
+    .done-badge strong {
+      display: block;
+      font-size: 17px;
+      line-height: 1;
+    }
+
+    .final-line {
+      width: fit-content;
+      min-height: 24px;
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid rgba(19, 136, 8, .2);
+      border-radius: var(--ms-pill);
+      padding: 0 8px;
+      background: rgba(19, 136, 8, .08);
+      color: var(--ms-green);
+      font-size: 8px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .status-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 5px;
+    }
+
+    .status-step {
+      min-height: 32px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(19, 136, 8, .22);
+      border-radius: var(--ms-pill);
+      background: rgba(19, 136, 8, .08);
+      color: var(--ms-green);
+      font-size: 8px;
+      font-weight: 950;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .receipt-card {
+      display: grid;
+      gap: 9px;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: 20px;
+      padding: 11px;
+      background:
+        linear-gradient(180deg, rgba(0, 0, 128, .04), rgba(255, 255, 255, .96)),
+        var(--ms-white);
+    }
+
+    .receipt-head {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      align-items: start;
+    }
+
+    .receipt-shop {
+      min-width: 0;
+      display: grid;
+      gap: 3px;
+    }
+
+    .receipt-shop b {
+      overflow: hidden;
+      color: var(--ms-navy);
+      font-size: 15px;
+      line-height: 1.05;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .receipt-shop span {
+      overflow: hidden;
+      color: rgba(0, 0, 128, .62);
+      font-size: 9px;
+      font-weight: 850;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .bill-stamp {
+      min-width: 68px;
+      min-height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 8px;
+      font-weight: 950;
+      text-align: center;
+      box-shadow: inset 0 -4px 0 var(--ms-saffron);
+    }
+
+    .bill-stamp strong {
+      display: block;
+      font-size: 15px;
+      line-height: 1;
+    }
+
+    .bill-grid {
+      display: grid;
+      gap: 6px;
+    }
+
+    .bill-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      color: rgba(0, 0, 128, .68);
+      font-size: 10px;
+      font-weight: 850;
+    }
+
+    .bill-row b {
+      color: var(--ms-navy);
+      font-size: 11px;
+      white-space: nowrap;
+    }
+
+    .bill-row.total {
+      margin-top: 2px;
+      border-top: 1px solid rgba(0, 0, 128, .13);
+      padding-top: 8px;
+      color: var(--ms-navy);
+      font-size: 13px;
+      font-weight: 950;
+    }
+
+    .bill-row.total b {
+      font-size: 17px;
+    }
+
+    .bill-actions {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .bill-action-btn {
+      min-height: 34px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: var(--ms-pill);
+      padding: 0 7px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      font-size: 8px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .trust-card {
+      display: grid;
+      grid-template-columns: 42px minmax(0, 1fr);
+      gap: 9px;
+      align-items: center;
+      border: 1px solid rgba(19, 136, 8, .2);
+      border-radius: 18px;
+      padding: 9px;
+      background:
+        radial-gradient(circle at 92% 12%, rgba(19, 136, 8, .12), transparent 30%),
+        var(--ms-white);
+    }
+
+    .trust-icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--ms-green);
+      color: var(--ms-white);
+      box-shadow: inset 0 -3px 0 rgba(0, 0, 70, .28);
+    }
+
+    .trust-copy {
+      min-width: 0;
+      display: grid;
+      gap: 2px;
+    }
+
+    .trust-copy b {
+      overflow: hidden;
+      color: var(--ms-navy);
+      font-size: 12px;
+      line-height: 1.1;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .trust-copy span {
+      overflow: hidden;
+      color: rgba(0, 0, 128, .62);
+      font-size: 9px;
+      font-weight: 850;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .panel-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .panel-head b {
+      color: var(--ms-navy);
+      font-size: 13px;
+      line-height: 1.1;
+    }
+
+    .panel-head span {
+      color: rgba(0, 0, 128, .6);
+      font-size: 9px;
+      font-weight: 850;
+      text-align: right;
+    }
+
+    .rating-box {
+      display: grid;
+      gap: 8px;
+      border: 1px solid rgba(0, 0, 128, .12);
+      border-radius: 18px;
+      padding: 9px;
+      background: #f8fafc;
+    }
+
+    .stars {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .star-btn {
+      min-height: 42px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: 16px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      font-size: 18px;
+      font-weight: 950;
+    }
+
+    .star-btn.active {
+      border-color: var(--ms-saffron);
+      background: rgba(255, 153, 51, .12);
+      color: var(--ms-navy);
+      box-shadow: inset 0 -3px 0 var(--ms-saffron);
+    }
+
+    .quick-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .tag-btn,
+    .mini-pill {
+      min-height: 24px;
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid rgba(19, 136, 8, .18);
+      border-radius: var(--ms-pill);
+      padding: 0 8px;
+      background: rgba(19, 136, 8, .07);
+      color: var(--ms-green);
+      font-size: 8px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .tag-btn.selected {
+      background: var(--ms-green);
+      color: var(--ms-white);
+    }
+
+    .rating-box.needs-help {
+      border-color: rgba(255, 153, 51, .3);
+      background: rgba(255, 153, 51, .08);
+    }
+
+    .action-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 7px;
+    }
+
+    .action-tile {
+      min-height: 70px;
+      display: grid;
+      align-content: center;
+      justify-items: center;
+      gap: 6px;
+      border: 1px solid rgba(0, 0, 128, .12);
+      border-radius: 18px;
+      padding: 8px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      font-size: 9px;
+      font-weight: 950;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .action-tile svg {
+      width: 21px;
+      height: 21px;
+    }
+
+    .action-tile.primary {
+      border-color: var(--ms-navy);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 var(--ms-saffron);
+    }
+
+    .repeat-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 7px;
+    }
+
+    .repeat-card {
+      min-height: 64px;
+      display: grid;
+      align-content: center;
+      gap: 4px;
+      border: 1px solid rgba(0, 0, 128, .12);
+      border-radius: 18px;
+      padding: 9px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      text-decoration: none;
+    }
+
+    .repeat-card.primary {
+      border-color: var(--ms-navy);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 var(--ms-saffron);
+    }
+
+    .repeat-card b {
+      overflow: hidden;
+      font-size: 12px;
+      line-height: 1.1;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .repeat-card span {
+      overflow: hidden;
+      color: rgba(0, 0, 128, .58);
+      font-size: 8px;
+      font-weight: 850;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .repeat-card.primary span {
+      color: rgba(255, 255, 255, .78);
+    }
+
+    .issue-card {
+      display: grid;
+      gap: 8px;
+      border: 1px solid rgba(255, 153, 51, .24);
+      border-radius: 18px;
+      padding: 9px;
+      background: rgba(255, 153, 51, .08);
+    }
+
+    .issue-card b {
+      color: var(--ms-navy);
+      font-size: 12px;
+    }
+
+    .issue-card span {
+      color: rgba(0, 0, 128, .62);
+      font-size: 9px;
+      font-weight: 850;
+      line-height: 1.25;
+    }
+
+    .issue-window {
+      min-height: 26px;
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      border: 1px solid rgba(255, 153, 51, .3);
+      border-radius: var(--ms-pill);
+      padding: 0 8px;
+      background: rgba(255, 153, 51, .12);
+      color: var(--ms-navy);
+      font-size: 8px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .issue-reasons {
+      display: none;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .app[data-low-rating="yes"] .issue-reasons {
+      display: flex;
+    }
+
+    .reason-btn {
+      min-height: 25px;
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid rgba(255, 153, 51, .3);
+      border-radius: var(--ms-pill);
+      padding: 0 8px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      font-size: 8px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .reason-btn.selected {
+      background: var(--ms-saffron);
+      color: var(--ms-navy);
+    }
+
+    .bottom-action {
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      bottom: 92px;
+      z-index: 9;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      align-items: center;
+      border: 1px solid rgba(255, 255, 255, .86);
+      border-radius: 24px;
+      padding: 10px;
+      background: rgba(255, 255, 255, .97);
+      color: var(--ms-navy);
+      box-shadow: 0 18px 40px rgba(0, 0, 128, .2);
+    }
+
+    .action-copy {
+      min-width: 0;
+      display: grid;
+      gap: 2px;
+    }
+
+    .action-copy b {
+      overflow: hidden;
+      color: var(--ms-navy);
+      font-size: 13px;
+      line-height: 1.1;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .action-copy span {
+      overflow: hidden;
+      color: rgba(0, 0, 128, .62);
+      font-size: 9px;
+      font-weight: 850;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .submit-btn {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--ms-navy);
+      border-radius: var(--ms-pill);
+      padding: 0 14px;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 10px;
+      font-weight: 950;
+      white-space: nowrap;
+      box-shadow: inset 0 -3px 0 var(--ms-saffron);
+    }
+
+    .submit-btn.done {
+      border-color: var(--ms-green);
+      background: var(--ms-green);
+      box-shadow: none;
+    }
+
+    .bottom-dock {
+      position: absolute;
+      left: 8px;
+      right: 8px;
+      bottom: 10px;
+      z-index: 10;
+      display: grid;
+      grid-template-columns: 58px minmax(0, 1fr) 58px;
+      gap: 7px;
+      align-items: center;
+      border: 1px solid rgba(0, 0, 128, .9);
+      border-radius: 30px;
+      padding: 8px;
+      background: linear-gradient(180deg, rgba(255,255,255,.94), rgba(245,247,251,.94));
+      box-shadow: 0 14px 32px rgba(0, 0, 128, .22);
+    }
+
+    .mool-button,
+    .chat-button,
+    .dock-tab {
+      text-decoration: none;
+      font-family: var(--ms-font);
+    }
+
+    .mool-button,
+    .chat-button {
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(0, 0, 128, .16);
+      border-radius: 50%;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      font-size: 11px;
+      font-weight: 950;
+      box-shadow: 0 10px 22px rgba(0, 0, 128, .12);
+      position: relative;
+    }
+
+    .mool-button {
+      background:
+        radial-gradient(circle at 30% 20%, rgba(255, 255, 255, .36), transparent 20%),
+        var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -5px 0 rgba(0, 0, 70, .45), 0 12px 22px rgba(0, 0, 128, .25);
+    }
+
+    .mool-button::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: 9px;
+      width: 34px;
+      height: 5px;
+      display: block;
+      border-radius: var(--ms-pill);
+      background: linear-gradient(90deg, var(--ms-saffron) 0 45%, var(--ms-white) 45% 58%, var(--ms-green) 58% 100%);
+      transform: translateX(-50%);
+    }
+
+    .chat-button svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .chat-count {
+      position: absolute;
+      right: 4px;
+      top: 2px;
+      min-width: 22px;
+      height: 22px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--ms-saffron);
+      color: var(--ms-navy);
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .dock-tabs {
+      min-width: 0;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 4px;
+      overflow: hidden;
+      border-radius: 23px;
+      padding: 3px;
+      background:
+        radial-gradient(circle at 50% 40%, rgba(0, 0, 128, .12), transparent 54%),
+        linear-gradient(90deg, rgba(0, 0, 128, .08), rgba(255,255,255,.4), rgba(0, 0, 128, .08));
+      box-shadow: inset 0 10px 20px rgba(0, 0, 128, .08);
+    }
+
+    .dock-tab {
+      height: 56px;
+      min-width: 0;
+      display: grid;
+      place-items: center;
+      align-content: center;
+      gap: 3px;
+      border: 1px solid transparent;
+      border-radius: 20px;
+      padding: 4px 3px;
+      background: transparent;
+      color: var(--ms-navy);
+      font-size: 8px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .dock-tab svg {
+      width: 19px;
+      height: 19px;
+    }
+
+    .dock-tab.active {
+      border-color: var(--ms-navy);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 var(--ms-saffron), 0 9px 18px rgba(0, 0, 128, .18);
+    }
+
+    .notes {
+      display: grid;
+      gap: 14px;
+    }
+
+    .state-grid {
+      display: grid;
+      grid-template-columns: 170px 1fr 1fr;
+      border: 1px solid var(--ms-navy);
+      border-bottom: 0;
+    }
+
+    .state-cell {
+      min-height: 54px;
+      display: grid;
+      align-content: center;
+      border-right: 1px solid var(--ms-navy);
+      border-bottom: 1px solid var(--ms-navy);
+      padding: 10px;
+      color: var(--ms-navy);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    .state-cell:nth-child(3n) {
+      border-right: 0;
+    }
+
+    .state-cell b {
+      color: var(--ms-green);
+    }
+
+    @media (max-width: 900px) {
+      .preview {
+        grid-template-columns: 1fr;
+      }
+
+      .state-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .state-cell {
+        border-right: 0;
+      }
+    }
+  </style>
+</head>
+<body class="ms-doc">
+  <main class="ms-page screen-shell">
+    <header class="back-row">
+      <a class="screen-link-home" href="../index.html">
+        <span class="back-mark">MS</span>
+        Back to screenbook
+      </a>
+      <span class="ms-status">Screen 16 Approved</span>
+    </header>
+
+    <section class="ms-panel">
+      <div class="ms-section-head">
+        Screen 16: Order Completed / Bill & Rating
+        <span>After counter pickup is collected</span>
+      </div>
+
+      <div class="preview">
+        <div class="phone" aria-label="MoolSocial completed order bill and rating phone preview">
+          <div class="app" id="completeApp" data-rated="no">
+            <div class="status-row">
+              <span>9:50</span>
+              <span>5G 100%</span>
+            </div>
+
+            <div class="top-zone">
+              <div class="brand-row">
+                <div class="title-lockup">
+                  <b>Order Complete</b>
+                  <div class="identity-line" aria-hidden="true"><span></span><span></span><span></span></div>
+                  <span>Bill saved in Orders</span>
+                </div>
+                <div class="top-buttons">
+                  <a class="circle-btn" href="15-counter-ready-receipt.html?v=approved-15" aria-label="Back to receipt">
+                    <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" /></svg>
+                  </a>
+                  <button class="circle-btn" type="button" aria-label="Share bill">
+                    <svg viewBox="0 0 24 24"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7" /><path d="M16 6l-4-4-4 4" /><path d="M12 2v14" /></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="content">
+              <section class="complete-hero">
+                <div class="hero-top">
+                  <div class="hero-copy">
+                    <b id="heroTitle">Order closed - bill saved</b>
+                    <span id="heroSubtitle">Mahadev Fresh Mart handed over your packet. No payment or pickup action is pending.</span>
+                    <span class="final-line">Final receipt saved in Orders</span>
+                  </div>
+                  <div class="done-badge">
+                    <span><strong>Done</strong>Counter</span>
+                  </div>
+                </div>
+                <div class="status-strip">
+                  <span class="status-step">Paid</span>
+                  <span class="status-step">Packed</span>
+                  <span class="status-step">Collected</span>
+                  <span class="status-step">Bill saved</span>
+                </div>
+              </section>
+
+              <section class="receipt-card">
+                <div class="receipt-head">
+                  <div class="receipt-shop">
+                    <b>Mahadev Fresh Mart</b>
+                    <span>Order MS-BUY-1042 - Jodhpur - Counter pickup</span>
+                  </div>
+                  <div class="bill-stamp">
+                    <span><strong>Bill</strong>Saved</span>
+                  </div>
+                </div>
+                <div class="bill-grid">
+                  <div class="bill-row"><span>Confirmed items</span><b>Rs 687</b></div>
+                  <div class="bill-row"><span>Pack and shop saving</span><b>- Rs 42</b></div>
+                  <div class="bill-row"><span>Pickup charge</span><b>Rs 0</b></div>
+                  <div class="bill-row"><span>Paid by UPI</span><b>Rs 645</b></div>
+                  <div class="bill-row total"><span>Final bill</span><b>Rs 645</b></div>
+                </div>
+                <div class="quick-tags">
+                  <span class="mini-pill">Tax included</span>
+                  <span class="mini-pill">Shop bill proof</span>
+                  <span class="mini-pill">Issue window active</span>
+                </div>
+                <div class="bill-actions" aria-label="Bill actions">
+                  <button class="bill-action-btn" type="button" id="downloadBillButton">Download Bill</button>
+                  <button class="bill-action-btn" type="button" id="shareBillButton">Share Bill</button>
+                  <button class="bill-action-btn" type="button" id="openOrdersButton">Orders</button>
+                </div>
+              </section>
+
+              <section class="panel-card">
+                <div class="panel-head">
+                  <b>Trust update</b>
+                  <span>local proof</span>
+                </div>
+                <div class="trust-card">
+                  <div class="trust-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path d="M12 2l7 4v6c0 5-3 8-7 10-4-2-7-5-7-10V6l7-4Z" /><path d="M9 12l2 2 4-5" /></svg>
+                  </div>
+                  <div class="trust-copy">
+                    <b>This order improves Mahadev trust</b>
+                    <span>Your rating affects local shop ranking, repeat visibility and proof score.</span>
+                  </div>
+                </div>
+              </section>
+
+              <section class="panel-card">
+                <div class="panel-head">
+                  <b>Rate Mahadev</b>
+                  <span id="ratingHint">Tap a star</span>
+                </div>
+                <div class="rating-box" id="ratingBox">
+                  <div class="stars" aria-label="Rate shop">
+                    <button class="star-btn" type="button" data-rating="1">1</button>
+                    <button class="star-btn" type="button" data-rating="2">2</button>
+                    <button class="star-btn" type="button" data-rating="3">3</button>
+                    <button class="star-btn" type="button" data-rating="4">4</button>
+                    <button class="star-btn" type="button" data-rating="5">5</button>
+                  </div>
+                  <div class="quick-tags" aria-label="Quick rating reasons">
+                    <button class="tag-btn" type="button">Fast pickup</button>
+                    <button class="tag-btn" type="button">Fresh items</button>
+                    <button class="tag-btn" type="button">Good packing</button>
+                    <button class="tag-btn" type="button">Correct bill</button>
+                  </div>
+                  <div class="issue-reasons" id="lowRatingReasons" aria-label="Low rating reasons">
+                    <button class="reason-btn" type="button">Wrong item</button>
+                    <button class="reason-btn" type="button">Missing item</button>
+                    <button class="reason-btn" type="button">Quality issue</button>
+                    <button class="reason-btn" type="button">Bill issue</button>
+                  </div>
+                </div>
+              </section>
+
+              <section class="panel-card">
+                <div class="panel-head">
+                  <b>Repeat purchase</b>
+                  <span>grocery ready</span>
+                </div>
+                <div class="repeat-grid">
+                  <a class="repeat-card primary" href="10-buy-grocery-decision.html">
+                    <b>Repeat this basket</b>
+                    <span>same shop, same items</span>
+                  </a>
+                  <button class="repeat-card" type="button" id="saveMonthlyButton">
+                    <b>Save monthly basket</b>
+                    <span>remind next month</span>
+                  </button>
+                </div>
+              </section>
+
+              <section class="panel-card">
+                <div class="panel-head">
+                  <b>Need help?</b>
+                  <span>30 min window</span>
+                </div>
+                <div class="issue-card">
+                  <b>Issue with item or bill?</b>
+                  <span>Report issue until 30 min after pickup. Refund or correction depends on shop proof and pickup completion rules.</span>
+                  <span class="issue-window" id="issueWindow">Issue window 29:59 left</span>
+                  <div class="quick-tags">
+                    <span class="mini-pill">Wrong item</span>
+                    <span class="mini-pill">Bill issue</span>
+                    <span class="mini-pill">Quality issue</span>
+                  </div>
+                  <div class="bill-actions">
+                    <button class="bill-action-btn" type="button" data-issue-trigger="yes">Raise issue</button>
+                    <button class="bill-action-btn" type="button">Call shop</button>
+                    <a class="bill-action-btn" href="03-login-account-handoff.html">Chat shop</a>
+                  </div>
+                </div>
+              </section>
+
+              <section class="panel-card">
+                <div class="panel-head">
+                  <b>More actions</b>
+                  <span>optional</span>
+                </div>
+                <div class="action-grid">
+                  <button class="action-tile primary" type="button" id="viewBillButton">
+                    <svg viewBox="0 0 24 24"><path d="M6 2h12v20l-3-2-3 2-3-2-3 2V2Z" /><path d="M9 7h6M9 11h6M9 15h4" /></svg>
+                    View bill
+                  </button>
+                  <a class="action-tile" href="03-login-account-handoff.html">
+                    <svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z" /></svg>
+                    Chat shop
+                  </a>
+                  <button class="action-tile" type="button" data-issue-trigger="yes">
+                    <svg viewBox="0 0 24 24"><path d="M12 9v4" /><path d="M12 17h.01" /><path d="M10.3 3.9L1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z" /></svg>
+                    Raise issue
+                  </button>
+                </div>
+              </section>
+            </div>
+
+            <div class="bottom-action">
+              <div class="action-copy">
+                <b id="actionTitle">No pending action</b>
+                <span id="actionMeta">Rating optional - bill already saved</span>
+              </div>
+              <button class="submit-btn" type="button" id="submitRating">Submit</button>
+            </div>
+
+            <nav class="bottom-dock" aria-label="Completed order navigation">
+              <a class="mool-button" href="04-universal-focus-shell.html" aria-label="Open Mool">Mool</a>
+              <div class="dock-tabs" aria-label="Buy sub-actions">
+                <a class="dock-tab" href="10-buy-grocery-decision.html" aria-label="Open shop">
+                  <svg viewBox="0 0 24 24"><path d="M6 7h15l-2 9H8L6 3H3" /><path d="M9 20h.01M18 20h.01" /></svg>
+                  Shop
+                </a>
+                <a class="dock-tab" href="12-buy-basket-checkout.html" aria-label="Open basket">
+                  <svg viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6L5 8Z" /><path d="M9 8a3 3 0 0 1 6 0" /></svg>
+                  Basket
+                </a>
+                <a class="dock-tab active" href="16-order-completed-bill-rating.html" aria-label="Open bill">
+                  <svg viewBox="0 0 24 24"><path d="M6 2h12v20l-3-2-3 2-3-2-3 2V2Z" /><path d="M9 7h6M9 11h6" /></svg>
+                  Bill
+                </a>
+                <a class="dock-tab" href="09-buy.html" aria-label="Open orders">
+                  <svg viewBox="0 0 24 24"><path d="M4 7h16M7 7v13h10V7" /><path d="M9 11h6M9 15h6" /></svg>
+                  Orders
+                </a>
+              </div>
+              <a class="chat-button" href="03-login-account-handoff.html" aria-label="Open chat">
+                <svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z" /></svg>
+                <span class="chat-count">2</span>
+              </a>
+            </nav>
+          </div>
+        </div>
+
+        <div class="notes">
+          <div>
+            <h1 class="ms-title">Completion closes the counter pickup loop.</h1>
+            <p class="ms-lead">
+              Screen 16 appears after the retailer marks the order collected. It saves the bill, captures shop feedback,
+              supports buy-again behavior, and keeps issue support available without reopening payment or tracking.
+            </p>
+          </div>
+
+          <div class="ms-panel">
+            <div class="ms-section-head">Screen Contract <span>Approved</span></div>
+            <div class="state-grid">
+              <div class="state-cell"><b>Entry</b>After Screen 15 collected state for counter pickup orders.</div>
+              <div class="state-cell"><b>User Sees</b>Order closed, final bill, payment proof, issue window, repeat basket, rating and next actions.</div>
+              <div class="state-cell"><b>Decision</b>User can leave, rate, repeat basket, save monthly basket, download/share bill or raise an issue.</div>
+
+              <div class="state-cell"><b>Backend</b>Order status becomes completed; bill is immutable; rating updates trust score and repeat basket can be saved.</div>
+              <div class="state-cell"><b>Safety</b>Issue window stays open for 30 min after pickup; later support is history/proof based.</div>
+              <div class="state-cell"><b>No Tracking</b>Counter pickup closes here. Home delivery gets a separate delivery tracking screen.</div>
+
+              <div class="state-cell"><b>Next</b>After this, return to Buy, Orders, Social, repeat basket, or start home-delivery branch later.</div>
+              <div class="state-cell"><b>Failure</b>Low rating opens wrong/missing/quality/bill reasons from the order context.</div>
+              <div class="state-cell"><b>Dock</b>Mool, Shop, Basket, Bill, Orders and Chat remain one tap accessible.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const app = document.getElementById("completeApp");
+    const ratingHint = document.getElementById("ratingHint");
+    const ratingBox = document.getElementById("ratingBox");
+    const actionTitle = document.getElementById("actionTitle");
+    const actionMeta = document.getElementById("actionMeta");
+    const submitRating = document.getElementById("submitRating");
+    const viewBillButton = document.getElementById("viewBillButton");
+    const downloadBillButton = document.getElementById("downloadBillButton");
+    const shareBillButton = document.getElementById("shareBillButton");
+    const openOrdersButton = document.getElementById("openOrdersButton");
+    const saveMonthlyButton = document.getElementById("saveMonthlyButton");
+    const issueWindow = document.getElementById("issueWindow");
+    let selectedRating = 0;
+    let issueSecondsLeft = 1799;
+
+    const formatIssueTime = (seconds) => {
+      const mins = Math.floor(seconds / 60).toString().padStart(2, "0");
+      const secs = (seconds % 60).toString().padStart(2, "0");
+      return `${mins}:${secs}`;
+    };
+
+    window.setInterval(() => {
+      issueSecondsLeft = Math.max(0, issueSecondsLeft - 1);
+      issueWindow.textContent = issueSecondsLeft > 0
+        ? `Issue window ${formatIssueTime(issueSecondsLeft)} left`
+        : "Issue window closed";
+    }, 1000);
+
+    document.querySelectorAll("[data-rating]").forEach((button) => {
+      button.addEventListener("click", () => {
+        selectedRating = Number(button.dataset.rating);
+        document.querySelectorAll("[data-rating]").forEach((node) => {
+          node.classList.toggle("active", Number(node.dataset.rating) <= selectedRating);
+        });
+        ratingHint.textContent = `${selectedRating}/5 selected`;
+        app.dataset.lowRating = selectedRating <= 2 ? "yes" : "no";
+        ratingBox.classList.toggle("needs-help", selectedRating <= 2);
+        actionTitle.textContent = selectedRating <= 2 ? "Tell us what went wrong" : "Submit shop rating";
+        actionMeta.textContent = selectedRating <= 2 ? "Issue reasons are open below" : "Your feedback improves local trust";
+      });
+    });
+
+    document.querySelectorAll(".tag-btn").forEach((button) => {
+      button.addEventListener("click", () => {
+        button.classList.toggle("selected");
+      });
+    });
+
+    document.querySelectorAll(".reason-btn").forEach((button) => {
+      button.addEventListener("click", () => {
+        button.classList.toggle("selected");
+        actionTitle.textContent = "Issue reason selected";
+        actionMeta.textContent = "Submit rating or raise issue from this order";
+      });
+    });
+
+    submitRating.addEventListener("click", () => {
+      app.dataset.rated = "yes";
+      submitRating.classList.add("done");
+      submitRating.textContent = "Saved";
+      actionTitle.textContent = selectedRating ? "Thanks for rating" : "Bill saved";
+      actionMeta.textContent = selectedRating
+        ? (selectedRating <= 2 ? "Support can use your selected issue reasons" : `Mahadev rated ${selectedRating}/5`)
+        : "You can rate later from Orders";
+    });
+
+    viewBillButton.addEventListener("click", () => {
+      actionTitle.textContent = "Bill already visible";
+      actionMeta.textContent = "Share or download from Orders";
+    });
+
+    downloadBillButton.addEventListener("click", () => {
+      actionTitle.textContent = "Bill download ready";
+      actionMeta.textContent = "PDF bill will save to phone in production";
+    });
+
+    shareBillButton.addEventListener("click", () => {
+      actionTitle.textContent = "Share bill";
+      actionMeta.textContent = "Share sheet opens in production";
+    });
+
+    openOrdersButton.addEventListener("click", () => {
+      actionTitle.textContent = "Opening Orders";
+      actionMeta.textContent = "This bill remains saved in order history";
+    });
+
+    saveMonthlyButton.addEventListener("click", () => {
+      saveMonthlyButton.querySelector("b").textContent = "Monthly basket saved";
+      saveMonthlyButton.querySelector("span").textContent = "reminder active";
+      actionTitle.textContent = "Monthly basket saved";
+      actionMeta.textContent = "MoolSocial will remind before next purchase";
+    });
+
+    document.querySelectorAll("[data-issue-trigger]").forEach((button) => {
+      button.addEventListener("click", () => {
+        app.dataset.lowRating = "yes";
+        ratingBox.classList.add("needs-help");
+        actionTitle.textContent = "Issue support opened";
+        actionMeta.textContent = "Choose reason: wrong, missing, quality or bill issue";
+      });
+    });
+  </script>
+</body>
+</html>

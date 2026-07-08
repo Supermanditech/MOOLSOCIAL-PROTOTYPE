@@ -141,6 +141,13 @@ window.MoolSocialScreenbook = {
       file: "screens/15-counter-ready-receipt.html",
       status: "Approved",
       purpose: "Approved counter pickup receipt handoff after payment: paid receipt, live shop queue match, order/customer/amount signals, counter instruction, QR backup, counter view, collected state and no rider tracking for pickup orders."
+    },
+    {
+      id: "16",
+      name: "Order Completed / Bill & Rating",
+      file: "screens/16-order-completed-bill-rating.html",
+      status: "Approved",
+      purpose: "Approved completed counter pickup order closeout: order closed, final bill, payment proof, issue window, trust feedback, repeat basket, monthly basket, bill actions, rating and low-rating issue path."
     }
   ]
 };
