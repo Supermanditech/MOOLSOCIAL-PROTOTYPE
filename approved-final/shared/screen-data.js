@@ -162,6 +162,13 @@ window.MoolSocialScreenbook = {
       file: "screens/18-home-delivery-completed-bill-rating.html",
       status: "Approved",
       purpose: "Approved home delivery completion closeout after doorstep OTP verification: calm delivered summary, final bill, compact proof, issue window, order rating, repeat basket and support handoff."
+    },
+    {
+      id: "19",
+      name: "Order Issue / Refund Evidence",
+      file: "screens/19-order-issue-refund-evidence.html",
+      status: "Approved",
+      purpose: "Approved guided issue assistant after report problem: affected item selection, issue type, suggested refund/replacement, evidence capture, proof comparison, SLA and support review path."
     }
   ]
 };

@@ -1,0 +1,1283 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>19 Order Issue Refund Evidence - MoolSocial Screenbook</title>
+  <link rel="stylesheet" href="../shared/moolsocial-ui-foundation.css" />
+  <style>
+    .screen-shell {
+      display: grid;
+      gap: 18px;
+    }
+
+    .back-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .screen-link-home {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--ms-navy);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .back-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--ms-navy);
+      border-radius: var(--ms-radius);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 11px;
+      font-weight: 950;
+    }
+
+    .preview {
+      display: grid;
+      grid-template-columns: minmax(320px, 390px) minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+      padding: 18px;
+      border-bottom: 1px solid var(--ms-navy);
+      background: var(--ms-white);
+    }
+
+    .phone {
+      width: min(100%, 370px);
+      height: 742px;
+      justify-self: center;
+      border: 10px solid var(--ms-navy);
+      border-radius: 32px;
+      background: var(--ms-navy);
+      overflow: hidden;
+      box-shadow: 0 28px 60px rgba(0, 0, 128, .22);
+    }
+
+    .app {
+      position: relative;
+      height: 100%;
+      display: grid;
+      grid-template-rows: auto auto 1fr auto;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 10% 8%, rgba(255, 153, 51, .18), transparent 24%),
+        radial-gradient(circle at 90% 10%, rgba(19, 136, 8, .13), transparent 28%),
+        linear-gradient(180deg, var(--ms-navy) 0 150px, #f5f7fb 150px 100%);
+      color: var(--ms-white);
+      font-family: var(--ms-font);
+    }
+
+    .status-row {
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 18px 0;
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    .top-zone {
+      display: grid;
+      gap: 10px;
+      padding: 8px 12px 12px;
+    }
+
+    .brand-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .title-lockup {
+      min-width: 0;
+      display: grid;
+      gap: 4px;
+    }
+
+    .title-lockup b {
+      overflow: hidden;
+      color: var(--ms-white);
+      font-size: 19px;
+      line-height: 1;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .title-lockup span {
+      overflow: hidden;
+      color: rgba(255, 255, 255, .76);
+      font-size: 10px;
+      font-weight: 850;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .identity-line {
+      width: 98px;
+      height: 3px;
+      display: grid;
+      grid-template-columns: 45fr 14fr 41fr;
+      border-radius: var(--ms-pill);
+      overflow: hidden;
+    }
+
+    .identity-line span:nth-child(1) { background: var(--ms-saffron); }
+    .identity-line span:nth-child(2) { background: var(--ms-white); }
+    .identity-line span:nth-child(3) { background: var(--ms-green); }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    button {
+      appearance: none;
+      font-family: var(--ms-font);
+      cursor: pointer;
+    }
+
+    svg {
+      width: 18px;
+      height: 18px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .top-buttons {
+      display: flex;
+      gap: 7px;
+    }
+
+    .circle-btn {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, .26);
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .12);
+      color: var(--ms-white);
+      text-decoration: none;
+    }
+
+    .content {
+      min-height: 0;
+      overflow: auto;
+      display: grid;
+      align-content: start;
+      gap: 10px;
+      padding: 0 10px 104px;
+      color: var(--ms-navy);
+      scrollbar-width: none;
+    }
+
+    .content::-webkit-scrollbar {
+      display: none;
+    }
+
+    .issue-hero,
+    .panel-card {
+      display: grid;
+      gap: 10px;
+      border: 1px solid rgba(0, 0, 128, .15);
+      border-radius: 22px;
+      padding: 10px;
+      background: rgba(255, 255, 255, .98);
+      color: var(--ms-navy);
+      box-shadow: 0 16px 34px rgba(0, 0, 128, .12);
+    }
+
+    .issue-hero {
+      border-color: rgba(255, 153, 51, .34);
+      background:
+        radial-gradient(circle at 92% 10%, rgba(255, 153, 51, .16), transparent 30%),
+        var(--ms-white);
+    }
+
+    .hero-top,
+    .panel-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .hero-copy {
+      min-width: 0;
+      display: grid;
+      gap: 5px;
+    }
+
+    .hero-copy b {
+      color: var(--ms-navy);
+      font-size: 19px;
+      line-height: 1.05;
+      font-weight: 950;
+    }
+
+    .hero-copy span,
+    .panel-head span {
+      color: rgba(0, 0, 128, .64);
+      font-size: 10px;
+      line-height: 1.25;
+      font-weight: 850;
+    }
+
+    .timer-badge {
+      min-width: 66px;
+      min-height: 60px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      border: 1px solid rgba(255, 153, 51, .36);
+      background: rgba(255, 153, 51, .12);
+      text-align: center;
+    }
+
+    .timer-badge span {
+      color: var(--ms-navy);
+      font-size: 8px;
+      font-weight: 950;
+    }
+
+    .timer-badge strong {
+      display: block;
+      color: var(--ms-green);
+      font-size: 15px;
+    }
+
+    .panel-head b {
+      color: var(--ms-navy);
+      font-size: 14px;
+      font-weight: 950;
+    }
+
+    .order-strip {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      align-items: center;
+      border-radius: 17px;
+      padding: 9px;
+      background: rgba(0, 0, 128, .04);
+    }
+
+    .order-copy {
+      display: grid;
+      gap: 3px;
+    }
+
+    .order-copy b {
+      color: var(--ms-navy);
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .order-copy span {
+      color: rgba(0, 0, 128, .64);
+      font-size: 9px;
+      font-weight: 850;
+    }
+
+    .amount-pill {
+      min-width: 56px;
+      min-height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 13px;
+      font-weight: 950;
+      box-shadow: inset 0 -4px 0 var(--ms-saffron);
+    }
+
+    .item-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .item-card {
+      min-height: 66px;
+      display: grid;
+      align-content: center;
+      gap: 5px;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: 18px;
+      padding: 9px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      text-align: left;
+    }
+
+    .item-card b {
+      color: inherit;
+      font-size: 10px;
+      font-weight: 950;
+    }
+
+    .item-card span {
+      color: currentColor;
+      opacity: .66;
+      font-size: 8px;
+      font-weight: 850;
+      line-height: 1.15;
+    }
+
+    .item-card.active {
+      border-color: var(--ms-navy);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -5px 0 var(--ms-saffron);
+    }
+
+    .issue-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .issue-type,
+    .evidence-tile,
+    .resolution-card,
+    .small-action {
+      min-height: 54px;
+      display: grid;
+      align-content: center;
+      gap: 5px;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: 18px;
+      padding: 9px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      text-align: left;
+    }
+
+    .issue-type b,
+    .evidence-tile b,
+    .resolution-card b {
+      color: inherit;
+      font-size: 10px;
+      font-weight: 950;
+    }
+
+    .issue-type span,
+    .evidence-tile span,
+    .resolution-card span {
+      color: currentColor;
+      opacity: .66;
+      font-size: 8px;
+      font-weight: 850;
+      line-height: 1.15;
+    }
+
+    .issue-type.active,
+    .evidence-tile.active,
+    .resolution-card.active {
+      border-color: var(--ms-navy);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -5px 0 var(--ms-saffron);
+    }
+
+    .suggestion-card {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      align-items: center;
+      border: 1px solid rgba(19, 136, 8, .20);
+      border-radius: 18px;
+      padding: 10px;
+      background:
+        radial-gradient(circle at 92% 12%, rgba(19, 136, 8, .12), transparent 28%),
+        rgba(19, 136, 8, .055);
+    }
+
+    .suggestion-copy {
+      min-width: 0;
+      display: grid;
+      gap: 4px;
+    }
+
+    .suggestion-copy b {
+      color: var(--ms-navy);
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .suggestion-copy span {
+      color: rgba(0, 0, 128, .66);
+      font-size: 9px;
+      font-weight: 850;
+      line-height: 1.25;
+    }
+
+    .suggestion-value {
+      min-width: 62px;
+      min-height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 15px;
+      background: var(--ms-white);
+      color: var(--ms-green);
+      font-size: 11px;
+      font-weight: 950;
+      text-align: center;
+    }
+
+    .evidence-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .evidence-tile {
+      min-height: 78px;
+      place-items: center;
+      text-align: center;
+    }
+
+    .evidence-icon {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 13px;
+      background: rgba(0, 0, 128, .06);
+      color: var(--ms-navy);
+    }
+
+    .evidence-tile.active .evidence-icon {
+      background: rgba(255, 255, 255, .16);
+      color: var(--ms-white);
+    }
+
+    .evidence-preview {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .evidence-preview span {
+      min-height: 26px;
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid rgba(0, 0, 128, .12);
+      border-radius: var(--ms-pill);
+      padding: 5px 8px;
+      background: rgba(0, 0, 128, .04);
+      color: var(--ms-navy);
+      font-size: 8px;
+      font-weight: 950;
+    }
+
+    .proof-compare {
+      display: grid;
+      gap: 7px;
+    }
+
+    .proof-row {
+      display: grid;
+      grid-template-columns: 32px 1fr auto;
+      gap: 8px;
+      align-items: center;
+      border-radius: 16px;
+      padding: 8px;
+      background: rgba(0, 0, 128, .04);
+    }
+
+    .proof-dot {
+      width: 32px;
+      height: 32px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: rgba(19, 136, 8, .10);
+      color: var(--ms-green);
+      font-size: 10px;
+      font-weight: 950;
+    }
+
+    .proof-copy {
+      display: grid;
+      gap: 2px;
+    }
+
+    .proof-copy b {
+      color: var(--ms-navy);
+      font-size: 10px;
+      font-weight: 950;
+    }
+
+    .proof-copy span {
+      color: rgba(0, 0, 128, .62);
+      font-size: 8px;
+      font-weight: 850;
+    }
+
+    .proof-state {
+      color: var(--ms-green);
+      font-size: 8px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .resolution-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .mini-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .mini-pill {
+      min-height: 27px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: var(--ms-pill);
+      padding: 5px 9px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      font-size: 8px;
+      font-weight: 950;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .mini-pill.good {
+      color: var(--ms-green);
+      background: rgba(19, 136, 8, .08);
+    }
+
+    .mini-pill.warn {
+      color: var(--ms-navy);
+      background: rgba(255, 153, 51, .12);
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 5px;
+    }
+
+    .timeline-step {
+      min-height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      padding: 5px;
+      background: rgba(0, 0, 128, .045);
+      color: rgba(0, 0, 128, .68);
+      font-size: 8px;
+      font-weight: 950;
+      text-align: center;
+    }
+
+    .timeline-step.active {
+      background: rgba(255, 153, 51, .14);
+      color: var(--ms-navy);
+    }
+
+    .bottom-action {
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      bottom: 78px;
+      z-index: 3;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      align-items: center;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: 21px;
+      padding: 9px;
+      background: rgba(255, 255, 255, .96);
+      box-shadow: 0 18px 42px rgba(0, 0, 128, .20);
+      color: var(--ms-navy);
+    }
+
+    .action-copy {
+      min-width: 0;
+      display: grid;
+      gap: 3px;
+    }
+
+    .action-copy b {
+      color: var(--ms-navy);
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .action-copy span {
+      overflow: hidden;
+      color: rgba(0, 0, 128, .62);
+      font-size: 8px;
+      font-weight: 850;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .primary-btn {
+      min-width: 94px;
+      min-height: 42px;
+      border: 1px solid var(--ms-navy);
+      border-radius: var(--ms-pill);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 10px;
+      font-weight: 950;
+      box-shadow: inset 0 -4px 0 var(--ms-saffron);
+    }
+
+    .primary-btn.done {
+      background: var(--ms-green);
+      border-color: var(--ms-green);
+    }
+
+    .bottom-dock {
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+      z-index: 4;
+      display: grid;
+      grid-template-columns: 64px 1fr 64px;
+      gap: 8px;
+      align-items: center;
+      border: 1px solid rgba(0, 0, 128, .24);
+      border-radius: 24px;
+      padding: 7px;
+      background:
+        radial-gradient(circle at 8% 15%, rgba(255, 255, 255, .95), transparent 20%),
+        linear-gradient(180deg, var(--ms-white), #f5f7fb);
+      box-shadow: 0 -14px 36px rgba(0, 0, 128, .18), inset 0 -5px 0 rgba(0, 0, 128, .06);
+    }
+
+    .mool-button,
+    .chat-button {
+      height: 58px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(0, 0, 128, .16);
+      border-radius: 21px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      text-decoration: none;
+      font-size: 10px;
+      font-weight: 950;
+      box-shadow: 0 9px 18px rgba(0, 0, 128, .10);
+    }
+
+    .mool-button {
+      background:
+        radial-gradient(circle at 30% 22%, rgba(255,255,255,.45), transparent 20%),
+        var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -5px 0 var(--ms-saffron), 0 9px 18px rgba(0, 0, 128, .18);
+    }
+
+    .chat-button {
+      position: relative;
+    }
+
+    .chat-count {
+      position: absolute;
+      right: 4px;
+      top: 2px;
+      min-width: 22px;
+      height: 22px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--ms-saffron);
+      color: var(--ms-navy);
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .dock-tabs {
+      min-width: 0;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 4px;
+      overflow: hidden;
+      border-radius: 23px;
+      padding: 3px;
+      background:
+        radial-gradient(circle at 50% 40%, rgba(0, 0, 128, .12), transparent 54%),
+        linear-gradient(90deg, rgba(0, 0, 128, .08), rgba(255,255,255,.4), rgba(0, 0, 128, .08));
+      box-shadow: inset 0 10px 20px rgba(0, 0, 128, .08);
+    }
+
+    .dock-tab {
+      height: 56px;
+      min-width: 0;
+      display: grid;
+      place-items: center;
+      align-content: center;
+      gap: 3px;
+      border: 1px solid transparent;
+      border-radius: 20px;
+      padding: 4px 3px;
+      background: transparent;
+      color: var(--ms-navy);
+      font-size: 8px;
+      font-weight: 950;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .dock-tab svg,
+    .chat-button svg {
+      width: 19px;
+      height: 19px;
+    }
+
+    .dock-tab.active {
+      border-color: var(--ms-navy);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 var(--ms-saffron), 0 9px 18px rgba(0, 0, 128, .18);
+    }
+
+    .notes {
+      display: grid;
+      gap: 14px;
+    }
+
+    .state-grid {
+      display: grid;
+      grid-template-columns: 170px 1fr 1fr;
+      border: 1px solid var(--ms-navy);
+      border-bottom: 0;
+    }
+
+    .state-cell {
+      min-height: 54px;
+      display: grid;
+      align-content: center;
+      border-right: 1px solid var(--ms-navy);
+      border-bottom: 1px solid var(--ms-navy);
+      padding: 10px;
+      color: var(--ms-navy);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    .state-cell:nth-child(3n) {
+      border-right: 0;
+    }
+
+    .state-cell b {
+      color: var(--ms-green);
+    }
+
+    @media (max-width: 900px) {
+      .preview {
+        grid-template-columns: 1fr;
+      }
+
+      .state-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .state-cell {
+        border-right: 0;
+      }
+    }
+  </style>
+</head>
+<body class="ms-doc">
+  <main class="ms-page screen-shell">
+    <header class="back-row">
+      <a class="screen-link-home" href="../index.html">
+        <span class="back-mark">MS</span>
+        Back to screenbook
+      </a>
+      <span class="ms-status approved">Screen 19 Approved</span>
+    </header>
+
+    <section class="ms-panel">
+      <div class="ms-section-head">
+        Screen 19: Order Issue / Refund Evidence
+        <span>After report problem</span>
+      </div>
+
+      <div class="preview">
+        <div class="phone" aria-label="MoolSocial order issue refund evidence phone preview">
+          <div class="app" id="issueApp" data-item="none" data-refund="0" data-issue="none" data-evidence="0" data-resolution="none" data-submitted="no">
+            <div class="status-row">
+              <span>10:27</span>
+              <span>5G 100%</span>
+            </div>
+
+            <div class="top-zone">
+              <div class="brand-row">
+                <div class="title-lockup">
+                  <b>Order Help</b>
+                  <div class="identity-line" aria-hidden="true"><span></span><span></span><span></span></div>
+                  <span>Report issue with bill, item or delivery</span>
+                </div>
+                <div class="top-buttons">
+                  <a class="circle-btn" href="18-home-delivery-completed-bill-rating.html?v=approved-18" aria-label="Back to completed order">
+                    <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" /></svg>
+                  </a>
+                  <a class="circle-btn" href="03-login-account-handoff.html" aria-label="Open chat">
+                    <svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z" /></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="content">
+              <section class="issue-hero">
+                <div class="hero-top">
+                  <div class="hero-copy">
+                    <b id="heroTitle">Tell us what went wrong</b>
+                    <span id="heroSubtitle">Your bill, shop proof, rider proof and OTP proof are already attached.</span>
+                  </div>
+                  <div class="timer-badge">
+                    <span><strong id="timerText">28:42</strong>left</span>
+                  </div>
+                </div>
+                <div class="order-strip">
+                  <div class="order-copy">
+                    <b>Mahadev Fresh Mart - MS-BUY-1043</b>
+                    <span>6 items - delivered 10:24 - final bill Rs 645</span>
+                  </div>
+                  <div class="amount-pill">Rs 645</div>
+                </div>
+                <div class="mini-pills">
+                  <span class="mini-pill good">OTP proof</span>
+                  <span class="mini-pill good">Shop proof</span>
+                  <span class="mini-pill good">Delivery proof</span>
+                  <span class="mini-pill warn">30 min issue window</span>
+                </div>
+              </section>
+
+              <section class="panel-card">
+                <div class="panel-head">
+                  <b>Select affected item</b>
+                  <span id="itemHint">from bill</span>
+                </div>
+                <div class="item-grid">
+                  <button class="item-card" type="button" data-item="Hybrid Tomato 500 g" data-refund="37">
+                    <b>Hybrid Tomato</b>
+                    <span>500 g - Rs 37</span>
+                  </button>
+                  <button class="item-card" type="button" data-item="Green Chilli 100 g" data-refund="16">
+                    <b>Green Chilli</b>
+                    <span>100 g - Rs 16</span>
+                  </button>
+                  <button class="item-card" type="button" data-item="Staples Pack" data-refund="399">
+                    <b>Staples Pack</b>
+                    <span>rice, atta, dal - Rs 399</span>
+                  </button>
+                  <button class="item-card" type="button" data-item="Full order" data-refund="645">
+                    <b>Full order</b>
+                    <span>bill or delivery issue</span>
+                  </button>
+                </div>
+              </section>
+
+              <section class="panel-card">
+                <div class="panel-head">
+                  <b>Choose issue</b>
+                  <span id="issueHint">one tap</span>
+                </div>
+                <div class="issue-grid">
+                  <button class="issue-type" type="button" data-issue="Missing item">
+                    <b>Missing item</b>
+                    <span>paid item not received</span>
+                  </button>
+                  <button class="issue-type" type="button" data-issue="Wrong item">
+                    <b>Wrong item</b>
+                    <span>different item received</span>
+                  </button>
+                  <button class="issue-type" type="button" data-issue="Damaged item">
+                    <b>Damaged item</b>
+                    <span>leak, broken, spoiled</span>
+                  </button>
+                  <button class="issue-type" type="button" data-issue="Bill issue">
+                    <b>Bill issue</b>
+                    <span>price or quantity mismatch</span>
+                  </button>
+                  <button class="issue-type" type="button" data-issue="Late delivery">
+                    <b>Late delivery</b>
+                    <span>delivery crossed promised time</span>
+                  </button>
+                  <button class="issue-type" type="button" data-issue="Other">
+                    <b>Other</b>
+                    <span>needs support review</span>
+                  </button>
+                </div>
+              </section>
+
+              <section class="panel-card">
+                <div class="panel-head">
+                  <b>Suggested resolution</b>
+                  <span id="suggestionHint">after item and issue</span>
+                </div>
+                <div class="suggestion-card">
+                  <div class="suggestion-copy">
+                    <b id="suggestionTitle">Select item first</b>
+                    <span id="suggestionMeta">MoolSocial will estimate refund or replacement based on item, issue, shop rules and proof.</span>
+                  </div>
+                  <div class="suggestion-value" id="suggestionValue">--</div>
+                </div>
+              </section>
+
+              <section class="panel-card">
+                <div class="panel-head">
+                  <b>Add evidence</b>
+                  <span id="evidenceHint">photo is strongest</span>
+                </div>
+                <div class="evidence-row">
+                  <button class="evidence-tile" type="button" data-evidence="Item photo">
+                    <div class="evidence-icon">
+                      <svg viewBox="0 0 24 24"><path d="M4 7h4l2-3h4l2 3h4v13H4z" /><circle cx="12" cy="13" r="3" /></svg>
+                    </div>
+                    <b>Item photo</b>
+                    <span>camera/gallery</span>
+                  </button>
+                  <button class="evidence-tile" type="button" data-evidence="Bill mark">
+                    <div class="evidence-icon">
+                      <svg viewBox="0 0 24 24"><path d="M6 2h12v20l-3-2-3 2-3-2-3 2V2Z" /><path d="M9 8h6M9 12h6M9 16h4" /></svg>
+                    </div>
+                    <b>Bill mark</b>
+                    <span>select item</span>
+                  </button>
+                  <button class="evidence-tile" type="button" data-evidence="Voice note">
+                    <div class="evidence-icon">
+                      <svg viewBox="0 0 24 24"><path d="M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3Z" /><path d="M19 10v2a7 7 0 0 1-14 0v-2" /><path d="M12 19v3" /></svg>
+                    </div>
+                    <b>Voice note</b>
+                    <span>optional</span>
+                  </button>
+                </div>
+                <div class="evidence-preview" id="evidencePreview">
+                  <span>No proof added</span>
+                </div>
+              </section>
+
+              <section class="panel-card">
+                <div class="panel-head">
+                  <b>System proof check</b>
+                  <span>automatic</span>
+                </div>
+                <div class="proof-compare">
+                  <div class="proof-row">
+                    <div class="proof-dot">S</div>
+                    <div class="proof-copy"><b>Shop packed proof</b><span>Mahadev marked 6 items packed</span></div>
+                    <span class="proof-state">Attached</span>
+                  </div>
+                  <div class="proof-row">
+                    <div class="proof-dot">R</div>
+                    <div class="proof-copy"><b>Rider proof</b><span>Rakesh picked and delivered at 10:24</span></div>
+                    <span class="proof-state">Attached</span>
+                  </div>
+                  <div class="proof-row">
+                    <div class="proof-dot">C</div>
+                    <div class="proof-copy"><b>Customer evidence</b><span id="customerEvidenceText">Select item, issue and add proof</span></div>
+                    <span class="proof-state" id="customerEvidenceState">Needed</span>
+                  </div>
+                </div>
+              </section>
+
+              <section class="panel-card">
+                <div class="panel-head">
+                  <b>What do you want?</b>
+                  <span id="resolutionHint">choose preferred resolution</span>
+                </div>
+                <div class="resolution-grid">
+                  <button class="resolution-card" type="button" data-resolution="Refund">
+                    <b>Refund</b>
+                    <span>eligible amount</span>
+                  </button>
+                  <button class="resolution-card" type="button" data-resolution="Replace">
+                    <b>Replace</b>
+                    <span>shop sends item</span>
+                  </button>
+                  <button class="resolution-card" type="button" data-resolution="Support">
+                    <b>Support</b>
+                    <span>human review</span>
+                  </button>
+                </div>
+              </section>
+
+              <section class="panel-card">
+                <div class="panel-head">
+                  <b>Review path</b>
+                  <span id="reviewHint">before submit</span>
+                </div>
+                <div class="timeline">
+                  <span class="timeline-step active" id="itemStep">Item</span>
+                  <span class="timeline-step" id="issueStep">Issue</span>
+                  <span class="timeline-step" id="evidenceStep">Evidence</span>
+                  <span class="timeline-step" id="shopStep">Shop reply</span>
+                  <span class="timeline-step" id="resultStep">Result</span>
+                </div>
+                <div class="mini-pills">
+                  <span class="mini-pill">Shop reply SLA 10 min</span>
+                  <span class="mini-pill">Refund hold if proof mismatch</span>
+                  <span class="mini-pill">Chat remains open</span>
+                </div>
+              </section>
+            </div>
+
+            <div class="bottom-action">
+              <div class="action-copy">
+                <b id="actionTitle">Select issue</b>
+                <span id="actionMeta">Choose problem type to start review</span>
+              </div>
+              <button class="primary-btn" type="button" id="submitIssueButton">Submit</button>
+            </div>
+
+            <nav class="bottom-dock" aria-label="Issue support navigation">
+              <a class="mool-button" href="04-universal-focus-shell.html" aria-label="Open Mool">Mool</a>
+              <div class="dock-tabs" aria-label="Buy sub-actions">
+                <a class="dock-tab" href="18-home-delivery-completed-bill-rating.html" aria-label="Open bill">
+                  <svg viewBox="0 0 24 24"><path d="M6 2h12v20l-3-2-3 2-3-2-3 2V2Z" /><path d="M9 7h6M9 11h6" /></svg>
+                  Bill
+                </a>
+                <a class="dock-tab active" href="19-order-issue-refund-evidence.html" aria-label="Open issue">
+                  <svg viewBox="0 0 24 24"><path d="M12 9v4" /><path d="M12 17h.01" /><path d="M10.3 3.9L1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z" /></svg>
+                  Issue
+                </a>
+                <a class="dock-tab" href="09-buy.html" aria-label="Open orders">
+                  <svg viewBox="0 0 24 24"><path d="M4 7h16M7 7v13h10V7" /><path d="M9 11h6M9 15h6" /></svg>
+                  Orders
+                </a>
+                <a class="dock-tab" href="10-buy-grocery-decision.html" aria-label="Open shop">
+                  <svg viewBox="0 0 24 24"><path d="M6 7h15l-2 9H8L6 3H3" /><path d="M9 20h.01M18 20h.01" /></svg>
+                  Shop
+                </a>
+              </div>
+              <a class="chat-button" href="03-login-account-handoff.html" aria-label="Open chat">
+                <svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z" /></svg>
+                <span class="chat-count">2</span>
+              </a>
+            </nav>
+          </div>
+        </div>
+
+        <div class="notes">
+          <div>
+            <h1 class="ms-title">Issue flow must protect both customer trust and retailer fairness.</h1>
+            <p class="ms-lead">
+              Screen 19 collects a clear issue type, strongest evidence, customer preferred resolution,
+              and compares it against shop, rider, bill and OTP proof before refund or replacement.
+            </p>
+          </div>
+
+          <div class="ms-panel">
+            <div class="ms-section-head">Screen Contract <span>Approved</span></div>
+            <div class="state-grid">
+              <div class="state-cell"><b>Entry</b>From Screen 16 or 18 when customer taps report problem within issue window.</div>
+              <div class="state-cell"><b>User Sees</b>Order context, timer, affected item list, issue types, suggested resolution, evidence tools, proof check and review path.</div>
+              <div class="state-cell"><b>Decision</b>User selects item, issue, evidence and refund/replace/support before submit.</div>
+
+              <div class="state-cell"><b>Backend</b>Creates issue case, attaches order bill, shop proof, rider proof, OTP proof, evidence and SLA timers.</div>
+              <div class="state-cell"><b>Safety</b>Refund does not auto-release when evidence conflicts with shop/rider proof; it moves to review.</div>
+              <div class="state-cell"><b>Trust</b>Genuine issues protect customers; false or unclear claims do not punish retailer automatically.</div>
+
+              <div class="state-cell"><b>Next</b>After submit, route to issue review status and retailer response screen with case number.</div>
+              <div class="state-cell"><b>Failure</b>If issue window expired, support can still accept case but refund eligibility changes.</div>
+              <div class="state-cell"><b>Dock</b>Mool, Bill, Issue, Orders, Shop and Chat remain one tap accessible.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const app = document.getElementById("issueApp");
+    const itemHint = document.getElementById("itemHint");
+    const issueHint = document.getElementById("issueHint");
+    const suggestionHint = document.getElementById("suggestionHint");
+    const suggestionTitle = document.getElementById("suggestionTitle");
+    const suggestionMeta = document.getElementById("suggestionMeta");
+    const suggestionValue = document.getElementById("suggestionValue");
+    const evidenceHint = document.getElementById("evidenceHint");
+    const evidencePreview = document.getElementById("evidencePreview");
+    const resolutionHint = document.getElementById("resolutionHint");
+    const actionTitle = document.getElementById("actionTitle");
+    const actionMeta = document.getElementById("actionMeta");
+    const customerEvidenceText = document.getElementById("customerEvidenceText");
+    const customerEvidenceState = document.getElementById("customerEvidenceState");
+    const itemStep = document.getElementById("itemStep");
+    const issueStep = document.getElementById("issueStep");
+    const evidenceStep = document.getElementById("evidenceStep");
+    const shopStep = document.getElementById("shopStep");
+    const resultStep = document.getElementById("resultStep");
+    const submitIssueButton = document.getElementById("submitIssueButton");
+
+    function suggestedResolution(issue) {
+      if (issue === "Wrong item") return "Replace";
+      if (issue === "Late delivery" || issue === "Other") return "Support";
+      return "Refund";
+    }
+
+    function updateSuggestion() {
+      const item = app.dataset.item;
+      const issue = app.dataset.issue;
+      const refund = Number(app.dataset.refund);
+
+      if (item === "none") {
+        suggestionHint.textContent = "after item and issue";
+        suggestionTitle.textContent = "Select item first";
+        suggestionMeta.textContent = "MoolSocial will estimate refund or replacement based on item, issue, shop rules and proof.";
+        suggestionValue.textContent = "--";
+        return;
+      }
+
+      if (issue === "none") {
+        suggestionHint.textContent = "item selected";
+        suggestionTitle.textContent = item;
+        suggestionMeta.textContent = "Now choose what went wrong so the app can suggest refund, replacement or support.";
+        suggestionValue.textContent = `Up to Rs ${refund}`;
+        return;
+      }
+
+      const suggestion = suggestedResolution(issue);
+      suggestionHint.textContent = "recommended";
+      suggestionTitle.textContent = `Best option: ${suggestion}`;
+      if (suggestion === "Refund") {
+        suggestionMeta.textContent = `${issue} on ${item}. Refund estimate depends on item proof and shop reply.`;
+        suggestionValue.textContent = `Rs ${refund}`;
+      } else if (suggestion === "Replace") {
+        suggestionMeta.textContent = `${issue} on ${item}. Replacement is suggested if shop has stock and accepts proof.`;
+        suggestionValue.textContent = "Replace";
+      } else {
+        suggestionMeta.textContent = `${issue} needs support review with attached order, rider, shop and customer proof.`;
+        suggestionValue.textContent = "Review";
+      }
+    }
+
+    function updateReadiness() {
+      const item = app.dataset.item;
+      const issue = app.dataset.issue;
+      const evidence = Number(app.dataset.evidence);
+      const resolution = app.dataset.resolution;
+      if (item !== "none" && issue !== "none" && evidence > 0 && resolution !== "none") {
+        actionTitle.textContent = "Ready to submit";
+        actionMeta.textContent = `${item} - ${issue} - ${resolution}`;
+      }
+    }
+
+    document.querySelectorAll(".item-card").forEach((button) => {
+      button.addEventListener("click", () => {
+        document.querySelectorAll(".item-card").forEach((item) => item.classList.remove("active"));
+        button.classList.add("active");
+        app.dataset.item = button.dataset.item;
+        app.dataset.refund = button.dataset.refund;
+        itemHint.textContent = button.dataset.item;
+        itemStep.classList.add("active");
+        customerEvidenceText.textContent = `${button.dataset.item} selected - add issue and proof`;
+        actionTitle.textContent = "Item selected";
+        actionMeta.textContent = "Choose issue type next";
+        updateSuggestion();
+        updateReadiness();
+      });
+    });
+
+    document.querySelectorAll(".issue-type").forEach((button) => {
+      button.addEventListener("click", () => {
+        document.querySelectorAll(".issue-type").forEach((item) => item.classList.remove("active"));
+        button.classList.add("active");
+        app.dataset.issue = button.dataset.issue;
+        issueHint.textContent = button.dataset.issue;
+        issueStep.classList.add("active");
+        actionTitle.textContent = button.dataset.issue;
+        actionMeta.textContent = app.dataset.item === "none" ? "Select affected item too" : "Now add item photo or bill mark";
+        updateSuggestion();
+        updateReadiness();
+      });
+    });
+
+    document.querySelectorAll(".evidence-tile").forEach((button) => {
+      button.addEventListener("click", () => {
+        button.classList.toggle("active");
+        const activeCount = document.querySelectorAll(".evidence-tile.active").length;
+        app.dataset.evidence = String(activeCount);
+        const activeLabels = Array.from(document.querySelectorAll(".evidence-tile.active")).map((tile) => tile.dataset.evidence);
+        evidenceHint.textContent = activeCount ? `${activeCount} evidence added` : "photo is strongest";
+        evidencePreview.innerHTML = activeLabels.length ? activeLabels.map((label) => `<span>${label} added</span>`).join("") : "<span>No proof added</span>";
+        customerEvidenceText.textContent = activeCount ? `${activeCount} customer evidence item attached for ${app.dataset.item === "none" ? "selected item" : app.dataset.item}` : "Select item, issue and add proof";
+        customerEvidenceState.textContent = activeCount ? "Added" : "Needed";
+        evidenceStep.classList.toggle("active", activeCount > 0);
+        actionTitle.textContent = activeCount ? "Evidence added" : "Add evidence";
+        actionMeta.textContent = activeCount ? "Choose resolution to continue" : "Photo or bill mark required";
+        updateReadiness();
+      });
+    });
+
+    document.querySelectorAll(".resolution-card").forEach((button) => {
+      button.addEventListener("click", () => {
+        document.querySelectorAll(".resolution-card").forEach((item) => item.classList.remove("active"));
+        button.classList.add("active");
+        app.dataset.resolution = button.dataset.resolution;
+        resolutionHint.textContent = button.dataset.resolution;
+        actionTitle.textContent = `${button.dataset.resolution} requested`;
+        actionMeta.textContent = app.dataset.item === "none" ? "Select affected item too" : "Submit sends case to shop/support";
+        updateReadiness();
+      });
+    });
+
+    submitIssueButton.addEventListener("click", () => {
+      if (app.dataset.item === "none") {
+        actionTitle.textContent = "Select item first";
+        actionMeta.textContent = "Choose affected bill item or full order";
+        return;
+      }
+      if (app.dataset.issue === "none") {
+        actionTitle.textContent = "Select issue first";
+        actionMeta.textContent = "Missing, wrong, damaged, bill, late or other";
+        return;
+      }
+      if (Number(app.dataset.evidence) === 0) {
+        actionTitle.textContent = "Evidence needed";
+        actionMeta.textContent = "Add item photo, bill mark or voice note";
+        return;
+      }
+      if (app.dataset.resolution === "none") {
+        actionTitle.textContent = "Choose resolution";
+        actionMeta.textContent = "Refund, replace or support";
+        return;
+      }
+
+      app.dataset.submitted = "yes";
+      submitIssueButton.classList.add("done");
+      submitIssueButton.textContent = "Submitted";
+      shopStep.classList.add("active");
+      resultStep.classList.add("active");
+      actionTitle.textContent = "Case submitted";
+      actionMeta.textContent = `${app.dataset.item} case sent - shop reply due in 10 min`;
+    });
+  </script>
+</body>
+</html>
