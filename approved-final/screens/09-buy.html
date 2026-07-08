@@ -2006,7 +2006,7 @@
         <span class="back-mark">09</span>
         Back to screenbook
       </a>
-      <span class="ms-status">Draft for approval</span>
+      <span class="ms-status">Screen 09 Approved</span>
     </div>
 
     <header class="ms-topbar">
@@ -2020,7 +2020,7 @@
     </header>
 
     <section class="ms-panel">
-      <div class="ms-section-head">Production-Facing Draft <span>Shop QR, Browse, Meds, Basket</span></div>
+      <div class="ms-section-head">Production-Facing Approved <span>Shop QR, Browse, Meds, Basket</span></div>
       <div class="buy-preview">
         <section class="phone" aria-label="Screen 09 mobile preview">
           <div class="buy-app">
@@ -2062,7 +2062,7 @@
 
             <main class="buy-scroll">
               <nav class="tab-rail" aria-label="Buy sub-actions">
-                <button class="tab-chip active" type="button" data-buy-tab="grocery">
+                <button class="tab-chip active" type="button" data-buy-tab="grocery" data-open-screen10>
                   <svg viewBox="0 0 24 24"><path d="M6 8h15l-2 9H8Z"/><path d="M6 8 5 4H3"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>
                   Shop
                 </button>
@@ -2101,32 +2101,32 @@
                     </div>
                     <div class="shop-context-line">
                       <b>Live</b>
-                      <span>Buy in app, collect at counter or take delivery from this shop.</span>
+                      <span>Save time: pay in app, collect from counter or choose home delivery.</span>
                     </div>
                     <div class="shop-action-grid">
-                      <button class="shop-action primary active" type="button" data-shop-action="buy">Buy Here</button>
-                      <button class="shop-action" type="button" data-shop-action="scan">Scan Item</button>
-                      <button class="shop-action" type="button" data-shop-action="pickup">Pickup</button>
-                      <button class="shop-action" type="button" data-shop-action="delivery">Delivery</button>
+                      <button class="shop-action primary active" type="button" data-shop-action="buy" data-open-screen10>Buy Here</button>
+                      <button class="shop-action" type="button" data-shop-action="scan" data-open-screen10>Scan Item</button>
+                      <button class="shop-action" type="button" data-shop-action="pickup" data-open-screen10>Counter Pickup</button>
+                      <button class="shop-action" type="button" data-shop-action="delivery" data-open-screen10>Home Delivery</button>
                     </div>
                   </article>
 
                   <div class="mode-strip" aria-label="Price mode">
                     <button class="mode-option active" type="button" data-price-mode="retail">
-                      <b>Buy Now</b>
-                      <span>Rs 37 · 11 min</span>
+                      <b>Buy Retail</b>
+                      <span>shop price now</span>
                     </button>
                     <button class="mode-option" type="button" data-price-mode="pack">
-                      <b>Buy Pack</b>
-                      <span>Rs 34/unit</span>
+                      <b>Family Pack</b>
+                      <span>more qty save</span>
                     </button>
                     <button class="mode-option" type="button" data-price-mode="wholesale">
-                      <b>Join Wholesale</b>
-                      <span>Rs 31 target</span>
+                      <b>Wholesale Rate</b>
+                      <span>MOQ based</span>
                     </button>
                     <button class="mode-option" type="button" data-price-mode="basket">
-                      <b>Use Offer</b>
-                      <span>free delivery</span>
+                      <b>Shop Offer</b>
+                      <span>discounts</span>
                     </button>
                   </div>
 
@@ -2139,32 +2139,32 @@
                   </div>
 
                   <div class="category-home-grid" aria-label="Buy categories">
-                    <button class="category-tile" type="button" data-open-category="vegetables">
+                    <button class="category-tile" type="button" data-open-category="vegetables" data-open-screen10>
                       <i class="category-art"></i>
                       <b>Vegetables & Fruits</b>
                       <span>98 products</span>
                     </button>
-                    <button class="category-tile" type="button" data-open-category="staples">
+                    <button class="category-tile" type="button" data-open-category="staples" data-open-screen10>
                       <i class="category-art"></i>
                       <b>Atta, Rice & Oil</b>
                       <span>152 products</span>
                     </button>
-                    <button class="category-tile" type="button" data-open-category="dairy">
+                    <button class="category-tile" type="button" data-open-category="dairy" data-open-screen10>
                       <i class="category-art"></i>
                       <b>Dairy & Bread</b>
                       <span>42 products</span>
                     </button>
-                    <button class="category-tile" type="button" data-open-category="snacks">
+                    <button class="category-tile" type="button" data-open-category="snacks" data-open-screen10>
                       <i class="category-art"></i>
                       <b>Chips & Snacks</b>
                       <span>357 products</span>
                     </button>
-                    <button class="category-tile" type="button" data-open-category="home">
+                    <button class="category-tile" type="button" data-open-category="home" data-open-screen10>
                       <i class="category-art"></i>
                       <b>Home Care</b>
                       <span>123 products</span>
                     </button>
-                    <button class="category-tile" type="button" data-open-category="personal">
+                    <button class="category-tile" type="button" data-open-category="personal" data-open-screen10>
                       <i class="category-art"></i>
                       <b>Personal Care</b>
                       <span>88 products</span>
@@ -2196,9 +2196,9 @@
                         <span class="price-path"><b>Rs 31</b><span>Lock</span></span>
                       </div>
                       <div class="buy-ladder">
-                        <span class="buy-choice active" data-choice="retail"><b>Buy Now</b><strong>Rs 37</strong><span>11 min</span></span>
-                        <span class="buy-choice" data-choice="pack"><b>Buy Pack</b><strong>Rs 34</strong><span>2 kg</span></span>
-                        <span class="buy-choice" data-choice="wholesale"><b>Join Wholesale</b><strong>Rs 31</strong><span>basket</span></span>
+                        <span class="buy-choice active" data-choice="retail"><b>Retail</b><strong>Rs 37</strong><span>11 min</span></span>
+                        <span class="buy-choice" data-choice="pack"><b>Pack</b><strong>Rs 34</strong><span>2 kg</span></span>
+                        <span class="buy-choice" data-choice="wholesale"><b>Wholesale</b><strong>Rs 31</strong><span>MOQ</span></span>
                       </div>
                       <div class="product-meta-row">
                         <span class="product-meta">11 min</span>
@@ -2223,9 +2223,9 @@
                         <span class="price-path"><b>Rs 12</b><span>Lock</span></span>
                       </div>
                       <div class="buy-ladder">
-                        <span class="buy-choice active" data-choice="retail"><b>Buy Now</b><strong>Rs 16</strong><span>11 min</span></span>
-                        <span class="buy-choice" data-choice="pack"><b>Buy Pack</b><strong>Rs 14</strong><span>500 g</span></span>
-                        <span class="buy-choice" data-choice="wholesale"><b>Join Wholesale</b><strong>Rs 12</strong><span>basket</span></span>
+                        <span class="buy-choice active" data-choice="retail"><b>Retail</b><strong>Rs 16</strong><span>11 min</span></span>
+                        <span class="buy-choice" data-choice="pack"><b>Pack</b><strong>Rs 14</strong><span>500 g</span></span>
+                        <span class="buy-choice" data-choice="wholesale"><b>Wholesale</b><strong>Rs 12</strong><span>MOQ</span></span>
                       </div>
                       <div class="product-meta-row">
                         <span class="product-meta">11 min</span>
@@ -2250,9 +2250,9 @@
                         <span class="price-path"><b>Rs 455</b><span>Lock</span></span>
                       </div>
                       <div class="buy-ladder">
-                        <span class="buy-choice active" data-choice="retail"><b>Buy Now</b><strong>Rs 495</strong><span>today</span></span>
-                        <span class="buy-choice" data-choice="pack"><b>Buy Pack</b><strong>Rs 475</strong><span>2 bags</span></span>
-                        <span class="buy-choice" data-choice="wholesale"><b>Join Wholesale</b><strong>Rs 455</strong><span>basket</span></span>
+                        <span class="buy-choice active" data-choice="retail"><b>Retail</b><strong>Rs 495</strong><span>today</span></span>
+                        <span class="buy-choice" data-choice="pack"><b>Pack</b><strong>Rs 475</strong><span>2 bags</span></span>
+                        <span class="buy-choice" data-choice="wholesale"><b>Wholesale</b><strong>Rs 455</strong><span>MOQ</span></span>
                       </div>
                       <div class="product-meta-row">
                         <span class="product-meta">Today</span>
@@ -2277,9 +2277,9 @@
                         <span class="price-path"><b>Rs 799</b><span>Lock</span></span>
                       </div>
                       <div class="buy-ladder">
-                        <span class="buy-choice active" data-choice="retail"><b>Buy Now</b><strong>Rs 849</strong><span>tomorrow</span></span>
-                        <span class="buy-choice" data-choice="pack"><b>Buy Pack</b><strong>Rs 829</strong><span>2 cans</span></span>
-                        <span class="buy-choice" data-choice="wholesale"><b>Join Wholesale</b><strong>Rs 799</strong><span>basket</span></span>
+                        <span class="buy-choice active" data-choice="retail"><b>Retail</b><strong>Rs 849</strong><span>tomorrow</span></span>
+                        <span class="buy-choice" data-choice="pack"><b>Pack</b><strong>Rs 829</strong><span>2 cans</span></span>
+                        <span class="buy-choice" data-choice="wholesale"><b>Wholesale</b><strong>Rs 799</strong><span>MOQ</span></span>
                       </div>
                       <div class="product-meta-row">
                         <span class="product-meta">Tomorrow</span>
@@ -2329,9 +2329,9 @@
                           <span class="price-path"><b>Rs 31</b><span>Lock</span></span>
                         </div>
                         <div class="buy-ladder">
-                          <span class="buy-choice active" data-choice="retail"><b>Buy Now</b><strong>Rs 37</strong><span>11 min</span></span>
-                          <span class="buy-choice" data-choice="pack"><b>Buy Pack</b><strong>Rs 34</strong><span>2 kg</span></span>
-                          <span class="buy-choice" data-choice="wholesale"><b>Join Wholesale</b><strong>Rs 31</strong><span>basket</span></span>
+                          <span class="buy-choice active" data-choice="retail"><b>Retail</b><strong>Rs 37</strong><span>11 min</span></span>
+                          <span class="buy-choice" data-choice="pack"><b>Pack</b><strong>Rs 34</strong><span>2 kg</span></span>
+                          <span class="buy-choice" data-choice="wholesale"><b>Wholesale</b><strong>Rs 31</strong><span>MOQ</span></span>
                         </div>
                         <div class="product-meta-row">
                           <span class="product-meta">11 min</span>
@@ -2356,9 +2356,9 @@
                           <span class="price-path"><b>Rs 19</b><span>Lock</span></span>
                         </div>
                         <div class="buy-ladder">
-                          <span class="buy-choice active" data-choice="retail"><b>Buy Now</b><strong>Rs 24</strong><span>11 min</span></span>
-                          <span class="buy-choice" data-choice="pack"><b>Buy Pack</b><strong>Rs 21</strong><span>3 bunch</span></span>
-                          <span class="buy-choice" data-choice="wholesale"><b>Join Wholesale</b><strong>Rs 19</strong><span>basket</span></span>
+                          <span class="buy-choice active" data-choice="retail"><b>Retail</b><strong>Rs 24</strong><span>11 min</span></span>
+                          <span class="buy-choice" data-choice="pack"><b>Pack</b><strong>Rs 21</strong><span>3 bunch</span></span>
+                          <span class="buy-choice" data-choice="wholesale"><b>Wholesale</b><strong>Rs 19</strong><span>MOQ</span></span>
                         </div>
                         <div class="product-meta-row">
                           <span class="product-meta">11 min</span>
@@ -2383,9 +2383,9 @@
                           <span class="price-path"><b>Rs 35</b><span>Lock</span></span>
                         </div>
                         <div class="buy-ladder">
-                          <span class="buy-choice active" data-choice="retail"><b>Buy Now</b><strong>Rs 42</strong><span>18 min</span></span>
-                          <span class="buy-choice" data-choice="pack"><b>Buy Pack</b><strong>Rs 39</strong><span>dozen</span></span>
-                          <span class="buy-choice" data-choice="wholesale"><b>Join Wholesale</b><strong>Rs 35</strong><span>basket</span></span>
+                          <span class="buy-choice active" data-choice="retail"><b>Retail</b><strong>Rs 42</strong><span>18 min</span></span>
+                          <span class="buy-choice" data-choice="pack"><b>Pack</b><strong>Rs 39</strong><span>dozen</span></span>
+                          <span class="buy-choice" data-choice="wholesale"><b>Wholesale</b><strong>Rs 35</strong><span>MOQ</span></span>
                         </div>
                         <div class="product-meta-row">
                           <span class="product-meta">18 min</span>
@@ -2410,9 +2410,9 @@
                           <span class="price-path"><b>Rs 132</b><span>Lock</span></span>
                         </div>
                         <div class="buy-ladder">
-                          <span class="buy-choice active" data-choice="retail"><b>Buy Now</b><strong>Rs 155</strong><span>60 min</span></span>
-                          <span class="buy-choice" data-choice="pack"><b>Buy Pack</b><strong>Rs 145</strong><span>3 kg</span></span>
-                          <span class="buy-choice" data-choice="wholesale"><b>Join Wholesale</b><strong>Rs 132</strong><span>basket</span></span>
+                          <span class="buy-choice active" data-choice="retail"><b>Retail</b><strong>Rs 155</strong><span>60 min</span></span>
+                          <span class="buy-choice" data-choice="pack"><b>Pack</b><strong>Rs 145</strong><span>3 kg</span></span>
+                          <span class="buy-choice" data-choice="wholesale"><b>Wholesale</b><strong>Rs 132</strong><span>MOQ</span></span>
                         </div>
                         <div class="product-meta-row">
                           <span class="product-meta">60 min</span>
@@ -2460,9 +2460,9 @@
                       </span>
                     </div>
                     <div class="price-choice-row buy-method-row">
-                      <span class="price-choice active" data-choice="retail"><b>Buy Now</b><span>Rs 37 · retail · 11 min · 500 g</span></span>
-                      <span class="price-choice" data-choice="pack"><b>Buy Pack</b><span>Rs 34/unit · 2 kg · evening</span></span>
-                      <span class="price-choice" data-choice="wholesale"><b>Join Wholesale</b><span>Rs 31/unit · basket target</span></span>
+                      <span class="price-choice active" data-choice="retail"><b>Retail Buy</b><span>Rs 37 · shop price · 11 min · 500 g</span></span>
+                      <span class="price-choice" data-choice="pack"><b>Family Pack</b><span>Rs 34 each · 2 kg · evening</span></span>
+                      <span class="price-choice" data-choice="wholesale"><b>Wholesale MOQ</b><span>Rs 31 each · area MOQ target</span></span>
                     </div>
                     <div class="lock-meter" style="--lock: 64%">
                       <div class="lock-copy">
@@ -2772,7 +2772,7 @@
                 Mool
               </a>
               <div class="dock-tabs" aria-label="Buy sub-actions">
-                <button class="dock-tab active" type="button" data-buy-tab="grocery" aria-label="Open shop buying">
+                <button class="dock-tab active" type="button" data-buy-tab="grocery" data-open-screen10 aria-label="Open shop buying">
                   <svg viewBox="0 0 24 24"><path d="M6 8h15l-2 9H8Z"/><path d="M6 8 5 4H3"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>
                   Shop
                 </button>
@@ -2816,7 +2816,7 @@
           <article class="verdict-card">
             <h3>Campaign Wording</h3>
             <p>
-              Do not show "campaign engine" to consumers. Surface it as Buy Now, Buy Pack, Join Wholesale, Use Offer or Ready Offer.
+              Do not show "campaign engine" to consumers. Surface it as Buy Retail, Family Pack, Wholesale MOQ, Shop Offer or Ready Offer.
               The campaign/demand-pool logic remains backend architecture.
             </p>
           </article>
@@ -2842,7 +2842,7 @@
         <div class="state-row">
           <div class="state-cell"><b>QR Walk-In</b>Store-specific purchase.</div>
           <div class="state-cell">QR payload carries shop id, branch id, campaign/ref token and optional basket intent. If app is not installed, Play Store/referrer stores the pending shop session.</div>
-          <div class="state-cell">After app open, location permission or repeat counter QR confirms whether user is near that shop. If matched, show Buy Here, Scan Item, Pickup and Delivery before generic local options.</div>
+          <div class="state-cell">After app open, location permission or repeat counter QR confirms whether user is near that shop. If matched, show Buy Here, Scan Item, Counter Pickup and Home Delivery before generic local options.</div>
         </div>
         <div class="state-row">
           <div class="state-cell"><b>Location Match</b>Consent-first logic.</div>
@@ -2861,7 +2861,7 @@
         </div>
         <div class="state-row">
           <div class="state-cell"><b>Demand Logic</b>User wording stays simple.</div>
-          <div class="state-cell">User sees clear purchase choices: Buy Now, Buy Pack, Join Wholesale and Use Offer.</div>
+          <div class="state-cell">User sees clear purchase choices: Buy Retail, Family Pack, Wholesale MOQ and Shop Offer.</div>
           <div class="state-cell">Wholesale Basket must show target progress and fallback maximum price before user joins. Backend may create a demand pool, supplier opportunity, source campaign, delivery task or wholesale workflow.</div>
         </div>
         <div class="state-row">
@@ -2901,8 +2901,8 @@
           <ul class="ms-list">
             <li>Wholesale Basket or Saved Basket can create demand signals behind the scenes.</li>
             <li>Campaign, demand wallet and ledger are backend terms.</li>
-            <li>User-facing states must stay simple: Buy Now, Buy Pack, Join Wholesale, Use Offer, Save Repeat.</li>
-            <li>Wholesale Basket needs target quantity, current joined quantity, target price and fallback maximum price.</li>
+            <li>User-facing states must stay simple: Buy Retail, Family Pack, Wholesale MOQ, Shop Offer, Save Repeat.</li>
+            <li>Wholesale MOQ needs minimum quantity, current joined quantity, wholesale rate and fallback retail price.</li>
           </ul>
         </article>
         <article class="ms-card">
@@ -2937,6 +2937,31 @@
     const cartCount = document.querySelector("[data-cart-count]");
     let cartItems = 4;
     let cartTotal = 256;
+    const screen10Url = "10-buy-grocery-decision.html";
+
+    document.querySelectorAll("[data-open-screen10]").forEach((target) => {
+      target.addEventListener("click", (event) => {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        const params = new URLSearchParams({
+          shop: "mahadev-fresh-mart",
+          from: "screen09"
+        });
+        if (target.dataset.shopAction) {
+          params.set("entry", "shop");
+          params.set("intent", target.dataset.shopAction);
+        }
+        if (target.dataset.openCategory) {
+          params.set("entry", "category");
+          params.set("category", target.dataset.openCategory);
+        }
+        if (!params.has("entry")) {
+          params.set("entry", "shop");
+          params.set("intent", "buy");
+        }
+        window.location.href = `${screen10Url}?${params.toString()}`;
+      }, { capture: true });
+    });
 
     const categoryCopy = {
       vegetables: ["Vegetables & Fruits", "Fresh items with grade, weight, shop proof and replacement rule."],
@@ -3055,17 +3080,17 @@
     }
 
     const modeText = {
-      retail: "Buy Now: quickest delivery at visible retail price",
-      pack: "Buy Pack: buy more quantity at lower unit price",
-      wholesale: "Join Wholesale: lower basket target price with fallback",
-      basket: "Use Offer: combine basket offers and scheduled delivery"
+      retail: "Buy Retail: shop price now with counter pickup or delivery",
+      pack: "Family Pack: larger pack size with better per-item price",
+      wholesale: "Wholesale MOQ: area quantity target with fallback retail price",
+      basket: "Shop Offer: combine discounts, free delivery and scheduled basket"
     };
 
     const shopActionText = {
-      buy: "Buy in app, collect at counter or take delivery from this shop.",
+      buy: "Save time: pay in app, collect from counter or choose home delivery.",
       scan: "Scan shelf items to add them directly into this shop cart.",
-      pickup: "Counter pickup selected. Pay now or pay at Mahadev counter.",
-      delivery: "Delivery selected. Address and ETA will be checked for this shop."
+      pickup: "Counter pickup selected. Pay in app and collect without queue.",
+      delivery: "Home Delivery selected. Address and ETA will be checked for this shop."
     };
 
     function pulseElement(element) {

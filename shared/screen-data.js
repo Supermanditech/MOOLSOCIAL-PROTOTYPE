@@ -98,7 +98,14 @@ window.MoolSocialScreenbook = {
       name: "Buy",
       file: "screens/09-buy.html",
       status: "Approved",
-      purpose: "Approved Buy commerce entry with QR shop session, live purchase choices, compact category browsing, medicine boundary, basket logic and decision-ready product cards."
+      purpose: "Approved Buy commerce entry with QR shop session, progressive route into Grocery Decision, shop-specific purchase actions, compact category browsing, medicine boundary, basket logic and decision-ready product cards."
+    },
+    {
+      id: "10",
+      name: "Buy > Grocery Decision",
+      file: "screens/10-buy-grocery-decision.html",
+      status: "Approved",
+      purpose: "Approved shop-specific grocery decision flow after Buy: selected shop/category context, retailer capability settings, retail/family-pack/wholesale-MOQ/shop-offer choices and basket continuation."
     }
   ]
 };

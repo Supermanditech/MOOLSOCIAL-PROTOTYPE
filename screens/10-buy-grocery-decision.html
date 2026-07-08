@@ -1,0 +1,1670 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>10 Buy > Grocery Decision - MoolSocial Screenbook</title>
+  <link rel="stylesheet" href="../shared/moolsocial-ui-foundation.css" />
+  <style>
+    .screen-shell {
+      display: grid;
+      gap: 18px;
+    }
+
+    .back-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .screen-link-home {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--ms-navy);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .back-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--ms-navy);
+      border-radius: var(--ms-radius);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .preview {
+      display: grid;
+      grid-template-columns: minmax(320px, 390px) minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+      padding: 18px;
+      border-bottom: 1px solid var(--ms-navy);
+      background: var(--ms-white);
+    }
+
+    .phone {
+      width: min(100%, 370px);
+      height: 742px;
+      justify-self: center;
+      border: 10px solid var(--ms-navy);
+      border-radius: 32px;
+      background: var(--ms-navy);
+      overflow: hidden;
+      box-shadow: 0 28px 60px rgba(0, 0, 128, .22);
+    }
+
+    .app {
+      position: relative;
+      height: 100%;
+      display: grid;
+      grid-template-rows: auto auto 1fr auto;
+      background:
+        radial-gradient(circle at 10% 4%, rgba(255, 153, 51, .15), transparent 24%),
+        radial-gradient(circle at 92% 7%, rgba(19, 136, 8, .12), transparent 22%),
+        linear-gradient(180deg, var(--ms-navy) 0 168px, #f5f7fb 168px 100%);
+      color: var(--ms-white);
+      overflow: hidden;
+      font-family: var(--ms-font);
+    }
+
+    .status-row {
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 18px 0;
+      color: var(--ms-white);
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    .top-zone {
+      display: grid;
+      gap: 10px;
+      padding: 8px 12px 13px;
+    }
+
+    .brand-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .title-lockup {
+      min-width: 0;
+      display: grid;
+      gap: 4px;
+    }
+
+    .title-lockup b {
+      overflow: hidden;
+      color: var(--ms-white);
+      font-size: 19px;
+      line-height: 1;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .title-lockup span {
+      overflow: hidden;
+      color: rgba(255, 255, 255, .76);
+      font-size: 10px;
+      font-weight: 850;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .identity-line {
+      width: 98px;
+      height: 3px;
+      display: grid;
+      grid-template-columns: 45fr 14fr 41fr;
+      border-radius: var(--ms-pill);
+      overflow: hidden;
+    }
+
+    .identity-line span:nth-child(1) { background: var(--ms-saffron); }
+    .identity-line span:nth-child(2) { background: var(--ms-white); }
+    .identity-line span:nth-child(3) { background: var(--ms-green); }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    button {
+      appearance: none;
+      font-family: var(--ms-font);
+      cursor: pointer;
+    }
+
+    svg {
+      width: 18px;
+      height: 18px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .top-buttons {
+      display: flex;
+      gap: 7px;
+    }
+
+    .circle-btn {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, .26);
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .12);
+      color: var(--ms-white);
+    }
+
+    .command-bar {
+      min-height: 44px;
+      display: grid;
+      grid-template-columns: 1fr repeat(3, 34px);
+      gap: 6px;
+      align-items: center;
+      border: 1px solid rgba(255, 255, 255, .86);
+      border-radius: var(--ms-pill);
+      padding: 5px 5px 5px 13px;
+      background: rgba(255, 255, 255, .1);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .08);
+    }
+
+    .command-text {
+      min-width: 0;
+      overflow: hidden;
+      color: var(--ms-white);
+      font-size: 11px;
+      font-weight: 900;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .search-action {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border: 0;
+      border-radius: 50%;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+    }
+
+    .content {
+      min-height: 0;
+      overflow: auto;
+      display: grid;
+      align-content: start;
+      gap: 10px;
+      padding: 0 10px 112px;
+      color: var(--ms-navy);
+      scrollbar-width: none;
+    }
+
+    .content::-webkit-scrollbar,
+    .chip-row::-webkit-scrollbar,
+    .dock-tabs::-webkit-scrollbar {
+      display: none;
+    }
+
+    .shop-strip {
+      display: grid;
+      gap: 8px;
+      border: 1px solid rgba(0, 0, 128, .18);
+      border-radius: 18px;
+      padding: 10px;
+      background: rgba(255, 255, 255, .96);
+      box-shadow: 0 14px 28px rgba(0, 0, 128, .09);
+    }
+
+    .shop-main {
+      display: grid;
+      grid-template-columns: 42px 1fr auto;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .shop-badge {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 17px;
+      font-weight: 950;
+      box-shadow: inset 0 0 0 2px rgba(255, 255, 255, .18);
+    }
+
+    .shop-copy {
+      min-width: 0;
+      display: grid;
+      gap: 2px;
+    }
+
+    .shop-copy b {
+      overflow: hidden;
+      color: var(--ms-navy);
+      font-size: 13px;
+      line-height: 1.14;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .shop-copy span {
+      overflow: hidden;
+      color: rgba(0, 0, 128, .65);
+      font-size: 10px;
+      font-weight: 830;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .shop-now {
+      min-height: 30px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(19, 136, 8, .34);
+      border-radius: var(--ms-pill);
+      padding: 0 10px;
+      background: rgba(19, 136, 8, .08);
+      color: var(--ms-green);
+      font-size: 9px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .fulfil-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .fulfil-chip {
+      min-height: 35px;
+      display: grid;
+      align-content: center;
+      gap: 2px;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: 13px;
+      padding: 6px;
+      background: #f8fafc;
+      color: var(--ms-navy);
+      font-size: 9px;
+      font-weight: 900;
+      text-align: center;
+    }
+
+    .fulfil-chip b {
+      font-size: 10px;
+    }
+
+    .entry-note {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 8px;
+      align-items: center;
+      border: 1px solid rgba(255, 153, 51, .42);
+      border-radius: 15px;
+      padding: 8px 9px;
+      background: rgba(255, 153, 51, .1);
+      color: var(--ms-navy);
+      font-size: 10px;
+      font-weight: 850;
+      line-height: 1.25;
+    }
+
+    .entry-note b {
+      min-height: 24px;
+      display: inline-flex;
+      align-items: center;
+      border-radius: var(--ms-pill);
+      padding: 0 8px;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 9px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .mode-panel {
+      display: grid;
+      gap: 8px;
+      border: 1px solid rgba(0, 0, 128, .2);
+      border-radius: 20px;
+      padding: 10px;
+      background: rgba(255, 255, 255, .98);
+    }
+
+    .mode-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .mode-title b {
+      color: var(--ms-navy);
+      font-size: 13px;
+      line-height: 1.1;
+    }
+
+    .mode-title span {
+      color: var(--ms-green);
+      font-size: 10px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .mode-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(72px, 1fr));
+      gap: 6px;
+    }
+
+    .mode-btn {
+      min-height: 54px;
+      display: grid;
+      align-content: center;
+      justify-items: center;
+      gap: 3px;
+      border: 1px solid rgba(0, 0, 128, .16);
+      border-radius: 16px;
+      padding: 7px 4px;
+      background: #f8fafc;
+      color: var(--ms-navy);
+      box-shadow: 0 6px 18px rgba(0, 0, 128, .05);
+    }
+
+    .mode-btn b {
+      font-size: 10px;
+      line-height: 1.1;
+      text-align: center;
+    }
+
+    .mode-btn span {
+      color: rgba(0, 0, 128, .6);
+      font-size: 8px;
+      font-weight: 850;
+      text-align: center;
+    }
+
+    .mode-btn.active {
+      border-color: var(--ms-navy);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 var(--ms-saffron), 0 12px 26px rgba(0, 0, 128, .18);
+    }
+
+    .mode-btn.active span {
+      color: rgba(255, 255, 255, .82);
+    }
+
+    .app[data-wholesale="off"] [data-mode="wholesale"],
+    .app[data-wholesale="off"] .price-option[data-choice="wholesale"] {
+      display: none;
+    }
+
+    .chip-row {
+      display: flex;
+      gap: 7px;
+      overflow-x: auto;
+      padding: 1px 0;
+      scroll-snap-type: x proximity;
+    }
+
+    .cat-chip {
+      min-height: 34px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      flex: 0 0 auto;
+      border: 1px solid rgba(0, 0, 128, .16);
+      border-radius: var(--ms-pill);
+      padding: 0 12px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      font-size: 10px;
+      font-weight: 950;
+      scroll-snap-align: start;
+    }
+
+    .cat-chip.active {
+      border-color: var(--ms-navy);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 2px 2px 0;
+    }
+
+    .section-heading b {
+      color: var(--ms-navy);
+      font-size: 15px;
+      line-height: 1.1;
+    }
+
+    .section-heading span {
+      color: rgba(0, 0, 128, .62);
+      font-size: 10px;
+      font-weight: 850;
+      text-align: right;
+    }
+
+    .product-list {
+      display: grid;
+      gap: 9px;
+    }
+
+    .product-card {
+      display: grid;
+      grid-template-columns: 86px minmax(0, 1fr);
+      gap: 10px;
+      border: 1px solid rgba(0, 0, 128, .15);
+      border-radius: 20px;
+      padding: 9px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      box-shadow: 0 12px 28px rgba(0, 0, 128, .08);
+    }
+
+    .product-media {
+      position: relative;
+      min-height: 120px;
+      overflow: hidden;
+      border-radius: 16px;
+      background:
+        radial-gradient(circle at 38% 36%, rgba(255, 153, 51, .86), transparent 20%),
+        radial-gradient(circle at 58% 42%, rgba(19, 136, 8, .74), transparent 20%),
+        radial-gradient(circle at 48% 64%, rgba(255, 255, 255, .88), transparent 18%),
+        linear-gradient(135deg, rgba(0, 0, 128, .15), rgba(19, 136, 8, .13));
+    }
+
+    .product-media.staples {
+      background:
+        radial-gradient(circle at 35% 30%, rgba(255, 255, 255, .86), transparent 22%),
+        radial-gradient(circle at 62% 55%, rgba(255, 153, 51, .7), transparent 26%),
+        linear-gradient(135deg, rgba(0, 0, 128, .16), rgba(19, 136, 8, .12));
+    }
+
+    .product-media.home {
+      background:
+        radial-gradient(circle at 45% 34%, rgba(0, 0, 128, .8), transparent 22%),
+        radial-gradient(circle at 64% 60%, rgba(255, 153, 51, .64), transparent 26%),
+        linear-gradient(135deg, rgba(255, 255, 255, .9), rgba(19, 136, 8, .15));
+    }
+
+    .media-label {
+      position: absolute;
+      left: 7px;
+      top: 7px;
+      min-height: 22px;
+      display: inline-flex;
+      align-items: center;
+      border-radius: var(--ms-pill);
+      padding: 0 8px;
+      background: rgba(255, 255, 255, .9);
+      color: var(--ms-green);
+      font-size: 8px;
+      font-weight: 950;
+      box-shadow: 0 6px 14px rgba(0, 0, 128, .12);
+    }
+
+    .product-body {
+      min-width: 0;
+      display: grid;
+      gap: 7px;
+    }
+
+    .product-top {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .product-name {
+      min-width: 0;
+      display: grid;
+      gap: 3px;
+    }
+
+    .product-name b {
+      color: var(--ms-navy);
+      font-size: 14px;
+      line-height: 1.1;
+    }
+
+    .product-name span {
+      color: rgba(0, 0, 128, .64);
+      font-size: 9px;
+      font-weight: 830;
+      line-height: 1.25;
+    }
+
+    .trust-pill {
+      min-height: 24px;
+      display: inline-flex;
+      align-items: center;
+      border-radius: var(--ms-pill);
+      padding: 0 8px;
+      background: rgba(19, 136, 8, .08);
+      color: var(--ms-green);
+      font-size: 8px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .price-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+      gap: 5px;
+    }
+
+    .price-option {
+      min-height: 52px;
+      display: grid;
+      align-content: center;
+      gap: 2px;
+      border: 1px solid rgba(0, 0, 128, .12);
+      border-radius: 14px;
+      padding: 6px 5px;
+      background: #f8fafc;
+      color: var(--ms-navy);
+    }
+
+    .price-option b {
+      font-size: 9px;
+      line-height: 1;
+    }
+
+    .price-option strong {
+      font-size: 13px;
+      line-height: 1;
+    }
+
+    .price-option span {
+      color: rgba(0, 0, 128, .58);
+      font-size: 8px;
+      font-weight: 850;
+      line-height: 1.05;
+    }
+
+    .price-option.active {
+      border-color: var(--ms-navy);
+      background: rgba(0, 0, 128, .06);
+      box-shadow: inset 0 -3px 0 var(--ms-saffron);
+    }
+
+    .card-actions {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 7px;
+      align-items: center;
+    }
+
+    .mini-proofs {
+      min-width: 0;
+      display: flex;
+      gap: 5px;
+      overflow: hidden;
+    }
+
+    .mini-proof {
+      min-height: 24px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 1 auto;
+      border-radius: var(--ms-pill);
+      padding: 0 7px;
+      background: rgba(0, 0, 128, .05);
+      color: var(--ms-green);
+      font-size: 8px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .add-btn,
+    .qty-btn,
+    .basket-btn,
+    .sheet-btn {
+      min-height: 34px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--ms-navy);
+      border-radius: var(--ms-pill);
+      padding: 0 12px;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 10px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .qty-control {
+      display: none;
+      grid-template-columns: 30px 30px 30px;
+      align-items: center;
+      border-radius: var(--ms-pill);
+      overflow: hidden;
+      background: var(--ms-green);
+      color: var(--ms-white);
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .qty-control button {
+      width: 30px;
+      height: 34px;
+      border: 0;
+      background: transparent;
+      color: inherit;
+      font-size: 18px;
+      font-weight: 900;
+    }
+
+    .qty-control span {
+      text-align: center;
+    }
+
+    .product-card.added .add-btn {
+      display: none;
+    }
+
+    .product-card.added .qty-control {
+      display: grid;
+    }
+
+    .basket-bar {
+      position: absolute;
+      left: 18px;
+      right: 18px;
+      bottom: 92px;
+      z-index: 8;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      align-items: center;
+      border: 1px solid rgba(255, 255, 255, .76);
+      border-radius: var(--ms-pill);
+      padding: 9px 10px 9px 14px;
+      background: rgba(19, 136, 8, .94);
+      color: var(--ms-white);
+      box-shadow: 0 18px 36px rgba(0, 0, 128, .22);
+      transform: translateY(120%);
+      transition: transform .2s ease;
+    }
+
+    .basket-bar.show {
+      transform: translateY(0);
+    }
+
+    .basket-copy {
+      min-width: 0;
+      display: grid;
+      gap: 2px;
+    }
+
+    .basket-copy b {
+      overflow: hidden;
+      font-size: 12px;
+      line-height: 1.1;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .basket-copy span {
+      overflow: hidden;
+      color: rgba(255, 255, 255, .82);
+      font-size: 9px;
+      font-weight: 850;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .basket-btn {
+      min-width: 86px;
+      border-color: var(--ms-white);
+      background: var(--ms-white);
+      color: var(--ms-green);
+    }
+
+    .bottom-dock {
+      position: absolute;
+      left: 8px;
+      right: 8px;
+      bottom: 10px;
+      z-index: 10;
+      display: grid;
+      grid-template-columns: 58px minmax(0, 1fr) 58px;
+      gap: 7px;
+      align-items: center;
+      border: 1px solid rgba(0, 0, 128, .9);
+      border-radius: 30px;
+      padding: 8px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.94), rgba(245,247,251,.94));
+      box-shadow: 0 14px 32px rgba(0, 0, 128, .22);
+    }
+
+    .mool-button,
+    .chat-button,
+    .dock-tab {
+      text-decoration: none;
+      font-family: var(--ms-font);
+    }
+
+    .mool-button,
+    .chat-button {
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(0, 0, 128, .16);
+      border-radius: 50%;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      font-size: 11px;
+      font-weight: 950;
+      box-shadow: 0 10px 22px rgba(0, 0, 128, .12);
+      position: relative;
+    }
+
+    .mool-button {
+      background:
+        radial-gradient(circle at 30% 20%, rgba(255, 255, 255, .36), transparent 20%),
+        var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -5px 0 rgba(0, 0, 70, .45), 0 12px 22px rgba(0, 0, 128, .25);
+    }
+
+    .mool-button::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: 9px;
+      width: 34px;
+      height: 5px;
+      display: block;
+      border-radius: var(--ms-pill);
+      background: linear-gradient(90deg, var(--ms-saffron) 0 45%, var(--ms-white) 45% 58%, var(--ms-green) 58% 100%);
+      transform: translateX(-50%);
+    }
+
+    .chat-button svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .chat-count {
+      position: absolute;
+      right: 4px;
+      top: 2px;
+      min-width: 22px;
+      height: 22px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--ms-saffron);
+      color: var(--ms-navy);
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .dock-tabs {
+      min-width: 0;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 4px;
+      overflow: hidden;
+      border-radius: 23px;
+      padding: 3px;
+      background:
+        radial-gradient(circle at 50% 40%, rgba(0, 0, 128, .12), transparent 54%),
+        linear-gradient(90deg, rgba(0, 0, 128, .08), rgba(255,255,255,.4), rgba(0, 0, 128, .08));
+      box-shadow: inset 0 10px 20px rgba(0, 0, 128, .08);
+    }
+
+    .dock-tab {
+      height: 56px;
+      min-width: 0;
+      display: grid;
+      place-items: center;
+      align-content: center;
+      gap: 3px;
+      border: 1px solid transparent;
+      border-radius: 20px;
+      padding: 4px 3px;
+      background: transparent;
+      color: var(--ms-navy);
+      font-size: 8px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .dock-tab svg {
+      width: 19px;
+      height: 19px;
+    }
+
+    .dock-tab.active {
+      border-color: var(--ms-navy);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 var(--ms-saffron), 0 9px 18px rgba(0, 0, 128, .18);
+    }
+
+    .sheet {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 20;
+      display: grid;
+      gap: 10px;
+      border-top: 1px solid var(--ms-navy);
+      border-radius: 24px 24px 0 0;
+      padding: 14px 14px 96px;
+      background: rgba(255, 255, 255, .98);
+      color: var(--ms-navy);
+      box-shadow: 0 -20px 40px rgba(0, 0, 128, .24);
+      transform: translateY(112%);
+      transition: transform .22s ease;
+    }
+
+    .sheet.open {
+      transform: translateY(0);
+    }
+
+    .sheet-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .sheet-head b {
+      font-size: 16px;
+      line-height: 1.1;
+    }
+
+    .sheet-head button {
+      width: 34px;
+      height: 34px;
+      border: 1px solid rgba(0, 0, 128, .18);
+      border-radius: 50%;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      font-size: 15px;
+      font-weight: 950;
+    }
+
+    .basket-lines {
+      display: grid;
+      gap: 8px;
+    }
+
+    .basket-line {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      align-items: center;
+      border: 1px solid rgba(0, 0, 128, .12);
+      border-radius: 15px;
+      padding: 9px;
+      background: #f8fafc;
+      color: var(--ms-navy);
+      font-size: 10px;
+      font-weight: 850;
+    }
+
+    .basket-line b {
+      font-size: 11px;
+    }
+
+    .basket-line strong {
+      font-size: 13px;
+    }
+
+    .sheet-btn {
+      min-height: 42px;
+      width: 100%;
+    }
+
+    .notes {
+      display: grid;
+      gap: 14px;
+    }
+
+    .state-grid {
+      display: grid;
+      grid-template-columns: 170px 1fr 1fr;
+      border: 1px solid var(--ms-navy);
+      border-bottom: 0;
+    }
+
+    .state-cell {
+      min-height: 54px;
+      display: grid;
+      align-content: center;
+      border-right: 1px solid var(--ms-navy);
+      border-bottom: 1px solid var(--ms-navy);
+      padding: 10px;
+      color: var(--ms-navy);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    .state-cell:nth-child(3n) {
+      border-right: 0;
+    }
+
+    .state-cell b {
+      color: var(--ms-green);
+    }
+
+    .setting-panel {
+      display: grid;
+      gap: 12px;
+      border: 1px solid var(--ms-navy);
+      border-radius: var(--ms-radius);
+      padding: 14px;
+      background: #f8fafc;
+    }
+
+    .setting-panel h2,
+    .setting-panel p {
+      margin: 0;
+    }
+
+    .setting-panel h2 {
+      color: var(--ms-navy);
+      font-size: 18px;
+      line-height: 1.15;
+    }
+
+    .setting-panel p {
+      color: rgba(0, 0, 128, .74);
+      font-size: 12px;
+      line-height: 1.45;
+      font-weight: 780;
+    }
+
+    .setting-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .setting-toggle {
+      min-height: 48px;
+      display: grid;
+      align-content: center;
+      gap: 3px;
+      border: 1px solid rgba(0, 0, 128, .2);
+      border-radius: 14px;
+      padding: 8px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      font-family: var(--ms-font);
+      font-weight: 920;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .setting-toggle span {
+      color: rgba(0, 0, 128, .58);
+      font-size: 10px;
+      font-weight: 820;
+    }
+
+    .setting-toggle[aria-pressed="true"] {
+      border-color: var(--ms-green);
+      background: rgba(19, 136, 8, .08);
+      color: var(--ms-green);
+      box-shadow: inset 0 -3px 0 var(--ms-green);
+    }
+
+    .setting-toggle[aria-disabled="true"] {
+      opacity: .72;
+      cursor: default;
+    }
+
+    @media (max-width: 900px) {
+      .preview {
+        grid-template-columns: 1fr;
+      }
+
+      .state-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .state-cell {
+        border-right: 0;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .phone {
+        border-width: 7px;
+        border-radius: 26px;
+      }
+
+      .bottom-dock {
+        grid-template-columns: 56px minmax(0, 1fr) 56px;
+        gap: 6px;
+        padding: 7px;
+      }
+
+      .mool-button,
+      .chat-button {
+        width: 56px;
+        height: 56px;
+      }
+    }
+  </style>
+</head>
+<body class="ms-doc">
+  <main class="ms-page screen-shell">
+    <header class="back-row">
+      <a class="screen-link-home" href="../index.html">
+        <span class="back-mark">MS</span>
+        Back to screenbook
+      </a>
+      <span class="ms-status">Screen 10 Approved</span>
+    </header>
+
+    <section class="ms-panel">
+      <div class="ms-section-head">
+        Screen 10: Buy &gt; Grocery Decision
+        <span>From Screen 09 Buy, user taps Grocery or scans a shop QR</span>
+      </div>
+
+      <div class="preview">
+        <div class="phone" aria-label="MoolSocial Buy Grocery phone preview">
+          <div class="app" id="groceryApp">
+            <div class="status-row">
+              <span>9:41</span>
+              <span>5G 100%</span>
+            </div>
+
+            <div class="top-zone">
+              <div class="brand-row">
+                <div class="title-lockup">
+                  <b>Grocery</b>
+                  <div class="identity-line" aria-hidden="true"><span></span><span></span><span></span></div>
+                  <span id="topSubtitle">Mahadev Fresh Mart selected from Buy</span>
+                </div>
+                <div class="top-buttons">
+                  <button class="circle-btn" aria-label="Go back to Buy">
+                    <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" /></svg>
+                  </button>
+                  <button class="circle-btn" aria-label="Open basket">
+                    <svg viewBox="0 0 24 24"><path d="M6 7h15l-2 9H8L6 3H3" /><path d="M9 20h.01M18 20h.01" /></svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="command-bar">
+                <div class="command-text">Search atta, tomato, oil, milk or scan barcode</div>
+                <button class="search-action" aria-label="Search">
+                  <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" /><path d="M21 21l-4.3-4.3" /></svg>
+                </button>
+                <button class="search-action" aria-label="Scan item">
+                  <svg viewBox="0 0 24 24"><path d="M4 7V4h3M17 4h3v3M20 17v3h-3M7 20H4v-3" /><path d="M8 8h2M14 8h2M8 16h8M8 12h1M12 12h4" /></svg>
+                </button>
+                <button class="search-action" aria-label="Voice search">
+                  <svg viewBox="0 0 24 24"><path d="M12 3a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3Z" /><path d="M19 10v1a7 7 0 0 1-14 0v-1M12 18v3" /></svg>
+                </button>
+              </div>
+            </div>
+
+            <div class="content">
+              <section class="shop-strip">
+                <div class="shop-main">
+                  <div class="shop-badge">M</div>
+                  <div class="shop-copy">
+                    <b id="shopStateTitle">Step 2: Mahadev Fresh Mart selected</b>
+                    <span id="shopStateCopy">Skip queue: pay in app, collect from counter or choose home delivery.</span>
+                  </div>
+                  <span class="shop-now" id="entryPill">QR live</span>
+                </div>
+                <div class="fulfil-row">
+                  <div class="fulfil-chip" data-capability-ui="counterPickup"><b>Counter Pickup</b>pay & collect</div>
+                  <div class="fulfil-chip" data-capability-ui="homeDelivery"><b>Home Delivery</b>11-45 min</div>
+                  <div class="fulfil-chip" data-capability-ui="offers"><b>Shop Offer</b>active today</div>
+                </div>
+                <div class="entry-note">
+                  <b id="entryStep">Step 2</b>
+                  <span id="entryNote">You already chose this shop on Buy. Now select item, rate type and fulfilment.</span>
+                </div>
+              </section>
+
+              <section class="mode-panel">
+                <div class="mode-title">
+                  <b>Choose rate for this shop</b>
+                  <span id="modeHint">Retail shop price</span>
+                </div>
+                <div class="mode-grid">
+                  <button class="mode-btn active" type="button" data-mode="now">
+                    <b>Buy Retail</b>
+                    <span>shop price</span>
+                  </button>
+                  <button class="mode-btn" type="button" data-mode="pack">
+                    <b>Family Pack</b>
+                    <span>more qty</span>
+                  </button>
+                  <button class="mode-btn" type="button" data-mode="wholesale">
+                    <b>Wholesale MOQ</b>
+                    <span>min qty</span>
+                  </button>
+                  <button class="mode-btn" type="button" data-mode="offer">
+                    <b>Shop Offer</b>
+                    <span>discount</span>
+                  </button>
+                </div>
+              </section>
+
+              <nav class="chip-row" aria-label="Grocery categories">
+                <button class="cat-chip active" type="button" data-filter="all">All</button>
+                <button class="cat-chip" type="button" data-filter="veg">Vegetables</button>
+                <button class="cat-chip" type="button" data-filter="staples">Staples</button>
+                <button class="cat-chip" type="button" data-filter="dairy">Dairy</button>
+                <button class="cat-chip" type="button" data-filter="snacks">Snacks</button>
+                <button class="cat-chip" type="button" data-filter="home">Home</button>
+              </nav>
+
+              <div class="section-heading">
+                <b>Decision-ready products</b>
+                <span>No endless grid. Price, time and rule visible.</span>
+              </div>
+
+              <section class="product-list">
+                <article class="product-card" data-product-card data-kind="veg" data-base="37">
+                  <div class="product-media">
+                    <span class="media-label">fresh</span>
+                  </div>
+                  <div class="product-body">
+                    <div class="product-top">
+                      <div class="product-name">
+                        <b>Hybrid Tomato</b>
+                        <span>500 g. Mahadev counter stock. Substitution allowed.</span>
+                      </div>
+                      <span class="trust-pill">verified</span>
+                    </div>
+                    <div class="price-options">
+                      <button class="price-option active" type="button" data-choice="now"><b>Retail</b><strong>Rs 37</strong><span>11 min</span></button>
+                      <button class="price-option" type="button" data-choice="pack"><b>Pack</b><strong>Rs 34</strong><span>2 kg</span></button>
+                      <button class="price-option" type="button" data-choice="wholesale"><b>MOQ</b><strong>Rs 31</strong><span>target</span></button>
+                    </div>
+                    <div class="card-actions">
+                      <div class="mini-proofs">
+                        <span class="mini-proof">price</span>
+                        <span class="mini-proof">stock</span>
+                        <span class="mini-proof">refund</span>
+                      </div>
+                      <button class="add-btn" type="button">Add</button>
+                      <div class="qty-control" aria-label="Quantity">
+                        <button type="button" data-qty="minus">-</button>
+                        <span>1</span>
+                        <button type="button" data-qty="plus">+</button>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="product-card" data-product-card data-kind="staples" data-base="495">
+                  <div class="product-media staples">
+                    <span class="media-label">source</span>
+                  </div>
+                  <div class="product-body">
+                    <div class="product-top">
+                      <div class="product-name">
+                        <b>Aashirvaad Atta</b>
+                        <span>10 kg. Retail, family pack or source basket price.</span>
+                      </div>
+                      <span class="trust-pill">MRP proof</span>
+                    </div>
+                    <div class="price-options">
+                      <button class="price-option active" type="button" data-choice="now"><b>Retail</b><strong>Rs 495</strong><span>today</span></button>
+                      <button class="price-option" type="button" data-choice="pack"><b>Pack</b><strong>Rs 475</strong><span>2 bags</span></button>
+                      <button class="price-option" type="button" data-choice="wholesale"><b>MOQ</b><strong>Rs 455</strong><span>target</span></button>
+                    </div>
+                    <div class="card-actions">
+                      <div class="mini-proofs">
+                        <span class="mini-proof">sealed</span>
+                        <span class="mini-proof">bill</span>
+                        <span class="mini-proof">return</span>
+                      </div>
+                      <button class="add-btn" type="button">Add</button>
+                      <div class="qty-control" aria-label="Quantity">
+                        <button type="button" data-qty="minus">-</button>
+                        <span>1</span>
+                        <button type="button" data-qty="plus">+</button>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="product-card" data-product-card data-kind="home" data-base="155">
+                  <div class="product-media home">
+                    <span class="media-label">repeat</span>
+                  </div>
+                  <div class="product-body">
+                    <div class="product-top">
+                      <div class="product-name">
+                        <b>Home Care Combo</b>
+                        <span>Cleaner, scrub and dish bar. Best when basket crosses Rs 799.</span>
+                      </div>
+                      <span class="trust-pill">offer</span>
+                    </div>
+                    <div class="price-options">
+                      <button class="price-option active" type="button" data-choice="now"><b>Retail</b><strong>Rs 155</strong><span>60 min</span></button>
+                      <button class="price-option" type="button" data-choice="pack"><b>Pack</b><strong>Rs 145</strong><span>3 qty</span></button>
+                      <button class="price-option" type="button" data-choice="wholesale"><b>MOQ</b><strong>Rs 132</strong><span>target</span></button>
+                    </div>
+                    <div class="card-actions">
+                      <div class="mini-proofs">
+                        <span class="mini-proof">offer</span>
+                        <span class="mini-proof">bill</span>
+                        <span class="mini-proof">replace</span>
+                      </div>
+                      <button class="add-btn" type="button">Add</button>
+                      <div class="qty-control" aria-label="Quantity">
+                        <button type="button" data-qty="minus">-</button>
+                        <span>1</span>
+                        <button type="button" data-qty="plus">+</button>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              </section>
+            </div>
+
+            <div class="basket-bar" id="basketBar">
+              <div class="basket-copy">
+                <b><span id="itemCount">0</span> items added</b>
+                <span id="basketMeta">Add products to see basket total</span>
+              </div>
+              <button class="basket-btn" type="button" id="viewBasket">View</button>
+            </div>
+
+            <nav class="bottom-dock" aria-label="Buy Grocery navigation">
+              <a class="mool-button" href="04-universal-focus-shell.html" aria-label="Open Mool">Mool</a>
+              <div class="dock-tabs" aria-label="Buy sub-actions">
+                <a class="dock-tab active" href="10-buy-grocery-decision.html" aria-label="Open grocery">
+                  <svg viewBox="0 0 24 24"><path d="M6 7h15l-2 9H8L6 3H3" /><path d="M9 20h.01M18 20h.01" /></svg>
+                  Shop
+                </a>
+                <a class="dock-tab" href="09-buy.html" aria-label="Browse categories">
+                  <svg viewBox="0 0 24 24"><path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z" /></svg>
+                  Browse
+                </a>
+                <a class="dock-tab" href="09-buy.html" aria-label="Open medicines">
+                  <svg viewBox="0 0 24 24"><path d="M8 4h8v16H8zM4 8h16M12 8v12" /></svg>
+                  Meds
+                </a>
+                <a class="dock-tab" href="09-buy.html" aria-label="Open basket">
+                  <svg viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6L5 8Z" /><path d="M9 8a3 3 0 0 1 6 0" /></svg>
+                  Basket
+                </a>
+              </div>
+              <a class="chat-button" href="03-login-account-handoff.html" aria-label="Open chat">
+                <svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z" /></svg>
+                <span class="chat-count">2</span>
+              </a>
+            </nav>
+
+            <section class="sheet" id="basketSheet" aria-label="Basket summary">
+              <div class="sheet-head">
+                <b>Basket ready</b>
+                <button type="button" id="closeSheet" aria-label="Close basket">x</button>
+              </div>
+              <div class="basket-lines">
+                <div class="basket-line">
+                  <span><b>Today delivery</b><br />Mahadev Fresh Mart, stock checked.</span>
+                  <strong id="sheetTotal">Rs 0</strong>
+                </div>
+                <div class="basket-line" data-capability-ui="wholesale">
+                  <span><b>Wholesale progress</b><br />If area basket reaches target, lower price applies automatically.</span>
+                  <strong>live</strong>
+                </div>
+                <div class="basket-line">
+                  <span><b>Rule</b><br />Refund missing item, substitute only after approval.</span>
+                  <strong>safe</strong>
+                </div>
+              </div>
+              <button class="sheet-btn" type="button">Continue</button>
+            </section>
+          </div>
+        </div>
+
+        <div class="notes">
+          <div>
+            <h1 class="ms-title">Grocery should feel faster than Blinkit, but smarter than a product grid.</h1>
+            <p class="ms-lead">
+              The user has already taken one action on Screen 09. This screen continues the selected shop/category journey:
+              retail price, family pack price, wholesale MOQ/rate, counter pickup, home delivery, trust proof, refund rule and add action.
+            </p>
+          </div>
+
+          <div class="ms-panel">
+            <div class="ms-section-head">Screen Contract <span>Approved</span></div>
+            <div class="state-grid">
+              <div class="state-cell"><b>Entry</b>From Screen 09 Grocery, category card, QR shop, product search or repeated basket.</div>
+              <div class="state-cell"><b>User Sees</b>Selected shop/category context, rate choices, category chips, decision-ready products and basket bar.</div>
+              <div class="state-cell"><b>Decision</b>Buy Retail, Family Pack, Wholesale MOQ or Shop Offer is visible before add.</div>
+
+              <div class="state-cell"><b>QR Walk-In</b>If location plus QR match a shop, show counter pickup and shop delivery first.</div>
+              <div class="state-cell"><b>Backend</b>Filter stock, price, fulfilment time, proof, refund rule, licence where needed and backup shop.</div>
+              <div class="state-cell"><b>No Marketplace</b>Do not show 10,000 shops or endless manufacturer listings to the consumer.</div>
+
+              <div class="state-cell"><b>Capability</b>Shop onboarding decides retail, family pack, wholesale MOQ, offers, pickup and delivery. Hide unavailable choices.</div>
+              <div class="state-cell"><b>Basket</b>When items are added, a compact basket bar appears above dock without hiding product cards.</div>
+              <div class="state-cell"><b>Dock</b>Mool and Chat remain fixed. Buy sub-actions keep the approved dock geometry.</div>
+            </div>
+          </div>
+
+          <div class="setting-panel" aria-label="Retailer onboarding capability settings">
+            <div>
+              <h2>Shop Settings Simulation</h2>
+              <p>
+                During retailer onboarding, each shop chooses what it actually offers. The consumer screen hides unavailable choices automatically.
+              </p>
+            </div>
+            <div class="setting-list">
+              <button class="setting-toggle" type="button" data-setting="retail" aria-pressed="true" aria-disabled="true">
+                Retail Price
+                <span>default required</span>
+              </button>
+              <button class="setting-toggle" type="button" data-setting="familyPack" aria-pressed="true">
+                Family Pack
+                <span>larger pack saving</span>
+              </button>
+              <button class="setting-toggle" type="button" data-setting="wholesale" aria-pressed="true">
+                Wholesale MOQ
+                <span>min quantity rate</span>
+              </button>
+              <button class="setting-toggle" type="button" data-setting="offers" aria-pressed="true">
+                Shop Offer
+                <span>discount/free delivery</span>
+              </button>
+              <button class="setting-toggle" type="button" data-setting="counterPickup" aria-pressed="true">
+                Counter Pickup
+                <span>pay and collect</span>
+              </button>
+              <button class="setting-toggle" type="button" data-setting="homeDelivery" aria-pressed="true">
+                Home Delivery
+                <span>shop/local delivery</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const modeHints = {
+      now: "Retail shop price",
+      pack: "Family pack saving",
+      wholesale: "Wholesale MOQ rate",
+      offer: "Shop offer applied"
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    const entry = params.get("entry") || "shop";
+    const intent = params.get("intent") || "buy";
+    const selectedCategory = params.get("category") || "";
+    const wholesaleEnabled = params.get("wholesale") !== "off";
+    const groceryApp = document.getElementById("groceryApp");
+    const modeButtons = document.querySelectorAll(".mode-btn");
+    const modeHint = document.getElementById("modeHint");
+    const productCards = document.querySelectorAll("[data-product-card]");
+    const basketBar = document.getElementById("basketBar");
+    const itemCount = document.getElementById("itemCount");
+    const basketMeta = document.getElementById("basketMeta");
+    const basketSheet = document.getElementById("basketSheet");
+    const sheetTotal = document.getElementById("sheetTotal");
+    const topSubtitle = document.getElementById("topSubtitle");
+    const shopStateTitle = document.getElementById("shopStateTitle");
+    const shopStateCopy = document.getElementById("shopStateCopy");
+    const entryPill = document.getElementById("entryPill");
+    const entryStep = document.getElementById("entryStep");
+    const entryNote = document.getElementById("entryNote");
+    const settingToggles = document.querySelectorAll("[data-setting]");
+    let basketItems = 0;
+    let basketTotal = 0;
+
+    const shopCapabilities = {
+      retail: true,
+      familyPack: true,
+      wholesale: wholesaleEnabled,
+      offers: true,
+      counterPickup: true,
+      homeDelivery: true
+    };
+
+    const categoryFilterMap = {
+      vegetables: "veg",
+      fruits: "veg",
+      staples: "staples",
+      dairy: "dairy",
+      snacks: "snacks",
+      home: "home",
+      personal: "home"
+    };
+
+    const categoryLabelMap = {
+      vegetables: "Vegetables & Fruits",
+      fruits: "Fresh Fruits",
+      staples: "Atta, Rice & Oil",
+      dairy: "Dairy & Bread",
+      snacks: "Chips & Snacks",
+      home: "Home Care",
+      personal: "Personal Care"
+    };
+
+    function setMode(mode) {
+      const requiredCapability = {
+        pack: "familyPack",
+        wholesale: "wholesale",
+        offer: "offers"
+      }[mode];
+      if (requiredCapability && !shopCapabilities[requiredCapability]) return;
+      modeButtons.forEach((button) => button.classList.toggle("active", button.dataset.mode === mode));
+      modeHint.textContent = modeHints[mode] || modeHints.now;
+      productCards.forEach((card) => {
+        const choice = mode === "offer" ? "pack" : mode;
+        card.querySelectorAll(".price-option").forEach((option) => {
+          option.classList.toggle("active", option.dataset.choice === choice);
+        });
+      });
+    }
+
+    function setVisible(selector, visible) {
+      document.querySelectorAll(selector).forEach((element) => {
+        element.style.display = visible ? "" : "none";
+      });
+    }
+
+    function updateCapabilityUI() {
+      groceryApp.dataset.wholesale = shopCapabilities.wholesale ? "on" : "off";
+      setVisible('[data-mode="pack"]', shopCapabilities.familyPack);
+      setVisible('[data-mode="wholesale"]', shopCapabilities.wholesale);
+      setVisible('[data-mode="offer"]', shopCapabilities.offers);
+      setVisible('.price-option[data-choice="pack"]', shopCapabilities.familyPack);
+      setVisible('.price-option[data-choice="wholesale"]', shopCapabilities.wholesale);
+      setVisible('[data-capability-ui="wholesale"]', shopCapabilities.wholesale);
+      setVisible('[data-capability-ui="offers"]', shopCapabilities.offers);
+      setVisible('[data-capability-ui="counterPickup"]', shopCapabilities.counterPickup);
+      setVisible('[data-capability-ui="homeDelivery"]', shopCapabilities.homeDelivery);
+
+      settingToggles.forEach((button) => {
+        const setting = button.dataset.setting;
+        button.setAttribute("aria-pressed", shopCapabilities[setting] ? "true" : "false");
+      });
+
+      const activeMode = document.querySelector(".mode-btn.active")?.dataset.mode || "now";
+      const capabilityForMode = {
+        pack: "familyPack",
+        wholesale: "wholesale",
+        offer: "offers"
+      }[activeMode];
+      if (capabilityForMode && !shopCapabilities[capabilityForMode]) {
+        setMode("now");
+      }
+    }
+
+    function updateBasket() {
+      itemCount.textContent = basketItems;
+      basketMeta.textContent = basketItems ? `Rs ${basketTotal} estimated. Counter pickup or home delivery next.` : "Add products to see basket total";
+      sheetTotal.textContent = `Rs ${basketTotal}`;
+      basketBar.classList.toggle("show", basketItems > 0);
+    }
+
+    function applyCategoryFilter(filter) {
+      document.querySelectorAll(".cat-chip").forEach((chip) => {
+        chip.classList.toggle("active", chip.dataset.filter === filter);
+      });
+      productCards.forEach((card) => {
+        card.style.display = filter === "all" || card.dataset.kind === filter ? "" : "none";
+      });
+    }
+
+    function applyEntryContext() {
+      updateCapabilityUI();
+      if (!shopCapabilities.wholesale) {
+        modeHint.textContent = "Retail-only shop";
+      }
+      const categoryName = categoryLabelMap[selectedCategory] || "Grocery";
+      const isCategoryEntry = entry === "category" && selectedCategory;
+      if (isCategoryEntry) {
+        topSubtitle.textContent = `${categoryName} selected from Buy`;
+        shopStateTitle.textContent = `Step 2: ${categoryName} at Mahadev`;
+        shopStateCopy.textContent = "Category selected. Now compare retail, pack, wholesale MOQ and shop offer before adding.";
+        entryPill.textContent = "category";
+        entryStep.textContent = "Selected";
+        entryNote.textContent = shopCapabilities.wholesale
+          ? `${categoryName} is already selected from Screen 09. Choose item and rate inside Mahadev Fresh Mart.`
+          : `${categoryName} is selected. This shop is retail/family-pack only, so wholesale MOQ is not shown.`;
+        applyCategoryFilter(categoryFilterMap[selectedCategory] || "all");
+        return;
+      }
+
+      const intentCopy = {
+        buy: ["Step 2: Mahadev Fresh Mart selected", "Skip queue: pay in app, collect from counter or choose home delivery.", "QR live", "Buy Here selected from Screen 09. Now add items from this shop."],
+        scan: ["Step 2: Scan item at Mahadev", "Scan or search shelf items, add to cart and pay in app.", "scan ready", "Scan Item selected from Screen 09. Search or scan barcode to add products."],
+        pickup: ["Step 2: Counter pickup selected", "Pay in app and collect packed items from Mahadev counter.", "pickup", "Counter Pickup selected from Screen 09. Add items and continue to pickup payment."],
+        delivery: ["Step 2: Home delivery selected", "Add products from Mahadev and choose delivery address after basket.", "delivery", "Home Delivery selected from Screen 09. Add items and confirm delivery ETA."]
+      };
+      const copy = intentCopy[intent] || intentCopy.buy;
+      topSubtitle.textContent = "Mahadev Fresh Mart selected from Buy";
+      shopStateTitle.textContent = copy[0];
+      shopStateCopy.textContent = copy[1];
+      entryPill.textContent = copy[2];
+      entryStep.textContent = "Step 2";
+      entryNote.textContent = shopCapabilities.wholesale
+        ? copy[3]
+        : `${copy[3]} This retailer has not enabled wholesale MOQ during onboarding.`;
+      applyCategoryFilter("all");
+    }
+
+    modeButtons.forEach((button) => {
+      button.addEventListener("click", () => setMode(button.dataset.mode));
+    });
+
+    settingToggles.forEach((button) => {
+      button.addEventListener("click", () => {
+        const setting = button.dataset.setting;
+        if (button.getAttribute("aria-disabled") === "true") return;
+        shopCapabilities[setting] = !shopCapabilities[setting];
+        updateCapabilityUI();
+        applyEntryContext();
+      });
+    });
+
+    document.querySelectorAll(".cat-chip").forEach((chip) => {
+      chip.addEventListener("click", () => {
+        applyCategoryFilter(chip.dataset.filter);
+      });
+    });
+
+    productCards.forEach((card) => {
+      const addButton = card.querySelector(".add-btn");
+      const qtyText = card.querySelector(".qty-control span");
+      const base = Number(card.dataset.base || 0);
+      let qty = 0;
+
+      function syncCard() {
+        card.classList.toggle("added", qty > 0);
+        qtyText.textContent = qty;
+      }
+
+      addButton.addEventListener("click", () => {
+        qty = 1;
+        basketItems += 1;
+        basketTotal += base;
+        syncCard();
+        updateBasket();
+      });
+
+      card.querySelectorAll("[data-qty]").forEach((button) => {
+        button.addEventListener("click", () => {
+          if (button.dataset.qty === "plus") {
+            qty += 1;
+            basketItems += 1;
+            basketTotal += base;
+          } else if (qty > 0) {
+            qty -= 1;
+            basketItems -= 1;
+            basketTotal -= base;
+          }
+          syncCard();
+          updateBasket();
+        });
+      });
+    });
+
+    document.getElementById("viewBasket").addEventListener("click", () => {
+      basketSheet.classList.add("open");
+    });
+
+    document.getElementById("closeSheet").addEventListener("click", () => {
+      basketSheet.classList.remove("open");
+    });
+
+    applyEntryContext();
+    updateBasket();
+  </script>
+</body>
+</html>
