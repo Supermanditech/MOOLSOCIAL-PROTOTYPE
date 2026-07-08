@@ -211,6 +211,13 @@ window.MoolSocialScreenbook = {
       file: "screens/25-chat-people-thread.html",
       status: "Approved",
       purpose: "Approved personal and group chat with WhatsApp-quality thread UX: text, call, video, attachment tray, photo/file previews, voice note, reply preview, typing state, reactions, member privacy, shared basket, poll, invite and optional Buy handoff."
+    },
+    {
+      id: "26",
+      name: "Eat / Food Decision Home",
+      file: "screens/26-eat.html",
+      status: "Approved",
+      purpose: "Approved Eat main action with restaurant chooser, delivery/QR/search/offers context, loyalty, route-specific Order Food, Book Table and Tiffin panels, live summary, filters, price/time/trust/cancellation clarity and next action."
     }
   ]
 };
