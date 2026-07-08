@@ -190,6 +190,13 @@ window.MoolSocialScreenbook = {
       file: "screens/22-chat-order-support-thread.html",
       status: "Approved",
       purpose: "Approved context-aware chat thread for people, business, orders and support with order proof, quick actions, composer, attachments and support fallback."
+    },
+    {
+      id: "23",
+      name: "Chat Inbox / Chat Home",
+      file: "screens/23-chat-inbox-home.html",
+      status: "Approved",
+      purpose: "Approved premium chat inbox for the Chat main action: WhatsApp-like thread list, All/Unread/People/Business/Orders/Support filters, verified context, order/support alerts, quick start actions and thread routing."
     }
   ]
 };

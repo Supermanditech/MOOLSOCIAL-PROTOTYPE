@@ -1,0 +1,942 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>23 Chat Inbox Home - MoolSocial Screenbook</title>
+  <link rel="stylesheet" href="../shared/moolsocial-ui-foundation.css" />
+  <style>
+    .screen-shell { display: grid; gap: 18px; }
+    .back-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+    .screen-link-home {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--ms-navy);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 900;
+    }
+    .back-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--ms-navy);
+      border-radius: var(--ms-radius);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 11px;
+      font-weight: 950;
+    }
+    .preview {
+      display: grid;
+      grid-template-columns: minmax(320px, 390px) minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+      padding: 18px;
+      border-bottom: 1px solid var(--ms-navy);
+      background: var(--ms-white);
+    }
+    .phone {
+      width: min(100%, 370px);
+      height: 742px;
+      justify-self: center;
+      border: 10px solid var(--ms-navy);
+      border-radius: 32px;
+      background: var(--ms-navy);
+      overflow: hidden;
+      box-shadow: 0 28px 60px rgba(0, 0, 128, .22);
+    }
+    .app {
+      position: relative;
+      height: 100%;
+      display: grid;
+      grid-template-rows: auto auto auto 1fr auto;
+      overflow: hidden;
+      background: #f5f7fb;
+      color: var(--ms-navy);
+      font-family: var(--ms-font);
+    }
+    .status-row {
+      height: 33px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 18px 0;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 11px;
+      font-weight: 950;
+    }
+    .top-zone {
+      display: grid;
+      gap: 10px;
+      padding: 8px 12px 10px;
+      background:
+        radial-gradient(circle at 15% 6%, rgba(255, 153, 51, .18), transparent 26%),
+        radial-gradient(circle at 88% 2%, rgba(19, 136, 8, .15), transparent 30%),
+        var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: 0 10px 22px rgba(0,0,128,.18);
+    }
+    .brand-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .title-lockup { display: grid; gap: 5px; min-width: 0; }
+    .title-lockup b {
+      color: var(--ms-white);
+      font-size: 22px;
+      line-height: 1;
+      font-weight: 950;
+      letter-spacing: 0;
+    }
+    .title-lockup span {
+      color: rgba(255,255,255,.72);
+      font-size: 10px;
+      font-weight: 850;
+    }
+    .identity-line { display: flex; width: 104px; height: 4px; border-radius: 4px; overflow: hidden; }
+    .identity-line span:nth-child(1) { flex: 1; background: var(--ms-saffron); }
+    .identity-line span:nth-child(2) { flex: .55; background: var(--ms-white); }
+    .identity-line span:nth-child(3) { flex: 1; background: var(--ms-green); }
+    svg {
+      width: 20px;
+      height: 20px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .top-buttons { display: flex; gap: 7px; }
+    .circle-btn {
+      width: 35px;
+      height: 35px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255,255,255,.26);
+      border-radius: 50%;
+      background: rgba(255,255,255,.12);
+      color: var(--ms-white);
+      text-decoration: none;
+    }
+    .circle-btn.primary {
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      box-shadow: inset 0 -3px 0 var(--ms-saffron);
+    }
+    .search-shell {
+      height: 42px;
+      display: grid;
+      grid-template-columns: 22px 1fr 34px;
+      gap: 8px;
+      align-items: center;
+      border: 1px solid rgba(255,255,255,.22);
+      border-radius: var(--ms-pill);
+      padding: 0 8px 0 13px;
+      background: rgba(255,255,255,.13);
+      color: var(--ms-white);
+    }
+    .search-shell span {
+      color: rgba(255,255,255,.76);
+      font-size: 10px;
+      font-weight: 850;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .search-shell button {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border: 0;
+      border-radius: 50%;
+      background: rgba(255,255,255,.95);
+      color: var(--ms-navy);
+    }
+    .chat-tabs {
+      display: flex;
+      gap: 7px;
+      min-width: 0;
+      overflow-x: auto;
+      padding: 9px 12px 10px;
+      background: #f5f7fb;
+      border-bottom: 1px solid rgba(0,0,128,.08);
+      scrollbar-width: none;
+    }
+    .chat-tabs::-webkit-scrollbar { display: none; }
+    .chat-tab {
+      flex: 0 0 auto;
+      min-height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      border: 1px solid rgba(0,0,128,.12);
+      border-radius: var(--ms-pill);
+      padding: 0 12px;
+      background: var(--ms-white);
+      color: rgba(0,0,128,.70);
+      font-size: 10px;
+      font-weight: 950;
+      text-decoration: none;
+      box-shadow: 0 8px 18px rgba(0,0,128,.05);
+    }
+    .chat-tab.active {
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      border-color: var(--ms-navy);
+      box-shadow: inset 0 -3px 0 var(--ms-saffron), 0 10px 20px rgba(0,0,128,.16);
+    }
+    .tab-badge {
+      min-width: 17px;
+      height: 17px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #ff8e24;
+      color: var(--ms-navy);
+      font-size: 8px;
+      font-weight: 950;
+    }
+    .content {
+      min-height: 0;
+      overflow: auto;
+      display: grid;
+      align-content: start;
+      gap: 9px;
+      padding: 10px 10px 86px;
+      color: var(--ms-navy);
+      scrollbar-width: none;
+    }
+    .content::-webkit-scrollbar { display: none; }
+    .priority-rail {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .priority-card {
+      min-height: 74px;
+      display: grid;
+      align-content: space-between;
+      gap: 7px;
+      border: 1px solid rgba(0,0,128,.13);
+      border-radius: 18px;
+      padding: 10px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      text-decoration: none;
+      box-shadow: 0 12px 26px rgba(0,0,128,.08);
+    }
+    .priority-card strong {
+      font-size: 12px;
+      font-weight: 950;
+      line-height: 1.15;
+    }
+    .priority-card span {
+      color: rgba(0,0,128,.62);
+      font-size: 8px;
+      font-weight: 850;
+      line-height: 1.25;
+    }
+    .priority-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+    }
+    .small-pill {
+      min-height: 21px;
+      display: inline-flex;
+      align-items: center;
+      border-radius: var(--ms-pill);
+      padding: 0 8px;
+      background: rgba(255,153,51,.16);
+      color: var(--ms-navy);
+      font-size: 8px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+    .small-pill.green { background: rgba(19,136,8,.13); color: var(--ms-green); }
+    .compose-sheet {
+      display: none;
+      gap: 8px;
+      border: 1px solid rgba(0,0,128,.14);
+      border-radius: 20px;
+      padding: 10px;
+      background: var(--ms-white);
+      box-shadow: 0 14px 30px rgba(0,0,128,.12);
+    }
+    .compose-sheet.open { display: grid; order: -1; }
+    .compose-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      color: var(--ms-navy);
+    }
+    .compose-head b { font-size: 13px; font-weight: 950; }
+    .compose-head button {
+      width: 28px;
+      height: 28px;
+      border: 0;
+      border-radius: 50%;
+      background: rgba(0,0,128,.07);
+      color: var(--ms-navy);
+      font-size: 13px;
+      font-weight: 950;
+    }
+    .quick-actions {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 7px;
+    }
+    .quick-action {
+      min-height: 54px;
+      display: grid;
+      align-content: center;
+      gap: 4px;
+      border: 1px solid rgba(0,0,128,.12);
+      border-radius: 16px;
+      padding: 8px;
+      background: #f7f9fd;
+      color: var(--ms-navy);
+      text-decoration: none;
+    }
+    .quick-action b {
+      color: inherit;
+      font-size: 8px;
+      font-weight: 950;
+      line-height: 1.05;
+    }
+    .quick-action span {
+      color: currentColor;
+      opacity: .62;
+      font-size: 7px;
+      font-weight: 850;
+    }
+    .section-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 4px 2px 0;
+      color: var(--ms-navy);
+      font-size: 12px;
+      font-weight: 950;
+    }
+    .section-title span {
+      color: rgba(0,0,128,.58);
+      font-size: 8px;
+      font-weight: 850;
+    }
+    .thread-list { display: grid; gap: 0; border-radius: 22px; overflow: hidden; background: var(--ms-white); box-shadow: 0 14px 28px rgba(0,0,128,.08); }
+    .thread-card {
+      min-height: 73px;
+      display: grid;
+      grid-template-columns: 48px 1fr auto;
+      align-items: center;
+      gap: 9px;
+      padding: 10px;
+      border-bottom: 1px solid rgba(0,0,128,.07);
+      text-decoration: none;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+    }
+    .thread-card:last-child { border-bottom: 0; }
+    .thread-card.hidden { display: none; }
+    .thread-card.action {
+      background:
+        linear-gradient(90deg, rgba(255,153,51,.09), transparent 26%),
+        var(--ms-white);
+    }
+    .avatar-wrap { position: relative; width: 48px; height: 48px; }
+    .thread-avatar {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      background: radial-gradient(circle at 30% 18%, #5555ff, var(--ms-navy) 56%);
+      color: var(--ms-white);
+      font-size: 12px;
+      font-weight: 950;
+      box-shadow: inset 0 -4px 0 var(--ms-green);
+    }
+    .thread-avatar.people { box-shadow: inset 0 -4px 0 var(--ms-white); }
+    .thread-avatar.business { box-shadow: inset 0 -4px 0 var(--ms-green); }
+    .thread-avatar.orders { box-shadow: inset 0 -4px 0 var(--ms-saffron); }
+    .thread-avatar.support { box-shadow: inset 0 -4px 0 var(--ms-saffron); }
+    .presence {
+      position: absolute;
+      right: -1px;
+      bottom: 1px;
+      width: 13px;
+      height: 13px;
+      border: 2px solid var(--ms-white);
+      border-radius: 50%;
+      background: var(--ms-green);
+    }
+    .presence.busy { background: #ff8e24; }
+    .thread-copy { min-width: 0; display: grid; gap: 4px; }
+    .thread-title-row {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      min-width: 0;
+    }
+    .thread-title-row b {
+      min-width: 0;
+      color: var(--ms-navy);
+      font-size: 12px;
+      font-weight: 950;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .verified {
+      flex: 0 0 auto;
+      width: 14px;
+      height: 14px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--ms-green);
+      color: var(--ms-white);
+      font-size: 9px;
+      font-weight: 950;
+    }
+    .thread-preview {
+      color: rgba(0,0,128,.66);
+      font-size: 9px;
+      line-height: 1.25;
+      font-weight: 850;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .thread-labels {
+      display: flex;
+      gap: 5px;
+      min-width: 0;
+      overflow: hidden;
+    }
+    .context-badge {
+      flex: 0 0 auto;
+      border-radius: var(--ms-pill);
+      padding: 3px 7px;
+      background: rgba(0,0,128,.06);
+      color: rgba(0,0,128,.70);
+      font-size: 7px;
+      font-weight: 950;
+      line-height: 1;
+    }
+    .context-badge.action { background: rgba(255,153,51,.18); color: var(--ms-navy); }
+    .context-badge.green { background: rgba(19,136,8,.13); color: var(--ms-green); }
+    .thread-meta {
+      align-self: stretch;
+      display: grid;
+      justify-items: end;
+      align-content: space-between;
+      gap: 5px;
+      color: rgba(0,0,128,.58);
+      font-size: 8px;
+      font-weight: 850;
+      padding-top: 3px;
+    }
+    .unread {
+      min-width: 19px;
+      height: 19px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #ff8e24;
+      color: var(--ms-navy);
+      font-size: 9px;
+      font-weight: 950;
+    }
+    .read-tick { color: var(--ms-green); font-size: 11px; font-weight: 950; }
+    .empty-state {
+      display: none;
+      min-height: 116px;
+      align-content: center;
+      justify-items: center;
+      gap: 8px;
+      border: 1px dashed rgba(0,0,128,.22);
+      border-radius: 22px;
+      background: rgba(255,255,255,.76);
+      color: rgba(0,0,128,.70);
+      text-align: center;
+      padding: 18px;
+    }
+    .empty-state.show { display: grid; }
+    .empty-state b { color: var(--ms-navy); font-size: 14px; font-weight: 950; }
+    .empty-state span { font-size: 9px; font-weight: 850; line-height: 1.35; }
+    .bottom-dock {
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+      z-index: 4;
+      height: 62px;
+      display: grid;
+      grid-template-columns: 66px 1fr 66px;
+      gap: 8px;
+      align-items: center;
+      border: 1px solid rgba(0,0,128,.22);
+      border-radius: 25px;
+      padding: 7px;
+      background: rgba(255,255,255,.97);
+      box-shadow: 0 14px 32px rgba(0,0,128,.22);
+    }
+    .mool-button, .chat-button {
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(0,0,128,.12);
+      border-radius: 21px;
+      text-decoration: none;
+      color: var(--ms-navy);
+      background: var(--ms-white);
+      font-size: 10px;
+      font-weight: 950;
+    }
+    .mool-button {
+      background: radial-gradient(circle at 30% 18%, #5555ff, var(--ms-navy) 54%);
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 var(--ms-saffron);
+    }
+    .chat-button {
+      position: relative;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 var(--ms-saffron);
+    }
+    .chat-count {
+      position: absolute;
+      right: 8px;
+      top: 6px;
+      min-width: 17px;
+      height: 17px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #ff8e24;
+      color: var(--ms-navy);
+      font-size: 9px;
+      font-weight: 950;
+    }
+    .dock-tabs {
+      min-width: 0;
+      height: 48px;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 4px;
+      overflow: hidden;
+      border-radius: 20px;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,.45), rgba(0,0,128,.08), rgba(255,255,255,.45));
+    }
+    .dock-tab {
+      min-width: 0;
+      display: grid;
+      place-items: center;
+      gap: 2px;
+      border-radius: 18px;
+      color: var(--ms-navy);
+      text-decoration: none;
+      font-size: 7px;
+      font-weight: 950;
+      line-height: 1;
+    }
+    .dock-tab svg { width: 16px; height: 16px; }
+    .chat-button svg { width: 18px; height: 18px; }
+    .dock-tab.active {
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 var(--ms-saffron);
+    }
+    .notes { display: grid; gap: 16px; }
+    .state-grid {
+      display: grid;
+      grid-template-columns: 170px 1fr 1fr;
+      border: 1px solid var(--ms-navy);
+      border-bottom: 0;
+    }
+    .state-cell {
+      min-height: 54px;
+      display: grid;
+      align-content: center;
+      border-right: 1px solid var(--ms-navy);
+      border-bottom: 1px solid var(--ms-navy);
+      padding: 10px;
+      color: var(--ms-navy);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+    .state-cell:nth-child(3n) { border-right: 0; }
+    .state-cell b { color: var(--ms-green); }
+    @media (max-width: 900px) {
+      .preview { grid-template-columns: 1fr; }
+      .state-grid { grid-template-columns: 1fr; }
+      .state-cell { border-right: 0; }
+    }
+  </style>
+</head>
+<body class="ms-doc">
+  <main class="ms-page screen-shell">
+    <header class="back-row">
+      <a class="screen-link-home" href="../index.html">
+        <span class="back-mark">MS</span>
+        Back to screenbook
+      </a>
+      <span class="ms-status">Screen 23 Approved</span>
+    </header>
+
+    <section class="ms-panel">
+      <div class="ms-section-head">
+        Screen 23: Chat Inbox / Chat Home
+        <span>WhatsApp-grade chat landing</span>
+      </div>
+
+      <div class="preview">
+        <div class="phone" aria-label="MoolSocial chat inbox phone preview">
+          <div class="app" id="inboxApp" data-current-filter="all">
+            <div class="status-row">
+              <span>10:55</span>
+              <span>5G 100%</span>
+            </div>
+
+            <div class="top-zone">
+              <div class="brand-row">
+                <div class="title-lockup">
+                  <b>Chats</b>
+                  <div class="identity-line" aria-hidden="true"><span></span><span></span><span></span></div>
+                  <span id="topHint">People, shops, orders and support in one inbox</span>
+                </div>
+                <div class="top-buttons">
+                  <a class="circle-btn" href="04-universal-focus-shell.html" aria-label="Open Mool">
+                    <svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16" /></svg>
+                  </a>
+                  <a class="circle-btn primary" href="#" aria-label="New chat" id="newChatButton">
+                    <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" /></svg>
+                  </a>
+                </div>
+              </div>
+
+              <div class="search-shell" role="button" tabindex="0" aria-label="Search chats">
+                <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" /><path d="m20 20-3.5-3.5" /></svg>
+                <span id="searchHint">Search name, shop, order, bill or support case...</span>
+                <button type="button" id="voiceButton" aria-label="Voice search">
+                  <svg viewBox="0 0 24 24"><path d="M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3Z" /><path d="M19 10v2a7 7 0 0 1-14 0v-2" /><path d="M12 19v3" /></svg>
+                </button>
+              </div>
+            </div>
+
+            <nav class="chat-tabs" aria-label="Chat sections">
+              <a class="chat-tab active" href="#" data-filter="all">All<span class="tab-badge">5</span></a>
+              <a class="chat-tab" href="#" data-filter="unread">Unread<span class="tab-badge">3</span></a>
+              <a class="chat-tab" href="#" data-filter="people">People</a>
+              <a class="chat-tab" href="#" data-filter="business">Business</a>
+              <a class="chat-tab" href="#" data-filter="orders">Orders<span class="tab-badge">2</span></a>
+              <a class="chat-tab" href="#" data-filter="support">Support</a>
+            </nav>
+
+            <div class="content">
+              <section class="priority-rail" id="priorityRail">
+                <a class="priority-card" href="22-chat-order-support-thread.html?v=approved-22">
+                  <strong>Retailer replied</strong>
+                  <span>Refund/replacement decision is ready for order MS-2041.</span>
+                  <div class="priority-meta">
+                    <span class="small-pill">Needs tap</span>
+                    <span class="small-pill green">Proof saved</span>
+                  </div>
+                </a>
+                <a class="priority-card" href="22-chat-order-support-thread.html?v=approved-22">
+                  <strong>Delivery chat live</strong>
+                  <span>Rider can call, send photo proof or confirm doorstep issue.</span>
+                  <div class="priority-meta">
+                    <span class="small-pill">2 unread</span>
+                    <span class="small-pill green">Order linked</span>
+                  </div>
+                </a>
+              </section>
+
+              <section class="compose-sheet" id="composeSheet" aria-label="Start new chat panel">
+                <div class="compose-head">
+                  <b>Start new chat</b>
+                  <button type="button" id="closeCompose" aria-label="Close start chat">x</button>
+                </div>
+                <div class="quick-actions">
+                  <a class="quick-action" href="#" data-filter="people"><b>Person</b><span>family or group</span></a>
+                  <a class="quick-action" href="#" data-filter="business"><b>Business</b><span>shop or service</span></a>
+                  <a class="quick-action" href="#" data-filter="orders"><b>Order</b><span>bill or delivery</span></a>
+                  <a class="quick-action" href="#" data-filter="support"><b>Support</b><span>case help</span></a>
+                </div>
+              </section>
+
+              <div class="section-title">
+                <b id="listTitle">Recent chats</b>
+                <span id="listHint">live sync</span>
+              </div>
+
+              <section class="thread-list" id="threadList">
+                <a class="thread-card action" href="22-chat-order-support-thread.html?v=approved-22" data-type="orders" data-unread="true">
+                  <div class="avatar-wrap">
+                    <div class="thread-avatar orders">MF</div>
+                    <span class="presence busy"></span>
+                  </div>
+                  <div class="thread-copy">
+                    <div class="thread-title-row"><b>Mahadev Fresh Mart + Mool Support</b><span class="verified">V</span></div>
+                    <span class="thread-preview">Refund result attached. Shop replied and support note saved.</span>
+                    <div class="thread-labels">
+                      <span class="context-badge action">Order MS-2041</span>
+                      <span class="context-badge green">Proof packet</span>
+                    </div>
+                  </div>
+                  <div class="thread-meta"><span>now</span><b class="unread">2</b></div>
+                </a>
+
+                <a class="thread-card" href="22-chat-order-support-thread.html?v=approved-22" data-type="business" data-unread="true">
+                  <div class="avatar-wrap">
+                    <div class="thread-avatar business">JW</div>
+                    <span class="presence"></span>
+                  </div>
+                  <div class="thread-copy">
+                    <div class="thread-title-row"><b>Jodhpur Wholesale Supplier</b><span class="verified">V</span></div>
+                    <span class="thread-preview">Price list reply for oil, pulses and monthly basket MOQ.</span>
+                    <div class="thread-labels">
+                      <span class="context-badge">Business</span>
+                      <span class="context-badge green">Price list</span>
+                    </div>
+                  </div>
+                  <div class="thread-meta"><span>6m</span><b class="unread">1</b></div>
+                </a>
+
+                <a class="thread-card" href="22-chat-order-support-thread.html?v=approved-22" data-type="people" data-unread="false">
+                  <div class="avatar-wrap">
+                    <div class="thread-avatar people">AV</div>
+                    <span class="presence"></span>
+                  </div>
+                  <div class="thread-copy">
+                    <div class="thread-title-row"><b>Amit Vyas</b></div>
+                    <span class="thread-preview">Shared monthly basket list: atta, rice and fruits.</span>
+                    <div class="thread-labels">
+                      <span class="context-badge">People</span>
+                      <span class="context-badge">Basket group</span>
+                    </div>
+                  </div>
+                  <div class="thread-meta"><span>18m</span><span class="read-tick">sent</span></div>
+                </a>
+
+                <a class="thread-card" href="22-chat-order-support-thread.html?v=approved-22" data-type="support" data-unread="false">
+                  <div class="avatar-wrap">
+                    <div class="thread-avatar support">MS</div>
+                  </div>
+                  <div class="thread-copy">
+                    <div class="thread-title-row"><b>MoolSocial Support</b><span class="verified">V</span></div>
+                    <span class="thread-preview">Issue MS-ISS-2041 is saved with bill and proof packet.</span>
+                    <div class="thread-labels">
+                      <span class="context-badge action">Support case</span>
+                      <span class="context-badge green">Saved</span>
+                    </div>
+                  </div>
+                  <div class="thread-meta"><span>25m</span><span>saved</span></div>
+                </a>
+
+                <a class="thread-card action" href="22-chat-order-support-thread.html?v=approved-22" data-type="orders" data-unread="true">
+                  <div class="avatar-wrap">
+                    <div class="thread-avatar orders">RR</div>
+                    <span class="presence busy"></span>
+                  </div>
+                  <div class="thread-copy">
+                    <div class="thread-title-row"><b>Rider Rajesh</b></div>
+                    <span class="thread-preview">Delivery completed. OTP proof and doorstep photo saved.</span>
+                    <div class="thread-labels">
+                      <span class="context-badge action">Delivery</span>
+                      <span class="context-badge">Home order</span>
+                    </div>
+                  </div>
+                  <div class="thread-meta"><span>1h</span><b class="unread">2</b></div>
+                </a>
+              </section>
+
+              <section class="empty-state" id="emptyState">
+                <b>No chats here yet</b>
+                <span>Start a new chat or switch to another inbox category.</span>
+              </section>
+            </div>
+
+            <nav class="bottom-dock" aria-label="Chat inbox navigation">
+              <a class="mool-button" href="04-universal-focus-shell.html" aria-label="Open Mool">Mool</a>
+              <div class="dock-tabs" aria-label="Chat inbox sub-actions">
+                <a class="dock-tab" href="#" data-filter="people">
+                  <svg viewBox="0 0 24 24"><path d="M16 11a4 4 0 1 0-8 0" /><path d="M4 21a8 8 0 0 1 16 0" /></svg>
+                  People
+                </a>
+                <a class="dock-tab" href="#" data-filter="business">
+                  <svg viewBox="0 0 24 24"><path d="M3 21h18" /><path d="M5 21V7l7-4 7 4v14" /><path d="M9 21v-6h6v6" /></svg>
+                  Business
+                </a>
+                <a class="dock-tab" href="#" data-filter="orders">
+                  <svg viewBox="0 0 24 24"><path d="M6 2h12v20l-3-2-3 2-3-2-3 2V2Z" /><path d="M9 7h6M9 11h6" /></svg>
+                  Orders
+                </a>
+                <a class="dock-tab" href="#" data-filter="support">
+                  <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" /><path d="M9 12l2 2 4-4" /></svg>
+                  Support
+                </a>
+              </div>
+              <a class="chat-button" href="23-chat-inbox-home.html" aria-label="Open chat">
+                <svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z" /></svg>
+                <span class="chat-count">5</span>
+              </a>
+            </nav>
+          </div>
+        </div>
+
+        <div class="notes">
+          <div>
+            <h1 class="ms-title">Chat home should feel as natural as opening WhatsApp, but smarter for commerce.</h1>
+            <p class="ms-lead">
+              Screen 23 keeps personal chat simple while attaching business, order, bill, proof and support context wherever needed.
+              The user sees recent chats first, urgent order chats second, and can filter or start a chat in one tap.
+            </p>
+          </div>
+
+          <div class="ms-panel">
+            <div class="ms-section-head">Screen Contract <span>Approved</span></div>
+            <div class="state-grid">
+              <div class="state-cell"><b>Entry</b>From Universal Chat action, unread notification, order badge, shop reply, delivery alert or support case.</div>
+              <div class="state-cell"><b>User Sees</b>WhatsApp-style recent inbox, unread badges, verified business markers, priority order/support alerts and search.</div>
+              <div class="state-cell"><b>Decision</b>Open chat, filter All/Unread/People/Business/Orders/Support, start chat, search, voice search or return to Mool.</div>
+
+              <div class="state-cell"><b>Backend</b>Thread index service merges personal, business, order and support channels with real-time unread sync.</div>
+              <div class="state-cell"><b>Tech Stack</b>WebSocket/SSE live updates, FCM push, local cache, optimistic read state, media upload service and thread routing API.</div>
+              <div class="state-cell"><b>Trust</b>Order chats carry proof packets, bills, refund status and support case IDs without exposing sensitive action outside the thread.</div>
+
+              <div class="state-cell"><b>Next</b>Order/support thread routes to Screen 22; future people, business and support detail screens reuse the same thread contract.</div>
+              <div class="state-cell"><b>Failure</b>If sync fails, show cached inbox with last updated time; if no chats exist, show start-chat empty state.</div>
+              <div class="state-cell"><b>Dock</b>Mool, People, Business, Orders, Support and Chat remain reachable without hiding the inbox list.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const inboxApp = document.getElementById("inboxApp");
+    const filterControls = document.querySelectorAll(".chat-tab[data-filter], .quick-action[data-filter], .dock-tab[data-filter]");
+    const threadCards = document.querySelectorAll(".thread-card[data-type]");
+    const listTitle = document.getElementById("listTitle");
+    const listHint = document.getElementById("listHint");
+    const searchHint = document.getElementById("searchHint");
+    const topHint = document.getElementById("topHint");
+    const priorityRail = document.getElementById("priorityRail");
+    const composeSheet = document.getElementById("composeSheet");
+    const emptyState = document.getElementById("emptyState");
+
+    const filterCopy = {
+      all: {
+        title: "Recent chats",
+        hint: "live sync",
+        search: "Search name, shop, order, bill or support case...",
+        top: "People, shops, orders and support in one inbox"
+      },
+      unread: {
+        title: "Unread",
+        hint: "needs reply",
+        search: "Search unread chats...",
+        top: "Messages that need your attention"
+      },
+      people: {
+        title: "People",
+        hint: "personal only",
+        search: "Search people or groups...",
+        top: "Family, friends and local groups"
+      },
+      business: {
+        title: "Business",
+        hint: "shops and services",
+        search: "Search shops, suppliers or service providers...",
+        top: "Verified business chats with context"
+      },
+      orders: {
+        title: "Orders",
+        hint: "bill and delivery linked",
+        search: "Search order, bill, refund or delivery...",
+        top: "Order chats with bill, proof and support context"
+      },
+      support: {
+        title: "Support",
+        hint: "case history",
+        search: "Search support case or help topic...",
+        top: "MoolSocial support cases and proof checks"
+      }
+    };
+
+    function cardMatches(card, filter) {
+      if (filter === "all") return true;
+      if (filter === "unread") return card.dataset.unread === "true";
+      return card.dataset.type === filter;
+    }
+
+    function applyFilter(filter) {
+      const copy = filterCopy[filter] || filterCopy.all;
+      let visibleCount = 0;
+      inboxApp.dataset.currentFilter = filter;
+      listTitle.textContent = copy.title;
+      listHint.textContent = copy.hint;
+      searchHint.textContent = copy.search;
+      topHint.textContent = copy.top;
+      priorityRail.style.display = filter === "all" || filter === "unread" || filter === "orders" ? "grid" : "none";
+      composeSheet.classList.remove("open");
+      filterControls.forEach((control) => {
+        control.classList.toggle("active", control.dataset.filter === filter || (filter === "all" && control.dataset.filter === "all"));
+      });
+      threadCards.forEach((card) => {
+        const show = cardMatches(card, filter);
+        card.classList.toggle("hidden", !show);
+        if (show) visibleCount += 1;
+      });
+      emptyState.classList.toggle("show", visibleCount === 0);
+    }
+
+    filterControls.forEach((control) => {
+      control.addEventListener("click", (event) => {
+        event.preventDefault();
+        applyFilter(event.currentTarget.dataset.filter);
+      });
+    });
+
+    document.getElementById("voiceButton").addEventListener("click", () => {
+      searchHint.textContent = "Listening for chat search...";
+    });
+
+    document.getElementById("newChatButton").addEventListener("click", (event) => {
+      event.preventDefault();
+      applyFilter("all");
+      composeSheet.classList.add("open");
+      searchHint.textContent = "Search or select who to message...";
+      topHint.textContent = "Start people, business, order or support chat";
+    });
+
+    document.getElementById("closeCompose").addEventListener("click", () => {
+      applyFilter(inboxApp.dataset.currentFilter || "all");
+    });
+  </script>
+</body>
+</html>
