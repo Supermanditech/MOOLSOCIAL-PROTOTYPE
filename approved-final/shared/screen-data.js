@@ -176,6 +176,13 @@ window.MoolSocialScreenbook = {
       file: "screens/20-issue-review-status-retailer-response.html",
       status: "Approved",
       purpose: "Approved customer-facing live issue tracker after evidence submission: case number, shop reply timer, compact proof packet, refund/replacement status, automatic support fallback, chat handoff and safe resolved confirmation."
+    },
+    {
+      id: "21",
+      name: "Issue Result / Refund Replacement",
+      file: "screens/21-issue-result-refund-replacement.html",
+      status: "Approved",
+      purpose: "Approved final issue outcome after shop/support decision: refund amount, replacement route, support decision, bill adjustment, saved proof and next actions."
     }
   ]
 };

@@ -1,0 +1,872 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>21 Issue Result Refund Replacement - MoolSocial Screenbook</title>
+  <link rel="stylesheet" href="../shared/moolsocial-ui-foundation.css" />
+  <style>
+    .screen-shell { display: grid; gap: 18px; }
+    .back-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+    .screen-link-home {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--ms-navy);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 900;
+    }
+    .back-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--ms-navy);
+      border-radius: var(--ms-radius);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 11px;
+      font-weight: 950;
+    }
+    .preview {
+      display: grid;
+      grid-template-columns: minmax(320px, 390px) minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+      padding: 18px;
+      border-bottom: 1px solid var(--ms-navy);
+      background: var(--ms-white);
+    }
+    .phone {
+      width: min(100%, 370px);
+      height: 742px;
+      justify-self: center;
+      border: 10px solid var(--ms-navy);
+      border-radius: 32px;
+      background: var(--ms-navy);
+      overflow: hidden;
+      box-shadow: 0 28px 60px rgba(0, 0, 128, .22);
+    }
+    .app {
+      position: relative;
+      height: 100%;
+      display: grid;
+      grid-template-rows: auto auto 1fr auto;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 12% 8%, rgba(255, 153, 51, .18), transparent 25%),
+        radial-gradient(circle at 88% 12%, rgba(19, 136, 8, .14), transparent 28%),
+        linear-gradient(180deg, var(--ms-navy) 0 150px, #f5f7fb 150px 100%);
+      color: var(--ms-white);
+      font-family: var(--ms-font);
+    }
+    .status-row {
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 18px 0;
+      font-size: 11px;
+      font-weight: 900;
+    }
+    .top-zone { display: grid; gap: 10px; padding: 8px 12px 12px; }
+    .brand-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .title-lockup { display: grid; gap: 5px; min-width: 0; }
+    .title-lockup b {
+      color: var(--ms-white);
+      font-size: 20px;
+      font-weight: 950;
+      line-height: 1;
+    }
+    .title-lockup span {
+      color: rgba(255,255,255,.76);
+      font-size: 10px;
+      font-weight: 850;
+    }
+    .identity-line { display: flex; width: 104px; height: 4px; border-radius: 4px; overflow: hidden; }
+    .identity-line span:nth-child(1) { flex: 1; background: var(--ms-saffron); }
+    .identity-line span:nth-child(2) { flex: .55; background: var(--ms-white); }
+    .identity-line span:nth-child(3) { flex: 1; background: var(--ms-green); }
+    svg {
+      width: 20px;
+      height: 20px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .top-buttons { display: flex; gap: 7px; }
+    .circle-btn {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255,255,255,.26);
+      border-radius: 50%;
+      background: rgba(255,255,255,.12);
+      color: var(--ms-white);
+      text-decoration: none;
+    }
+    .content {
+      min-height: 0;
+      overflow: auto;
+      display: grid;
+      align-content: start;
+      gap: 10px;
+      padding: 0 10px 104px;
+      color: var(--ms-navy);
+      scrollbar-width: none;
+    }
+    .content::-webkit-scrollbar { display: none; }
+    .result-hero, .panel-card {
+      display: grid;
+      gap: 10px;
+      border: 1px solid rgba(0,0,128,.15);
+      border-radius: 22px;
+      padding: 10px;
+      background: rgba(255,255,255,.98);
+      color: var(--ms-navy);
+      box-shadow: 0 16px 34px rgba(0,0,128,.12);
+    }
+    .result-hero {
+      border-color: rgba(19,136,8,.28);
+      background:
+        radial-gradient(circle at 92% 12%, rgba(19,136,8,.13), transparent 30%),
+        radial-gradient(circle at 12% 4%, rgba(255,153,51,.13), transparent 24%),
+        var(--ms-white);
+    }
+    .hero-top, .panel-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .hero-copy, .case-copy, .proof-copy, .route-copy { min-width: 0; display: grid; gap: 4px; }
+    .hero-copy b {
+      color: var(--ms-navy);
+      font-size: 20px;
+      line-height: 1.05;
+      font-weight: 950;
+    }
+    .hero-copy span, .panel-head span {
+      color: rgba(0,0,128,.64);
+      font-size: 10px;
+      line-height: 1.25;
+      font-weight: 850;
+    }
+    .result-badge {
+      width: 66px;
+      min-height: 60px;
+      display: grid;
+      place-items: center;
+      border-radius: 20px;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      text-align: center;
+      box-shadow: inset 0 -5px 0 var(--ms-green);
+    }
+    .result-badge svg { width: 28px; height: 28px; }
+    .progress-steps {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 5px;
+    }
+    .progress-step {
+      min-height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      padding: 5px;
+      background: rgba(19,136,8,.10);
+      color: var(--ms-green);
+      font-size: 8px;
+      font-weight: 950;
+      text-align: center;
+    }
+    .progress-step.active {
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 var(--ms-saffron);
+    }
+    .panel-head b {
+      color: var(--ms-navy);
+      font-size: 14px;
+      font-weight: 950;
+    }
+    .money-card {
+      display: grid;
+      gap: 8px;
+      border-radius: 20px;
+      padding: 11px;
+      background:
+        linear-gradient(135deg, rgba(19,136,8,.11), rgba(255,255,255,.94) 60%),
+        var(--ms-white);
+      border: 1px solid rgba(19,136,8,.24);
+    }
+    .money-main {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: end;
+      gap: 10px;
+    }
+    .money-main span {
+      color: rgba(0,0,128,.64);
+      font-size: 9px;
+      font-weight: 850;
+    }
+    .money-main b {
+      color: var(--ms-green);
+      font-size: 24px;
+      line-height: 1;
+      font-weight: 950;
+    }
+    .money-path {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 7px;
+    }
+    .path-chip {
+      min-height: 48px;
+      display: grid;
+      align-content: center;
+      gap: 4px;
+      border-radius: 16px;
+      padding: 8px;
+      background: rgba(0,0,128,.045);
+    }
+    .path-chip b {
+      color: var(--ms-navy);
+      font-size: 9px;
+      font-weight: 950;
+    }
+    .path-chip span {
+      color: rgba(0,0,128,.62);
+      font-size: 8px;
+      line-height: 1.15;
+      font-weight: 850;
+    }
+    .route-card, .case-card, .proof-card {
+      display: grid;
+      gap: 8px;
+      border-radius: 18px;
+      padding: 9px;
+      background: rgba(0,0,128,.04);
+    }
+    .route-card {
+      grid-template-columns: 42px 1fr;
+      align-items: center;
+      border: 1px solid rgba(0,0,128,.12);
+      background:
+        radial-gradient(circle at 100% 0, rgba(255,153,51,.12), transparent 36%),
+        rgba(255,255,255,.96);
+    }
+    .route-icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 var(--ms-saffron);
+    }
+    .route-copy b, .case-copy b, .proof-copy b {
+      color: var(--ms-navy);
+      font-size: 12px;
+      font-weight: 950;
+    }
+    .route-copy span, .case-copy span, .proof-copy span {
+      color: rgba(0,0,128,.64);
+      font-size: 9px;
+      line-height: 1.25;
+      font-weight: 850;
+    }
+    .case-card {
+      grid-template-columns: 1fr auto;
+      align-items: center;
+    }
+    .case-total {
+      min-width: 64px;
+      min-height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 15px;
+      background: var(--ms-white);
+      color: var(--ms-green);
+      font-size: 12px;
+      font-weight: 950;
+      text-align: center;
+    }
+    .proof-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 7px;
+    }
+    .proof-card {
+      min-height: 58px;
+      align-content: center;
+      background: rgba(255,255,255,.96);
+      border: 1px solid rgba(0,0,128,.12);
+    }
+    .proof-card span { color: var(--ms-green); }
+    .action-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+    }
+    .small-action {
+      min-height: 62px;
+      display: grid;
+      align-content: center;
+      gap: 5px;
+      border: 1px solid rgba(0,0,128,.14);
+      border-radius: 18px;
+      padding: 9px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      text-align: left;
+      text-decoration: none;
+    }
+    .small-action.primary {
+      border-color: var(--ms-navy);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -5px 0 var(--ms-saffron);
+    }
+    .small-action b {
+      color: inherit;
+      font-size: 10px;
+      font-weight: 950;
+    }
+    .small-action span {
+      color: currentColor;
+      opacity: .68;
+      font-size: 8px;
+      line-height: 1.15;
+      font-weight: 850;
+    }
+    .bottom-action {
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      bottom: 78px;
+      z-index: 3;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      align-items: center;
+      border: 1px solid rgba(0,0,128,.14);
+      border-radius: 21px;
+      padding: 9px;
+      background: rgba(255,255,255,.96);
+      color: var(--ms-navy);
+      box-shadow: 0 12px 30px rgba(0,0,128,.18);
+    }
+    .action-copy { display: grid; gap: 3px; min-width: 0; }
+    .action-copy b {
+      color: var(--ms-navy);
+      font-size: 12px;
+      font-weight: 950;
+    }
+    .action-copy span {
+      color: rgba(0,0,128,.64);
+      font-size: 9px;
+      font-weight: 850;
+    }
+    .primary-btn {
+      min-height: 38px;
+      border: 0;
+      border-radius: var(--ms-pill);
+      padding: 0 14px;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 10px;
+      font-weight: 950;
+    }
+    .primary-btn.done {
+      background: var(--ms-green);
+      color: var(--ms-white);
+    }
+    .bottom-dock {
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+      z-index: 4;
+      height: 62px;
+      display: grid;
+      grid-template-columns: 66px 1fr 66px;
+      gap: 8px;
+      align-items: center;
+      border: 1px solid rgba(0,0,128,.22);
+      border-radius: 25px;
+      padding: 7px;
+      background: rgba(255,255,255,.96);
+      box-shadow: 0 14px 32px rgba(0,0,128,.22);
+    }
+    .mool-button, .chat-button {
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(0,0,128,.12);
+      border-radius: 21px;
+      text-decoration: none;
+      color: var(--ms-navy);
+      background: var(--ms-white);
+      font-size: 10px;
+      font-weight: 950;
+    }
+    .mool-button {
+      background: radial-gradient(circle at 30% 18%, #5555ff, var(--ms-navy) 54%);
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 var(--ms-saffron);
+    }
+    .chat-button { position: relative; }
+    .chat-count {
+      position: absolute;
+      right: 8px;
+      top: 6px;
+      min-width: 17px;
+      height: 17px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #ff8e24;
+      color: var(--ms-navy);
+      font-size: 9px;
+      font-weight: 950;
+    }
+    .dock-tabs {
+      min-width: 0;
+      height: 48px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(54px, 1fr));
+      gap: 6px;
+      overflow: hidden;
+      border-radius: 20px;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,.45), rgba(0,0,128,.08), rgba(255,255,255,.45));
+    }
+    .dock-tab {
+      min-width: 0;
+      display: grid;
+      place-items: center;
+      gap: 2px;
+      border-radius: 18px;
+      color: var(--ms-navy);
+      text-decoration: none;
+      font-size: 8px;
+      font-weight: 950;
+      line-height: 1;
+    }
+    .dock-tab svg, .chat-button svg { width: 18px; height: 18px; }
+    .dock-tab.active {
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 var(--ms-saffron);
+    }
+    .notes { display: grid; gap: 16px; }
+    .state-grid {
+      display: grid;
+      grid-template-columns: 170px 1fr 1fr;
+      border: 1px solid var(--ms-navy);
+      border-bottom: 0;
+    }
+    .state-cell {
+      min-height: 54px;
+      display: grid;
+      align-content: center;
+      border-right: 1px solid var(--ms-navy);
+      border-bottom: 1px solid var(--ms-navy);
+      padding: 10px;
+      color: var(--ms-navy);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+    .state-cell:nth-child(3n) { border-right: 0; }
+    .state-cell b { color: var(--ms-green); }
+    .demo-controls {
+      display: grid;
+      gap: 10px;
+      border: 1px solid rgba(0,0,128,.12);
+      border-radius: 18px;
+      padding: 12px;
+      background: rgba(255,255,255,.92);
+    }
+    .demo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+    }
+    .demo-button {
+      min-height: 54px;
+      border: 1px solid rgba(0,0,128,.16);
+      border-radius: 18px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      font-size: 10px;
+      font-weight: 950;
+    }
+    .demo-button.active {
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -5px 0 var(--ms-saffron);
+    }
+    @media (max-width: 900px) {
+      .preview { grid-template-columns: 1fr; }
+      .state-grid { grid-template-columns: 1fr; }
+      .state-cell { border-right: 0; }
+    }
+  </style>
+</head>
+<body class="ms-doc">
+  <main class="ms-page screen-shell">
+    <header class="back-row">
+      <a class="screen-link-home" href="../index.html">
+        <span class="back-mark">MS</span>
+        Back to screenbook
+      </a>
+      <span class="ms-status">Screen 21 Approved</span>
+    </header>
+
+    <section class="ms-panel">
+      <div class="ms-section-head">
+        Screen 21: Issue Result / Refund Replacement
+        <span>After issue decision</span>
+      </div>
+
+      <div class="preview">
+        <div class="phone" aria-label="MoolSocial final issue result phone preview">
+          <div class="app" id="resultApp" data-result="refund">
+            <div class="status-row">
+              <span>10:43</span>
+              <span>5G 100%</span>
+            </div>
+
+            <div class="top-zone">
+              <div class="brand-row">
+                <div class="title-lockup">
+                  <b>Issue Result</b>
+                  <div class="identity-line" aria-hidden="true"><span></span><span></span><span></span></div>
+                  <span>Case MS-ISS-2041 - Hybrid Tomato</span>
+                </div>
+                <div class="top-buttons">
+                  <a class="circle-btn" href="20-issue-review-status-retailer-response.html?v=approved-20" aria-label="Back to issue status">
+                    <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" /></svg>
+                  </a>
+                  <a class="circle-btn" href="03-login-account-handoff.html" aria-label="Open chat">
+                    <svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z" /></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="content">
+              <section class="result-hero">
+                <div class="hero-top">
+                  <div class="hero-copy">
+                    <b id="heroTitle">Refund approved</b>
+                    <span id="heroSubtitle">Mahadev Fresh Mart accepted the missing item claim. Refund is now moving to your payment route.</span>
+                  </div>
+                  <div class="result-badge" id="resultBadge">
+                    <svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></svg>
+                  </div>
+                </div>
+                <div class="progress-steps">
+                  <span class="progress-step">Submitted</span>
+                  <span class="progress-step">Checked</span>
+                  <span class="progress-step">Decision</span>
+                  <span class="progress-step active" id="finalStep">Result</span>
+                </div>
+              </section>
+
+              <section class="panel-card">
+                <div class="panel-head">
+                  <b id="moneyTitle">Refund amount</b>
+                  <span id="moneyHint">approved</span>
+                </div>
+                <div class="money-card">
+                  <div class="money-main">
+                    <span id="moneySub">Hybrid Tomato 500 g</span>
+                    <b id="moneyValue">Rs 37</b>
+                  </div>
+                  <div class="money-path">
+                    <div class="path-chip"><b id="pathOne">Approved</b><span>shop accepted</span></div>
+                    <div class="path-chip"><b id="pathTwo">Payment route</b><span>original method</span></div>
+                    <div class="path-chip"><b id="pathThree">Expected</b><span>same day / bank time</span></div>
+                  </div>
+                </div>
+              </section>
+
+              <section class="panel-card">
+                <div class="panel-head">
+                  <b id="routeTitle">What happens now</b>
+                  <span id="routeHint">no extra action</span>
+                </div>
+                <div class="route-card">
+                  <div class="route-icon" id="routeIcon">
+                    <svg viewBox="0 0 24 24"><path d="M12 2v20" /><path d="m17 7-5-5-5 5" /><path d="M19 15H5" /></svg>
+                  </div>
+                  <div class="route-copy">
+                    <b id="routeCopyTitle">Refund will be posted automatically</b>
+                    <span id="routeCopy">You can leave this screen. Receipt and proof remain saved in order history.</span>
+                  </div>
+                </div>
+              </section>
+
+              <section class="panel-card">
+                <div class="panel-head">
+                  <b>Order adjustment</b>
+                  <span>bill stays clean</span>
+                </div>
+                <div class="case-card">
+                  <div class="case-copy">
+                    <b id="caseTitle">Item removed from paid value</b>
+                    <span id="caseCopy">Final bill keeps the item visible with refund mark, so shop and customer both have proof.</span>
+                  </div>
+                  <div class="case-total" id="caseTotal">Rs 37</div>
+                </div>
+              </section>
+
+              <section class="panel-card">
+                <div class="panel-head">
+                  <b>Proof saved</b>
+                  <span>for history</span>
+                </div>
+                <div class="proof-grid">
+                  <div class="proof-card proof-copy"><b>Bill</b><span>marked</span></div>
+                  <div class="proof-card proof-copy"><b>Photo</b><span>attached</span></div>
+                  <div class="proof-card proof-copy"><b>Decision</b><span id="decisionProof">accepted</span></div>
+                </div>
+              </section>
+
+              <section class="panel-card">
+                <div class="panel-head">
+                  <b>Next actions</b>
+                  <span>continue normally</span>
+                </div>
+                <div class="action-grid">
+                  <a class="small-action primary" href="18-home-delivery-completed-bill-rating.html">
+                    <b>View bill</b>
+                    <span>final receipt</span>
+                  </a>
+                  <a class="small-action" href="09-buy.html">
+                    <b>Buy again</b>
+                    <span>basket/shop</span>
+                  </a>
+                  <a class="small-action" href="03-login-account-handoff.html">
+                    <b>Chat</b>
+                    <span>case support</span>
+                  </a>
+                </div>
+              </section>
+            </div>
+
+            <div class="bottom-action">
+              <div class="action-copy">
+                <b id="actionTitle">Issue closed</b>
+                <span id="actionMeta">Refund result saved with order proof.</span>
+              </div>
+              <button class="primary-btn done" type="button" id="doneButton">Done</button>
+            </div>
+
+            <nav class="bottom-dock" aria-label="Issue result navigation">
+              <a class="mool-button" href="04-universal-focus-shell.html" aria-label="Open Mool">Mool</a>
+              <div class="dock-tabs" aria-label="Issue result sub-actions">
+                <a class="dock-tab" href="18-home-delivery-completed-bill-rating.html" aria-label="Open bill">
+                  <svg viewBox="0 0 24 24"><path d="M6 2h12v20l-3-2-3 2-3-2-3 2V2Z" /><path d="M9 7h6M9 11h6" /></svg>
+                  Bill
+                </a>
+                <a class="dock-tab" href="20-issue-review-status-retailer-response.html" aria-label="Open status">
+                  <svg viewBox="0 0 24 24"><path d="M12 8v5l3 2" /><circle cx="12" cy="12" r="10" /></svg>
+                  Status
+                </a>
+                <a class="dock-tab active" href="21-issue-result-refund-replacement.html" aria-label="Open result">
+                  <svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></svg>
+                  Result
+                </a>
+              </div>
+              <a class="chat-button" href="03-login-account-handoff.html" aria-label="Open chat">
+                <svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z" /></svg>
+                <span class="chat-count">2</span>
+              </a>
+            </nav>
+          </div>
+        </div>
+
+        <div class="notes">
+          <div>
+            <h1 class="ms-title">The issue must end with trust, not doubt.</h1>
+            <p class="ms-lead">
+              Screen 21 closes the dispute loop with a clear money/replacement result, bill adjustment,
+              saved proof, and calm next actions. It prevents users from wondering whether anything actually happened.
+            </p>
+          </div>
+
+          <div class="demo-controls">
+            <div class="ms-section-head">Prototype Result States <span>Not customer UI</span></div>
+            <div class="demo-grid">
+              <button class="demo-button active" type="button" id="refundStateButton">Refund approved</button>
+              <button class="demo-button" type="button" id="replaceStateButton">Replacement set</button>
+              <button class="demo-button" type="button" id="supportStateButton">Support decision</button>
+            </div>
+          </div>
+
+          <div class="ms-panel">
+            <div class="ms-section-head">Screen Contract <span>Approved</span></div>
+            <div class="state-grid">
+              <div class="state-cell"><b>Entry</b>After Screen 20 receives shop response or support review decision.</div>
+              <div class="state-cell"><b>User Sees</b>Final outcome, amount/value, payment route or replacement route, proof and final bill adjustment.</div>
+              <div class="state-cell"><b>Decision</b>User can view bill, buy again, chat support or leave safely because outcome is clear.</div>
+
+              <div class="state-cell"><b>Backend</b>Closes case status, writes resolution event, updates bill/refund ledger, triggers payment/refund/replacement workflow.</div>
+              <div class="state-cell"><b>Safety</b>No hidden refund. Every adjustment remains linked to bill, proof packet, shop response and support decision.</div>
+              <div class="state-cell"><b>Trust</b>Customer sees exact result instead of generic complaint closed message.</div>
+
+              <div class="state-cell"><b>Next</b>Routes back to order bill/history, repeat basket, chat, or future refund ledger screen if needed.</div>
+              <div class="state-cell"><b>Failure</b>If refund payment fails, same screen changes to pending payout with support handoff.</div>
+              <div class="state-cell"><b>Dock</b>Mool, Bill, Status, Result and Chat remain one tap accessible.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const resultApp = document.getElementById("resultApp");
+    const heroTitle = document.getElementById("heroTitle");
+    const heroSubtitle = document.getElementById("heroSubtitle");
+    const resultBadge = document.getElementById("resultBadge");
+    const moneyTitle = document.getElementById("moneyTitle");
+    const moneyHint = document.getElementById("moneyHint");
+    const moneySub = document.getElementById("moneySub");
+    const moneyValue = document.getElementById("moneyValue");
+    const pathOne = document.getElementById("pathOne");
+    const pathTwo = document.getElementById("pathTwo");
+    const pathThree = document.getElementById("pathThree");
+    const routeTitle = document.getElementById("routeTitle");
+    const routeHint = document.getElementById("routeHint");
+    const routeIcon = document.getElementById("routeIcon");
+    const routeCopyTitle = document.getElementById("routeCopyTitle");
+    const routeCopy = document.getElementById("routeCopy");
+    const caseTitle = document.getElementById("caseTitle");
+    const caseCopy = document.getElementById("caseCopy");
+    const caseTotal = document.getElementById("caseTotal");
+    const decisionProof = document.getElementById("decisionProof");
+    const actionTitle = document.getElementById("actionTitle");
+    const actionMeta = document.getElementById("actionMeta");
+
+    function setBadge(path, footer = "var(--ms-green)") {
+      resultBadge.style.boxShadow = `inset 0 -5px 0 ${footer}`;
+      resultBadge.innerHTML = `<svg viewBox="0 0 24 24">${path}</svg>`;
+    }
+
+    function setRouteIcon(path) {
+      routeIcon.innerHTML = `<svg viewBox="0 0 24 24">${path}</svg>`;
+    }
+
+    function setActive(button) {
+      document.querySelectorAll(".demo-button").forEach((item) => item.classList.remove("active"));
+      button.classList.add("active");
+    }
+
+    document.getElementById("refundStateButton").addEventListener("click", (event) => {
+      setActive(event.currentTarget);
+      resultApp.dataset.result = "refund";
+      setBadge('<path d="M20 6 9 17l-5-5" />', "var(--ms-green)");
+      setRouteIcon('<path d="M12 2v20" /><path d="m17 7-5-5-5 5" /><path d="M19 15H5" />');
+      heroTitle.textContent = "Refund approved";
+      heroSubtitle.textContent = "Mahadev Fresh Mart accepted the missing item claim. Refund is now moving to your payment route.";
+      moneyTitle.textContent = "Refund amount";
+      moneyHint.textContent = "approved";
+      moneySub.textContent = "Hybrid Tomato 500 g";
+      moneyValue.textContent = "Rs 37";
+      pathOne.textContent = "Approved";
+      pathTwo.textContent = "Payment route";
+      pathThree.textContent = "Expected";
+      routeTitle.textContent = "What happens now";
+      routeHint.textContent = "no extra action";
+      routeCopyTitle.textContent = "Refund will be posted automatically";
+      routeCopy.textContent = "You can leave this screen. Receipt and proof remain saved in order history.";
+      caseTitle.textContent = "Item removed from paid value";
+      caseCopy.textContent = "Final bill keeps the item visible with refund mark, so shop and customer both have proof.";
+      caseTotal.textContent = "Rs 37";
+      decisionProof.textContent = "accepted";
+      actionTitle.textContent = "Issue closed";
+      actionMeta.textContent = "Refund result saved with order proof.";
+    });
+
+    document.getElementById("replaceStateButton").addEventListener("click", (event) => {
+      setActive(event.currentTarget);
+      resultApp.dataset.result = "replacement";
+      setBadge('<path d="M21 12a9 9 0 1 1-3-6.7" /><path d="M21 3v6h-6" />', "var(--ms-saffron)");
+      setRouteIcon('<path d="M21 12a9 9 0 1 1-3-6.7" /><path d="M21 3v6h-6" />');
+      heroTitle.textContent = "Replacement scheduled";
+      heroSubtitle.textContent = "Shop will replace Hybrid Tomato 500 g through your selected fulfilment route.";
+      moneyTitle.textContent = "Replacement value";
+      moneyHint.textContent = "no extra charge";
+      moneySub.textContent = "Hybrid Tomato 500 g";
+      moneyValue.textContent = "Rs 37";
+      pathOne.textContent = "Accepted";
+      pathTwo.textContent = "Route";
+      pathThree.textContent = "ETA";
+      routeTitle.textContent = "Replacement route";
+      routeHint.textContent = "shop responsible";
+      routeCopyTitle.textContent = "Replacement will come with next delivery";
+      routeCopy.textContent = "For counter pickup, shop keeps item ready. For delivery, rider proof and OTP are required again.";
+      caseTitle.textContent = "Refund not needed";
+      caseCopy.textContent = "Case remains linked to replacement proof so the same issue cannot repeat silently.";
+      caseTotal.textContent = "No pay";
+      decisionProof.textContent = "replace";
+      actionTitle.textContent = "Replacement set";
+      actionMeta.textContent = "No extra payment needed for replacement item.";
+    });
+
+    document.getElementById("supportStateButton").addEventListener("click", (event) => {
+      setActive(event.currentTarget);
+      resultApp.dataset.result = "support";
+      setBadge('<path d="M12 9v4" /><path d="M12 17h.01" /><path d="M10.3 3.8 2 18a2 2 0 0 0 1.7 3h16.6A2 2 0 0 0 22 18L13.7 3.8a2 2 0 0 0-3.4 0Z" />', "var(--ms-saffron)");
+      setRouteIcon('<path d="M12 9v4" /><path d="M12 17h.01" /><path d="M10.3 3.8 2 18a2 2 0 0 0 1.7 3h16.6A2 2 0 0 0 22 18L13.7 3.8a2 2 0 0 0-3.4 0Z" />');
+      heroTitle.textContent = "Support decision saved";
+      heroSubtitle.textContent = "MoolSocial checked shop proof, customer proof and bill history before closing this case.";
+      moneyTitle.textContent = "Decision value";
+      moneyHint.textContent = "support checked";
+      moneySub.textContent = "Hybrid Tomato 500 g";
+      moneyValue.textContent = "Rs 37";
+      pathOne.textContent = "Checked";
+      pathTwo.textContent = "Proof";
+      pathThree.textContent = "Closed";
+      routeTitle.textContent = "Decision reason";
+      routeHint.textContent = "proof based";
+      routeCopyTitle.textContent = "Support decision is attached to bill";
+      routeCopy.textContent = "If payment or delivery proof changes later, support can reopen from chat history.";
+      caseTitle.textContent = "Case closed with support note";
+      caseCopy.textContent = "Decision is saved with bill, customer photo, shop packing proof and rider/OTP proof.";
+      caseTotal.textContent = "Saved";
+      decisionProof.textContent = "support";
+      actionTitle.textContent = "Decision saved";
+      actionMeta.textContent = "Support result remains available in order history.";
+    });
+
+    document.getElementById("doneButton").addEventListener("click", () => {
+      actionTitle.textContent = "Saved to order";
+      actionMeta.textContent = "You can return to bill, buy again, or chat anytime.";
+    });
+  </script>
+</body>
+</html>
