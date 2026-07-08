@@ -1,0 +1,1250 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>17 Home Delivery Tracking - MoolSocial Screenbook</title>
+  <link rel="stylesheet" href="../shared/moolsocial-ui-foundation.css" />
+  <style>
+    .screen-shell {
+      display: grid;
+      gap: 18px;
+    }
+
+    .back-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .screen-link-home {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--ms-navy);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .back-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--ms-navy);
+      border-radius: var(--ms-radius);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 11px;
+      font-weight: 950;
+    }
+
+    .preview {
+      display: grid;
+      grid-template-columns: minmax(320px, 390px) minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+      padding: 18px;
+      border-bottom: 1px solid var(--ms-navy);
+      background: var(--ms-white);
+    }
+
+    .phone {
+      width: min(100%, 370px);
+      height: 742px;
+      justify-self: center;
+      border: 10px solid var(--ms-navy);
+      border-radius: 32px;
+      background: var(--ms-navy);
+      overflow: hidden;
+      box-shadow: 0 28px 60px rgba(0, 0, 128, .22);
+    }
+
+    .app {
+      position: relative;
+      height: 100%;
+      display: grid;
+      grid-template-rows: auto auto 1fr auto;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 10% 8%, rgba(255, 153, 51, .18), transparent 24%),
+        radial-gradient(circle at 88% 8%, rgba(19, 136, 8, .13), transparent 24%),
+        linear-gradient(180deg, var(--ms-navy) 0 150px, #f5f7fb 150px 100%);
+      color: var(--ms-white);
+      font-family: var(--ms-font);
+    }
+
+    .status-row {
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 18px 0;
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    .top-zone {
+      display: grid;
+      gap: 10px;
+      padding: 8px 12px 12px;
+    }
+
+    .brand-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .title-lockup {
+      min-width: 0;
+      display: grid;
+      gap: 4px;
+    }
+
+    .title-lockup b {
+      overflow: hidden;
+      color: var(--ms-white);
+      font-size: 19px;
+      line-height: 1;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .title-lockup span {
+      overflow: hidden;
+      color: rgba(255, 255, 255, .76);
+      font-size: 10px;
+      font-weight: 850;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .identity-line {
+      width: 98px;
+      height: 3px;
+      display: grid;
+      grid-template-columns: 45fr 14fr 41fr;
+      border-radius: var(--ms-pill);
+      overflow: hidden;
+    }
+
+    .identity-line span:nth-child(1) { background: var(--ms-saffron); }
+    .identity-line span:nth-child(2) { background: var(--ms-white); }
+    .identity-line span:nth-child(3) { background: var(--ms-green); }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    button {
+      appearance: none;
+      font-family: var(--ms-font);
+      cursor: pointer;
+    }
+
+    svg {
+      width: 18px;
+      height: 18px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .top-buttons {
+      display: flex;
+      gap: 7px;
+    }
+
+    .circle-btn {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, .26);
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .12);
+      color: var(--ms-white);
+      text-decoration: none;
+    }
+
+    .content {
+      min-height: 0;
+      overflow: auto;
+      display: grid;
+      align-content: start;
+      gap: 10px;
+      padding: 0 10px 104px;
+      color: var(--ms-navy);
+      scrollbar-width: none;
+    }
+
+    .content::-webkit-scrollbar {
+      display: none;
+    }
+
+    .tracking-hero,
+    .panel-card,
+    .map-card {
+      display: grid;
+      gap: 10px;
+      border: 1px solid rgba(0, 0, 128, .15);
+      border-radius: 22px;
+      padding: 10px;
+      background: rgba(255, 255, 255, .98);
+      color: var(--ms-navy);
+      box-shadow: 0 16px 34px rgba(0, 0, 128, .12);
+    }
+
+    .tracking-hero {
+      background:
+        radial-gradient(circle at 92% 12%, rgba(19, 136, 8, .12), transparent 30%),
+        var(--ms-white);
+    }
+
+    .hero-top {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .hero-copy {
+      min-width: 0;
+      display: grid;
+      gap: 4px;
+    }
+
+    .hero-copy b {
+      color: var(--ms-navy);
+      font-size: 18px;
+      line-height: 1.05;
+    }
+
+    .hero-copy span {
+      color: rgba(0, 0, 128, .68);
+      font-size: 10px;
+      font-weight: 850;
+      line-height: 1.25;
+    }
+
+    .eta-badge {
+      min-width: 72px;
+      min-height: 58px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 8px;
+      font-weight: 950;
+      text-align: center;
+      box-shadow: inset 0 -4px 0 var(--ms-saffron);
+    }
+
+    .eta-badge strong {
+      display: block;
+      font-size: 17px;
+      line-height: 1;
+    }
+
+    .status-track {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 5px;
+    }
+
+    .status-step {
+      min-height: 32px;
+      display: grid;
+      place-items: center;
+      align-content: center;
+      gap: 1px;
+      border: 1px solid rgba(0, 0, 128, .12);
+      border-radius: var(--ms-pill);
+      background: #f8fafc;
+      color: rgba(0, 0, 128, .5);
+      font-size: 8px;
+      font-weight: 950;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .status-step small {
+      display: block;
+      color: inherit;
+      font-size: 7px;
+      font-weight: 850;
+      opacity: .78;
+    }
+
+    .status-step.done,
+    .status-step.active {
+      border-color: rgba(19, 136, 8, .22);
+      background: rgba(19, 136, 8, .08);
+      color: var(--ms-green);
+    }
+
+    .map-card {
+      min-height: 152px;
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(135deg, rgba(0, 0, 128, .08) 0 12%, transparent 12% 30%, rgba(19, 136, 8, .08) 30% 42%, transparent 42% 100%),
+        radial-gradient(circle at 20% 76%, rgba(255, 153, 51, .2), transparent 20%),
+        var(--ms-white);
+    }
+
+    .route-line {
+      position: absolute;
+      left: 44px;
+      right: 44px;
+      top: 72px;
+      height: 7px;
+      border-radius: var(--ms-pill);
+      background: linear-gradient(90deg, var(--ms-green), var(--ms-saffron), var(--ms-navy));
+      opacity: .95;
+    }
+
+    .pin {
+      position: absolute;
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      font-size: 9px;
+      font-weight: 950;
+      box-shadow: 0 12px 24px rgba(0, 0, 128, .16);
+    }
+
+    .pin.shop {
+      left: 20px;
+      top: 54px;
+      background: var(--ms-green);
+      color: var(--ms-white);
+    }
+
+    .pin.rider {
+      left: 50%;
+      top: 46px;
+      transform: translateX(-50%);
+      background: var(--ms-saffron);
+      color: var(--ms-navy);
+    }
+
+    .pin.home {
+      right: 20px;
+      top: 54px;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+    }
+
+    .map-meta {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      margin-top: 102px;
+      color: rgba(0, 0, 128, .72);
+      font-size: 9px;
+      font-weight: 850;
+    }
+
+    .panel-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .panel-head b {
+      color: var(--ms-navy);
+      font-size: 13px;
+      line-height: 1.1;
+    }
+
+    .panel-head span {
+      color: rgba(0, 0, 128, .6);
+      font-size: 9px;
+      font-weight: 850;
+      text-align: right;
+    }
+
+    .rider-card,
+    .address-card,
+    .otp-card {
+      display: grid;
+      grid-template-columns: 44px minmax(0, 1fr) auto;
+      gap: 9px;
+      align-items: center;
+      border: 1px solid rgba(0, 0, 128, .12);
+      border-radius: 18px;
+      padding: 9px;
+      background: #f8fafc;
+    }
+
+    .rider-photo,
+    .card-icon {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 12px;
+      font-weight: 950;
+      box-shadow: inset 0 -3px 0 var(--ms-saffron);
+    }
+
+    .rider-copy,
+    .address-copy,
+    .otp-copy {
+      min-width: 0;
+      display: grid;
+      gap: 2px;
+    }
+
+    .rider-copy b,
+    .address-copy b,
+    .otp-copy b {
+      overflow: hidden;
+      color: var(--ms-navy);
+      font-size: 12px;
+      line-height: 1.1;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .rider-copy span,
+    .address-copy span,
+    .otp-copy span {
+      overflow: hidden;
+      color: rgba(0, 0, 128, .62);
+      font-size: 9px;
+      font-weight: 850;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .mini-action {
+      min-height: 34px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: var(--ms-pill);
+      padding: 0 9px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      font-size: 8px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .otp-card {
+      grid-template-columns: 44px minmax(0, 1fr) 74px;
+      background:
+        radial-gradient(circle at 92% 12%, rgba(19, 136, 8, .12), transparent 30%),
+        var(--ms-white);
+    }
+
+    .otp-code {
+      min-height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 18px;
+      font-weight: 950;
+      letter-spacing: 0;
+      box-shadow: inset 0 -3px 0 var(--ms-saffron);
+    }
+
+    .otp-card.locked .otp-code {
+      background: #dfe4f2;
+      color: rgba(0, 0, 128, .52);
+      font-size: 12px;
+      box-shadow: none;
+    }
+
+    .proof-grid,
+    .item-summary,
+    .address-help-grid {
+      display: grid;
+      gap: 7px;
+    }
+
+    .proof-row,
+    .item-summary-row {
+      display: grid;
+      grid-template-columns: 34px minmax(0, 1fr) auto;
+      gap: 8px;
+      align-items: center;
+      border: 1px solid rgba(0, 0, 128, .1);
+      border-radius: 16px;
+      padding: 7px;
+      background: #f8fafc;
+    }
+
+    .proof-dot,
+    .item-dot {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 9px;
+      font-weight: 950;
+      box-shadow: inset 0 -3px 0 var(--ms-saffron);
+    }
+
+    .proof-row.done .proof-dot {
+      background: var(--ms-green);
+      box-shadow: none;
+    }
+
+    .proof-copy,
+    .item-summary-copy {
+      min-width: 0;
+      display: grid;
+      gap: 2px;
+    }
+
+    .proof-copy b,
+    .item-summary-copy b {
+      overflow: hidden;
+      color: var(--ms-navy);
+      font-size: 11px;
+      line-height: 1.1;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .proof-copy span,
+    .item-summary-copy span {
+      overflow: hidden;
+      color: rgba(0, 0, 128, .58);
+      font-size: 8px;
+      font-weight: 850;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .proof-time,
+    .item-value {
+      color: var(--ms-navy);
+      font-size: 9px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .quick-actions,
+    .support-grid,
+    .address-help-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 7px;
+    }
+
+    .action-tile {
+      min-height: 58px;
+      display: grid;
+      align-content: center;
+      justify-items: center;
+      gap: 5px;
+      border: 1px solid rgba(0, 0, 128, .12);
+      border-radius: 18px;
+      padding: 8px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      font-size: 8px;
+      font-weight: 950;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .action-tile.primary {
+      border-color: var(--ms-navy);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 var(--ms-saffron);
+    }
+
+    .mini-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .mini-pill {
+      min-height: 23px;
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid rgba(19, 136, 8, .18);
+      border-radius: var(--ms-pill);
+      padding: 0 7px;
+      background: rgba(19, 136, 8, .07);
+      color: var(--ms-green);
+      font-size: 8px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .mini-pill.warn {
+      border-color: rgba(255, 153, 51, .28);
+      background: rgba(255, 153, 51, .1);
+      color: var(--ms-navy);
+    }
+
+    .bottom-action {
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      bottom: 92px;
+      z-index: 9;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      align-items: center;
+      border: 1px solid rgba(255, 255, 255, .86);
+      border-radius: 24px;
+      padding: 10px;
+      background: rgba(255, 255, 255, .97);
+      color: var(--ms-navy);
+      box-shadow: 0 18px 40px rgba(0, 0, 128, .2);
+    }
+
+    .action-copy {
+      min-width: 0;
+      display: grid;
+      gap: 2px;
+    }
+
+    .action-copy b {
+      overflow: hidden;
+      color: var(--ms-navy);
+      font-size: 13px;
+      line-height: 1.1;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .action-copy span {
+      overflow: hidden;
+      color: rgba(0, 0, 128, .62);
+      font-size: 9px;
+      font-weight: 850;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .primary-btn {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--ms-navy);
+      border-radius: var(--ms-pill);
+      padding: 0 14px;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 10px;
+      font-weight: 950;
+      white-space: nowrap;
+      box-shadow: inset 0 -3px 0 var(--ms-saffron);
+    }
+
+    .primary-btn.done {
+      border-color: var(--ms-green);
+      background: var(--ms-green);
+      box-shadow: none;
+    }
+
+    .bottom-dock {
+      position: absolute;
+      left: 8px;
+      right: 8px;
+      bottom: 10px;
+      z-index: 10;
+      display: grid;
+      grid-template-columns: 58px minmax(0, 1fr) 58px;
+      gap: 7px;
+      align-items: center;
+      border: 1px solid rgba(0, 0, 128, .9);
+      border-radius: 30px;
+      padding: 8px;
+      background: linear-gradient(180deg, rgba(255,255,255,.94), rgba(245,247,251,.94));
+      box-shadow: 0 14px 32px rgba(0, 0, 128, .22);
+    }
+
+    .mool-button,
+    .chat-button,
+    .dock-tab {
+      text-decoration: none;
+      font-family: var(--ms-font);
+    }
+
+    .mool-button,
+    .chat-button {
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(0, 0, 128, .16);
+      border-radius: 50%;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      font-size: 11px;
+      font-weight: 950;
+      box-shadow: 0 10px 22px rgba(0, 0, 128, .12);
+      position: relative;
+    }
+
+    .mool-button {
+      background:
+        radial-gradient(circle at 30% 20%, rgba(255, 255, 255, .36), transparent 20%),
+        var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -5px 0 rgba(0, 0, 70, .45), 0 12px 22px rgba(0, 0, 128, .25);
+    }
+
+    .mool-button::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: 9px;
+      width: 34px;
+      height: 5px;
+      display: block;
+      border-radius: var(--ms-pill);
+      background: linear-gradient(90deg, var(--ms-saffron) 0 45%, var(--ms-white) 45% 58%, var(--ms-green) 58% 100%);
+      transform: translateX(-50%);
+    }
+
+    .chat-button svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .chat-count {
+      position: absolute;
+      right: 4px;
+      top: 2px;
+      min-width: 22px;
+      height: 22px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--ms-saffron);
+      color: var(--ms-navy);
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .dock-tabs {
+      min-width: 0;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 4px;
+      overflow: hidden;
+      border-radius: 23px;
+      padding: 3px;
+      background:
+        radial-gradient(circle at 50% 40%, rgba(0, 0, 128, .12), transparent 54%),
+        linear-gradient(90deg, rgba(0, 0, 128, .08), rgba(255,255,255,.4), rgba(0, 0, 128, .08));
+      box-shadow: inset 0 10px 20px rgba(0, 0, 128, .08);
+    }
+
+    .dock-tab {
+      height: 56px;
+      min-width: 0;
+      display: grid;
+      place-items: center;
+      align-content: center;
+      gap: 3px;
+      border: 1px solid transparent;
+      border-radius: 20px;
+      padding: 4px 3px;
+      background: transparent;
+      color: var(--ms-navy);
+      font-size: 8px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .dock-tab svg {
+      width: 19px;
+      height: 19px;
+    }
+
+    .dock-tab.active {
+      border-color: var(--ms-navy);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 var(--ms-saffron), 0 9px 18px rgba(0, 0, 128, .18);
+    }
+
+    .notes {
+      display: grid;
+      gap: 14px;
+    }
+
+    .state-grid {
+      display: grid;
+      grid-template-columns: 170px 1fr 1fr;
+      border: 1px solid var(--ms-navy);
+      border-bottom: 0;
+    }
+
+    .state-cell {
+      min-height: 54px;
+      display: grid;
+      align-content: center;
+      border-right: 1px solid var(--ms-navy);
+      border-bottom: 1px solid var(--ms-navy);
+      padding: 10px;
+      color: var(--ms-navy);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    .state-cell:nth-child(3n) {
+      border-right: 0;
+    }
+
+    .state-cell b {
+      color: var(--ms-green);
+    }
+
+    @media (max-width: 900px) {
+      .preview {
+        grid-template-columns: 1fr;
+      }
+
+      .state-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .state-cell {
+        border-right: 0;
+      }
+    }
+  </style>
+</head>
+<body class="ms-doc">
+  <main class="ms-page screen-shell">
+    <header class="back-row">
+      <a class="screen-link-home" href="../index.html">
+        <span class="back-mark">MS</span>
+        Back to screenbook
+      </a>
+      <span class="ms-status approved">Screen 17 Approved</span>
+    </header>
+
+    <section class="ms-panel">
+      <div class="ms-section-head">
+        Screen 17: Home Delivery Tracking
+        <span>Separate branch for delivery orders</span>
+      </div>
+
+      <div class="preview">
+        <div class="phone" aria-label="MoolSocial home delivery tracking phone preview">
+          <div class="app" id="deliveryApp" data-status="assigned" data-delivered="no">
+            <div class="status-row">
+              <span>10:05</span>
+              <span>5G 100%</span>
+            </div>
+
+            <div class="top-zone">
+              <div class="brand-row">
+                <div class="title-lockup">
+                  <b>Delivery</b>
+                  <div class="identity-line" aria-hidden="true"><span></span><span></span><span></span></div>
+                  <span>Mahadev Fresh Mart - Order MS-BUY-1043</span>
+                </div>
+                <div class="top-buttons">
+                  <a class="circle-btn" href="14-customer-payment-order-confirmation.html?v=approved-14" aria-label="Back to payment">
+                    <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" /></svg>
+                  </a>
+                  <button class="circle-btn" type="button" aria-label="Delivery help">
+                    <svg viewBox="0 0 24 24"><path d="M12 18h.01" /><path d="M9.1 9a3 3 0 1 1 5.8 1c-.8 1.3-2.9 1.7-2.9 3.5" /><circle cx="12" cy="12" r="10" /></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="content">
+              <section class="tracking-hero">
+                <div class="hero-top">
+                  <div class="hero-copy">
+                    <b id="heroTitle">Rider assigned</b>
+                    <span id="heroSubtitle">Your grocery packet is packed and leaving Mahadev Fresh Mart.</span>
+                  </div>
+                  <div class="eta-badge">
+                    <span><strong id="etaText">18 min</strong>ETA</span>
+                  </div>
+                </div>
+                <div class="status-track">
+                  <span class="status-step done" id="stepPacked">Packed<small>10:02</small></span>
+                  <span class="status-step active" id="stepPicked">Picked<small>10:06</small></span>
+                  <span class="status-step" id="stepNear">Near you<small>--</small></span>
+                  <span class="status-step" id="stepDone">Delivered<small>--</small></span>
+                </div>
+              </section>
+
+              <section class="panel-card">
+                <div class="panel-head">
+                  <b>Coming to you</b>
+                  <span>confirmed order</span>
+                </div>
+                <div class="item-summary">
+                  <div class="item-summary-row">
+                    <div class="item-dot">6</div>
+                    <div class="item-summary-copy">
+                      <b>6 grocery items from Mahadev</b>
+                      <span>Tomato, chilli, staples pack and 3 more</span>
+                    </div>
+                    <span class="item-value">Rs 645</span>
+                  </div>
+                </div>
+                <div class="mini-pills">
+                  <span class="mini-pill">Paid</span>
+                  <span class="mini-pill">Shop bill</span>
+                  <span class="mini-pill">Fresh packet</span>
+                </div>
+              </section>
+
+              <section class="map-card" aria-label="Delivery route preview">
+                <div class="route-line" aria-hidden="true"></div>
+                <div class="pin shop">Shop</div>
+                <div class="pin rider" id="riderPin">Rider</div>
+                <div class="pin home">Home</div>
+                <div class="map-meta">
+                  <span>Mahadev Fresh Mart</span>
+                  <span id="mapMeta">2.4 km away</span>
+                </div>
+              </section>
+
+              <section class="panel-card">
+                <div class="panel-head">
+                  <b>Rider</b>
+                  <span id="riderStatus">on the way</span>
+                </div>
+                <div class="rider-card">
+                  <div class="rider-photo">RK</div>
+                  <div class="rider-copy">
+                    <b id="riderName">Rakesh Kumar</b>
+                    <span id="riderMeta">Verified delivery partner - bike RJ 19</span>
+                  </div>
+                  <button class="mini-action" type="button" id="callRiderButton">Call</button>
+                </div>
+                <div class="mini-pills">
+                  <span class="mini-pill">Rider proof</span>
+                  <span class="mini-pill" id="riderChangePill">OTP stays same if rider changes</span>
+                </div>
+              </section>
+
+              <section class="panel-card">
+                <div class="panel-head">
+                  <b>Delivery proof</b>
+                  <span>live timestamps</span>
+                </div>
+                <div class="proof-grid">
+                  <div class="proof-row done">
+                    <div class="proof-dot">S</div>
+                    <div class="proof-copy"><b>Shop packed proof</b><span>Mahadev marked packet ready</span></div>
+                    <span class="proof-time">10:02</span>
+                  </div>
+                  <div class="proof-row done">
+                    <div class="proof-dot">R</div>
+                    <div class="proof-copy"><b>Rider picked proof</b><span>Rakesh collected packet</span></div>
+                    <span class="proof-time">10:06</span>
+                  </div>
+                  <div class="proof-row" id="deliveryProofRow">
+                    <div class="proof-dot">D</div>
+                    <div class="proof-copy"><b>Delivered proof</b><span id="deliveryProofText">Pending OTP verification</span></div>
+                    <span class="proof-time" id="deliveryProofTime">--</span>
+                  </div>
+                </div>
+              </section>
+
+              <section class="panel-card">
+                <div class="panel-head">
+                  <b>Delivery OTP</b>
+                  <span id="otpPanelHint">unlocks near doorstep</span>
+                </div>
+                <div class="otp-card locked" id="otpCard">
+                  <div class="card-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 1v22" /><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7H14a3.5 3.5 0 0 1 0 7H6" /></svg>
+                  </div>
+                  <div class="otp-copy">
+                    <b id="otpTitle">OTP locked</b>
+                    <span id="otpSubtitle">Unlocks when rider is near your delivery point.</span>
+                  </div>
+                  <div class="otp-code" id="otpCode">LOCK</div>
+                </div>
+              </section>
+
+              <section class="panel-card">
+                <div class="panel-head">
+                  <b>Address</b>
+                  <span>delivery point</span>
+                </div>
+                <div class="address-card">
+                  <div class="card-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 21s7-5.2 7-12a7 7 0 0 0-14 0c0 6.8 7 12 7 12Z" /><circle cx="12" cy="9" r="2.5" /></svg>
+                  </div>
+                  <div class="address-copy">
+                    <b>Home - Sardarpura</b>
+                    <span>Near 12th Road, Jodhpur - ring bell once</span>
+                  </div>
+                  <button class="mini-action" type="button" id="instructionButton">Edit</button>
+                </div>
+                <div class="address-help-grid">
+                  <button class="action-tile" type="button" id="landmarkButton">Change landmark</button>
+                  <button class="action-tile" type="button" id="findMeButton">Cannot find me</button>
+                  <button class="action-tile" type="button" id="shareLocationButton">Share live location</button>
+                </div>
+              </section>
+
+              <section class="panel-card">
+                <div class="panel-head">
+                  <b>Need help?</b>
+                  <span>delivery support</span>
+                </div>
+                <div class="support-grid">
+                  <button class="action-tile primary" type="button" id="refreshButton">
+                    <svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-3-6.7" /><path d="M21 3v6h-6" /></svg>
+                    Refresh
+                  </button>
+                  <a class="action-tile" href="03-login-account-handoff.html">
+                    <svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z" /></svg>
+                    Chat
+                  </a>
+                  <button class="action-tile" type="button" id="delayButton">
+                    <svg viewBox="0 0 24 24"><path d="M12 6v6l4 2" /><circle cx="12" cy="12" r="10" /></svg>
+                    Delay
+                  </button>
+                  <button class="action-tile" type="button" id="riderChangeButton">
+                    <svg viewBox="0 0 24 24"><path d="M16 3h5v5" /><path d="M21 3l-7 7" /><path d="M8 21H3v-5" /><path d="M3 21l7-7" /></svg>
+                    Rider changed
+                  </button>
+                </div>
+                <div class="mini-pills">
+                  <span class="mini-pill">Shop packed</span>
+                  <span class="mini-pill">Rider proof</span>
+                  <span class="mini-pill warn" id="delayPill">No delay reported</span>
+                </div>
+              </section>
+            </div>
+
+            <div class="bottom-action">
+              <div class="action-copy">
+                <b id="actionTitle">Order on the way</b>
+                <span id="actionMeta">Rider completes delivery after OTP verification</span>
+              </div>
+              <button class="primary-btn" type="button" id="deliveredButton">Refresh status</button>
+            </div>
+
+            <nav class="bottom-dock" aria-label="Delivery navigation">
+              <a class="mool-button" href="04-universal-focus-shell.html" aria-label="Open Mool">Mool</a>
+              <div class="dock-tabs" aria-label="Buy sub-actions">
+                <a class="dock-tab" href="10-buy-grocery-decision.html" aria-label="Open shop">
+                  <svg viewBox="0 0 24 24"><path d="M6 7h15l-2 9H8L6 3H3" /><path d="M9 20h.01M18 20h.01" /></svg>
+                  Shop
+                </a>
+                <a class="dock-tab" href="12-buy-basket-checkout.html" aria-label="Open basket">
+                  <svg viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6L5 8Z" /><path d="M9 8a3 3 0 0 1 6 0" /></svg>
+                  Basket
+                </a>
+                <a class="dock-tab active" href="17-home-delivery-tracking.html" aria-label="Open delivery">
+                  <svg viewBox="0 0 24 24"><path d="M3 7h11v10H3z" /><path d="M14 10h4l3 3v4h-7" /><path d="M7 20h.01M18 20h.01" /></svg>
+                  Track
+                </a>
+                <a class="dock-tab" href="09-buy.html" aria-label="Open orders">
+                  <svg viewBox="0 0 24 24"><path d="M4 7h16M7 7v13h10V7" /><path d="M9 11h6M9 15h6" /></svg>
+                  Orders
+                </a>
+              </div>
+              <a class="chat-button" href="03-login-account-handoff.html" aria-label="Open chat">
+                <svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z" /></svg>
+                <span class="chat-count">2</span>
+              </a>
+            </nav>
+          </div>
+        </div>
+
+        <div class="notes">
+          <div>
+            <h1 class="ms-title">Home delivery needs tracking; counter pickup does not.</h1>
+            <p class="ms-lead">
+              Screen 17 is the separate delivery branch after payment when the user selects home delivery.
+              It focuses on ETA, rider identity, route, OTP safety, address instruction and delay support.
+            </p>
+          </div>
+
+          <div class="ms-panel">
+            <div class="ms-section-head">Screen Contract <span>Approved</span></div>
+            <div class="state-grid">
+              <div class="state-cell"><b>Entry</b>After payment success for home delivery orders, not counter pickup orders.</div>
+              <div class="state-cell"><b>User Sees</b>Order status, ETA, item summary, rider identity, route, locked/unlocked OTP, address and proof timeline.</div>
+              <div class="state-cell"><b>Decision</b>User can call rider, chat, edit landmark, share location once, report delay or wait for OTP verification.</div>
+
+              <div class="state-cell"><b>Backend</b>Consumes delivery order status, rider assignment, location pings, ETA and OTP verification.</div>
+              <div class="state-cell"><b>Safety</b>OTP remains hidden until rider is near; delivered state comes from rider OTP verification.</div>
+              <div class="state-cell"><b>Trust</b>Shop packed proof and rider proof stay attached to order history.</div>
+
+              <div class="state-cell"><b>Next</b>After delivered, route to delivery completed bill/rating screen.</div>
+              <div class="state-cell"><b>Failure</b>If rider delayed, reassigned or address issue occurs, chat/support opens without losing tracking context.</div>
+              <div class="state-cell"><b>Dock</b>Mool, Shop, Basket, Track, Orders and Chat remain one tap accessible.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const app = document.getElementById("deliveryApp");
+    const heroTitle = document.getElementById("heroTitle");
+    const heroSubtitle = document.getElementById("heroSubtitle");
+    const etaText = document.getElementById("etaText");
+    const mapMeta = document.getElementById("mapMeta");
+    const riderStatus = document.getElementById("riderStatus");
+    const riderName = document.getElementById("riderName");
+    const riderMeta = document.getElementById("riderMeta");
+    const actionTitle = document.getElementById("actionTitle");
+    const actionMeta = document.getElementById("actionMeta");
+    const delayPill = document.getElementById("delayPill");
+    const deliveredButton = document.getElementById("deliveredButton");
+    const refreshButton = document.getElementById("refreshButton");
+    const delayButton = document.getElementById("delayButton");
+    const callRiderButton = document.getElementById("callRiderButton");
+    const instructionButton = document.getElementById("instructionButton");
+    const landmarkButton = document.getElementById("landmarkButton");
+    const findMeButton = document.getElementById("findMeButton");
+    const shareLocationButton = document.getElementById("shareLocationButton");
+    const riderChangeButton = document.getElementById("riderChangeButton");
+    const riderChangePill = document.getElementById("riderChangePill");
+    const otpCard = document.getElementById("otpCard");
+    const otpPanelHint = document.getElementById("otpPanelHint");
+    const otpTitle = document.getElementById("otpTitle");
+    const otpSubtitle = document.getElementById("otpSubtitle");
+    const otpCode = document.getElementById("otpCode");
+    const deliveryProofRow = document.getElementById("deliveryProofRow");
+    const deliveryProofText = document.getElementById("deliveryProofText");
+    const deliveryProofTime = document.getElementById("deliveryProofTime");
+    const stepNear = document.getElementById("stepNear");
+    const stepDone = document.getElementById("stepDone");
+
+    refreshButton.addEventListener("click", () => {
+      app.dataset.status = "near";
+      heroTitle.textContent = "Rider near you";
+      heroSubtitle.textContent = "Rakesh is close to your delivery point. Keep OTP ready after packet check.";
+      etaText.textContent = "6 min";
+      mapMeta.textContent = "600 m away";
+      riderStatus.textContent = "near delivery point";
+      stepNear.classList.add("active");
+      stepNear.innerHTML = "Near you<small>10:18</small>";
+      otpCard.classList.remove("locked");
+      otpPanelHint.textContent = "unlocked near doorstep";
+      otpTitle.textContent = "OTP unlocked";
+      otpSubtitle.textContent = "Share only after receiving and checking the packet.";
+      otpCode.textContent = "4821";
+      actionTitle.textContent = "Rider near you";
+      actionMeta.textContent = "Share OTP only after receiving packet";
+    });
+
+    delayButton.addEventListener("click", () => {
+      app.dataset.status = "delayed";
+      etaText.textContent = "+8 min";
+      delayPill.textContent = "Delayed by 8 min";
+      heroTitle.textContent = "Delivery delayed";
+      heroSubtitle.textContent = "Delay support is open. You can chat with shop or rider from this order.";
+      actionTitle.textContent = "Delay support";
+      actionMeta.textContent = "Cancel/refund rules stay attached to this order";
+    });
+
+    callRiderButton.addEventListener("click", () => {
+      actionTitle.textContent = "Calling rider";
+      actionMeta.textContent = "Masked call opens in production";
+    });
+
+    instructionButton.addEventListener("click", () => {
+      actionTitle.textContent = "Instruction updated";
+      actionMeta.textContent = "Rider will see ring bell once";
+    });
+
+    landmarkButton.addEventListener("click", () => {
+      actionTitle.textContent = "Landmark updated";
+      actionMeta.textContent = "Rider will see new landmark in delivery app";
+    });
+
+    findMeButton.addEventListener("click", () => {
+      actionTitle.textContent = "Rider cannot find me";
+      actionMeta.textContent = "Support prompt opens with call, chat and location help";
+    });
+
+    shareLocationButton.addEventListener("click", () => {
+      actionTitle.textContent = "Location shared once";
+      actionMeta.textContent = "One-time live location sent to rider for this delivery";
+    });
+
+    riderChangeButton.addEventListener("click", () => {
+      app.dataset.status = "rider-changed";
+      riderName.textContent = "Imran Khan";
+      riderMeta.textContent = "New verified rider - bike RJ 21";
+      riderStatus.textContent = "new rider assigned";
+      riderChangePill.textContent = "Rider changed - OTP remains same";
+      actionTitle.textContent = "New rider assigned";
+      actionMeta.textContent = "OTP and order proof remain unchanged";
+    });
+
+    deliveredButton.addEventListener("click", () => {
+      if (app.dataset.status !== "near") {
+        actionTitle.textContent = "OTP not unlocked yet";
+        actionMeta.textContent = "Delivery completes only after rider reaches you and verifies OTP";
+        return;
+      }
+
+      app.dataset.delivered = "yes";
+      heroTitle.textContent = "Delivered successfully";
+      heroSubtitle.textContent = "Order handed over after OTP verification. Bill and delivery proof are saved.";
+      etaText.textContent = "Done";
+      mapMeta.textContent = "Delivered";
+      riderStatus.textContent = "completed";
+      stepNear.classList.add("done");
+      stepDone.classList.add("active");
+      stepDone.innerHTML = "Delivered<small>10:24</small>";
+      otpCard.classList.remove("locked");
+      otpPanelHint.textContent = "verified";
+      otpTitle.textContent = "OTP verified";
+      otpSubtitle.textContent = "Delivery completed after OTP handover.";
+      otpCode.textContent = "4821";
+      deliveryProofRow.classList.add("done");
+      deliveryProofText.textContent = "OTP verified at doorstep";
+      deliveryProofTime.textContent = "10:24";
+      deliveredButton.classList.add("done");
+      deliveredButton.textContent = "Rate";
+      actionTitle.textContent = "Order delivered";
+      actionMeta.textContent = "Next opens delivery bill and rating";
+    });
+  </script>
+</body>
+</html>
