@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MoolSocial Approved Screens 00-13</title>
+  <title>MoolSocial UI/UX Screenbook</title>
   <link rel="stylesheet" href="shared/styles.css" />
 </head>
 <body>
@@ -11,49 +11,73 @@
     <header class="screenbook-header">
       <div>
         <div class="brand-mark">
-          <span class="brand-icon">AP</span>
-          MoolSocial Approved Screen Baseline
+          <span class="brand-icon">BR</span>
+          MoolSocial UI/UX Screenbook
         </div>
-        <h1>Screens 00, 01, 02, 03, 04, 05, 06, 07, 08, 09, 10, 11, 12 and 13 are approved for production reference.</h1>
+        <h1>Brand-first, screen-wise architecture for production-grade buildout.</h1>
         <p class="lead">
-          This folder is the frozen approval snapshot for install through Buy, Grocery Decision, Product Detail, Basket Stock Lock and Retailer Stock Confirmation.
-          Future screen work should not change these approved files unless a formal revision is made.
+          This folder is the visual and textual source of truth before coding each screen.
+          Every screen must be approved here, then implemented, tested, and regression-locked before the next screen starts.
         </p>
       </div>
-      <span class="status-pill">00-13 Approved</span>
+      <span class="status-pill">Foundation locked</span>
     </header>
 
     <section class="hero-grid">
       <div class="panel">
-        <p class="kicker">Approved Flow</p>
-        <h2>Install to universal focus shell.</h2>
-        <ul class="list">
-          <li>Screen 00 locks the Play Store install-facing entry reference.</li>
-          <li>Screen 01 opens MoolSocial and routes after silent boot checks.</li>
-          <li>Screen 02 resolves phone language and area without duplicating login.</li>
-          <li>Screen 03 owns one-method sign-in, OTP autofill and provider route logic.</li>
-          <li>Screen 04 opens the universal focus shell with Social first, Mool navigation and pinned Chat.</li>
-          <li>Screen 05 opens Social Shorts as a full-screen creator product with minimal overlays and tap-open details.</li>
-          <li>Screen 06 opens Social Videos as a YouTube-familiar feed and watch flow with MoolSocial proof/action intelligence.</li>
-          <li>Screen 07 opens Social Feed as an X-style timeline, post detail and replies flow with verified proof/action context.</li>
-          <li>Screen 08 opens Social Create as an all-in-one public creation hub with text, photo, shorts, videos, stories, live, threads, polls and creator earning path.</li>
-          <li>Screen 09 opens Buy with QR shop session, progressive route into grocery decision, compact categories, basket offers and decision-ready product cards.</li>
-          <li>Screen 10 opens Buy &gt; Grocery Decision with selected shop/category context, retailer capability settings, retail/family-pack/wholesale-MOQ/shop-offer choices and basket continuation.</li>
-          <li>Screen 11 opens Buy &gt; Product Detail with selected shop/product context, rate/unit/quantity/fulfilment proof and add-to-basket decision.</li>
-          <li>Screen 12 opens Buy &gt; Basket / Checkout Decision with estimated total, retailer stock lock, no-confirm/no-pay rule and confirmed payable handoff.</li>
-          <li>Screen 13 opens Retailer Stock Confirmation Alert with urgent shop action, item stock lock, mismatch handling, SLA and payment unlock.</li>
-        </ul>
+        <p class="kicker">Build Rule</p>
+        <h2>Foundation first, production code second.</h2>
+        <p class="lead">
+          The HTML files in this folder are not the final app. They are the locked brand and UI/UX architecture reference
+          for Codex before building the production frontend, backend APIs, and tests.
+        </p>
+        <div class="note">
+          No screen should move into production until brand usage, entry conditions, visible UI, tap behavior,
+          data needs, failure states, compliance gates, and regression checklist are written here.
+        </div>
       </div>
 
       <div class="panel">
-        <p class="kicker">Approved Screens</p>
-        <h2>Open approved HTML.</h2>
+        <p class="kicker">Current Scope</p>
+        <h2>Foundation is ready. Screens start next.</h2>
         <div class="screen-list">
+          <a class="screen-link" href="moolsocial-approved-logo-specs.html">
+            <span class="screen-num">LG</span>
+            <span>
+              <strong>MoolSocial Approved Logo Specs</strong>
+              <span>Final logo, colours, logotype, tagline and usage rules.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="moolsocial-freeze-brand-system.html">
+            <span class="screen-num">FR</span>
+            <span>
+              <strong>Freeze Brand System</strong>
+              <span>Locked brand, product principles, legal boundary and usage rules.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="moolsocial-domain-strategy.html">
+            <span class="screen-num">DM</span>
+            <span>
+              <strong>Domain Names</strong>
+              <span>Main domain, defensive domains, redirects and production subdomains.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="moolsocial-shared-ui-foundation.html">
+            <span class="screen-num">UI</span>
+            <span>
+              <strong>Shared UI Foundation</strong>
+              <span>Reusable tokens, controls, decision cards and universal screen primitives.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
           <a class="screen-link" href="screens/00-install-app.html">
             <span class="screen-num">00</span>
             <span>
-              <strong>Install App / Store Entry</strong>
-              <span>Approved install-facing entry screen with MoolSocial brand system.</span>
+              <strong>Install App</strong>
+              <span>Approved Play Store listing, install action, and open-app handoff.</span>
             </span>
             <span class="arrow">Open</span>
           </a>
@@ -61,7 +85,7 @@
             <span class="screen-num">01</span>
             <span>
               <strong>App Splash / First Open Handoff</strong>
-              <span>Approved splash, boot checks and first setup route.</span>
+              <span>Approved splash, boot checks, route logic, and first setup handoff.</span>
             </span>
             <span class="arrow">Open</span>
           </a>
@@ -69,7 +93,7 @@
             <span class="screen-num">02</span>
             <span>
               <strong>First Setup / Language + Location</strong>
-              <span>Approved phone-language, area setup, consent and travel/home logic.</span>
+              <span>Approved auto language, smart location consent, login handoff, travel and home-area logic.</span>
             </span>
             <span class="arrow">Open</span>
           </a>
@@ -77,7 +101,7 @@
             <span class="screen-num">03</span>
             <span>
               <strong>Login / Account Handoff</strong>
-              <span>Approved one-method login, provider routes, OTP autofill and Screen 04 handoff.</span>
+              <span>Approved one-method login, OTP autofill logic, provider routes, and clean route to Screen 04.</span>
             </span>
             <span class="arrow">Open</span>
           </a>
@@ -85,7 +109,7 @@
             <span class="screen-num">04</span>
             <span>
               <strong>Universal Focus Shell</strong>
-              <span>Approved Social-first superapp shell with Buy, Eat, Ride, Book, Pay, Work and Chat access.</span>
+              <span>Approved one-focused-world main app screen with one-tap switching.</span>
             </span>
             <span class="arrow">Open</span>
           </a>
@@ -93,7 +117,7 @@
             <span class="screen-num">05</span>
             <span>
               <strong>Social &gt; Shorts</strong>
-              <span>Approved full-screen Shorts viewer with creator identity, right actions, Mool, Chat, details sheet and Videos link.</span>
+              <span>Approved full-screen Shorts viewer with creator identity, social actions, hidden details and Mool/Chat access.</span>
             </span>
             <span class="arrow">Open</span>
           </a>
@@ -101,7 +125,7 @@
             <span class="screen-num">06</span>
             <span>
               <strong>Social &gt; Videos</strong>
-              <span>Approved video feed/watch flow with YouTube-style chips, Shorts/Feed links, verified proof and one-tap action context.</span>
+              <span>Approved video feed/watch flow with YouTube-style chips, Shorts link, verified proof and action context.</span>
             </span>
             <span class="arrow">Open</span>
           </a>
@@ -109,7 +133,7 @@
             <span class="screen-num">07</span>
             <span>
               <strong>Social &gt; Feed</strong>
-              <span>Approved X-style timeline, post detail and replies flow with MoolSocial verified action context.</span>
+              <span>Approved social feed with post detail, comments, repost/share and verified action context.</span>
             </span>
             <span class="arrow">Open</span>
           </a>
@@ -117,7 +141,7 @@
             <span class="screen-num">08</span>
             <span>
               <strong>Social &gt; Create</strong>
-              <span>Approved all-in-one public creation hub with creator toolkit and earning path.</span>
+              <span>Approved all-in-one social creation hub for text, photo, shorts, videos, stories, live, threads, polls and creator earning path.</span>
             </span>
             <span class="arrow">Open</span>
           </a>
@@ -125,7 +149,7 @@
             <span class="screen-num">09</span>
             <span>
               <strong>Buy</strong>
-              <span>Approved QR shop session, progressive route into grocery decision, compact categories, basket offers and decision-ready product cards.</span>
+              <span>Approved commerce entry with QR shop session, progressive route into grocery decision, compact categories, basket offers and decision-ready products.</span>
             </span>
             <span class="arrow">Open</span>
           </a>
@@ -141,7 +165,7 @@
             <span class="screen-num">11</span>
             <span>
               <strong>Buy &gt; Product Detail</strong>
-              <span>Approved product detail and add-to-basket flow with selected shop/product, price, rate type, fulfilment, proof and basket action.</span>
+              <span>Approved product detail and add-to-basket flow with selected shop/product, shop settings, rate, unit, quantity, fulfilment and proof.</span>
             </span>
             <span class="arrow">Open</span>
           </a>
@@ -149,7 +173,7 @@
             <span class="screen-num">12</span>
             <span>
               <strong>Buy &gt; Basket / Checkout Decision</strong>
-              <span>Approved basket flow with item quantities, fulfilment, retailer stock lock, estimated/confirmed payable and payment handoff.</span>
+              <span>Approved basket checkout flow with item quantities, fulfilment, retailer stock lock, estimated/confirmed payable amount and payment handoff.</span>
             </span>
             <span class="arrow">Open</span>
           </a>
@@ -157,7 +181,15 @@
             <span class="screen-num">13</span>
             <span>
               <strong>Retailer Stock Confirmation Alert</strong>
-              <span>Approved retailer stock confirmation alert with item lock, mismatch handling, SLA, trust logging and customer payment unlock.</span>
+              <span>Approved retailer alert for stock lock, item confirmation, mismatch handling, SLA and payment unlock.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/14-customer-payment-order-confirmation.html">
+            <span class="screen-num">14</span>
+            <span>
+              <strong>Customer Payment / Order Confirmation</strong>
+              <span>Approved payment flow after retailer stock lock with final amount, stock timer, fulfilment, protected charge, pickup code, receipt and tracking handoff.</span>
             </span>
             <span class="arrow">Open</span>
           </a>
@@ -165,18 +197,24 @@
       </div>
 
       <div class="panel">
-        <p class="kicker">Regression Lock</p>
-        <h2>Approved baseline rule.</h2>
-        <p class="lead">
-          Production coding should implement and test these screens screen-wise. After coding each approved screen,
-          visual and functional regression tests must protect it before moving ahead.
-        </p>
+        <p class="kicker">Regression Discipline</p>
+        <h2>Lock one screen before touching the next.</h2>
+        <ul class="list">
+          <li>Brand foundation must remain stable across every screen.</li>
+          <li>Screen spec approved in this screenbook.</li>
+          <li>Production screen implemented against the approved spec.</li>
+          <li>API/data contract written before backend integration.</li>
+          <li>Happy, empty, loading, and error states tested.</li>
+          <li>Screenshot or visual baseline saved for regression checks.</li>
+          <li>Future changes must keep all locked tests passing.</li>
+        </ul>
       </div>
     </section>
 
     <p class="footer-note">
-      Source folder: C:\GUARANTEED OUTCOME\supermandi-uiux-screenbook\approved-final
+      Source folder: C:\GUARANTEED OUTCOME\supermandi-uiux-screenbook
     </p>
   </main>
+  <script src="shared/screen-data.js"></script>
 </body>
 </html>
