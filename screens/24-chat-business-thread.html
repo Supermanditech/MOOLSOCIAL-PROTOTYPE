@@ -536,7 +536,7 @@
     .composer {
       height: 54px;
       display: grid;
-      grid-template-columns: 34px 1fr 34px 38px;
+      grid-template-columns: 34px 34px 1fr 34px 38px;
       gap: 6px;
       align-items: center;
       border: 1px solid rgba(0,0,128,.20);
@@ -634,6 +634,9 @@
                 <a class="icon-btn" href="#" aria-label="Call business">
                   <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7l.5 2.6a2 2 0 0 1-.5 1.8L8 9.2a16 16 0 0 0 6.8 6.8l1.1-1.1a2 2 0 0 1 1.8-.5l2.6.5a2 2 0 0 1 1.7 2Z" /></svg>
                 </a>
+                <a class="icon-btn" href="#" aria-label="Video call business">
+                  <svg viewBox="0 0 24 24"><path d="M15 10l5-3v10l-5-3Z" /><rect x="3" y="6" width="12" height="12" rx="2" /></svg>
+                </a>
                 <a class="icon-btn" href="#" aria-label="More business chat options">
                   <svg viewBox="0 0 24 24"><path d="M12 12h.01M19 12h.01M5 12h.01" /></svg>
                 </a>
@@ -641,6 +644,8 @@
               <div class="thread-status" aria-label="Business trust status">
                 <span class="good">Verified shop</span>
                 <span>Stock updated 10:52</span>
+                <span>Call enabled</span>
+                <span>Video enabled</span>
                 <span>Pay only in app</span>
                 <span>Bill available</span>
               </div>
@@ -683,6 +688,23 @@
                   <div class="biz-stat"><b>Counter</b><span>pickup ready</span></div>
                   <div class="biz-stat"><b>Delivery</b><span>35-45 min</span></div>
                   <div class="biz-stat"><b>Return</b><span>same day issue</span></div>
+                </div>
+              </section>
+
+              <section class="commerce-panel">
+                <div class="commerce-head">
+                  <div>
+                    <b>Business media and files</b>
+                    <span>Share product photo, bill, packing proof, PDF quotation, video proof or location inside the same chat.</span>
+                  </div>
+                  <span class="commerce-state">Files</span>
+                </div>
+                <div class="product-rail" aria-label="Business attachment types">
+                  <span class="product-pill">Photo</span>
+                  <span class="product-pill">Video</span>
+                  <span class="product-pill">PDF bill</span>
+                  <span class="product-pill">Location</span>
+                  <span class="product-pill">Voice</span>
                 </div>
               </section>
 
@@ -739,6 +761,13 @@
                   <small>10:45 sent</small>
                 </div>
               </div>
+
+              <div class="message-row in">
+                <div class="bubble in">
+                  Packing photo and final bill can be attached here before payment confirmation.
+                  <small>10:46</small>
+                </div>
+              </div>
             </main>
 
             <section class="composer-zone">
@@ -747,17 +776,22 @@
                 <a href="#">Share location</a>
                 <a href="#">Home delivery</a>
                 <a href="#">Counter pickup</a>
+                <a href="#">Send photo</a>
+                <a href="#">Send PDF</a>
                 <a href="#">Send final bill</a>
               </div>
               <div class="smart-actions" aria-label="Business chat smart actions">
-                <a href="09-buy.html">Shop</a>
-                <a href="#">Quote</a>
+                <a href="#">Photo</a>
+                <a href="#">File</a>
                 <a href="12-buy-basket-checkout.html">Pay</a>
                 <a href="22-chat-order-support-thread.html">Support</a>
               </div>
               <div class="composer">
                 <button type="button" aria-label="Attach item or bill">
                   <svg viewBox="0 0 24 24"><path d="M21.4 11.6 12 21a6 6 0 0 1-8.5-8.5l9.4-9.4a4 4 0 0 1 5.7 5.7L9.2 18.2a2 2 0 1 1-2.8-2.8l8.7-8.7" /></svg>
+                </button>
+                <button type="button" aria-label="Open camera">
+                  <svg viewBox="0 0 24 24"><path d="M9 7l1.5-2h3L15 7h3a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-7a3 3 0 0 1 3-3Z" /><circle cx="12" cy="13" r="3" /></svg>
                 </button>
                 <span>Message Mahadev Fresh Mart...</span>
                 <button type="button" aria-label="Voice message">
@@ -784,8 +818,8 @@
             <div class="ms-section-head">Screen Contract <span>Approved</span></div>
             <div class="state-grid">
               <div class="state-cell"><b>Entry</b>From Chat Inbox Business thread, shop profile, product quote, QR shop scan, order chat or business notification.</div>
-              <div class="state-cell"><b>User Sees</b>Verified business header, live shop status, context actions, normal messages, quote expiry, fulfilment choice and smart commerce actions.</div>
-              <div class="state-cell"><b>Decision</b>User can chat, call, view catalog, request/change quote, choose pickup/delivery, confirm quote, pay, open order or escalate to support.</div>
+              <div class="state-cell"><b>User Sees</b>Verified business header, audio/video call, media/file sharing, live shop status, quote expiry, fulfilment choice and smart commerce actions.</div>
+              <div class="state-cell"><b>Decision</b>User can chat, call, video call, share photo/video/file/location, view catalog, request/change quote, choose pickup/delivery, confirm quote, pay, open order or escalate to support.</div>
 
               <div class="state-cell"><b>Backend</b>Thread service links business profile, catalog, quote engine, basket checkout, payment intent and order/support records.</div>
               <div class="state-cell"><b>Trust</b>Verified badge, stock update time, quote expiry, fulfilment option, bill/payment rule and support route reduce off-platform confusion.</div>
@@ -793,7 +827,7 @@
 
               <div class="state-cell"><b>Next</b>Use quote routes to Screen 12 checkout; Support routes to Screen 22; Shop routes back to Screen 09 buy surface.</div>
               <div class="state-cell"><b>Failure</b>If business is offline, show expected reply time and allow catalog/order/support actions without waiting.</div>
-              <div class="state-cell"><b>Realtime</b>Requires WebSocket/SSE, push notifications, message receipts, quote versioning, stock lock timer and local draft storage.</div>
+              <div class="state-cell"><b>Realtime</b>Requires WebSocket/SSE, push notifications, message receipts, call signaling, media/file upload queue, quote versioning, stock lock timer and local draft storage.</div>
             </div>
           </div>
         </div>

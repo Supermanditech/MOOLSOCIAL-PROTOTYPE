@@ -211,13 +211,31 @@
       font-weight: 950;
       white-space: nowrap;
     }
+    .thread-tools {
+      grid-column: 1 / 4;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 6px;
+    }
+    .thread-tools a {
+      min-height: 30px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(0,0,128,.12);
+      border-radius: var(--ms-pill);
+      background: rgba(0,0,128,.045);
+      color: var(--ms-navy);
+      text-decoration: none;
+      font-size: 8px;
+      font-weight: 950;
+    }
     .messages {
       min-height: 0;
       overflow: auto;
       display: grid;
       align-content: start;
       gap: 9px;
-      padding: 0 10px 142px;
+      padding: 0 10px 190px;
       color: var(--ms-navy);
       scrollbar-width: none;
     }
@@ -360,6 +378,34 @@
       background: currentColor;
       opacity: .72;
     }
+    .attachment-panel {
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      bottom: 128px;
+      z-index: 3;
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 6px;
+      padding: 7px;
+      border: 1px solid rgba(0,0,128,.14);
+      border-radius: 20px;
+      background: rgba(255,255,255,.97);
+      box-shadow: 0 12px 28px rgba(0,0,128,.16);
+    }
+    .attachment-panel a {
+      min-height: 38px;
+      display: grid;
+      place-items: center;
+      gap: 2px;
+      border-radius: 15px;
+      background: rgba(0,0,128,.05);
+      color: var(--ms-navy);
+      text-decoration: none;
+      font-size: 7px;
+      font-weight: 950;
+    }
+    .attachment-panel svg { width: 15px; height: 15px; }
     .quick-panel {
       display: grid;
       gap: 9px;
@@ -439,7 +485,7 @@
       bottom: 78px;
       z-index: 3;
       display: grid;
-      grid-template-columns: 36px 1fr 40px;
+      grid-template-columns: 36px 36px 1fr 36px 40px;
       gap: 8px;
       align-items: center;
       border: 1px solid rgba(0,0,128,.14);
@@ -670,6 +716,12 @@
                 <span id="threadMeta">Order MS-2041 - refund result attached</span>
               </div>
               <div class="thread-state" id="threadState">Active</div>
+              <div class="thread-tools" aria-label="Order chat communication tools">
+                <a href="#">Call</a>
+                <a href="#">Video</a>
+                <a href="#">Photo proof</a>
+                <a href="#">File</a>
+              </div>
             </section>
 
             <div class="messages" id="messageList">
@@ -714,8 +766,14 @@
 
               <article class="message support">
                 <b>Mool Support</b>
-                <p>Noted. This shop’s packing proof and missing-item record are saved for trust scoring.</p>
+                <p>Noted. This shop's packing proof and missing-item record are saved for trust scoring.</p>
                 <span class="message-status">10:46 - support note</span>
+              </article>
+
+              <article class="message shop">
+                <b>Mahadev Fresh Mart</b>
+                <p>Packing photo and final bill PDF are ready if support needs another review.</p>
+                <span class="message-status">10:47 - media ready</span>
               </article>
 
               <section class="quick-panel">
@@ -737,11 +795,25 @@
               </section>
             </div>
 
+            <div class="attachment-panel" aria-label="Order chat attachments">
+              <a href="#"><svg viewBox="0 0 24 24"><path d="M9 7l1.5-2h3L15 7h3a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-7a3 3 0 0 1 3-3Z" /><circle cx="12" cy="13" r="3" /></svg>Photo</a>
+              <a href="#"><svg viewBox="0 0 24 24"><path d="M15 10l5-3v10l-5-3Z" /><rect x="3" y="6" width="12" height="12" rx="2" /></svg>Video</a>
+              <a href="#"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z" /><path d="M14 2v6h6" /></svg>File</a>
+              <a href="#"><svg viewBox="0 0 24 24"><path d="M6 2h12v20l-3-2-3 2-3-2-3 2V2Z" /><path d="M9 7h6M9 11h6" /></svg>Bill</a>
+              <a href="#"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></svg>Proof</a>
+            </div>
+
             <div class="composer">
               <button type="button" id="attachButton" aria-label="Attach photo or proof">
                 <svg viewBox="0 0 24 24"><path d="M21.4 11.6 12 21a6 6 0 0 1-8.5-8.5l9.7-9.7a4 4 0 0 1 5.7 5.7l-9.2 9.2a2 2 0 0 1-2.8-2.8L15 6.8" /></svg>
               </button>
+              <button type="button" id="cameraButton" aria-label="Open camera">
+                <svg viewBox="0 0 24 24"><path d="M9 7l1.5-2h3L15 7h3a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-7a3 3 0 0 1 3-3Z" /><circle cx="12" cy="13" r="3" /></svg>
+              </button>
               <div class="composer-field" id="composerField">Message shop/support...</div>
+              <button type="button" id="voiceButton" aria-label="Voice message">
+                <svg viewBox="0 0 24 24"><path d="M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3Z" /><path d="M19 10v2a7 7 0 0 1-14 0v-2" /></svg>
+              </button>
               <button class="send" type="button" id="sendButton" aria-label="Send message">
                 <svg viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4 20-7Z" /><path d="M22 2 11 13" /></svg>
               </button>
@@ -798,11 +870,11 @@
             <div class="ms-section-head">Screen Contract <span>Approved</span></div>
             <div class="state-grid">
               <div class="state-cell"><b>Entry</b>From Chat main action, order result, issue result, support alert, shop conversation or business workspace.</div>
-              <div class="state-cell"><b>User Sees</b>Thread identity, order/support context, messages, proof-aware quick actions, composer and active Chat sub-actions.</div>
-              <div class="state-cell"><b>Decision</b>User can reply, attach proof/photo, view bill/result, buy again, switch chat section or return to Mool.</div>
+              <div class="state-cell"><b>User Sees</b>Thread identity, order/support context, call/video tools, messages, proof/file/photo/video actions, composer and active Chat sub-actions.</div>
+              <div class="state-cell"><b>Decision</b>User can reply, call, video call, attach proof/photo/video/file/bill, view bill/result, buy again, switch chat section or return to Mool.</div>
 
-              <div class="state-cell"><b>Backend</b>Thread routing, message delivery, attachment storage, order context binding, read receipts, moderation and support escalation.</div>
-              <div class="state-cell"><b>Safety</b>Payment/refund status is read-only in chat. Sensitive proof upload remains explicit through attach action.</div>
+              <div class="state-cell"><b>Backend</b>Thread routing, message delivery, media/file storage, order context binding, read receipts, call signaling, moderation and support escalation.</div>
+              <div class="state-cell"><b>Safety</b>Payment/refund status is read-only in chat. Sensitive proof, bill, photo, video and file upload remains explicit through attach action.</div>
               <div class="state-cell"><b>Trust</b>Shop/support see same context; user does not need to repeat bill, proof, issue or refund details.</div>
 
               <div class="state-cell"><b>Next</b>Can expand into Chat inbox, People thread, Business thread, Support ticket, or order-specific chat history.</div>
@@ -904,7 +976,15 @@
     }
 
     document.getElementById("attachButton").addEventListener("click", () => {
-      composerField.textContent = "Attach photo, bill or proof...";
+      composerField.textContent = "Attach photo, video, file, bill or proof...";
+    });
+
+    document.getElementById("cameraButton").addEventListener("click", () => {
+      composerField.textContent = "Camera ready for photo or video proof...";
+    });
+
+    document.getElementById("voiceButton").addEventListener("click", () => {
+      composerField.textContent = "Recording voice message...";
     });
 
     document.getElementById("escalateSupportAction").addEventListener("click", (event) => {

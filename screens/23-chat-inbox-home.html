@@ -227,6 +227,31 @@
       grid-template-columns: 1fr 1fr;
       gap: 8px;
     }
+    .quality-strip {
+      display: flex;
+      gap: 7px;
+      min-width: 0;
+      overflow-x: auto;
+      padding: 8px;
+      border: 1px solid rgba(0,0,128,.12);
+      border-radius: 20px;
+      background: rgba(255,255,255,.98);
+      box-shadow: 0 12px 26px rgba(0,0,128,.08);
+      scrollbar-width: none;
+    }
+    .quality-strip::-webkit-scrollbar { display: none; }
+    .quality-pill {
+      flex: 0 0 auto;
+      min-height: 32px;
+      display: inline-flex;
+      align-items: center;
+      border-radius: var(--ms-pill);
+      padding: 0 10px;
+      background: rgba(0,0,128,.06);
+      color: var(--ms-navy);
+      font-size: 8px;
+      font-weight: 950;
+    }
     .priority-card {
       min-height: 74px;
       display: grid;
@@ -674,6 +699,16 @@
                 </a>
               </section>
 
+              <section class="quality-strip" aria-label="Chat quality capabilities">
+                <span class="quality-pill">Text</span>
+                <span class="quality-pill">Voice</span>
+                <span class="quality-pill">Call</span>
+                <span class="quality-pill">Video call</span>
+                <span class="quality-pill">Photo</span>
+                <span class="quality-pill">Video</span>
+                <span class="quality-pill">File</span>
+              </section>
+
               <section class="compose-sheet" id="composeSheet" aria-label="Start new chat panel">
                 <div class="compose-head">
                   <b>Start new chat</b>
@@ -684,6 +719,12 @@
                   <a class="quick-action" href="#" data-filter="business"><b>Business</b><span>shop or service</span></a>
                   <a class="quick-action" href="#" data-filter="orders"><b>Order</b><span>bill or delivery</span></a>
                   <a class="quick-action" href="#" data-filter="support"><b>Support</b><span>case help</span></a>
+                </div>
+                <div class="quick-actions">
+                  <a class="quick-action" href="#"><b>Photo</b><span>image/video</span></a>
+                  <a class="quick-action" href="#"><b>File</b><span>PDF/doc</span></a>
+                  <a class="quick-action" href="#"><b>Call</b><span>audio</span></a>
+                  <a class="quick-action" href="#"><b>Video</b><span>face call</span></a>
                 </div>
               </section>
 
@@ -820,11 +861,11 @@
             <div class="ms-section-head">Screen Contract <span>Approved</span></div>
             <div class="state-grid">
               <div class="state-cell"><b>Entry</b>From Universal Chat action, unread notification, order badge, shop reply, delivery alert or support case.</div>
-              <div class="state-cell"><b>User Sees</b>WhatsApp-style recent inbox, unread badges, verified business markers, priority order/support alerts and search.</div>
-              <div class="state-cell"><b>Decision</b>Open chat, filter All/Unread/People/Business/Orders/Support, start chat, search, voice search or return to Mool.</div>
+              <div class="state-cell"><b>User Sees</b>WhatsApp-style recent inbox, unread badges, verified markers, call/video/media/file capability strip, priority order/support alerts and search.</div>
+              <div class="state-cell"><b>Decision</b>Open chat, filter All/Unread/People/Business/Orders/Support, start chat, call/video/media/file action, search, voice search or return to Mool.</div>
 
               <div class="state-cell"><b>Backend</b>Thread index service merges personal, business, order and support channels with real-time unread sync.</div>
-              <div class="state-cell"><b>Tech Stack</b>WebSocket/SSE live updates, FCM push, local cache, optimistic read state, media upload service and thread routing API.</div>
+              <div class="state-cell"><b>Tech Stack</b>WebSocket/SSE live updates, FCM push, local cache, optimistic read state, call signaling, media/file upload service and thread routing API.</div>
               <div class="state-cell"><b>Trust</b>Order chats carry proof packets, bills, refund status and support case IDs without exposing sensitive action outside the thread.</div>
 
               <div class="state-cell"><b>Next</b>Order/support thread routes to Screen 22; future people, business and support detail screens reuse the same thread contract.</div>

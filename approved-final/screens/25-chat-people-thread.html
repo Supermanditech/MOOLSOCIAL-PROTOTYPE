@@ -1,0 +1,1103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>25 Chat People Thread - MoolSocial Screenbook</title>
+  <link rel="stylesheet" href="../shared/moolsocial-ui-foundation.css" />
+  <style>
+    .screen-shell { display: grid; gap: 18px; }
+    .back-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+    .screen-link-home {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--ms-navy);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 900;
+    }
+    .back-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--ms-navy);
+      border-radius: var(--ms-radius);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 11px;
+      font-weight: 950;
+    }
+    .preview {
+      display: grid;
+      grid-template-columns: minmax(320px, 390px) minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+      padding: 18px;
+      border-bottom: 1px solid var(--ms-navy);
+      background: var(--ms-white);
+    }
+    .phone {
+      width: min(100%, 370px);
+      height: 742px;
+      justify-self: center;
+      border: 10px solid var(--ms-navy);
+      border-radius: 32px;
+      background: var(--ms-navy);
+      overflow: hidden;
+      box-shadow: 0 28px 60px rgba(0, 0, 128, .22);
+    }
+    .app {
+      position: relative;
+      height: 100%;
+      display: grid;
+      grid-template-rows: auto auto auto 1fr auto;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 18% 16%, rgba(255,153,51,.12), transparent 28%),
+        radial-gradient(circle at 82% 10%, rgba(19,136,8,.13), transparent 30%),
+        #eef3f8;
+      color: var(--ms-navy);
+      font-family: var(--ms-font);
+    }
+    .status-row {
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 18px 0;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 11px;
+      font-weight: 950;
+    }
+    .thread-header {
+      display: grid;
+      grid-template-columns: 34px 44px 1fr auto;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 10px 10px;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: 0 12px 26px rgba(0,0,128,.18);
+    }
+    svg {
+      width: 19px;
+      height: 19px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .icon-btn {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255,255,255,.22);
+      border-radius: 50%;
+      background: rgba(255,255,255,.12);
+      color: var(--ms-white);
+      text-decoration: none;
+    }
+    .group-avatar {
+      position: relative;
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 17px;
+      background: radial-gradient(circle at 30% 18%, #5555ff, var(--ms-navy) 56%);
+      color: var(--ms-white);
+      border: 1px solid rgba(255,255,255,.28);
+      box-shadow: inset 0 -4px 0 var(--ms-saffron);
+      font-size: 12px;
+      font-weight: 950;
+    }
+    .presence {
+      position: absolute;
+      right: -1px;
+      bottom: 1px;
+      width: 12px;
+      height: 12px;
+      border: 2px solid var(--ms-navy);
+      border-radius: 50%;
+      background: var(--ms-green);
+    }
+    .thread-title { min-width: 0; display: grid; gap: 4px; }
+    .thread-title b {
+      min-width: 0;
+      color: var(--ms-white);
+      font-size: 13px;
+      font-weight: 950;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .thread-title span {
+      color: rgba(255,255,255,.72);
+      font-size: 9px;
+      font-weight: 850;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .header-actions { display: flex; gap: 6px; }
+    .header-actions .icon-btn { width: 32px; height: 32px; }
+    .private-strip {
+      display: flex;
+      gap: 6px;
+      min-width: 0;
+      overflow-x: auto;
+      padding: 8px 10px;
+      background: rgba(255,255,255,.96);
+      border-bottom: 1px solid rgba(0,0,128,.08);
+      scrollbar-width: none;
+    }
+    .private-strip::-webkit-scrollbar { display: none; }
+    .private-pill {
+      flex: 0 0 auto;
+      min-height: 25px;
+      display: inline-flex;
+      align-items: center;
+      border-radius: var(--ms-pill);
+      padding: 0 9px;
+      background: rgba(0,0,128,.06);
+      color: rgba(0,0,128,.72);
+      font-size: 8px;
+      font-weight: 950;
+    }
+    .private-pill.good { background: rgba(19,136,8,.12); color: var(--ms-green); }
+    .mode-strip {
+      display: flex;
+      gap: 7px;
+      min-width: 0;
+      overflow-x: auto;
+      padding: 8px 10px;
+      background: #f5f7fb;
+      border-bottom: 1px solid rgba(0,0,128,.08);
+      scrollbar-width: none;
+    }
+    .mode-strip::-webkit-scrollbar { display: none; }
+    .mode-chip {
+      flex: 0 0 auto;
+      min-height: 34px;
+      display: grid;
+      align-content: center;
+      gap: 2px;
+      border: 1px solid rgba(0,0,128,.12);
+      border-radius: var(--ms-pill);
+      padding: 0 12px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      text-decoration: none;
+      box-shadow: 0 8px 18px rgba(0,0,128,.05);
+    }
+    .mode-chip b { font-size: 9px; font-weight: 950; }
+    .mode-chip span { color: rgba(0,0,128,.60); font-size: 7px; font-weight: 850; }
+    .mode-chip.active {
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -3px 0 var(--ms-saffron);
+    }
+    .mode-chip.active span { color: rgba(255,255,255,.74); }
+    .chat-body {
+      min-height: 0;
+      overflow: auto;
+      display: grid;
+      align-content: start;
+      gap: 8px;
+      padding: 10px 10px 132px;
+      scrollbar-width: none;
+    }
+    .chat-body::-webkit-scrollbar { display: none; }
+    .day-pill {
+      justify-self: center;
+      border-radius: var(--ms-pill);
+      padding: 5px 10px;
+      background: rgba(0,0,128,.09);
+      color: rgba(0,0,128,.70);
+      font-size: 8px;
+      font-weight: 950;
+    }
+    .people-panel, .basket-card, .poll-card {
+      border: 1px solid rgba(0,0,128,.12);
+      border-radius: 20px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      box-shadow: 0 12px 26px rgba(0,0,128,.08);
+    }
+    .people-panel {
+      display: grid;
+      gap: 8px;
+      padding: 10px;
+    }
+    .thread-note {
+      display: grid;
+      grid-template-columns: 26px 1fr auto;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(0,0,128,.10);
+      border-radius: 18px;
+      padding: 8px;
+      background: rgba(255,255,255,.96);
+      color: var(--ms-navy);
+      box-shadow: 0 10px 22px rgba(0,0,128,.07);
+    }
+    .note-lock {
+      width: 26px;
+      height: 26px;
+      display: grid;
+      place-items: center;
+      border-radius: 11px;
+      background: rgba(19,136,8,.10);
+      color: var(--ms-green);
+    }
+    .note-copy {
+      min-width: 0;
+      display: grid;
+      gap: 2px;
+    }
+    .note-copy b {
+      font-size: 9px;
+      font-weight: 950;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .note-copy span {
+      color: rgba(0,0,128,.58);
+      font-size: 7px;
+      font-weight: 850;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .note-mini {
+      min-height: 24px;
+      display: inline-flex;
+      align-items: center;
+      border-radius: var(--ms-pill);
+      padding: 0 8px;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 7px;
+      font-weight: 950;
+      box-shadow: inset 0 -3px 0 var(--ms-saffron);
+      white-space: nowrap;
+    }
+    .people-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      gap: 8px;
+    }
+    .people-head b { color: var(--ms-navy); font-size: 12px; font-weight: 950; }
+    .people-head span {
+      color: rgba(0,0,128,.62);
+      font-size: 8px;
+      line-height: 1.25;
+      font-weight: 850;
+    }
+    .panel-state {
+      min-height: 25px;
+      display: inline-flex;
+      align-items: center;
+      border-radius: var(--ms-pill);
+      padding: 0 9px;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 8px;
+      font-weight: 950;
+      white-space: nowrap;
+      box-shadow: inset 0 -3px 0 var(--ms-saffron);
+    }
+    .member-row {
+      display: flex;
+      gap: 6px;
+      min-width: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .member-row::-webkit-scrollbar { display: none; }
+    .member {
+      flex: 0 0 auto;
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 14px;
+      background: rgba(0,0,128,.08);
+      color: var(--ms-navy);
+      font-size: 10px;
+      font-weight: 950;
+    }
+    .member.active { background: var(--ms-navy); color: var(--ms-white); box-shadow: inset 0 -3px 0 var(--ms-green); }
+    .admin-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 6px;
+    }
+    .admin-pill {
+      min-height: 35px;
+      display: grid;
+      align-content: center;
+      gap: 2px;
+      border-radius: 15px;
+      padding: 6px 7px;
+      background: rgba(0,0,128,.05);
+      color: var(--ms-navy);
+      font-size: 8px;
+      font-weight: 950;
+      overflow: hidden;
+    }
+    .admin-pill span {
+      color: rgba(0,0,128,.58);
+      font-size: 7px;
+      font-weight: 850;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .message-row { display: flex; align-items: end; gap: 6px; }
+    .message-row.out { justify-content: flex-end; }
+    .bubble {
+      max-width: 78%;
+      display: grid;
+      gap: 5px;
+      border-radius: 18px;
+      padding: 9px 10px;
+      font-size: 10px;
+      line-height: 1.35;
+      font-weight: 850;
+      box-shadow: 0 8px 18px rgba(0,0,128,.07);
+    }
+    .bubble.in {
+      border-bottom-left-radius: 6px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+    }
+    .bubble.out {
+      border-bottom-right-radius: 6px;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+    }
+    .bubble small {
+      justify-self: end;
+      color: currentColor;
+      opacity: .64;
+      font-size: 7px;
+      font-weight: 850;
+    }
+    .sender { color: var(--ms-green); font-size: 8px; font-weight: 950; }
+    .reaction-row {
+      display: flex;
+      gap: 5px;
+      align-items: center;
+      justify-self: start;
+      margin-top: -2px;
+    }
+    .reaction-pill {
+      min-height: 20px;
+      display: inline-flex;
+      align-items: center;
+      border-radius: var(--ms-pill);
+      padding: 0 8px;
+      border: 1px solid rgba(0,0,128,.10);
+      background: var(--ms-white);
+      color: rgba(0,0,128,.70);
+      font-size: 7px;
+      font-weight: 950;
+      box-shadow: 0 6px 14px rgba(0,0,128,.07);
+    }
+    .voice-note {
+      display: grid;
+      grid-template-columns: 24px 1fr auto;
+      align-items: center;
+      gap: 8px;
+      min-width: 160px;
+    }
+    .wave {
+      height: 14px;
+      border-radius: 12px;
+      background: repeating-linear-gradient(90deg, currentColor 0 3px, transparent 3px 7px);
+      opacity: .45;
+    }
+    .media-preview, .file-preview {
+      display: grid;
+      gap: 7px;
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 15px;
+      padding: 7px;
+      background: rgba(255,255,255,.09);
+    }
+    .media-thumb {
+      min-height: 86px;
+      border-radius: 13px;
+      background:
+        radial-gradient(circle at 24% 25%, rgba(255,153,51,.85), transparent 26%),
+        radial-gradient(circle at 70% 70%, rgba(19,136,8,.86), transparent 30%),
+        linear-gradient(135deg, #09095a, #16168a);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.16);
+    }
+    .media-caption, .file-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      color: currentColor;
+      font-size: 8px;
+      font-weight: 950;
+      opacity: .92;
+    }
+    .file-preview {
+      grid-template-columns: 34px 1fr auto;
+      align-items: center;
+      background: rgba(0,0,128,.05);
+      color: var(--ms-navy);
+      border-color: rgba(0,0,128,.10);
+    }
+    .file-icon {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 13px;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -3px 0 var(--ms-green);
+    }
+    .file-copy { min-width: 0; display: grid; gap: 2px; }
+    .file-copy b {
+      font-size: 9px;
+      font-weight: 950;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .file-copy span { color: rgba(0,0,128,.58); font-size: 7px; font-weight: 850; }
+    .typing-row {
+      justify-self: start;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      border-radius: var(--ms-pill);
+      padding: 6px 9px;
+      background: rgba(255,255,255,.92);
+      color: rgba(0,0,128,.65);
+      font-size: 8px;
+      font-weight: 950;
+      box-shadow: 0 8px 18px rgba(0,0,128,.07);
+    }
+    .typing-dots {
+      width: 28px;
+      height: 8px;
+      border-radius: 10px;
+      background: radial-gradient(circle, var(--ms-green) 0 2px, transparent 3px) 0 50%/9px 8px repeat-x;
+      opacity: .72;
+      animation: typingMove 1.2s linear infinite;
+    }
+    @keyframes typingMove { to { background-position: 9px 50%; } }
+    .basket-card, .poll-card {
+      display: grid;
+      gap: 8px;
+      padding: 10px;
+      max-width: 86%;
+    }
+    .card-title {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      align-items: start;
+    }
+    .card-title b { color: var(--ms-navy); font-size: 12px; font-weight: 950; }
+    .card-title span {
+      color: var(--ms-green);
+      font-size: 11px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+    .item-line {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      color: rgba(0,0,128,.72);
+      font-size: 9px;
+      font-weight: 850;
+    }
+    .basket-actions, .poll-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 7px;
+    }
+    .basket-actions a, .poll-actions a {
+      min-height: 34px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(0,0,128,.14);
+      border-radius: var(--ms-pill);
+      text-decoration: none;
+      color: var(--ms-navy);
+      background: var(--ms-white);
+      font-size: 9px;
+      font-weight: 950;
+    }
+    .basket-actions a.primary, .poll-actions a.primary {
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -3px 0 var(--ms-saffron);
+    }
+    .poll-option {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      align-items: center;
+      border-radius: 14px;
+      padding: 8px;
+      background: rgba(0,0,128,.05);
+      color: var(--ms-navy);
+      font-size: 9px;
+      font-weight: 950;
+    }
+    .poll-bar {
+      grid-column: 1 / 3;
+      height: 5px;
+      overflow: hidden;
+      border-radius: 10px;
+      background: rgba(0,0,128,.08);
+    }
+    .poll-bar span { display: block; height: 100%; border-radius: 10px; background: var(--ms-green); }
+    .composer-zone {
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+      z-index: 4;
+      display: grid;
+      gap: 7px;
+    }
+    .quick-replies {
+      display: flex;
+      gap: 6px;
+      min-width: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .quick-replies::-webkit-scrollbar { display: none; }
+    .quick-replies a {
+      flex: 0 0 auto;
+      min-height: 27px;
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid rgba(0,0,128,.12);
+      border-radius: var(--ms-pill);
+      padding: 0 10px;
+      background: rgba(255,255,255,.97);
+      color: var(--ms-navy);
+      text-decoration: none;
+      font-size: 8px;
+      font-weight: 950;
+      box-shadow: 0 8px 18px rgba(0,0,128,.08);
+    }
+    .reply-preview {
+      display: grid;
+      grid-template-columns: 1fr 24px;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(0,0,128,.12);
+      border-left: 4px solid var(--ms-green);
+      border-radius: 15px;
+      padding: 7px 8px 7px 10px;
+      background: rgba(255,255,255,.97);
+      color: var(--ms-navy);
+      box-shadow: 0 8px 18px rgba(0,0,128,.08);
+    }
+    .reply-preview div { min-width: 0; display: grid; gap: 2px; }
+    .reply-preview b { font-size: 8px; font-weight: 950; }
+    .reply-preview span {
+      font-size: 8px;
+      color: rgba(0,0,128,.58);
+      font-weight: 850;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .reply-preview button {
+      width: 24px;
+      height: 24px;
+      border: 0;
+      border-radius: 50%;
+      background: rgba(0,0,128,.08);
+      color: var(--ms-navy);
+      font-weight: 950;
+    }
+    .attachment-tray {
+      display: flex;
+      gap: 6px;
+      min-width: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+      padding: 2px;
+    }
+    .attachment-tray::-webkit-scrollbar { display: none; }
+    .attach-chip {
+      flex: 0 0 auto;
+      min-width: 54px;
+      min-height: 44px;
+      display: grid;
+      place-items: center;
+      gap: 2px;
+      border: 1px solid rgba(0,0,128,.12);
+      border-radius: 17px;
+      background: rgba(255,255,255,.98);
+      color: var(--ms-navy);
+      text-decoration: none;
+      font-size: 7px;
+      font-weight: 950;
+      box-shadow: 0 8px 18px rgba(0,0,128,.08);
+    }
+    .attach-chip.primary {
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -3px 0 var(--ms-saffron), 0 8px 18px rgba(0,0,128,.14);
+    }
+    .attach-chip svg {
+      width: 17px;
+      height: 17px;
+    }
+    .is-hidden { display: none !important; }
+    .composer {
+      height: 54px;
+      display: grid;
+      grid-template-columns: 34px 34px 1fr 34px 38px;
+      gap: 6px;
+      align-items: center;
+      border: 1px solid rgba(0,0,128,.20);
+      border-radius: 24px;
+      padding: 7px;
+      background: rgba(255,255,255,.98);
+      box-shadow: 0 14px 32px rgba(0,0,128,.20);
+    }
+    .composer button, .send-btn {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border: 0;
+      border-radius: 50%;
+      background: rgba(0,0,128,.08);
+      color: var(--ms-navy);
+    }
+    .composer span {
+      color: rgba(0,0,128,.60);
+      font-size: 10px;
+      font-weight: 850;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .send-btn {
+      width: 38px;
+      height: 38px;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -3px 0 var(--ms-saffron);
+    }
+    .notes { display: grid; gap: 16px; }
+    .state-grid {
+      display: grid;
+      grid-template-columns: 170px 1fr 1fr;
+      border: 1px solid var(--ms-navy);
+      border-bottom: 0;
+    }
+    .state-cell {
+      min-height: 54px;
+      display: grid;
+      align-content: center;
+      border-right: 1px solid var(--ms-navy);
+      border-bottom: 1px solid var(--ms-navy);
+      padding: 10px;
+      color: var(--ms-navy);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+    .state-cell:nth-child(3n) { border-right: 0; }
+    .state-cell b { color: var(--ms-green); }
+    @media (max-width: 900px) {
+      .preview { grid-template-columns: 1fr; }
+      .state-grid { grid-template-columns: 1fr; }
+      .state-cell { border-right: 0; }
+    }
+  </style>
+</head>
+<body class="ms-doc">
+  <main class="ms-page screen-shell">
+    <header class="back-row">
+      <a class="screen-link-home" href="../index.html">
+        <span class="back-mark">MS</span>
+        Back to screenbook
+      </a>
+      <span class="ms-status">Screen 25 Draft</span>
+    </header>
+
+    <section class="ms-panel">
+      <div class="ms-section-head">
+        Screen 25: Chat / People Thread
+        <span>Personal and group chat</span>
+      </div>
+
+      <div class="preview">
+        <div class="phone" aria-label="MoolSocial people chat phone preview">
+          <div class="app">
+            <div class="status-row">
+              <span>11:02</span>
+              <span>5G 100%</span>
+            </div>
+
+            <header class="thread-header">
+              <a class="icon-btn" href="23-chat-inbox-home.html" aria-label="Back to chat inbox">
+                <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" /></svg>
+              </a>
+              <div class="group-avatar">HG<span class="presence"></span></div>
+              <div class="thread-title">
+                <b>Home Basket Group</b>
+                <span>5 members - 3 online - family and neighbours</span>
+              </div>
+              <div class="header-actions">
+                <a class="icon-btn" href="#" aria-label="Call group">
+                  <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7l.5 2.6a2 2 0 0 1-.5 1.8L8 9.2a16 16 0 0 0 6.8 6.8l1.1-1.1a2 2 0 0 1 1.8-.5l2.6.5a2 2 0 0 1 1.7 2Z" /></svg>
+                </a>
+                <a class="icon-btn" href="#" aria-label="Video call group">
+                  <svg viewBox="0 0 24 24"><path d="M15 10l5-3v10l-5-3Z" /><rect x="3" y="6" width="12" height="12" rx="2" /></svg>
+                </a>
+                <a class="icon-btn" href="#" aria-label="More people chat options">
+                  <svg viewBox="0 0 24 24"><path d="M12 12h.01M19 12h.01M5 12h.01" /></svg>
+                </a>
+              </div>
+            </header>
+
+            <div class="private-strip" aria-label="People chat privacy and status">
+              <span class="private-pill good">Members only</span>
+              <span class="private-pill">Call enabled</span>
+              <span class="private-pill">Video enabled</span>
+              <span class="private-pill">No business access</span>
+              <span class="private-pill">Basket optional</span>
+              <span class="private-pill">Media saved</span>
+            </div>
+
+            <nav class="mode-strip" aria-label="People chat modes">
+              <a class="mode-chip active" href="#" data-mode="chat"><b>Chat</b><span>messages</span></a>
+              <a class="mode-chip" href="#" data-mode="media"><b>Media</b><span>photos</span></a>
+              <a class="mode-chip" href="#" data-mode="basket"><b>Basket</b><span>shared list</span></a>
+              <a class="mode-chip" href="#" data-mode="poll"><b>Poll</b><span>decide</span></a>
+              <a class="mode-chip" href="#" data-mode="invite"><b>Invite</b><span>members</span></a>
+            </nav>
+
+            <main class="chat-body">
+              <div class="day-pill">Today</div>
+
+              <section class="thread-note" aria-label="Thread status">
+                <span class="note-lock">
+                  <svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2" /><path d="M8 11V8a4 4 0 0 1 8 0v3" /></svg>
+                </span>
+                <span class="note-copy">
+                  <b id="modeTitle">Private family group</b>
+                  <span id="modeText">5 members · 3 online · media, poll and basket open from attach.</span>
+                </span>
+                <span class="note-mini" id="modeState">Private</span>
+              </section>
+
+              <div class="message-row in">
+                <div class="bubble in">
+                  <span class="sender">Amit</span>
+                  Please add atta, rice and oil for this month. If price is better, we can order together.
+                  <small>10:47</small>
+                </div>
+              </div>
+
+              <div class="message-row out">
+                <div class="bubble out">
+                  I will make one basket and share here. Everyone can edit before ordering.
+                  <small>10:48 sent</small>
+                </div>
+              </div>
+
+              <section class="basket-card">
+                <div class="card-title">
+                  <b>Shared basket</b>
+                  <span>Rs 2,480</span>
+                </div>
+                <div class="item-line"><span>Atta 10 kg</span><b>Rs 420</b></div>
+                <div class="item-line"><span>Rice 10 kg</span><b>Rs 720</b></div>
+                <div class="item-line"><span>Oil 10 L</span><b>Rs 1,340</b></div>
+                <div class="basket-actions">
+                  <a href="#">Edit list</a>
+                  <a class="primary" href="09-buy.html">Find price</a>
+                </div>
+              </section>
+
+              <div class="message-row in">
+                <div class="bubble in">
+                  <span class="sender">Maa</span>
+                  Also add sugar 5 kg if offer is available.
+                  <small>10:49</small>
+                </div>
+              </div>
+
+              <div class="message-row out">
+                <div class="bubble out">
+                  <div class="media-preview">
+                    <div class="media-thumb" aria-label="Kitchen list image preview"></div>
+                    <div class="media-caption">
+                      <span>kitchen-list.jpg</span>
+                      <span>Image</span>
+                    </div>
+                  </div>
+                  <small>10:49 sent</small>
+                </div>
+              </div>
+              <div class="reaction-row" aria-label="Message reactions">
+                <span class="reaction-pill">Seen by 4</span>
+                <span class="reaction-pill">Like 2</span>
+              </div>
+
+              <div class="message-row in">
+                <div class="bubble in">
+                  <span class="sender">Rakesh</span>
+                  <div class="voice-note">
+                    <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7-11-7Z" /></svg>
+                    <span class="wave"></span>
+                    <span>0:18</span>
+                  </div>
+                  <small>10:50</small>
+                </div>
+              </div>
+
+              <div class="message-row out">
+                <div class="bubble out">
+                  <div class="file-preview">
+                    <span class="file-icon">
+                      <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z" /><path d="M14 2v6h6" /></svg>
+                    </span>
+                    <span class="file-copy">
+                      <b>Monthly Staples.pdf</b>
+                      <span>128 KB · sent</span>
+                    </span>
+                    <svg viewBox="0 0 24 24"><path d="M12 5v14" /><path d="m19 12-7 7-7-7" /></svg>
+                  </div>
+                  <small>10:51 sent</small>
+                </div>
+              </div>
+
+              <div class="typing-row" aria-label="Typing indicator">
+                <span>Maa typing...</span>
+                <span class="typing-dots" aria-hidden="true"></span>
+              </div>
+
+              <section class="poll-card">
+                <div class="card-title">
+                  <b>Order timing poll</b>
+                  <span>4 voted</span>
+                </div>
+                <div class="poll-option">
+                  <span>Order today evening</span><b>75%</b>
+                  <div class="poll-bar"><span style="width: 75%"></span></div>
+                </div>
+                <div class="poll-option">
+                  <span>Order tomorrow morning</span><b>25%</b>
+                  <div class="poll-bar"><span style="width: 25%"></span></div>
+                </div>
+                <div class="poll-actions">
+                  <a href="#">Add option</a>
+                  <a class="primary" href="10-buy-grocery-decision.html">Use result</a>
+                </div>
+              </section>
+            </main>
+
+            <section class="composer-zone">
+              <div class="quick-replies" aria-label="People chat quick replies">
+                <a href="#">Add to basket</a>
+                <a href="#">Create poll</a>
+                <a href="#">Share photo</a>
+                <a href="#">Send file</a>
+                <a href="#">Invite member</a>
+                <a href="#">Find price</a>
+              </div>
+              <div class="reply-preview" id="replyPreview">
+                <div>
+                  <b>Replying to Amit</b>
+                  <span>Please add atta, rice and oil for this month...</span>
+                </div>
+                <button type="button" id="closeReply" aria-label="Close reply preview">x</button>
+              </div>
+              <div class="attachment-tray is-hidden" id="attachmentTray" aria-label="Attachment options">
+                <a class="attach-chip primary" href="#">
+                  <svg viewBox="0 0 24 24"><path d="M9 7l1.5-2h3L15 7h3a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-7a3 3 0 0 1 3-3Z" /><circle cx="12" cy="13" r="3" /></svg>
+                  Camera
+                </a>
+                <a class="attach-chip" href="#">
+                  <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 15 5-5 4 4 2-2 7 7" /></svg>
+                  Gallery
+                </a>
+                <a class="attach-chip" href="#">
+                  <svg viewBox="0 0 24 24"><path d="m22 8-6 4 6 4V8Z" /><rect x="2" y="6" width="14" height="12" rx="2" /></svg>
+                  Video
+                </a>
+                <a class="attach-chip" href="#">
+                  <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z" /><path d="M14 2v6h6" /></svg>
+                  File
+                </a>
+                <a class="attach-chip" href="#">
+                  <svg viewBox="0 0 24 24"><path d="M12 21s7-5.3 7-11a7 7 0 1 0-14 0c0 5.7 7 11 7 11Z" /><circle cx="12" cy="10" r="2" /></svg>
+                  Location
+                </a>
+                <a class="attach-chip" href="#">
+                  <svg viewBox="0 0 24 24"><path d="M16 11c1.7 0 3-1.3 3-3s-1.3-3-3-3-3 1.3-3 3 1.3 3 3 3Z" /><path d="M8 11c1.7 0 3-1.3 3-3S9.7 5 8 5 5 6.3 5 8s1.3 3 3 3Z" /><path d="M2 20c.8-3.3 3-5 6-5s5.2 1.7 6 5" /><path d="M14 15c3 0 5.2 1.7 6 5" /></svg>
+                  Contact
+                </a>
+                <a class="attach-chip" href="#">
+                  <svg viewBox="0 0 24 24"><path d="M4 6h16" /><path d="M4 12h16" /><path d="M4 18h10" /></svg>
+                  Poll
+                </a>
+                <a class="attach-chip" href="09-buy.html">
+                  <svg viewBox="0 0 24 24"><path d="M6 6h15l-2 8H8L6 2H3" /><circle cx="9" cy="20" r="1" /><circle cx="18" cy="20" r="1" /></svg>
+                  Basket
+                </a>
+              </div>
+              <div class="composer">
+                <button type="button" id="attachToggle" aria-label="Attach media or basket">
+                  <svg viewBox="0 0 24 24"><path d="M21.4 11.6 12 21a6 6 0 0 1-8.5-8.5l9.4-9.4a4 4 0 0 1 5.7 5.7L9.2 18.2a2 2 0 1 1-2.8-2.8l8.7-8.7" /></svg>
+                </button>
+                <button type="button" id="cameraToggle" aria-label="Open camera">
+                  <svg viewBox="0 0 24 24"><path d="M9 7l1.5-2h3L15 7h3a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-7a3 3 0 0 1 3-3Z" /><circle cx="12" cy="13" r="3" /></svg>
+                </button>
+                <span id="composerHint">Message Home Basket Group...</span>
+                <button type="button" aria-label="Voice message">
+                  <svg viewBox="0 0 24 24"><path d="M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3Z" /><path d="M19 10v2a7 7 0 0 1-14 0v-2" /></svg>
+                </button>
+                <a class="send-btn" href="#" aria-label="Send message">
+                  <svg viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4 20-7Z" /><path d="M22 2 11 13" /></svg>
+                </a>
+              </div>
+            </section>
+          </div>
+        </div>
+
+        <div class="notes">
+          <div>
+            <h1 class="ms-title">People chat should stay familiar, private and useful.</h1>
+            <p class="ms-lead">
+              Screen 25 covers personal and group conversations. It keeps normal chat first, then adds optional MoolSocial utility:
+              shared basket, poll, media, invite and price-finding without forcing commerce into every message.
+            </p>
+          </div>
+
+          <div class="ms-panel">
+            <div class="ms-section-head">Screen Contract <span>Draft</span></div>
+            <div class="state-grid">
+              <div class="state-cell"><b>Entry</b>From Chat Inbox People filter, personal notification, group invite, shared basket, poll alert or contact search.</div>
+              <div class="state-cell"><b>User Sees</b>Private people thread, member status, text, photo/video/file capability, voice note, shared basket, poll and quick replies.</div>
+              <div class="state-cell"><b>Decision</b>User can chat, call, video call, share media/file/location, edit basket, create poll, invite member, find price or move to Buy when ready.</div>
+
+              <div class="state-cell"><b>Backend</b>Thread service links personal/group messages, media, basket share, poll state, invite state and optional buy handoff.</div>
+              <div class="state-cell"><b>Privacy</b>People chats are members-only; business and support context appears only when user explicitly shares or routes it.</div>
+              <div class="state-cell"><b>Trust</b>Commerce actions are optional and transparent, so family chat does not feel like advertising or marketplace pressure.</div>
+
+              <div class="state-cell"><b>Next</b>Basket routes to Screen 09/10 buy flow; business quote routes to Screen 24; issue/order chats route to Screen 22.</div>
+              <div class="state-cell"><b>Failure</b>If offline, show cached messages, queued sends, unsynced media and last successful sync time.</div>
+              <div class="state-cell"><b>Realtime</b>Requires WebSocket/SSE, FCM push, message receipts, local draft cache, call signaling, poll sync and media/file upload queue.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script>
+    const modeChips = document.querySelectorAll(".mode-chip[data-mode]");
+    const modeTitle = document.getElementById("modeTitle");
+    const modeText = document.getElementById("modeText");
+    const modeState = document.getElementById("modeState");
+    const attachToggle = document.getElementById("attachToggle");
+    const cameraToggle = document.getElementById("cameraToggle");
+    const attachmentTray = document.getElementById("attachmentTray");
+    const closeReply = document.getElementById("closeReply");
+    const replyPreview = document.getElementById("replyPreview");
+    const composerHint = document.getElementById("composerHint");
+
+    const modeCopy = {
+      chat: {
+        title: "Private family group",
+        text: "5 members · 3 online · media, poll and basket open from attach.",
+        state: "Private"
+      },
+      media: {
+        title: "Shared media",
+        text: "Photos, videos, files and voice notes stay searchable here.",
+        state: "Saved"
+      },
+      basket: {
+        title: "Shared basket",
+        text: "Members can add items before moving to Buy.",
+        state: "Basket"
+      },
+      poll: {
+        title: "Group poll",
+        text: "Decide order timing, food, travel or family choices.",
+        state: "Vote"
+      },
+      invite: {
+        title: "Invite trusted people",
+        text: "Add members with clear visibility and remove controls.",
+        state: "Invite"
+      }
+    };
+
+    modeChips.forEach((chip) => {
+      chip.addEventListener("click", (event) => {
+        event.preventDefault();
+        const copy = modeCopy[event.currentTarget.dataset.mode] || modeCopy.chat;
+        modeChips.forEach((item) => item.classList.toggle("active", item === event.currentTarget));
+        modeTitle.textContent = copy.title;
+        modeText.textContent = copy.text;
+        modeState.textContent = copy.state;
+      });
+    });
+
+    attachToggle?.addEventListener("click", () => {
+      attachmentTray?.classList.toggle("is-hidden");
+      composerHint.textContent = attachmentTray?.classList.contains("is-hidden")
+        ? "Message Home Basket Group..."
+        : "Choose photo, file, poll, location or basket...";
+    });
+
+    cameraToggle?.addEventListener("click", () => {
+      attachmentTray?.classList.remove("is-hidden");
+      composerHint.textContent = "Camera ready: take photo or record video...";
+    });
+
+    closeReply?.addEventListener("click", () => {
+      replyPreview?.classList.add("is-hidden");
+      composerHint.textContent = "Message Home Basket Group...";
+    });
+
+    document.querySelectorAll(".attach-chip").forEach((chip) => {
+      chip.addEventListener("click", (event) => {
+        const label = event.currentTarget.textContent.trim();
+        if (label !== "Basket") event.preventDefault();
+        composerHint.textContent = label === "Basket"
+          ? "Opening shared basket..."
+          : `${label} selected...`;
+      });
+    });
+  </script>
+</body>
+</html>

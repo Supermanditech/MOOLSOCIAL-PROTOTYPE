@@ -189,21 +189,28 @@ window.MoolSocialScreenbook = {
       name: "Chat / Order Support Thread",
       file: "screens/22-chat-order-support-thread.html",
       status: "Approved",
-      purpose: "Approved context-aware chat thread for people, business, orders and support with order proof, quick actions, composer, attachments and support fallback."
+      purpose: "Approved order/support chat with WhatsApp-quality text messaging, audio/video call, photo/video/file/bill/proof attachment, order context, support fallback, read receipts and safe upload rules."
     },
     {
       id: "23",
       name: "Chat Inbox / Chat Home",
       file: "screens/23-chat-inbox-home.html",
       status: "Approved",
-      purpose: "Approved premium chat inbox for the Chat main action: WhatsApp-like thread list, All/Unread/People/Business/Orders/Support filters, verified context, order/support alerts, quick start actions and thread routing."
+      purpose: "Approved premium chat inbox for the Chat main action: WhatsApp-like thread list, All/Unread/People/Business/Orders/Support filters, call/video/media/file capability signals, verified context, order/support alerts, quick start actions and thread routing."
     },
     {
       id: "24",
       name: "Chat / Business Thread",
       file: "screens/24-chat-business-thread.html",
       status: "Approved",
-      purpose: "Approved verified business chat with WhatsApp-like messaging, live shop trust, stock update, quote expiry, pickup/delivery choice, catalog/order/pay actions, support route and commerce-safe thread contract."
+      purpose: "Approved verified business chat with WhatsApp-quality messaging, audio/video call, photo/video/file sharing, live shop trust, stock update, quote expiry, pickup/delivery choice, catalog/order/pay actions, support route and commerce-safe thread contract."
+    },
+    {
+      id: "25",
+      name: "Chat / People Thread",
+      file: "screens/25-chat-people-thread.html",
+      status: "Approved",
+      purpose: "Approved personal and group chat with WhatsApp-quality thread UX: text, call, video, attachment tray, photo/file previews, voice note, reply preview, typing state, reactions, member privacy, shared basket, poll, invite and optional Buy handoff."
     }
   ]
 };
