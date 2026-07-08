@@ -1,0 +1,1349 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>18 Home Delivery Completed Bill Rating - MoolSocial Screenbook</title>
+  <link rel="stylesheet" href="../shared/moolsocial-ui-foundation.css" />
+  <style>
+    .screen-shell {
+      display: grid;
+      gap: 18px;
+    }
+
+    .back-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .screen-link-home {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--ms-navy);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .back-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--ms-navy);
+      border-radius: var(--ms-radius);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 11px;
+      font-weight: 950;
+    }
+
+    .preview {
+      display: grid;
+      grid-template-columns: minmax(320px, 390px) minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+      padding: 18px;
+      border-bottom: 1px solid var(--ms-navy);
+      background: var(--ms-white);
+    }
+
+    .phone {
+      width: min(100%, 370px);
+      height: 742px;
+      justify-self: center;
+      border: 10px solid var(--ms-navy);
+      border-radius: 32px;
+      background: var(--ms-navy);
+      overflow: hidden;
+      box-shadow: 0 28px 60px rgba(0, 0, 128, .22);
+    }
+
+    .app {
+      position: relative;
+      height: 100%;
+      display: grid;
+      grid-template-rows: auto auto 1fr auto;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 10% 8%, rgba(255, 153, 51, .18), transparent 24%),
+        radial-gradient(circle at 90% 10%, rgba(19, 136, 8, .16), transparent 28%),
+        linear-gradient(180deg, var(--ms-navy) 0 150px, #f5f7fb 150px 100%);
+      color: var(--ms-white);
+      font-family: var(--ms-font);
+    }
+
+    .status-row {
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 18px 0;
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    .top-zone {
+      display: grid;
+      gap: 10px;
+      padding: 8px 12px 12px;
+    }
+
+    .brand-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .title-lockup {
+      min-width: 0;
+      display: grid;
+      gap: 4px;
+    }
+
+    .title-lockup b {
+      overflow: hidden;
+      color: var(--ms-white);
+      font-size: 19px;
+      line-height: 1;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .title-lockup span {
+      overflow: hidden;
+      color: rgba(255, 255, 255, .76);
+      font-size: 10px;
+      font-weight: 850;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .identity-line {
+      width: 98px;
+      height: 3px;
+      display: grid;
+      grid-template-columns: 45fr 14fr 41fr;
+      border-radius: var(--ms-pill);
+      overflow: hidden;
+    }
+
+    .identity-line span:nth-child(1) { background: var(--ms-saffron); }
+    .identity-line span:nth-child(2) { background: var(--ms-white); }
+    .identity-line span:nth-child(3) { background: var(--ms-green); }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    button {
+      appearance: none;
+      font-family: var(--ms-font);
+      cursor: pointer;
+    }
+
+    svg {
+      width: 18px;
+      height: 18px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .top-buttons {
+      display: flex;
+      gap: 7px;
+    }
+
+    .circle-btn {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, .26);
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .12);
+      color: var(--ms-white);
+      text-decoration: none;
+    }
+
+    .content {
+      min-height: 0;
+      overflow: auto;
+      display: grid;
+      align-content: start;
+      gap: 10px;
+      padding: 0 10px 104px;
+      color: var(--ms-navy);
+      scrollbar-width: none;
+    }
+
+    .content::-webkit-scrollbar {
+      display: none;
+    }
+
+    .complete-hero,
+    .panel-card,
+    .receipt-card {
+      display: grid;
+      gap: 10px;
+      border: 1px solid rgba(0, 0, 128, .15);
+      border-radius: 22px;
+      padding: 10px;
+      background: rgba(255, 255, 255, .98);
+      color: var(--ms-navy);
+      box-shadow: 0 16px 34px rgba(0, 0, 128, .12);
+    }
+
+    .complete-hero {
+      border-color: rgba(19, 136, 8, .28);
+      background:
+        radial-gradient(circle at 90% 8%, rgba(19, 136, 8, .14), transparent 30%),
+        radial-gradient(circle at 12% 88%, rgba(255, 153, 51, .12), transparent 32%),
+        var(--ms-white);
+    }
+
+    .hero-top {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .hero-copy {
+      min-width: 0;
+      display: grid;
+      gap: 5px;
+    }
+
+    .hero-copy b {
+      color: var(--ms-navy);
+      font-size: 19px;
+      line-height: 1.05;
+      font-weight: 950;
+    }
+
+    .hero-copy span {
+      color: rgba(0, 0, 128, .72);
+      font-size: 11px;
+      line-height: 1.25;
+      font-weight: 820;
+    }
+
+    .done-badge {
+      width: 68px;
+      height: 68px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      border: 2px solid rgba(19, 136, 8, .28);
+      background:
+        radial-gradient(circle at 30% 25%, rgba(255, 255, 255, .96), rgba(19, 136, 8, .16)),
+        var(--ms-white);
+      box-shadow: inset 0 -7px 0 rgba(0, 0, 128, .08);
+    }
+
+    .done-badge span {
+      display: grid;
+      gap: 1px;
+      color: var(--ms-green);
+      font-size: 9px;
+      font-weight: 950;
+      text-align: center;
+    }
+
+    .done-badge strong {
+      color: var(--ms-navy);
+      font-size: 16px;
+    }
+
+    .outcome-summary {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .outcome-chip {
+      min-height: 45px;
+      display: grid;
+      align-content: center;
+      gap: 3px;
+      border: 1px solid rgba(0, 0, 128, .10);
+      border-radius: 16px;
+      padding: 7px;
+      background: rgba(0, 0, 128, .035);
+      color: var(--ms-navy);
+    }
+
+    .outcome-chip b {
+      overflow: hidden;
+      font-size: 11px;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .outcome-chip span {
+      overflow: hidden;
+      color: rgba(0, 0, 128, .62);
+      font-size: 7px;
+      font-weight: 900;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .status-strip,
+    .proof-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 5px;
+    }
+
+    .status-step,
+    .proof-step {
+      min-height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 13px;
+      padding: 4px;
+      background: rgba(19, 136, 8, .08);
+      color: var(--ms-green);
+      font-size: 8px;
+      font-weight: 950;
+      text-align: center;
+    }
+
+    .proof-step {
+      gap: 2px;
+      background: rgba(0, 0, 128, .05);
+      color: var(--ms-navy);
+    }
+
+    .proof-step b {
+      font-size: 9px;
+    }
+
+    .proof-step span {
+      color: rgba(0, 0, 128, .62);
+      font-size: 7px;
+    }
+
+    .receipt-head,
+    .panel-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .receipt-shop,
+    .panel-head b {
+      min-width: 0;
+    }
+
+    .receipt-shop {
+      display: grid;
+      gap: 3px;
+    }
+
+    .receipt-shop b,
+    .panel-head b {
+      color: var(--ms-navy);
+      font-size: 14px;
+      font-weight: 950;
+    }
+
+    .receipt-shop span,
+    .panel-head span {
+      color: rgba(0, 0, 128, .62);
+      font-size: 9px;
+      font-weight: 850;
+    }
+
+    .bill-stamp {
+      min-width: 52px;
+      min-height: 42px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(19, 136, 8, .22);
+      border-radius: 15px;
+      background: rgba(19, 136, 8, .07);
+      color: var(--ms-green);
+      font-size: 8px;
+      font-weight: 950;
+      text-align: center;
+    }
+
+    .bill-stamp strong {
+      display: block;
+      color: var(--ms-navy);
+      font-size: 12px;
+    }
+
+    .bill-grid {
+      display: grid;
+      gap: 6px;
+      padding: 9px;
+      border-radius: 16px;
+      background: rgba(0, 0, 128, .04);
+    }
+
+    .bill-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      color: rgba(0, 0, 128, .72);
+      font-size: 10px;
+      font-weight: 850;
+    }
+
+    .bill-row b {
+      color: var(--ms-navy);
+      font-size: 11px;
+      font-weight: 950;
+    }
+
+    .bill-row.total {
+      margin-top: 2px;
+      border-top: 1px solid rgba(0, 0, 128, .14);
+      padding-top: 8px;
+      color: var(--ms-navy);
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .bill-row.total b {
+      color: var(--ms-green);
+      font-size: 16px;
+    }
+
+    .mini-pills,
+    .bill-actions,
+    .quick-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .mini-pill,
+    .tag-btn,
+    .bill-action-btn,
+    .reason-btn {
+      min-height: 28px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: var(--ms-pill);
+      padding: 5px 9px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      text-decoration: none;
+      font-size: 8px;
+      font-weight: 950;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .mini-pill.good {
+      color: var(--ms-green);
+      background: rgba(19, 136, 8, .08);
+    }
+
+    .next-action-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .next-action-card {
+      min-height: 76px;
+      display: grid;
+      align-content: center;
+      gap: 6px;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: 20px;
+      padding: 10px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      text-align: left;
+      text-decoration: none;
+      box-shadow: 0 12px 24px rgba(0, 0, 128, .08);
+    }
+
+    .next-action-card.primary {
+      border-color: var(--ms-navy);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -5px 0 var(--ms-saffron), 0 12px 24px rgba(0, 0, 128, .14);
+    }
+
+    .next-action-card.warn {
+      border-color: rgba(255, 153, 51, .40);
+      background: rgba(255, 153, 51, .10);
+    }
+
+    .next-action-card b {
+      font-size: 11px;
+      font-weight: 950;
+    }
+
+    .next-action-card span {
+      color: currentColor;
+      opacity: .74;
+      font-size: 8px;
+      font-weight: 850;
+      line-height: 1.2;
+    }
+
+    .bill-action-btn {
+      flex: 1 1 82px;
+      min-height: 34px;
+      font-size: 9px;
+    }
+
+    .panel-head .bill-action-btn {
+      flex: 0 0 auto;
+      min-height: 28px;
+      padding-inline: 10px;
+    }
+
+    .bill-action-btn.primary,
+    .tag-btn.active,
+    .reason-btn.active {
+      border-color: var(--ms-navy);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+    }
+
+    .proof-card {
+      display: grid;
+      gap: 8px;
+    }
+
+    .proof-main {
+      display: grid;
+      grid-template-columns: 50px 1fr auto;
+      gap: 9px;
+      align-items: center;
+      border-radius: 18px;
+      padding: 8px;
+      background: rgba(0, 0, 128, .04);
+    }
+
+    .proof-avatar {
+      width: 50px;
+      height: 50px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 15px;
+      font-weight: 950;
+      box-shadow: inset 0 -5px 0 var(--ms-saffron);
+    }
+
+    .proof-copy {
+      min-width: 0;
+      display: grid;
+      gap: 3px;
+    }
+
+    .proof-copy b {
+      color: var(--ms-navy);
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .proof-copy span {
+      color: rgba(0, 0, 128, .68);
+      font-size: 9px;
+      line-height: 1.25;
+      font-weight: 820;
+    }
+
+    .proof-time {
+      color: var(--ms-green);
+      font-size: 10px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .proof-details {
+      display: grid;
+      gap: 8px;
+    }
+
+    .proof-details.collapsed {
+      display: none;
+    }
+
+    .rating-block {
+      display: grid;
+      gap: 8px;
+      border-radius: 18px;
+      padding: 9px;
+      background: rgba(0, 0, 128, .04);
+    }
+
+    .rating-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      color: var(--ms-navy);
+      font-size: 11px;
+      font-weight: 950;
+    }
+
+    .rating-title span {
+      color: rgba(0, 0, 128, .58);
+      font-size: 8px;
+      font-weight: 850;
+    }
+
+    .stars {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .star-btn {
+      height: 34px;
+      border: 1px solid rgba(0, 0, 128, .16);
+      border-radius: 15px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .star-btn.active {
+      border-color: var(--ms-saffron);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 var(--ms-saffron);
+    }
+
+    .issue-reasons {
+      display: none;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .issue-reasons.open {
+      display: grid;
+    }
+
+    .issue-card {
+      display: grid;
+      gap: 8px;
+      border-radius: 18px;
+      padding: 9px;
+      background: rgba(255, 153, 51, .08);
+    }
+
+    .issue-card.active {
+      border: 1px solid rgba(255, 153, 51, .46);
+      background:
+        radial-gradient(circle at 94% 8%, rgba(255, 153, 51, .18), transparent 26%),
+        rgba(255, 153, 51, .10);
+    }
+
+    .issue-card b {
+      color: var(--ms-navy);
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .issue-card span {
+      color: rgba(0, 0, 128, .68);
+      font-size: 9px;
+      line-height: 1.25;
+      font-weight: 820;
+    }
+
+    .issue-window {
+      width: fit-content;
+      border-radius: var(--ms-pill);
+      padding: 5px 8px;
+      background: var(--ms-white);
+      color: var(--ms-green) !important;
+      font-size: 8px !important;
+      font-weight: 950 !important;
+    }
+
+    .repeat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .repeat-card {
+      min-height: 74px;
+      display: grid;
+      align-content: center;
+      gap: 5px;
+      border: 1px solid rgba(0, 0, 128, .16);
+      border-radius: 18px;
+      padding: 10px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      text-align: left;
+      text-decoration: none;
+    }
+
+    .repeat-card.primary {
+      border-color: var(--ms-navy);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -5px 0 var(--ms-saffron);
+    }
+
+    .repeat-card b {
+      font-size: 11px;
+      font-weight: 950;
+    }
+
+    .repeat-card span {
+      color: currentColor;
+      opacity: .78;
+      font-size: 8px;
+      font-weight: 850;
+      line-height: 1.2;
+    }
+
+    .bottom-action {
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      bottom: 78px;
+      z-index: 3;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      align-items: center;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: 21px;
+      padding: 9px;
+      background: rgba(255, 255, 255, .96);
+      box-shadow: 0 18px 42px rgba(0, 0, 128, .20);
+      color: var(--ms-navy);
+    }
+
+    .action-copy {
+      min-width: 0;
+      display: grid;
+      gap: 3px;
+    }
+
+    .action-copy b {
+      color: var(--ms-navy);
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .action-copy span {
+      overflow: hidden;
+      color: rgba(0, 0, 128, .62);
+      font-size: 8px;
+      font-weight: 850;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .submit-btn {
+      min-width: 92px;
+      min-height: 42px;
+      border: 1px solid var(--ms-navy);
+      border-radius: var(--ms-pill);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 10px;
+      font-weight: 950;
+      box-shadow: inset 0 -4px 0 var(--ms-saffron);
+    }
+
+    .submit-btn.done {
+      background: var(--ms-green);
+      border-color: var(--ms-green);
+    }
+
+    .bottom-dock {
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+      z-index: 4;
+      display: grid;
+      grid-template-columns: 64px 1fr 64px;
+      gap: 8px;
+      align-items: center;
+      border: 1px solid rgba(0, 0, 128, .24);
+      border-radius: 24px;
+      padding: 7px;
+      background:
+        radial-gradient(circle at 8% 15%, rgba(255, 255, 255, .95), transparent 20%),
+        linear-gradient(180deg, var(--ms-white), #f5f7fb);
+      box-shadow: 0 -14px 36px rgba(0, 0, 128, .18), inset 0 -5px 0 rgba(0, 0, 128, .06);
+    }
+
+    .mool-button,
+    .chat-button {
+      height: 58px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(0, 0, 128, .16);
+      border-radius: 21px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      text-decoration: none;
+      font-size: 10px;
+      font-weight: 950;
+      box-shadow: 0 9px 18px rgba(0, 0, 128, .10);
+    }
+
+    .mool-button {
+      background:
+        radial-gradient(circle at 30% 22%, rgba(255,255,255,.45), transparent 20%),
+        var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -5px 0 var(--ms-saffron), 0 9px 18px rgba(0, 0, 128, .18);
+    }
+
+    .chat-button {
+      position: relative;
+    }
+
+    .chat-count {
+      position: absolute;
+      right: 4px;
+      top: 2px;
+      min-width: 22px;
+      height: 22px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--ms-saffron);
+      color: var(--ms-navy);
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .dock-tabs {
+      min-width: 0;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 4px;
+      overflow: hidden;
+      border-radius: 23px;
+      padding: 3px;
+      background:
+        radial-gradient(circle at 50% 40%, rgba(0, 0, 128, .12), transparent 54%),
+        linear-gradient(90deg, rgba(0, 0, 128, .08), rgba(255,255,255,.4), rgba(0, 0, 128, .08));
+      box-shadow: inset 0 10px 20px rgba(0, 0, 128, .08);
+    }
+
+    .dock-tab {
+      height: 56px;
+      min-width: 0;
+      display: grid;
+      place-items: center;
+      align-content: center;
+      gap: 3px;
+      border: 1px solid transparent;
+      border-radius: 20px;
+      padding: 4px 3px;
+      background: transparent;
+      color: var(--ms-navy);
+      font-size: 8px;
+      font-weight: 950;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .dock-tab svg,
+    .chat-button svg {
+      width: 19px;
+      height: 19px;
+    }
+
+    .dock-tab.active {
+      border-color: var(--ms-navy);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 var(--ms-saffron), 0 9px 18px rgba(0, 0, 128, .18);
+    }
+
+    .notes {
+      display: grid;
+      gap: 14px;
+    }
+
+    .state-grid {
+      display: grid;
+      grid-template-columns: 170px 1fr 1fr;
+      border: 1px solid var(--ms-navy);
+      border-bottom: 0;
+    }
+
+    .state-cell {
+      min-height: 54px;
+      display: grid;
+      align-content: center;
+      border-right: 1px solid var(--ms-navy);
+      border-bottom: 1px solid var(--ms-navy);
+      padding: 10px;
+      color: var(--ms-navy);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    .state-cell:nth-child(3n) {
+      border-right: 0;
+    }
+
+    .state-cell b {
+      color: var(--ms-green);
+    }
+
+    @media (max-width: 900px) {
+      .preview {
+        grid-template-columns: 1fr;
+      }
+
+      .state-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .state-cell {
+        border-right: 0;
+      }
+    }
+  </style>
+</head>
+<body class="ms-doc">
+  <main class="ms-page screen-shell">
+    <header class="back-row">
+      <a class="screen-link-home" href="../index.html">
+        <span class="back-mark">MS</span>
+        Back to screenbook
+      </a>
+      <span class="ms-status approved">Screen 18 Approved</span>
+    </header>
+
+    <section class="ms-panel">
+      <div class="ms-section-head">
+        Screen 18: Home Delivery Completed / Bill & Rating
+        <span>After doorstep OTP verification</span>
+      </div>
+
+      <div class="preview">
+        <div class="phone" aria-label="MoolSocial home delivery completed bill and rating phone preview">
+          <div class="app" id="deliveryCompleteApp" data-shop-rated="no" data-rider-rated="no">
+            <div class="status-row">
+              <span>10:25</span>
+              <span>5G 100%</span>
+            </div>
+
+            <div class="top-zone">
+              <div class="brand-row">
+                <div class="title-lockup">
+                  <b>Delivery Complete</b>
+                  <div class="identity-line" aria-hidden="true"><span></span><span></span><span></span></div>
+                  <span>Bill and delivery proof saved</span>
+                </div>
+                <div class="top-buttons">
+                  <a class="circle-btn" href="17-home-delivery-tracking.html?v=approved-17" aria-label="Back to delivery tracking">
+                    <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" /></svg>
+                  </a>
+                  <button class="circle-btn" type="button" id="shareBillTop" aria-label="Share bill">
+                    <svg viewBox="0 0 24 24"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7" /><path d="M16 6l-4-4-4 4" /><path d="M12 2v14" /></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="content">
+              <section class="complete-hero">
+                <div class="hero-top">
+                  <div class="hero-copy">
+                    <b id="heroTitle">Delivered and verified</b>
+                    <span id="heroSubtitle">Bill, doorstep OTP proof and delivery proof are saved.</span>
+                    <span>Order MS-BUY-1043 - Mahadev Fresh Mart - Sardarpura</span>
+                  </div>
+                  <div class="done-badge">
+                    <span><strong>Done</strong>Delivery</span>
+                  </div>
+                </div>
+                <div class="outcome-summary" aria-label="Delivery completion summary">
+                  <div class="outcome-chip"><b>Rs 645</b><span>final paid bill</span></div>
+                  <div class="outcome-chip"><b>OTP proof</b><span>verified 10:24</span></div>
+                  <div class="outcome-chip"><b>30 min</b><span>issue window</span></div>
+                </div>
+              </section>
+
+              <section class="panel-card">
+                <div class="panel-head">
+                  <b>What next?</b>
+                  <span>choose one</span>
+                </div>
+                <div class="next-action-grid">
+                  <button class="next-action-card primary" type="button" id="rateOrderButton">
+                    <b>Rate Order</b>
+                    <span>shop and delivery</span>
+                  </button>
+                  <button class="next-action-card warn" type="button" id="reportProblemButton">
+                    <b>Report Problem</b>
+                    <span>missing, damaged, bill</span>
+                  </button>
+                  <a class="next-action-card" href="10-buy-grocery-decision.html">
+                    <b>Buy Again</b>
+                    <span>repeat basket</span>
+                  </a>
+                </div>
+              </section>
+
+              <section class="receipt-card">
+                <div class="receipt-head">
+                  <div class="receipt-shop">
+                    <b>Final bill</b>
+                    <span>6 items - paid by UPI - delivery complete</span>
+                  </div>
+                  <div class="bill-stamp">
+                    <span><strong>Bill</strong>Saved</span>
+                  </div>
+                </div>
+                <div class="bill-grid">
+                  <div class="bill-row"><span>Confirmed items</span><b>Rs 687</b></div>
+                  <div class="bill-row"><span>Shop saving</span><b>- Rs 42</b></div>
+                  <div class="bill-row"><span>Delivery fee</span><b>Rs 0</b></div>
+                  <div class="bill-row"><span>Paid by UPI</span><b>Rs 645</b></div>
+                  <div class="bill-row total"><span>Final bill</span><b>Rs 645</b></div>
+                </div>
+                <div class="mini-pills">
+                  <span class="mini-pill good">OTP verified</span>
+                  <span class="mini-pill">Shop bill proof</span>
+                  <span class="mini-pill">Delivery proof</span>
+                </div>
+                <div class="bill-actions" aria-label="Bill actions">
+                  <button class="bill-action-btn primary" type="button" id="downloadBillButton">Download bill</button>
+                  <button class="bill-action-btn" type="button" id="shareBillButton">Share bill</button>
+                  <button class="bill-action-btn" type="button" id="openOrdersButton">Orders</button>
+                </div>
+              </section>
+
+              <section class="panel-card">
+                <div class="panel-head">
+                  <b>Proof saved</b>
+                  <button class="bill-action-btn" type="button" id="viewProofButton">View proof</button>
+                </div>
+                <div class="proof-card">
+                  <div class="proof-main">
+                    <div class="proof-avatar">RK</div>
+                    <div class="proof-copy">
+                      <b>OTP verified at doorstep</b>
+                      <span>Rider GPS, OTP, packed proof and bill proof are attached to this order.</span>
+                    </div>
+                    <span class="proof-time">10:24</span>
+                  </div>
+                  <div class="proof-details collapsed" id="proofDetails">
+                    <div class="proof-strip">
+                      <span class="proof-step"><b>Shop</b><span>packed 10:02</span></span>
+                      <span class="proof-step"><b>Rider</b><span>picked 10:06</span></span>
+                      <span class="proof-step"><b>OTP</b><span>verified 10:24</span></span>
+                      <span class="proof-step"><b>Bill</b><span>saved</span></span>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <section class="panel-card" id="ratingPanel">
+                <div class="panel-head">
+                  <b>Rate order</b>
+                  <span id="ratingHint">shop and delivery</span>
+                </div>
+
+                <div class="rating-block">
+                  <div class="rating-title">
+                    <b>Shop experience</b>
+                    <span id="shopRatingText">Tap rating</span>
+                  </div>
+                  <div class="stars" aria-label="Rate shop">
+                    <button class="star-btn" type="button" data-target="shop" data-rating="1">1</button>
+                    <button class="star-btn" type="button" data-target="shop" data-rating="2">2</button>
+                    <button class="star-btn" type="button" data-target="shop" data-rating="3">3</button>
+                    <button class="star-btn" type="button" data-target="shop" data-rating="4">4</button>
+                    <button class="star-btn" type="button" data-target="shop" data-rating="5">5</button>
+                  </div>
+                  <div class="quick-tags">
+                    <button class="tag-btn" type="button">Fresh items</button>
+                    <button class="tag-btn" type="button">Correct bill</button>
+                    <button class="tag-btn" type="button">Good packing</button>
+                  </div>
+                </div>
+
+                <div class="rating-block">
+                  <div class="rating-title">
+                    <b>Delivery experience</b>
+                    <span id="riderRatingText">Tap rating</span>
+                  </div>
+                  <div class="stars" aria-label="Rate rider">
+                    <button class="star-btn" type="button" data-target="rider" data-rating="1">1</button>
+                    <button class="star-btn" type="button" data-target="rider" data-rating="2">2</button>
+                    <button class="star-btn" type="button" data-target="rider" data-rating="3">3</button>
+                    <button class="star-btn" type="button" data-target="rider" data-rating="4">4</button>
+                    <button class="star-btn" type="button" data-target="rider" data-rating="5">5</button>
+                  </div>
+                  <div class="quick-tags">
+                    <button class="tag-btn" type="button">On time</button>
+                    <button class="tag-btn" type="button">Polite</button>
+                    <button class="tag-btn" type="button">Packet handled well</button>
+                  </div>
+                </div>
+
+                <div class="issue-reasons" id="lowRatingReasons" aria-label="Low rating reasons">
+                  <button class="reason-btn" type="button">Missing item</button>
+                  <button class="reason-btn" type="button">Damaged item</button>
+                  <button class="reason-btn" type="button">Late delivery</button>
+                  <button class="reason-btn" type="button">Bill issue</button>
+                </div>
+              </section>
+
+              <section class="panel-card">
+                <div class="panel-head">
+                  <b>Report a problem</b>
+                  <span>after delivery</span>
+                </div>
+                <div class="issue-card" id="issueCard">
+                  <b>Missing, damaged, wrong item or bill issue?</b>
+                  <span>Report within 30 minutes. Next step asks item photo and compares shop proof, rider proof and customer report.</span>
+                  <span class="issue-window" id="issueWindow">Issue window 29:59 left</span>
+                  <div class="bill-actions">
+                    <button class="bill-action-btn" type="button" data-issue-trigger="yes">Report item issue</button>
+                    <button class="bill-action-btn" type="button">Call shop</button>
+                    <a class="bill-action-btn" href="03-login-account-handoff.html">Chat order</a>
+                  </div>
+                </div>
+              </section>
+
+              <section class="panel-card">
+                <div class="panel-head">
+                  <b>Buy again</b>
+                  <span>one tap</span>
+                </div>
+                <div class="repeat-grid">
+                  <a class="repeat-card primary" href="10-buy-grocery-decision.html">
+                    <b>Repeat basket</b>
+                    <span>same shop, same items</span>
+                  </a>
+                  <button class="repeat-card" type="button" id="monthlyButton">
+                    <b>Monthly basket</b>
+                    <span>save for next grocery cycle</span>
+                  </button>
+                </div>
+              </section>
+            </div>
+
+            <div class="bottom-action">
+              <div class="action-copy">
+                <b id="actionTitle">Bill saved</b>
+                <span id="actionMeta">Rate, report, or buy again</span>
+              </div>
+              <button class="submit-btn" type="button" id="submitRating">Submit</button>
+            </div>
+
+            <nav class="bottom-dock" aria-label="Completed delivery navigation">
+              <a class="mool-button" href="04-universal-focus-shell.html" aria-label="Open Mool">Mool</a>
+              <div class="dock-tabs" aria-label="Buy sub-actions">
+                <a class="dock-tab" href="10-buy-grocery-decision.html" aria-label="Open shop">
+                  <svg viewBox="0 0 24 24"><path d="M6 7h15l-2 9H8L6 3H3" /><path d="M9 20h.01M18 20h.01" /></svg>
+                  Shop
+                </a>
+                <a class="dock-tab" href="12-buy-basket-checkout.html" aria-label="Open basket">
+                  <svg viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6L5 8Z" /><path d="M9 8a3 3 0 0 1 6 0" /></svg>
+                  Basket
+                </a>
+                <a class="dock-tab active" href="18-home-delivery-completed-bill-rating.html" aria-label="Open bill">
+                  <svg viewBox="0 0 24 24"><path d="M6 2h12v20l-3-2-3 2-3-2-3 2V2Z" /><path d="M9 7h6M9 11h6" /></svg>
+                  Bill
+                </a>
+                <a class="dock-tab" href="09-buy.html" aria-label="Open orders">
+                  <svg viewBox="0 0 24 24"><path d="M4 7h16M7 7v13h10V7" /><path d="M9 11h6M9 15h6" /></svg>
+                  Orders
+                </a>
+              </div>
+              <a class="chat-button" href="03-login-account-handoff.html" aria-label="Open chat">
+                <svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z" /></svg>
+                <span class="chat-count">2</span>
+              </a>
+            </nav>
+          </div>
+        </div>
+
+        <div class="notes">
+          <div>
+            <h1 class="ms-title">Delivery completion needs proof, not just rating.</h1>
+            <p class="ms-lead">
+              Screen 18 closes the home delivery branch after OTP verification. It saves bill, rider proof,
+              doorstep delivery proof, issue window and separate shop/rider rating.
+            </p>
+          </div>
+
+          <div class="ms-panel">
+            <div class="ms-section-head">Screen Contract <span>Approved</span></div>
+            <div class="state-grid">
+              <div class="state-cell"><b>Entry</b>After rider verifies doorstep OTP on Screen 17 and order status becomes delivered.</div>
+              <div class="state-cell"><b>User Sees</b>Final bill, delivery proof, OTP proof, shop/rider identities, issue window and rating.</div>
+              <div class="state-cell"><b>Decision</b>User can download/share bill, report item issue, rate shop/rider or repeat basket.</div>
+
+              <div class="state-cell"><b>Backend</b>Consumes delivered status, OTP verification, rider GPS proof, final bill, issue timer and rating.</div>
+              <div class="state-cell"><b>Safety</b>Issue/refund path requires item photo and compares shop proof, rider proof and customer report.</div>
+              <div class="state-cell"><b>Trust</b>Separate ratings update shop trust, rider trust and local fulfilment score.</div>
+
+              <div class="state-cell"><b>Next</b>After submit, route to Orders or repeat basket. Low rating opens issue evidence flow.</div>
+              <div class="state-cell"><b>Failure</b>If bill/proof missing, order remains in support review and payout can be held.</div>
+              <div class="state-cell"><b>Dock</b>Mool, Shop, Basket, Bill, Orders and Chat stay one tap accessible.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const app = document.getElementById("deliveryCompleteApp");
+    const actionTitle = document.getElementById("actionTitle");
+    const actionMeta = document.getElementById("actionMeta");
+    const ratingHint = document.getElementById("ratingHint");
+    const shopRatingText = document.getElementById("shopRatingText");
+    const riderRatingText = document.getElementById("riderRatingText");
+    const lowRatingReasons = document.getElementById("lowRatingReasons");
+    const submitRating = document.getElementById("submitRating");
+    const rateOrderButton = document.getElementById("rateOrderButton");
+    const reportProblemButton = document.getElementById("reportProblemButton");
+    const viewProofButton = document.getElementById("viewProofButton");
+    const proofDetails = document.getElementById("proofDetails");
+    const ratingPanel = document.getElementById("ratingPanel");
+    const issueCard = document.getElementById("issueCard");
+
+    function updateSubmitState() {
+      const shopDone = app.dataset.shopRated === "yes";
+      const riderDone = app.dataset.riderRated === "yes";
+      if (shopDone && riderDone) {
+        actionTitle.textContent = "Ratings ready";
+        actionMeta.textContent = "Submit updates shop and rider trust";
+      }
+    }
+
+    rateOrderButton.addEventListener("click", () => {
+      ratingPanel.scrollIntoView({ block: "nearest", behavior: "smooth" });
+      actionTitle.textContent = "Rate order";
+      actionMeta.textContent = "Rate shop experience and delivery experience";
+    });
+
+    reportProblemButton.addEventListener("click", () => {
+      issueCard.classList.add("active");
+      lowRatingReasons.classList.add("open");
+      issueCard.scrollIntoView({ block: "nearest", behavior: "smooth" });
+      actionTitle.textContent = "Problem report";
+      actionMeta.textContent = "Choose issue type and add item photo next";
+    });
+
+    viewProofButton.addEventListener("click", () => {
+      const isCollapsed = proofDetails.classList.toggle("collapsed");
+      viewProofButton.textContent = isCollapsed ? "View proof" : "Hide proof";
+      actionTitle.textContent = isCollapsed ? "Proof saved" : "Proof visible";
+      actionMeta.textContent = isCollapsed ? "OTP and bill proof remain saved" : "Shop, rider, OTP and bill timestamps shown";
+    });
+
+    document.querySelectorAll(".star-btn").forEach((button) => {
+      button.addEventListener("click", () => {
+        const target = button.dataset.target;
+        const rating = Number(button.dataset.rating);
+        document.querySelectorAll(`.star-btn[data-target="${target}"]`).forEach((star) => {
+          star.classList.toggle("active", Number(star.dataset.rating) <= rating);
+        });
+
+        if (target === "shop") {
+          app.dataset.shopRated = "yes";
+          shopRatingText.textContent = `${rating}/5`;
+        } else {
+          app.dataset.riderRated = "yes";
+          riderRatingText.textContent = `${rating}/5`;
+        }
+
+        ratingHint.textContent = rating <= 3 ? "tell us what went wrong" : "thank you";
+        if (rating <= 3 || issueCard.classList.contains("active")) {
+          lowRatingReasons.classList.add("open");
+        } else {
+          lowRatingReasons.classList.remove("open");
+        }
+        actionTitle.textContent = rating <= 3 ? "Issue reason needed" : "Rating captured";
+        actionMeta.textContent = rating <= 3 ? "Choose reason or raise item issue" : "You can submit or rate the other side";
+        updateSubmitState();
+      });
+    });
+
+    document.querySelectorAll(".tag-btn, .reason-btn").forEach((button) => {
+      button.addEventListener("click", () => {
+        button.classList.toggle("active");
+        actionTitle.textContent = "Feedback added";
+        actionMeta.textContent = button.textContent.trim();
+      });
+    });
+
+    document.querySelectorAll("[data-issue-trigger='yes']").forEach((button) => {
+      button.addEventListener("click", () => {
+        issueCard.classList.add("active");
+        lowRatingReasons.classList.add("open");
+        actionTitle.textContent = "Issue evidence flow";
+        actionMeta.textContent = "Next asks item photo and issue reason";
+      });
+    });
+
+    document.getElementById("downloadBillButton").addEventListener("click", () => {
+      actionTitle.textContent = "Bill downloaded";
+      actionMeta.textContent = "PDF receipt saved on device";
+    });
+
+    document.getElementById("shareBillButton").addEventListener("click", () => {
+      actionTitle.textContent = "Share bill";
+      actionMeta.textContent = "Share sheet opens in production";
+    });
+
+    document.getElementById("shareBillTop").addEventListener("click", () => {
+      actionTitle.textContent = "Share bill";
+      actionMeta.textContent = "Share sheet opens in production";
+    });
+
+    document.getElementById("openOrdersButton").addEventListener("click", () => {
+      actionTitle.textContent = "Orders";
+      actionMeta.textContent = "Order history opens with this bill selected";
+    });
+
+    document.getElementById("monthlyButton").addEventListener("click", () => {
+      actionTitle.textContent = "Monthly basket saved";
+      actionMeta.textContent = "Reminder and repeat basket preference saved";
+    });
+
+    submitRating.addEventListener("click", () => {
+      submitRating.classList.add("done");
+      submitRating.textContent = "Done";
+      actionTitle.textContent = "Thanks";
+      actionMeta.textContent = "Bill, proof and feedback are saved";
+    });
+  </script>
+</body>
+</html>

@@ -155,6 +155,13 @@ window.MoolSocialScreenbook = {
       file: "screens/17-home-delivery-tracking.html",
       status: "Approved",
       purpose: "Approved home delivery tracking branch after payment: ETA, item summary, rider identity, route, locked/unlocked doorstep OTP, proof timestamps, address help, delay support, rider reassignment and OTP-verified delivered handoff."
+    },
+    {
+      id: "18",
+      name: "Home Delivery Completed / Bill & Rating",
+      file: "screens/18-home-delivery-completed-bill-rating.html",
+      status: "Approved",
+      purpose: "Approved home delivery completion closeout after doorstep OTP verification: calm delivered summary, final bill, compact proof, issue window, order rating, repeat basket and support handoff."
     }
   ]
 };
