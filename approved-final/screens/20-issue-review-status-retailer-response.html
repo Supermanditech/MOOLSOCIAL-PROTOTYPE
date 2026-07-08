@@ -1,0 +1,1063 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>20 Issue Review Status Retailer Response - MoolSocial Screenbook</title>
+  <link rel="stylesheet" href="../shared/moolsocial-ui-foundation.css" />
+  <style>
+    .screen-shell { display: grid; gap: 18px; }
+    .back-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+    .screen-link-home {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--ms-navy);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 900;
+    }
+    .back-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--ms-navy);
+      border-radius: var(--ms-radius);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 11px;
+      font-weight: 950;
+    }
+    .preview {
+      display: grid;
+      grid-template-columns: minmax(320px, 390px) minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+      padding: 18px;
+      border-bottom: 1px solid var(--ms-navy);
+      background: var(--ms-white);
+    }
+    .phone {
+      width: min(100%, 370px);
+      height: 742px;
+      justify-self: center;
+      border: 10px solid var(--ms-navy);
+      border-radius: 32px;
+      background: var(--ms-navy);
+      overflow: hidden;
+      box-shadow: 0 28px 60px rgba(0, 0, 128, .22);
+    }
+    .app {
+      position: relative;
+      height: 100%;
+      display: grid;
+      grid-template-rows: auto auto 1fr auto;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 10% 8%, rgba(255, 153, 51, .18), transparent 24%),
+        radial-gradient(circle at 88% 10%, rgba(19, 136, 8, .14), transparent 28%),
+        linear-gradient(180deg, var(--ms-navy) 0 150px, #f5f7fb 150px 100%);
+      color: var(--ms-white);
+      font-family: var(--ms-font);
+    }
+    .status-row {
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 18px 0;
+      font-size: 11px;
+      font-weight: 900;
+    }
+    .top-zone { display: grid; gap: 10px; padding: 8px 12px 12px; }
+    .brand-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .title-lockup { min-width: 0; display: grid; gap: 4px; }
+    .title-lockup b {
+      overflow: hidden;
+      color: var(--ms-white);
+      font-size: 19px;
+      line-height: 1;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .title-lockup span {
+      overflow: hidden;
+      color: rgba(255,255,255,.76);
+      font-size: 10px;
+      font-weight: 850;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .identity-line {
+      width: 98px;
+      height: 3px;
+      display: grid;
+      grid-template-columns: 45fr 14fr 41fr;
+      border-radius: var(--ms-pill);
+      overflow: hidden;
+    }
+    .identity-line span:nth-child(1) { background: var(--ms-saffron); }
+    .identity-line span:nth-child(2) { background: var(--ms-white); }
+    .identity-line span:nth-child(3) { background: var(--ms-green); }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    button { appearance: none; font-family: var(--ms-font); cursor: pointer; }
+    svg {
+      width: 18px;
+      height: 18px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .top-buttons { display: flex; gap: 7px; }
+    .circle-btn {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255,255,255,.26);
+      border-radius: 50%;
+      background: rgba(255,255,255,.12);
+      color: var(--ms-white);
+      text-decoration: none;
+    }
+    .content {
+      min-height: 0;
+      overflow: auto;
+      display: grid;
+      align-content: start;
+      gap: 10px;
+      padding: 0 10px 104px;
+      color: var(--ms-navy);
+      scrollbar-width: none;
+    }
+    .content::-webkit-scrollbar { display: none; }
+    .status-hero, .panel-card {
+      display: grid;
+      gap: 10px;
+      border: 1px solid rgba(0,0,128,.15);
+      border-radius: 22px;
+      padding: 10px;
+      background: rgba(255,255,255,.98);
+      color: var(--ms-navy);
+      box-shadow: 0 16px 34px rgba(0,0,128,.12);
+    }
+    .status-hero {
+      border-color: rgba(255,153,51,.32);
+      background:
+        radial-gradient(circle at 92% 10%, rgba(255,153,51,.16), transparent 30%),
+        var(--ms-white);
+    }
+    .hero-top, .panel-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .hero-copy, .case-copy, .response-copy, .proof-copy { min-width: 0; display: grid; gap: 4px; }
+    .hero-copy b {
+      color: var(--ms-navy);
+      font-size: 19px;
+      line-height: 1.05;
+      font-weight: 950;
+    }
+    .hero-copy span, .panel-head span {
+      color: rgba(0,0,128,.64);
+      font-size: 10px;
+      line-height: 1.25;
+      font-weight: 850;
+    }
+    .case-badge {
+      min-width: 70px;
+      min-height: 58px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      text-align: center;
+      box-shadow: inset 0 -5px 0 var(--ms-saffron);
+    }
+    .case-badge span { font-size: 8px; font-weight: 950; }
+    .case-badge strong { display: block; font-size: 14px; }
+    .progress-steps {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 5px;
+    }
+    .progress-step {
+      min-height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      padding: 5px;
+      background: rgba(0,0,128,.045);
+      color: rgba(0,0,128,.64);
+      font-size: 8px;
+      font-weight: 950;
+      text-align: center;
+    }
+    .progress-step.active {
+      background: rgba(255,153,51,.14);
+      color: var(--ms-navy);
+    }
+    .progress-step.done {
+      background: rgba(19,136,8,.10);
+      color: var(--ms-green);
+    }
+    .panel-head b {
+      color: var(--ms-navy);
+      font-size: 14px;
+      font-weight: 950;
+    }
+    .case-card, .response-card, .status-tile, .proof-row, .money-row {
+      display: grid;
+      gap: 8px;
+      border-radius: 18px;
+      padding: 9px;
+      background: rgba(0,0,128,.04);
+    }
+    .case-card {
+      grid-template-columns: 1fr auto;
+      align-items: center;
+    }
+    .case-copy b, .response-copy b, .proof-copy b {
+      color: var(--ms-navy);
+      font-size: 12px;
+      font-weight: 950;
+    }
+    .case-copy span, .response-copy span, .proof-copy span {
+      color: rgba(0,0,128,.64);
+      font-size: 9px;
+      line-height: 1.25;
+      font-weight: 850;
+    }
+    .timer-pill {
+      min-width: 58px;
+      min-height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 15px;
+      background: var(--ms-white);
+      color: var(--ms-green);
+      font-size: 11px;
+      font-weight: 950;
+      text-align: center;
+    }
+    .response-card {
+      border: 1px solid rgba(255,153,51,.24);
+      background: rgba(255,153,51,.08);
+    }
+    .response-card.accepted {
+      border-color: rgba(19,136,8,.24);
+      background: rgba(19,136,8,.08);
+    }
+    .response-card.review {
+      border-color: rgba(0,0,128,.18);
+      background: rgba(0,0,128,.05);
+    }
+    .status-tile {
+      grid-template-columns: 42px 1fr;
+      align-items: center;
+      border: 1px solid rgba(255,153,51,.22);
+      background:
+        linear-gradient(135deg, rgba(255,153,51,.14), rgba(255,255,255,.9) 54%),
+        var(--ms-white);
+    }
+    .status-tile.accepted {
+      border-color: rgba(19,136,8,.28);
+      background:
+        linear-gradient(135deg, rgba(19,136,8,.13), rgba(255,255,255,.92) 56%),
+        var(--ms-white);
+    }
+    .status-tile.review {
+      border-color: rgba(0,0,128,.22);
+      background:
+        linear-gradient(135deg, rgba(0,0,128,.09), rgba(255,255,255,.94) 58%),
+        var(--ms-white);
+    }
+    .status-icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 var(--ms-saffron);
+    }
+    .status-icon svg { width: 21px; height: 21px; }
+    .sla-strip {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      align-items: center;
+      border-radius: 16px;
+      padding: 8px 9px;
+      background: rgba(0,0,128,.045);
+    }
+    .sla-strip span {
+      color: rgba(0,0,128,.66);
+      font-size: 9px;
+      font-weight: 850;
+    }
+    .sla-strip b {
+      color: var(--ms-navy);
+      font-size: 10px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+    .proof-row {
+      grid-template-columns: 34px 1fr auto;
+      align-items: center;
+    }
+    .proof-chip-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 7px;
+    }
+    .proof-chip {
+      min-height: 58px;
+      display: grid;
+      align-content: center;
+      gap: 4px;
+      border: 1px solid rgba(0,0,128,.12);
+      border-radius: 17px;
+      padding: 8px;
+      background: rgba(255,255,255,.96);
+      color: var(--ms-navy);
+    }
+    .proof-chip b {
+      color: var(--ms-navy);
+      font-size: 10px;
+      font-weight: 950;
+    }
+    .proof-chip span {
+      color: var(--ms-green);
+      font-size: 8px;
+      line-height: 1.15;
+      font-weight: 950;
+    }
+    .proof-dot {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 13px;
+      background: rgba(19,136,8,.10);
+      color: var(--ms-green);
+      font-size: 10px;
+      font-weight: 950;
+    }
+    .proof-state {
+      color: var(--ms-green);
+      font-size: 8px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+    .money-grid { display: grid; gap: 7px; }
+    .resolution-card {
+      display: grid;
+      gap: 8px;
+      border-radius: 18px;
+      padding: 9px;
+      background:
+        radial-gradient(circle at 96% 12%, rgba(19,136,8,.10), transparent 32%),
+        rgba(0,0,128,.04);
+    }
+    .resolution-note {
+      color: rgba(0,0,128,.64);
+      font-size: 9px;
+      line-height: 1.25;
+      font-weight: 850;
+    }
+    .money-row {
+      grid-template-columns: 1fr auto;
+      align-items: center;
+    }
+    .money-row span {
+      color: rgba(0,0,128,.66);
+      font-size: 9px;
+      font-weight: 850;
+    }
+    .money-row b {
+      color: var(--ms-navy);
+      font-size: 12px;
+      font-weight: 950;
+    }
+    .money-row.total b { color: var(--ms-green); font-size: 15px; }
+    .action-grid, .choice-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+    }
+    .small-action, .choice-card {
+      min-height: 62px;
+      display: grid;
+      align-content: center;
+      gap: 5px;
+      border: 1px solid rgba(0,0,128,.14);
+      border-radius: 18px;
+      padding: 9px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      text-align: left;
+      text-decoration: none;
+    }
+    .small-action.primary, .choice-card.active {
+      border-color: var(--ms-navy);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -5px 0 var(--ms-saffron);
+    }
+    .small-action b, .choice-card b {
+      color: inherit;
+      font-size: 10px;
+      font-weight: 950;
+    }
+    .small-action span, .choice-card span {
+      color: currentColor;
+      opacity: .68;
+      font-size: 8px;
+      line-height: 1.15;
+      font-weight: 850;
+    }
+    .confirm-strip {
+      display: none;
+      gap: 8px;
+      align-items: center;
+      border: 1px solid rgba(255,153,51,.26);
+      border-radius: 18px;
+      padding: 9px;
+      background: rgba(255,153,51,.10);
+    }
+    .confirm-strip.open { display: grid; }
+    .confirm-strip b {
+      color: var(--ms-navy);
+      font-size: 11px;
+      font-weight: 950;
+    }
+    .confirm-strip span {
+      color: rgba(0,0,128,.66);
+      font-size: 9px;
+      line-height: 1.25;
+      font-weight: 850;
+    }
+    .confirm-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 7px;
+    }
+    .confirm-actions button {
+      min-height: 34px;
+      border: 1px solid rgba(0,0,128,.16);
+      border-radius: var(--ms-pill);
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      font-size: 9px;
+      font-weight: 950;
+    }
+    .confirm-actions button.primary-confirm {
+      border-color: var(--ms-green);
+      background: var(--ms-green);
+      color: var(--ms-white);
+    }
+    .mini-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .mini-pill {
+      min-height: 27px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(0,0,128,.14);
+      border-radius: var(--ms-pill);
+      padding: 5px 9px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      font-size: 8px;
+      font-weight: 950;
+      line-height: 1;
+      white-space: nowrap;
+    }
+    .mini-pill.good { color: var(--ms-green); background: rgba(19,136,8,.08); }
+    .mini-pill.warn { color: var(--ms-navy); background: rgba(255,153,51,.12); }
+    .demo-controls {
+      display: grid;
+      gap: 10px;
+      border: 1px solid rgba(0,0,128,.12);
+      border-radius: 18px;
+      padding: 12px;
+      background: rgba(255,255,255,.92);
+    }
+    .demo-controls .choice-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .bottom-action {
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      bottom: 78px;
+      z-index: 3;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      align-items: center;
+      border: 1px solid rgba(0,0,128,.14);
+      border-radius: 21px;
+      padding: 9px;
+      background: rgba(255,255,255,.96);
+      box-shadow: 0 18px 42px rgba(0,0,128,.20);
+      color: var(--ms-navy);
+    }
+    .action-copy { min-width: 0; display: grid; gap: 3px; }
+    .action-copy b { color: var(--ms-navy); font-size: 12px; font-weight: 950; }
+    .action-copy span {
+      overflow: hidden;
+      color: rgba(0,0,128,.62);
+      font-size: 8px;
+      font-weight: 850;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .primary-btn {
+      min-width: 94px;
+      min-height: 42px;
+      border: 1px solid var(--ms-navy);
+      border-radius: var(--ms-pill);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 10px;
+      font-weight: 950;
+      box-shadow: inset 0 -4px 0 var(--ms-saffron);
+    }
+    .primary-btn.done { background: var(--ms-green); border-color: var(--ms-green); }
+    .bottom-dock {
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+      z-index: 4;
+      display: grid;
+      grid-template-columns: 64px 1fr 64px;
+      gap: 8px;
+      align-items: center;
+      border: 1px solid rgba(0,0,128,.24);
+      border-radius: 24px;
+      padding: 7px;
+      background:
+        radial-gradient(circle at 8% 15%, rgba(255,255,255,.95), transparent 20%),
+        linear-gradient(180deg, var(--ms-white), #f5f7fb);
+      box-shadow: 0 -14px 36px rgba(0,0,128,.18), inset 0 -5px 0 rgba(0,0,128,.06);
+    }
+    .mool-button, .chat-button {
+      height: 58px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(0,0,128,.16);
+      border-radius: 21px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      text-decoration: none;
+      font-size: 10px;
+      font-weight: 950;
+      box-shadow: 0 9px 18px rgba(0,0,128,.10);
+    }
+    .mool-button {
+      background:
+        radial-gradient(circle at 30% 22%, rgba(255,255,255,.45), transparent 20%),
+        var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -5px 0 var(--ms-saffron), 0 9px 18px rgba(0,0,128,.18);
+    }
+    .chat-button { position: relative; }
+    .chat-count {
+      position: absolute;
+      right: 4px;
+      top: 2px;
+      min-width: 22px;
+      height: 22px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--ms-saffron);
+      color: var(--ms-navy);
+      font-size: 12px;
+      font-weight: 950;
+    }
+    .dock-tabs {
+      min-width: 0;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 4px;
+      overflow: hidden;
+      border-radius: 23px;
+      padding: 3px;
+      background:
+        radial-gradient(circle at 50% 40%, rgba(0,0,128,.12), transparent 54%),
+        linear-gradient(90deg, rgba(0,0,128,.08), rgba(255,255,255,.4), rgba(0,0,128,.08));
+      box-shadow: inset 0 10px 20px rgba(0,0,128,.08);
+    }
+    .dock-tab {
+      height: 56px;
+      min-width: 0;
+      display: grid;
+      place-items: center;
+      align-content: center;
+      gap: 3px;
+      border: 1px solid transparent;
+      border-radius: 20px;
+      padding: 4px 3px;
+      background: transparent;
+      color: var(--ms-navy);
+      font-size: 8px;
+      font-weight: 950;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .dock-tab svg, .chat-button svg { width: 19px; height: 19px; }
+    .dock-tab.active {
+      border-color: var(--ms-navy);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 var(--ms-saffron), 0 9px 18px rgba(0,0,128,.18);
+    }
+    .notes { display: grid; gap: 14px; }
+    .state-grid {
+      display: grid;
+      grid-template-columns: 170px 1fr 1fr;
+      border: 1px solid var(--ms-navy);
+      border-bottom: 0;
+    }
+    .state-cell {
+      min-height: 54px;
+      display: grid;
+      align-content: center;
+      border-right: 1px solid var(--ms-navy);
+      border-bottom: 1px solid var(--ms-navy);
+      padding: 10px;
+      color: var(--ms-navy);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+    .state-cell:nth-child(3n) { border-right: 0; }
+    .state-cell b { color: var(--ms-green); }
+    @media (max-width: 900px) {
+      .preview { grid-template-columns: 1fr; }
+      .state-grid { grid-template-columns: 1fr; }
+      .state-cell { border-right: 0; }
+    }
+  </style>
+</head>
+<body class="ms-doc">
+  <main class="ms-page screen-shell">
+    <header class="back-row">
+      <a class="screen-link-home" href="../index.html">
+        <span class="back-mark">MS</span>
+        Back to screenbook
+      </a>
+      <span class="ms-status">Screen 20 Approved</span>
+    </header>
+
+    <section class="ms-panel">
+      <div class="ms-section-head">
+        Screen 20: Issue Status / Retailer Response
+        <span>After issue is submitted</span>
+      </div>
+
+      <div class="preview">
+        <div class="phone" aria-label="MoolSocial issue review status phone preview">
+          <div class="app" id="reviewApp" data-status="waiting" data-resolution="Refund" data-case="MS-ISS-2041">
+            <div class="status-row">
+              <span>10:31</span>
+              <span>5G 100%</span>
+            </div>
+
+            <div class="top-zone">
+              <div class="brand-row">
+                <div class="title-lockup">
+                  <b>Issue Status</b>
+                  <div class="identity-line" aria-hidden="true"><span></span><span></span><span></span></div>
+                  <span>Case MS-ISS-2041 - Hybrid Tomato</span>
+                </div>
+                <div class="top-buttons">
+                  <a class="circle-btn" href="19-order-issue-refund-evidence.html?v=approved-19" aria-label="Back to issue evidence">
+                    <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" /></svg>
+                  </a>
+                  <a class="circle-btn" href="03-login-account-handoff.html" aria-label="Open chat">
+                    <svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z" /></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="content">
+              <section class="status-hero">
+                <div class="hero-top">
+                  <div class="hero-copy">
+                    <b id="heroTitle">Waiting for shop reply</b>
+                    <span id="heroSubtitle">Mahadev Fresh Mart has 10 minutes to reply. MoolSocial support takes over automatically if needed.</span>
+                  </div>
+                  <div class="case-badge">
+                    <span><strong>2041</strong>Case</span>
+                  </div>
+                </div>
+                <div class="progress-steps">
+                  <span class="progress-step done">Submitted</span>
+                  <span class="progress-step active" id="replyStep">Shop reply</span>
+                  <span class="progress-step" id="decisionStep">Decision</span>
+                  <span class="progress-step" id="closedStep">Closed</span>
+                </div>
+              </section>
+
+              <section class="panel-card">
+                <div class="panel-head">
+                  <b>Issue summary</b>
+                  <span id="caseHint">refund requested</span>
+                </div>
+                <div class="case-card">
+                  <div class="case-copy">
+                    <b>Hybrid Tomato 500 g - Missing item</b>
+                    <span>Refund requested for one item. Bill mark and photo are attached.</span>
+                  </div>
+                  <div class="timer-pill" id="timerPill">08:42</div>
+                </div>
+                <div class="mini-pills">
+                  <span class="mini-pill good">OTP proof</span>
+                  <span class="mini-pill good">Bill proof</span>
+                  <span class="mini-pill good">Customer evidence</span>
+                  <span class="mini-pill warn">Shop reply timer</span>
+                </div>
+              </section>
+
+              <section class="panel-card">
+                <div class="panel-head">
+                  <b>Live status</b>
+                  <span id="responseHint">shop reply pending</span>
+                </div>
+                <div class="status-tile" id="responseCard">
+                  <div class="status-icon" id="statusIcon">
+                    <svg viewBox="0 0 24 24"><path d="M12 8v5l3 2" /><circle cx="12" cy="12" r="10" /></svg>
+                  </div>
+                  <div class="response-copy">
+                    <b id="responseTitle">Shop reply pending</b>
+                    <span id="responseMeta">You do not need to call the shop. If there is no reply on time, support checks the proof packet.</span>
+                  </div>
+                </div>
+                <div class="sla-strip">
+                  <span>Auto support fallback</span>
+                  <b id="slaText">starts after 08:42</b>
+                </div>
+              </section>
+
+              <section class="panel-card">
+                <div class="panel-head">
+                  <b>Proof packet</b>
+                  <span>tap to review later</span>
+                </div>
+                <div class="proof-chip-grid">
+                  <div class="proof-chip"><b>Bill item</b><span>Rs 37 saved</span></div>
+                  <div class="proof-chip"><b>Photo</b><span>attached</span></div>
+                  <div class="proof-chip"><b>Shop proof</b><span>available</span></div>
+                </div>
+              </section>
+
+              <section class="panel-card">
+                <div class="panel-head">
+                  <b>Refund / replacement</b>
+                  <span id="moneyHint">pending decision</span>
+                </div>
+                <div class="resolution-card">
+                  <div class="money-grid">
+                    <div class="money-row"><span>Eligible item value</span><b>Rs 37</b></div>
+                    <div class="money-row"><span>Your choice</span><b id="requestedResolution">Refund</b></div>
+                    <div class="money-row total"><span id="resultLabel">Current result</span><b id="resultValue">Waiting</b></div>
+                  </div>
+                  <div class="resolution-note" id="resolutionNote">Refund is not closed until shop accepts or support validates the proof.</div>
+                </div>
+              </section>
+
+              <section class="panel-card">
+                <div class="panel-head">
+                  <b>Customer actions</b>
+                  <span>while review runs</span>
+                </div>
+                <div class="action-grid">
+                  <a class="small-action primary" href="03-login-account-handoff.html">
+                    <b>Chat case</b>
+                    <span>shop/support</span>
+                  </a>
+                  <button class="small-action" type="button" id="addProofButton">
+                    <b>Add proof</b>
+                    <span>more photo</span>
+                  </button>
+                  <button class="small-action" type="button" id="cancelCaseButton">
+                    <b>Mark resolved</b>
+                    <span>only if fixed</span>
+                  </button>
+                </div>
+                <div class="confirm-strip" id="resolveConfirm">
+                  <div>
+                    <b>Mark this issue resolved?</b>
+                    <span>Use this only after refund, replacement or shop correction is complete.</span>
+                  </div>
+                  <div class="confirm-actions">
+                    <button type="button" id="keepCaseOpenButton">Keep open</button>
+                    <button class="primary-confirm" type="button" id="confirmResolvedButton">Resolved</button>
+                  </div>
+                </div>
+              </section>
+            </div>
+
+            <div class="bottom-action">
+              <div class="action-copy">
+                <b id="actionTitle">No action needed</b>
+                <span id="actionMeta">Shop reply due in 8 min. We will notify you.</span>
+              </div>
+              <button class="primary-btn" type="button" id="refreshCaseButton">Refresh</button>
+            </div>
+
+            <nav class="bottom-dock" aria-label="Issue review navigation">
+              <a class="mool-button" href="04-universal-focus-shell.html" aria-label="Open Mool">Mool</a>
+              <div class="dock-tabs" aria-label="Issue sub-actions">
+                <a class="dock-tab" href="18-home-delivery-completed-bill-rating.html" aria-label="Open bill">
+                  <svg viewBox="0 0 24 24"><path d="M6 2h12v20l-3-2-3 2-3-2-3 2V2Z" /><path d="M9 7h6M9 11h6" /></svg>
+                  Bill
+                </a>
+                <a class="dock-tab" href="19-order-issue-refund-evidence.html" aria-label="Open evidence">
+                  <svg viewBox="0 0 24 24"><path d="M4 7h4l2-3h4l2 3h4v13H4z" /><circle cx="12" cy="13" r="3" /></svg>
+                  Proof
+                </a>
+                <a class="dock-tab active" href="20-issue-review-status-retailer-response.html" aria-label="Open review">
+                  <svg viewBox="0 0 24 24"><path d="M12 8v5l3 2" /><circle cx="12" cy="12" r="10" /></svg>
+                  Review
+                </a>
+                <a class="dock-tab" href="09-buy.html" aria-label="Open orders">
+                  <svg viewBox="0 0 24 24"><path d="M4 7h16M7 7v13h10V7" /><path d="M9 11h6M9 15h6" /></svg>
+                  Orders
+                </a>
+              </div>
+              <a class="chat-button" href="03-login-account-handoff.html" aria-label="Open chat">
+                <svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z" /></svg>
+                <span class="chat-count">2</span>
+              </a>
+            </nav>
+          </div>
+        </div>
+
+        <div class="notes">
+          <div>
+            <h1 class="ms-title">Issue review must feel active, not abandoned.</h1>
+            <p class="ms-lead">
+              Screen 20 is a customer-facing live case tracker: shop reply timer, compact proof packet,
+              refund/replacement status, support fallback and safe resolution controls.
+            </p>
+          </div>
+
+          <div class="demo-controls">
+            <div class="ms-section-head">Prototype State Controls <span>Not customer UI</span></div>
+            <div class="choice-grid">
+              <button class="choice-card" type="button" id="simulateAcceptButton">
+                <b>Shop accepts</b>
+                <span>refund approved</span>
+              </button>
+              <button class="choice-card" type="button" id="simulateReplaceButton">
+                <b>Shop offers replace</b>
+                <span>customer choice</span>
+              </button>
+              <button class="choice-card" type="button" id="simulateReviewButton">
+                <b>Needs review</b>
+                <span>proof mismatch</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="ms-panel">
+            <div class="ms-section-head">Screen Contract <span>Approved</span></div>
+            <div class="state-grid">
+              <div class="state-cell"><b>Entry</b>After Screen 19 submits item-level issue evidence and preferred resolution.</div>
+              <div class="state-cell"><b>User Sees</b>Case number, shop reply timer, proof packet, live status, money result and chat.</div>
+              <div class="state-cell"><b>Decision</b>User can wait, chat, add proof, accept replacement in final result, or mark resolved with confirmation.</div>
+
+              <div class="state-cell"><b>Backend</b>Tracks case status, SLA timer, retailer response, support fallback, refund hold/release and notifications.</div>
+              <div class="state-cell"><b>Safety</b>Refund stays pending until shop accepts or support validates proof against bill/shop/rider evidence.</div>
+              <div class="state-cell"><b>Trust</b>Customer sees progress; retailer is not punished without proof and response opportunity.</div>
+
+              <div class="state-cell"><b>Next</b>Approved refund/replace/support review result routes to final issue result screen.</div>
+              <div class="state-cell"><b>Failure</b>If SLA expires, case auto-escalates to support with proof packet locked.</div>
+              <div class="state-cell"><b>Dock</b>Mool, Bill, Proof, Review, Orders and Chat stay one tap accessible.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const app = document.getElementById("reviewApp");
+    const heroTitle = document.getElementById("heroTitle");
+    const heroSubtitle = document.getElementById("heroSubtitle");
+    const responseCard = document.getElementById("responseCard");
+    const statusIcon = document.getElementById("statusIcon");
+    const responseHint = document.getElementById("responseHint");
+    const responseTitle = document.getElementById("responseTitle");
+    const responseMeta = document.getElementById("responseMeta");
+    const slaText = document.getElementById("slaText");
+    const replyStep = document.getElementById("replyStep");
+    const decisionStep = document.getElementById("decisionStep");
+    const closedStep = document.getElementById("closedStep");
+    const moneyHint = document.getElementById("moneyHint");
+    const requestedResolution = document.getElementById("requestedResolution");
+    const resultLabel = document.getElementById("resultLabel");
+    const resultValue = document.getElementById("resultValue");
+    const resolutionNote = document.getElementById("resolutionNote");
+    const actionTitle = document.getElementById("actionTitle");
+    const actionMeta = document.getElementById("actionMeta");
+    const refreshCaseButton = document.getElementById("refreshCaseButton");
+    const resolveConfirm = document.getElementById("resolveConfirm");
+
+    function setStatusIcon(path) {
+      statusIcon.innerHTML = `<svg viewBox="0 0 24 24">${path}</svg>`;
+    }
+
+    function clearChoiceCards() {
+      document.querySelectorAll(".choice-card").forEach((card) => card.classList.remove("active"));
+      resolveConfirm.classList.remove("open");
+    }
+
+    document.getElementById("simulateAcceptButton").addEventListener("click", (event) => {
+      clearChoiceCards();
+      event.currentTarget.classList.add("active");
+      app.dataset.status = "accepted";
+      responseCard.className = "status-tile accepted";
+      setStatusIcon('<path d="M20 6 9 17l-5-5" />');
+      responseHint.textContent = "refund accepted";
+      responseTitle.textContent = "Shop accepted your refund";
+      responseMeta.textContent = "Mahadev Fresh Mart accepted the missing item claim. Refund will move through the selected payment route.";
+      heroTitle.textContent = "Refund approved";
+      heroSubtitle.textContent = "Rs 37 refund is approved for Hybrid Tomato 500 g.";
+      replyStep.classList.add("done");
+      decisionStep.classList.add("active");
+      moneyHint.textContent = "approved";
+      resultLabel.textContent = "Refund approved";
+      resultValue.textContent = "Rs 37";
+      resolutionNote.textContent = "Refund will be posted after payment settlement. You can still chat from this case.";
+      slaText.textContent = "shop accepted";
+      actionTitle.textContent = "Refund approved";
+      actionMeta.textContent = "Credit will follow the payment route";
+      requestedResolution.textContent = "Refund";
+    });
+
+    document.getElementById("simulateReplaceButton").addEventListener("click", (event) => {
+      clearChoiceCards();
+      event.currentTarget.classList.add("active");
+      app.dataset.status = "replace";
+      app.dataset.resolution = "Replace";
+      responseCard.className = "status-tile accepted";
+      setStatusIcon('<path d="M21 12a9 9 0 1 1-3-6.7" /><path d="M21 3v6h-6" />');
+      responseHint.textContent = "replacement offered";
+      responseTitle.textContent = "Shop offered replacement";
+      responseMeta.textContent = "You can accept replacement on the result screen or continue with refund review.";
+      heroTitle.textContent = "Replacement offered";
+      heroSubtitle.textContent = "Mahadev Fresh Mart can replace this item instead of refunding it.";
+      replyStep.classList.add("done");
+      decisionStep.classList.add("active");
+      moneyHint.textContent = "replacement";
+      requestedResolution.textContent = "Replace";
+      resultLabel.textContent = "Replacement value";
+      resultValue.textContent = "Rs 37";
+      resolutionNote.textContent = "Replacement will show ETA and pickup/delivery choice before you accept.";
+      slaText.textContent = "shop replied";
+      actionTitle.textContent = "Replacement offered";
+      actionMeta.textContent = "Next screen asks accept replacement or continue refund";
+    });
+
+    document.getElementById("simulateReviewButton").addEventListener("click", (event) => {
+      clearChoiceCards();
+      event.currentTarget.classList.add("active");
+      app.dataset.status = "review";
+      responseCard.className = "status-tile review";
+      setStatusIcon('<path d="M12 9v4" /><path d="M12 17h.01" /><path d="M10.3 3.8 2 18a2 2 0 0 0 1.7 3h16.6A2 2 0 0 0 22 18L13.7 3.8a2 2 0 0 0-3.4 0Z" />');
+      responseHint.textContent = "support review";
+      responseTitle.textContent = "Support is checking proof";
+      responseMeta.textContent = "Shop says the item was packed. Support compares bill, photo, packing proof, rider proof and chat.";
+      heroTitle.textContent = "Support review started";
+      heroSubtitle.textContent = "Refund is safely held until proof is checked.";
+      replyStep.classList.add("done");
+      decisionStep.classList.add("active");
+      moneyHint.textContent = "held";
+      resultLabel.textContent = "Refund status";
+      resultValue.textContent = "On hold";
+      resolutionNote.textContent = "Support will decide using locked proof. You can add one more photo if needed.";
+      slaText.textContent = "support active";
+      actionTitle.textContent = "Support review";
+      actionMeta.textContent = "Proof packet locked for support decision";
+    });
+
+    document.getElementById("addProofButton").addEventListener("click", () => {
+      resolveConfirm.classList.remove("open");
+      actionTitle.textContent = "Add proof";
+      actionMeta.textContent = "Returns to evidence screen with case attached";
+    });
+
+    document.getElementById("cancelCaseButton").addEventListener("click", () => {
+      resolveConfirm.classList.add("open");
+      actionTitle.textContent = "Confirm resolved";
+      actionMeta.textContent = "Keep case open unless the issue is fixed";
+    });
+
+    document.getElementById("keepCaseOpenButton").addEventListener("click", () => {
+      resolveConfirm.classList.remove("open");
+      actionTitle.textContent = "Case remains open";
+      actionMeta.textContent = "We will continue tracking the shop/support response";
+    });
+
+    document.getElementById("confirmResolvedButton").addEventListener("click", () => {
+      resolveConfirm.classList.remove("open");
+      app.dataset.status = "closed";
+      closedStep.classList.add("active");
+      decisionStep.classList.add("done");
+      refreshCaseButton.classList.add("done");
+      refreshCaseButton.textContent = "Closed";
+      responseCard.className = "status-tile accepted";
+      setStatusIcon('<path d="M20 6 9 17l-5-5" />');
+      responseHint.textContent = "closed";
+      responseTitle.textContent = "Issue marked resolved";
+      responseMeta.textContent = "Customer confirmed this issue is fixed. Case history remains saved with bill and proof.";
+      heroTitle.textContent = "Issue resolved";
+      heroSubtitle.textContent = "Case is closed and proof remains saved in order history.";
+      moneyHint.textContent = "closed";
+      resultLabel.textContent = "Case result";
+      resultValue.textContent = "Closed";
+      resolutionNote.textContent = "This case can be reopened from support only if a payment/refund issue remains.";
+      slaText.textContent = "closed";
+      actionTitle.textContent = "Case closed";
+      actionMeta.textContent = "Customer marked issue resolved";
+    });
+
+    refreshCaseButton.addEventListener("click", () => {
+      if (app.dataset.status === "waiting") {
+        actionTitle.textContent = "Still waiting";
+        actionMeta.textContent = "Shop reply due in 8 min. Support fallback is automatic.";
+      } else {
+        actionTitle.textContent = "Status refreshed";
+        actionMeta.textContent = `Current status: ${app.dataset.status}`;
+      }
+    });
+  </script>
+</body>
+</html>

@@ -169,6 +169,13 @@ window.MoolSocialScreenbook = {
       file: "screens/19-order-issue-refund-evidence.html",
       status: "Approved",
       purpose: "Approved guided issue assistant after report problem: affected item selection, issue type, suggested refund/replacement, evidence capture, proof comparison, SLA and support review path."
+    },
+    {
+      id: "20",
+      name: "Issue Status / Retailer Response",
+      file: "screens/20-issue-review-status-retailer-response.html",
+      status: "Approved",
+      purpose: "Approved customer-facing live issue tracker after evidence submission: case number, shop reply timer, compact proof packet, refund/replacement status, automatic support fallback, chat handoff and safe resolved confirmation."
     }
   ]
 };
