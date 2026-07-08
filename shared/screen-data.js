@@ -113,6 +113,20 @@ window.MoolSocialScreenbook = {
       file: "screens/11-buy-product-detail.html",
       status: "Approved",
       purpose: "Approved product detail and add-to-basket flow after Grocery Decision: selected product/shop context, shop capability settings, rate, unit, quantity, fulfilment, proof and basket action."
+    },
+    {
+      id: "12",
+      name: "Buy > Basket / Checkout Decision",
+      file: "screens/12-buy-basket-checkout.html",
+      status: "Approved",
+      purpose: "Approved basket and checkout decision flow after Product Detail: shop basket, item quantities, fulfilment, estimated amount, retailer stock lock, proof, confirmed payable amount and payment handoff."
+    },
+    {
+      id: "13",
+      name: "Retailer Stock Confirmation Alert",
+      file: "screens/13-retailer-stock-confirmation.html",
+      status: "Approved",
+      purpose: "Approved retailer operating alert triggered by customer stock confirmation: urgent shop workspace alert, item stock lock, mismatch handling, SLA, trust logging and payment unlock."
     }
   ]
 };

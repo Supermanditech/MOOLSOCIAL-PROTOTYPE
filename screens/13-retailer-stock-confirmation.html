@@ -1,0 +1,939 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>13 Retailer Stock Confirmation - MoolSocial Screenbook</title>
+  <link rel="stylesheet" href="../shared/moolsocial-ui-foundation.css" />
+  <style>
+    .screen-shell {
+      display: grid;
+      gap: 18px;
+    }
+
+    .back-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .screen-link-home {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--ms-navy);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .back-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--ms-navy);
+      border-radius: var(--ms-radius);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .preview {
+      display: grid;
+      grid-template-columns: minmax(320px, 390px) minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+      padding: 18px;
+      border-bottom: 1px solid var(--ms-navy);
+      background: var(--ms-white);
+    }
+
+    .phone {
+      width: min(100%, 370px);
+      height: 742px;
+      justify-self: center;
+      border: 10px solid var(--ms-navy);
+      border-radius: 32px;
+      background: var(--ms-navy);
+      overflow: hidden;
+      box-shadow: 0 28px 60px rgba(0, 0, 128, .22);
+    }
+
+    .app {
+      position: relative;
+      height: 100%;
+      display: grid;
+      grid-template-rows: auto auto 1fr auto;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 12% 7%, rgba(255, 153, 51, .16), transparent 23%),
+        radial-gradient(circle at 88% 12%, rgba(19, 136, 8, .13), transparent 24%),
+        linear-gradient(180deg, var(--ms-navy) 0 150px, #f5f7fb 150px 100%);
+      color: var(--ms-white);
+      font-family: var(--ms-font);
+    }
+
+    .status-row {
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 18px 0;
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    .top-zone {
+      display: grid;
+      gap: 10px;
+      padding: 8px 12px 12px;
+    }
+
+    .brand-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .title-lockup {
+      min-width: 0;
+      display: grid;
+      gap: 4px;
+    }
+
+    .title-lockup b {
+      overflow: hidden;
+      color: var(--ms-white);
+      font-size: 19px;
+      line-height: 1;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .title-lockup span {
+      overflow: hidden;
+      color: rgba(255, 255, 255, .76);
+      font-size: 10px;
+      font-weight: 850;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .identity-line {
+      width: 98px;
+      height: 3px;
+      display: grid;
+      grid-template-columns: 45fr 14fr 41fr;
+      border-radius: var(--ms-pill);
+      overflow: hidden;
+    }
+
+    .identity-line span:nth-child(1) { background: var(--ms-saffron); }
+    .identity-line span:nth-child(2) { background: var(--ms-white); }
+    .identity-line span:nth-child(3) { background: var(--ms-green); }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    button {
+      appearance: none;
+      font-family: var(--ms-font);
+      cursor: pointer;
+    }
+
+    svg {
+      width: 18px;
+      height: 18px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .top-buttons {
+      display: flex;
+      gap: 7px;
+    }
+
+    .circle-btn {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, .26);
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .12);
+      color: var(--ms-white);
+      text-decoration: none;
+    }
+
+    .content {
+      min-height: 0;
+      overflow: auto;
+      display: grid;
+      align-content: start;
+      gap: 10px;
+      padding: 0 10px 104px;
+      color: var(--ms-navy);
+      scrollbar-width: none;
+    }
+
+    .content::-webkit-scrollbar {
+      display: none;
+    }
+
+    .urgent-card {
+      display: grid;
+      gap: 10px;
+      border: 1px solid rgba(255, 153, 51, .45);
+      border-radius: 22px;
+      padding: 10px;
+      background: rgba(255, 255, 255, .98);
+      color: var(--ms-navy);
+      box-shadow: 0 16px 34px rgba(0, 0, 128, .12);
+    }
+
+    .urgent-head {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .urgent-copy {
+      min-width: 0;
+      display: grid;
+      gap: 4px;
+    }
+
+    .urgent-copy b {
+      color: var(--ms-navy);
+      font-size: 17px;
+      line-height: 1.05;
+    }
+
+    .urgent-copy span {
+      color: rgba(0, 0, 128, .68);
+      font-size: 10px;
+      font-weight: 850;
+      line-height: 1.25;
+    }
+
+    .timer-badge {
+      min-width: 58px;
+      min-height: 58px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 9px;
+      font-weight: 950;
+      text-align: center;
+      box-shadow: inset 0 -4px 0 var(--ms-saffron);
+    }
+
+    .timer-badge strong {
+      display: block;
+      font-size: 17px;
+      line-height: 1;
+    }
+
+    .order-facts {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .fact-chip {
+      min-height: 50px;
+      display: grid;
+      align-content: center;
+      gap: 2px;
+      border: 1px solid rgba(0, 0, 128, .12);
+      border-radius: 15px;
+      padding: 7px;
+      background: #f8fafc;
+      color: var(--ms-navy);
+      font-size: 8px;
+      font-weight: 850;
+    }
+
+    .fact-chip b {
+      color: var(--ms-green);
+      font-size: 10px;
+      line-height: 1.05;
+    }
+
+    .confirm-note {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      border: 1px solid rgba(19, 136, 8, .18);
+      border-radius: 15px;
+      padding: 8px;
+      background: rgba(19, 136, 8, .07);
+      color: var(--ms-navy);
+      font-size: 9px;
+      font-weight: 900;
+      line-height: 1.25;
+    }
+
+    .confirm-note b {
+      min-height: 24px;
+      display: inline-flex;
+      align-items: center;
+      border-radius: var(--ms-pill);
+      padding: 0 8px;
+      background: var(--ms-green);
+      color: var(--ms-white);
+      font-size: 8px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .panel-card {
+      display: grid;
+      gap: 9px;
+      border: 1px solid rgba(0, 0, 128, .15);
+      border-radius: 20px;
+      padding: 10px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      box-shadow: 0 10px 26px rgba(0, 0, 128, .08);
+    }
+
+    .panel-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .panel-head b {
+      color: var(--ms-navy);
+      font-size: 13px;
+      line-height: 1.1;
+    }
+
+    .panel-head span {
+      color: rgba(0, 0, 128, .6);
+      font-size: 9px;
+      font-weight: 850;
+      text-align: right;
+    }
+
+    .item-list {
+      display: grid;
+      gap: 7px;
+    }
+
+    .stock-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      align-items: center;
+      border: 1px solid rgba(0, 0, 128, .1);
+      border-radius: 16px;
+      padding: 8px;
+      background: #f8fafc;
+    }
+
+    .item-copy {
+      min-width: 0;
+      display: grid;
+      gap: 3px;
+    }
+
+    .item-copy b {
+      overflow: hidden;
+      color: var(--ms-navy);
+      font-size: 12px;
+      line-height: 1.1;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .item-copy span {
+      overflow: hidden;
+      color: rgba(0, 0, 128, .62);
+      font-size: 9px;
+      font-weight: 850;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .stock-control {
+      display: grid;
+      grid-template-columns: 26px 26px 26px;
+      align-items: center;
+      overflow: hidden;
+      border-radius: var(--ms-pill);
+      background: var(--ms-green);
+      color: var(--ms-white);
+      font-size: 10px;
+      font-weight: 950;
+    }
+
+    .stock-control button {
+      width: 26px;
+      height: 26px;
+      border: 0;
+      background: transparent;
+      color: inherit;
+      font-size: 13px;
+      font-weight: 950;
+    }
+
+    .stock-control span {
+      text-align: center;
+    }
+
+    .action-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 7px;
+    }
+
+    .action-btn {
+      min-height: 54px;
+      display: grid;
+      align-content: center;
+      gap: 3px;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: 16px;
+      padding: 8px;
+      background: #f8fafc;
+      color: var(--ms-navy);
+      text-align: left;
+    }
+
+    .action-btn b {
+      font-size: 11px;
+      line-height: 1.05;
+    }
+
+    .action-btn span {
+      color: rgba(0, 0, 128, .62);
+      font-size: 8px;
+      font-weight: 850;
+      line-height: 1.15;
+    }
+
+    .action-btn.primary {
+      border-color: var(--ms-navy);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 var(--ms-saffron), 0 9px 18px rgba(0, 0, 128, .18);
+    }
+
+    .action-btn.primary span {
+      color: rgba(255, 255, 255, .78);
+    }
+
+    .account-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .account-card {
+      min-height: 50px;
+      display: grid;
+      align-content: center;
+      gap: 3px;
+      border: 1px solid rgba(0, 0, 128, .1);
+      border-radius: 14px;
+      padding: 7px;
+      background: #f8fafc;
+      color: var(--ms-navy);
+      font-size: 8px;
+      font-weight: 850;
+      text-align: center;
+    }
+
+    .account-card b {
+      color: var(--ms-green);
+      font-size: 10px;
+      line-height: 1.05;
+    }
+
+    .bottom-dock {
+      position: absolute;
+      left: 8px;
+      right: 8px;
+      bottom: 10px;
+      z-index: 10;
+      display: grid;
+      grid-template-columns: 58px minmax(0, 1fr) 58px;
+      gap: 7px;
+      align-items: center;
+      border: 1px solid rgba(0, 0, 128, .9);
+      border-radius: 30px;
+      padding: 8px;
+      background: linear-gradient(180deg, rgba(255,255,255,.94), rgba(245,247,251,.94));
+      box-shadow: 0 14px 32px rgba(0, 0, 128, .22);
+    }
+
+    .mool-button,
+    .chat-button,
+    .dock-tab {
+      text-decoration: none;
+      font-family: var(--ms-font);
+    }
+
+    .mool-button,
+    .chat-button {
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(0, 0, 128, .16);
+      border-radius: 50%;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      font-size: 11px;
+      font-weight: 950;
+      box-shadow: 0 10px 22px rgba(0, 0, 128, .12);
+      position: relative;
+    }
+
+    .mool-button {
+      background:
+        radial-gradient(circle at 30% 20%, rgba(255, 255, 255, .36), transparent 20%),
+        var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -5px 0 rgba(0, 0, 70, .45), 0 12px 22px rgba(0, 0, 128, .25);
+    }
+
+    .mool-button::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: 9px;
+      width: 34px;
+      height: 5px;
+      display: block;
+      border-radius: var(--ms-pill);
+      background: linear-gradient(90deg, var(--ms-saffron) 0 45%, var(--ms-white) 45% 58%, var(--ms-green) 58% 100%);
+      transform: translateX(-50%);
+    }
+
+    .chat-button svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .chat-count {
+      position: absolute;
+      right: 4px;
+      top: 2px;
+      min-width: 22px;
+      height: 22px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--ms-saffron);
+      color: var(--ms-navy);
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .dock-tabs {
+      min-width: 0;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 4px;
+      overflow: hidden;
+      border-radius: 23px;
+      padding: 3px;
+      background:
+        radial-gradient(circle at 50% 40%, rgba(0, 0, 128, .12), transparent 54%),
+        linear-gradient(90deg, rgba(0, 0, 128, .08), rgba(255,255,255,.4), rgba(0, 0, 128, .08));
+      box-shadow: inset 0 10px 20px rgba(0, 0, 128, .08);
+    }
+
+    .dock-tab {
+      height: 56px;
+      min-width: 0;
+      display: grid;
+      place-items: center;
+      align-content: center;
+      gap: 3px;
+      border: 1px solid transparent;
+      border-radius: 20px;
+      padding: 4px 3px;
+      background: transparent;
+      color: var(--ms-navy);
+      font-size: 8px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .dock-tab svg {
+      width: 19px;
+      height: 19px;
+    }
+
+    .dock-tab.active {
+      border-color: var(--ms-navy);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 var(--ms-saffron), 0 9px 18px rgba(0, 0, 128, .18);
+    }
+
+    .notes {
+      display: grid;
+      gap: 14px;
+    }
+
+    .state-grid {
+      display: grid;
+      grid-template-columns: 170px 1fr 1fr;
+      border: 1px solid var(--ms-navy);
+      border-bottom: 0;
+    }
+
+    .state-cell {
+      min-height: 54px;
+      display: grid;
+      align-content: center;
+      border-right: 1px solid var(--ms-navy);
+      border-bottom: 1px solid var(--ms-navy);
+      padding: 10px;
+      color: var(--ms-navy);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    .state-cell:nth-child(3n) {
+      border-right: 0;
+    }
+
+    .state-cell b {
+      color: var(--ms-green);
+    }
+
+    @media (max-width: 900px) {
+      .preview {
+        grid-template-columns: 1fr;
+      }
+
+      .state-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .state-cell {
+        border-right: 0;
+      }
+    }
+  </style>
+</head>
+<body class="ms-doc">
+  <main class="ms-page screen-shell">
+    <header class="back-row">
+      <a class="screen-link-home" href="../index.html">
+        <span class="back-mark">MS</span>
+        Back to screenbook
+      </a>
+      <span class="ms-status">Screen 13 Approved</span>
+    </header>
+
+    <section class="ms-panel">
+      <div class="ms-section-head">
+        Screen 13: Retailer Stock Confirmation Alert
+        <span>Triggered by customer Confirm Stock First</span>
+      </div>
+
+      <div class="preview">
+        <div class="phone" aria-label="MoolSocial retailer stock confirmation phone preview">
+          <div class="app" id="retailerApp" data-state="waiting">
+            <div class="status-row">
+              <span>9:41</span>
+              <span>5G 100%</span>
+            </div>
+
+            <div class="top-zone">
+              <div class="brand-row">
+                <div class="title-lockup">
+                  <b>Shop Alert</b>
+                  <div class="identity-line" aria-hidden="true"><span></span><span></span><span></span></div>
+                  <span>Mahadev Fresh Mart workspace</span>
+                </div>
+                <div class="top-buttons">
+                  <a class="circle-btn" href="12-buy-basket-checkout.html?v=retailer-stock-lock-1" aria-label="Back to customer basket">
+                    <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" /></svg>
+                  </a>
+                  <button class="circle-btn" type="button" aria-label="Open alerts">
+                    <svg viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 7h18s-3 0-3-7" /><path d="M13.7 21a2 2 0 0 1-3.4 0" /></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="content">
+              <section class="urgent-card">
+                <div class="urgent-head">
+                  <div class="urgent-copy">
+                    <b id="alertTitle">New basket confirmation</b>
+                    <span id="alertCopy">Customer is waiting to pay. Confirm stock before payment can open.</span>
+                  </div>
+                  <div class="timer-badge">
+                    <span><strong id="timerValue">75s</strong>SLA</span>
+                  </div>
+                </div>
+                <div class="order-facts">
+                  <div class="fact-chip">
+                    <b>3 items</b>
+                    <span>basket from customer</span>
+                  </div>
+                  <div class="fact-chip">
+                    <b>Est. Rs 645</b>
+                    <span>payment blocked</span>
+                  </div>
+                  <div class="fact-chip">
+                    <b>Pickup 8 min</b>
+                    <span>counter order</span>
+                  </div>
+                </div>
+                <div class="confirm-note">
+                  <b id="alertState">Action</b>
+                  <span id="confirmNote">Confirm available quantity now. Wrong stock will be logged against shop trust.</span>
+                </div>
+              </section>
+
+              <section class="panel-card">
+                <div class="panel-head">
+                  <b>Confirm item stock</b>
+                  <span id="stockSummary">3 of 3 available</span>
+                </div>
+                <div class="item-list">
+                  <article class="stock-item" data-item data-requested="1">
+                    <div class="item-copy">
+                      <b>Hybrid Tomato</b>
+                      <span>Requested 1 · 500 g · Retail</span>
+                    </div>
+                    <div class="stock-control">
+                      <button type="button" data-stock="minus">-</button>
+                      <span data-stock-value>1</span>
+                      <button type="button" data-stock="plus">+</button>
+                    </div>
+                  </article>
+                  <article class="stock-item" data-item data-requested="1">
+                    <div class="item-copy">
+                      <b>Aashirvaad Atta</b>
+                      <span>Requested 1 · 10 kg · sealed pack</span>
+                    </div>
+                    <div class="stock-control">
+                      <button type="button" data-stock="minus">-</button>
+                      <span data-stock-value>1</span>
+                      <button type="button" data-stock="plus">+</button>
+                    </div>
+                  </article>
+                  <article class="stock-item" data-item data-requested="1">
+                    <div class="item-copy">
+                      <b>Home Care Combo</b>
+                      <span>Requested 1 · shop offer · replace safe</span>
+                    </div>
+                    <div class="stock-control">
+                      <button type="button" data-stock="minus">-</button>
+                      <span data-stock-value>1</span>
+                      <button type="button" data-stock="plus">+</button>
+                    </div>
+                  </article>
+                </div>
+              </section>
+
+              <section class="panel-card">
+                <div class="panel-head">
+                  <b>Reply to customer</b>
+                  <span id="replyHint">one tap required</span>
+                </div>
+                <div class="action-grid">
+                  <button class="action-btn primary" type="button" data-action="confirm">
+                    <b>Confirm All</b>
+                    <span>unlock customer payment</span>
+                  </button>
+                  <button class="action-btn" type="button" data-action="edit">
+                    <b>Edit Qty</b>
+                    <span>send changed quantity</span>
+                  </button>
+                  <button class="action-btn" type="button" data-action="unavailable">
+                    <b>Mark Unavailable</b>
+                    <span>payment stays blocked</span>
+                  </button>
+                  <button class="action-btn" type="button" data-action="time">
+                    <b>Need More Time</b>
+                    <span>customer sees delay</span>
+                  </button>
+                </div>
+              </section>
+
+              <section class="panel-card">
+                <div class="panel-head">
+                  <b>Retailer accountability</b>
+                  <span>automatic after response</span>
+                </div>
+                <div class="account-grid">
+                  <div class="account-card">
+                    <b>SLA</b>
+                    <span>75 sec alert</span>
+                  </div>
+                  <div class="account-card">
+                    <b>Mismatch</b>
+                    <span>logged if wrong</span>
+                  </div>
+                  <div class="account-card">
+                    <b>Visibility</b>
+                    <span>trust affected</span>
+                  </div>
+                </div>
+              </section>
+            </div>
+
+            <nav class="bottom-dock" aria-label="Retailer workspace navigation">
+              <a class="mool-button" href="04-universal-focus-shell.html" aria-label="Open Mool">Mool</a>
+              <div class="dock-tabs" aria-label="Retailer sub-actions">
+                <a class="dock-tab active" href="13-retailer-stock-confirmation.html" aria-label="Open orders">
+                  <svg viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6L5 8Z" /><path d="M9 8a3 3 0 0 1 6 0" /></svg>
+                  Orders
+                </a>
+                <a class="dock-tab" href="10-buy-grocery-decision.html" aria-label="Open stock">
+                  <svg viewBox="0 0 24 24"><path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z" /></svg>
+                  Stock
+                </a>
+                <a class="dock-tab" href="09-buy.html" aria-label="Open payouts">
+                  <svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7H14a3.5 3.5 0 0 1 0 7H6" /></svg>
+                  Payout
+                </a>
+                <a class="dock-tab" href="08-social-create.html" aria-label="Open offers">
+                  <svg viewBox="0 0 24 24"><path d="M4 9V5h4l10 10-4 4L4 9Z" /><path d="M7 7h.01" /></svg>
+                  Offers
+                </a>
+              </div>
+              <a class="chat-button" href="03-login-account-handoff.html" aria-label="Open chat">
+                <svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z" /></svg>
+                <span class="chat-count">1</span>
+              </a>
+            </nav>
+          </div>
+        </div>
+
+        <div class="notes">
+          <div>
+            <h1 class="ms-title">Retailer gets an urgent operating alert, not a passive order.</h1>
+            <p class="ms-lead">
+              This screen appears automatically in the verified shop workspace when a customer asks to confirm stock.
+              The customer cannot pay until the retailer locks available quantity or reports mismatch.
+            </p>
+          </div>
+
+          <div class="ms-panel">
+            <div class="ms-section-head">Screen Contract <span>Approved</span></div>
+            <div class="state-grid">
+              <div class="state-cell"><b>Entry</b>Customer taps Confirm Stock First on Screen 12.</div>
+              <div class="state-cell"><b>Alert Surface</b>Push notification, urgent in-app banner, Orders queue and smart role panel.</div>
+              <div class="state-cell"><b>Action</b>Retailer confirms all, edits quantity, marks unavailable or asks for more time.</div>
+
+              <div class="state-cell"><b>Backend</b>Payment remains blocked until confirmed stock lock is returned to customer basket.</div>
+              <div class="state-cell"><b>SLA</b>If not answered in 60-90 seconds, customer sees shop not confirming and alternatives.</div>
+              <div class="state-cell"><b>Trust</b>Mismatch and non-response are logged against shop visibility and item availability.</div>
+
+              <div class="state-cell"><b>Next</b>Confirmed stock unlocks customer Proceed to Pay on Screen 12, then Screen 14 payment/order confirmation.</div>
+              <div class="state-cell"><b>No Role Switch</b>Appears automatically only for verified retailer workspace with pending action.</div>
+              <div class="state-cell"><b>Fallback</b>SMS/WhatsApp can notify retailer only if app alert is not acknowledged.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const app = document.getElementById("retailerApp");
+    const items = Array.from(document.querySelectorAll("[data-item]")).map((node) => ({
+      node,
+      requested: Number(node.dataset.requested || 1),
+      available: Number(node.dataset.requested || 1)
+    }));
+
+    function render() {
+      let confirmed = 0;
+      let requested = 0;
+      items.forEach((item) => {
+        item.node.querySelector("[data-stock-value]").textContent = item.available;
+        requested += item.requested;
+        confirmed += Math.min(item.available, item.requested);
+        item.node.dataset.mismatch = item.available < item.requested ? "yes" : "no";
+      });
+      document.getElementById("stockSummary").textContent = `${confirmed} of ${requested} available`;
+      if (confirmed < requested) {
+        document.getElementById("replyHint").textContent = "customer approval needed";
+        document.getElementById("alertState").textContent = "Mismatch";
+        document.getElementById("confirmNote").textContent = "Quantity changed. Customer payment stays blocked until customer accepts the change.";
+        return;
+      }
+      document.getElementById("replyHint").textContent = "one tap required";
+      document.getElementById("alertState").textContent = "Action";
+      document.getElementById("confirmNote").textContent = "Confirm available quantity now. Wrong stock will be logged against shop trust.";
+    }
+
+    document.querySelectorAll("[data-stock]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const item = items.find((entry) => entry.node.contains(button));
+        if (!item) return;
+        if (button.dataset.stock === "plus") item.available += 1;
+        if (button.dataset.stock === "minus") item.available = Math.max(0, item.available - 1);
+        render();
+      });
+    });
+
+    document.querySelectorAll("[data-action]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const action = button.dataset.action;
+        document.querySelectorAll("[data-action]").forEach((node) => node.classList.toggle("primary", node === button));
+        if (action === "confirm") {
+          document.getElementById("alertTitle").textContent = "Stock confirmed";
+          document.getElementById("alertCopy").textContent = "Customer payment is now unlocked for confirmed items only.";
+          document.getElementById("timerValue").textContent = "Sent";
+          document.getElementById("alertState").textContent = "Done";
+          document.getElementById("confirmNote").textContent = "Confirmation sent to customer basket. Payment can proceed.";
+          app.dataset.state = "confirmed";
+        }
+        if (action === "edit") {
+          document.getElementById("alertTitle").textContent = "Quantity edit sent";
+          document.getElementById("alertCopy").textContent = "Customer must approve changed quantity before payment opens.";
+          document.getElementById("alertState").textContent = "Edited";
+          document.getElementById("confirmNote").textContent = "Mismatch is logged as an edit, not a confirmed full basket.";
+          app.dataset.state = "edited";
+        }
+        if (action === "unavailable") {
+          document.getElementById("alertTitle").textContent = "Item unavailable";
+          document.getElementById("alertCopy").textContent = "Customer payment stays blocked and alternatives can be shown.";
+          document.getElementById("alertState").textContent = "Blocked";
+          document.getElementById("confirmNote").textContent = "Unavailable item is logged; repeated misses affect trust score.";
+          app.dataset.state = "blocked";
+        }
+        if (action === "time") {
+          document.getElementById("alertTitle").textContent = "More time requested";
+          document.getElementById("alertCopy").textContent = "Customer sees delay and can wait, pick another shop or buy at counter.";
+          document.getElementById("alertState").textContent = "Delay";
+          document.getElementById("confirmNote").textContent = "Delay is tracked against response SLA.";
+          app.dataset.state = "delayed";
+        }
+      });
+    });
+
+    render();
+  </script>
+</body>
+</html>
