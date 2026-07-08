@@ -134,6 +134,13 @@ window.MoolSocialScreenbook = {
       file: "screens/14-customer-payment-order-confirmation.html",
       status: "Approved",
       purpose: "Approved customer payment and order confirmation flow after retailer stock lock: final payable amount, stock-lock timer, fulfilment, payment method, protected charge, pickup code, receipt and order tracking handoff."
+    },
+    {
+      id: "15",
+      name: "Counter Ready Receipt",
+      file: "screens/15-counter-ready-receipt.html",
+      status: "Approved",
+      purpose: "Approved counter pickup receipt handoff after payment: paid receipt, live shop queue match, order/customer/amount signals, counter instruction, QR backup, counter view, collected state and no rider tracking for pickup orders."
     }
   ]
 };

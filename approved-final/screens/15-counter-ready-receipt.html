@@ -1,0 +1,1248 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>15 Counter Ready Receipt - MoolSocial Screenbook</title>
+  <link rel="stylesheet" href="../shared/moolsocial-ui-foundation.css" />
+  <style>
+    .screen-shell {
+      display: grid;
+      gap: 18px;
+    }
+
+    .back-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .screen-link-home {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--ms-navy);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .back-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--ms-navy);
+      border-radius: var(--ms-radius);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 11px;
+      font-weight: 950;
+    }
+
+    .preview {
+      display: grid;
+      grid-template-columns: minmax(320px, 390px) minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+      padding: 18px;
+      border-bottom: 1px solid var(--ms-navy);
+      background: var(--ms-white);
+    }
+
+    .phone {
+      width: min(100%, 370px);
+      height: 742px;
+      justify-self: center;
+      border: 10px solid var(--ms-navy);
+      border-radius: 32px;
+      background: var(--ms-navy);
+      overflow: hidden;
+      box-shadow: 0 28px 60px rgba(0, 0, 128, .22);
+    }
+
+    .app {
+      position: relative;
+      height: 100%;
+      display: grid;
+      grid-template-rows: auto auto 1fr auto;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 12% 8%, rgba(255, 153, 51, .18), transparent 25%),
+        radial-gradient(circle at 92% 10%, rgba(19, 136, 8, .13), transparent 24%),
+        linear-gradient(180deg, var(--ms-navy) 0 150px, #f5f7fb 150px 100%);
+      color: var(--ms-white);
+      font-family: var(--ms-font);
+    }
+
+    .status-row {
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 18px 0;
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    .top-zone {
+      display: grid;
+      gap: 10px;
+      padding: 8px 12px 12px;
+    }
+
+    .brand-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .title-lockup {
+      min-width: 0;
+      display: grid;
+      gap: 4px;
+    }
+
+    .title-lockup b {
+      overflow: hidden;
+      color: var(--ms-white);
+      font-size: 19px;
+      line-height: 1;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .title-lockup span {
+      overflow: hidden;
+      color: rgba(255, 255, 255, .76);
+      font-size: 10px;
+      font-weight: 850;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .identity-line {
+      width: 98px;
+      height: 3px;
+      display: grid;
+      grid-template-columns: 45fr 14fr 41fr;
+      border-radius: var(--ms-pill);
+      overflow: hidden;
+    }
+
+    .identity-line span:nth-child(1) { background: var(--ms-saffron); }
+    .identity-line span:nth-child(2) { background: var(--ms-white); }
+    .identity-line span:nth-child(3) { background: var(--ms-green); }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    button {
+      appearance: none;
+      font-family: var(--ms-font);
+      cursor: pointer;
+    }
+
+    svg {
+      width: 18px;
+      height: 18px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .top-buttons {
+      display: flex;
+      gap: 7px;
+    }
+
+    .circle-btn {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, .26);
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .12);
+      color: var(--ms-white);
+      text-decoration: none;
+    }
+
+    .content {
+      min-height: 0;
+      overflow: auto;
+      display: grid;
+      align-content: start;
+      gap: 10px;
+      padding: 0 10px 104px;
+      color: var(--ms-navy);
+      scrollbar-width: none;
+    }
+
+    .content::-webkit-scrollbar {
+      display: none;
+    }
+
+    .receipt-hero,
+    .panel-card,
+    .counter-card {
+      display: grid;
+      gap: 10px;
+      border: 1px solid rgba(0, 0, 128, .15);
+      border-radius: 22px;
+      padding: 10px;
+      background: rgba(255, 255, 255, .98);
+      color: var(--ms-navy);
+      box-shadow: 0 16px 34px rgba(0, 0, 128, .12);
+    }
+
+    .receipt-hero {
+      background:
+        radial-gradient(circle at 92% 12%, rgba(19, 136, 8, .1), transparent 30%),
+        var(--ms-white);
+    }
+
+    .hero-top {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .hero-copy {
+      min-width: 0;
+      display: grid;
+      gap: 4px;
+    }
+
+    .hero-copy b {
+      color: var(--ms-navy);
+      font-size: 17px;
+      line-height: 1.05;
+    }
+
+    .hero-copy span {
+      color: rgba(0, 0, 128, .68);
+      font-size: 10px;
+      font-weight: 850;
+      line-height: 1.25;
+    }
+
+    .status-chip {
+      min-height: 30px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(19, 136, 8, .22);
+      border-radius: var(--ms-pill);
+      padding: 0 10px;
+      background: rgba(19, 136, 8, .08);
+      color: var(--ms-green);
+      font-size: 9px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .status-chip.ready {
+      background: var(--ms-green);
+      color: var(--ms-white);
+    }
+
+    .status-chip.collected {
+      border-color: var(--ms-navy);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+    }
+
+    .sync-line {
+      width: fit-content;
+      min-height: 24px;
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid rgba(19, 136, 8, .2);
+      border-radius: var(--ms-pill);
+      padding: 0 8px;
+      background: rgba(19, 136, 8, .08);
+      color: var(--ms-green);
+      font-size: 8px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .receipt-ticket {
+      display: grid;
+      gap: 9px;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: 20px;
+      padding: 11px;
+      background:
+        linear-gradient(180deg, rgba(0, 0, 128, .04), rgba(255, 255, 255, .96)),
+        var(--ms-white);
+    }
+
+    .ticket-head {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      align-items: start;
+    }
+
+    .ticket-shop {
+      min-width: 0;
+      display: grid;
+      gap: 3px;
+    }
+
+    .ticket-shop b {
+      overflow: hidden;
+      color: var(--ms-navy);
+      font-size: 16px;
+      line-height: 1.05;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .ticket-shop span {
+      overflow: hidden;
+      color: rgba(0, 0, 128, .62);
+      font-size: 9px;
+      font-weight: 850;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .paid-stamp {
+      min-width: 68px;
+      min-height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 8px;
+      font-weight: 950;
+      text-align: center;
+      box-shadow: inset 0 -4px 0 var(--ms-saffron);
+    }
+
+    .paid-stamp strong {
+      display: block;
+      font-size: 15px;
+      line-height: 1;
+    }
+
+    .match-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 7px;
+    }
+
+    .confidence-strip {
+      min-height: 36px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      align-items: center;
+      border: 1px solid rgba(19, 136, 8, .2);
+      border-radius: 16px;
+      padding: 8px;
+      background: rgba(19, 136, 8, .08);
+      color: var(--ms-green);
+    }
+
+    .confidence-strip b {
+      overflow: hidden;
+      color: var(--ms-green);
+      font-size: 11px;
+      line-height: 1.1;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .confidence-strip span {
+      color: rgba(0, 0, 128, .62);
+      font-size: 8px;
+      font-weight: 850;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .match-cell {
+      min-height: 48px;
+      display: grid;
+      align-content: center;
+      border: 1px solid rgba(0, 0, 128, .1);
+      border-radius: 15px;
+      padding: 8px;
+      background: #f8fafc;
+    }
+
+    .match-cell b {
+      overflow: hidden;
+      color: var(--ms-navy);
+      font-size: 12px;
+      line-height: 1.05;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .match-cell span {
+      overflow: hidden;
+      color: rgba(0, 0, 128, .56);
+      font-size: 8px;
+      font-weight: 850;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .counter-card {
+      grid-template-columns: 66px minmax(0, 1fr);
+      align-items: center;
+      gap: 10px;
+    }
+
+    .qr-tile {
+      width: 66px;
+      height: 66px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(0, 0, 128, .16);
+      border-radius: 20px;
+      background:
+        conic-gradient(from 90deg, var(--ms-navy), var(--ms-green), var(--ms-saffron), var(--ms-navy));
+      padding: 6px;
+    }
+
+    .qr-inner {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(4, 1fr);
+      gap: 4px;
+      border-radius: 15px;
+      padding: 8px;
+      background: var(--ms-white);
+    }
+
+    .qr-inner i {
+      border-radius: 3px;
+      background: var(--ms-navy);
+    }
+
+    .qr-inner i:nth-child(2),
+    .qr-inner i:nth-child(7),
+    .qr-inner i:nth-child(9),
+    .qr-inner i:nth-child(14) {
+      background: var(--ms-green);
+    }
+
+    .counter-copy {
+      min-width: 0;
+      display: grid;
+      gap: 5px;
+    }
+
+    .counter-copy b {
+      color: var(--ms-navy);
+      font-size: 15px;
+      line-height: 1.05;
+    }
+
+    .counter-copy span {
+      color: rgba(0, 0, 128, .68);
+      font-size: 10px;
+      font-weight: 850;
+      line-height: 1.25;
+    }
+
+    .mini-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .mini-pill {
+      min-height: 23px;
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid rgba(19, 136, 8, .18);
+      border-radius: var(--ms-pill);
+      padding: 0 7px;
+      background: rgba(19, 136, 8, .07);
+      color: var(--ms-green);
+      font-size: 8px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .mini-pill.warn {
+      border-color: rgba(255, 153, 51, .28);
+      background: rgba(255, 153, 51, .1);
+      color: var(--ms-navy);
+    }
+
+    .counter-instruction {
+      display: grid;
+      grid-template-columns: 40px minmax(0, 1fr);
+      gap: 9px;
+      align-items: center;
+      border: 1px solid rgba(0, 0, 128, .12);
+      border-radius: 18px;
+      padding: 9px;
+      background: #f8fafc;
+    }
+
+    .counter-icon {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -3px 0 var(--ms-saffron);
+    }
+
+    .counter-instruction b {
+      overflow: hidden;
+      color: var(--ms-navy);
+      font-size: 12px;
+      line-height: 1.1;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .counter-instruction span {
+      overflow: hidden;
+      color: rgba(0, 0, 128, .62);
+      font-size: 9px;
+      font-weight: 850;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .support-actions {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .support-btn {
+      min-height: 34px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: var(--ms-pill);
+      padding: 0 7px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      font-size: 8px;
+      font-weight: 950;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .collected-card {
+      display: none;
+      border: 1px solid rgba(19, 136, 8, .22);
+      border-radius: 20px;
+      padding: 11px;
+      background:
+        radial-gradient(circle at 92% 10%, rgba(19, 136, 8, .14), transparent 30%),
+        var(--ms-white);
+      color: var(--ms-navy);
+    }
+
+    .app[data-collected="yes"] .collected-card {
+      display: grid;
+      gap: 9px;
+    }
+
+    .collected-card b {
+      color: var(--ms-green);
+      font-size: 15px;
+      line-height: 1.05;
+    }
+
+    .collected-card span {
+      color: rgba(0, 0, 128, .66);
+      font-size: 10px;
+      font-weight: 850;
+      line-height: 1.25;
+    }
+
+    .panel-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .panel-head b {
+      color: var(--ms-navy);
+      font-size: 13px;
+      line-height: 1.1;
+    }
+
+    .panel-head span {
+      color: rgba(0, 0, 128, .6);
+      font-size: 9px;
+      font-weight: 850;
+      text-align: right;
+    }
+
+    .item-list {
+      display: grid;
+      gap: 7px;
+    }
+
+    .item-row {
+      display: grid;
+      grid-template-columns: 34px 1fr auto;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .item-thumb {
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      background:
+        radial-gradient(circle at 35% 35%, rgba(255, 153, 51, .7), transparent 31%),
+        radial-gradient(circle at 72% 62%, rgba(19, 136, 8, .7), transparent 33%),
+        rgba(0, 0, 128, .08);
+    }
+
+    .item-copy {
+      min-width: 0;
+      display: grid;
+      gap: 2px;
+    }
+
+    .item-copy b {
+      overflow: hidden;
+      color: var(--ms-navy);
+      font-size: 11px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .item-copy span {
+      overflow: hidden;
+      color: rgba(0, 0, 128, .58);
+      font-size: 8px;
+      font-weight: 850;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .item-price {
+      color: var(--ms-navy);
+      font-size: 10px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .action-bar {
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      bottom: 92px;
+      z-index: 9;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      align-items: center;
+      border: 1px solid rgba(255, 255, 255, .86);
+      border-radius: 24px;
+      padding: 10px;
+      background: rgba(255, 255, 255, .97);
+      color: var(--ms-navy);
+      box-shadow: 0 18px 40px rgba(0, 0, 128, .2);
+    }
+
+    .action-copy {
+      min-width: 0;
+      display: grid;
+      gap: 2px;
+    }
+
+    .action-copy b {
+      overflow: hidden;
+      color: var(--ms-navy);
+      font-size: 13px;
+      line-height: 1.1;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .action-copy span {
+      overflow: hidden;
+      color: rgba(0, 0, 128, .62);
+      font-size: 9px;
+      font-weight: 850;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 6px;
+    }
+
+    .action-btn {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(0, 0, 128, .18);
+      border-radius: var(--ms-pill);
+      padding: 0 11px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      font-size: 10px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .action-btn.primary {
+      border-color: var(--ms-navy);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -3px 0 var(--ms-saffron);
+    }
+
+    .action-btn[hidden] {
+      display: none;
+    }
+
+    .app[data-counter-view="yes"] .content {
+      align-content: center;
+      overflow: hidden;
+      padding: 0 10px 92px;
+    }
+
+    .app[data-counter-view="yes"] .receipt-ticket {
+      border-color: var(--ms-green);
+      box-shadow: 0 18px 40px rgba(19, 136, 8, .16);
+    }
+
+    .app[data-counter-view="yes"] .counter-card {
+      order: -1;
+      border-color: var(--ms-navy);
+    }
+
+    .app[data-counter-view="yes"] .top-zone,
+    .app[data-counter-view="yes"] .bottom-dock,
+    .app[data-counter-view="yes"] .panel-card {
+      display: none;
+    }
+
+    .app[data-counter-view="yes"] .receipt-hero {
+      border-color: var(--ms-green);
+    }
+
+    .app[data-counter-view="yes"] .action-bar {
+      bottom: 12px;
+    }
+
+    .bottom-dock {
+      position: absolute;
+      left: 8px;
+      right: 8px;
+      bottom: 10px;
+      z-index: 10;
+      display: grid;
+      grid-template-columns: 58px minmax(0, 1fr) 58px;
+      gap: 7px;
+      align-items: center;
+      border: 1px solid rgba(0, 0, 128, .9);
+      border-radius: 30px;
+      padding: 8px;
+      background: linear-gradient(180deg, rgba(255,255,255,.94), rgba(245,247,251,.94));
+      box-shadow: 0 14px 32px rgba(0, 0, 128, .22);
+    }
+
+    .mool-button,
+    .chat-button,
+    .dock-tab {
+      text-decoration: none;
+      font-family: var(--ms-font);
+    }
+
+    .mool-button,
+    .chat-button {
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(0, 0, 128, .16);
+      border-radius: 50%;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      font-size: 11px;
+      font-weight: 950;
+      box-shadow: 0 10px 22px rgba(0, 0, 128, .12);
+      position: relative;
+    }
+
+    .mool-button {
+      background:
+        radial-gradient(circle at 30% 20%, rgba(255, 255, 255, .36), transparent 20%),
+        var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -5px 0 rgba(0, 0, 70, .45), 0 12px 22px rgba(0, 0, 128, .25);
+    }
+
+    .mool-button::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: 9px;
+      width: 34px;
+      height: 5px;
+      display: block;
+      border-radius: var(--ms-pill);
+      background: linear-gradient(90deg, var(--ms-saffron) 0 45%, var(--ms-white) 45% 58%, var(--ms-green) 58% 100%);
+      transform: translateX(-50%);
+    }
+
+    .chat-button svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .chat-count {
+      position: absolute;
+      right: 4px;
+      top: 2px;
+      min-width: 22px;
+      height: 22px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--ms-saffron);
+      color: var(--ms-navy);
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .dock-tabs {
+      min-width: 0;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 4px;
+      overflow: hidden;
+      border-radius: 23px;
+      padding: 3px;
+      background:
+        radial-gradient(circle at 50% 40%, rgba(0, 0, 128, .12), transparent 54%),
+        linear-gradient(90deg, rgba(0, 0, 128, .08), rgba(255,255,255,.4), rgba(0, 0, 128, .08));
+      box-shadow: inset 0 10px 20px rgba(0, 0, 128, .08);
+    }
+
+    .dock-tab {
+      height: 56px;
+      min-width: 0;
+      display: grid;
+      place-items: center;
+      align-content: center;
+      gap: 3px;
+      border: 1px solid transparent;
+      border-radius: 20px;
+      padding: 4px 3px;
+      background: transparent;
+      color: var(--ms-navy);
+      font-size: 8px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .dock-tab svg {
+      width: 19px;
+      height: 19px;
+    }
+
+    .dock-tab.active {
+      border-color: var(--ms-navy);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 var(--ms-saffron), 0 9px 18px rgba(0, 0, 128, .18);
+    }
+
+    .notes {
+      display: grid;
+      gap: 14px;
+    }
+
+    .state-grid {
+      display: grid;
+      grid-template-columns: 170px 1fr 1fr;
+      border: 1px solid var(--ms-navy);
+      border-bottom: 0;
+    }
+
+    .state-cell {
+      min-height: 54px;
+      display: grid;
+      align-content: center;
+      border-right: 1px solid var(--ms-navy);
+      border-bottom: 1px solid var(--ms-navy);
+      padding: 10px;
+      color: var(--ms-navy);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    .state-cell:nth-child(3n) {
+      border-right: 0;
+    }
+
+    .state-cell b {
+      color: var(--ms-green);
+    }
+
+    @media (max-width: 900px) {
+      .preview {
+        grid-template-columns: 1fr;
+      }
+
+      .state-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .state-cell {
+        border-right: 0;
+      }
+    }
+  </style>
+</head>
+<body class="ms-doc">
+  <main class="ms-page screen-shell">
+    <header class="back-row">
+      <a class="screen-link-home" href="../index.html">
+        <span class="back-mark">MS</span>
+        Back to screenbook
+      </a>
+      <span class="ms-status">Screen 15 Approved</span>
+    </header>
+
+    <section class="ms-panel">
+      <div class="ms-section-head">
+        Screen 15: Counter Ready Receipt
+        <span>After successful counter pickup payment</span>
+      </div>
+
+      <div class="preview">
+        <div class="phone" aria-label="MoolSocial counter ready receipt phone preview">
+          <div class="app" id="receiptApp" data-counter-view="no" data-ready="no" data-collected="no">
+            <div class="status-row">
+              <span>9:42</span>
+              <span>5G 100%</span>
+            </div>
+
+            <div class="top-zone">
+              <div class="brand-row">
+                <div class="title-lockup">
+                  <b>Counter Receipt</b>
+                  <div class="identity-line" aria-hidden="true"><span></span><span></span><span></span></div>
+                  <span>Paid order at Mahadev Fresh Mart</span>
+                </div>
+                <div class="top-buttons">
+                  <a class="circle-btn" href="14-customer-payment-order-confirmation.html?v=approved-14" aria-label="Back to payment">
+                    <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" /></svg>
+                  </a>
+                  <button class="circle-btn" type="button" aria-label="Share receipt">
+                    <svg viewBox="0 0 24 24"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7" /><path d="M16 6l-4-4-4 4" /><path d="M12 2v14" /></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="content">
+              <section class="receipt-hero">
+                <div class="hero-top">
+                  <div class="hero-copy">
+                    <b id="heroTitle">Show this at counter</b>
+                    <span id="heroSubtitle">Shop staff can match your paid order from their Ready queue. No code search needed first.</span>
+                    <span class="sync-line" id="syncLine">Matched in shop app - updated just now</span>
+                  </div>
+                  <span class="status-chip" id="readyChip">Packing</span>
+                </div>
+                <div class="mini-pills">
+                  <span class="mini-pill">Paid</span>
+                  <span class="mini-pill">Counter pickup</span>
+                  <span class="mini-pill">6 items</span>
+                  <span class="mini-pill">Rs 645</span>
+                </div>
+              </section>
+
+              <section class="receipt-ticket" aria-label="Counter receipt">
+                <div class="ticket-head">
+                  <div class="ticket-shop">
+                    <b>Mahadev Fresh Mart</b>
+                    <span>Jodhpur local shop - Counter 1</span>
+                  </div>
+                  <div class="paid-stamp">
+                    <span><strong>Paid</strong>Rs 645</span>
+                  </div>
+                </div>
+
+                <div class="confidence-strip">
+                  <b id="matchConfidence">Matched in retailer queue</b>
+                  <span id="updatedAt">Updated just now</span>
+                </div>
+
+                <div class="match-grid">
+                  <div class="match-cell"><b>Order MS-BUY-1042</b><span>latest paid order</span></div>
+                  <div class="match-cell"><b>Jisal - 6068</b><span>customer match</span></div>
+                  <div class="match-cell"><b>6 items</b><span>all stock confirmed</span></div>
+                  <div class="match-cell"><b>Counter 1</b><span id="statusText">packing at shop</span></div>
+                </div>
+              </section>
+
+              <section class="counter-card">
+                <div class="qr-tile" aria-label="Receipt QR visual">
+                  <div class="qr-inner" aria-hidden="true">
+                    <i></i><i></i><i></i><i></i>
+                    <i></i><i></i><i></i><i></i>
+                    <i></i><i></i><i></i><i></i>
+                    <i></i><i></i><i></i><i></i>
+                  </div>
+                </div>
+                <div class="counter-copy">
+                  <b>Scan only if needed</b>
+                  <span>The primary match is in retailer app: paid queue, order number, customer name and last 4 mobile.</span>
+                  <div class="mini-pills">
+                    <span class="mini-pill">Queue match</span>
+                    <span class="mini-pill">QR backup</span>
+                    <span class="mini-pill">No code hunting</span>
+                  </div>
+                </div>
+              </section>
+
+              <section class="panel-card">
+                <div class="panel-head">
+                  <b>Basket summary</b>
+                  <span>confirmed and paid</span>
+                </div>
+                <div class="item-list">
+                  <div class="item-row">
+                    <div class="item-thumb" aria-hidden="true"></div>
+                    <div class="item-copy"><b>Hybrid Tomato</b><span>500 g - fresh vegetables</span></div>
+                    <span class="item-price">Rs 37</span>
+                  </div>
+                  <div class="item-row">
+                    <div class="item-thumb" aria-hidden="true"></div>
+                    <div class="item-copy"><b>Green Chilli</b><span>100 g - packed</span></div>
+                    <span class="item-price">Rs 16</span>
+                  </div>
+                  <div class="item-row">
+                    <div class="item-thumb" aria-hidden="true"></div>
+                    <div class="item-copy"><b>Monthly staples pack</b><span>4 more items in packet</span></div>
+                    <span class="item-price">Rs 592</span>
+                  </div>
+                </div>
+              </section>
+
+              <section class="panel-card">
+                <div class="panel-head">
+                  <b>Counter instruction</b>
+                  <span>busy shop safe</span>
+                </div>
+                <div class="counter-instruction">
+                  <div class="counter-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path d="M4 8h16" /><path d="M6 8v11h12V8" /><path d="M9 12h6M9 16h4" /></svg>
+                  </div>
+                  <div>
+                    <b>Collect from Counter 1</b>
+                    <span>Ask billing counter if packet is still packing.</span>
+                  </div>
+                </div>
+                <div class="mini-pills">
+                  <span class="mini-pill">Show screen</span>
+                  <span class="mini-pill">Staff checks queue</span>
+                  <span class="mini-pill">Collect packet</span>
+                  <span class="mini-pill">Bill saved</span>
+                </div>
+              </section>
+
+              <section class="panel-card">
+                <div class="panel-head">
+                  <b>If still packing</b>
+                  <span>counter support</span>
+                </div>
+                <div class="support-actions">
+                  <button class="support-btn" type="button">Ask counter</button>
+                  <a class="support-btn" href="03-login-account-handoff.html">Chat shop</a>
+                  <button class="support-btn" type="button">Refresh</button>
+                </div>
+                <div class="mini-pills">
+                  <span class="mini-pill warn">No tracking needed</span>
+                  <span class="mini-pill warn">Only pickup status</span>
+                </div>
+              </section>
+
+              <section class="collected-card" id="collectedCard">
+                <b>Collected successfully</b>
+                <span>Mahadev Fresh Mart marked the packet as handed over. Bill is saved in Orders.</span>
+                <div class="mini-pills">
+                  <span class="mini-pill">Bill saved</span>
+                  <span class="mini-pill">Rate shop</span>
+                  <span class="mini-pill">Buy again</span>
+                </div>
+              </section>
+            </div>
+
+            <div class="action-bar">
+              <div class="action-copy">
+                <b id="actionTitle">Order paid - packing</b>
+                <span id="actionMeta">Show at counter when packet is ready</span>
+              </div>
+              <div class="action-buttons">
+                <button class="action-btn" type="button" id="refreshButton">Refresh</button>
+                <button class="action-btn" type="button" id="collectButton" hidden>Collected</button>
+                <button class="action-btn primary" type="button" id="counterButton">Show</button>
+              </div>
+            </div>
+
+            <nav class="bottom-dock" aria-label="Receipt navigation">
+              <a class="mool-button" href="04-universal-focus-shell.html" aria-label="Open Mool">Mool</a>
+              <div class="dock-tabs" aria-label="Buy sub-actions">
+                <a class="dock-tab" href="10-buy-grocery-decision.html" aria-label="Open shop">
+                  <svg viewBox="0 0 24 24"><path d="M6 7h15l-2 9H8L6 3H3" /><path d="M9 20h.01M18 20h.01" /></svg>
+                  Shop
+                </a>
+                <a class="dock-tab" href="12-buy-basket-checkout.html" aria-label="Open basket">
+                  <svg viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6L5 8Z" /><path d="M9 8a3 3 0 0 1 6 0" /></svg>
+                  Basket
+                </a>
+                <a class="dock-tab active" href="15-counter-ready-receipt.html" aria-label="Open receipt">
+                  <svg viewBox="0 0 24 24"><path d="M6 2h12v20l-3-2-3 2-3-2-3 2V2Z" /><path d="M9 7h6M9 11h6" /></svg>
+                  Receipt
+                </a>
+                <a class="dock-tab" href="09-buy.html" aria-label="Open orders">
+                  <svg viewBox="0 0 24 24"><path d="M4 7h16M7 7v13h10V7" /><path d="M9 11h6M9 15h6" /></svg>
+                  Orders
+                </a>
+              </div>
+              <a class="chat-button" href="03-login-account-handoff.html" aria-label="Open chat">
+                <svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z" /></svg>
+                <span class="chat-count">2</span>
+              </a>
+            </nav>
+          </div>
+        </div>
+
+        <div class="notes">
+          <div>
+            <h1 class="ms-title">Counter pickup is a receipt handoff, not tracking.</h1>
+            <p class="ms-lead">
+              Screen 15 solves busy-counter confusion by showing a paid receipt that the retailer can match from
+              their own Ready queue. QR and backup identifiers exist, but the customer is not forced to search for a code.
+            </p>
+          </div>
+
+          <div class="ms-panel">
+            <div class="ms-section-head">Screen Contract <span>Approved</span></div>
+            <div class="state-grid">
+              <div class="state-cell"><b>Entry</b>After Screen 14 payment success for counter pickup orders.</div>
+              <div class="state-cell"><b>User Sees</b>Paid receipt, live sync, shop queue match, order/customer/amount signals and counter instruction.</div>
+              <div class="state-cell"><b>Decision</b>User taps Show at Counter to open a distraction-free handoff view for shop staff.</div>
+
+              <div class="state-cell"><b>Retailer</b>Same order appears in paid/ready queue with customer, phone last 4, order and amount match signals.</div>
+              <div class="state-cell"><b>Safety</b>QR is backup only; staff can match by queue, order, customer and amount.</div>
+              <div class="state-cell"><b>No Tracking</b>Counter pickup does not show rider tracking. Home delivery gets a separate delivery screen.</div>
+
+              <div class="state-cell"><b>Next</b>After pickup, retailer marks Collected and customer sees Bill saved / Rate shop / Buy again.</div>
+              <div class="state-cell"><b>Delay</b>If packet is delayed, user can ask counter, refresh or chat shop without payment confusion.</div>
+              <div class="state-cell"><b>Dock</b>Mool, Shop, Basket, Receipt, Orders and Chat remain one tap accessible.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const app = document.getElementById("receiptApp");
+    const readyChip = document.getElementById("readyChip");
+    const statusText = document.getElementById("statusText");
+    const heroTitle = document.getElementById("heroTitle");
+    const heroSubtitle = document.getElementById("heroSubtitle");
+    const syncLine = document.getElementById("syncLine");
+    const matchConfidence = document.getElementById("matchConfidence");
+    const updatedAt = document.getElementById("updatedAt");
+    const actionTitle = document.getElementById("actionTitle");
+    const actionMeta = document.getElementById("actionMeta");
+    const refreshButton = document.getElementById("refreshButton");
+    const collectButton = document.getElementById("collectButton");
+    const counterButton = document.getElementById("counterButton");
+
+    const setReady = () => {
+      if (app.dataset.collected === "yes") return;
+      app.dataset.ready = "yes";
+      readyChip.textContent = "Ready";
+      readyChip.classList.add("ready");
+      readyChip.classList.remove("collected");
+      statusText.textContent = "ready at counter";
+      heroTitle.textContent = "Packet ready";
+      heroSubtitle.textContent = "Show this receipt at Mahadev counter. Staff will match it from the Ready queue.";
+      syncLine.textContent = "Ready queue synced - updated just now";
+      matchConfidence.textContent = "Ready in retailer queue";
+      updatedAt.textContent = "Updated just now";
+      actionTitle.textContent = "Ready at counter";
+      actionMeta.textContent = "Show receipt and collect packet";
+      collectButton.hidden = app.dataset.counterView !== "yes";
+    };
+
+    refreshButton.addEventListener("click", () => {
+      setReady();
+    });
+
+    counterButton.addEventListener("click", () => {
+      if (app.dataset.collected === "yes") {
+        actionMeta.textContent = "Opening Orders";
+        return;
+      }
+
+      const active = app.dataset.counterView === "yes";
+      app.dataset.counterView = active ? "no" : "yes";
+      counterButton.textContent = active ? "Show" : "Exit";
+      collectButton.hidden = !(app.dataset.counterView === "yes" && app.dataset.ready === "yes");
+      actionTitle.textContent = active ? (app.dataset.ready === "yes" ? "Ready at counter" : "Order paid - packing") : "Counter view open";
+      actionMeta.textContent = active ? "Show at counter when packet is ready" : "Keep this screen visible for staff";
+    });
+
+    collectButton.addEventListener("click", () => {
+      app.dataset.ready = "yes";
+      app.dataset.collected = "yes";
+      app.dataset.counterView = "no";
+      readyChip.textContent = "Collected";
+      readyChip.classList.remove("ready");
+      readyChip.classList.add("collected");
+      statusText.textContent = "handed over";
+      heroTitle.textContent = "Order collected";
+      heroSubtitle.textContent = "Packet handed over by Mahadev Fresh Mart. Bill is saved in Orders.";
+      syncLine.textContent = "Collected in shop app - updated just now";
+      matchConfidence.textContent = "Collected and bill saved";
+      updatedAt.textContent = "Updated just now";
+      actionTitle.textContent = "Collected - bill saved";
+      actionMeta.textContent = "Rate shop or buy again from Orders";
+      refreshButton.hidden = true;
+      collectButton.hidden = true;
+      counterButton.textContent = "Orders";
+    });
+  </script>
+</body>
+</html>
