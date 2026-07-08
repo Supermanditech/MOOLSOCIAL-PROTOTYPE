@@ -106,6 +106,13 @@ window.MoolSocialScreenbook = {
       file: "screens/10-buy-grocery-decision.html",
       status: "Approved",
       purpose: "Approved shop-specific grocery decision flow after Buy: selected shop/category context, retailer capability settings, retail/family-pack/wholesale-MOQ/shop-offer choices and basket continuation."
+    },
+    {
+      id: "11",
+      name: "Buy > Product Detail",
+      file: "screens/11-buy-product-detail.html",
+      status: "Approved",
+      purpose: "Approved product detail and add-to-basket flow after Grocery Decision: selected product/shop context, shop capability settings, rate, unit, quantity, fulfilment, proof and basket action."
     }
   ]
 };

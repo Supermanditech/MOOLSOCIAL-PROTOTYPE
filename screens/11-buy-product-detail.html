@@ -1,0 +1,1364 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>11 Buy > Product Detail - MoolSocial Screenbook</title>
+  <link rel="stylesheet" href="../shared/moolsocial-ui-foundation.css" />
+  <style>
+    .screen-shell {
+      display: grid;
+      gap: 18px;
+    }
+
+    .back-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .screen-link-home {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--ms-navy);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .back-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--ms-navy);
+      border-radius: var(--ms-radius);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .preview {
+      display: grid;
+      grid-template-columns: minmax(320px, 390px) minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+      padding: 18px;
+      border-bottom: 1px solid var(--ms-navy);
+      background: var(--ms-white);
+    }
+
+    .phone {
+      width: min(100%, 370px);
+      height: 742px;
+      justify-self: center;
+      border: 10px solid var(--ms-navy);
+      border-radius: 32px;
+      background: var(--ms-navy);
+      overflow: hidden;
+      box-shadow: 0 28px 60px rgba(0, 0, 128, .22);
+    }
+
+    .app {
+      position: relative;
+      height: 100%;
+      display: grid;
+      grid-template-rows: auto auto 1fr auto;
+      background:
+        radial-gradient(circle at 14% 6%, rgba(255, 153, 51, .16), transparent 24%),
+        radial-gradient(circle at 90% 12%, rgba(19, 136, 8, .12), transparent 22%),
+        linear-gradient(180deg, var(--ms-navy) 0 144px, #f5f7fb 144px 100%);
+      color: var(--ms-white);
+      overflow: hidden;
+      font-family: var(--ms-font);
+    }
+
+    .status-row {
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 18px 0;
+      color: var(--ms-white);
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    .top-zone {
+      display: grid;
+      gap: 10px;
+      padding: 8px 12px 13px;
+    }
+
+    .brand-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .title-lockup {
+      min-width: 0;
+      display: grid;
+      gap: 4px;
+    }
+
+    .title-lockup b {
+      overflow: hidden;
+      color: var(--ms-white);
+      font-size: 19px;
+      line-height: 1;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .title-lockup span {
+      overflow: hidden;
+      color: rgba(255, 255, 255, .76);
+      font-size: 10px;
+      font-weight: 850;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .identity-line {
+      width: 98px;
+      height: 3px;
+      display: grid;
+      grid-template-columns: 45fr 14fr 41fr;
+      border-radius: var(--ms-pill);
+      overflow: hidden;
+    }
+
+    .identity-line span:nth-child(1) { background: var(--ms-saffron); }
+    .identity-line span:nth-child(2) { background: var(--ms-white); }
+    .identity-line span:nth-child(3) { background: var(--ms-green); }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    button {
+      appearance: none;
+      font-family: var(--ms-font);
+      cursor: pointer;
+    }
+
+    svg {
+      width: 18px;
+      height: 18px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .top-buttons {
+      display: flex;
+      gap: 7px;
+    }
+
+    .circle-btn {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, .26);
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .12);
+      color: var(--ms-white);
+      text-decoration: none;
+    }
+
+    .content {
+      min-height: 0;
+      overflow: auto;
+      display: grid;
+      align-content: start;
+      gap: 10px;
+      padding: 0 10px 152px;
+      color: var(--ms-navy);
+      scrollbar-width: none;
+    }
+
+    .content::-webkit-scrollbar {
+      display: none;
+    }
+
+    .detail-hero {
+      display: grid;
+      grid-template-columns: 118px minmax(0, 1fr);
+      gap: 9px;
+      align-items: stretch;
+      border: 1px solid rgba(0, 0, 128, .15);
+      border-radius: 22px;
+      padding: 10px;
+      background: rgba(255, 255, 255, .98);
+      box-shadow: 0 16px 34px rgba(0, 0, 128, .12);
+    }
+
+    .product-image {
+      position: relative;
+      min-height: 148px;
+      overflow: hidden;
+      border-radius: 19px;
+      background:
+        radial-gradient(circle at 36% 36%, rgba(255, 153, 51, .92), transparent 18%),
+        radial-gradient(circle at 58% 42%, rgba(19, 136, 8, .8), transparent 20%),
+        radial-gradient(circle at 47% 66%, rgba(255, 255, 255, .9), transparent 18%),
+        linear-gradient(135deg, rgba(0, 0, 128, .14), rgba(19, 136, 8, .14));
+    }
+
+    .product-image.staples {
+      background:
+        radial-gradient(circle at 32% 35%, rgba(255, 255, 255, .9), transparent 24%),
+        radial-gradient(circle at 64% 58%, rgba(255, 153, 51, .75), transparent 25%),
+        linear-gradient(135deg, rgba(0, 0, 128, .16), rgba(19, 136, 8, .14));
+    }
+
+    .product-image.home {
+      background:
+        radial-gradient(circle at 44% 34%, rgba(0, 0, 128, .82), transparent 22%),
+        radial-gradient(circle at 65% 61%, rgba(255, 153, 51, .62), transparent 26%),
+        linear-gradient(135deg, rgba(255, 255, 255, .92), rgba(19, 136, 8, .16));
+    }
+
+    .hero-tag {
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      min-height: 26px;
+      display: inline-flex;
+      align-items: center;
+      border-radius: var(--ms-pill);
+      padding: 0 10px;
+      background: rgba(255, 255, 255, .92);
+      color: var(--ms-green);
+      font-size: 9px;
+      font-weight: 950;
+      box-shadow: 0 8px 18px rgba(0, 0, 128, .14);
+    }
+
+    .hero-copy {
+      min-width: 0;
+      display: grid;
+      align-content: start;
+      gap: 7px;
+    }
+
+    .detail-title {
+      display: grid;
+      gap: 4px;
+    }
+
+    .detail-title b {
+      color: var(--ms-navy);
+      font-size: 17px;
+      line-height: 1.08;
+    }
+
+    .detail-title span {
+      color: rgba(0, 0, 128, .67);
+      font-size: 11px;
+      font-weight: 820;
+      line-height: 1.35;
+    }
+
+    .decision-strip {
+      display: grid;
+      gap: 4px;
+      border: 1px solid rgba(0, 0, 128, .13);
+      border-radius: 16px;
+      padding: 8px;
+      background:
+        linear-gradient(90deg, rgba(0, 0, 128, .06), rgba(19, 136, 8, .06));
+    }
+
+    .decision-strip strong {
+      color: var(--ms-navy);
+      font-size: 17px;
+      line-height: 1;
+    }
+
+    .decision-strip span {
+      color: rgba(0, 0, 128, .7);
+      font-size: 9px;
+      font-weight: 900;
+      line-height: 1.15;
+    }
+
+    .quick-proof-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .quick-proof {
+      min-height: 23px;
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid rgba(19, 136, 8, .18);
+      border-radius: var(--ms-pill);
+      padding: 0 8px;
+      background: rgba(19, 136, 8, .07);
+      color: var(--ms-green);
+      font-size: 8px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .shop-note {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 8px;
+      align-items: center;
+      border: 1px solid rgba(19, 136, 8, .2);
+      border-radius: 16px;
+      padding: 8px;
+      background: rgba(19, 136, 8, .07);
+      color: var(--ms-navy);
+      font-size: 10px;
+      font-weight: 850;
+      line-height: 1.25;
+    }
+
+    .shop-note b {
+      min-height: 26px;
+      display: inline-flex;
+      align-items: center;
+      border-radius: var(--ms-pill);
+      padding: 0 9px;
+      background: var(--ms-green);
+      color: var(--ms-white);
+      font-size: 9px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .panel-card {
+      display: grid;
+      gap: 9px;
+      border: 1px solid rgba(0, 0, 128, .15);
+      border-radius: 20px;
+      padding: 10px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      box-shadow: 0 10px 26px rgba(0, 0, 128, .08);
+    }
+
+    .panel-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .panel-head b {
+      color: var(--ms-navy);
+      font-size: 13px;
+      line-height: 1.1;
+    }
+
+    .panel-head span {
+      color: rgba(0, 0, 128, .6);
+      font-size: 9px;
+      font-weight: 850;
+      text-align: right;
+    }
+
+    .rate-grid,
+    .unit-grid,
+    .fulfil-grid {
+      display: grid;
+      gap: 6px;
+    }
+
+    .rate-grid {
+      grid-template-columns: repeat(auto-fit, minmax(86px, 1fr));
+    }
+
+    .unit-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .fulfil-grid {
+      grid-template-columns: repeat(auto-fit, minmax(96px, 1fr));
+    }
+
+    .rate-btn,
+    .unit-btn,
+    .fulfil-btn {
+      min-height: 58px;
+      display: grid;
+      align-content: center;
+      gap: 3px;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: 16px;
+      padding: 7px;
+      background: #f8fafc;
+      color: var(--ms-navy);
+      text-align: left;
+      box-shadow: 0 6px 18px rgba(0, 0, 128, .04);
+    }
+
+    .rate-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .rate-btn b,
+    .unit-btn b,
+    .fulfil-btn b {
+      font-size: 10px;
+      line-height: 1.05;
+    }
+
+    .rate-btn strong,
+    .unit-btn strong {
+      font-size: 15px;
+      line-height: 1;
+    }
+
+    .rate-btn span,
+    .unit-btn span,
+    .fulfil-btn span {
+      color: rgba(0, 0, 128, .6);
+      font-size: 8px;
+      font-weight: 850;
+      line-height: 1.1;
+    }
+
+    .rate-btn.active,
+    .unit-btn.active,
+    .fulfil-btn.active {
+      border-color: var(--ms-navy);
+      background: rgba(0, 0, 128, .06);
+      box-shadow: inset 0 -3px 0 var(--ms-saffron);
+    }
+
+    .app[data-wholesale="off"] [data-rate="wholesale"] {
+      display: none;
+    }
+
+    .app[data-offer="off"] [data-rate="offer"] {
+      display: none;
+    }
+
+    .app[data-pickup="off"] [data-fulfil="pickup"] {
+      display: none;
+    }
+
+    .app[data-delivery="off"] [data-fulfil="delivery"] {
+      display: none;
+    }
+
+    .capability-note {
+      display: none;
+      align-items: center;
+      border: 1px solid rgba(255, 153, 51, .32);
+      border-radius: 14px;
+      padding: 8px 9px;
+      background: rgba(255, 153, 51, .1);
+      color: var(--ms-navy);
+      font-size: 9px;
+      font-weight: 900;
+      line-height: 1.25;
+    }
+
+    .app[data-wholesale="off"] .capability-note {
+      display: flex;
+    }
+
+    .qty-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .qty-copy {
+      display: grid;
+      gap: 2px;
+    }
+
+    .qty-copy b {
+      color: var(--ms-navy);
+      font-size: 12px;
+    }
+
+    .qty-copy span {
+      color: rgba(0, 0, 128, .6);
+      font-size: 10px;
+      font-weight: 820;
+    }
+
+    .qty-stepper {
+      display: grid;
+      grid-template-columns: 36px 36px 36px;
+      align-items: center;
+      overflow: hidden;
+      border-radius: var(--ms-pill);
+      background: var(--ms-green);
+      color: var(--ms-white);
+      font-size: 13px;
+      font-weight: 950;
+    }
+
+    .qty-stepper button {
+      width: 36px;
+      height: 38px;
+      border: 0;
+      background: transparent;
+      color: inherit;
+      font-size: 18px;
+      font-weight: 950;
+    }
+
+    .qty-stepper span {
+      text-align: center;
+    }
+
+    .proof-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .proof-chip {
+      min-height: 48px;
+      display: grid;
+      align-content: center;
+      gap: 3px;
+      border: 1px solid rgba(0, 0, 128, .1);
+      border-radius: 14px;
+      padding: 7px;
+      background: #f8fafc;
+      color: var(--ms-navy);
+      font-size: 8px;
+      font-weight: 850;
+      text-align: center;
+    }
+
+    .proof-chip b {
+      color: var(--ms-green);
+      font-size: 10px;
+    }
+
+    .bottom-buy {
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      bottom: 92px;
+      z-index: 9;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      align-items: center;
+      border: 1px solid rgba(255, 255, 255, .86);
+      border-radius: 24px;
+      padding: 10px;
+      background: rgba(255, 255, 255, .97);
+      color: var(--ms-navy);
+      box-shadow: 0 18px 40px rgba(0, 0, 128, .2);
+    }
+
+    .total-copy {
+      min-width: 0;
+      display: grid;
+      gap: 2px;
+    }
+
+    .total-copy b {
+      overflow: hidden;
+      color: var(--ms-navy);
+      font-size: 13px;
+      line-height: 1.1;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .total-copy span {
+      overflow: hidden;
+      color: rgba(0, 0, 128, .62);
+      font-size: 9px;
+      font-weight: 850;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .add-basket {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--ms-navy);
+      border-radius: var(--ms-pill);
+      padding: 0 14px;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 11px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .app[data-basket="added"] .add-basket {
+      border-color: var(--ms-green);
+      background: var(--ms-green);
+    }
+
+    .bottom-dock {
+      position: absolute;
+      left: 8px;
+      right: 8px;
+      bottom: 10px;
+      z-index: 10;
+      display: grid;
+      grid-template-columns: 58px minmax(0, 1fr) 58px;
+      gap: 7px;
+      align-items: center;
+      border: 1px solid rgba(0, 0, 128, .9);
+      border-radius: 30px;
+      padding: 8px;
+      background: linear-gradient(180deg, rgba(255,255,255,.94), rgba(245,247,251,.94));
+      box-shadow: 0 14px 32px rgba(0, 0, 128, .22);
+    }
+
+    .mool-button,
+    .chat-button,
+    .dock-tab {
+      text-decoration: none;
+      font-family: var(--ms-font);
+    }
+
+    .mool-button,
+    .chat-button {
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(0, 0, 128, .16);
+      border-radius: 50%;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      font-size: 11px;
+      font-weight: 950;
+      box-shadow: 0 10px 22px rgba(0, 0, 128, .12);
+      position: relative;
+    }
+
+    .mool-button {
+      background:
+        radial-gradient(circle at 30% 20%, rgba(255, 255, 255, .36), transparent 20%),
+        var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -5px 0 rgba(0, 0, 70, .45), 0 12px 22px rgba(0, 0, 128, .25);
+    }
+
+    .mool-button::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: 9px;
+      width: 34px;
+      height: 5px;
+      display: block;
+      border-radius: var(--ms-pill);
+      background: linear-gradient(90deg, var(--ms-saffron) 0 45%, var(--ms-white) 45% 58%, var(--ms-green) 58% 100%);
+      transform: translateX(-50%);
+    }
+
+    .chat-button svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .chat-count {
+      position: absolute;
+      right: 4px;
+      top: 2px;
+      min-width: 22px;
+      height: 22px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--ms-saffron);
+      color: var(--ms-navy);
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .dock-tabs {
+      min-width: 0;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 4px;
+      overflow: hidden;
+      border-radius: 23px;
+      padding: 3px;
+      background:
+        radial-gradient(circle at 50% 40%, rgba(0, 0, 128, .12), transparent 54%),
+        linear-gradient(90deg, rgba(0, 0, 128, .08), rgba(255,255,255,.4), rgba(0, 0, 128, .08));
+      box-shadow: inset 0 10px 20px rgba(0, 0, 128, .08);
+    }
+
+    .dock-tab {
+      height: 56px;
+      min-width: 0;
+      display: grid;
+      place-items: center;
+      align-content: center;
+      gap: 3px;
+      border: 1px solid transparent;
+      border-radius: 20px;
+      padding: 4px 3px;
+      background: transparent;
+      color: var(--ms-navy);
+      font-size: 8px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .dock-tab svg {
+      width: 19px;
+      height: 19px;
+    }
+
+    .dock-tab.active {
+      border-color: var(--ms-navy);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 var(--ms-saffron), 0 9px 18px rgba(0, 0, 128, .18);
+    }
+
+    .setting-panel {
+      display: grid;
+      gap: 12px;
+      border: 1px solid var(--ms-navy);
+      border-radius: var(--ms-radius);
+      padding: 14px;
+      background: #f8fafc;
+    }
+
+    .setting-panel h2,
+    .setting-panel p {
+      margin: 0;
+    }
+
+    .setting-panel h2 {
+      color: var(--ms-navy);
+      font-size: 18px;
+      line-height: 1.15;
+    }
+
+    .setting-panel p {
+      color: rgba(0, 0, 128, .74);
+      font-size: 12px;
+      line-height: 1.45;
+      font-weight: 780;
+    }
+
+    .setting-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .setting-toggle {
+      min-height: 48px;
+      display: grid;
+      align-content: center;
+      gap: 3px;
+      border: 1px solid rgba(0, 0, 128, .2);
+      border-radius: 14px;
+      padding: 8px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      font-family: var(--ms-font);
+      font-weight: 920;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .setting-toggle span {
+      color: rgba(0, 0, 128, .58);
+      font-size: 10px;
+      font-weight: 820;
+    }
+
+    .setting-toggle[aria-pressed="true"] {
+      border-color: var(--ms-green);
+      background: rgba(19, 136, 8, .08);
+      color: var(--ms-green);
+      box-shadow: inset 0 -3px 0 var(--ms-green);
+    }
+
+    .state-grid {
+      display: grid;
+      grid-template-columns: 170px 1fr 1fr;
+      border: 1px solid var(--ms-navy);
+      border-bottom: 0;
+    }
+
+    .state-cell {
+      min-height: 54px;
+      display: grid;
+      align-content: center;
+      border-right: 1px solid var(--ms-navy);
+      border-bottom: 1px solid var(--ms-navy);
+      padding: 10px;
+      color: var(--ms-navy);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    .state-cell:nth-child(3n) {
+      border-right: 0;
+    }
+
+    .state-cell b {
+      color: var(--ms-green);
+    }
+
+    .notes {
+      display: grid;
+      gap: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .preview {
+        grid-template-columns: 1fr;
+      }
+
+      .state-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .state-cell {
+        border-right: 0;
+      }
+    }
+  </style>
+</head>
+<body class="ms-doc">
+  <main class="ms-page screen-shell">
+    <header class="back-row">
+      <a class="screen-link-home" href="../index.html">
+        <span class="back-mark">MS</span>
+        Back to screenbook
+      </a>
+      <span class="ms-status">Screen 11 Approved</span>
+    </header>
+
+    <section class="ms-panel">
+      <div class="ms-section-head">
+        Screen 11: Buy &gt; Product Detail / Add To Basket
+        <span>From Screen 10 product card or add-to-basket intent</span>
+      </div>
+
+      <div class="preview">
+        <div class="phone" aria-label="MoolSocial product detail phone preview">
+          <div class="app" id="detailApp">
+            <div class="status-row">
+              <span>9:41</span>
+              <span>5G 100%</span>
+            </div>
+
+            <div class="top-zone">
+              <div class="brand-row">
+                <div class="title-lockup">
+                  <b>Product Detail</b>
+                  <div class="identity-line" aria-hidden="true"><span></span><span></span><span></span></div>
+                  <span id="topSubtitle">Mahadev Fresh Mart selected</span>
+                </div>
+                <div class="top-buttons">
+                  <a class="circle-btn" id="backToGrocery" href="10-buy-grocery-decision.html" aria-label="Back to grocery decision">
+                    <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" /></svg>
+                  </a>
+                  <button class="circle-btn" aria-label="Open basket">
+                    <svg viewBox="0 0 24 24"><path d="M6 7h15l-2 9H8L6 3H3" /><path d="M9 20h.01M18 20h.01" /></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="content">
+              <section class="detail-hero">
+                <div class="product-image" id="productImage">
+                  <span class="hero-tag" id="heroTag">fresh</span>
+                </div>
+                <div class="hero-copy">
+                  <div class="detail-title">
+                    <b id="productName">Hybrid Tomato</b>
+                    <span id="productDescription">Mahadev Fresh Mart · Verified shop</span>
+                  </div>
+                  <div class="decision-strip">
+                    <strong id="heroPrice">Rs 37 / 500 g</strong>
+                    <span id="heroFulfil">Pickup 8 min | Delivery 22 min</span>
+                  </div>
+                  <div class="quick-proof-row" aria-label="Quick purchase proof">
+                    <span class="quick-proof">Shop bill</span>
+                    <span class="quick-proof">Fresh stock</span>
+                    <span class="quick-proof">Refund rule</span>
+                    <span class="quick-proof">Replace safe</span>
+                  </div>
+                  <div class="shop-note">
+                    <b>Ready</b>
+                    <span id="shopNote">Choose rate and fulfilment, then add to basket.</span>
+                  </div>
+                </div>
+              </section>
+
+              <section class="panel-card">
+                <div class="panel-head">
+                  <b>Choose rate</b>
+                  <span id="rateHint">Retail price selected</span>
+                </div>
+                <div class="rate-grid">
+                  <button class="rate-btn active" type="button" data-rate="retail">
+                    <b>Retail</b>
+                    <strong id="retailPrice">Rs 37</strong>
+                    <span id="retailMeta">shop price now</span>
+                  </button>
+                  <button class="rate-btn" type="button" data-rate="pack">
+                    <b>Family Pack</b>
+                    <strong id="packPrice">Rs 34</strong>
+                    <span id="packMeta">2 kg pack</span>
+                  </button>
+                  <button class="rate-btn" type="button" data-rate="wholesale">
+                    <b>Wholesale MOQ</b>
+                    <strong id="wholesalePrice">Rs 31</strong>
+                    <span id="wholesaleMeta">MOQ target</span>
+                  </button>
+                  <button class="rate-btn" type="button" data-rate="offer">
+                    <b>Shop Offer</b>
+                    <strong id="offerPrice">Rs 34</strong>
+                    <span id="offerMeta">basket offer</span>
+                  </button>
+                </div>
+                <div class="capability-note" id="capabilityNote">This shop has not enabled wholesale price. Retail, family pack and shop offer are available.</div>
+              </section>
+
+              <section class="panel-card">
+                <div class="panel-head">
+                  <b>Unit and quantity</b>
+                  <span id="unitHint">500 g selected</span>
+                </div>
+                <div class="unit-grid">
+                  <button class="unit-btn active" type="button" data-unit="small">
+                    <b id="unitSmall">500 g</b>
+                    <strong id="unitSmallPrice">Rs 37</strong>
+                    <span>single buy</span>
+                  </button>
+                  <button class="unit-btn" type="button" data-unit="medium">
+                    <b id="unitMedium">1 kg</b>
+                    <strong id="unitMediumPrice">Rs 72</strong>
+                    <span>family use</span>
+                  </button>
+                  <button class="unit-btn" type="button" data-unit="large">
+                    <b id="unitLarge">2 kg</b>
+                    <strong id="unitLargePrice">Rs 136</strong>
+                    <span>pack save</span>
+                  </button>
+                </div>
+                <div class="qty-row">
+                  <div class="qty-copy">
+                    <b>Quantity</b>
+                    <span>Adjust before basket</span>
+                  </div>
+                  <div class="qty-stepper">
+                    <button type="button" id="qtyMinus">-</button>
+                    <span id="qtyValue">1</span>
+                    <button type="button" id="qtyPlus">+</button>
+                  </div>
+                </div>
+              </section>
+
+              <section class="panel-card">
+                <div class="panel-head">
+                  <b>Fulfilment</b>
+                  <span id="fulfilHint">Counter pickup selected</span>
+                </div>
+                <div class="fulfil-grid">
+                  <button class="fulfil-btn active" type="button" data-fulfil="pickup">
+                    <b id="pickupTitle">Pickup 8 min</b>
+                    <span>pay in app, collect from counter</span>
+                  </button>
+                  <button class="fulfil-btn" type="button" data-fulfil="delivery">
+                    <b id="deliveryTitle">Deliver 22 min</b>
+                    <span>local delivery from this shop</span>
+                  </button>
+                  <button class="fulfil-btn" type="button" data-fulfil="schedule">
+                    <b id="scheduleTitle">Schedule</b>
+                    <span>evening or tomorrow slot</span>
+                  </button>
+                </div>
+              </section>
+
+              <section class="panel-card">
+                <div class="panel-head">
+                  <b>Proof and rule</b>
+                  <span>shown before add</span>
+                </div>
+                <div class="proof-grid">
+                  <span class="proof-chip"><b>Stock</b><span id="proofStock">counter checked</span></span>
+                  <span class="proof-chip"><b>Bill</b><span>shop invoice</span></span>
+                  <span class="proof-chip"><b>Refund</b><span>missing item safe</span></span>
+                  <span class="proof-chip"><b>Replace</b><span>only with approval</span></span>
+                  <span class="proof-chip"><b>Rate</b><span id="proofRate">retail visible</span></span>
+                  <span class="proof-chip"><b>Support</b><span>order chat</span></span>
+                </div>
+              </section>
+            </div>
+
+            <div class="bottom-buy">
+              <div class="total-copy">
+                <b id="totalText">Rs 37</b>
+                <span id="totalMeta">Retail · 500 g · pickup</span>
+              </div>
+              <button class="add-basket" type="button" id="addBasket">Add Basket</button>
+            </div>
+
+            <nav class="bottom-dock" aria-label="Buy Product navigation">
+              <a class="mool-button" href="04-universal-focus-shell.html" aria-label="Open Mool">Mool</a>
+              <div class="dock-tabs" aria-label="Buy sub-actions">
+                <a class="dock-tab active" href="10-buy-grocery-decision.html" aria-label="Open shop">
+                  <svg viewBox="0 0 24 24"><path d="M6 7h15l-2 9H8L6 3H3" /><path d="M9 20h.01M18 20h.01" /></svg>
+                  Shop
+                </a>
+                <a class="dock-tab" href="09-buy.html" aria-label="Browse categories">
+                  <svg viewBox="0 0 24 24"><path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z" /></svg>
+                  Browse
+                </a>
+                <a class="dock-tab" href="09-buy.html" aria-label="Open medicines">
+                  <svg viewBox="0 0 24 24"><path d="M8 4h8v16H8zM4 8h16M12 8v12" /></svg>
+                  Meds
+                </a>
+                <a class="dock-tab" href="09-buy.html" aria-label="Open basket">
+                  <svg viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6L5 8Z" /><path d="M9 8a3 3 0 0 1 6 0" /></svg>
+                  Basket
+                </a>
+              </div>
+              <a class="chat-button" href="03-login-account-handoff.html" aria-label="Open chat">
+                <svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z" /></svg>
+                <span class="chat-count">2</span>
+              </a>
+            </nav>
+          </div>
+        </div>
+
+        <div class="notes">
+          <div>
+            <h1 class="ms-title">Product detail should confirm, not restart shopping.</h1>
+            <p class="ms-lead">
+              The user already selected Buy, a shop/category, and a product. This screen confirms price, pack, wholesale eligibility,
+              unit, quantity, fulfilment, proof and refund rule before the item enters basket.
+            </p>
+          </div>
+
+          <div class="setting-panel">
+            <div>
+              <h2>Shop Capability Simulation</h2>
+              <p>
+                Same retailer onboarding settings flow through from Screen 10. A retail-only shop will hide wholesale MOQ. A pickup-only shop will hide home delivery.
+              </p>
+            </div>
+            <div class="setting-list">
+              <button class="setting-toggle" type="button" data-setting="familyPack" aria-pressed="true">
+                Family Pack
+                <span>larger pack saving</span>
+              </button>
+              <button class="setting-toggle" type="button" data-setting="wholesale" aria-pressed="true">
+                Wholesale MOQ
+                <span>min quantity rate</span>
+              </button>
+              <button class="setting-toggle" type="button" data-setting="offers" aria-pressed="true">
+                Shop Offer
+                <span>discount/free delivery</span>
+              </button>
+              <button class="setting-toggle" type="button" data-setting="counterPickup" aria-pressed="true">
+                Counter Pickup
+                <span>pay and collect</span>
+              </button>
+              <button class="setting-toggle" type="button" data-setting="homeDelivery" aria-pressed="true">
+                Home Delivery
+                <span>shop/local delivery</span>
+              </button>
+              <button class="setting-toggle" type="button" data-setting="substitute" aria-pressed="true">
+                Substitute
+                <span>only with approval</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="ms-panel">
+            <div class="ms-section-head">Screen Contract <span>Approved</span></div>
+            <div class="state-grid">
+              <div class="state-cell"><b>Entry</b>From Screen 10 product card, add button, scan item or repeated basket.</div>
+              <div class="state-cell"><b>User Sees</b>Selected product, selected shop, rate choices, unit, quantity, fulfilment and proof.</div>
+              <div class="state-cell"><b>Decision</b>User can add to basket only after price, quantity and fulfilment are visible.</div>
+
+              <div class="state-cell"><b>Capability</b>Wholesale, offers, pickup and delivery appear only if shop enabled them during onboarding.</div>
+              <div class="state-cell"><b>Backend</b>Validate stock, rate, MOQ, fulfilment route, refund/replacement and payment readiness before checkout.</div>
+              <div class="state-cell"><b>No Dead State</b>Unavailable wholesale or delivery choices are hidden, not shown as broken buttons.</div>
+
+              <div class="state-cell"><b>Next</b>Add Basket goes to Screen 12 Basket / Checkout Decision.</div>
+              <div class="state-cell"><b>Trust</b>Bill, stock proof, refund rule and substitute approval remain visible before add.</div>
+              <div class="state-cell"><b>Dock</b>Mool and Chat remain fixed with approved dock geometry.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const productId = params.get("product") || "tomato";
+    const wholesaleEnabled = params.get("wholesale") !== "off";
+    const pickupEnabled = params.get("pickup") !== "off";
+    const deliveryEnabled = params.get("delivery") !== "off";
+    const offerEnabled = params.get("offer") !== "off";
+    const app = document.getElementById("detailApp");
+
+    const products = {
+      tomato: {
+        name: "Hybrid Tomato",
+        desc: "500 g. Mahadev counter stock. Substitution allowed.",
+        seller: "Mahadev Fresh Mart · Verified shop",
+        tag: "fresh",
+        imageClass: "",
+        retail: 37,
+        pack: 34,
+        wholesale: 31,
+        offer: 34,
+        retailMeta: "500 g now",
+        packMeta: "2 kg family",
+        wholesaleMeta: "10 kg MOQ",
+        offerMeta: "basket offer",
+        pickup: "Pickup 8 min",
+        delivery: "Deliver 22 min",
+        schedule: "Schedule evening",
+        units: [["500 g", 37], ["1 kg", 72], ["2 kg", 136]],
+        stock: "counter checked"
+      },
+      atta: {
+        name: "Aashirvaad Atta",
+        desc: "10 kg sealed brand pack. Bill and MRP proof available.",
+        seller: "Mahadev Fresh Mart · MRP proof",
+        tag: "brand pack",
+        imageClass: "staples",
+        retail: 495,
+        pack: 475,
+        wholesale: 455,
+        offer: 475,
+        retailMeta: "1 bag now",
+        packMeta: "2 bag saving",
+        wholesaleMeta: "10 bag MOQ",
+        offerMeta: "free delivery",
+        pickup: "Pickup 12 min",
+        delivery: "Deliver 35 min",
+        schedule: "Schedule tomorrow",
+        units: [["10 kg", 495], ["2 bags", 950], ["5 bags", 2375]],
+        stock: "sealed stock"
+      },
+      home: {
+        name: "Home Care Combo",
+        desc: "Cleaner, scrub and dish bar. Best when basket crosses Rs 799.",
+        seller: "Mahadev Fresh Mart · Shop offer",
+        tag: "offer",
+        imageClass: "home",
+        retail: 155,
+        pack: 145,
+        wholesale: 132,
+        offer: 139,
+        retailMeta: "1 combo now",
+        packMeta: "3 combo saving",
+        wholesaleMeta: "12 combo MOQ",
+        offerMeta: "basket Rs 799",
+        pickup: "Pickup 10 min",
+        delivery: "Deliver 45 min",
+        schedule: "Schedule slot",
+        units: [["1 combo", 155], ["3 combos", 435], ["6 combos", 792]],
+        stock: "offer stock"
+      }
+    };
+
+    const product = products[productId] || products.tomato;
+    const settings = {
+      familyPack: true,
+      wholesale: wholesaleEnabled,
+      offers: offerEnabled,
+      counterPickup: pickupEnabled,
+      homeDelivery: deliveryEnabled,
+      substitute: true
+    };
+
+    let selectedRate = "retail";
+    let selectedUnitIndex = 0;
+    let selectedFulfil = pickupEnabled ? "pickup" : (deliveryEnabled ? "delivery" : "schedule");
+    let quantity = 1;
+
+    const rateHints = {
+      retail: "Pay normal shop price",
+      pack: "Buy larger pack and save",
+      wholesale: "MOQ price when shop enables it",
+      offer: "Shop offer applied"
+    };
+
+    const rateLabels = {
+      retail: "Retail",
+      pack: "Family Pack",
+      wholesale: "Wholesale MOQ",
+      offer: "Shop Offer"
+    };
+
+    function rupees(value) {
+      return `Rs ${value}`;
+    }
+
+    function activeUnitPrice() {
+      if (selectedRate === "pack") return product.pack;
+      if (selectedRate === "wholesale") return product.wholesale;
+      if (selectedRate === "offer") return product.offer;
+      return product.units[selectedUnitIndex][1];
+    }
+
+    function fulfilTitle() {
+      if (selectedFulfil === "delivery") return product.delivery;
+      if (selectedFulfil === "schedule") return product.schedule;
+      return product.pickup;
+    }
+
+    function fulfilOptionsText() {
+      return [
+        settings.counterPickup ? product.pickup : null,
+        settings.homeDelivery ? product.delivery : null,
+        product.schedule
+      ].filter(Boolean).join(" | ");
+    }
+
+    function updateCapabilityUI() {
+      app.dataset.wholesale = settings.wholesale ? "on" : "off";
+      app.dataset.offer = settings.offers ? "on" : "off";
+      app.dataset.pickup = settings.counterPickup ? "on" : "off";
+      app.dataset.delivery = settings.homeDelivery ? "on" : "off";
+      document.querySelectorAll("[data-setting]").forEach((button) => {
+        const setting = button.dataset.setting;
+        button.setAttribute("aria-pressed", settings[setting] ? "true" : "false");
+      });
+      if (selectedRate === "wholesale" && !settings.wholesale) selectedRate = "retail";
+      if (selectedRate === "offer" && !settings.offers) selectedRate = "retail";
+      if (selectedRate === "pack" && !settings.familyPack) selectedRate = "retail";
+      if (selectedFulfil === "pickup" && !settings.counterPickup) selectedFulfil = settings.homeDelivery ? "delivery" : "schedule";
+      if (selectedFulfil === "delivery" && !settings.homeDelivery) selectedFulfil = settings.counterPickup ? "pickup" : "schedule";
+    }
+
+    function render() {
+      updateCapabilityUI();
+      document.getElementById("productName").textContent = product.name;
+      document.getElementById("productDescription").textContent = product.seller;
+      document.getElementById("heroTag").textContent = product.tag;
+      document.getElementById("productImage").className = `product-image ${product.imageClass}`;
+      document.getElementById("retailPrice").textContent = rupees(product.retail);
+      document.getElementById("packPrice").textContent = rupees(product.pack);
+      document.getElementById("wholesalePrice").textContent = rupees(product.wholesale);
+      document.getElementById("offerPrice").textContent = rupees(product.offer);
+      document.getElementById("retailMeta").textContent = product.retailMeta;
+      document.getElementById("packMeta").textContent = product.packMeta;
+      document.getElementById("wholesaleMeta").textContent = product.wholesaleMeta;
+      document.getElementById("offerMeta").textContent = product.offerMeta;
+      document.getElementById("pickupTitle").textContent = product.pickup;
+      document.getElementById("deliveryTitle").textContent = product.delivery;
+      document.getElementById("scheduleTitle").textContent = product.schedule;
+      document.getElementById("proofStock").textContent = product.stock;
+      document.getElementById("proofRate").textContent = selectedRate === "wholesale" ? "MOQ visible" : `${selectedRate} visible`;
+      document.getElementById("rateHint").textContent = rateHints[selectedRate] || rateHints.retail;
+
+      const unitIds = [["unitSmall", "unitSmallPrice"], ["unitMedium", "unitMediumPrice"], ["unitLarge", "unitLargePrice"]];
+      product.units.forEach((unit, index) => {
+        document.getElementById(unitIds[index][0]).textContent = unit[0];
+        document.getElementById(unitIds[index][1]).textContent = rupees(unit[1]);
+      });
+      document.getElementById("unitHint").textContent = `${product.units[selectedUnitIndex][0]} selected`;
+      document.getElementById("qtyValue").textContent = quantity;
+      document.getElementById("fulfilHint").textContent = `${fulfilTitle()} selected`;
+
+      document.querySelectorAll("[data-rate]").forEach((button) => button.classList.toggle("active", button.dataset.rate === selectedRate));
+      document.querySelectorAll("[data-unit]").forEach((button, index) => button.classList.toggle("active", index === selectedUnitIndex));
+      document.querySelectorAll("[data-fulfil]").forEach((button) => button.classList.toggle("active", button.dataset.fulfil === selectedFulfil));
+
+      const total = activeUnitPrice() * quantity;
+      const fulfilLabel = selectedFulfil === "delivery" ? "home delivery" : selectedFulfil === "schedule" ? "scheduled" : "pickup";
+      document.getElementById("heroPrice").textContent = `${rupees(activeUnitPrice())} / ${product.units[selectedUnitIndex][0]}`;
+      document.getElementById("heroFulfil").textContent = fulfilOptionsText();
+      document.getElementById("totalText").textContent = `${rupees(total)} · ${product.units[selectedUnitIndex][0]}`;
+      document.getElementById("totalMeta").textContent = `${fulfilTitle()} · ${rateLabels[selectedRate]} · bill safe`;
+      document.getElementById("shopNote").textContent = settings.wholesale
+        ? "Choose rate and fulfilment, then add to basket."
+        : "Retail-only shop. Wholesale MOQ is not enabled by this retailer.";
+    }
+
+    document.querySelectorAll("[data-rate]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const rate = button.dataset.rate;
+        if (rate === "wholesale" && !settings.wholesale) return;
+        if (rate === "offer" && !settings.offers) return;
+        if (rate === "pack" && !settings.familyPack) return;
+        selectedRate = rate;
+        render();
+      });
+    });
+
+    document.querySelectorAll("[data-unit]").forEach((button, index) => {
+      button.addEventListener("click", () => {
+        selectedUnitIndex = index;
+        render();
+      });
+    });
+
+    document.querySelectorAll("[data-fulfil]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const fulfil = button.dataset.fulfil;
+        if (fulfil === "pickup" && !settings.counterPickup) return;
+        if (fulfil === "delivery" && !settings.homeDelivery) return;
+        selectedFulfil = fulfil;
+        render();
+      });
+    });
+
+    document.getElementById("qtyMinus").addEventListener("click", () => {
+      quantity = Math.max(1, quantity - 1);
+      render();
+    });
+
+    document.getElementById("qtyPlus").addEventListener("click", () => {
+      quantity += 1;
+      render();
+    });
+
+    document.querySelectorAll("[data-setting]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const setting = button.dataset.setting;
+        settings[setting] = !settings[setting];
+        render();
+      });
+    });
+
+    document.getElementById("addBasket").addEventListener("click", () => {
+      const button = document.getElementById("addBasket");
+      app.dataset.basket = "added";
+      button.textContent = "Added · View Basket";
+      document.getElementById("totalMeta").textContent = "Basket ready · checkout next";
+    });
+
+    document.getElementById("backToGrocery").href = `10-buy-grocery-decision.html?entry=shop&intent=buy&wholesale=${settings.wholesale ? "on" : "off"}`;
+    render();
+  </script>
+</body>
+</html>

@@ -1209,7 +1209,7 @@
               </div>
 
               <section class="product-list">
-                <article class="product-card" data-product-card data-kind="veg" data-base="37">
+                <article class="product-card" data-product-card data-product="tomato" data-kind="veg" data-base="37">
                   <div class="product-media">
                     <span class="media-label">fresh</span>
                   </div>
@@ -1242,7 +1242,7 @@
                   </div>
                 </article>
 
-                <article class="product-card" data-product-card data-kind="staples" data-base="495">
+                <article class="product-card" data-product-card data-product="atta" data-kind="staples" data-base="495">
                   <div class="product-media staples">
                     <span class="media-label">source</span>
                   </div>
@@ -1275,7 +1275,7 @@
                   </div>
                 </article>
 
-                <article class="product-card" data-product-card data-kind="home" data-base="155">
+                <article class="product-card" data-product-card data-product="home" data-kind="home" data-base="155">
                   <div class="product-media home">
                     <span class="media-label">repeat</span>
                   </div>
@@ -1599,6 +1599,21 @@
       applyCategoryFilter("all");
     }
 
+    function openProductDetail(card) {
+      const detailParams = new URLSearchParams({
+        product: card.dataset.product || "tomato",
+        shop: "mahadev-fresh-mart",
+        from: "screen10",
+        entry,
+        intent,
+        wholesale: shopCapabilities.wholesale ? "on" : "off",
+        pickup: shopCapabilities.counterPickup ? "on" : "off",
+        delivery: shopCapabilities.homeDelivery ? "on" : "off",
+        offer: shopCapabilities.offers ? "on" : "off"
+      });
+      window.location.href = `11-buy-product-detail.html?${detailParams.toString()}`;
+    }
+
     modeButtons.forEach((button) => {
       button.addEventListener("click", () => setMode(button.dataset.mode));
     });
@@ -1630,7 +1645,13 @@
         qtyText.textContent = qty;
       }
 
-      addButton.addEventListener("click", () => {
+      card.addEventListener("click", (event) => {
+        if (event.target.closest("button, .qty-control, .price-option")) return;
+        openProductDetail(card);
+      });
+
+      addButton.addEventListener("click", (event) => {
+        event.stopPropagation();
         qty = 1;
         basketItems += 1;
         basketTotal += base;
@@ -1639,7 +1660,8 @@
       });
 
       card.querySelectorAll("[data-qty]").forEach((button) => {
-        button.addEventListener("click", () => {
+        button.addEventListener("click", (event) => {
+          event.stopPropagation();
           if (button.dataset.qty === "plus") {
             qty += 1;
             basketItems += 1;
