@@ -183,6 +183,13 @@ window.MoolSocialScreenbook = {
       file: "screens/21-issue-result-refund-replacement.html",
       status: "Approved",
       purpose: "Approved final issue outcome after shop/support decision: refund amount, replacement route, support decision, bill adjustment, saved proof and next actions."
+    },
+    {
+      id: "22",
+      name: "Chat / Order Support Thread",
+      file: "screens/22-chat-order-support-thread.html",
+      status: "Approved",
+      purpose: "Approved context-aware chat thread for people, business, orders and support with order proof, quick actions, composer, attachments and support fallback."
     }
   ]
 };

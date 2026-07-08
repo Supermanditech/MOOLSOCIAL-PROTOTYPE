@@ -1,0 +1,932 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>22 Chat Order Support Thread - MoolSocial Screenbook</title>
+  <link rel="stylesheet" href="../shared/moolsocial-ui-foundation.css" />
+  <style>
+    .screen-shell { display: grid; gap: 18px; }
+    .back-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+    .screen-link-home {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--ms-navy);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 900;
+    }
+    .back-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--ms-navy);
+      border-radius: var(--ms-radius);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 11px;
+      font-weight: 950;
+    }
+    .preview {
+      display: grid;
+      grid-template-columns: minmax(320px, 390px) minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+      padding: 18px;
+      border-bottom: 1px solid var(--ms-navy);
+      background: var(--ms-white);
+    }
+    .phone {
+      width: min(100%, 370px);
+      height: 742px;
+      justify-self: center;
+      border: 10px solid var(--ms-navy);
+      border-radius: 32px;
+      background: var(--ms-navy);
+      overflow: hidden;
+      box-shadow: 0 28px 60px rgba(0, 0, 128, .22);
+    }
+    .app {
+      position: relative;
+      height: 100%;
+      display: grid;
+      grid-template-rows: auto auto auto 1fr auto;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 12% 7%, rgba(255, 153, 51, .18), transparent 24%),
+        radial-gradient(circle at 86% 9%, rgba(19, 136, 8, .13), transparent 29%),
+        linear-gradient(180deg, var(--ms-navy) 0 177px, #f5f7fb 177px 100%);
+      color: var(--ms-white);
+      font-family: var(--ms-font);
+    }
+    .status-row {
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 18px 0;
+      font-size: 11px;
+      font-weight: 900;
+    }
+    .top-zone { display: grid; gap: 10px; padding: 8px 12px 8px; }
+    .brand-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .title-lockup { display: grid; gap: 5px; min-width: 0; }
+    .title-lockup b {
+      color: var(--ms-white);
+      font-size: 21px;
+      font-weight: 950;
+      line-height: 1;
+    }
+    .title-lockup span {
+      color: rgba(255,255,255,.76);
+      font-size: 10px;
+      font-weight: 850;
+    }
+    .identity-line { display: flex; width: 104px; height: 4px; border-radius: 4px; overflow: hidden; }
+    .identity-line span:nth-child(1) { flex: 1; background: var(--ms-saffron); }
+    .identity-line span:nth-child(2) { flex: .55; background: var(--ms-white); }
+    .identity-line span:nth-child(3) { flex: 1; background: var(--ms-green); }
+    svg {
+      width: 20px;
+      height: 20px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .top-buttons { display: flex; gap: 7px; }
+    .circle-btn {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255,255,255,.26);
+      border-radius: 50%;
+      background: rgba(255,255,255,.12);
+      color: var(--ms-white);
+      text-decoration: none;
+    }
+    .chat-tabs {
+      min-width: 0;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 6px;
+      padding: 0 12px 10px;
+    }
+    .chat-tab {
+      min-height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      place-items: center;
+      border: 1px solid rgba(255,255,255,.20);
+      border-radius: 16px;
+      background: rgba(255,255,255,.10);
+      color: rgba(255,255,255,.78);
+      font-size: 9px;
+      font-weight: 950;
+      text-decoration: none;
+    }
+    .chat-tab.active {
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      box-shadow: inset 0 -4px 0 var(--ms-saffron);
+    }
+    .tab-badge {
+      min-width: 15px;
+      height: 15px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #ff8e24;
+      color: var(--ms-navy);
+      font-size: 8px;
+      font-weight: 950;
+    }
+    .thread-card {
+      display: grid;
+      grid-template-columns: 42px 1fr auto;
+      align-items: center;
+      gap: 8px;
+      margin: 0 10px 10px;
+      border: 1px solid rgba(0,0,128,.12);
+      border-radius: 20px;
+      padding: 8px;
+      background: rgba(255,255,255,.98);
+      color: var(--ms-navy);
+      box-shadow: 0 14px 30px rgba(0,0,128,.15);
+    }
+    .thread-avatar {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 12px;
+      font-weight: 950;
+      box-shadow: inset 0 -4px 0 var(--ms-green);
+    }
+    .thread-copy { min-width: 0; display: grid; gap: 3px; }
+    .thread-copy b {
+      color: var(--ms-navy);
+      font-size: 13px;
+      font-weight: 950;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .thread-copy span {
+      color: rgba(0,0,128,.64);
+      font-size: 9px;
+      line-height: 1.2;
+      font-weight: 850;
+    }
+    .thread-state {
+      min-height: 32px;
+      display: grid;
+      place-items: center;
+      border-radius: var(--ms-pill);
+      padding: 0 9px;
+      background: rgba(19,136,8,.10);
+      color: var(--ms-green);
+      font-size: 8px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+    .messages {
+      min-height: 0;
+      overflow: auto;
+      display: grid;
+      align-content: start;
+      gap: 9px;
+      padding: 0 10px 142px;
+      color: var(--ms-navy);
+      scrollbar-width: none;
+    }
+    .messages::-webkit-scrollbar { display: none; }
+    .context-card, .message, .quick-panel {
+      border: 1px solid rgba(0,0,128,.12);
+      border-radius: 20px;
+      background: rgba(255,255,255,.98);
+      box-shadow: 0 12px 28px rgba(0,0,128,.10);
+    }
+    .context-card {
+      display: grid;
+      gap: 9px;
+      padding: 10px;
+    }
+    .context-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .context-head b {
+      color: var(--ms-navy);
+      font-size: 13px;
+      font-weight: 950;
+    }
+    .context-head span {
+      color: var(--ms-green);
+      font-size: 9px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+    .context-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 7px;
+    }
+    .context-chip {
+      min-height: 48px;
+      display: grid;
+      align-content: center;
+      gap: 4px;
+      border-radius: 16px;
+      padding: 8px;
+      background: rgba(0,0,128,.045);
+    }
+    .context-chip b {
+      color: var(--ms-navy);
+      font-size: 9px;
+      font-weight: 950;
+    }
+    .context-chip span {
+      color: rgba(0,0,128,.62);
+      font-size: 8px;
+      line-height: 1.15;
+      font-weight: 850;
+    }
+    .trust-strip {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 8px;
+      align-items: center;
+      border-radius: 16px;
+      padding: 8px;
+      background: rgba(19,136,8,.08);
+      color: var(--ms-navy);
+    }
+    .trust-strip svg {
+      width: 20px;
+      height: 20px;
+      color: var(--ms-green);
+    }
+    .trust-strip b {
+      color: var(--ms-navy);
+      font-size: 10px;
+      font-weight: 950;
+    }
+    .trust-strip span {
+      color: rgba(0,0,128,.64);
+      font-size: 8px;
+      line-height: 1.2;
+      font-weight: 850;
+    }
+    .day-line {
+      justify-self: center;
+      border-radius: var(--ms-pill);
+      padding: 6px 10px;
+      background: rgba(0,0,128,.08);
+      color: rgba(0,0,128,.62);
+      font-size: 8px;
+      font-weight: 950;
+    }
+    .message {
+      max-width: 82%;
+      display: grid;
+      gap: 6px;
+      padding: 10px;
+      color: var(--ms-navy);
+    }
+    .message.shop { justify-self: start; border-top-left-radius: 7px; }
+    .message.user {
+      justify-self: end;
+      border-top-right-radius: 7px;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+    }
+    .message.support {
+      justify-self: start;
+      border-color: rgba(19,136,8,.20);
+      background: linear-gradient(135deg, rgba(19,136,8,.10), rgba(255,255,255,.96) 62%);
+    }
+    .message b {
+      color: inherit;
+      font-size: 10px;
+      font-weight: 950;
+    }
+    .message p {
+      margin: 0;
+      color: currentColor;
+      font-size: 10px;
+      line-height: 1.35;
+      font-weight: 850;
+    }
+    .message span {
+      color: currentColor;
+      opacity: .62;
+      font-size: 8px;
+      font-weight: 850;
+    }
+    .message-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .message-status::before {
+      content: "";
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: currentColor;
+      opacity: .72;
+    }
+    .quick-panel {
+      display: grid;
+      gap: 9px;
+      padding: 10px;
+    }
+    .quick-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      color: var(--ms-navy);
+      font-size: 12px;
+      font-weight: 950;
+    }
+    .quick-title span {
+      color: rgba(0,0,128,.62);
+      font-size: 8px;
+      font-weight: 850;
+    }
+    .quick-actions {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 7px;
+    }
+    .quick-action {
+      min-height: 46px;
+      display: grid;
+      align-content: center;
+      gap: 4px;
+      border: 1px solid rgba(0,0,128,.12);
+      border-radius: 16px;
+      padding: 8px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      text-decoration: none;
+    }
+    .quick-action b {
+      color: inherit;
+      font-size: 9px;
+      font-weight: 950;
+    }
+    .quick-action span {
+      color: currentColor;
+      opacity: .64;
+      font-size: 8px;
+      font-weight: 850;
+    }
+    .reply-suggestions {
+      display: grid;
+      gap: 7px;
+    }
+    .reply-suggestions b {
+      color: var(--ms-navy);
+      font-size: 10px;
+      font-weight: 950;
+    }
+    .suggestion-row {
+      display: flex;
+      gap: 6px;
+      overflow: hidden;
+    }
+    .suggestion-button {
+      min-height: 30px;
+      border: 1px solid rgba(0,0,128,.12);
+      border-radius: var(--ms-pill);
+      padding: 0 9px;
+      background: rgba(0,0,128,.04);
+      color: var(--ms-navy);
+      font-size: 8px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+    .composer {
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      bottom: 78px;
+      z-index: 3;
+      display: grid;
+      grid-template-columns: 36px 1fr 40px;
+      gap: 8px;
+      align-items: center;
+      border: 1px solid rgba(0,0,128,.14);
+      border-radius: 22px;
+      padding: 7px;
+      background: rgba(255,255,255,.97);
+      color: var(--ms-navy);
+      box-shadow: 0 12px 30px rgba(0,0,128,.18);
+    }
+    .composer button {
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      border: 0;
+      border-radius: 50%;
+      background: rgba(0,0,128,.07);
+      color: var(--ms-navy);
+    }
+    .composer button.send {
+      width: 40px;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 var(--ms-saffron);
+    }
+    .composer-field {
+      min-height: 36px;
+      display: flex;
+      align-items: center;
+      border-radius: var(--ms-pill);
+      padding: 0 12px;
+      background: rgba(0,0,128,.045);
+      color: rgba(0,0,128,.60);
+      font-size: 10px;
+      font-weight: 850;
+    }
+    .bottom-dock {
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+      z-index: 4;
+      height: 62px;
+      display: grid;
+      grid-template-columns: 66px 1fr 66px;
+      gap: 8px;
+      align-items: center;
+      border: 1px solid rgba(0,0,128,.22);
+      border-radius: 25px;
+      padding: 7px;
+      background: rgba(255,255,255,.96);
+      box-shadow: 0 14px 32px rgba(0,0,128,.22);
+    }
+    .mool-button, .chat-button {
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(0,0,128,.12);
+      border-radius: 21px;
+      text-decoration: none;
+      color: var(--ms-navy);
+      background: var(--ms-white);
+      font-size: 10px;
+      font-weight: 950;
+    }
+    .mool-button {
+      background: radial-gradient(circle at 30% 18%, #5555ff, var(--ms-navy) 54%);
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 var(--ms-saffron);
+    }
+    .chat-button {
+      position: relative;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 var(--ms-saffron);
+    }
+    .chat-count {
+      position: absolute;
+      right: 8px;
+      top: 6px;
+      min-width: 17px;
+      height: 17px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #ff8e24;
+      color: var(--ms-navy);
+      font-size: 9px;
+      font-weight: 950;
+    }
+    .dock-tabs {
+      min-width: 0;
+      height: 48px;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 4px;
+      overflow: hidden;
+      border-radius: 20px;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,.45), rgba(0,0,128,.08), rgba(255,255,255,.45));
+    }
+    .dock-tab {
+      min-width: 0;
+      display: grid;
+      place-items: center;
+      gap: 2px;
+      border-radius: 18px;
+      color: var(--ms-navy);
+      text-decoration: none;
+      font-size: 7px;
+      font-weight: 950;
+      line-height: 1;
+    }
+    .dock-tab svg { width: 16px; height: 16px; }
+    .chat-button svg { width: 18px; height: 18px; }
+    .dock-tab.active {
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 var(--ms-saffron);
+    }
+    .notes { display: grid; gap: 16px; }
+    .state-grid {
+      display: grid;
+      grid-template-columns: 170px 1fr 1fr;
+      border: 1px solid var(--ms-navy);
+      border-bottom: 0;
+    }
+    .state-cell {
+      min-height: 54px;
+      display: grid;
+      align-content: center;
+      border-right: 1px solid var(--ms-navy);
+      border-bottom: 1px solid var(--ms-navy);
+      padding: 10px;
+      color: var(--ms-navy);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+    .state-cell:nth-child(3n) { border-right: 0; }
+    .state-cell b { color: var(--ms-green); }
+    .demo-controls {
+      display: grid;
+      gap: 10px;
+      border: 1px solid rgba(0,0,128,.12);
+      border-radius: 18px;
+      padding: 12px;
+      background: rgba(255,255,255,.92);
+    }
+    .demo-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 8px;
+    }
+    .demo-button {
+      min-height: 50px;
+      border: 1px solid rgba(0,0,128,.16);
+      border-radius: 18px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      font-size: 10px;
+      font-weight: 950;
+    }
+    .demo-button.active {
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -5px 0 var(--ms-saffron);
+    }
+    @media (max-width: 900px) {
+      .preview { grid-template-columns: 1fr; }
+      .state-grid { grid-template-columns: 1fr; }
+      .state-cell { border-right: 0; }
+    }
+  </style>
+</head>
+<body class="ms-doc">
+  <main class="ms-page screen-shell">
+    <header class="back-row">
+      <a class="screen-link-home" href="../index.html">
+        <span class="back-mark">MS</span>
+        Back to screenbook
+      </a>
+      <span class="ms-status">Screen 22 Approved</span>
+    </header>
+
+    <section class="ms-panel">
+      <div class="ms-section-head">
+        Screen 22: Chat / Order Support Thread
+        <span>From order, issue or refund</span>
+      </div>
+
+      <div class="preview">
+        <div class="phone" aria-label="MoolSocial order support chat phone preview">
+          <div class="app" id="chatApp" data-thread="orders">
+            <div class="status-row">
+              <span>10:48</span>
+              <span>5G 100%</span>
+            </div>
+
+            <div class="top-zone">
+              <div class="brand-row">
+                <div class="title-lockup">
+                  <b>Chat</b>
+                  <div class="identity-line" aria-hidden="true"><span></span><span></span><span></span></div>
+                  <span id="topHint">Orders, people, business and support</span>
+                </div>
+                <div class="top-buttons">
+                  <a class="circle-btn" href="21-issue-result-refund-replacement.html?v=approved-21" aria-label="Back to issue result">
+                    <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" /></svg>
+                  </a>
+                  <a class="circle-btn" href="04-universal-focus-shell.html" aria-label="Open Mool">
+                    <svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16" /></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <nav class="chat-tabs" aria-label="Chat sections">
+              <a class="chat-tab" href="#" data-thread="people">People</a>
+              <a class="chat-tab" href="#" data-thread="business">Business<span class="tab-badge">1</span></a>
+              <a class="chat-tab active" href="#" data-thread="orders">Orders<span class="tab-badge">2</span></a>
+              <a class="chat-tab" href="#" data-thread="support">Support</a>
+            </nav>
+
+            <section class="thread-card">
+              <div class="thread-avatar" id="threadAvatar">MF</div>
+              <div class="thread-copy">
+                <b id="threadTitle">Mahadev Fresh Mart + Mool Support</b>
+                <span id="threadMeta">Order MS-2041 - refund result attached</span>
+              </div>
+              <div class="thread-state" id="threadState">Active</div>
+            </section>
+
+            <div class="messages" id="messageList">
+              <section class="context-card">
+                <div class="context-head">
+                  <b id="contextTitle">Order context</b>
+                  <span id="contextStatus">Refund approved</span>
+                </div>
+                <div class="context-grid">
+                  <div class="context-chip"><b>Bill</b><span>Rs 645</span></div>
+                  <div class="context-chip"><b>Issue</b><span>Tomato 500 g</span></div>
+                  <div class="context-chip"><b>Result</b><span>Rs 37 refund</span></div>
+                </div>
+                <div class="trust-strip">
+                  <svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></svg>
+                  <div>
+                    <b>Context locked to this order</b>
+                    <span>Shop, support and customer see the same bill, proof, issue and refund result.</span>
+                  </div>
+                </div>
+              </section>
+
+              <div class="day-line">Today</div>
+
+              <article class="message support">
+                <b>Mool Support</b>
+                <p>Your issue result is saved. Refund of Rs 37 is approved and linked with the final bill.</p>
+                <span class="message-status">10:42 - system update</span>
+              </article>
+
+              <article class="message shop">
+                <b>Mahadev Fresh Mart</b>
+                <p>Sorry for the missing item. Refund accepted from our side.</p>
+                <span class="message-status">10:43 - shop reply</span>
+              </article>
+
+              <article class="message user">
+                <b>You</b>
+                <p>Okay. Please make sure this does not repeat in next basket.</p>
+                <span class="message-status">10:45 - read</span>
+              </article>
+
+              <article class="message support">
+                <b>Mool Support</b>
+                <p>Noted. This shop’s packing proof and missing-item record are saved for trust scoring.</p>
+                <span class="message-status">10:46 - support note</span>
+              </article>
+
+              <section class="quick-panel">
+                <div class="quick-title">Quick actions <span>case-aware</span></div>
+                <div class="quick-actions">
+                  <a class="quick-action" href="18-home-delivery-completed-bill-rating.html"><b>View bill</b><span>final receipt</span></a>
+                  <a class="quick-action" href="21-issue-result-refund-replacement.html"><b>View result</b><span>refund proof</span></a>
+                  <a class="quick-action" href="20-issue-review-status-retailer-response.html"><b>Issue status</b><span>case trail</span></a>
+                  <a class="quick-action" href="#" id="escalateSupportAction"><b>Ask support</b><span>if unresolved</span></a>
+                </div>
+                <div class="reply-suggestions">
+                  <b>Smart replies</b>
+                  <div class="suggestion-row">
+                    <button class="suggestion-button" type="button" data-reply="Please update me when refund is credited.">Refund update</button>
+                    <button class="suggestion-button" type="button" data-reply="Please repeat my basket without this issue.">Repeat basket</button>
+                    <button class="suggestion-button" type="button" data-reply="I need support to check this again.">Support check</button>
+                  </div>
+                </div>
+              </section>
+            </div>
+
+            <div class="composer">
+              <button type="button" id="attachButton" aria-label="Attach photo or proof">
+                <svg viewBox="0 0 24 24"><path d="M21.4 11.6 12 21a6 6 0 0 1-8.5-8.5l9.7-9.7a4 4 0 0 1 5.7 5.7l-9.2 9.2a2 2 0 0 1-2.8-2.8L15 6.8" /></svg>
+              </button>
+              <div class="composer-field" id="composerField">Message shop/support...</div>
+              <button class="send" type="button" id="sendButton" aria-label="Send message">
+                <svg viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4 20-7Z" /><path d="M22 2 11 13" /></svg>
+              </button>
+            </div>
+
+            <nav class="bottom-dock" aria-label="Chat navigation">
+              <a class="mool-button" href="04-universal-focus-shell.html" aria-label="Open Mool">Mool</a>
+              <div class="dock-tabs" aria-label="Chat sub-actions">
+                <a class="dock-tab" href="#" data-thread="people">
+                  <svg viewBox="0 0 24 24"><path d="M16 11a4 4 0 1 0-8 0" /><path d="M4 21a8 8 0 0 1 16 0" /></svg>
+                  People
+                </a>
+                <a class="dock-tab" href="#" data-thread="business">
+                  <svg viewBox="0 0 24 24"><path d="M3 21h18" /><path d="M5 21V7l7-4 7 4v14" /><path d="M9 21v-6h6v6" /></svg>
+                  Business
+                </a>
+                <a class="dock-tab active" href="#" data-thread="orders">
+                  <svg viewBox="0 0 24 24"><path d="M6 2h12v20l-3-2-3 2-3-2-3 2V2Z" /><path d="M9 7h6M9 11h6" /></svg>
+                  Orders
+                </a>
+                <a class="dock-tab" href="#" data-thread="support">
+                  <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" /><path d="M9 12l2 2 4-4" /></svg>
+                  Support
+                </a>
+              </div>
+              <a class="chat-button" href="22-chat-order-support-thread.html" aria-label="Open chat">
+                <svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z" /></svg>
+                <span class="chat-count">2</span>
+              </a>
+            </nav>
+          </div>
+        </div>
+
+        <div class="notes">
+          <div>
+            <h1 class="ms-title">Chat must carry context, not make the user explain again.</h1>
+            <p class="ms-lead">
+              Screen 22 is the first chat production draft. It keeps order, shop, issue result and proof context attached,
+              so the customer can chat with the shop/support without repeating the whole story.
+            </p>
+          </div>
+
+          <div class="demo-controls">
+            <div class="ms-section-head">Prototype Chat Sections <span>Bottom words remain Chat sub-actions</span></div>
+            <div class="demo-grid">
+              <button class="demo-button" type="button" data-thread="people">People</button>
+              <button class="demo-button" type="button" data-thread="business">Business</button>
+              <button class="demo-button active" type="button" data-thread="orders">Orders</button>
+              <button class="demo-button" type="button" data-thread="support">Support</button>
+            </div>
+          </div>
+
+          <div class="ms-panel">
+            <div class="ms-section-head">Screen Contract <span>Approved</span></div>
+            <div class="state-grid">
+              <div class="state-cell"><b>Entry</b>From Chat main action, order result, issue result, support alert, shop conversation or business workspace.</div>
+              <div class="state-cell"><b>User Sees</b>Thread identity, order/support context, messages, proof-aware quick actions, composer and active Chat sub-actions.</div>
+              <div class="state-cell"><b>Decision</b>User can reply, attach proof/photo, view bill/result, buy again, switch chat section or return to Mool.</div>
+
+              <div class="state-cell"><b>Backend</b>Thread routing, message delivery, attachment storage, order context binding, read receipts, moderation and support escalation.</div>
+              <div class="state-cell"><b>Safety</b>Payment/refund status is read-only in chat. Sensitive proof upload remains explicit through attach action.</div>
+              <div class="state-cell"><b>Trust</b>Shop/support see same context; user does not need to repeat bill, proof, issue or refund details.</div>
+
+              <div class="state-cell"><b>Next</b>Can expand into Chat inbox, People thread, Business thread, Support ticket, or order-specific chat history.</div>
+              <div class="state-cell"><b>Failure</b>If shop is offline, support receives fallback; if message fails, composer shows resend state.</div>
+              <div class="state-cell"><b>Dock</b>Mool, People, Business, Orders and Chat stay one tap accessible.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const chatApp = document.getElementById("chatApp");
+    const topHint = document.getElementById("topHint");
+    const threadAvatar = document.getElementById("threadAvatar");
+    const threadTitle = document.getElementById("threadTitle");
+    const threadMeta = document.getElementById("threadMeta");
+    const threadState = document.getElementById("threadState");
+    const contextTitle = document.getElementById("contextTitle");
+    const contextStatus = document.getElementById("contextStatus");
+    const composerField = document.getElementById("composerField");
+    const messageList = document.getElementById("messageList");
+    const threadControls = document.querySelectorAll(".chat-tab[data-thread], .dock-tab[data-thread], .demo-button[data-thread]");
+
+    const threadStateMap = {
+      people: {
+        avatar: "AV",
+        title: "Amit Vyas",
+        meta: "Neighbour - monthly basket shared list",
+        state: "Online",
+        hint: "People chat",
+        context: "Shared list",
+        status: "2 items pending",
+        composer: "Message Amit..."
+      },
+      business: {
+        avatar: "MF",
+        title: "Mahadev Fresh Mart",
+        meta: "Business thread - price, stock and order help",
+        state: "Shop open",
+        hint: "Business chat",
+        context: "Shop context",
+        status: "open today",
+        composer: "Message shop..."
+      },
+      orders: {
+        avatar: "MF",
+        title: "Mahadev Fresh Mart + Mool Support",
+        meta: "Order MS-2041 - refund result attached",
+        state: "Active",
+        hint: "Orders, people, business and support",
+        context: "Order context",
+        status: "Refund approved",
+        composer: "Message shop/support..."
+      },
+      support: {
+        avatar: "MS",
+        title: "MoolSocial Support",
+        meta: "Issue MS-ISS-2041 - proof and refund ledger",
+        state: "Support",
+        hint: "Support chat",
+        context: "Support context",
+        status: "case saved",
+        composer: "Message support..."
+      }
+    };
+
+    function setActiveThread(thread) {
+      const state = threadStateMap[thread];
+      chatApp.dataset.thread = thread;
+      threadAvatar.textContent = state.avatar;
+      threadTitle.textContent = state.title;
+      threadMeta.textContent = state.meta;
+      threadState.textContent = state.state;
+      topHint.textContent = state.hint;
+      contextTitle.textContent = state.context;
+      contextStatus.textContent = state.status;
+      composerField.textContent = state.composer;
+      threadControls.forEach((item) => {
+        item.classList.toggle("active", item.dataset.thread === thread);
+      });
+    }
+
+    threadControls.forEach((item) => {
+      item.addEventListener("click", (event) => {
+        event.preventDefault();
+        setActiveThread(event.currentTarget.dataset.thread);
+      });
+    });
+
+    function addMessage(kind, speaker, copy, meta) {
+      const message = document.createElement("article");
+      message.className = `message ${kind}`;
+      message.innerHTML = `<b>${speaker}</b><p>${copy}</p><span class="message-status">${meta}</span>`;
+      const quickPanel = messageList.querySelector(".quick-panel");
+      messageList.insertBefore(message, quickPanel);
+      messageList.scrollTop = messageList.scrollHeight;
+    }
+
+    document.getElementById("attachButton").addEventListener("click", () => {
+      composerField.textContent = "Attach photo, bill or proof...";
+    });
+
+    document.getElementById("escalateSupportAction").addEventListener("click", (event) => {
+      event.preventDefault();
+      setActiveThread("support");
+      addMessage("support", "Mool Support", "Support has joined this order chat. Bill, proof and refund result are already attached.", "now - support joined");
+      composerField.textContent = "Tell support what still feels unresolved...";
+    });
+
+    document.querySelectorAll(".suggestion-button").forEach((button) => {
+      button.addEventListener("click", () => {
+        composerField.textContent = button.dataset.reply;
+      });
+    });
+
+    document.getElementById("sendButton").addEventListener("click", () => {
+      const copy = composerField.textContent.includes("Message ") || composerField.textContent === "Message sent"
+        ? "Thanks. Please keep this case saved."
+        : composerField.textContent;
+      addMessage("user", "You", copy, "now - sent");
+      composerField.textContent = "Message sent";
+    });
+  </script>
+</body>
+</html>
