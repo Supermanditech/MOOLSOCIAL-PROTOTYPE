@@ -1,0 +1,850 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>24 Chat Business Thread - MoolSocial Screenbook</title>
+  <link rel="stylesheet" href="../shared/moolsocial-ui-foundation.css" />
+  <style>
+    .screen-shell { display: grid; gap: 18px; }
+    .back-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+    .screen-link-home {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--ms-navy);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 900;
+    }
+    .back-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--ms-navy);
+      border-radius: var(--ms-radius);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 11px;
+      font-weight: 950;
+    }
+    .preview {
+      display: grid;
+      grid-template-columns: minmax(320px, 390px) minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+      padding: 18px;
+      border-bottom: 1px solid var(--ms-navy);
+      background: var(--ms-white);
+    }
+    .phone {
+      width: min(100%, 370px);
+      height: 742px;
+      justify-self: center;
+      border: 10px solid var(--ms-navy);
+      border-radius: 32px;
+      background: var(--ms-navy);
+      overflow: hidden;
+      box-shadow: 0 28px 60px rgba(0, 0, 128, .22);
+    }
+    .app {
+      position: relative;
+      height: 100%;
+      display: grid;
+      grid-template-rows: auto auto 1fr auto;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 12% 14%, rgba(255, 153, 51, .13), transparent 26%),
+        radial-gradient(circle at 88% 8%, rgba(19, 136, 8, .12), transparent 28%),
+        #eef3f8;
+      color: var(--ms-navy);
+      font-family: var(--ms-font);
+    }
+    .status-row {
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 18px 0;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 11px;
+      font-weight: 950;
+    }
+    .business-header {
+      display: grid;
+      grid-template-columns: 34px 44px 1fr auto;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 10px 10px;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: 0 12px 26px rgba(0,0,128,.18);
+    }
+    .icon-btn {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255,255,255,.22);
+      border-radius: 50%;
+      background: rgba(255,255,255,.12);
+      color: var(--ms-white);
+      text-decoration: none;
+    }
+    svg {
+      width: 19px;
+      height: 19px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .biz-avatar {
+      position: relative;
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 17px;
+      background: radial-gradient(circle at 30% 18%, #5555ff, var(--ms-navy) 56%);
+      color: var(--ms-white);
+      border: 1px solid rgba(255,255,255,.28);
+      box-shadow: inset 0 -4px 0 var(--ms-green);
+      font-size: 12px;
+      font-weight: 950;
+    }
+    .presence {
+      position: absolute;
+      right: -1px;
+      bottom: 1px;
+      width: 12px;
+      height: 12px;
+      border: 2px solid var(--ms-navy);
+      border-radius: 50%;
+      background: var(--ms-green);
+    }
+    .biz-title { min-width: 0; display: grid; gap: 4px; }
+    .biz-title b {
+      min-width: 0;
+      color: var(--ms-white);
+      font-size: 13px;
+      font-weight: 950;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .biz-title span {
+      color: rgba(255,255,255,.72);
+      font-size: 9px;
+      font-weight: 850;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .verified {
+      display: inline-grid;
+      place-items: center;
+      width: 14px;
+      height: 14px;
+      margin-left: 4px;
+      border-radius: 50%;
+      background: var(--ms-green);
+      color: var(--ms-white);
+      font-size: 8px;
+      vertical-align: middle;
+    }
+    .header-actions { display: flex; gap: 6px; }
+    .header-actions .icon-btn { width: 32px; height: 32px; }
+    .thread-status {
+      grid-column: 2 / 5;
+      display: flex;
+      gap: 6px;
+      min-width: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .thread-status::-webkit-scrollbar { display: none; }
+    .thread-status span {
+      flex: 0 0 auto;
+      min-height: 22px;
+      display: inline-flex;
+      align-items: center;
+      border-radius: var(--ms-pill);
+      padding: 0 8px;
+      background: rgba(255,255,255,.12);
+      color: rgba(255,255,255,.82);
+      font-size: 7px;
+      font-weight: 950;
+    }
+    .thread-status span.good {
+      background: rgba(19,136,8,.22);
+      color: var(--ms-white);
+    }
+    .context-strip {
+      display: flex;
+      gap: 7px;
+      min-width: 0;
+      overflow-x: auto;
+      padding: 9px 10px;
+      background: rgba(255,255,255,.96);
+      border-bottom: 1px solid rgba(0,0,128,.08);
+      scrollbar-width: none;
+    }
+    .context-strip::-webkit-scrollbar { display: none; }
+    .context-chip {
+      flex: 0 0 auto;
+      min-height: 36px;
+      display: grid;
+      align-content: center;
+      gap: 2px;
+      border: 1px solid rgba(0,0,128,.12);
+      border-radius: var(--ms-pill);
+      padding: 0 12px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      text-decoration: none;
+      box-shadow: 0 8px 18px rgba(0,0,128,.05);
+    }
+    .context-chip b { font-size: 9px; font-weight: 950; }
+    .context-chip span { color: rgba(0,0,128,.60); font-size: 7px; font-weight: 850; }
+    .context-chip.active {
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -3px 0 var(--ms-saffron);
+    }
+    .context-chip.active span { color: rgba(255,255,255,.74); }
+    .chat-body {
+      min-height: 0;
+      overflow: auto;
+      display: grid;
+      align-content: start;
+      gap: 8px;
+      padding: 10px 10px 156px;
+      scrollbar-width: none;
+    }
+    .chat-body::-webkit-scrollbar { display: none; }
+    .day-pill {
+      justify-self: center;
+      border-radius: var(--ms-pill);
+      padding: 5px 10px;
+      background: rgba(0,0,128,.09);
+      color: rgba(0,0,128,.70);
+      font-size: 8px;
+      font-weight: 950;
+    }
+    .business-card, .quote-card {
+      border: 1px solid rgba(0,0,128,.12);
+      border-radius: 20px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      box-shadow: 0 12px 26px rgba(0,0,128,.08);
+    }
+    .business-card {
+      display: grid;
+      gap: 8px;
+      padding: 10px;
+    }
+    .commerce-panel {
+      display: grid;
+      gap: 8px;
+      border: 1px solid rgba(0,0,128,.12);
+      border-radius: 20px;
+      padding: 10px;
+      background:
+        radial-gradient(circle at 92% 10%, rgba(255,153,51,.12), transparent 30%),
+        var(--ms-white);
+      color: var(--ms-navy);
+      box-shadow: 0 12px 26px rgba(0,0,128,.08);
+    }
+    .commerce-head {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .commerce-head b { color: var(--ms-navy); font-size: 12px; font-weight: 950; }
+    .commerce-head span {
+      color: rgba(0,0,128,.64);
+      font-size: 8px;
+      line-height: 1.25;
+      font-weight: 850;
+    }
+    .commerce-state {
+      min-height: 25px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--ms-pill);
+      padding: 0 9px;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 8px;
+      font-weight: 950;
+      white-space: nowrap;
+      box-shadow: inset 0 -3px 0 var(--ms-saffron);
+    }
+    .product-rail {
+      display: flex;
+      gap: 6px;
+      min-width: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .product-rail::-webkit-scrollbar { display: none; }
+    .product-pill {
+      flex: 0 0 auto;
+      min-height: 28px;
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid rgba(0,0,128,.10);
+      border-radius: var(--ms-pill);
+      padding: 0 9px;
+      background: #f7f9fd;
+      color: var(--ms-navy);
+      font-size: 8px;
+      font-weight: 950;
+    }
+    .safe-note {
+      border-radius: 14px;
+      padding: 8px;
+      background: rgba(19,136,8,.10);
+      color: var(--ms-green);
+      font-size: 8px;
+      line-height: 1.3;
+      font-weight: 950;
+    }
+    .business-card-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .business-card-head b { font-size: 12px; font-weight: 950; }
+    .trust-pill {
+      border-radius: var(--ms-pill);
+      padding: 5px 9px;
+      background: rgba(19,136,8,.13);
+      color: var(--ms-green);
+      font-size: 8px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+    .biz-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 7px;
+    }
+    .biz-stat {
+      min-height: 44px;
+      display: grid;
+      align-content: center;
+      gap: 3px;
+      border-radius: 15px;
+      padding: 7px;
+      background: rgba(0,0,128,.045);
+    }
+    .biz-stat b { font-size: 9px; font-weight: 950; }
+    .biz-stat span { color: rgba(0,0,128,.62); font-size: 7px; font-weight: 850; }
+    .message-row { display: flex; align-items: end; gap: 6px; }
+    .message-row.out { justify-content: flex-end; }
+    .bubble {
+      max-width: 78%;
+      display: grid;
+      gap: 5px;
+      border-radius: 18px;
+      padding: 9px 10px;
+      font-size: 10px;
+      line-height: 1.35;
+      font-weight: 850;
+      box-shadow: 0 8px 18px rgba(0,0,128,.07);
+    }
+    .bubble.in {
+      border-bottom-left-radius: 6px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+    }
+    .bubble.out {
+      border-bottom-right-radius: 6px;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+    }
+    .bubble small {
+      justify-self: end;
+      color: currentColor;
+      opacity: .64;
+      font-size: 7px;
+      font-weight: 850;
+    }
+    .quote-card {
+      display: grid;
+      gap: 8px;
+      padding: 10px;
+      max-width: 86%;
+    }
+    .quote-title {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      align-items: start;
+    }
+    .quote-title b { font-size: 12px; font-weight: 950; }
+    .quote-meta {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .quote-meta span {
+      border-radius: var(--ms-pill);
+      padding: 4px 8px;
+      background: rgba(0,0,128,.06);
+      color: rgba(0,0,128,.70);
+      font-size: 7px;
+      font-weight: 950;
+    }
+    .quote-total {
+      color: var(--ms-green);
+      font-size: 14px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+    .quote-lines {
+      display: grid;
+      gap: 5px;
+      border-top: 1px solid rgba(0,0,128,.08);
+      padding-top: 8px;
+    }
+    .quote-line {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      color: rgba(0,0,128,.72);
+      font-size: 9px;
+      font-weight: 850;
+    }
+    .fulfilment-choice {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 7px;
+    }
+    .choice {
+      min-height: 48px;
+      display: grid;
+      align-content: center;
+      gap: 3px;
+      border: 1px solid rgba(0,0,128,.12);
+      border-radius: 16px;
+      padding: 8px;
+      background: #f7f9fd;
+    }
+    .choice.active {
+      background: rgba(19,136,8,.10);
+      border-color: rgba(19,136,8,.30);
+    }
+    .choice b {
+      color: var(--ms-navy);
+      font-size: 9px;
+      font-weight: 950;
+    }
+    .choice span {
+      color: rgba(0,0,128,.62);
+      font-size: 7px;
+      font-weight: 850;
+      line-height: 1.25;
+    }
+    .quote-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 7px;
+    }
+    .quote-actions a {
+      min-height: 34px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(0,0,128,.14);
+      border-radius: var(--ms-pill);
+      text-decoration: none;
+      color: var(--ms-navy);
+      background: var(--ms-white);
+      font-size: 9px;
+      font-weight: 950;
+    }
+    .quote-actions a.primary {
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -3px 0 var(--ms-saffron);
+    }
+    .composer-zone {
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+      z-index: 4;
+      display: grid;
+      gap: 7px;
+    }
+    .smart-actions {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 6px;
+    }
+    .quick-replies {
+      display: flex;
+      gap: 6px;
+      min-width: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .quick-replies::-webkit-scrollbar { display: none; }
+    .quick-replies a {
+      flex: 0 0 auto;
+      min-height: 29px;
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid rgba(0,0,128,.12);
+      border-radius: var(--ms-pill);
+      padding: 0 10px;
+      background: rgba(255,255,255,.97);
+      color: var(--ms-navy);
+      text-decoration: none;
+      font-size: 8px;
+      font-weight: 950;
+      box-shadow: 0 8px 18px rgba(0,0,128,.08);
+    }
+    .smart-actions a {
+      min-height: 31px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(0,0,128,.12);
+      border-radius: var(--ms-pill);
+      background: rgba(255,255,255,.97);
+      color: var(--ms-navy);
+      text-decoration: none;
+      font-size: 8px;
+      font-weight: 950;
+      box-shadow: 0 8px 18px rgba(0,0,128,.08);
+    }
+    .composer {
+      height: 54px;
+      display: grid;
+      grid-template-columns: 34px 1fr 34px 38px;
+      gap: 6px;
+      align-items: center;
+      border: 1px solid rgba(0,0,128,.20);
+      border-radius: 24px;
+      padding: 7px;
+      background: rgba(255,255,255,.98);
+      box-shadow: 0 14px 32px rgba(0,0,128,.20);
+    }
+    .composer button, .send-btn {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border: 0;
+      border-radius: 50%;
+      background: rgba(0,0,128,.08);
+      color: var(--ms-navy);
+    }
+    .composer span {
+      color: rgba(0,0,128,.60);
+      font-size: 10px;
+      font-weight: 850;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .send-btn {
+      width: 38px;
+      height: 38px;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -3px 0 var(--ms-saffron);
+    }
+    .notes { display: grid; gap: 16px; }
+    .state-grid {
+      display: grid;
+      grid-template-columns: 170px 1fr 1fr;
+      border: 1px solid var(--ms-navy);
+      border-bottom: 0;
+    }
+    .state-cell {
+      min-height: 54px;
+      display: grid;
+      align-content: center;
+      border-right: 1px solid var(--ms-navy);
+      border-bottom: 1px solid var(--ms-navy);
+      padding: 10px;
+      color: var(--ms-navy);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+    .state-cell:nth-child(3n) { border-right: 0; }
+    .state-cell b { color: var(--ms-green); }
+    @media (max-width: 900px) {
+      .preview { grid-template-columns: 1fr; }
+      .state-grid { grid-template-columns: 1fr; }
+      .state-cell { border-right: 0; }
+    }
+  </style>
+</head>
+<body class="ms-doc">
+  <main class="ms-page screen-shell">
+    <header class="back-row">
+      <a class="screen-link-home" href="../index.html">
+        <span class="back-mark">MS</span>
+        Back to screenbook
+      </a>
+      <span class="ms-status">Screen 24 Approved</span>
+    </header>
+
+    <section class="ms-panel">
+      <div class="ms-section-head">
+        Screen 24: Chat / Business Thread
+        <span>Verified shop and service chat</span>
+      </div>
+
+      <div class="preview">
+        <div class="phone" aria-label="MoolSocial business chat phone preview">
+          <div class="app">
+            <div class="status-row">
+              <span>10:58</span>
+              <span>5G 100%</span>
+            </div>
+
+            <header class="business-header">
+              <a class="icon-btn" href="23-chat-inbox-home.html" aria-label="Back to chat inbox">
+                <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" /></svg>
+              </a>
+              <div class="biz-avatar">MF<span class="presence"></span></div>
+              <div class="biz-title">
+                <b>Mahadev Fresh Mart <span class="verified">V</span></b>
+                <span>Open now - 450 m - replies in 2 min</span>
+              </div>
+              <div class="header-actions">
+                <a class="icon-btn" href="#" aria-label="Call business">
+                  <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7l.5 2.6a2 2 0 0 1-.5 1.8L8 9.2a16 16 0 0 0 6.8 6.8l1.1-1.1a2 2 0 0 1 1.8-.5l2.6.5a2 2 0 0 1 1.7 2Z" /></svg>
+                </a>
+                <a class="icon-btn" href="#" aria-label="More business chat options">
+                  <svg viewBox="0 0 24 24"><path d="M12 12h.01M19 12h.01M5 12h.01" /></svg>
+                </a>
+              </div>
+              <div class="thread-status" aria-label="Business trust status">
+                <span class="good">Verified shop</span>
+                <span>Stock updated 10:52</span>
+                <span>Pay only in app</span>
+                <span>Bill available</span>
+              </div>
+            </header>
+
+            <nav class="context-strip" aria-label="Business chat context actions">
+              <a class="context-chip active" href="#" data-context="chat"><b>Chat</b><span>live</span></a>
+              <a class="context-chip" href="#" data-context="catalog"><b>Catalog</b><span>shop items</span></a>
+              <a class="context-chip" href="#" data-context="quote"><b>Quote</b><span>basket price</span></a>
+              <a class="context-chip" href="#" data-context="orders"><b>Orders</b><span>2 linked</span></a>
+              <a class="context-chip" href="#" data-context="pay"><b>Pay</b><span>after confirm</span></a>
+            </nav>
+
+            <main class="chat-body">
+              <div class="day-pill">Today</div>
+
+              <section class="commerce-panel" id="contextPanel">
+                <div class="commerce-head">
+                  <div>
+                    <b id="contextTitle">Basket quote in progress</b>
+                    <span id="contextText">Chat is linked to grocery basket, counter pickup and app payment.</span>
+                  </div>
+                  <span class="commerce-state" id="contextState">Live</span>
+                </div>
+                <div class="product-rail" aria-label="Linked basket items">
+                  <span class="product-pill">Tomato 1 kg</span>
+                  <span class="product-pill">Onion 2 kg</span>
+                  <span class="product-pill">Atta 10 kg</span>
+                  <span class="product-pill">Oil 5 L</span>
+                </div>
+                <div class="safe-note">Payment opens only after shop confirms stock and final bill. This prevents counter mismatch and trust issues.</div>
+              </section>
+
+              <section class="business-card">
+                <div class="business-card-head">
+                  <b>Business context</b>
+                  <span class="trust-pill">Verified</span>
+                </div>
+                <div class="biz-stats">
+                  <div class="biz-stat"><b>Counter</b><span>pickup ready</span></div>
+                  <div class="biz-stat"><b>Delivery</b><span>35-45 min</span></div>
+                  <div class="biz-stat"><b>Return</b><span>same day issue</span></div>
+                </div>
+              </section>
+
+              <div class="message-row in">
+                <div class="bubble in">
+                  Namaste. Your tomato and onion are available. Atta 10 kg is available in regular brand and premium brand.
+                  <small>10:41</small>
+                </div>
+              </div>
+
+              <div class="message-row out">
+                <div class="bubble out">
+                  Send final basket price for tomato 1 kg, onion 2 kg, atta 10 kg and oil 5 L.
+                  <small>10:42 sent</small>
+                </div>
+              </div>
+
+              <section class="quote-card">
+                <div class="quote-title">
+                  <b>Shop quote Q-2841</b>
+                  <span class="quote-total">Rs 1,246</span>
+                </div>
+                <div class="quote-meta">
+                  <span>Valid 9 min</span>
+                  <span>Stock checked</span>
+                  <span>Counter or delivery</span>
+                </div>
+                <div class="quote-lines">
+                  <div class="quote-line"><span>Tomato 1 kg</span><b>Rs 74</b></div>
+                  <div class="quote-line"><span>Onion 2 kg</span><b>Rs 82</b></div>
+                  <div class="quote-line"><span>Atta 10 kg</span><b>Rs 420</b></div>
+                  <div class="quote-line"><span>Oil 5 L</span><b>Rs 670</b></div>
+                </div>
+                <div class="fulfilment-choice">
+                  <div class="choice active"><b>Counter pickup</b><span>Pack in 12 min - no queue</span></div>
+                  <div class="choice"><b>Home delivery</b><span>45 min - delivery fee may apply</span></div>
+                </div>
+                <div class="quote-actions">
+                  <a href="#">Change items</a>
+                  <a class="primary" href="12-buy-basket-checkout.html">Confirm quote</a>
+                </div>
+              </section>
+
+              <div class="message-row in">
+                <div class="bubble in">
+                  I can pack this for counter pickup in 12 minutes or send home delivery in 45 minutes.
+                  <small>10:44</small>
+                </div>
+              </div>
+
+              <div class="message-row out">
+                <div class="bubble out">
+                  Keep it ready for counter pickup. I will pay in app.
+                  <small>10:45 sent</small>
+                </div>
+              </div>
+            </main>
+
+            <section class="composer-zone">
+              <div class="quick-replies" aria-label="Business chat quick replies">
+                <a href="#">Need GST bill</a>
+                <a href="#">Share location</a>
+                <a href="#">Home delivery</a>
+                <a href="#">Counter pickup</a>
+                <a href="#">Send final bill</a>
+              </div>
+              <div class="smart-actions" aria-label="Business chat smart actions">
+                <a href="09-buy.html">Shop</a>
+                <a href="#">Quote</a>
+                <a href="12-buy-basket-checkout.html">Pay</a>
+                <a href="22-chat-order-support-thread.html">Support</a>
+              </div>
+              <div class="composer">
+                <button type="button" aria-label="Attach item or bill">
+                  <svg viewBox="0 0 24 24"><path d="M21.4 11.6 12 21a6 6 0 0 1-8.5-8.5l9.4-9.4a4 4 0 0 1 5.7 5.7L9.2 18.2a2 2 0 1 1-2.8-2.8l8.7-8.7" /></svg>
+                </button>
+                <span>Message Mahadev Fresh Mart...</span>
+                <button type="button" aria-label="Voice message">
+                  <svg viewBox="0 0 24 24"><path d="M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3Z" /><path d="M19 10v2a7 7 0 0 1-14 0v-2" /></svg>
+                </button>
+                <a class="send-btn" href="#" aria-label="Send message">
+                  <svg viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4 20-7Z" /><path d="M22 2 11 13" /></svg>
+                </a>
+              </div>
+            </section>
+          </div>
+        </div>
+
+        <div class="notes">
+          <div>
+            <h1 class="ms-title">Business chat must feel like WhatsApp, but with commerce intelligence.</h1>
+            <p class="ms-lead">
+              Screen 24 is where a consumer talks to a verified shop, supplier or service provider. Normal chat stays familiar,
+              while catalog, quote, order, payment and support actions stay one tap away with the right business context.
+            </p>
+          </div>
+
+          <div class="ms-panel">
+            <div class="ms-section-head">Screen Contract <span>Approved</span></div>
+            <div class="state-grid">
+              <div class="state-cell"><b>Entry</b>From Chat Inbox Business thread, shop profile, product quote, QR shop scan, order chat or business notification.</div>
+              <div class="state-cell"><b>User Sees</b>Verified business header, live shop status, context actions, normal messages, quote expiry, fulfilment choice and smart commerce actions.</div>
+              <div class="state-cell"><b>Decision</b>User can chat, call, view catalog, request/change quote, choose pickup/delivery, confirm quote, pay, open order or escalate to support.</div>
+
+              <div class="state-cell"><b>Backend</b>Thread service links business profile, catalog, quote engine, basket checkout, payment intent and order/support records.</div>
+              <div class="state-cell"><b>Trust</b>Verified badge, stock update time, quote expiry, fulfilment option, bill/payment rule and support route reduce off-platform confusion.</div>
+              <div class="state-cell"><b>Safety</b>Payments happen only through app checkout; business cannot request unsupported payment inside chat without risk flag.</div>
+
+              <div class="state-cell"><b>Next</b>Use quote routes to Screen 12 checkout; Support routes to Screen 22; Shop routes back to Screen 09 buy surface.</div>
+              <div class="state-cell"><b>Failure</b>If business is offline, show expected reply time and allow catalog/order/support actions without waiting.</div>
+              <div class="state-cell"><b>Realtime</b>Requires WebSocket/SSE, push notifications, message receipts, quote versioning, stock lock timer and local draft storage.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script>
+    const contextChips = document.querySelectorAll(".context-chip[data-context]");
+    const contextTitle = document.getElementById("contextTitle");
+    const contextText = document.getElementById("contextText");
+    const contextState = document.getElementById("contextState");
+
+    const contextCopy = {
+      chat: {
+        title: "Basket quote in progress",
+        text: "Chat is linked to grocery basket, counter pickup and app payment.",
+        state: "Live"
+      },
+      catalog: {
+        title: "Shop catalog ready",
+        text: "Open grocery items, packs and shop offers without leaving the business chat.",
+        state: "Items"
+      },
+      quote: {
+        title: "Quote Q-2841 active",
+        text: "Final basket price is valid for 9 minutes after stock check.",
+        state: "Valid"
+      },
+      orders: {
+        title: "2 orders linked",
+        text: "Past bill, refund proof and delivery chats stay attached to this shop thread.",
+        state: "Linked"
+      },
+      pay: {
+        title: "Safe app payment",
+        text: "Payment opens only after stock and bill confirmation from the verified shop.",
+        state: "Safe"
+      }
+    };
+
+    contextChips.forEach((chip) => {
+      chip.addEventListener("click", (event) => {
+        event.preventDefault();
+        const key = event.currentTarget.dataset.context;
+        const copy = contextCopy[key] || contextCopy.chat;
+        contextChips.forEach((item) => item.classList.toggle("active", item === event.currentTarget));
+        contextTitle.textContent = copy.title;
+        contextText.textContent = copy.text;
+        contextState.textContent = copy.state;
+      });
+    });
+  </script>
+</body>
+</html>

@@ -197,6 +197,13 @@ window.MoolSocialScreenbook = {
       file: "screens/23-chat-inbox-home.html",
       status: "Approved",
       purpose: "Approved premium chat inbox for the Chat main action: WhatsApp-like thread list, All/Unread/People/Business/Orders/Support filters, verified context, order/support alerts, quick start actions and thread routing."
+    },
+    {
+      id: "24",
+      name: "Chat / Business Thread",
+      file: "screens/24-chat-business-thread.html",
+      status: "Approved",
+      purpose: "Approved verified business chat with WhatsApp-like messaging, live shop trust, stock update, quote expiry, pickup/delivery choice, catalog/order/pay actions, support route and commerce-safe thread contract."
     }
   ]
 };
