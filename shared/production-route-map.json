@@ -1,8 +1,8 @@
 {
   "contractVersion": "mvp-route-machine-flex-2026-07-12",
   "generatedAt": "2026-07-12",
-  "prototypeScreenCount": 108,
-  "productionRouteGroupCount": 75,
+  "prototypeScreenCount": 109,
+  "productionRouteGroupCount": 76,
   "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md",
   "routes": [
     {
@@ -1048,6 +1048,23 @@
         "mvp-core"
       ],
       "budgetBuckets": []
+    },
+    {
+      "routeId": "supply.business-book",
+      "routePath": "/supply/books",
+      "productionModule": "manufacturer_supplier",
+      "prototypeScreens": [
+        108
+      ],
+      "routeStates": [
+        "business-position"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ],
+      "budgetBuckets": [
+        "manufacturer_supplier"
+      ]
     },
     {
       "routeId": "supply.workspace",
@@ -2606,22 +2623,60 @@
       "implementation": "route-shell",
       "launchScope": "mvp-core",
       "separateProductionRoute": true,
-      "painSolved": "Manufacturers and verified source suppliers need one operating home connecting buyer demand, orders, products, input procurement, dispatch risk and protected money without losing personal MoolSocial access.",
+      "painSolved": "Manufacturers and verified source suppliers need one hybrid operating app for customer orders, buyer-visible finished stock, catalogue-led wholesale purchasing and separate accounting access without losing personal MoolSocial access.",
       "capabilityKeys": [
         "readiness",
         "orders",
+        "catalogue",
+        "availability",
+        "procurement",
         "analytics",
         "team-support"
       ],
       "featureOutcomes": [
-        "Show urgent buyer orders and dispatch work",
-        "Expose matched buyer demand and production readiness",
-        "Connect sell-side products with buy-side input procurement",
-        "Keep protected advances receivables support and personal access one tap away"
+        "Receive and fulfil retailer hotel restaurant and distributor orders",
+        "Build buyer-visible stock from master catalogue CSV scan or reviewed new product",
+        "Derive confirmable input categories from saleable products",
+        "Place wholesale purchase orders with price MOQ pack delivery and payment terms",
+        "Open separate manufacturer Business Book for financial and statutory records",
+        "Preserve business services chat and personal access"
       ],
       "budgetExtension": false,
       "budgetExtensionReason": null,
-      "productionNote": "Own production route /supply and keep all progressive states inside it.",
+      "productionNote": "Own production route /supply. Reuse Mool, Orders, Stock, Wholesale Buy and Chat. Stock is saleable availability, not accounting. Input matches require verified classification plus manufacturer-confirmed product-to-input mapping.",
+      "canonicalMap": "architecture/MVP-120-ROUTE-MACHINE.md"
+    },
+    {
+      "contractVersion": "mvp-route-machine-flex-2026-07-12",
+      "prototypeScreen": 108,
+      "prototypeName": "Manufacturer Business Book Home",
+      "productionModule": "manufacturer_supplier",
+      "budgetBucket": "manufacturer_supplier",
+      "routeId": "supply.business-book",
+      "routePath": "/supply/books",
+      "routeState": "business-position",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "painSolved": "Manufacturers need one accounting home for sales purchases receivables payables GST cash bank reconciliation and protected money without duplicate entry or confusing buyer-visible Stock with accounting.",
+      "capabilityKeys": [
+        "orders",
+        "procurement",
+        "payment-protection",
+        "receivables",
+        "tax-documents",
+        "analytics"
+      ],
+      "featureOutcomes": [
+        "Post captured sales purchases invoices and payments automatically",
+        "Show receivables payables and protected money",
+        "Provide GST working records cash bank expenses and reconciliation",
+        "Keep estimates clearly separate from final accounts",
+        "Open detailed books as progressive states inside one route"
+      ],
+      "budgetExtension": false,
+      "budgetExtensionReason": null,
+      "productionNote": "Own production route /supply/books and keep all progressive states inside it.",
       "canonicalMap": "architecture/MVP-120-ROUTE-MACHINE.md"
     }
   ]
