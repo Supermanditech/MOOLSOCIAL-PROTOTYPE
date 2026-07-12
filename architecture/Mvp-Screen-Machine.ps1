@@ -16,7 +16,9 @@ param(
   [string]$LaunchScope = 'mvp-core',
   [string]$PainSolved,
   [string[]]$CapabilityKey = @(),
-  [string[]]$FeatureOutcome = @()
+  [string[]]$FeatureOutcome = @(),
+  [switch]$AllowBudgetExtension,
+  [string]$ExtensionReason
 )
 
 $ErrorActionPreference = 'Stop'
@@ -88,8 +90,18 @@ function Validate-Machine($Registry, $Budget) {
   }
 
   $launchRouteIds = Get-LaunchRouteIds $contracts
-  if ($launchRouteIds.Count -gt [int]$Budget.routeCeiling) {
-    $issues.Add("Launch route ceiling exceeded: $($launchRouteIds.Count) / $($Budget.routeCeiling).")
+  $baselineOverage = [Math]::Max(0, $launchRouteIds.Count - [int]$Budget.routeCeiling)
+  if ($baselineOverage -gt 0) {
+    if ([bool]$Budget.hardCeilingEnforced) {
+      $issues.Add("Launch route ceiling exceeded: $($launchRouteIds.Count) / $($Budget.routeCeiling).")
+    } else {
+      $extensionRoutes = @($contracts | Where-Object {
+        $_.launchScope -in @('mvp-core','mvp-conditional') -and $_.budgetExtension -eq $true -and -not [string]::IsNullOrWhiteSpace([string]$_.budgetExtensionReason)
+      } | Select-Object -ExpandProperty routeId -Unique).Count
+      if ($extensionRoutes -lt $baselineOverage) {
+        $issues.Add("Route baseline exceeded by $baselineOverage but only $extensionRoutes controlled extension routes are documented.")
+      }
+    }
   }
 
   $allocationTotal = [int](($Budget.allocations | Measure-Object -Property routeAllowance -Sum).Sum)
@@ -102,7 +114,13 @@ function Validate-Machine($Registry, $Budget) {
       $_.budgetBucket -eq $allocation.budgetBucket -and $_.launchScope -in @('mvp-core','mvp-conditional')
     } | Select-Object -ExpandProperty routeId -Unique).Count
     if ($used -gt [int]$allocation.routeAllowance) {
-      $issues.Add("Budget bucket $($allocation.budgetBucket) exceeded: $used / $($allocation.routeAllowance).")
+      $bucketOverage = $used - [int]$allocation.routeAllowance
+      $bucketExtensions = @($contracts | Where-Object {
+        $_.budgetBucket -eq $allocation.budgetBucket -and $_.launchScope -in @('mvp-core','mvp-conditional') -and $_.budgetExtension -eq $true -and -not [string]::IsNullOrWhiteSpace([string]$_.budgetExtensionReason)
+      } | Select-Object -ExpandProperty routeId -Unique).Count
+      if ($bucketExtensions -lt $bucketOverage) {
+        $issues.Add("Budget bucket $($allocation.budgetBucket) exceeded by $bucketOverage without enough documented extension routes.")
+      }
     }
   }
 
@@ -112,8 +130,9 @@ function Validate-Machine($Registry, $Budget) {
     PrototypeScreens = $contracts.Count
     RouteGroups = @($contracts.routeId | Sort-Object -Unique).Count
     LaunchRoutesUsed = $launchRouteIds.Count
-    LaunchRouteCeiling = [int]$Budget.routeCeiling
+    LaunchRouteBaseline = [int]$Budget.routeCeiling
     LaunchRoutesRemaining = [int]$Budget.routeCeiling - $launchRouteIds.Count
+    BaselineOverage = $baselineOverage
   }
 }
 
@@ -155,17 +174,22 @@ if ($Action -eq 'Register') {
     $invalidCapability = @($CapabilityKey | Where-Object { $_ -notin @($capabilityAllocation[0].capabilityKeys) })
     if ($invalidCapability.Count) { throw "Invalid capability keys for ${BudgetBucket}: $($invalidCapability -join ', ')" }
   }
+  $budgetExtension = $false
   if ($isNewLaunchRoute) {
     $allocation = @($budget.allocations | Where-Object { $_.budgetBucket -eq $BudgetBucket })
     if ($allocation.Count -ne 1) { throw 'A new launch route requires a valid BudgetBucket.' }
     $usedInBucket = @($registry.screenContracts | Where-Object {
       $_.budgetBucket -eq $BudgetBucket -and $_.launchScope -in @('mvp-core','mvp-conditional')
     } | Select-Object -ExpandProperty routeId -Unique).Count
-    if ($usedInBucket -ge [int]$allocation[0].routeAllowance) {
-      throw "Budget bucket $BudgetBucket is full: $usedInBucket / $($allocation[0].routeAllowance)."
-    }
     $launchUsed = @(Get-LaunchRouteIds $registry.screenContracts).Count
-    if ($launchUsed -ge [int]$budget.routeCeiling) { throw "Global launch route budget is full: $launchUsed / $($budget.routeCeiling)." }
+    $needsExtension = $usedInBucket -ge [int]$allocation[0].routeAllowance -or $launchUsed -ge [int]$budget.routeCeiling
+    if ($needsExtension) {
+      if (-not [bool]$budget.controlledExtensionAllowed) { throw 'Controlled route extensions are disabled.' }
+      if (-not $AllowBudgetExtension -or [string]::IsNullOrWhiteSpace($ExtensionReason)) {
+        throw "Route planning allowance reached. Re-run with -AllowBudgetExtension and a written -ExtensionReason."
+      }
+      $budgetExtension = $true
+    }
   }
 
   $note = switch ($Implementation) {
@@ -177,7 +201,7 @@ if ($Action -eq 'Register') {
   }
 
   $contract = [pscustomobject][ordered]@{
-    contractVersion = 'mvp-route-machine-2026-07-12'
+    contractVersion = 'mvp-route-machine-flex-2026-07-12'
     prototypeScreen = $Screen
     prototypeName = $Name
     productionModule = $Module
@@ -191,6 +215,8 @@ if ($Action -eq 'Register') {
     painSolved = $PainSolved
     capabilityKeys = @($CapabilityKey)
     featureOutcomes = @($FeatureOutcome)
+    budgetExtension = $budgetExtension
+    budgetExtensionReason = if ($budgetExtension) { $ExtensionReason.Trim() } else { $null }
     productionNote = $note
     canonicalMap = 'architecture/MVP-120-ROUTE-MACHINE.md'
   }
@@ -199,7 +225,7 @@ if ($Action -eq 'Register') {
   $registry.prototypeScreenCount = @($registry.screenContracts).Count
   $registry.routes = Rebuild-Routes $registry.screenContracts
   $registry.productionRouteGroupCount = @($registry.routes).Count
-  $registry.contractVersion = 'mvp-route-machine-2026-07-12'
+  $registry.contractVersion = 'mvp-route-machine-flex-2026-07-12'
   Set-EmbeddedJsonContract $screenPath 'productionRouteContract' $contract
   Set-EmbeddedJsonContract $screenPath 'prototypeApprovalContract' ([pscustomobject][ordered]@{
     prototypeScreen = $Screen

@@ -4,7 +4,7 @@ Date: 12 July 2026
 
 ## Outcome
 
-MoolSocial will launch within a hard ceiling of 120 launch-relevant production routes. The route ceiling is enforced by machine validation, not by manually remembering a number.
+MoolSocial will plan the MVP around a baseline of 120 launch-relevant production routes. This is a delivery-control target, not an artificial product ceiling. The machine keeps consolidation mandatory and permits a route above 120 only when it is explicitly registered as a controlled extension with a written reason.
 
 The current approved prototypes represent 58 launch-relevant route groups. The remaining 62 routes are reserved for manufacturer/supplier, captain, creator, freelancer, generic provider, MoolSocial administration and shared cross-workspace capabilities.
 
@@ -14,7 +14,7 @@ A prototype is an acceptance example. A production route is an implemented navig
 
 Future prototype numbers may exceed 120 when they describe additional states of an existing route. They do not consume route budget when their contract says `route-state` or `embedded-panel` and reuses an existing `routeId`.
 
-Only a new launch-relevant `route-shell` with a new `routeId` consumes one of the 120 route positions.
+Only a new launch-relevant `route-shell` with a new `routeId` consumes one baseline route position. States, panels and responsive variants do not consume another route.
 
 ## Maximum Capability With Fewer Routes
 
@@ -36,7 +36,8 @@ Before a new screen can be registered:
 - Route ID must map to exactly one path.
 - Route state must be unique inside its route.
 - Route-state and embedded-panel screens must reuse an existing route.
-- A new MVP route must have remaining global and workspace budget.
+- A new MVP route should have remaining baseline and workspace allowance.
+- A route beyond either planning allowance requires `AllowBudgetExtension` and an `ExtensionReason`; silent route growth is rejected.
 - A new route must declare the primary pain solved and its feature outcomes.
 - Every future launch screen must declare one or more capability keys from its workspace allocation.
 - `ValidateWorkspace` must pass with no missing capability keys before that workspace can be called complete.
@@ -50,7 +51,7 @@ Before a new screen can be registered:
 - New-screen machine: `architecture/Mvp-Screen-Machine.ps1`
 - Existing-screen contract tool: `architecture/Apply-Production-Route-Contracts.ps1`
 
-## Locked Budget
+## Planning Baseline
 
 ```text
 Existing launch-relevant routes       58
@@ -62,7 +63,7 @@ Generic service provider               8
 MoolSocial administration             10
 Shared cross-workspace                 6
 -----------------------------------------
-Maximum launch routes                120
+Baseline launch routes               120
 ```
 
-No future workspace planning may increase this ceiling without an explicit written user decision changing the launch scope.
+The user has authorised controlled expansion beyond 120 when a distinct production journey cannot be safely represented as a state or embedded panel. Expansion must remain visible in machine reports and must never be used to avoid progressive disclosure or shared engines.

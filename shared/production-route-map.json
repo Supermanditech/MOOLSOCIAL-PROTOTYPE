@@ -1,8 +1,8 @@
 {
-  "contractVersion": "mvp-route-lock-2026-07-12",
+  "contractVersion": "mvp-route-machine-flex-2026-07-12",
   "generatedAt": "2026-07-12",
-  "prototypeScreenCount": 107,
-  "productionRouteGroupCount": 74,
+  "prototypeScreenCount": 108,
+  "productionRouteGroupCount": 75,
   "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md",
   "routes": [
     {
@@ -17,7 +17,8 @@
       ],
       "launchScopes": [
         "mvp-core"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "booking.home",
@@ -31,7 +32,8 @@
       ],
       "launchScopes": [
         "post-mvp"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "chat.business",
@@ -45,7 +47,8 @@
       ],
       "launchScopes": [
         "mvp-core"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "chat.inbox",
@@ -59,7 +62,8 @@
       ],
       "launchScopes": [
         "mvp-core"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "chat.order-support",
@@ -73,7 +77,8 @@
       ],
       "launchScopes": [
         "mvp-core"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "chat.people",
@@ -87,7 +92,8 @@
       ],
       "launchScopes": [
         "mvp-core"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "commerce.buy",
@@ -101,7 +107,8 @@
       ],
       "launchScopes": [
         "mvp-core"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "commerce.cart",
@@ -115,7 +122,8 @@
       ],
       "launchScopes": [
         "mvp-core"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "commerce.grocery",
@@ -129,7 +137,8 @@
       ],
       "launchScopes": [
         "mvp-core"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "commerce.product",
@@ -143,7 +152,8 @@
       ],
       "launchScopes": [
         "mvp-core"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "distribution.store-listing",
@@ -157,7 +167,8 @@
       ],
       "launchScopes": [
         "mvp-core"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "doctor.patient-invite",
@@ -171,7 +182,8 @@
       ],
       "launchScopes": [
         "post-mvp"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "earn.home",
@@ -185,7 +197,8 @@
       ],
       "launchScopes": [
         "mvp-core"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "earn.opportunity",
@@ -199,7 +212,8 @@
       ],
       "launchScopes": [
         "mvp-core"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "eat.home",
@@ -213,7 +227,8 @@
       ],
       "launchScopes": [
         "post-mvp"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "eat.restaurant-order",
@@ -227,7 +242,8 @@
       ],
       "launchScopes": [
         "post-mvp"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "eat.table-booking",
@@ -241,7 +257,8 @@
       ],
       "launchScopes": [
         "post-mvp"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "eat.tiffin",
@@ -255,7 +272,8 @@
       ],
       "launchScopes": [
         "post-mvp"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "health.appointment",
@@ -269,7 +287,8 @@
       ],
       "launchScopes": [
         "post-mvp"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "health.doctor-booking",
@@ -283,7 +302,8 @@
       ],
       "launchScopes": [
         "post-mvp"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "health.followup",
@@ -297,7 +317,8 @@
       ],
       "launchScopes": [
         "post-mvp"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "health.invite",
@@ -311,7 +332,8 @@
       ],
       "launchScopes": [
         "post-mvp"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "identity.auth",
@@ -325,7 +347,8 @@
       ],
       "launchScopes": [
         "mvp-core"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "onboarding.setup",
@@ -339,7 +362,8 @@
       ],
       "launchScopes": [
         "mvp-core"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "orders.issue",
@@ -357,7 +381,8 @@
       ],
       "launchScopes": [
         "mvp-core"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "orders.lifecycle",
@@ -377,7 +402,8 @@
       ],
       "launchScopes": [
         "mvp-core"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "orders.payment",
@@ -391,7 +417,8 @@
       ],
       "launchScopes": [
         "mvp-core"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "pay.bills",
@@ -405,7 +432,8 @@
       ],
       "launchScopes": [
         "mvp-core"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "pay.home",
@@ -419,7 +447,8 @@
       ],
       "launchScopes": [
         "mvp-core"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "pay.recharge",
@@ -433,7 +462,8 @@
       ],
       "launchScopes": [
         "mvp-core"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "pay.request-detail",
@@ -447,7 +477,8 @@
       ],
       "launchScopes": [
         "mvp-core"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "pay.requests",
@@ -461,7 +492,8 @@
       ],
       "launchScopes": [
         "mvp-core"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "pay.scan",
@@ -475,7 +507,8 @@
       ],
       "launchScopes": [
         "mvp-core"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "payment.history",
@@ -489,7 +522,8 @@
       ],
       "launchScopes": [
         "mvp-core"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "payment.lifecycle",
@@ -507,7 +541,8 @@
       ],
       "launchScopes": [
         "mvp-core"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "retailer.business-book",
@@ -523,7 +558,8 @@
       ],
       "launchScopes": [
         "mvp-core"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "retailer.campaign-create",
@@ -537,7 +573,8 @@
       ],
       "launchScopes": [
         "mvp-conditional"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "retailer.campaigns",
@@ -551,7 +588,8 @@
       ],
       "launchScopes": [
         "mvp-conditional"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "retailer.customer-detail",
@@ -565,7 +603,8 @@
       ],
       "launchScopes": [
         "mvp-conditional"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "retailer.customers",
@@ -579,7 +618,8 @@
       ],
       "launchScopes": [
         "mvp-conditional"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "retailer.home",
@@ -596,7 +636,8 @@
       "launchScopes": [
         "mvp-conditional",
         "mvp-core"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "retailer.order",
@@ -616,7 +657,8 @@
       ],
       "launchScopes": [
         "mvp-core"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "retailer.order-create",
@@ -630,7 +672,8 @@
       ],
       "launchScopes": [
         "mvp-core"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "retailer.order-issues",
@@ -644,7 +687,8 @@
       ],
       "launchScopes": [
         "mvp-core"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "retailer.pos-counters",
@@ -658,7 +702,8 @@
       ],
       "launchScopes": [
         "mvp-core"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "retailer.pos-sale",
@@ -672,7 +717,8 @@
       ],
       "launchScopes": [
         "mvp-core"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "retailer.purchase-book",
@@ -686,7 +732,8 @@
       ],
       "launchScopes": [
         "mvp-core"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "retailer.purchase-detail",
@@ -702,7 +749,8 @@
       ],
       "launchScopes": [
         "mvp-core"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "retailer.sales-book",
@@ -716,7 +764,8 @@
       ],
       "launchScopes": [
         "mvp-core"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "retailer.service-detail",
@@ -734,7 +783,8 @@
       ],
       "launchScopes": [
         "mvp-conditional"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "retailer.services",
@@ -748,7 +798,8 @@
       ],
       "launchScopes": [
         "mvp-conditional"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "retailer.settings",
@@ -762,7 +813,8 @@
       ],
       "launchScopes": [
         "mvp-core"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "retailer.settings-team",
@@ -776,7 +828,8 @@
       ],
       "launchScopes": [
         "mvp-conditional"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "retailer.stock",
@@ -793,7 +846,8 @@
       "launchScopes": [
         "mvp-conditional",
         "mvp-core"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "retailer.wholesale-cart",
@@ -807,7 +861,8 @@
       ],
       "launchScopes": [
         "mvp-core"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "retailer.wholesale-catalog",
@@ -821,7 +876,8 @@
       ],
       "launchScopes": [
         "mvp-core"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "retailer.wholesale-order",
@@ -841,7 +897,8 @@
       ],
       "launchScopes": [
         "mvp-core"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "ride.booking",
@@ -855,7 +912,8 @@
       ],
       "launchScopes": [
         "mvp-core"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "ride.support",
@@ -869,7 +927,8 @@
       ],
       "launchScopes": [
         "mvp-core"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "ride.trip",
@@ -889,7 +948,8 @@
       ],
       "launchScopes": [
         "mvp-core"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "salon.booking",
@@ -903,7 +963,8 @@
       ],
       "launchScopes": [
         "post-mvp"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "salon.booking-lifecycle",
@@ -925,7 +986,8 @@
       ],
       "launchScopes": [
         "post-mvp"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "social.create",
@@ -939,7 +1001,8 @@
       ],
       "launchScopes": [
         "mvp-core"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "social.feed",
@@ -953,7 +1016,8 @@
       ],
       "launchScopes": [
         "mvp-core"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "social.shorts",
@@ -967,7 +1031,8 @@
       ],
       "launchScopes": [
         "mvp-core"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "social.videos",
@@ -981,6 +1046,24 @@
       ],
       "launchScopes": [
         "mvp-core"
+      ],
+      "budgetBuckets": []
+    },
+    {
+      "routeId": "supply.workspace",
+      "routePath": "/supply",
+      "productionModule": "manufacturer_supplier",
+      "prototypeScreens": [
+        107
+      ],
+      "routeStates": [
+        "home"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ],
+      "budgetBuckets": [
+        "manufacturer_supplier"
       ]
     },
     {
@@ -995,7 +1078,8 @@
       ],
       "launchScopes": [
         "post-mvp"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "tasks.issue",
@@ -1015,7 +1099,8 @@
       ],
       "launchScopes": [
         "post-mvp"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "tasks.lifecycle",
@@ -1033,7 +1118,8 @@
       ],
       "launchScopes": [
         "post-mvp"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "tasks.payment",
@@ -1047,7 +1133,8 @@
       ],
       "launchScopes": [
         "post-mvp"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "universal.app",
@@ -1061,7 +1148,8 @@
       ],
       "launchScopes": [
         "mvp-core"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "workspace.application",
@@ -1075,7 +1163,8 @@
       ],
       "launchScopes": [
         "mvp-core"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "workspace.create",
@@ -1094,7 +1183,8 @@
       "launchScopes": [
         "mvp-core",
         "superseded-do-not-implement"
-      ]
+      ],
+      "budgetBuckets": []
     },
     {
       "routeId": "workspace.home",
@@ -1108,7 +1198,8 @@
       ],
       "launchScopes": [
         "mvp-core"
-      ]
+      ],
+      "budgetBuckets": []
     }
   ],
   "screenContracts": [
@@ -2502,6 +2593,36 @@
       "separateProductionRoute": false,
       "productionNote": "Do not create a separate production route. Implement cash-bank-reconciliation inside /retailer/books and reuse the owning route API, authorization, analytics and regression suite.",
       "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-machine-flex-2026-07-12",
+      "prototypeScreen": 107,
+      "prototypeName": "Manufacturer Supplier Workspace Home",
+      "productionModule": "manufacturer_supplier",
+      "budgetBucket": "manufacturer_supplier",
+      "routeId": "supply.workspace",
+      "routePath": "/supply",
+      "routeState": "home",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "painSolved": "Manufacturers and verified source suppliers need one operating home connecting buyer demand, orders, products, input procurement, dispatch risk and protected money without losing personal MoolSocial access.",
+      "capabilityKeys": [
+        "readiness",
+        "orders",
+        "analytics",
+        "team-support"
+      ],
+      "featureOutcomes": [
+        "Show urgent buyer orders and dispatch work",
+        "Expose matched buyer demand and production readiness",
+        "Connect sell-side products with buy-side input procurement",
+        "Keep protected advances receivables support and personal access one tap away"
+      ],
+      "budgetExtension": false,
+      "budgetExtensionReason": null,
+      "productionNote": "Own production route /supply and keep all progressive states inside it.",
+      "canonicalMap": "architecture/MVP-120-ROUTE-MACHINE.md"
     }
   ]
 }
