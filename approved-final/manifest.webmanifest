@@ -1,0 +1,19 @@
+{
+  "name": "MoolSocial User Test",
+  "short_name": "MoolSocial",
+  "description": "Approved MoolSocial MVP mobile interaction prototype",
+  "start_url": "./mobile-user-test.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#000080",
+  "theme_color": "#000080",
+  "icons": [
+    {
+      "src": "assets/moolsocial-app-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

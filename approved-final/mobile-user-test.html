@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no" />
+  <meta name="theme-color" content="#000080" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>MoolSocial User Test</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="assets/moolsocial-app-icon.svg" type="image/svg+xml" />
+  <style>
+    *{box-sizing:border-box}
+    html,body{width:100%;height:100%;margin:0;overflow:hidden;background:#000080}
+    body{font-family:Arial,sans-serif;letter-spacing:0;overscroll-behavior:none}
+    .app-shell{position:fixed;inset:0;background:#fff}
+    .app-frame{display:block;width:100%;height:100%;border:0;background:#fff}
+    .boot{position:absolute;inset:0;z-index:2;display:grid;place-items:center;background:#000080;color:#fff;transition:opacity .18s ease}
+    .boot[hidden]{display:none}
+    .boot-mark{display:grid;justify-items:center;gap:8px}
+    .boot-mark b{font-size:32px;line-height:1}
+    .boot-line{width:104px;height:4px;display:grid;grid-template-columns:1fr 1fr 1fr}
+    .boot-line i:nth-child(1){background:#ff9933}.boot-line i:nth-child(2){background:#fff}.boot-line i:nth-child(3){background:#138808}
+    .offline{position:absolute;right:12px;bottom:max(12px,env(safe-area-inset-bottom));left:12px;z-index:3;border:1px solid #d7d9e8;border-left:4px solid #ff9933;border-radius:6px;padding:10px;background:#fff;color:#000080;font-size:12px;font-weight:800;box-shadow:0 8px 30px rgba(0,0,40,.2)}
+    .offline[hidden]{display:none}
+  </style>
+</head>
+<body>
+  <main class="app-shell" aria-label="MoolSocial real user prototype">
+    <iframe class="app-frame" id="appFrame" title="MoolSocial app" src="screens/00-install-app.html"></iframe>
+    <div class="boot" id="boot" aria-live="polite">
+      <div class="boot-mark"><b>MoolSocial</b><span class="boot-line"><i></i><i></i><i></i></span></div>
+    </div>
+    <div class="offline" id="offline" hidden>You are offline. Reconnect and reopen the last action.</div>
+  </main>
+  <script>
+    const frame=document.getElementById("appFrame");
+    const boot=document.getElementById("boot");
+    const offline=document.getElementById("offline");
+    const worldRoutes={social:"05-social-shorts.html",buy:"09-buy.html",eat:"26-eat.html",ride:"30-ride.html",book:"36-book.html",pay:"57-pay.html",work:"67-work.html",chat:"23-chat-inbox-home.html"};
+    const subRoutes={
+      shorts:"05-social-shorts.html",clips:"05-social-shorts.html",videos:"06-social-videos.html",video:"06-social-videos.html",feed:"07-social-feed.html",create:"08-social-create.html",
+      grocery:"09-buy.html",categories:"09-buy.html",medicine:"09-buy.html",basket:"12-buy-basket-checkout.html",
+      order:"27-eat-order-food.html",orderfood:"27-eat-order-food.html",table:"28-eat-book-table.html",booktable:"28-eat-book-table.html",tiffin:"29-eat-tiffin.html",
+      bike:"30-ride.html",auto:"30-ride.html",cab:"30-ride.html",
+      getitdone:"48-book-get-it-done.html",services:"36-book.html",doctor:"37-book-doctor-appointment.html",salon:"42-book-salon-appointment.html",
+      recharge:"58-pay-recharge.html",bills:"59-pay-bills.html",scan:"60-pay-scan.html",scanpay:"60-pay-scan.html",receipts:"64-pay-receipts-history.html",
+      earntoday:"67-work.html",delivery:"67-work.html",onboard:"67-work.html",verify:"67-work.html",workspace:"69-my-work-setup.html",
+      people:"23-chat-inbox-home.html",business:"23-chat-inbox-home.html",orders:"22-chat-order-support-thread.html",support:"22-chat-order-support-thread.html"
+    };
+    let splashTimer=0;
+
+    function screenFile(){
+      try{return frame.contentWindow.location.pathname.split("/").pop()||""}catch(error){return ""}
+    }
+    function go(file,query=""){
+      clearTimeout(splashTimer);
+      boot.hidden=false;
+      const suffix=query ? (query.startsWith("?")?query:`?${query}`) : "";
+      frame.src=`screens/${file}${suffix}`;
+    }
+    function normalise(value){return String(value||"").toLowerCase().replace(/[^a-z0-9]/g,"")}
+    function isolatePhoneSurface(doc,file){
+      let visual=null;
+      if(file.startsWith("00-"))visual=doc.querySelector(".phone-shell");
+      else if(file.startsWith("01-"))visual=doc.querySelector(".production-phone");
+      else if(file.startsWith("02-"))visual=doc.querySelector(".final-phone");
+      else visual=doc.querySelector(".phone");
+      if(!visual)return;
+      let current=visual;
+      while(current&&current!==doc.body){
+        const parent=current.parentElement;
+        if(!parent)break;
+        [...parent.children].forEach(child=>{if(child!==current)child.style.setProperty("display","none","important")});
+        current=parent;
+      }
+      doc.documentElement.style.setProperty("width","100%","important");
+      doc.documentElement.style.setProperty("height","100%","important");
+      doc.documentElement.style.setProperty("overflow","hidden","important");
+      doc.body.style.setProperty("width","100%","important");
+      doc.body.style.setProperty("height","100%","important");
+      doc.body.style.setProperty("margin","0","important");
+      doc.body.style.setProperty("padding","0","important");
+      doc.body.style.setProperty("overflow","hidden","important");
+      visual.style.setProperty("position","fixed","important");
+      visual.style.setProperty("inset","0","important");
+      visual.style.setProperty("width","100vw","important");
+      visual.style.setProperty("max-width","none","important");
+      visual.style.setProperty("height","100dvh","important");
+      visual.style.setProperty("min-height","100dvh","important");
+      visual.style.setProperty("margin","0","important");
+      visual.style.setProperty("border","0","important");
+      visual.style.setProperty("border-radius","0","important");
+      visual.style.setProperty("box-shadow","none","important");
+      visual.style.setProperty("overflow","auto","important");
+      const inner=visual.querySelector(".phone-screen,.phone-app,.production-screen,.final-app,.app-screen");
+      if(inner){inner.style.setProperty("min-height","100%","important");inner.style.setProperty("border-radius","0","important")}
+    }
+    function routeInitialScreens(event,file){
+      const target=event.target.closest("a,button,[data-root-action],[data-switch],[data-sub-action]");
+      if(!target)return;
+      const href=target.getAttribute("href")||"";
+      if(href.includes("../index.html")||href.endsWith("/index.html")){
+        event.preventDefault();event.stopPropagation();go("04-universal-focus-shell.html");return;
+      }
+      if(file.startsWith("00-")&&target.matches(".install-button")){
+        event.preventDefault();event.stopPropagation();go("01-app-splash-first-open.html");return;
+      }
+      if(file.startsWith("02-")&&target.matches(".location-choice")){
+        event.preventDefault();event.stopPropagation();go("03-login-account-handoff.html");return;
+      }
+      if(file.startsWith("03-")&&target.matches(".provider,.method-button")){
+        event.preventDefault();event.stopPropagation();setTimeout(()=>go("04-universal-focus-shell.html"),380);return;
+      }
+      if(file.startsWith("04-")){
+        const world=normalise(target.dataset.rootAction||target.dataset.switch);
+        const sub=normalise(target.dataset.subAction);
+        const destination=subRoutes[sub]||worldRoutes[world];
+        if(destination){event.preventDefault();event.stopPropagation();go(destination)}
+      }
+      if(file.startsWith("11-")&&target.id==="addBasket"){
+        event.preventDefault();event.stopPropagation();go("12-buy-basket-checkout.html");
+      }
+      if(file.startsWith("12-")&&target.id==="checkoutBtn"&&/proceed to pay/i.test(target.textContent)){
+        event.preventDefault();event.stopPropagation();go("14-customer-payment-order-confirmation.html");
+      }
+      if(file.startsWith("30-")&&target.id==="primaryCta"){
+        event.preventDefault();event.stopPropagation();go("31-ride-accepted-captain-arriving.html");
+      }
+    }
+    function prepareScreen(){
+      clearTimeout(splashTimer);
+      const file=screenFile();
+      if(!file)return;
+      try{
+        const doc=frame.contentDocument;
+        const style=doc.createElement("style");
+        style.textContent=".screen-link-home{display:none!important}html,body{overscroll-behavior:none!important}";
+        doc.head.appendChild(style);
+        isolatePhoneSurface(doc,file);
+        doc.addEventListener("click",event=>routeInitialScreens(event,file),true);
+      }catch(error){}
+      history.replaceState(null,"",`#screen=${file.replace(/\.html$/i,"")}`);
+      boot.hidden=true;
+      if(file.startsWith("01-"))splashTimer=setTimeout(()=>go("02-first-setup-language-location.html"),1500);
+    }
+    frame.addEventListener("load",prepareScreen);
+    addEventListener("online",()=>offline.hidden=true);
+    addEventListener("offline",()=>offline.hidden=false);
+    if("serviceWorker" in navigator)navigator.serviceWorker.register("service-worker.js").catch(()=>{});
+  </script>
+</body>
+</html>
