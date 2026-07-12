@@ -41,7 +41,7 @@
     {
       "budgetBucket": "generic_service_provider",
       "routeAllowance": 8,
-      "workspaceTypes": ["restaurant", "cloud kitchen", "tiffin provider", "salon", "doctor", "hospital", "clinic", "pharmacy", "transporter", "individual service provider"],
+      "workspaceTypes": ["restaurant", "cloud kitchen", "tiffin provider", "salon", "doctor", "hospital", "clinic", "pharmacy", "transporter", "individual service provider", "accountant", "chartered accountant"],
       "capabilityKeys": ["readiness", "catalogue-services", "availability-capacity", "orders-bookings", "fulfilment-chat", "customers-payments", "earn-campaigns", "settings-support"],
       "mustSolve": ["profile and statutory readiness", "service menu or catalogue", "availability and capacity", "orders or bookings", "fulfilment and customer communication", "customers payments and records", "earn opportunities and campaigns", "settings staff and support"]
     },

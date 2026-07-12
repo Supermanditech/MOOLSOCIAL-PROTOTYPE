@@ -1,8 +1,8 @@
 {
   "contractVersion": "mvp-route-machine-flex-2026-07-12",
   "generatedAt": "2026-07-12",
-  "prototypeScreenCount": 139,
-  "productionRouteGroupCount": 105,
+  "prototypeScreenCount": 147,
+  "productionRouteGroupCount": 113,
   "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md",
   "routes": [
     {
@@ -919,6 +919,142 @@
         "mvp-core"
       ],
       "budgetBuckets": []
+    },
+    {
+      "routeId": "provider.availability",
+      "routePath": "/provider/availability",
+      "productionModule": "provider",
+      "prototypeScreens": [
+        141
+      ],
+      "routeStates": [
+        "capacity"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ],
+      "budgetBuckets": [
+        "generic_service_provider"
+      ]
+    },
+    {
+      "routeId": "provider.business",
+      "routePath": "/provider/business",
+      "productionModule": "provider",
+      "prototypeScreens": [
+        144
+      ],
+      "routeStates": [
+        "overview"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ],
+      "budgetBuckets": [
+        "generic_service_provider"
+      ]
+    },
+    {
+      "routeId": "provider.catalogue",
+      "routePath": "/provider/catalogue",
+      "productionModule": "provider",
+      "prototypeScreens": [
+        140
+      ],
+      "routeStates": [
+        "catalogue"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ],
+      "budgetBuckets": [
+        "generic_service_provider"
+      ]
+    },
+    {
+      "routeId": "provider.control",
+      "routePath": "/provider/control",
+      "productionModule": "provider",
+      "prototypeScreens": [
+        146
+      ],
+      "routeStates": [
+        "readiness-settings"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ],
+      "budgetBuckets": [
+        "generic_service_provider"
+      ]
+    },
+    {
+      "routeId": "provider.fulfilment",
+      "routePath": "/provider/fulfilment/:requestId",
+      "productionModule": "provider",
+      "prototypeScreens": [
+        143
+      ],
+      "routeStates": [
+        "active"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ],
+      "budgetBuckets": [
+        "generic_service_provider"
+      ]
+    },
+    {
+      "routeId": "provider.growth",
+      "routePath": "/provider/growth",
+      "productionModule": "provider",
+      "prototypeScreens": [
+        145
+      ],
+      "routeStates": [
+        "earn-campaigns"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ],
+      "budgetBuckets": [
+        "generic_service_provider"
+      ]
+    },
+    {
+      "routeId": "provider.home",
+      "routePath": "/provider",
+      "productionModule": "provider",
+      "prototypeScreens": [
+        139
+      ],
+      "routeStates": [
+        "home"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ],
+      "budgetBuckets": [
+        "generic_service_provider"
+      ]
+    },
+    {
+      "routeId": "provider.requests",
+      "routePath": "/provider/requests",
+      "productionModule": "provider",
+      "prototypeScreens": [
+        142
+      ],
+      "routeStates": [
+        "inbox"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ],
+      "budgetBuckets": [
+        "generic_service_provider"
+      ]
     },
     {
       "routeId": "retailer.business-book",
@@ -4008,6 +4144,214 @@
       "budgetExtension": false,
       "budgetExtensionReason": null,
       "productionNote": "Own production route /earn/history and keep all progressive states inside it.",
+      "canonicalMap": "architecture/MVP-120-ROUTE-MACHINE.md"
+    },
+    {
+      "contractVersion": "mvp-route-machine-flex-2026-07-12",
+      "prototypeScreen": 139,
+      "prototypeName": "Provider Home and Readiness",
+      "productionModule": "provider",
+      "budgetBucket": "generic_service_provider",
+      "routeId": "provider.home",
+      "routePath": "/provider",
+      "routeState": "home",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "painSolved": "Exact verified providers need one adaptive operating home for readiness priorities demand capacity money and growth without losing personal consumer access.",
+      "capabilityKeys": [
+        "readiness"
+      ],
+      "featureOutcomes": [
+        "Open the highest-priority provider action",
+        "See exact profile readiness and business status",
+        "Reach requests catalogue capacity money growth and controls in one tap"
+      ],
+      "budgetExtension": false,
+      "budgetExtensionReason": null,
+      "productionNote": "Own production route /provider and keep all progressive states inside it.",
+      "canonicalMap": "architecture/MVP-120-ROUTE-MACHINE.md"
+    },
+    {
+      "contractVersion": "mvp-route-machine-flex-2026-07-12",
+      "prototypeScreen": 140,
+      "prototypeName": "Provider Catalogue Menu and Services",
+      "productionModule": "provider",
+      "budgetBucket": "generic_service_provider",
+      "routeId": "provider.catalogue",
+      "routePath": "/provider/catalogue",
+      "routeState": "catalogue",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "painSolved": "Each verified provider needs a decision-ready profile-specific catalogue menu medicine or service editor with exact price time fulfilment cancellation and consumer visibility rules.",
+      "capabilityKeys": [
+        "catalogue-services"
+      ],
+      "featureOutcomes": [
+        "Create exact profile offers from a schema",
+        "Publish decision-ready consumer information",
+        "Version changes without altering accepted terms"
+      ],
+      "budgetExtension": false,
+      "budgetExtensionReason": null,
+      "productionNote": "Own production route /provider/catalogue and keep all progressive states inside it.",
+      "canonicalMap": "architecture/MVP-120-ROUTE-MACHINE.md"
+    },
+    {
+      "contractVersion": "mvp-route-machine-flex-2026-07-12",
+      "prototypeScreen": 141,
+      "prototypeName": "Provider Availability and Capacity",
+      "productionModule": "provider",
+      "budgetBucket": "generic_service_provider",
+      "routeId": "provider.availability",
+      "routePath": "/provider/availability",
+      "routeState": "capacity",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "painSolved": "Providers need profile-specific slots kitchen capacity staff cover stock pharmacist availability service areas or routes that prevent overbooking and false consumer availability.",
+      "capabilityKeys": [
+        "availability-capacity"
+      ],
+      "featureOutcomes": [
+        "Set capacity using exact operating units",
+        "Auto-stop demand at confirmed capacity",
+        "Pause new demand without hiding accepted obligations"
+      ],
+      "budgetExtension": false,
+      "budgetExtensionReason": null,
+      "productionNote": "Own production route /provider/availability and keep all progressive states inside it.",
+      "canonicalMap": "architecture/MVP-120-ROUTE-MACHINE.md"
+    },
+    {
+      "contractVersion": "mvp-route-machine-flex-2026-07-12",
+      "prototypeScreen": 142,
+      "prototypeName": "Provider Orders Bookings and Appointments",
+      "productionModule": "provider",
+      "budgetBucket": "generic_service_provider",
+      "routeId": "provider.requests",
+      "routePath": "/provider/requests",
+      "routeState": "inbox",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "painSolved": "Providers need compact actionable orders bookings appointments or jobs showing price time place payment trust and terms before one-tap acceptance.",
+      "capabilityKeys": [
+        "orders-bookings"
+      ],
+      "featureOutcomes": [
+        "Compare every request using decision-ready facts",
+        "Accept and reserve capacity idempotently",
+        "Decline or propose another time without abandoning the customer"
+      ],
+      "budgetExtension": false,
+      "budgetExtensionReason": null,
+      "productionNote": "Own production route /provider/requests and keep all progressive states inside it.",
+      "canonicalMap": "architecture/MVP-120-ROUTE-MACHINE.md"
+    },
+    {
+      "contractVersion": "mvp-route-machine-flex-2026-07-12",
+      "prototypeScreen": 143,
+      "prototypeName": "Provider Fulfilment and Customer Communication",
+      "productionModule": "provider",
+      "budgetBucket": "generic_service_provider",
+      "routeId": "provider.fulfilment",
+      "routePath": "/provider/fulfilment/:requestId",
+      "routeState": "active",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "painSolved": "Accepted provider work needs a profile-specific progressive state machine for execution customer communication proportionate proof completion receipt and settlement.",
+      "capabilityKeys": [
+        "fulfilment-chat"
+      ],
+      "featureOutcomes": [
+        "Execute the next required fulfilment action",
+        "Communicate within the governed request thread",
+        "Complete profile-specific outcome and proof safely"
+      ],
+      "budgetExtension": false,
+      "budgetExtensionReason": null,
+      "productionNote": "Own production route /provider/fulfilment/:requestId and keep all progressive states inside it.",
+      "canonicalMap": "architecture/MVP-120-ROUTE-MACHINE.md"
+    },
+    {
+      "contractVersion": "mvp-route-machine-flex-2026-07-12",
+      "prototypeScreen": 144,
+      "prototypeName": "Provider Customers Payments and Records",
+      "productionModule": "provider",
+      "budgetBucket": "generic_service_provider",
+      "routeId": "provider.business",
+      "routePath": "/provider/business",
+      "routeState": "overview",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "painSolved": "Providers need authoritative available expected refunded and disputed money plus customer receipts and permission-safe business or regulated records in one view.",
+      "capabilityKeys": [
+        "customers-payments"
+      ],
+      "featureOutcomes": [
+        "Trace money to orders bookings or appointments",
+        "Download authorised statements and receipts",
+        "Keep clinical pharmacy and commercial records permission-separated"
+      ],
+      "budgetExtension": false,
+      "budgetExtensionReason": null,
+      "productionNote": "Own production route /provider/business and keep all progressive states inside it.",
+      "canonicalMap": "architecture/MVP-120-ROUTE-MACHINE.md"
+    },
+    {
+      "contractVersion": "mvp-route-machine-flex-2026-07-12",
+      "prototypeScreen": 145,
+      "prototypeName": "Provider Earn Opportunities and Campaigns",
+      "productionModule": "provider",
+      "budgetBucket": "generic_service_provider",
+      "routeId": "provider.growth",
+      "routePath": "/provider/growth",
+      "routeState": "earn-campaigns",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "painSolved": "Verified providers need matched funded earning opportunities and operated outcome-based growth campaigns with clear eligibility capacity terms attribution and realistic potential.",
+      "capabilityKeys": [
+        "earn-campaigns"
+      ],
+      "featureOutcomes": [
+        "Review funded work matched to the exact profile",
+        "Buy or accept operated outcome campaigns",
+        "See potential based on funded eligible capacity without guarantees"
+      ],
+      "budgetExtension": false,
+      "budgetExtensionReason": null,
+      "productionNote": "Own production route /provider/growth and keep all progressive states inside it.",
+      "canonicalMap": "architecture/MVP-120-ROUTE-MACHINE.md"
+    },
+    {
+      "contractVersion": "mvp-route-machine-flex-2026-07-12",
+      "prototypeScreen": 146,
+      "prototypeName": "Provider Settings Staff and Support",
+      "productionModule": "provider",
+      "budgetBucket": "generic_service_provider",
+      "routeId": "provider.control",
+      "routePath": "/provider/control",
+      "routeState": "readiness-settings",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "painSolved": "Exact provider workspaces need capability-level compliance staff permissions notifications security audit and support without exposing irrelevant or unsafe controls.",
+      "capabilityKeys": [
+        "settings-support"
+      ],
+      "featureOutcomes": [
+        "Resolve exact profile readiness requirements",
+        "Assign least-privilege staff access",
+        "Control alerts capacity privacy audit and support"
+      ],
+      "budgetExtension": false,
+      "budgetExtensionReason": null,
+      "productionNote": "Own production route /provider/control and keep all progressive states inside it.",
       "canonicalMap": "architecture/MVP-120-ROUTE-MACHINE.md"
     }
   ]
