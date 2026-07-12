@@ -1,8 +1,8 @@
 {
   "contractVersion": "mvp-route-machine-flex-2026-07-12",
   "generatedAt": "2026-07-12",
-  "prototypeScreenCount": 109,
-  "productionRouteGroupCount": 76,
+  "prototypeScreenCount": 110,
+  "productionRouteGroupCount": 77,
   "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md",
   "routes": [
     {
@@ -1058,6 +1058,23 @@
       ],
       "routeStates": [
         "business-position"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ],
+      "budgetBuckets": [
+        "manufacturer_supplier"
+      ]
+    },
+    {
+      "routeId": "supply.catalogue",
+      "routePath": "/supply/catalogue",
+      "productionModule": "manufacturer_supplier",
+      "prototypeScreens": [
+        109
+      ],
+      "routeStates": [
+        "stock"
       ],
       "launchScopes": [
         "mvp-core"
@@ -2677,6 +2694,39 @@
       "budgetExtension": false,
       "budgetExtensionReason": null,
       "productionNote": "Own production route /supply/books and keep all progressive states inside it.",
+      "canonicalMap": "architecture/MVP-120-ROUTE-MACHINE.md"
+    },
+    {
+      "contractVersion": "mvp-route-machine-flex-2026-07-12",
+      "prototypeScreen": 109,
+      "prototypeName": "Manufacturer Product Catalogue and Saleable Stock",
+      "productionModule": "manufacturer_supplier",
+      "budgetBucket": "manufacturer_supplier",
+      "routeId": "supply.catalogue",
+      "routePath": "/supply/catalogue",
+      "routeState": "stock",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "painSolved": "Manufacturers need a scalable way to publish buyer-visible finished products and quantities from a canonical master catalogue CSV scan or reviewed new product while keeping price MOQ delivery payment terms and raw-material recommendations accurate.",
+      "capabilityKeys": [
+        "catalogue",
+        "commercial-terms",
+        "availability",
+        "procurement",
+        "analytics"
+      ],
+      "featureOutcomes": [
+        "Search a server-side canonical catalogue without preloading it",
+        "Add or update buyer-visible products and saleable quantity",
+        "Import catalogue and stock through mobile or web CSV with validation",
+        "Control price MOQ delivery and payment terms",
+        "Propose product-linked input categories requiring manufacturer confirmation",
+        "Keep product detail and import flows inside one production route"
+      ],
+      "budgetExtension": false,
+      "budgetExtensionReason": null,
+      "productionNote": "Own production route /supply/catalogue and keep all progressive states inside it.",
       "canonicalMap": "architecture/MVP-120-ROUTE-MACHINE.md"
     }
   ]

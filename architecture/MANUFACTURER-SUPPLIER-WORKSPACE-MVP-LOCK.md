@@ -98,3 +98,16 @@ Business Home must answer:
 - What money or delivery risk needs attention?
 
 The Orders view must show incoming demand and confirmed customer orders. The Stock view must keep the live sell catalogue, available quantity, batches and commercial terms accessible. The Wholesale Buy view must let the manufacturer browse suppliers and place purchase orders for raw material, packaging and other requirements. Full detail and fulfilment states open progressively from these focused views.
+
+## Screen 109 Contract
+
+Screen 109 owns the detailed manufacturer catalogue and saleable-stock route. It must support tens of thousands of canonical SKUs without rendering the full catalogue at once.
+
+- Default state is `My Stock`: only products added by the manufacturer.
+- `Add Products` searches the server-side master catalogue filtered by verified industry, product family and HSN activity.
+- `Import CSV` supports mobile file selection and secure desktop/web continuation with preview, validation and error correction before publish.
+- A reviewed new-product path exists when the canonical SKU is missing.
+- Product rows remain dense and show brand, product, pack, HSN, available quantity, reserved quantity, selling price, MOQ and commercial terms.
+- Product details, quantity update, terms, batch handling and publish/pause actions open progressively inside the route.
+- Adding or changing a product updates a proposed product-to-input mapping. The manufacturer must confirm the mapping before it changes Wholesale Buy recommendations.
+- Search, filters, cursor pagination, virtualisation and server-side facets are mandatory production behaviours; never preload the master catalogue.
