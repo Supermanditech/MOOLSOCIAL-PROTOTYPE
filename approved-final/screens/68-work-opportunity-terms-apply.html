@@ -1,0 +1,2568 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>68 Work Opportunity Details - MoolSocial Screenbook</title>
+  <link rel="stylesheet" href="../shared/moolsocial-ui-foundation.css" />
+  <style>
+    .screen-shell { display: grid; gap: 18px; }
+
+    .back-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .screen-link-home {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--ms-navy);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .back-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--ms-navy);
+      border-radius: var(--ms-radius);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .preview {
+      display: grid;
+      grid-template-columns: minmax(320px, 390px) minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+      padding: 18px;
+      border-bottom: 1px solid var(--ms-navy);
+      background: var(--ms-white);
+    }
+
+    .phone {
+      width: min(100%, 370px);
+      height: 742px;
+      justify-self: center;
+      border: 10px solid var(--ms-navy);
+      border-radius: 32px;
+      background: var(--ms-navy);
+      overflow: hidden;
+      box-shadow: 0 28px 60px rgba(0, 0, 128, .22);
+    }
+
+    .app {
+      position: relative;
+      height: 100%;
+      display: grid;
+      grid-template-rows: auto auto 1fr auto;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 18% 8%, rgba(255, 153, 51, .16), transparent 25%),
+        radial-gradient(circle at 90% 14%, rgba(19, 136, 8, .16), transparent 26%),
+        linear-gradient(180deg, var(--ms-navy) 0 166px, #f4f7fc 166px 100%);
+      color: var(--ms-white);
+      font-family: var(--ms-font);
+    }
+
+    button,
+    a { -webkit-tap-highlight-color: transparent; }
+
+    button {
+      appearance: none;
+      border: 0;
+      font-family: var(--ms-font);
+      cursor: pointer;
+    }
+
+    svg {
+      width: 19px;
+      height: 19px;
+      stroke: currentColor;
+      stroke-width: 2.4;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .status-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 16px 22px 6px;
+      color: var(--ms-white);
+      font-size: 11px;
+      font-weight: 950;
+    }
+
+    .top {
+      display: grid;
+      gap: 11px;
+      padding: 8px 18px 13px;
+    }
+
+    .brand-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .brand-copy {
+      min-width: 0;
+      display: grid;
+      gap: 2px;
+    }
+
+    .brand-copy b {
+      overflow: hidden;
+      color: var(--ms-white);
+      font-size: 20px;
+      line-height: 1;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .brand-copy span {
+      color: rgba(255, 255, 255, .78);
+      font-size: 10px;
+      font-weight: 850;
+    }
+
+    .identity-line {
+      width: 96px;
+      height: 4px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      overflow: hidden;
+      border-radius: var(--ms-pill);
+    }
+
+    .identity-line span:nth-child(1) { background: var(--ms-saffron); }
+    .identity-line span:nth-child(2) { background: var(--ms-white); }
+    .identity-line span:nth-child(3) { background: var(--ms-green); }
+
+    .top-buttons {
+      display: flex;
+      gap: 8px;
+      flex: 0 0 auto;
+    }
+
+    .circle-btn,
+    .search-action {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      text-decoration: none;
+    }
+
+    .circle-btn {
+      border: 1px solid rgba(255, 255, 255, .26);
+      background: rgba(255, 255, 255, .12);
+      color: var(--ms-white);
+    }
+
+    .command-bar {
+      min-height: 48px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto auto auto;
+      align-items: center;
+      gap: 7px;
+      border: 1px solid rgba(255, 255, 255, .85);
+      border-radius: var(--ms-pill);
+      padding: 5px 5px 5px 13px;
+      background: rgba(255, 255, 255, .10);
+    }
+
+    .command-text {
+      overflow: hidden;
+      color: var(--ms-white);
+      font-size: 11px;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .search-action {
+      background: var(--ms-white);
+      color: var(--ms-navy);
+    }
+
+    .content {
+      min-height: 0;
+      overflow: auto;
+      display: grid;
+      align-content: start;
+      gap: 8px;
+      padding: 0 10px 98px;
+      color: var(--ms-navy);
+      scrollbar-width: none;
+    }
+
+    .content::-webkit-scrollbar { display: none; }
+
+    .route-card,
+    .ride-card,
+    .option-card,
+    .trust-card,
+    .summary-card,
+    .help-card {
+      display: grid;
+      gap: 8px;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: 21px;
+      padding: 10px;
+      background: rgba(255, 255, 255, .98);
+      box-shadow: 0 14px 30px rgba(0, 0, 128, .10);
+    }
+
+    .route-card { margin-top: -8px; }
+
+    .ride-card.is-hidden,
+    .option-card.is-hidden,
+    .summary-card.is-hidden {
+      display: none;
+    }
+
+    .ride-card {
+      background:
+        linear-gradient(145deg, rgba(0, 0, 128, .05), rgba(19, 136, 8, .035)),
+        rgba(255, 255, 255, .98);
+    }
+
+    .card-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .card-head b {
+      color: var(--ms-navy);
+      font-size: 13px;
+      line-height: 1;
+      font-weight: 950;
+    }
+
+    .card-head span {
+      color: rgba(0, 0, 128, .58);
+      font-size: 8px;
+      font-weight: 850;
+      text-align: right;
+    }
+
+    .route-box {
+      display: grid;
+      gap: 7px;
+    }
+
+    .route-line {
+      min-height: 42px;
+      display: grid;
+      grid-template-columns: 32px 1fr;
+      gap: 9px;
+      align-items: center;
+      border-radius: 16px;
+      padding: 8px;
+      background: #f3f6fb;
+    }
+
+    .route-dot {
+      width: 32px;
+      height: 32px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--ms-white);
+      font-size: 10px;
+      font-weight: 950;
+    }
+
+    .route-dot.pick { background: var(--ms-green); }
+    .route-dot.drop { background: var(--ms-saffron); color: var(--ms-navy); }
+
+    .route-copy {
+      min-width: 0;
+      display: grid;
+      gap: 2px;
+    }
+
+    .route-copy b {
+      overflow: hidden;
+      color: var(--ms-navy);
+      font-size: 11px;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .route-copy span {
+      overflow: hidden;
+      color: rgba(0, 0, 128, .58);
+      font-size: 8px;
+      font-weight: 850;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .potential-strip {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 9px;
+      align-items: center;
+      border-radius: 16px;
+      padding: 9px 10px;
+      background:
+        radial-gradient(circle at 88% 20%, rgba(255, 153, 51, .22), transparent 30%),
+        linear-gradient(135deg, #1717ba, var(--ms-navy));
+      color: var(--ms-white);
+    }
+
+    .potential-copy {
+      min-width: 0;
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      column-gap: 8px;
+      row-gap: 2px;
+      align-items: end;
+    }
+
+    .potential-copy small {
+      grid-column: 1 / -1;
+      color: rgba(255, 255, 255, .74);
+      font-size: 6.5px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .potential-copy b {
+      color: var(--ms-white);
+      font-size: 16px;
+      line-height: 1;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .potential-copy span {
+      overflow: hidden;
+      padding-bottom: 1px;
+      color: rgba(255, 255, 255, .76);
+      font-size: 7px;
+      line-height: 1.1;
+      font-weight: 850;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .potential-info {
+      width: 30px;
+      height: 30px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, .52);
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .12);
+      color: var(--ms-white);
+      font-family: var(--ms-font);
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .potential-note {
+      display: grid;
+      gap: 3px;
+      border-left: 3px solid var(--ms-saffron);
+      padding: 4px 0 4px 8px;
+      color: rgba(0, 0, 128, .62);
+      font-size: 7px;
+      line-height: 1.3;
+      font-weight: 850;
+    }
+
+    .potential-note.is-hidden { display: none; }
+
+    .potential-note b {
+      color: var(--ms-navy);
+      font-size: 8px;
+      font-weight: 950;
+    }
+
+    .potential-metrics {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 6px;
+      margin: 2px 0 3px;
+    }
+
+    .potential-metric {
+      min-width: 0;
+      display: grid;
+      gap: 2px;
+      border-radius: 11px;
+      padding: 7px;
+      background: #f3f6fb;
+    }
+
+    .potential-metric small {
+      overflow: hidden;
+      color: rgba(0, 0, 128, .52);
+      font-size: 6px;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .potential-metric b {
+      overflow: hidden;
+      color: var(--ms-green);
+      font-size: 11px;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .chip-row,
+    .ride-row,
+    .package-row,
+    .captain-row {
+      display: flex;
+      gap: 6px;
+      min-width: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .chip-row::-webkit-scrollbar,
+    .ride-row::-webkit-scrollbar,
+    .package-row::-webkit-scrollbar,
+    .captain-row::-webkit-scrollbar { display: none; }
+
+    .time-chip,
+    .small-chip,
+    .ride-option,
+    .package-option,
+    .captain-option,
+    .primary-cta,
+    .secondary-cta,
+    .dock-tab,
+    .mool-button,
+    .chat-button { font-family: var(--ms-font); }
+
+    .time-chip,
+    .small-chip {
+      flex: 0 0 auto;
+      min-height: 31px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: var(--ms-pill);
+      padding: 0 12px;
+      background: #f7f9fd;
+      color: var(--ms-navy);
+      font-size: 9px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .time-chip.active,
+    .small-chip.active {
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -3px 0 var(--ms-saffron), 0 8px 18px rgba(0, 0, 128, .15);
+    }
+
+    .ride-option {
+      flex: 0 0 114px;
+      min-height: 78px;
+      display: grid;
+      align-content: center;
+      gap: 5px;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: 18px;
+      padding: 10px;
+      background: #f7f9fd;
+      color: var(--ms-navy);
+      text-align: left;
+    }
+
+    .ride-option.active {
+      border-color: rgba(0, 0, 128, .42);
+      background:
+        linear-gradient(135deg, rgba(255, 153, 51, .14), rgba(19, 136, 8, .08)),
+        var(--ms-white);
+      box-shadow: inset 0 -3px 0 var(--ms-green), 0 9px 18px rgba(0, 0, 128, .10);
+    }
+
+    .ride-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .ride-top svg { color: var(--ms-navy); }
+
+    .ride-option b {
+      color: var(--ms-navy);
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .ride-option strong {
+      color: var(--ms-green);
+      font-size: 15px;
+      line-height: 1;
+      font-weight: 950;
+    }
+
+    .ride-option span {
+      color: rgba(0, 0, 128, .58);
+      font-size: 8px;
+      font-weight: 850;
+      line-height: 1.15;
+    }
+
+    .package-option {
+      flex: 0 0 134px;
+      min-height: 76px;
+      display: grid;
+      align-content: center;
+      gap: 4px;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: 18px;
+      padding: 9px;
+      background: #f7f9fd;
+      color: var(--ms-navy);
+      text-align: left;
+    }
+
+    .package-option.active {
+      border-color: rgba(0, 0, 128, .42);
+      background:
+        linear-gradient(135deg, rgba(255, 153, 51, .13), rgba(19, 136, 8, .08)),
+        var(--ms-white);
+      box-shadow: inset 0 -3px 0 var(--ms-green);
+    }
+
+    .package-option:focus-visible,
+    .ride-option:focus-visible,
+    .time-chip:focus-visible {
+      outline: 3px solid rgba(255, 153, 51, .45);
+      outline-offset: 2px;
+    }
+
+    .package-option b,
+    .package-option strong,
+    .package-option span {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .package-option b {
+      color: var(--ms-navy);
+      font-size: 10px;
+      font-weight: 950;
+    }
+
+    .package-option strong {
+      color: var(--ms-green);
+      font-size: 13px;
+      line-height: 1;
+      font-weight: 950;
+    }
+
+    .package-option span {
+      color: rgba(0, 0, 128, .58);
+      font-size: 7px;
+      font-weight: 850;
+    }
+
+    .decision-note {
+      display: grid;
+      grid-template-columns: 20px 1fr;
+      gap: 7px;
+      align-items: center;
+      border-radius: 15px;
+      padding: 8px 9px;
+      background: #f3f6fb;
+      color: rgba(0, 0, 128, .66);
+      font-size: 8px;
+      line-height: 1.25;
+      font-weight: 850;
+    }
+
+    .decision-note svg {
+      width: 18px;
+      height: 18px;
+      color: var(--ms-green);
+    }
+
+    .summary-facts {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .summary-fact {
+      min-height: 39px;
+      display: grid;
+      align-content: center;
+      gap: 2px;
+      border-radius: 14px;
+      padding: 7px;
+      background: rgba(255, 255, 255, .82);
+      color: var(--ms-navy);
+      overflow: hidden;
+    }
+
+    .summary-fact b,
+    .summary-fact span {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .summary-fact b {
+      font-size: 7px;
+      font-weight: 950;
+      text-transform: uppercase;
+    }
+
+    .summary-fact span {
+      color: var(--ms-green);
+      font-size: 8px;
+      font-weight: 900;
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 7px;
+    }
+
+    .trust-item,
+    .captain-option {
+      border-radius: 15px;
+      background: #f3f6fb;
+      color: var(--ms-navy);
+    }
+
+    .trust-item {
+      min-height: 46px;
+      display: grid;
+      align-content: center;
+      gap: 2px;
+      padding: 7px;
+      overflow: hidden;
+    }
+
+    .trust-item b {
+      overflow: hidden;
+      font-size: 8px;
+      font-weight: 950;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .trust-item span {
+      overflow: hidden;
+      color: var(--ms-green);
+      font-size: 7px;
+      font-weight: 900;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .captain-option {
+      flex: 0 0 158px;
+      display: grid;
+      grid-template-columns: 38px 1fr;
+      gap: 8px;
+      align-items: center;
+      border: 1px solid rgba(0, 0, 128, .10);
+      padding: 8px;
+      text-align: left;
+    }
+
+    .avatar {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 32% 22%, rgba(255, 255, 255, .34), transparent 28%),
+        linear-gradient(145deg, var(--ms-green), var(--ms-navy));
+      color: var(--ms-white);
+      font-size: 10px;
+      font-weight: 950;
+    }
+
+    .captain-copy {
+      min-width: 0;
+      display: grid;
+      gap: 2px;
+    }
+
+    .captain-copy b,
+    .captain-copy span,
+    .captain-copy small {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .captain-copy b {
+      color: var(--ms-navy);
+      font-size: 10px;
+      font-weight: 950;
+    }
+
+    .captain-copy span {
+      color: rgba(0, 0, 128, .62);
+      font-size: 7px;
+      font-weight: 850;
+    }
+
+    .captain-copy small {
+      color: var(--ms-green);
+      font-size: 7px;
+      font-weight: 900;
+    }
+
+    .after-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .after-item {
+      min-height: 42px;
+      display: grid;
+      place-items: center;
+      gap: 2px;
+      border-radius: 14px;
+      background: #f3f6fb;
+      color: var(--ms-navy);
+      font-size: 7px;
+      font-weight: 900;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .after-item svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .summary-card {
+      background:
+        linear-gradient(135deg, rgba(255, 153, 51, .13), rgba(19, 136, 8, .08)),
+        var(--ms-white);
+    }
+
+    .summary-top {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      align-items: start;
+    }
+
+    .summary-copy {
+      min-width: 0;
+      display: grid;
+      gap: 4px;
+    }
+
+    .summary-copy b {
+      overflow: hidden;
+      color: var(--ms-navy);
+      font-size: 15px;
+      line-height: 1.05;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .summary-copy span {
+      color: rgba(0, 0, 128, .62);
+      font-size: 8px;
+      font-weight: 850;
+      line-height: 1.25;
+    }
+
+    .summary-price {
+      min-width: 72px;
+      display: grid;
+      justify-items: end;
+      gap: 3px;
+      color: var(--ms-green);
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .summary-price b {
+      font-size: 16px;
+      line-height: 1;
+    }
+
+    .summary-price span {
+      color: rgba(0, 0, 128, .58);
+      font-size: 7px;
+      font-weight: 850;
+    }
+
+    .cta-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 7px;
+      align-items: center;
+    }
+
+    .primary-cta,
+    .secondary-cta {
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--ms-pill);
+      text-decoration: none;
+      font-size: 10px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .primary-cta {
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 var(--ms-saffron), 0 10px 20px rgba(0, 0, 128, .18);
+    }
+
+    .secondary-cta {
+      border: 1px solid rgba(0, 0, 128, .14);
+      padding: 0 12px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+    }
+
+    .help-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 7px;
+    }
+
+    .help-item {
+      min-height: 42px;
+      display: grid;
+      align-content: center;
+      gap: 2px;
+      border-radius: 14px;
+      padding: 7px;
+      background: #f3f6fb;
+      overflow: hidden;
+    }
+
+    .help-item b,
+    .help-item span {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .help-item b {
+      color: var(--ms-navy);
+      font-size: 8.5px;
+      font-weight: 950;
+    }
+
+    .help-item span {
+      color: rgba(0, 0, 128, .58);
+      font-size: 7px;
+      font-weight: 850;
+    }
+
+    .bottom-dock {
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+      display: grid;
+      grid-template-columns: 52px minmax(0, 1fr) 52px;
+      gap: 8px;
+      align-items: center;
+      border: 1px solid rgba(0, 0, 128, .78);
+      border-radius: 22px;
+      padding: 7px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, .99), rgba(244, 247, 252, .99));
+      box-shadow: 0 -12px 24px rgba(0, 0, 128, .18);
+      z-index: 5;
+    }
+
+    .mool-button,
+    .chat-button {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      border: 0;
+      border-radius: 50%;
+      text-decoration: none;
+      font-size: 10px;
+      font-weight: 950;
+    }
+
+    .mool-button {
+      background:
+        radial-gradient(circle at 36% 24%, rgba(255, 255, 255, .30), transparent 32%),
+        linear-gradient(145deg, #1717ba, var(--ms-navy) 72%);
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 rgba(0, 0, 80, .35), 0 9px 18px rgba(0, 0, 128, .22);
+    }
+
+    .chat-button {
+      position: relative;
+      background: radial-gradient(circle at 50% 12%, rgba(255, 255, 255, .96), rgba(255, 255, 255, .78) 44%, rgba(240, 244, 248, .98));
+      color: var(--ms-navy);
+      border: 1px solid rgba(0, 0, 128, .16);
+      box-shadow: 0 9px 18px rgba(0, 0, 128, .12);
+    }
+
+    .chat-badge {
+      min-width: 16px;
+      height: 16px;
+      position: absolute;
+      top: 5px;
+      right: 2px;
+      display: grid;
+      place-items: center;
+      border-radius: var(--ms-pill);
+      padding: 0 4px;
+      background: var(--ms-saffron);
+      color: var(--ms-navy);
+      font-size: 9px;
+      font-weight: 950;
+    }
+
+    .dock-track {
+      min-width: 0;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 4px;
+      border: 1px solid rgba(0, 0, 128, .20);
+      border-radius: 19px;
+      padding: 5px;
+      background:
+        radial-gradient(circle at 50% 50%, rgba(0, 0, 128, .12), transparent 58%),
+        linear-gradient(90deg, rgba(0, 0, 128, .10), rgba(255, 255, 255, .96) 20% 80%, rgba(0, 0, 128, .10));
+      box-shadow: inset 12px 0 18px rgba(0, 0, 128, .10), inset -12px 0 18px rgba(0, 0, 128, .10);
+    }
+
+    .dock-tab {
+      min-width: 0;
+      min-height: 42px;
+      display: grid;
+      place-items: center;
+      gap: 2px;
+      border-radius: 17px;
+      color: var(--ms-navy);
+      text-decoration: none;
+      font-size: 8px;
+      font-weight: 950;
+    }
+
+    .dock-tab svg {
+      width: 15px;
+      height: 15px;
+    }
+
+    .dock-tab.active {
+      background: linear-gradient(180deg, #1515b8, var(--ms-navy));
+      color: var(--ms-white);
+      box-shadow: inset 0 -3px 0 var(--ms-saffron), 0 8px 18px rgba(0, 0, 128, .18);
+    }
+
+    .view-panel.is-hidden,
+    .my-work-card.is-hidden { display: none; }
+
+    .opportunity-list {
+      display: grid;
+      gap: 8px;
+    }
+
+    .opportunity-tools {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .opportunity-tools > span {
+      color: rgba(0, 0, 128, .58);
+      font-size: 8px;
+      font-weight: 850;
+    }
+
+    .filter-button,
+    .filter-close {
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(0, 0, 128, .14);
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      font-family: var(--ms-font);
+    }
+
+    .filter-button {
+      position: relative;
+      width: 31px;
+      height: 31px;
+      border-radius: 50%;
+    }
+
+    .filter-button svg,
+    .filter-close svg { width: 16px; height: 16px; }
+
+    .filter-button.active::after {
+      content: "";
+      width: 7px;
+      height: 7px;
+      position: absolute;
+      top: 1px;
+      right: 1px;
+      border: 2px solid var(--ms-white);
+      border-radius: 50%;
+      background: var(--ms-saffron);
+    }
+
+    .filter-layer {
+      position: absolute;
+      inset: 0;
+      z-index: 9;
+      display: grid;
+      align-items: end;
+      padding: 16px 12px 88px;
+      background: rgba(0, 0, 45, .42);
+      backdrop-filter: blur(3px);
+    }
+
+    .filter-layer.is-hidden { display: none; }
+
+    .filter-sheet {
+      display: grid;
+      gap: 12px;
+      border: 1px solid rgba(0, 0, 128, .16);
+      border-radius: 22px;
+      padding: 13px;
+      background: var(--ms-white);
+      box-shadow: 0 20px 44px rgba(0, 0, 80, .28);
+    }
+
+    .filter-sheet-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .filter-sheet-head span {
+      display: grid;
+      gap: 2px;
+    }
+
+    .filter-sheet-head b {
+      color: var(--ms-navy);
+      font-size: 13px;
+      font-weight: 950;
+    }
+
+    .filter-sheet-head small {
+      color: rgba(0, 0, 128, .58);
+      font-size: 8px;
+      font-weight: 850;
+    }
+
+    .filter-close {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+    }
+
+    .filter-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .opportunity-card {
+      display: grid;
+      gap: 7px;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: 18px;
+      padding: 9px;
+      background: #f8faff;
+      color: var(--ms-navy);
+      text-decoration: none;
+      box-shadow: 0 8px 18px rgba(0, 0, 128, .07);
+    }
+
+    .opportunity-card.featured {
+      border-color: rgba(0, 0, 128, .34);
+      background:
+        linear-gradient(135deg, rgba(255, 153, 51, .10), rgba(19, 136, 8, .06)),
+        var(--ms-white);
+      box-shadow: inset 3px 0 0 var(--ms-saffron), 0 10px 22px rgba(0, 0, 128, .10);
+    }
+
+    .opportunity-card[hidden] { display: none; }
+
+    .opportunity-card:focus-visible,
+    .start-work-button:focus-visible {
+      outline: 3px solid rgba(255, 153, 51, .45);
+      outline-offset: 2px;
+    }
+
+    .issuer-row {
+      display: grid;
+      grid-template-columns: 31px minmax(0, 1fr) auto;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .issuer-avatar {
+      width: 31px;
+      height: 31px;
+      display: grid;
+      place-items: center;
+      border-radius: 11px;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 8px;
+      font-weight: 950;
+      box-shadow: inset 0 -3px 0 var(--ms-saffron);
+    }
+
+    .issuer-avatar.manufacturer { background: #115f54; }
+    .issuer-avatar.retailer { background: #146f2d; }
+    .issuer-avatar.creator { background: #3434a7; }
+    .issuer-avatar.delivery { background: #8a4c00; }
+
+    .issuer-copy {
+      min-width: 0;
+      display: grid;
+      gap: 2px;
+    }
+
+    .issuer-copy b {
+      overflow: hidden;
+      color: var(--ms-navy);
+      font-size: 9px;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .issuer-copy span {
+      overflow: hidden;
+      color: rgba(0, 0, 128, .56);
+      font-size: 6.5px;
+      font-weight: 850;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .issuer-copy em {
+      color: var(--ms-green);
+      font-style: normal;
+      font-weight: 950;
+    }
+
+    .opportunity-top {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 8px;
+      align-items: start;
+    }
+
+    .opportunity-name {
+      min-width: 0;
+      display: grid;
+      gap: 3px;
+    }
+
+    .opportunity-name span {
+      color: var(--ms-green);
+      font-size: 7px;
+      font-weight: 950;
+      text-transform: uppercase;
+    }
+
+    .opportunity-name b {
+      color: var(--ms-navy);
+      font-size: 11px;
+      line-height: 1.08;
+      font-weight: 950;
+    }
+
+    .opportunity-name small {
+      overflow: hidden;
+      color: rgba(0, 0, 128, .58);
+      font-size: 8px;
+      font-weight: 850;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .opportunity-pay {
+      display: grid;
+      justify-items: end;
+      gap: 2px;
+      color: var(--ms-green);
+      white-space: nowrap;
+    }
+
+    .opportunity-pay b {
+      font-size: 14px;
+      line-height: 1;
+      font-weight: 950;
+    }
+
+    .opportunity-pay span {
+      color: rgba(0, 0, 128, .56);
+      font-size: 7px;
+      font-weight: 850;
+    }
+
+    .opportunity-facts {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 5px;
+    }
+
+    .opportunity-fact {
+      min-width: 0;
+      display: grid;
+      gap: 2px;
+      border-radius: 11px;
+      padding: 6px;
+      background: var(--ms-white);
+    }
+
+    .opportunity-fact b {
+      color: rgba(0, 0, 128, .52);
+      font-size: 6px;
+      font-weight: 950;
+      text-transform: uppercase;
+    }
+
+    .opportunity-fact span {
+      overflow: hidden;
+      color: var(--ms-navy);
+      font-size: 7px;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .opportunity-action {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      border-top: 1px solid rgba(0, 0, 128, .10);
+      padding-top: 7px;
+      color: var(--ms-navy);
+      font-size: 8px;
+      font-weight: 950;
+    }
+
+    .opportunity-action span:first-child {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .opportunity-action strong {
+      color: var(--ms-green);
+      font-size: 9px;
+      white-space: nowrap;
+    }
+
+    .empty-filter {
+      display: none;
+      border-radius: 16px;
+      padding: 14px;
+      background: #f3f6fb;
+      color: rgba(0, 0, 128, .66);
+      font-size: 9px;
+      font-weight: 850;
+      text-align: center;
+    }
+
+    .empty-filter.show { display: block; }
+
+    .my-work-card {
+      display: grid;
+      gap: 12px;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: 22px;
+      padding: 14px;
+      background:
+        linear-gradient(145deg, rgba(255, 153, 51, .12), rgba(19, 136, 8, .07)),
+        var(--ms-white);
+      box-shadow: 0 14px 30px rgba(0, 0, 128, .10);
+    }
+
+    .my-work-mark {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 17px;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 var(--ms-saffron), 0 10px 18px rgba(0, 0, 128, .18);
+    }
+
+    .my-work-mark svg { width: 23px; height: 23px; }
+
+    .my-work-copy {
+      display: grid;
+      gap: 5px;
+    }
+
+    .my-work-copy b {
+      color: var(--ms-navy);
+      font-size: 18px;
+      line-height: 1;
+      font-weight: 950;
+    }
+
+    .my-work-copy span {
+      color: rgba(0, 0, 128, .64);
+      font-size: 9px;
+      line-height: 1.35;
+      font-weight: 850;
+    }
+
+    .start-work-button {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 0;
+      border-radius: var(--ms-pill);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-family: var(--ms-font);
+      font-size: 11px;
+      font-weight: 950;
+      box-shadow: inset 0 -4px 0 var(--ms-saffron), 0 10px 20px rgba(0, 0, 128, .18);
+    }
+
+    .work-intents {
+      display: grid;
+      gap: 8px;
+    }
+
+    .work-intents.is-hidden { display: none; }
+
+    .intent-door {
+      min-height: 62px;
+      display: grid;
+      grid-template-columns: 36px minmax(0, 1fr) auto;
+      gap: 9px;
+      align-items: center;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: 17px;
+      padding: 9px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      text-decoration: none;
+    }
+
+    .intent-icon {
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      border-radius: 13px;
+      background: #f0f4f8;
+      color: var(--ms-navy);
+    }
+
+    .intent-icon svg { width: 18px; height: 18px; }
+
+    .intent-copy {
+      min-width: 0;
+      display: grid;
+      gap: 3px;
+    }
+
+    .intent-copy b {
+      font-size: 11px;
+      font-weight: 950;
+    }
+
+    .intent-copy span {
+      overflow: hidden;
+      color: rgba(0, 0, 128, .58);
+      font-size: 7px;
+      font-weight: 850;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .intent-door strong {
+      color: var(--ms-green);
+      font-size: 16px;
+    }
+
+    .rupee-glyph {
+      display: inline-grid;
+      place-items: center;
+      color: currentColor;
+      font-size: 18px;
+      line-height: 1;
+      font-weight: 950;
+    }
+
+    .dock-tab .rupee-glyph { font-size: 16px; }
+
+    .detail-view {
+      display: grid;
+      gap: 8px;
+    }
+
+    #earnView,
+    #myWorkView,
+    #filterLayer { display: none !important; }
+
+    .detail-hero,
+    .detail-card,
+    .required-card {
+      display: grid;
+      gap: 9px;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: 20px;
+      padding: 11px;
+      background: var(--ms-white);
+      box-shadow: 0 12px 26px rgba(0, 0, 128, .09);
+    }
+
+    .detail-hero {
+      margin-top: -8px;
+      border-color: rgba(0, 0, 128, .28);
+      background:
+        linear-gradient(135deg, rgba(255, 153, 51, .11), rgba(19, 136, 8, .06)),
+        var(--ms-white);
+      box-shadow: inset 3px 0 0 var(--ms-saffron), 0 14px 28px rgba(0, 0, 128, .10);
+    }
+
+    .detail-title-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 9px;
+      align-items: start;
+    }
+
+    .detail-title {
+      min-width: 0;
+      display: grid;
+      gap: 4px;
+    }
+
+    .detail-title small {
+      color: var(--ms-green);
+      font-size: 7px;
+      font-weight: 950;
+      text-transform: uppercase;
+    }
+
+    .detail-title b {
+      color: var(--ms-navy);
+      font-size: 17px;
+      line-height: 1.06;
+      font-weight: 950;
+    }
+
+    .detail-title span {
+      color: rgba(0, 0, 128, .60);
+      font-size: 8px;
+      line-height: 1.28;
+      font-weight: 850;
+    }
+
+    .detail-pay {
+      display: grid;
+      justify-items: end;
+      gap: 3px;
+      color: var(--ms-green);
+      white-space: nowrap;
+    }
+
+    .detail-pay b { font-size: 18px; line-height: 1; font-weight: 950; }
+    .detail-pay span { color: rgba(0, 0, 128, .56); font-size: 7px; font-weight: 850; }
+
+    .status-pills {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .status-pills::-webkit-scrollbar { display: none; }
+
+    .status-pill {
+      flex: 0 0 auto;
+      min-height: 25px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      border-radius: var(--ms-pill);
+      padding: 0 9px;
+      background: #f1f5fa;
+      color: var(--ms-navy);
+      font-size: 7px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .status-pill.good { background: rgba(19, 136, 8, .10); color: var(--ms-green); }
+
+    .status-pill.countdown {
+      min-width: 82px;
+      justify-content: center;
+      background: rgba(19, 136, 8, .09);
+      color: var(--ms-green);
+      font-variant-numeric: tabular-nums;
+      letter-spacing: 0;
+    }
+
+    .status-pill.countdown.urgent {
+      background: rgba(255, 153, 51, .14);
+      color: #8a4c00;
+    }
+
+    .status-pill.countdown.closed {
+      background: #eef1f6;
+      color: rgba(0, 0, 128, .48);
+    }
+
+    .detail-hero.expired {
+      border-color: rgba(0, 0, 128, .12);
+      box-shadow: none;
+    }
+
+    .decision-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 5px;
+    }
+
+    .decision-fact {
+      min-width: 0;
+      display: grid;
+      gap: 2px;
+      border-radius: 11px;
+      padding: 7px 5px;
+      background: #f3f6fb;
+    }
+
+    .decision-fact small {
+      overflow: hidden;
+      color: rgba(0, 0, 128, .48);
+      font-size: 5.8px;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .decision-fact b {
+      overflow: hidden;
+      color: var(--ms-navy);
+      font-size: 7px;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .detail-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .detail-head b { color: var(--ms-navy); font-size: 12px; font-weight: 950; }
+    .detail-head span { color: var(--ms-green); font-size: 7px; font-weight: 950; }
+
+    .outcome-list {
+      display: grid;
+      gap: 7px;
+    }
+
+    .outcome-item {
+      display: grid;
+      grid-template-columns: 23px minmax(0, 1fr);
+      gap: 7px;
+      align-items: start;
+      color: rgba(0, 0, 128, .68);
+      font-size: 8px;
+      line-height: 1.28;
+      font-weight: 850;
+    }
+
+    .outcome-item i {
+      width: 23px;
+      height: 23px;
+      display: grid;
+      place-items: center;
+      border-radius: 9px;
+      background: rgba(19, 136, 8, .10);
+      color: var(--ms-green);
+      font-style: normal;
+      font-size: 10px;
+      font-weight: 950;
+    }
+
+    .term-list { display: grid; gap: 6px; }
+
+    .term-item {
+      overflow: hidden;
+      border: 1px solid rgba(0, 0, 128, .12);
+      border-radius: 14px;
+      background: #f8faff;
+    }
+
+    .term-button {
+      width: 100%;
+      min-height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      border: 0;
+      padding: 0 10px;
+      background: transparent;
+      color: var(--ms-navy);
+      font-family: var(--ms-font);
+      font-size: 9px;
+      font-weight: 950;
+      text-align: left;
+    }
+
+    .term-button span:last-child { color: var(--ms-green); font-size: 15px; }
+
+    .term-panel {
+      border-top: 1px solid rgba(0, 0, 128, .10);
+      padding: 8px 10px;
+      color: rgba(0, 0, 128, .64);
+      font-size: 7.5px;
+      line-height: 1.35;
+      font-weight: 850;
+    }
+
+    .term-panel.is-hidden { display: none; }
+
+    .required-card {
+      grid-template-columns: 38px minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 9px;
+      background: #f8faff;
+    }
+
+    .required-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 13px;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 9px;
+      font-weight: 950;
+      box-shadow: inset 0 -3px 0 var(--ms-saffron);
+    }
+
+    .required-copy {
+      min-width: 0;
+      display: grid;
+      gap: 3px;
+    }
+
+    .required-copy small { color: rgba(0, 0, 128, .48); font-size: 6px; font-weight: 950; text-transform: uppercase; }
+    .required-copy b { color: var(--ms-navy); font-size: 10px; font-weight: 950; }
+    .required-copy span { overflow: hidden; color: rgba(0, 0, 128, .60); font-size: 7px; font-weight: 850; text-overflow: ellipsis; white-space: nowrap; }
+
+    .required-status {
+      border-radius: var(--ms-pill);
+      padding: 6px 8px;
+      background: rgba(255, 153, 51, .15);
+      color: #8a4c00;
+      font-size: 7px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .required-status.verified { background: rgba(19, 136, 8, .10); color: var(--ms-green); }
+    .required-status.pending { background: rgba(0, 0, 128, .08); color: var(--ms-navy); }
+
+    .apply-dock-button {
+      min-height: 47px;
+      display: grid;
+      place-items: center;
+      gap: 1px;
+      border: 0;
+      border-radius: 18px;
+      background: linear-gradient(180deg, #1717ba, var(--ms-navy));
+      color: var(--ms-white);
+      font-family: var(--ms-font);
+      font-size: 11px;
+      font-weight: 950;
+      box-shadow: inset 0 -4px 0 var(--ms-saffron), 0 8px 18px rgba(0, 0, 128, .18);
+    }
+
+    .apply-dock-button small { color: rgba(255, 255, 255, .76); font-size: 6.5px; font-weight: 850; }
+
+    .apply-dock-button:disabled {
+      background: #c9cfdb;
+      color: rgba(0, 0, 80, .58);
+      box-shadow: none;
+      cursor: default;
+    }
+
+    .apply-dock-button:disabled small { color: rgba(0, 0, 80, .46); }
+
+    .apply-layer {
+      position: absolute;
+      inset: 0;
+      z-index: 10;
+      display: grid;
+      align-items: end;
+      padding: 14px 12px 88px;
+      background: rgba(0, 0, 45, .48);
+      backdrop-filter: blur(3px);
+    }
+
+    .apply-layer.is-hidden { display: none; }
+
+    .apply-sheet {
+      display: grid;
+      gap: 11px;
+      border-radius: 22px;
+      padding: 14px;
+      background: var(--ms-white);
+      box-shadow: 0 22px 48px rgba(0, 0, 80, .30);
+    }
+
+    .gate-mark {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 17px;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 10px;
+      font-weight: 950;
+      box-shadow: inset 0 -4px 0 var(--ms-saffron);
+    }
+
+    .gate-copy { display: grid; gap: 5px; }
+    .gate-copy b { color: var(--ms-navy); font-size: 16px; line-height: 1; font-weight: 950; }
+    .gate-copy span { color: rgba(0, 0, 128, .62); font-size: 8px; line-height: 1.35; font-weight: 850; }
+
+    .gate-steps { display: grid; gap: 6px; }
+    .gate-step { display: grid; grid-template-columns: 20px 1fr; gap: 7px; align-items: center; color: var(--ms-navy); font-size: 8px; font-weight: 900; }
+    .gate-step i { width: 20px; height: 20px; display: grid; place-items: center; border-radius: 7px; background: #f1f5fa; color: var(--ms-green); font-style: normal; font-size: 7px; font-weight: 950; }
+
+    .gate-actions { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 7px; }
+    .gate-primary,
+    .gate-secondary { min-height: 40px; display: inline-flex; align-items: center; justify-content: center; border-radius: var(--ms-pill); font-family: var(--ms-font); font-size: 9px; font-weight: 950; text-decoration: none; }
+    .gate-primary { border: 0; background: var(--ms-navy); color: var(--ms-white); box-shadow: inset 0 -4px 0 var(--ms-saffron); }
+    .gate-secondary { border: 1px solid rgba(0, 0, 128, .16); padding: 0 13px; background: var(--ms-white); color: var(--ms-navy); }
+
+    .state-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      border-top: 1px solid var(--ms-navy);
+      border-left: 1px solid var(--ms-navy);
+    }
+
+    .state-cell {
+      border-right: 1px solid var(--ms-navy);
+      border-bottom: 1px solid var(--ms-navy);
+      padding: 14px;
+      color: var(--ms-navy);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .state-cell:nth-child(2n) { border-right: 0; }
+    .state-cell b {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--ms-green);
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 780px) {
+      .preview { grid-template-columns: 1fr; padding: 12px; }
+      .state-grid { grid-template-columns: 1fr; }
+      .state-cell { border-right: 0; }
+      .ms-page { padding: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="ms-page">
+    <section class="screen-shell">
+      <div class="back-row">
+        <a class="screen-link-home" href="../index.html">
+          <span class="back-mark">68</span>
+          Back to MoolSocial Screenbook
+        </a>
+        <span class="ms-status">Approved</span>
+      </div>
+
+      <section class="preview">
+        <div class="phone" role="img" aria-label="MoolSocial opportunity details screen">
+          <div class="app">
+            <div class="status-row">
+              <span>9:41</span>
+              <span>5G 100%</span>
+            </div>
+
+            <header class="top">
+              <div class="brand-row">
+                <div class="brand-copy">
+                  <b>Work Opportunity</b>
+                  <div class="identity-line" aria-hidden="true"><span></span><span></span><span></span></div>
+                  <span>review outcome and terms</span>
+                </div>
+                <div class="top-buttons">
+                  <a class="circle-btn" href="67-work.html" aria-label="Back to Earn">
+                    <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" /></svg>
+                  </a>
+                  <button class="circle-btn" aria-label="Save opportunity">
+                    <svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4Z" /></svg>
+                  </button>
+                </div>
+              </div>
+
+            </header>
+
+            <main class="content">
+              <div class="detail-view" id="detailView">
+                <section class="detail-hero" aria-label="Opportunity summary">
+                  <div class="issuer-row">
+                    <span class="issuer-avatar" id="detailIssuerMark">MOOL</span>
+                    <span class="issuer-copy"><b id="detailIssuer">MoolSocial</b><span><em>Verified</em> · <span id="detailIssuerType">Official sponsored campaign</span></span></span>
+                    <span class="detail-pay"><b id="detailPay">₹1,500</b><span id="detailPayUnit">approved video</span></span>
+                  </div>
+                  <div class="detail-title-row">
+                    <span class="detail-title">
+                      <small id="detailAction">Create</small>
+                      <b id="detailTitle">Make one MoolSocial explainer video</b>
+                      <span id="detailSubtitle">Original Hindi or regional-language video using the approved brief.</span>
+                    </span>
+                  </div>
+                  <div class="status-pills">
+                    <span class="status-pill good">Funded</span>
+                    <span class="status-pill" id="detailAvailability">12 slots</span>
+                    <span class="status-pill" id="detailLocation">Remote India</span>
+                    <span class="status-pill countdown" id="detailDeadline" aria-live="off">Closes in --:--:--</span>
+                  </div>
+                  <div class="decision-strip" aria-label="Opportunity decision facts">
+                    <span class="decision-fact"><small>Best fit</small><b id="detailRequired">Creator Work</b></span>
+                    <span class="decision-fact"><small>Payout</small><b id="detailPayout">Within 3 days</b></span>
+                    <span class="decision-fact"><small>Correction</small><b id="detailCorrection">1 allowed</b></span>
+                    <span class="decision-fact"><small>Terms</small><b id="detailTerms">Version 3</b></span>
+                  </div>
+                </section>
+
+                <section class="detail-card" aria-label="Required outcome">
+                  <div class="detail-head"><b>What you must complete</b><span>paid outcome</span></div>
+                  <div class="outcome-list" id="outcomeList">
+                    <span class="outcome-item"><i>1</i><span>Record one original 45–60 second vertical video.</span></span>
+                    <span class="outcome-item"><i>2</i><span>Explain MoolSocial accurately in Hindi or an approved regional language.</span></span>
+                    <span class="outcome-item"><i>3</i><span>Add the sponsored disclosure and submit before the deadline.</span></span>
+                  </div>
+                </section>
+
+                <section class="required-card" aria-label="Apply access">
+                  <span class="required-mark" id="requiredMark">FR</span>
+                  <span class="required-copy"><small>Apply access</small><b id="requiredName">Freelancer Work</b><span id="requiredMessage">New users set up one general work profile.</span></span>
+                  <span class="required-status" id="requiredStatus">New user</span>
+                </section>
+
+                <section class="detail-card" aria-label="Opportunity terms">
+                  <div class="detail-head"><b>Review before applying</b><span id="termsVersion">Terms v3</span></div>
+                  <div class="term-list">
+                    <div class="term-item">
+                      <button class="term-button" type="button" data-term="payment"><span>Payment and payout</span><span>+</span></button>
+                      <div class="term-panel is-hidden" data-term-panel="payment" id="paymentTerm">₹1,500 is reserved for one approved video. Payout releases within three working days after final approval.</div>
+                    </div>
+                    <div class="term-item">
+                      <button class="term-button" type="button" data-term="provided"><span>What the publisher provides</span><span>+</span></button>
+                      <div class="term-panel is-hidden" data-term-panel="provided" id="providedTerm">Campaign brief, approved facts, brand assets and the submission route are provided after selection.</div>
+                    </div>
+                    <div class="term-item">
+                      <button class="term-button" type="button" data-term="review"><span>Review, correction and rejection</span><span>+</span></button>
+                      <div class="term-panel is-hidden" data-term-panel="review" id="reviewTerm">One correction is allowed. Copied media, hidden sponsorship, false claims or off-brief output may be rejected with a stated reason.</div>
+                    </div>
+                    <div class="term-item">
+                      <button class="term-button" type="button" data-term="rights"><span>Content use and rights</span><span>+</span></button>
+                      <div class="term-panel is-hidden" data-term-panel="rights" id="rightsTerm">The approved campaign licence and usage period are stated before final acceptance. Ownership is not transferred beyond those terms.</div>
+                    </div>
+                  </div>
+                </section>
+              </div>
+              <div class="view-panel" id="earnView">
+                <section class="route-card" aria-label="Earn opportunities">
+                  <div class="card-head">
+                    <b>Earn from verified work</b>
+                    <span>updated live</span>
+                  </div>
+                  <div class="route-line">
+                    <span class="route-dot pick">J</span>
+                    <span class="route-copy">
+                      <b>Jodhpur · remote and nearby</b>
+                      <span>Payment, requirement and deadline shown before Apply</span>
+                    </span>
+                  </div>
+                  <div class="potential-strip" aria-label="Current monthly earning potential">
+                    <span class="potential-copy">
+                      <small id="potentialLabel">Monthly earning potential</small>
+                      <b id="potentialAmount">₹35,000–₹80,000</b>
+                      <span id="potentialBasis">10,248 funded actions matched</span>
+                    </span>
+                    <button class="potential-info" id="potentialInfo" type="button" aria-label="How monthly potential is calculated" aria-expanded="false">i</button>
+                  </div>
+                  <div class="potential-note is-hidden" id="potentialNote">
+                    <b id="potentialNoteTitle">How this range is calculated</b>
+                    <span class="potential-metrics">
+                      <span class="potential-metric"><small id="poolLabel">Eligible funded work</small><b id="poolAmount">₹2,40,000</b></span>
+                      <span class="potential-metric"><small id="reservedLabel">Reserved payout</small><b id="reservedAmount">₹0</b></span>
+                    </span>
+                    <span id="potentialNoteText">Current funded opportunities × realistic monthly capacity. Approval, availability and eligibility apply; this is not guaranteed income.</span>
+                  </div>
+                </section>
+
+                <section class="option-card" aria-label="Available earning opportunities">
+                  <div class="card-head">
+                    <b>Paid work for you</b>
+                    <span class="opportunity-tools">
+                      <span id="opportunityCount">7 live</span>
+                      <button class="filter-button" id="filterButton" type="button" aria-label="Filter opportunities" aria-expanded="false">
+                        <svg viewBox="0 0 24 24"><path d="M4 6h16" /><path d="M7 12h10" /><path d="M10 18h4" /></svg>
+                      </button>
+                    </span>
+                  </div>
+                  <div class="opportunity-list" id="opportunityList">
+                    <a class="opportunity-card featured" data-tags="Freelance Campaigns" href="68-work-opportunity-terms-apply.html?opportunity=creator-explainer">
+                      <span class="issuer-row">
+                        <span class="issuer-avatar">MOOL</span>
+                        <span class="issuer-copy"><b>MoolSocial</b><span><em>Verified</em> · Official sponsored campaign</span></span>
+                        <span class="opportunity-pay"><b>₹1,500</b><span>approved video</span></span>
+                      </span>
+                      <span class="opportunity-name"><span>Create</span><b>Make one MoolSocial explainer video</b><small>Original Hindi or regional-language video</small></span>
+                      <span class="opportunity-facts">
+                        <span class="opportunity-fact"><b>Available</b><span>12 slots</span></span>
+                        <span class="opportunity-fact"><b>Required</b><span>Creator Work</span></span>
+                        <span class="opportunity-fact"><b>Apply by</b><span>14 Jul</span></span>
+                      </span>
+                      <span class="opportunity-action"><span>Funded · disclosure and approval required</span><strong>Create &amp; Earn →</strong></span>
+                    </a>
+
+                    <a class="opportunity-card" data-tags="Freelance Campaigns" href="68-work-opportunity-terms-apply.html?opportunity=shakti-product-demo">
+                      <span class="issuer-row">
+                        <span class="issuer-avatar manufacturer">SF</span>
+                        <span class="issuer-copy"><b>Shakti Foods Pvt Ltd</b><span><em>Verified</em> · Manufacturer campaign</span></span>
+                        <span class="opportunity-pay"><b>₹1,200</b><span>approved pair</span></span>
+                      </span>
+                      <span class="opportunity-name"><span>Create</span><b>Make two product-demo shorts</b><small>Show preparation, pack and final serving</small></span>
+                      <span class="opportunity-facts">
+                        <span class="opportunity-fact"><b>Available</b><span>18 slots</span></span>
+                        <span class="opportunity-fact"><b>Required</b><span>Creator Work</span></span>
+                        <span class="opportunity-fact"><b>Apply by</b><span>15 Jul</span></span>
+                      </span>
+                      <span class="opportunity-action"><span>Funded · product supplied after selection</span><strong>Open Brief →</strong></span>
+                    </a>
+
+                    <a class="opportunity-card" data-tags="Campaigns Nearby" href="68-work-opportunity-terms-apply.html?opportunity=mahadev-paid-orders">
+                      <span class="issuer-row">
+                        <span class="issuer-avatar retailer">MF</span>
+                        <span class="issuer-copy"><b>Mahadev Fresh Mart</b><span><em>Verified</em> · Retailer promotion</span></span>
+                        <span class="opportunity-pay"><b>₹20</b><span>completed order</span></span>
+                      </span>
+                      <span class="opportunity-name"><span>Promote</span><b>Bring completed grocery orders</b><small>Earn only on paid and delivered orders</small></span>
+                      <span class="opportunity-facts">
+                        <span class="opportunity-fact"><b>Available</b><span>20 orders</span></span>
+                        <span class="opportunity-fact"><b>Required</b><span>Freelancer Work</span></span>
+                        <span class="opportunity-fact"><b>Ends</b><span>13 Jul</span></span>
+                      </span>
+                      <span class="opportunity-action"><span>Funded · maximum approved payout ₹400</span><strong>Promote &amp; Earn →</strong></span>
+                    </a>
+
+                    <a class="opportunity-card" data-tags="Freelance Campaigns" href="68-work-opportunity-terms-apply.html?opportunity=creator-edit-pack">
+                      <span class="issuer-row">
+                        <span class="issuer-avatar creator">RS</span>
+                        <span class="issuer-copy"><b>Riya Sharma Creator</b><span><em>Verified</em> · Creator assignment</span></span>
+                        <span class="opportunity-pay"><b>₹900</b><span>approved pack</span></span>
+                      </span>
+                      <span class="opportunity-name"><span>Edit</span><b>Edit three vertical short videos</b><small>Raw clips, captions and brand guide provided</small></span>
+                      <span class="opportunity-facts">
+                        <span class="opportunity-fact"><b>Available</b><span>6 packs</span></span>
+                        <span class="opportunity-fact"><b>Required</b><span>Creator Work</span></span>
+                        <span class="opportunity-fact"><b>Deliver by</b><span>16 Jul</span></span>
+                      </span>
+                      <span class="opportunity-action"><span>Funded · payout after file approval</span><strong>Edit &amp; Earn →</strong></span>
+                    </a>
+
+                    <a class="opportunity-card" data-tags="Freelance Nearby" href="68-work-opportunity-terms-apply.html?opportunity=delivery-block">
+                      <span class="issuer-row">
+                        <span class="issuer-avatar delivery">MD</span>
+                        <span class="issuer-copy"><b>MoolSocial Delivery</b><span><em>Verified</em> · Prepaid delivery block</span></span>
+                        <span class="opportunity-pay"><b>₹520</b><span>8 completed drops</span></span>
+                      </span>
+                      <span class="opportunity-name"><span>Deliver</span><b>Complete an evening grocery route</b><small>Pickup and drop OTP required</small></span>
+                      <span class="opportunity-facts">
+                        <span class="opportunity-fact"><b>Available</b><span>10 routes</span></span>
+                        <span class="opportunity-fact"><b>Required</b><span>Delivery Work</span></span>
+                        <span class="opportunity-fact"><b>Time</b><span>6-9 PM</span></span>
+                      </span>
+                      <span class="opportunity-action"><span>Funded · Jodhpur central zone</span><strong>Check Route →</strong></span>
+                    </a>
+
+                    <a class="opportunity-card" data-tags="Freelance Nearby" href="68-work-opportunity-terms-apply.html?opportunity=business-growth">
+                      <span class="issuer-row">
+                        <span class="issuer-avatar">MOOL</span>
+                        <span class="issuer-copy"><b>MoolSocial</b><span><em>Verified</em> · Business activation work</span></span>
+                        <span class="opportunity-pay"><b>₹350</b><span>approved activation</span></span>
+                      </span>
+                      <span class="opportunity-name"><span>Onboard</span><b>Activate local businesses</b><small>Owner approval and paid setup required</small></span>
+                      <span class="opportunity-facts">
+                        <span class="opportunity-fact"><b>Available</b><span>40 nearby</span></span>
+                        <span class="opportunity-fact"><b>Required</b><span>Freelancer Work</span></span>
+                        <span class="opportunity-fact"><b>Apply by</b><span>18 Jul</span></span>
+                      </span>
+                      <span class="opportunity-action"><span>Funded · payout after verified activation</span><strong>Onboard &amp; Earn →</strong></span>
+                    </a>
+
+                    <a class="opportunity-card" data-tags="Jobs Nearby" href="68-work-opportunity-terms-apply.html?opportunity=city-operations">
+                      <span class="issuer-row">
+                        <span class="issuer-avatar">MOOL</span>
+                        <span class="issuer-copy"><b>MoolSocial</b><span><em>Verified</em> · Permanent role</span></span>
+                        <span class="opportunity-pay"><b>₹25k-35k</b><span>monthly salary</span></span>
+                      </span>
+                      <span class="opportunity-name"><span>Job</span><b>City operations coordinator</b><small>Partner quality, support and revenue execution</small></span>
+                      <span class="opportunity-facts">
+                        <span class="opportunity-fact"><b>Available</b><span>2 roles</span></span>
+                        <span class="opportunity-fact"><b>Required</b><span>Job Seeker Work</span></span>
+                        <span class="opportunity-fact"><b>Apply by</b><span>20 Jul</span></span>
+                      </span>
+                      <span class="opportunity-action"><span>Eligibility and interview required</span><strong>Apply for Role →</strong></span>
+                    </a>
+                  </div>
+                  <div class="empty-filter" id="emptyFilter">No live opportunities in this filter right now.</div>
+                </section>
+              </div>
+
+              <div class="view-panel is-hidden" id="myWorkView">
+                <section class="my-work-card" aria-label="Start My Work" id="myWorkStart">
+                  <span class="my-work-mark">
+                    <svg viewBox="0 0 24 24"><path d="M4 21V8h16v13" /><path d="M8 8V4h8v4" /><path d="M9 14h6" /></svg>
+                  </span>
+                  <span class="my-work-copy">
+                    <b>Start My Work</b>
+                    <span>Set up one verified activity. You can add another work later without changing your personal account.</span>
+                  </span>
+                  <button class="start-work-button" id="startWorkButton" type="button">Start My Work</button>
+                </section>
+
+                <section class="work-intents is-hidden" id="workIntents" aria-label="Choose how to start work">
+                  <div class="card-head">
+                    <b>How do you want to begin?</b>
+                    <span>choose one</span>
+                  </div>
+                  <a class="intent-door" href="69-my-work-setup.html?intent=earn">
+                    <span class="intent-icon"><span class="rupee-glyph">₹</span></span>
+                    <span class="intent-copy"><b>Earn with MoolSocial</b><span>Freelancer, delivery, captain or service work</span></span>
+                    <strong>→</strong>
+                  </a>
+                  <a class="intent-door" href="69-my-work-setup.html?intent=business">
+                    <span class="intent-icon"><svg viewBox="0 0 24 24"><path d="M3 21h18" /><path d="M5 21V9h14v12" /><path d="M8 9V4h8v5" /></svg></span>
+                    <span class="intent-copy"><b>Grow my business</b><span>Shop, food, health, salon, transport or supply</span></span>
+                    <strong>→</strong>
+                  </a>
+                  <a class="intent-door" href="69-my-work-setup.html?intent=create">
+                    <span class="intent-icon"><svg viewBox="0 0 24 24"><path d="M4 19 17 6l2 2L6 21H4Z" /><path d="m14 6 2-2 4 4-2 2" /></svg></span>
+                    <span class="intent-copy"><b>Create or promote</b><span>Creator work and funded advertising campaigns</span></span>
+                    <strong>→</strong>
+                  </a>
+                </section>
+              </div>
+            </main>
+
+            <div class="filter-layer is-hidden" id="filterLayer" aria-hidden="true">
+              <section class="filter-sheet" role="dialog" aria-modal="true" aria-label="Filter earning opportunities">
+                <div class="filter-sheet-head">
+                  <span><b>Filter opportunities</b><small>Choose what you want to see</small></span>
+                  <button class="filter-close" id="filterClose" type="button" aria-label="Close filters">
+                    <svg viewBox="0 0 24 24"><path d="m6 6 12 12" /><path d="M18 6 6 18" /></svg>
+                  </button>
+                </div>
+                <div class="filter-options">
+                  <button class="time-chip active" data-filter="All">For You</button>
+                  <button class="time-chip" data-filter="Jobs">Jobs</button>
+                  <button class="time-chip" data-filter="Freelance">Freelance</button>
+                  <button class="time-chip" data-filter="Campaigns">Campaigns</button>
+                  <button class="time-chip" data-filter="Nearby">Nearby</button>
+                </div>
+              </section>
+            </div>
+
+            <nav class="bottom-dock" aria-label="Work navigation">
+              <a class="mool-button" href="04-universal-focus-shell.html">Mool</a>
+              <button class="apply-dock-button" id="applyButton" type="button">Apply now<small id="applyButtonSub">₹1,500 on approval</small></button>
+              <a class="chat-button" href="23-chat-inbox-home.html" aria-label="Open chat">
+                <svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z" /></svg>
+                <span class="chat-badge">2</span>
+              </a>
+            </nav>
+          </div>
+        </div>
+
+        <div class="notes">
+          <div>
+            <h1 class="ms-title">Screen 68 turns a paid opportunity into one informed Apply decision.</h1>
+            <p class="ms-lead">
+              The user sees the verified publisher, exact paid outcome, funding, availability, best-fit capability and versioned terms.
+              Apply submits directly for an existing verified workspace or opens Freelancer Work only for a new user with no workspace.
+            </p>
+          </div>
+
+          <div class="ms-panel">
+            <div class="ms-section-head">Screen Contract <span>Approved</span></div>
+            <div class="state-grid">
+              <div class="state-cell"><b>Entry</b>From any direct action in Screen 67 Earn, opportunity invite, saved work or campaign link.</div>
+              <div class="state-cell"><b>User Sees</b>Publisher, payment unit, funded status, available quantity, silent live countdown, best-fit capability, outcome and expandable terms.</div>
+              <div class="state-cell"><b>Decision</b>User understands what to complete, what is provided, correction/rejection, rights and payout timing before Apply.</div>
+              <div class="state-cell"><b>Apply Router</b>Any existing verified workspace submits directly. Only a consumer with no verified workspace opens Screen 69 to create general Freelancer Work.</div>
+              <div class="state-cell"><b>Publishers</b>Only MoolSocial or verified user-type workspaces may publish funded, outcome-defined opportunities.</div>
+              <div class="state-cell"><b>Failure</b>Expired, filled, paused or unfunded work disables Apply and explains the changed state without losing the saved record.</div>
+              <div class="state-cell"><b>Deadline</b>API deadline_at and server_time remain authoritative. The client countdown is presentation only and never overrides capacity or acceptance validation.</div>
+              <div class="state-cell"><b>Next</b>Screen 69 creates Freelancer Work for a first-time applicant. Screen 70 confirms direct application or shows pending review.</div>
+              <div class="state-cell"><b>Regression</b>Opportunity category never forces a specialist workspace. Existing retailer, supplier, salon, creator or other verified workspaces apply without extra setup.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script>
+    if ("scrollRestoration" in history) {
+      history.scrollRestoration = "manual";
+    }
+
+    function resetPhoneScroll() {
+      const content = document.querySelector(".content");
+      if (content) content.scrollTop = 0;
+      window.scrollTo(0, 0);
+    }
+
+    window.addEventListener("load", () => {
+      resetPhoneScroll();
+      requestAnimationFrame(resetPhoneScroll);
+      setTimeout(resetPhoneScroll, 80);
+      setTimeout(resetPhoneScroll, 250);
+      setTimeout(resetPhoneScroll, 600);
+    });
+
+    window.addEventListener("pageshow", () => {
+      resetPhoneScroll();
+      setTimeout(resetPhoneScroll, 250);
+    });
+
+    const viewButtons = document.querySelectorAll("[data-work-view]");
+    const filterButtons = document.querySelectorAll("[data-filter]");
+    const opportunityCards = document.querySelectorAll("[data-tags]");
+    const earnView = document.getElementById("earnView");
+    const myWorkView = document.getElementById("myWorkView");
+    const opportunityCount = document.getElementById("opportunityCount");
+    const emptyFilter = document.getElementById("emptyFilter");
+    const filterButton = document.getElementById("filterButton");
+    const filterLayer = document.getElementById("filterLayer");
+    const filterClose = document.getElementById("filterClose");
+    const potentialLabel = document.getElementById("potentialLabel");
+    const potentialAmount = document.getElementById("potentialAmount");
+    const potentialBasis = document.getElementById("potentialBasis");
+    const potentialInfo = document.getElementById("potentialInfo");
+    const potentialNote = document.getElementById("potentialNote");
+    const potentialNoteText = document.getElementById("potentialNoteText");
+    const poolLabel = document.getElementById("poolLabel");
+    const poolAmount = document.getElementById("poolAmount");
+    const reservedLabel = document.getElementById("reservedLabel");
+    const reservedAmount = document.getElementById("reservedAmount");
+    const startWorkButton = document.getElementById("startWorkButton");
+    const myWorkStart = document.getElementById("myWorkStart");
+    const workIntents = document.getElementById("workIntents");
+
+    const potentialByFilter = {
+      All: {
+        label: "Monthly earning potential",
+        amount: "₹35,000–₹80,000",
+        basis: "10,248 funded actions matched",
+        poolLabel: "Eligible funded work",
+        poolAmount: "₹2,40,000",
+        reservedLabel: "Reserved payout",
+        reservedAmount: "₹0",
+        note: "Potential after activating eligible My Work. Excludes full-time salary and is capped by realistic monthly capacity. Reserved payout starts only after funded work is assigned."
+      },
+      Jobs: {
+        label: "Monthly salary range",
+        amount: "₹25,000–₹35,000",
+        basis: "2 live matched roles",
+        poolLabel: "Live salary roles",
+        poolAmount: "2 openings",
+        reservedLabel: "Selected offer",
+        reservedAmount: "Not yet",
+        note: "Salary is shown separately and is never added to flexible work potential. Selection, interview and employer terms apply."
+      },
+      Freelance: {
+        label: "Freelance monthly potential",
+        amount: "₹30,000–₹75,000",
+        basis: "8,640 funded actions matched",
+        poolLabel: "Eligible funded work",
+        poolAmount: "₹1,75,000",
+        reservedLabel: "Reserved payout",
+        reservedAmount: "₹0",
+        note: "Based on available approved outputs and realistic monthly capacity. Unfunded leads, incomplete work and rejected output earn nothing."
+      },
+      Campaigns: {
+        label: "Campaign monthly potential",
+        amount: "₹18,000–₹45,000",
+        basis: "1,284 funded campaign actions",
+        poolLabel: "Eligible campaign value",
+        poolAmount: "₹96,000",
+        reservedLabel: "Reserved payout",
+        reservedAmount: "₹0",
+        note: "Based on current funded campaign slots and realistic approved output. Sponsorship, brief, disclosure and approval rules apply."
+      },
+      Nearby: {
+        label: "Nearby monthly potential",
+        amount: "₹25,000–₹60,000",
+        basis: "2,760 funded actions nearby",
+        poolLabel: "Eligible nearby work",
+        poolAmount: "₹1,10,000",
+        reservedLabel: "Reserved payout",
+        reservedAmount: "₹0",
+        note: "Based on funded nearby tasks, route capacity and approved completions. Actual work changes with location, timing and availability."
+      }
+    };
+
+    function closeFilters() {
+      filterLayer.classList.add("is-hidden");
+      filterLayer.setAttribute("aria-hidden", "true");
+      filterButton.setAttribute("aria-expanded", "false");
+    }
+
+    function openFilters() {
+      filterLayer.classList.remove("is-hidden");
+      filterLayer.setAttribute("aria-hidden", "false");
+      filterButton.setAttribute("aria-expanded", "true");
+    }
+
+    function showView(view, updateUrl = true) {
+      const isMyWork = view === "my-work";
+      earnView.classList.toggle("is-hidden", isMyWork);
+      myWorkView.classList.toggle("is-hidden", !isMyWork);
+      viewButtons.forEach((button) => {
+        button.classList.toggle("active", button.dataset.workView === view);
+      });
+      if (updateUrl) {
+        const url = new URL(location.href);
+        if (isMyWork) url.searchParams.set("view", "my-work");
+        else url.searchParams.delete("view");
+        history.replaceState({}, "", url);
+      }
+      potentialNote.classList.add("is-hidden");
+      potentialInfo.setAttribute("aria-expanded", "false");
+      closeFilters();
+      resetPhoneScroll();
+    }
+
+    function updatePotential(filter) {
+      const potential = potentialByFilter[filter] || potentialByFilter.All;
+      potentialLabel.textContent = potential.label;
+      potentialAmount.textContent = potential.amount;
+      potentialBasis.textContent = potential.basis;
+      poolLabel.textContent = potential.poolLabel;
+      poolAmount.textContent = potential.poolAmount;
+      reservedLabel.textContent = potential.reservedLabel;
+      reservedAmount.textContent = potential.reservedAmount;
+      potentialNoteText.textContent = potential.note;
+      potentialNote.classList.add("is-hidden");
+      potentialInfo.setAttribute("aria-expanded", "false");
+    }
+
+    function filterOpportunities(filter) {
+      let visible = 0;
+      opportunityCards.forEach((card) => {
+        const tags = (card.dataset.tags || "").split(" ");
+        const show = filter === "All" || tags.includes(filter);
+        card.hidden = !show;
+        if (show) visible += 1;
+      });
+      opportunityCount.textContent = `${visible} live`;
+      emptyFilter.classList.toggle("show", visible === 0);
+      filterButton.classList.toggle("active", filter !== "All");
+      updatePotential(filter);
+    }
+
+    viewButtons.forEach((button) => {
+      button.addEventListener("click", (event) => {
+        event.preventDefault();
+        showView(button.dataset.workView);
+      });
+    });
+
+    filterButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        filterButtons.forEach((item) => item.classList.toggle("active", item === button));
+        filterOpportunities(button.dataset.filter);
+        closeFilters();
+      });
+    });
+
+    filterButton.addEventListener("click", openFilters);
+    filterClose.addEventListener("click", closeFilters);
+    filterLayer.addEventListener("click", (event) => {
+      if (event.target === filterLayer) closeFilters();
+    });
+    potentialInfo.addEventListener("click", () => {
+      const willOpen = potentialNote.classList.contains("is-hidden");
+      potentialNote.classList.toggle("is-hidden", !willOpen);
+      potentialInfo.setAttribute("aria-expanded", String(willOpen));
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeFilters();
+    });
+
+    startWorkButton.addEventListener("click", () => {
+      myWorkStart.classList.add("is-hidden");
+      workIntents.classList.remove("is-hidden");
+      resetPhoneScroll();
+    });
+
+    const initialView = new URLSearchParams(location.search).get("view") === "my-work" ? "my-work" : "earn";
+    filterOpportunities("All");
+    showView(initialView, false);
+  </script>
+  <script>
+    const opportunityData = {
+      "creator-explainer": {
+        issuer: "MoolSocial", mark: "MOOL", issuerType: "Official sponsored campaign", issuerClass: "",
+        pay: "₹1,500", payUnit: "approved video", action: "Create", title: "Make one MoolSocial explainer video",
+        subtitle: "Original Hindi or regional-language video using the approved brief.", availability: "12 slots", location: "Remote India", deadline: "14 Jul, 6:00 PM IST", deadlineAt: "2026-07-14T18:00:00+05:30", deadlineVerb: "Closes in",
+        required: "Creator Work", requiredMark: "CR", payout: "Within 3 days", correction: "1 allowed", terms: "Version 3", setupIntent: "create",
+        outcomes: ["Record one original 45–60 second vertical video.", "Explain MoolSocial accurately in Hindi or an approved regional language.", "Add the sponsored disclosure and submit before the deadline."],
+        payment: "₹1,500 is reserved for one approved video. Payout releases within three working days after final approval.",
+        provided: "Campaign brief, approved facts, brand assets and the submission route are provided after selection.",
+        review: "One correction is allowed. Copied media, hidden sponsorship, false claims or off-brief output may be rejected with a stated reason.",
+        rights: "The approved campaign licence and usage period are stated before final acceptance. Ownership is not transferred beyond those terms."
+      },
+      "shakti-product-demo": {
+        issuer: "Shakti Foods Pvt Ltd", mark: "SF", issuerType: "Verified manufacturer campaign", issuerClass: "manufacturer",
+        pay: "₹1,200", payUnit: "approved pair", action: "Create", title: "Make two product-demo shorts",
+        subtitle: "Show preparation, packaging and final serving using the supplied product.", availability: "18 slots", location: "Remote India", deadline: "15 Jul, 6:00 PM IST", deadlineAt: "2026-07-15T18:00:00+05:30", deadlineVerb: "Closes in",
+        required: "Creator Work", requiredMark: "CR", payout: "Within 5 days", correction: "1 allowed", terms: "Version 2", setupIntent: "create",
+        outcomes: ["Create two original 30–45 second vertical videos.", "Show the sealed pack, preparation and final serving clearly.", "Use the sponsored disclosure and approved product facts only."],
+        payment: "₹1,200 is reserved for the approved two-video pack. Payout releases after both files pass the brief review.",
+        provided: "Selected creators receive the product, brand guide, mandatory facts and upload specification.",
+        review: "One consolidated correction is allowed. Unsupported health claims, hidden sponsorship or missing pack visibility may be rejected.",
+        rights: "Usage is limited to the channels and period stated in Terms v2. Any extension requires separate creator approval."
+      },
+      "mahadev-paid-orders": {
+        issuer: "Mahadev Fresh Mart", mark: "MF", issuerType: "Verified retailer promotion", issuerClass: "retailer",
+        pay: "₹20", payUnit: "completed order", action: "Promote", title: "Bring completed grocery orders",
+        subtitle: "Payment counts only when the referred order is paid and delivered.", availability: "20 orders", location: "Jodhpur · 4 km", deadline: "13 Jul, 9:00 PM IST", deadlineAt: "2026-07-13T21:00:00+05:30", deadlineVerb: "Closes in",
+        required: "Freelancer Work", requiredMark: "FR", payout: "T+2 days", correction: "Not applicable", terms: "Version 1", setupIntent: "earn",
+        outcomes: ["Share the approved store offer with eligible nearby customers.", "Generate paid orders through your assigned campaign link.", "Orders must be delivered and remain outside the refund window."],
+        payment: "₹20 releases for each approved paid-and-delivered order, capped at 20 orders and ₹400 for this assignment.",
+        provided: "The retailer provides the funded offer, trackable link, service area and stock-valid campaign period.",
+        review: "Self-orders, duplicate customers, cancelled orders or refunded orders do not qualify. Attribution evidence remains visible.",
+        rights: "Only approved store creatives and offer claims may be used during the active campaign period."
+      },
+      "creator-edit-pack": {
+        issuer: "Riya Sharma Creator", mark: "RS", issuerType: "Verified creator assignment", issuerClass: "creator",
+        pay: "₹900", payUnit: "approved pack", action: "Edit", title: "Edit three vertical short videos",
+        subtitle: "Turn supplied raw clips into captioned, brand-ready vertical videos.", availability: "6 packs", location: "Remote India", deadline: "16 Jul, 6:00 PM IST", deadlineAt: "2026-07-16T18:00:00+05:30", deadlineVerb: "Closes in",
+        required: "Creator Work", requiredMark: "CR", payout: "Within 3 days", correction: "1 round", terms: "Version 1", setupIntent: "create",
+        outcomes: ["Edit three vertical videos from the supplied raw clips.", "Add approved captions, pacing and brand styling.", "Submit editable project files and final exports before deadline."],
+        payment: "₹900 is reserved for one approved three-video edit pack and releases after final file acceptance.",
+        provided: "Raw clips, captions, music guidance, brand assets and export specifications are supplied.",
+        review: "One correction round is included. Missing files, unlicensed assets or unusable exports may be rejected with evidence.",
+        rights: "Editing assets remain confidential. Usage and portfolio permission follow Terms v1."
+      },
+      "delivery-block": {
+        issuer: "MoolSocial Delivery", mark: "MD", issuerType: "Verified prepaid delivery block", issuerClass: "delivery",
+        pay: "₹520", payUnit: "8 completed drops", action: "Deliver", title: "Complete an evening grocery route",
+        subtitle: "Collect prepaid orders and complete eight verified drops in the assigned zone.", availability: "10 routes", location: "Jodhpur central", deadline: "11 Jul, 6:00 PM IST", deadlineAt: "2026-07-11T18:00:00+05:30", deadlineVerb: "Starts in",
+        required: "Delivery Work", requiredMark: "DL", payout: "Next payout", correction: "Route support", terms: "Version 4", setupIntent: "earn",
+        outcomes: ["Reach the pickup point before the block start time.", "Complete eight assigned drops with pickup and delivery OTP.", "Return any failed delivery using the stated support process."],
+        payment: "₹520 is reserved for the completed eight-drop block. Partial completion follows the disclosed route exception table.",
+        provided: "Prepaid orders, route sequence, customer contact masking, navigation and live support are provided.",
+        review: "Missing OTP, unreported route deviation or unsupported delivery status may pause payout for evidence review.",
+        rights: "Customer data is available only during the active route and must not be copied or reused."
+      },
+      "business-growth": {
+        issuer: "MoolSocial", mark: "MOOL", issuerType: "Business activation work", issuerClass: "",
+        pay: "₹350", payUnit: "approved activation", action: "Onboard", title: "Activate local businesses",
+        subtitle: "Complete paid setup with owner approval and a verified active business profile.", availability: "40 nearby", location: "Jodhpur district", deadline: "18 Jul, 6:00 PM IST", deadlineAt: "2026-07-18T18:00:00+05:30", deadlineVerb: "Closes in",
+        required: "Freelancer Work", requiredMark: "FR", payout: "T+1 review", correction: "Fix before expiry", terms: "Version 2", setupIntent: "earn",
+        outcomes: ["Obtain owner consent and complete the assigned business profile.", "Capture required catalog, menu, service or pricing information.", "Complete owner OTP and the first verified activation action."],
+        payment: "₹350 is reserved per approved paid business activation. Empty referrals or unpaid setup do not qualify.",
+        provided: "Assigned lead, controlled category flow, owner consent route, verification checklist and QR setup are provided.",
+        review: "Missing owner approval, duplicate business, false details or incomplete activation may be corrected before expiry or rejected with reason.",
+        rights: "Business data belongs to the verified business workspace and may be used only for authorised onboarding."
+      },
+      "city-operations": {
+        issuer: "MoolSocial", mark: "MOOL", issuerType: "Permanent role", issuerClass: "",
+        pay: "₹25k–35k", payUnit: "monthly salary", action: "Job", title: "City operations coordinator",
+        subtitle: "Own partner quality, support resolution and city revenue execution.", availability: "2 roles", location: "Jodhpur · on-site", deadline: "20 Jul, 6:00 PM IST", deadlineAt: "2026-07-20T18:00:00+05:30", deadlineVerb: "Closes in",
+        required: "Job Seeker Work", requiredMark: "JOB", payout: "Monthly payroll", correction: "Application edit", terms: "Job terms 1", setupIntent: "earn",
+        outcomes: ["Manage city partner activation and operating quality.", "Resolve escalated customer and partner execution issues.", "Track service readiness, revenue and compliance outcomes."],
+        payment: "Selected candidates receive the final salary, payroll date and employment terms in the written offer. No application fee is charged.",
+        provided: "Role description, reporting manager, workplace, interview stages and employment conditions are provided before acceptance.",
+        review: "Application screening may include experience, interview, reference and background verification with consent.",
+        rights: "Candidate information is used only for authorised recruitment and retained according to the stated privacy period."
+      }
+    };
+
+    const detailParams = new URLSearchParams(location.search);
+    const opportunityId = detailParams.get("opportunity") || "creator-explainer";
+    const detail = opportunityData[opportunityId] || opportunityData["creator-explainer"];
+    const workspaceState = detailParams.get("workspace") || "missing";
+    const eligible = detailParams.get("eligible") === "1" || workspaceState === "verified";
+    const pending = !eligible && workspaceState === "pending";
+
+    const detailBindings = {
+      detailIssuer: detail.issuer, detailIssuerType: detail.issuerType, detailPay: detail.pay, detailPayUnit: detail.payUnit,
+      detailAction: detail.action, detailTitle: detail.title, detailSubtitle: detail.subtitle, detailAvailability: detail.availability,
+      detailLocation: detail.location, detailRequired: detail.required, detailPayout: detail.payout,
+      detailCorrection: detail.correction, detailTerms: detail.terms, requiredName: eligible ? "Verified My Work" : "Freelancer Work",
+      requiredMessage: eligible ? "Apply directly from your active verified workspace." : pending ? "Freelancer Work verification is in review. This opportunity remains saved." : "No workspace yet. Apply to create one general work profile.",
+      requiredStatus: eligible ? "Ready" : pending ? "Review pending" : "New user",
+      termsVersion: detail.terms.startsWith("Version ") ? detail.terms.replace("Version ", "Terms v") : detail.terms
+    };
+
+    Object.entries(detailBindings).forEach(([id, value]) => {
+      const element = document.getElementById(id);
+      if (element) element.textContent = value;
+    });
+
+    const detailIssuerMark = document.getElementById("detailIssuerMark");
+    detailIssuerMark.textContent = detail.mark;
+    detailIssuerMark.className = `issuer-avatar${detail.issuerClass ? ` ${detail.issuerClass}` : ""}`;
+    document.getElementById("requiredMark").textContent = eligible ? "MY" : "FR";
+    document.getElementById("requiredStatus").classList.toggle("verified", eligible);
+    document.getElementById("requiredStatus").classList.toggle("pending", pending);
+    document.getElementById("applyButtonSub").textContent = `${detail.pay} on approval`;
+    document.getElementById("paymentTerm").textContent = detail.payment;
+    document.getElementById("providedTerm").textContent = detail.provided;
+    document.getElementById("reviewTerm").textContent = detail.review;
+    document.getElementById("rightsTerm").textContent = detail.rights;
+
+    const outcomeList = document.getElementById("outcomeList");
+    outcomeList.innerHTML = detail.outcomes.map((item, index) => `<span class="outcome-item"><i>${index + 1}</i><span>${item}</span></span>`).join("");
+
+    document.querySelectorAll("[data-term]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const key = button.dataset.term;
+        document.querySelectorAll("[data-term-panel]").forEach((panel) => {
+          const open = panel.dataset.termPanel === key && panel.classList.contains("is-hidden");
+          panel.classList.toggle("is-hidden", !open);
+        });
+        document.querySelectorAll("[data-term]").forEach((item) => {
+          const panel = document.querySelector(`[data-term-panel="${item.dataset.term}"]`);
+          item.lastElementChild.textContent = panel.classList.contains("is-hidden") ? "+" : "−";
+        });
+      });
+    });
+
+    const applyButton = document.getElementById("applyButton");
+    const applyButtonSub = document.getElementById("applyButtonSub");
+    const applyButtonLabel = Array.from(applyButton.childNodes).find((node) => node.nodeType === Node.TEXT_NODE);
+    const detailDeadline = document.getElementById("detailDeadline");
+    const detailHero = document.querySelector(".detail-hero");
+    const setupReturn = encodeURIComponent(`68-work-opportunity-terms-apply.html?opportunity=${opportunityId}`);
+    let opportunityClosed = false;
+
+    function formatDetailTime(remainingMs) {
+      if (remainingMs <= 0) return "Closed";
+      const totalSeconds = Math.ceil(remainingMs / 1000);
+      const days = Math.floor(totalSeconds / 86400);
+      const hours = Math.floor((totalSeconds % 86400) / 3600);
+      const minutes = Math.floor((totalSeconds % 3600) / 60);
+      const seconds = totalSeconds % 60;
+      const clock = [hours, minutes, seconds].map((value) => String(value).padStart(2, "0")).join(":");
+      return days > 0 ? `${days}d ${clock}` : clock;
+    }
+
+    function updateDetailCountdown() {
+      const deadline = Date.parse(detail.deadlineAt || "");
+      if (Number.isNaN(deadline)) return;
+      const remaining = deadline - Date.now();
+      opportunityClosed = remaining <= 0;
+      const urgent = remaining > 0 && remaining <= 24 * 60 * 60 * 1000;
+      detailDeadline.textContent = opportunityClosed ? "Closed" : `${detail.deadlineVerb} ${formatDetailTime(remaining)}`;
+      detailDeadline.title = opportunityClosed ? `Closed ${detail.deadline}` : `${detail.deadlineVerb.replace(" in", "")} ${detail.deadline}`;
+      detailDeadline.classList.toggle("urgent", urgent);
+      detailDeadline.classList.toggle("closed", opportunityClosed);
+      detailHero.classList.toggle("expired", opportunityClosed);
+      const applicationBlocked = opportunityClosed || pending;
+      applyButton.disabled = applicationBlocked;
+      applyButton.setAttribute("aria-disabled", String(applicationBlocked));
+      if (applyButtonLabel) applyButtonLabel.nodeValue = opportunityClosed ? "Closed" : pending ? "Verification pending" : "Apply now";
+      applyButtonSub.textContent = opportunityClosed ? `Ended ${detail.deadline}` : pending ? "We will notify you when ready" : eligible ? `${detail.pay} on approval` : "Freelancer setup opens next";
+    }
+
+    function routeApplication() {
+      if (opportunityClosed || pending) return;
+      try {
+        sessionStorage.setItem("moolsocial.pendingOpportunity", JSON.stringify({ id: opportunityId, terms: detail.terms, savedAt: new Date().toISOString() }));
+      } catch (error) {}
+      location.href = eligible
+        ? `70-work-application-status.html?opportunity=${encodeURIComponent(opportunityId)}&state=submitted`
+        : `69-my-work-setup.html?opportunity=${encodeURIComponent(opportunityId)}&return=${setupReturn}`;
+    }
+
+    applyButton.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      routeApplication();
+    });
+    updateDetailCountdown();
+    setInterval(updateDetailCountdown, 1000);
+  </script>
+<script type="application/json" id="productionRouteContract">{"contractVersion":"mvp-route-lock-2026-07-12","prototypeScreen":68,"productionModule":"work","routeId":"earn.opportunity","routePath":"/earn/opportunities/:opportunityId","routeState":"terms-apply","implementation":"route-shell","launchScope":"mvp-core","separateProductionRoute":true,"productionNote":"Own production route /earn/opportunities/:opportunityId. Implement terms-apply as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.","canonicalMap":"architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"}</script><script type="application/json" id="prototypeApprovalContract">{"prototypeScreen":68,"status":"approved-and-frozen","authoritative":true,"approvedAt":"2026-07-12","approvalScope":"prototype-ui-ux-and-production-contract"}</script></body>
+</html>

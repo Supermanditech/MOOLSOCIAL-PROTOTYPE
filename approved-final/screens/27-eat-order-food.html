@@ -1,0 +1,1005 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>27 Eat > Order Food - MoolSocial Screenbook</title>
+  <link rel="stylesheet" href="../shared/moolsocial-ui-foundation.css" />
+  <style>
+    .screen-shell { display: grid; gap: 18px; }
+
+    .back-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .screen-link-home {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--ms-navy);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .back-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--ms-navy);
+      border-radius: var(--ms-radius);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .preview {
+      display: grid;
+      grid-template-columns: minmax(320px, 390px) minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+      padding: 18px;
+      border-bottom: 1px solid var(--ms-navy);
+      background: var(--ms-white);
+    }
+
+    .phone {
+      width: min(100%, 370px);
+      height: 742px;
+      justify-self: center;
+      border: 10px solid var(--ms-navy);
+      border-radius: 32px;
+      background: var(--ms-navy);
+      overflow: hidden;
+      box-shadow: 0 28px 60px rgba(0, 0, 128, .22);
+    }
+
+    .app {
+      position: relative;
+      height: 100%;
+      display: grid;
+      grid-template-rows: auto auto 1fr auto;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 14% 7%, rgba(255, 153, 51, .18), transparent 24%),
+        radial-gradient(circle at 88% 13%, rgba(19, 136, 8, .14), transparent 25%),
+        linear-gradient(180deg, var(--ms-navy) 0 150px, #f5f7fb 150px 100%);
+      color: var(--ms-white);
+      font-family: var(--ms-font);
+    }
+
+    button,
+    a { -webkit-tap-highlight-color: transparent; }
+
+    button {
+      appearance: none;
+      border: 0;
+      font-family: var(--ms-font);
+      cursor: pointer;
+    }
+
+    svg {
+      width: 18px;
+      height: 18px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .status-row {
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 18px 0;
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    .top-zone {
+      display: grid;
+      gap: 10px;
+      padding: 8px 12px 12px;
+    }
+
+    .brand-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .title-lockup {
+      min-width: 0;
+      display: grid;
+      gap: 4px;
+    }
+
+    .title-lockup b {
+      overflow: hidden;
+      color: var(--ms-white);
+      font-size: 19px;
+      line-height: 1;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .title-lockup span {
+      overflow: hidden;
+      color: rgba(255, 255, 255, .76);
+      font-size: 10px;
+      font-weight: 850;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .identity-line {
+      width: 98px;
+      height: 3px;
+      display: grid;
+      grid-template-columns: 45fr 14fr 41fr;
+      border-radius: var(--ms-pill);
+      overflow: hidden;
+    }
+
+    .identity-line span:nth-child(1) { background: var(--ms-saffron); }
+    .identity-line span:nth-child(2) { background: var(--ms-white); }
+    .identity-line span:nth-child(3) { background: var(--ms-green); }
+
+    .top-buttons {
+      display: flex;
+      gap: 7px;
+    }
+
+    .circle-btn,
+    .search-action {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      text-decoration: none;
+    }
+
+    .circle-btn {
+      border: 1px solid rgba(255, 255, 255, .26);
+      background: rgba(255, 255, 255, .12);
+      color: var(--ms-white);
+    }
+
+    .command-bar {
+      min-height: 43px;
+      display: grid;
+      grid-template-columns: 1fr repeat(3, 34px);
+      gap: 6px;
+      align-items: center;
+      border: 1px solid rgba(255, 255, 255, .84);
+      border-radius: var(--ms-pill);
+      padding: 5px 5px 5px 13px;
+      background: rgba(255, 255, 255, .1);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .08);
+    }
+
+    .command-text {
+      min-width: 0;
+      overflow: hidden;
+      color: var(--ms-white);
+      font-size: 11px;
+      font-weight: 900;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .search-action {
+      background: var(--ms-white);
+      color: var(--ms-navy);
+    }
+
+    .content {
+      min-height: 0;
+      overflow: auto;
+      display: grid;
+      align-content: start;
+      gap: 8px;
+      padding: 0 10px 112px;
+      color: var(--ms-navy);
+      scrollbar-width: none;
+    }
+
+    .content::-webkit-scrollbar { display: none; }
+
+    .restaurant-card,
+    .mode-card,
+    .menu-card,
+    .item-card,
+    .basket-card {
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: 21px;
+      background: rgba(255, 255, 255, .98);
+      box-shadow: 0 14px 30px rgba(0, 0, 128, .10);
+    }
+
+    .restaurant-card {
+      display: grid;
+      grid-template-columns: 42px 1fr auto;
+      gap: 9px;
+      align-items: center;
+      margin-top: -8px;
+      padding: 10px;
+    }
+
+    .restaurant-logo {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      background:
+        radial-gradient(circle at 34% 22%, rgba(255, 255, 255, .32), transparent 30%),
+        linear-gradient(145deg, var(--ms-green), var(--ms-navy));
+      color: var(--ms-white);
+      font-size: 11px;
+      font-weight: 950;
+      box-shadow: inset 0 -4px 0 var(--ms-saffron);
+    }
+
+    .restaurant-copy {
+      min-width: 0;
+      display: grid;
+      gap: 3px;
+    }
+
+    .restaurant-copy b {
+      overflow: hidden;
+      color: var(--ms-navy);
+      font-size: 12px;
+      line-height: 1;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .restaurant-copy span,
+    .restaurant-copy small {
+      overflow: hidden;
+      color: rgba(0, 0, 128, .62);
+      font-size: 8px;
+      font-weight: 850;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .small-action,
+    .fulfilment-chip,
+    .menu-chip,
+    .add-btn,
+    .secondary-btn,
+    .dock-tab,
+    .mool-button,
+    .chat-button {
+      font-family: var(--ms-font);
+    }
+
+    .small-action {
+      min-height: 31px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--ms-pill);
+      padding: 0 10px;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      text-decoration: none;
+      font-size: 8px;
+      font-weight: 950;
+      box-shadow: inset 0 -3px 0 var(--ms-saffron);
+      white-space: nowrap;
+    }
+
+    .mode-card,
+    .menu-card,
+    .basket-card {
+      display: grid;
+      gap: 8px;
+      padding: 10px;
+    }
+
+    .card-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .card-head b {
+      color: var(--ms-navy);
+      font-size: 13px;
+      line-height: 1;
+      font-weight: 950;
+    }
+
+    .card-head span {
+      color: rgba(0, 0, 128, .58);
+      font-size: 8px;
+      font-weight: 850;
+      text-align: right;
+    }
+
+    .fulfilment-row,
+    .menu-row,
+    .quick-row {
+      display: flex;
+      gap: 6px;
+      min-width: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .fulfilment-row::-webkit-scrollbar,
+    .menu-row::-webkit-scrollbar,
+    .quick-row::-webkit-scrollbar { display: none; }
+
+    .fulfilment-chip,
+    .menu-chip {
+      flex: 0 0 auto;
+      min-height: 32px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: var(--ms-pill);
+      padding: 0 11px;
+      background: #f7f9fd;
+      color: var(--ms-navy);
+      font-size: 9px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .fulfilment-chip.active,
+    .menu-chip.active {
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -3px 0 var(--ms-saffron), 0 8px 18px rgba(0, 0, 128, .15);
+    }
+
+    .menu-card {
+      position: sticky;
+      top: 0;
+      z-index: 3;
+    }
+
+    .quick-pill {
+      flex: 0 0 auto;
+      min-height: 28px;
+      display: inline-flex;
+      align-items: center;
+      border-radius: var(--ms-pill);
+      padding: 0 9px;
+      background: rgba(19, 136, 8, .10);
+      color: var(--ms-green);
+      font-size: 8px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .item-list {
+      display: grid;
+      gap: 9px;
+    }
+
+    .item-card {
+      display: grid;
+      grid-template-columns: 78px 1fr;
+      gap: 9px;
+      padding: 9px;
+    }
+
+    .item-card.dimmed {
+      opacity: .74;
+    }
+
+    .food-photo {
+      min-height: 96px;
+      display: grid;
+      place-items: end start;
+      border-radius: 17px;
+      padding: 8px;
+      overflow: hidden;
+      color: var(--ms-white);
+      background:
+        radial-gradient(circle at 32% 34%, rgba(255, 153, 51, .92), transparent 28%),
+        radial-gradient(circle at 74% 70%, rgba(19, 136, 8, .85), transparent 32%),
+        linear-gradient(135deg, #151578, var(--ms-navy));
+    }
+
+    .veg-dot {
+      width: 17px;
+      height: 17px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(19, 136, 8, .9);
+      border-radius: 4px;
+      background: var(--ms-white);
+    }
+
+    .veg-dot::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--ms-green);
+    }
+
+    .item-copy {
+      min-width: 0;
+      display: grid;
+      gap: 6px;
+      align-content: start;
+    }
+
+    .item-head {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      align-items: start;
+    }
+
+    .item-head b {
+      overflow: hidden;
+      color: var(--ms-navy);
+      font-size: 11px;
+      line-height: 1.12;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .item-head span {
+      color: var(--ms-green);
+      font-size: 11px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .item-meta {
+      color: rgba(0, 0, 128, .62);
+      font-size: 7.5px;
+      font-weight: 850;
+      line-height: 1.25;
+    }
+
+    .decision-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 5px;
+    }
+
+    .decision-pill {
+      min-height: 30px;
+      display: grid;
+      align-content: center;
+      gap: 2px;
+      border-radius: 12px;
+      padding: 5px;
+      background: #f3f6fb;
+      color: var(--ms-navy);
+      overflow: hidden;
+    }
+
+    .decision-pill b {
+      overflow: hidden;
+      font-size: 7.5px;
+      font-weight: 950;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .decision-pill span {
+      overflow: hidden;
+      color: var(--ms-green);
+      font-size: 7px;
+      font-weight: 900;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .item-actions {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .add-btn,
+    .secondary-btn {
+      min-height: 32px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--ms-pill);
+      text-decoration: none;
+      font-size: 8px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .add-btn {
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -3px 0 var(--ms-saffron);
+    }
+
+    .secondary-btn {
+      border: 1px solid rgba(0, 0, 128, .14);
+      padding: 0 10px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+    }
+
+    .basket-card {
+      position: absolute;
+      left: 16px;
+      right: 16px;
+      bottom: 78px;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      z-index: 12;
+      color: var(--ms-navy);
+      background:
+        linear-gradient(135deg, rgba(255, 153, 51, .16), rgba(19, 136, 8, .10)),
+        rgba(255, 255, 255, .98);
+      box-shadow: 0 -10px 28px rgba(0, 0, 128, .18);
+    }
+
+    .basket-copy {
+      min-width: 0;
+      display: grid;
+      gap: 3px;
+    }
+
+    .basket-copy b {
+      overflow: hidden;
+      color: var(--ms-navy);
+      font-size: 12px;
+      line-height: 1;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .basket-copy span {
+      color: rgba(0, 0, 128, .62);
+      font-size: 8px;
+      font-weight: 850;
+    }
+
+    .basket-action {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      text-decoration: none;
+      box-shadow: inset 0 -4px 0 var(--ms-saffron);
+    }
+
+    .bottom-dock {
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+      display: grid;
+      grid-template-columns: 52px minmax(0, 1fr) 52px;
+      align-items: center;
+      gap: 6px;
+      border: 1px solid rgba(0, 0, 128, .78);
+      border-radius: 22px;
+      padding: 7px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, .99), rgba(244, 247, 252, .99));
+      box-shadow: 0 -14px 32px rgba(0, 0, 128, .16), 0 2px 0 rgba(255, 255, 255, .95) inset, 0 -2px 0 rgba(0, 0, 128, .07) inset;
+      z-index: 10;
+    }
+
+    .mool-button,
+    .chat-button {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      border: 0;
+      border-radius: 50%;
+      text-decoration: none;
+      font-size: 10px;
+      font-weight: 950;
+    }
+
+    .mool-button {
+      background:
+        radial-gradient(circle at 36% 24%, rgba(255, 255, 255, .30), transparent 32%),
+        linear-gradient(145deg, #1717ba, var(--ms-navy) 72%);
+      color: var(--ms-white);
+      box-shadow: 0 9px 19px rgba(0, 0, 128, .24), inset 0 -5px 0 rgba(0, 0, 90, .36);
+    }
+
+    .chat-button {
+      position: relative;
+      background: radial-gradient(circle at 50% 12%, rgba(255, 255, 255, .96), rgba(255, 255, 255, .78) 44%, rgba(240, 244, 248, .98));
+      color: var(--ms-navy);
+      border: 1px solid rgba(0, 0, 128, .16);
+      box-shadow: 0 9px 18px rgba(0, 0, 128, .12);
+    }
+
+    .chat-badge {
+      min-width: 16px;
+      height: 16px;
+      position: absolute;
+      top: 5px;
+      right: 2px;
+      display: grid;
+      place-items: center;
+      border-radius: var(--ms-pill);
+      padding: 0 4px;
+      background: var(--ms-saffron);
+      color: var(--ms-navy);
+      font-size: 8px;
+      font-weight: 950;
+    }
+
+    .dock-track {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      min-width: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+      border: 1px solid rgba(0, 0, 128, .20);
+      border-radius: 19px;
+      padding: 5px 6px;
+      background:
+        linear-gradient(180deg, rgba(0, 0, 128, .14), rgba(255, 255, 255, .72) 44%, rgba(0, 0, 128, .08)),
+        radial-gradient(circle at 50% 0, rgba(255, 255, 255, .92), transparent 58%);
+      box-shadow: inset 0 9px 16px rgba(0, 0, 128, .14), inset 0 -8px 14px rgba(255, 255, 255, .92);
+      mask-image: linear-gradient(90deg, transparent 0, #000 16px, #000 calc(100% - 16px), transparent 100%);
+    }
+
+    .dock-track::-webkit-scrollbar { display: none; }
+
+    .dock-tab {
+      flex: 0 0 62px;
+      min-height: 46px;
+      display: grid;
+      place-items: center;
+      align-content: center;
+      gap: 3px;
+      border-radius: 17px;
+      color: var(--ms-navy);
+      text-decoration: none;
+      font-size: 8px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .dock-tab svg {
+      width: 17px;
+      height: 17px;
+    }
+
+    .dock-tab.active {
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 var(--ms-saffron), 0 8px 18px rgba(0, 0, 128, .16);
+    }
+
+    .notes {
+      display: grid;
+      gap: 18px;
+      min-width: 0;
+    }
+
+    .state-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .state-cell {
+      min-height: 112px;
+      display: grid;
+      align-content: start;
+      gap: 8px;
+      border-right: 1px solid var(--ms-navy);
+      border-bottom: 1px solid var(--ms-navy);
+      padding: 14px;
+      color: var(--ms-navy);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .state-cell:nth-child(2n) { border-right: 0; }
+    .state-cell b {
+      color: var(--ms-green);
+      font-size: 12px;
+      font-weight: 950;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 860px) {
+      .preview { grid-template-columns: 1fr; padding: 12px; }
+      .state-grid { grid-template-columns: 1fr; }
+      .state-cell { border-right: 0; }
+      .ms-page { padding: 18px; }
+    }
+  </style>
+</head>
+<body class="ms-doc">
+  <main class="ms-page screen-shell">
+    <div class="back-row">
+      <a class="screen-link-home" href="../index.html">
+        <span class="back-mark">27</span>
+        Back to MoolSocial Screenbook
+      </a>
+      <span class="ms-status">Approved</span>
+    </div>
+
+    <section class="preview">
+      <div class="phone" role="img" aria-label="MoolSocial Eat order food screen">
+        <div class="app">
+          <div class="status-row">
+            <span>9:41</span>
+            <span>5G 100%</span>
+          </div>
+
+          <header class="top-zone">
+            <div class="brand-row">
+              <div class="title-lockup">
+                <b>MoolSocial Eat</b>
+                <div class="identity-line" aria-hidden="true"><span></span><span></span><span></span></div>
+                <span>Order food</span>
+              </div>
+              <div class="top-buttons">
+                <a class="circle-btn" href="26-eat.html" aria-label="Back to Eat">
+                  <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" /></svg>
+                </a>
+                <a class="circle-btn" href="28-eat-book-table.html" aria-label="Book table">
+                  <svg viewBox="0 0 24 24"><path d="M4 10h16" /><path d="M6 10v10" /><path d="M18 10v10" /></svg>
+                </a>
+              </div>
+            </div>
+
+            <div class="command-bar" aria-label="Search food">
+              <span class="command-text">Search dish, restaurant, offer or cuisine</span>
+              <button class="search-action" aria-label="Search">
+                <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" /><path d="m20 20-3-3" /></svg>
+              </button>
+              <button class="search-action" aria-label="Scan restaurant QR">
+                <svg viewBox="0 0 24 24"><path d="M4 8V4h4" /><path d="M16 4h4v4" /><path d="M20 16v4h-4" /><path d="M8 20H4v-4" /></svg>
+              </button>
+              <button class="search-action" aria-label="Voice search">
+                <svg viewBox="0 0 24 24"><path d="M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3Z" /><path d="M19 10a7 7 0 0 1-14 0" /><path d="M12 17v4" /></svg>
+              </button>
+            </div>
+          </header>
+
+          <main class="content">
+            <section class="restaurant-card" aria-label="Selected restaurant">
+              <span class="restaurant-logo">SD</span>
+              <span class="restaurant-copy">
+                <b>Spice Darbar</b>
+                <span>North Indian · Ratanada · 4.7</span>
+                <small id="restaurantStatus">Kitchen open · accepts in 2 min</small>
+              </span>
+              <a class="small-action" href="26-eat.html">Change</a>
+            </section>
+
+            <section class="mode-card" aria-label="Fulfilment choice">
+              <div class="card-head">
+                <b>How do you want it?</b>
+                <span id="fulfilmentHelp">Delivery to home selected</span>
+              </div>
+              <div class="fulfilment-row">
+                <button class="fulfilment-chip active" data-mode="Delivery" data-time="22 min" data-fee="Fee Rs 19">Deliver</button>
+                <button class="fulfilment-chip" data-mode="Pickup" data-time="15 min" data-fee="No fee">Pickup</button>
+                <button class="fulfilment-chip" data-mode="Table QR" data-time="12 min" data-fee="Pay at table">QR table</button>
+                <button class="fulfilment-chip" data-mode="Schedule" data-time="8:30 PM" data-fee="Slot hold">Schedule</button>
+              </div>
+            </section>
+
+            <section class="menu-card" aria-label="Menu categories">
+              <div class="card-head">
+                <b>Menu</b>
+                <span id="menuHelp">Best value first</span>
+              </div>
+              <div class="menu-row">
+                <button class="menu-chip active" data-menu="Best value">Best value</button>
+                <button class="menu-chip" data-menu="Meals">Meals</button>
+                <button class="menu-chip" data-menu="Biryani">Biryani</button>
+                <button class="menu-chip" data-menu="Snacks">Snacks</button>
+                <button class="menu-chip" data-menu="Drinks">Drinks</button>
+                <button class="menu-chip" data-menu="Offers">Offers</button>
+              </div>
+              <div class="quick-row">
+                <span class="quick-pill">Kitchen accepts first</span>
+                <span class="quick-pill">Refund before accept</span>
+                <span class="quick-pill">Bill proof</span>
+              </div>
+            </section>
+
+            <section class="item-list" aria-label="Food items">
+              <article class="item-card">
+                <span class="food-photo"><span class="veg-dot" aria-hidden="true"></span></span>
+                <span class="item-copy">
+                  <span class="item-head">
+                    <b>Veg thali</b>
+                    <span>Rs 149</span>
+                  </span>
+                  <span class="item-meta">2 rotis · dal · sabzi · rice · salad · best for lunch</span>
+                  <span class="decision-row">
+                    <span class="decision-pill"><b>Ready</b><span id="timeOne">22 min</span></span>
+                    <span class="decision-pill"><b>Offer</b><span>10% reward</span></span>
+                    <span class="decision-pill"><b>Cancel</b><span>before accept</span></span>
+                  </span>
+                  <span class="item-actions">
+                    <button class="add-btn" data-add="Veg thali" data-price="149">Add</button>
+                    <a class="secondary-btn" href="#">Customize</a>
+                  </span>
+                </span>
+              </article>
+
+              <article class="item-card">
+                <span class="food-photo"><span class="veg-dot" aria-hidden="true"></span></span>
+                <span class="item-copy">
+                  <span class="item-head">
+                    <b>Paneer butter combo</b>
+                    <span>Rs 229</span>
+                  </span>
+                  <span class="item-meta">paneer · 3 rotis · jeera rice · serves 1-2 · no onion option</span>
+                  <span class="decision-row">
+                    <span class="decision-pill"><b>Fresh</b><span>made now</span></span>
+                    <span class="decision-pill"><b>Pack</b><span>serves 2</span></span>
+                    <span class="decision-pill"><b>Proof</b><span>bill</span></span>
+                  </span>
+                  <span class="item-actions">
+                    <button class="add-btn" data-add="Paneer butter combo" data-price="229">Add</button>
+                    <a class="secondary-btn" href="#">Details</a>
+                  </span>
+                </span>
+              </article>
+
+              <article class="item-card">
+                <span class="food-photo"><span class="veg-dot" aria-hidden="true"></span></span>
+                <span class="item-copy">
+                  <span class="item-head">
+                    <b>Family biryani pack</b>
+                    <span>Rs 449</span>
+                  </span>
+                  <span class="item-meta">serves 3 · raita · salad · group order friendly · save Rs 40</span>
+                  <span class="decision-row">
+                    <span class="decision-pill"><b>Serve</b><span>3 people</span></span>
+                    <span class="decision-pill"><b>Save</b><span>Rs 40</span></span>
+                    <span class="decision-pill"><b>Time</b><span>31 min</span></span>
+                  </span>
+                  <span class="item-actions">
+                    <button class="add-btn" data-add="Family biryani pack" data-price="449">Add pack</button>
+                    <a class="secondary-btn" href="25-chat-people-thread.html">Share</a>
+                  </span>
+                </span>
+              </article>
+            </section>
+          </main>
+
+          <section class="basket-card" aria-label="Basket summary">
+            <span class="basket-copy">
+              <b id="basketTitle">1 item · Rs 149</b>
+              <span id="basketText">Delivery · 22 min · restaurant accepts before payment</span>
+            </span>
+            <a class="basket-action" href="#" aria-label="Open food basket">
+              <svg viewBox="0 0 24 24"><path d="M5 12h14" /><path d="m13 6 6 6-6 6" /></svg>
+            </a>
+          </section>
+
+          <nav class="bottom-dock" aria-label="Eat order navigation">
+            <a class="mool-button" href="04-universal-focus-shell.html">Mool</a>
+            <div class="dock-track">
+              <a class="dock-tab active" href="#"><svg viewBox="0 0 24 24"><path d="M4 11h16" /><path d="M6 11a6 6 0 0 1 12 0" /></svg>Order</a>
+              <a class="dock-tab" href="28-eat-book-table.html"><svg viewBox="0 0 24 24"><path d="M4 10h16" /><path d="M6 10v10" /><path d="M18 10v10" /></svg>Table</a>
+              <a class="dock-tab" href="#"><svg viewBox="0 0 24 24"><rect x="4" y="6" width="16" height="12" rx="3" /><path d="M4 12h16" /></svg>Tiffin</a>
+            </div>
+            <a class="chat-button" href="23-chat-inbox-home.html" aria-label="Open chat">
+              <svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z" /></svg>
+              <span class="chat-badge">2</span>
+            </a>
+          </nav>
+        </div>
+      </div>
+
+      <div class="notes">
+        <div>
+          <h1 class="ms-title">Screen 27 converts restaurant interest into a clear food order.</h1>
+          <p class="ms-lead">
+            This approved screen starts after the user chooses Order Food from Eat. It keeps the selected restaurant visible, lets the
+            user choose delivery, pickup, QR table or schedule, and makes every food card answer price, time, availability,
+            offer, cancellation and the next action before basket checkout.
+          </p>
+        </div>
+
+        <div class="ms-panel">
+          <div class="ms-section-head">Screen Contract <span>Approved</span></div>
+          <div class="state-grid">
+            <div class="state-cell"><b>Entry</b>From Screen 26 Order Food, restaurant search, food social post, QR table scan, chat recommendation or repeat order.</div>
+            <div class="state-cell"><b>User Sees</b>Selected restaurant, fulfilment choice, menu categories, item cards, price/time/offer/cancel proof and live basket.</div>
+            <div class="state-cell"><b>Decision</b>User chooses delivery/pickup/table/schedule, filters menu, adds item, customizes and moves to basket.</div>
+            <div class="state-cell"><b>Backend</b>Restaurant menu, item availability, preparation time, delivery availability, offer eligibility, customization, basket, tax/fee and restaurant acceptance APIs.</div>
+            <div class="state-cell"><b>Trust</b>Payment should not be captured until restaurant accepts; cancellation window, bill proof, food availability and delivery fee must be visible.</div>
+            <div class="state-cell"><b>Failure</b>If kitchen closes, item is unavailable, delivery is blocked or prep time changes, show replacement, pickup, schedule or another restaurant.</div>
+            <div class="state-cell"><b>Next</b>Basket action routes to food basket/checkout; Table routes to Screen 28; Tiffin routes to Screen 29.</div>
+            <div class="state-cell"><b>Regression</b>Bottom dock must match approved Eat dock shape; Mool and Chat stay fixed; Order remains active on this screen.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const fulfilmentChips = document.querySelectorAll("[data-mode]");
+    const menuChips = document.querySelectorAll("[data-menu]");
+    const addButtons = document.querySelectorAll("[data-add]");
+    const fulfilmentHelp = document.getElementById("fulfilmentHelp");
+    const menuHelp = document.getElementById("menuHelp");
+    const basketTitle = document.getElementById("basketTitle");
+    const basketText = document.getElementById("basketText");
+    const timeOne = document.getElementById("timeOne");
+
+    const basket = {
+      count: 1,
+      amount: 149,
+      mode: "Delivery",
+      time: "22 min",
+      fee: "Fee Rs 19"
+    };
+
+    function updateBasket() {
+      basketTitle.textContent = `${basket.count} item${basket.count > 1 ? "s" : ""} · Rs ${basket.amount}`;
+      basketText.textContent = `${basket.mode} · ${basket.time} · restaurant accepts before payment`;
+      timeOne.textContent = basket.time;
+    }
+
+    fulfilmentChips.forEach((chip) => {
+      chip.addEventListener("click", () => {
+        fulfilmentChips.forEach((item) => item.classList.toggle("active", item === chip));
+        basket.mode = chip.dataset.mode;
+        basket.time = chip.dataset.time;
+        basket.fee = chip.dataset.fee;
+        fulfilmentHelp.textContent = `${basket.mode} selected · ${basket.fee}`;
+        updateBasket();
+      });
+    });
+
+    menuChips.forEach((chip) => {
+      chip.addEventListener("click", () => {
+        menuChips.forEach((item) => item.classList.toggle("active", item === chip));
+        menuHelp.textContent = `${chip.dataset.menu} shown first`;
+      });
+    });
+
+    addButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        basket.count += 1;
+        basket.amount += Number(button.dataset.price);
+        button.textContent = "Added";
+        updateBasket();
+      });
+    });
+  </script>
+<script type="application/json" id="productionRouteContract">{"contractVersion":"mvp-route-lock-2026-07-12","prototypeScreen":27,"productionModule":"eat","routeId":"eat.restaurant-order","routePath":"/eat/restaurants/:restaurantId/order","routeState":"menu-cart","implementation":"route-shell","launchScope":"post-mvp","separateProductionRoute":true,"productionNote":"Own production route /eat/restaurants/:restaurantId/order. Implement menu-cart as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.","canonicalMap":"architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"}</script><script type="application/json" id="prototypeApprovalContract">{"prototypeScreen":27,"status":"approved-and-frozen","authoritative":true,"approvedAt":"2026-07-12","approvalScope":"prototype-ui-ux-and-production-contract"}</script></body>
+</html>

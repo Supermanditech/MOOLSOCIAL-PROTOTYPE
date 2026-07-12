@@ -1,0 +1,1128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>41 Patient Follow-Up Workspace - MoolSocial Screenbook</title>
+  <link rel="stylesheet" href="../shared/moolsocial-ui-foundation.css" />
+  <style>
+    .screen-shell { display: grid; gap: 18px; }
+
+    .back-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .screen-link-home {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--ms-navy);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .back-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--ms-navy);
+      border-radius: var(--ms-radius);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .preview {
+      display: grid;
+      grid-template-columns: minmax(320px, 390px) minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+      padding: 18px;
+      border-bottom: 1px solid var(--ms-navy);
+      background: var(--ms-white);
+    }
+
+    .phone {
+      width: min(100%, 370px);
+      height: 742px;
+      justify-self: center;
+      border: 10px solid var(--ms-navy);
+      border-radius: 32px;
+      background: var(--ms-navy);
+      overflow: hidden;
+      box-shadow: 0 28px 60px rgba(0, 0, 128, .22);
+    }
+
+    .app {
+      position: relative;
+      height: 100%;
+      display: grid;
+      grid-template-rows: auto auto 1fr auto;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 18% 8%, rgba(255, 153, 51, .16), transparent 25%),
+        radial-gradient(circle at 90% 14%, rgba(19, 136, 8, .16), transparent 26%),
+        linear-gradient(180deg, var(--ms-navy) 0 166px, #f4f7fc 166px 100%);
+      color: var(--ms-white);
+      font-family: var(--ms-font);
+    }
+
+    button,
+    a { -webkit-tap-highlight-color: transparent; }
+
+    button {
+      appearance: none;
+      border: 0;
+      font-family: var(--ms-font);
+      cursor: pointer;
+    }
+
+    svg {
+      width: 19px;
+      height: 19px;
+      stroke: currentColor;
+      stroke-width: 2.4;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .status-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 16px 22px 6px;
+      color: var(--ms-white);
+      font-size: 11px;
+      font-weight: 950;
+    }
+
+    .top {
+      display: grid;
+      gap: 11px;
+      padding: 8px 18px 13px;
+    }
+
+    .brand-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .brand-copy {
+      min-width: 0;
+      display: grid;
+      gap: 2px;
+    }
+
+    .brand-copy b {
+      overflow: hidden;
+      color: var(--ms-white);
+      font-size: 20px;
+      line-height: 1;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .brand-copy span {
+      color: rgba(255, 255, 255, .78);
+      font-size: 10px;
+      font-weight: 850;
+    }
+
+    .identity-line {
+      width: 96px;
+      height: 4px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      overflow: hidden;
+      border-radius: var(--ms-pill);
+    }
+
+    .identity-line span:nth-child(1) { background: var(--ms-saffron); }
+    .identity-line span:nth-child(2) { background: var(--ms-white); }
+    .identity-line span:nth-child(3) { background: var(--ms-green); }
+
+    .top-buttons {
+      display: flex;
+      gap: 8px;
+      flex: 0 0 auto;
+    }
+
+    .circle-btn,
+    .search-action {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      text-decoration: none;
+    }
+
+    .circle-btn {
+      border: 1px solid rgba(255, 255, 255, .26);
+      background: rgba(255, 255, 255, .12);
+      color: var(--ms-white);
+    }
+
+    .command-bar {
+      min-height: 48px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto auto auto;
+      align-items: center;
+      gap: 7px;
+      border: 1px solid rgba(255, 255, 255, .85);
+      border-radius: var(--ms-pill);
+      padding: 5px 5px 5px 13px;
+      background: rgba(255, 255, 255, .10);
+    }
+
+    .command-text {
+      overflow: hidden;
+      color: var(--ms-white);
+      font-size: 11px;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .search-action {
+      background: var(--ms-white);
+      color: var(--ms-navy);
+    }
+
+    .content {
+      min-height: 0;
+      overflow: auto;
+      display: grid;
+      align-content: start;
+      gap: 8px;
+      padding: 0 10px 98px;
+      color: var(--ms-navy);
+      scrollbar-width: none;
+    }
+
+    .content::-webkit-scrollbar { display: none; }
+
+    .summary-card,
+    .patient-card,
+    .need-card,
+    .reports-card,
+    .consent-card,
+    .ready-card {
+      display: grid;
+      gap: 8px;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: 21px;
+      padding: 10px;
+      background: rgba(255, 255, 255, .98);
+      box-shadow: 0 14px 30px rgba(0, 0, 128, .10);
+    }
+
+    .summary-card { margin-top: -8px; }
+
+    .card-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .card-head b {
+      color: var(--ms-navy);
+      font-size: 13px;
+      line-height: 1;
+      font-weight: 950;
+    }
+
+    .card-head span {
+      color: rgba(0, 0, 128, .58);
+      font-size: 8px;
+      font-weight: 850;
+      text-align: right;
+    }
+
+    .appointment-line {
+      display: grid;
+      grid-template-columns: 42px 1fr auto;
+      gap: 9px;
+      align-items: center;
+      border-radius: 18px;
+      padding: 9px;
+      background: #f7f9fd;
+      overflow: hidden;
+    }
+
+    .avatar {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 32% 22%, rgba(255, 255, 255, .34), transparent 28%),
+        linear-gradient(145deg, var(--ms-green), var(--ms-navy));
+      color: var(--ms-white);
+      font-size: 10px;
+      font-weight: 950;
+    }
+
+    .line-copy {
+      min-width: 0;
+      display: grid;
+      gap: 2px;
+    }
+
+    .line-copy b,
+    .line-copy span,
+    .line-price b,
+    .line-price span {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .line-copy b {
+      color: var(--ms-navy);
+      font-size: 11px;
+      font-weight: 950;
+    }
+
+    .line-copy span {
+      color: rgba(0, 0, 128, .62);
+      font-size: 8px;
+      font-weight: 850;
+    }
+
+    .line-price {
+      min-width: 56px;
+      display: grid;
+      justify-items: end;
+      gap: 3px;
+      color: var(--ms-green);
+      font-weight: 950;
+    }
+
+    .line-price b {
+      font-size: 12px;
+      line-height: 1;
+    }
+
+    .line-price span {
+      color: rgba(0, 0, 128, .58);
+      font-size: 7px;
+      font-weight: 850;
+    }
+
+    .patient-row,
+    .need-row,
+    .report-grid {
+      display: flex;
+      gap: 6px;
+      min-width: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .patient-row::-webkit-scrollbar,
+    .need-row::-webkit-scrollbar,
+    .report-grid::-webkit-scrollbar { display: none; }
+
+    .patient-option,
+    .need-chip,
+    .report-tile,
+    .consent-toggle {
+      border: 1px solid rgba(0, 0, 128, .12);
+      background: #f7f9fd;
+      color: var(--ms-navy);
+    }
+
+    .patient-option {
+      flex: 0 0 96px;
+      min-height: 64px;
+      display: grid;
+      align-content: center;
+      justify-items: center;
+      gap: 4px;
+      border-radius: 18px;
+      padding: 8px;
+      text-align: center;
+    }
+
+    .patient-option strong {
+      font-size: 10px;
+      font-weight: 950;
+    }
+
+    .patient-option span {
+      color: rgba(0, 0, 128, .58);
+      font-size: 8px;
+      font-weight: 850;
+    }
+
+    .patient-option.active,
+    .need-chip.active,
+    .report-tile.active,
+    .consent-toggle.active {
+      border-color: rgba(0, 0, 128, .42);
+      background:
+        linear-gradient(135deg, rgba(255, 153, 51, .14), rgba(19, 136, 8, .08)),
+        var(--ms-white);
+      box-shadow: inset 0 -3px 0 var(--ms-green), 0 9px 18px rgba(0, 0, 128, .10);
+    }
+
+    .need-chip {
+      flex: 0 0 auto;
+      min-height: 31px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--ms-pill);
+      padding: 0 12px;
+      color: var(--ms-navy);
+      font-size: 9px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .symptom-box {
+      min-height: 58px;
+      display: grid;
+      align-content: center;
+      gap: 3px;
+      border-radius: 17px;
+      padding: 10px;
+      background: #f7f9fd;
+      color: rgba(0, 0, 128, .62);
+      font-size: 9px;
+      font-weight: 850;
+      line-height: 1.35;
+    }
+
+    .symptom-box b {
+      color: var(--ms-navy);
+      font-size: 10px;
+      font-weight: 950;
+    }
+
+    .report-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      overflow: visible;
+    }
+
+    .report-tile {
+      min-height: 62px;
+      display: grid;
+      grid-template-columns: 32px 1fr;
+      gap: 8px;
+      align-items: center;
+      border-radius: 18px;
+      padding: 9px;
+      text-align: left;
+    }
+
+    .report-tile svg {
+      width: 25px;
+      height: 25px;
+      color: var(--ms-navy);
+    }
+
+    .report-copy {
+      min-width: 0;
+      display: grid;
+      gap: 2px;
+    }
+
+    .report-copy b,
+    .report-copy span {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .report-copy b {
+      color: var(--ms-navy);
+      font-size: 9px;
+      font-weight: 950;
+    }
+
+    .report-copy span {
+      color: rgba(0, 0, 128, .58);
+      font-size: 8px;
+      font-weight: 850;
+    }
+
+    .consent-toggle {
+      min-height: 52px;
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 9px;
+      align-items: center;
+      border-radius: 18px;
+      padding: 9px;
+      text-align: left;
+    }
+
+    .check-dot {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+    }
+
+    .consent-copy {
+      min-width: 0;
+      display: grid;
+      gap: 2px;
+    }
+
+    .consent-copy b,
+    .consent-copy span {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .consent-copy b {
+      color: var(--ms-navy);
+      font-size: 10px;
+      font-weight: 950;
+    }
+
+    .consent-copy span {
+      color: rgba(0, 0, 128, .58);
+      font-size: 8px;
+      font-weight: 850;
+    }
+
+    .ready-card {
+      position: relative;
+      background:
+        linear-gradient(135deg, rgba(255, 153, 51, .13), rgba(19, 136, 8, .08)),
+        var(--ms-white);
+      z-index: 2;
+    }
+
+    .ready-top {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      align-items: start;
+    }
+
+    .ready-copy {
+      min-width: 0;
+      display: grid;
+      gap: 4px;
+    }
+
+    .ready-copy b {
+      overflow: hidden;
+      color: var(--ms-navy);
+      font-size: 14px;
+      line-height: 1.05;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .ready-copy span {
+      color: rgba(0, 0, 128, .62);
+      font-size: 8px;
+      font-weight: 850;
+      line-height: 1.25;
+    }
+
+    .ready-pill {
+      min-width: 72px;
+      min-height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: var(--ms-pill);
+      background: var(--ms-white);
+      color: var(--ms-green);
+      font-size: 9px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .qr-preview {
+      display: grid;
+      grid-template-columns: 54px 1fr;
+      gap: 9px;
+      align-items: center;
+      border-radius: 17px;
+      padding: 8px;
+      background: rgba(255, 255, 255, .78);
+    }
+
+    .qr-box {
+      width: 54px;
+      height: 54px;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: repeat(5, 1fr);
+      gap: 3px;
+      border-radius: 12px;
+      padding: 7px;
+      background: var(--ms-white);
+      box-shadow: inset 0 0 0 1px rgba(0, 0, 128, .18);
+    }
+
+    .qr-box span {
+      border-radius: 3px;
+      background: var(--ms-navy);
+    }
+
+    .qr-box span:nth-child(2n) { background: var(--ms-green); }
+    .qr-box span:nth-child(5n) { background: var(--ms-saffron); }
+
+    .qr-copy {
+      min-width: 0;
+      display: grid;
+      gap: 3px;
+    }
+
+    .qr-copy b,
+    .qr-copy span {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .qr-copy b {
+      color: var(--ms-navy);
+      font-size: 10px;
+      font-weight: 950;
+    }
+
+    .qr-copy span {
+      color: rgba(0, 0, 128, .62);
+      font-size: 8px;
+      font-weight: 850;
+    }
+
+    .cta-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 7px;
+      align-items: center;
+    }
+
+    .primary-cta,
+    .secondary-cta {
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--ms-pill);
+      text-decoration: none;
+      font-size: 10px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .primary-cta {
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 var(--ms-saffron), 0 10px 20px rgba(0, 0, 128, .18);
+    }
+
+    .secondary-cta {
+      border: 1px solid rgba(0, 0, 128, .14);
+      padding: 0 12px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+    }
+
+    .bottom-dock {
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+      display: grid;
+      grid-template-columns: 68px minmax(0, 1fr) 66px;
+      gap: 8px;
+      align-items: center;
+      border: 1px solid rgba(0, 0, 128, .16);
+      border-radius: 26px;
+      padding: 7px;
+      background: rgba(255, 255, 255, .96);
+      box-shadow: 0 -14px 36px rgba(0, 0, 128, .16);
+      z-index: 8;
+    }
+
+    .mool-button,
+    .chat-button {
+      min-height: 58px;
+      display: grid;
+      place-items: center;
+      border-radius: 22px;
+      text-decoration: none;
+      font-size: 9px;
+      font-weight: 950;
+    }
+
+    .mool-button {
+      background:
+        radial-gradient(circle at 35% 22%, rgba(255, 255, 255, .35), transparent 25%),
+        linear-gradient(145deg, #1d1dca, var(--ms-navy));
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 rgba(0, 0, 80, .72), 0 8px 18px rgba(0, 0, 128, .18);
+    }
+
+    .dock-track {
+      min-width: 0;
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      border-radius: 22px;
+      padding: 2px;
+      background:
+        radial-gradient(circle at left, rgba(0, 0, 128, .12), transparent 28%),
+        radial-gradient(circle at right, rgba(0, 0, 128, .12), transparent 28%),
+        #f7f9fd;
+    }
+
+    .dock-track::-webkit-scrollbar { display: none; }
+
+    .dock-tab {
+      flex: 0 0 auto;
+      min-width: 58px;
+      min-height: 42px;
+      display: grid;
+      place-items: center;
+      gap: 2px;
+      border-radius: 17px;
+      color: var(--ms-navy);
+      text-decoration: none;
+      font-size: 9px;
+      font-weight: 950;
+    }
+
+    .dock-tab svg {
+      width: 17px;
+      height: 17px;
+    }
+
+    .dock-tab.active {
+      background: linear-gradient(180deg, #1515b8, var(--ms-navy));
+      color: var(--ms-white);
+      box-shadow: inset 0 -3px 0 var(--ms-saffron), 0 8px 18px rgba(0, 0, 128, .18);
+    }
+
+    .chat-button {
+      position: relative;
+      border: 1px solid rgba(0, 0, 128, .14);
+      background: var(--ms-white);
+      color: var(--ms-navy);
+    }
+
+    .chat-badge {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      width: 20px;
+      height: 20px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--ms-saffron);
+      color: var(--ms-navy);
+      font-size: 10px;
+      font-weight: 950;
+    }
+
+    .state-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      border-top: 1px solid var(--ms-navy);
+      border-left: 1px solid var(--ms-navy);
+    }
+
+    .state-cell {
+      border-right: 1px solid var(--ms-navy);
+      border-bottom: 1px solid var(--ms-navy);
+      padding: 14px;
+      color: var(--ms-navy);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .state-cell:nth-child(2n) { border-right: 0; }
+    .state-cell b {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--ms-green);
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 780px) {
+      .preview { grid-template-columns: 1fr; padding: 12px; }
+      .state-grid { grid-template-columns: 1fr; }
+      .state-cell { border-right: 0; }
+      .ms-page { padding: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="ms-page">
+    <section class="screen-shell">
+      <div class="back-row">
+        <a class="screen-link-home" href="../index.html">
+          <span class="back-mark">41</span>
+          Back to MoolSocial Screenbook
+        </a>
+        <span class="ms-status">Draft</span>
+      </div>
+
+      <section class="preview">
+        <div class="phone" role="img" aria-label="MoolSocial Patient Follow-Up Workspace screen">
+          <div class="app">
+            <div class="status-row">
+              <span>9:41</span>
+              <span>5G 100%</span>
+            </div>
+
+            <header class="top">
+              <div class="brand-row">
+                <div class="brand-copy">
+                  <b>MoolSocial Care</b>
+                  <div class="identity-line" aria-hidden="true"><span></span><span></span><span></span></div>
+                  <span>follow-up · reports · reminders</span>
+                </div>
+                <div class="top-buttons">
+                  <a class="circle-btn" href="40-patient-clinic-invite-join.html" aria-label="Back">
+                    <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" /></svg>
+                  </a>
+                  <button class="circle-btn" aria-label="Patient account">
+                    <svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="command-bar" aria-label="Patient follow-up action">
+                <span class="command-text">Upload report, set reminder or ask clinic</span>
+                <button class="search-action" aria-label="Search">
+                  <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" /><path d="m20 20-3-3" /></svg>
+                </button>
+                <button class="search-action" aria-label="Open follow-up">
+                  <svg viewBox="0 0 24 24"><path d="M4 7V5a1 1 0 0 1 1-1h2" /><path d="M17 4h2a1 1 0 0 1 1 1v2" /><path d="M20 17v2a1 1 0 0 1-1 1h-2" /><path d="M7 20H5a1 1 0 0 1-1-1v-2" /><path d="M7 12h10" /></svg>
+                </button>
+                <button class="search-action" aria-label="Voice help">
+                  <svg viewBox="0 0 24 24"><path d="M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3Z" /><path d="M19 10a7 7 0 0 1-14 0" /><path d="M12 17v4" /></svg>
+                </button>
+              </div>
+            </header>
+
+            <main class="content">
+              <section class="summary-card" aria-label="Patient follow-up case">
+                <div class="card-head">
+                  <b>Active follow-up</b>
+                  <span id="modeTag">verified clinic</span>
+                </div>
+                <div class="appointment-line">
+                  <span class="avatar" id="doctorInitials">KS</span>
+                  <span class="line-copy">
+                    <b id="doctorName">Dr. Kavita Sharma</b>
+                    <span id="appointmentMeta">Sardarpura Clinic · visit linked</span>
+                  </span>
+                  <span class="line-price">
+                    <b id="feeText">Due</b>
+                    <span id="waitText">tomorrow</span>
+                  </span>
+                </div>
+              </section>
+
+              <section class="patient-card" id="patient" aria-label="Patient follow-up action">
+                <div class="card-head">
+                  <b>Next action</b>
+                  <span>continue without repeating details</span>
+                </div>
+                <div class="patient-row">
+                  <button class="patient-option active" data-patient="Upload report"><strong>Upload report</strong><span>lab/photo</span></button>
+                  <button class="patient-option" data-patient="Set reminder"><strong>Set reminder</strong><span>medicine</span></button>
+                  <button class="patient-option" data-patient="Book review"><strong>Book review</strong><span>slot/video</span></button>
+                  <button class="patient-option" data-patient="Ask clinic"><strong>Ask clinic</strong><span>chat</span></button>
+                </div>
+              </section>
+
+              <section class="need-card" id="need" aria-label="Care route">
+                <div class="card-head">
+                  <b>Care route</b>
+                  <span>doctor policy + patient choice</span>
+                </div>
+                <div class="need-row">
+                  <button class="need-chip active" data-need="Report review">Reports</button>
+                  <button class="need-chip" data-need="Medicine reminder">Medicine</button>
+                  <button class="need-chip" data-need="Video follow-up">Video</button>
+                  <button class="need-chip" data-need="Clinic visit">Clinic</button>
+                  <button class="need-chip" data-need="Paid review">Paid</button>
+                  <button class="need-chip" data-need="Close case">Close</button>
+                </div>
+                <div class="symptom-box">
+                  <b id="symptomTitle">Report review</b>
+                  <span id="symptomText">Upload reports before tomorrow so the clinic can review with full context.</span>
+                </div>
+              </section>
+
+              <section class="reports-card" id="reports" aria-label="Patient follow-up records">
+                <div class="card-head">
+                  <b>Health record</b>
+                  <span id="reportHint">private to patient</span>
+                </div>
+                <div class="report-grid">
+                  <button class="report-tile active" data-report="Prescription">
+                    <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z" /><path d="M14 2v6h6" /><path d="M8 13h8" /><path d="M8 17h5" /></svg>
+                    <span class="report-copy"><b>Prescription</b><span>saved safely</span></span>
+                  </button>
+                  <button class="report-tile active" data-report="Reports">
+                    <svg viewBox="0 0 24 24"><path d="M10 2v7l-5 8a3 3 0 0 0 3 5h8a3 3 0 0 0 3-5l-5-8V2" /><path d="M8 2h8" /><path d="M7 16h10" /></svg>
+                    <span class="report-copy"><b>Reports</b><span>2 pending</span></span>
+                  </button>
+                  <button class="report-tile" data-report="Reminders">
+                    <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z" /><circle cx="12" cy="13" r="4" /></svg>
+                    <span class="report-copy"><b>Reminders</b><span>medicine</span></span>
+                  </button>
+                  <button class="report-tile" data-report="Rebook">
+                    <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2" /><circle cx="9" cy="10" r="2" /><path d="M15 8h3" /><path d="M15 12h3" /><path d="M7 16h10" /></svg>
+                    <span class="report-copy"><b>Rebook</b><span>same doctor</span></span>
+                  </button>
+                </div>
+              </section>
+
+              <section class="consent-card" id="consent" aria-label="Patient sharing control">
+                <div class="card-head">
+                  <b>Sharing control</b>
+                  <span>patient can pause anytime</span>
+                </div>
+                <button class="consent-toggle active" id="consentToggle" aria-pressed="true">
+                  <span class="check-dot"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></svg></span>
+                  <span class="consent-copy">
+                    <b>Share with this clinic</b>
+                    <span id="consentText">Dr. Kavita clinic can see only this follow-up case and files you choose.</span>
+                  </span>
+                </button>
+              </section>
+
+              <section class="ready-card" aria-label="Ready to continue follow-up">
+                <div class="ready-top">
+                  <span class="ready-copy">
+                    <b id="readyTitle">Follow-up ready</b>
+                    <span id="readyText">Upload report · Report review · Prescription, Reports · sharing on.</span>
+                  </span>
+                  <span class="ready-pill" id="readyPill">Upload</span>
+                </div>
+                <div class="qr-preview">
+                  <span class="qr-box" aria-hidden="true">
+                    <span></span><span></span><span></span><span></span><span></span>
+                    <span></span><span></span><span></span><span></span><span></span>
+                    <span></span><span></span><span></span><span></span><span></span>
+                    <span></span><span></span><span></span><span></span><span></span>
+                    <span></span><span></span><span></span><span></span><span></span>
+                  </span>
+                  <span class="qr-copy">
+                    <b id="qrTitle">Report upload opens</b>
+                    <span id="qrText">Lab report, photo, PDF or prescription image stays linked to this case.</span>
+                  </span>
+                </div>
+                <div class="cta-row">
+                  <a class="primary-cta" href="38-book-patient-details-reports.html?mode=followup" id="primaryCta">Upload report</a>
+                  <a class="secondary-cta" href="23-chat-inbox-home.html">Chat</a>
+                </div>
+              </section>
+            </main>
+
+            <nav class="bottom-dock" aria-label="Patient follow-up navigation">
+              <a class="mool-button" href="04-universal-focus-shell.html">Mool</a>
+              <div class="dock-track">
+                <a class="dock-tab active" href="#patient"><svg viewBox="0 0 24 24"><path d="M3 3h7v7H3Z" /><path d="M14 3h7v7h-7Z" /><path d="M3 14h7v7H3Z" /><path d="M17 17h4v4h-4Z" /></svg>Action</a>
+                <a class="dock-tab" href="#need"><svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-3-6.7" /><path d="M21 3v6h-6" /></svg>Care</a>
+                <a class="dock-tab" href="#reports"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z" /><path d="M14 2v6h6" /></svg>Records</a>
+                <a class="dock-tab" href="#consent"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-5" /><path d="M20 6 9 17l-5-5" /></svg>Share</a>
+              </div>
+              <a class="chat-button" href="23-chat-inbox-home.html" aria-label="Open chat">
+                <svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z" /></svg>
+                <span class="chat-badge">2</span>
+              </a>
+            </nav>
+          </div>
+        </div>
+
+        <div class="notes">
+          <div>
+            <h1 class="ms-title">Screen 41 keeps the patient inside a focused follow-up workspace.</h1>
+            <p class="ms-lead">
+              After the patient accepts the doctor invite, this workspace keeps follow-up actions together:
+              reports, reminders, prescription, video/clinic review, rebooking and clinic chat.
+            </p>
+          </div>
+
+          <div class="ms-panel">
+            <div class="ms-section-head">Screen Contract <span>Draft for review</span></div>
+            <div class="state-grid">
+              <div class="state-cell"><b>Entry</b>After Screen 40 consent/login, appointment closeout, prescription QR, reminder notification or doctor chat deep link.</div>
+              <div class="state-cell"><b>User Sees</b>Active doctor case, due follow-up, next action, care route, private record tiles, sharing control and clinic chat.</div>
+              <div class="state-cell"><b>Decision</b>Patient uploads report, sets medicine reminder, books review, asks clinic, pauses sharing or closes case.</div>
+              <div class="state-cell"><b>Backend</b>Patient case ID, visit ID, consent scope, report uploads, reminder schedule, prescription record, review booking and chat thread APIs.</div>
+              <div class="state-cell"><b>Trust</b>Patient owns the workspace. Clinic visibility is limited to this case and can be paused without deleting the patient account.</div>
+              <div class="state-cell"><b>Failure</b>If upload fails, reminder permission is off, paid review is required or case expires, show exact recovery without losing records.</div>
+              <div class="state-cell"><b>Next</b>Report upload, reminder setup, follow-up slot, clinic chat, paid review approval or completed care summary.</div>
+              <div class="state-cell"><b>Regression</b>No public medical data, no hidden sharing, no marketplace/provider clutter, no repeated patient form if case already exists.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script>
+    if ("scrollRestoration" in history) {
+      history.scrollRestoration = "manual";
+    }
+
+    function resetPhoneScroll() {
+      const content = document.querySelector(".content");
+      if (content) content.scrollTop = 0;
+    }
+
+    window.addEventListener("load", () => {
+      resetPhoneScroll();
+      requestAnimationFrame(resetPhoneScroll);
+      setTimeout(resetPhoneScroll, 80);
+    });
+
+    const patientButtons = document.querySelectorAll("[data-patient]");
+    const needButtons = document.querySelectorAll("[data-need]");
+    const reasonButtons = document.querySelectorAll("[data-report]");
+    const consentToggle = document.getElementById("consentToggle");
+    const symptomTitle = document.getElementById("symptomTitle");
+    const symptomText = document.getElementById("symptomText");
+    const consentText = document.getElementById("consentText");
+    const readyTitle = document.getElementById("readyTitle");
+    const readyText = document.getElementById("readyText");
+    const readyPill = document.getElementById("readyPill");
+    const primaryCta = document.getElementById("primaryCta");
+    const qrTitle = document.getElementById("qrTitle");
+    const qrText = document.getElementById("qrText");
+
+    const inviteCopy = {
+      "Upload report": {
+        pill: "Upload",
+        cta: "Upload report",
+        href: "38-book-patient-details-reports.html?mode=followup",
+        title: "Report upload opens",
+        text: "Lab report, photo, PDF or prescription image stays linked to this case."
+      },
+      "Set reminder": {
+        pill: "Reminder",
+        cta: "Set medicine reminder",
+        href: "#need",
+        title: "Medicine reminder setup",
+        text: "Dose time and review reminder stay private unless you share with clinic."
+      },
+      "Book review": {
+        pill: "Review",
+        cta: "Book review",
+        href: "37-book-doctor-appointment.html?mode=followup",
+        title: "Book follow-up review",
+        text: "Choose clinic, video or report-review without repeating patient details."
+      },
+      "Ask clinic": {
+        pill: "Chat",
+        cta: "Ask clinic",
+        href: "24-chat-business-thread.html",
+        title: "Clinic chat opens",
+        text: "Ask timing, report instructions or follow-up fee in the clinic thread."
+      }
+    };
+
+    const followCopy = {
+      "Report review": "Upload reports before tomorrow so the clinic can review with full context.",
+      "Medicine reminder": "Set dose reminders and mark medicine taken without opening a separate app.",
+      "Video follow-up": "Book video review when clinic visit is not needed.",
+      "Clinic visit": "Pick a clinic slot and avoid explaining the same case again.",
+      "Paid review": "Fee is shown before confirmation. Nothing is charged without your approval.",
+      "Close case": "Close only when symptoms are resolved and no further doctor review is needed."
+    };
+
+    const state = {
+      invite: "Upload report",
+      follow: "Report review",
+      reasons: new Set(["Prescription", "Reports"]),
+      consent: true
+    };
+
+    function updateReady() {
+      const invite = inviteCopy[state.invite] || inviteCopy["Upload report"];
+      const reasons = [...state.reasons].join(", ") || "private case";
+      symptomTitle.textContent = state.follow;
+      symptomText.textContent = followCopy[state.follow] || followCopy["Report review"];
+      consentToggle.classList.toggle("active", state.consent);
+      consentToggle.setAttribute("aria-pressed", String(state.consent));
+      consentText.textContent = state.consent
+        ? "Dr. Kavita clinic can see only this follow-up case and files you choose."
+        : "Records stay private, but clinic review, report sharing and chat are paused.";
+      readyTitle.textContent = state.consent ? "Follow-up ready" : "Sharing paused";
+      readyText.textContent = `${state.invite} · ${state.follow} · ${reasons} · ${state.consent ? "sharing on" : "clinic cannot view"}.`;
+      readyPill.textContent = state.consent ? invite.pill : "Paused";
+      primaryCta.textContent = invite.cta;
+      primaryCta.href = state.consent ? invite.href : "#consent";
+      qrTitle.textContent = invite.title;
+      qrText.textContent = invite.text;
+    }
+
+    patientButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        patientButtons.forEach((item) => item.classList.toggle("active", item === button));
+        state.invite = button.dataset.patient;
+        updateReady();
+      });
+    });
+
+    needButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        needButtons.forEach((item) => item.classList.toggle("active", item === button));
+        state.follow = button.dataset.need;
+        updateReady();
+      });
+    });
+
+    reasonButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const reason = button.dataset.report;
+        if (state.reasons.has(reason)) {
+          state.reasons.delete(reason);
+          button.classList.remove("active");
+        } else {
+          state.reasons.add(reason);
+          button.classList.add("active");
+        }
+        updateReady();
+      });
+    });
+
+    consentToggle.addEventListener("click", () => {
+      state.consent = !state.consent;
+      updateReady();
+    });
+
+    updateReady();
+  </script>
+<script type="application/json" id="productionRouteContract">{"contractVersion":"mvp-route-lock-2026-07-12","prototypeScreen":41,"productionModule":"health","routeId":"health.followup","routePath":"/health/followups/:followupId","routeState":"patient-workspace","implementation":"route-shell","launchScope":"post-mvp","separateProductionRoute":true,"productionNote":"Own production route /health/followups/:followupId. Implement patient-workspace as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.","canonicalMap":"architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"}</script><script type="application/json" id="prototypeApprovalContract">{"prototypeScreen":41,"status":"approved-and-frozen","authoritative":true,"approvedAt":"2026-07-12","approvalScope":"prototype-ui-ux-and-production-contract"}</script></body>
+</html>

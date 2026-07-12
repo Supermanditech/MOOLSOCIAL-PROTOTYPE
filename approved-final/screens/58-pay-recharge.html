@@ -1,0 +1,1282 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>58 Pay Recharge - MoolSocial Screenbook</title>
+  <link rel="stylesheet" href="../shared/moolsocial-ui-foundation.css" />
+  <style>
+    .screen-shell { display: grid; gap: 18px; }
+
+    .back-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .screen-link-home {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--ms-navy);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .back-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--ms-navy);
+      border-radius: var(--ms-radius);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .preview {
+      display: grid;
+      grid-template-columns: minmax(320px, 390px) minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+      padding: 18px;
+      border-bottom: 1px solid var(--ms-navy);
+      background: var(--ms-white);
+    }
+
+    .phone {
+      width: min(100%, 370px);
+      height: 742px;
+      justify-self: center;
+      border: 10px solid var(--ms-navy);
+      border-radius: 32px;
+      background: var(--ms-navy);
+      overflow: hidden;
+      box-shadow: 0 28px 60px rgba(0, 0, 128, .22);
+    }
+
+    .app {
+      position: relative;
+      height: 100%;
+      display: grid;
+      grid-template-rows: auto auto 1fr auto;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 18% 8%, rgba(255, 153, 51, .16), transparent 25%),
+        radial-gradient(circle at 90% 14%, rgba(19, 136, 8, .16), transparent 26%),
+        linear-gradient(180deg, var(--ms-navy) 0 166px, #f4f7fc 166px 100%);
+      color: var(--ms-white);
+      font-family: var(--ms-font);
+    }
+
+    button,
+    a { -webkit-tap-highlight-color: transparent; }
+
+    button {
+      appearance: none;
+      border: 0;
+      font-family: var(--ms-font);
+      cursor: pointer;
+    }
+
+    svg {
+      width: 19px;
+      height: 19px;
+      stroke: currentColor;
+      stroke-width: 2.4;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .status-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 16px 22px 6px;
+      color: var(--ms-white);
+      font-size: 11px;
+      font-weight: 950;
+    }
+
+    .top {
+      display: grid;
+      gap: 11px;
+      padding: 8px 18px 13px;
+    }
+
+    .brand-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .brand-copy {
+      min-width: 0;
+      display: grid;
+      gap: 2px;
+    }
+
+    .brand-copy b {
+      overflow: hidden;
+      color: var(--ms-white);
+      font-size: 20px;
+      line-height: 1;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .brand-copy span {
+      color: rgba(255, 255, 255, .78);
+      font-size: 10px;
+      font-weight: 850;
+    }
+
+    .identity-line {
+      width: 96px;
+      height: 4px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      overflow: hidden;
+      border-radius: var(--ms-pill);
+    }
+
+    .identity-line span:nth-child(1) { background: var(--ms-saffron); }
+    .identity-line span:nth-child(2) { background: var(--ms-white); }
+    .identity-line span:nth-child(3) { background: var(--ms-green); }
+
+    .top-buttons {
+      display: flex;
+      gap: 8px;
+      flex: 0 0 auto;
+    }
+
+    .circle-btn,
+    .search-action {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      text-decoration: none;
+    }
+
+    .circle-btn {
+      border: 1px solid rgba(255, 255, 255, .26);
+      background: rgba(255, 255, 255, .12);
+      color: var(--ms-white);
+    }
+
+    .command-bar {
+      min-height: 48px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto auto auto;
+      align-items: center;
+      gap: 7px;
+      border: 1px solid rgba(255, 255, 255, .85);
+      border-radius: var(--ms-pill);
+      padding: 5px 5px 5px 13px;
+      background: rgba(255, 255, 255, .10);
+    }
+
+    .command-text {
+      overflow: hidden;
+      color: var(--ms-white);
+      font-size: 11px;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .search-action {
+      background: var(--ms-white);
+      color: var(--ms-navy);
+    }
+
+    .content {
+      min-height: 0;
+      overflow: auto;
+      display: grid;
+      align-content: start;
+      gap: 8px;
+      padding: 0 10px 98px;
+      color: var(--ms-navy);
+      scrollbar-width: none;
+    }
+
+    .content::-webkit-scrollbar { display: none; }
+
+    .route-card,
+    .ride-card,
+    .option-card,
+    .trust-card,
+    .summary-card,
+    .help-card {
+      display: grid;
+      gap: 8px;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: 21px;
+      padding: 10px;
+      background: rgba(255, 255, 255, .98);
+      box-shadow: 0 14px 30px rgba(0, 0, 128, .10);
+    }
+
+    .route-card { margin-top: -8px; }
+
+    .ride-card.is-hidden,
+    .option-card.is-hidden,
+    .summary-card.is-hidden {
+      display: none;
+    }
+
+    .ride-card {
+      background:
+        linear-gradient(145deg, rgba(0, 0, 128, .05), rgba(19, 136, 8, .035)),
+        rgba(255, 255, 255, .98);
+    }
+
+    .card-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .card-head b {
+      color: var(--ms-navy);
+      font-size: 13px;
+      line-height: 1;
+      font-weight: 950;
+    }
+
+    .card-head span {
+      color: rgba(0, 0, 128, .58);
+      font-size: 8px;
+      font-weight: 850;
+      text-align: right;
+    }
+
+    .route-box {
+      display: grid;
+      gap: 7px;
+    }
+
+    .route-line {
+      min-height: 42px;
+      display: grid;
+      grid-template-columns: 32px 1fr;
+      gap: 9px;
+      align-items: center;
+      border-radius: 16px;
+      padding: 8px;
+      background: #f3f6fb;
+    }
+
+    .route-dot {
+      width: 32px;
+      height: 32px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--ms-white);
+      font-size: 10px;
+      font-weight: 950;
+    }
+
+    .route-dot.pick { background: var(--ms-green); }
+    .route-dot.drop { background: var(--ms-saffron); color: var(--ms-navy); }
+
+    .route-copy {
+      min-width: 0;
+      display: grid;
+      gap: 2px;
+    }
+
+    .route-copy b {
+      overflow: hidden;
+      color: var(--ms-navy);
+      font-size: 11px;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .route-copy span {
+      overflow: hidden;
+      color: rgba(0, 0, 128, .58);
+      font-size: 8px;
+      font-weight: 850;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .chip-row,
+    .ride-row,
+    .package-row,
+    .captain-row {
+      display: flex;
+      gap: 6px;
+      min-width: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .chip-row::-webkit-scrollbar,
+    .ride-row::-webkit-scrollbar,
+    .package-row::-webkit-scrollbar,
+    .captain-row::-webkit-scrollbar { display: none; }
+
+    .time-chip,
+    .small-chip,
+    .ride-option,
+    .package-option,
+    .captain-option,
+    .primary-cta,
+    .secondary-cta,
+    .dock-tab,
+    .mool-button,
+    .chat-button { font-family: var(--ms-font); }
+
+    .time-chip,
+    .small-chip {
+      flex: 0 0 auto;
+      min-height: 31px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: var(--ms-pill);
+      padding: 0 12px;
+      background: #f7f9fd;
+      color: var(--ms-navy);
+      font-size: 9px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .time-chip.active,
+    .small-chip.active {
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -3px 0 var(--ms-saffron), 0 8px 18px rgba(0, 0, 128, .15);
+    }
+
+    .ride-option {
+      flex: 0 0 114px;
+      min-height: 78px;
+      display: grid;
+      align-content: center;
+      gap: 5px;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: 18px;
+      padding: 10px;
+      background: #f7f9fd;
+      color: var(--ms-navy);
+      text-align: left;
+    }
+
+    .ride-option.active {
+      border-color: rgba(0, 0, 128, .42);
+      background:
+        linear-gradient(135deg, rgba(255, 153, 51, .14), rgba(19, 136, 8, .08)),
+        var(--ms-white);
+      box-shadow: inset 0 -3px 0 var(--ms-green), 0 9px 18px rgba(0, 0, 128, .10);
+    }
+
+    .ride-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .ride-top svg { color: var(--ms-navy); }
+
+    .ride-option b {
+      color: var(--ms-navy);
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .ride-option strong {
+      color: var(--ms-green);
+      font-size: 15px;
+      line-height: 1;
+      font-weight: 950;
+    }
+
+    .ride-option span {
+      color: rgba(0, 0, 128, .58);
+      font-size: 8px;
+      font-weight: 850;
+      line-height: 1.15;
+    }
+
+    .package-option {
+      flex: 0 0 134px;
+      min-height: 76px;
+      display: grid;
+      align-content: center;
+      gap: 4px;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: 18px;
+      padding: 9px;
+      background: #f7f9fd;
+      color: var(--ms-navy);
+      text-align: left;
+    }
+
+    .package-option.active {
+      border-color: rgba(0, 0, 128, .42);
+      background:
+        linear-gradient(135deg, rgba(255, 153, 51, .13), rgba(19, 136, 8, .08)),
+        var(--ms-white);
+      box-shadow: inset 0 -3px 0 var(--ms-green);
+    }
+
+    .package-option:focus-visible,
+    .ride-option:focus-visible,
+    .time-chip:focus-visible {
+      outline: 3px solid rgba(255, 153, 51, .45);
+      outline-offset: 2px;
+    }
+
+    .package-option b,
+    .package-option strong,
+    .package-option span {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .package-option b {
+      color: var(--ms-navy);
+      font-size: 10px;
+      font-weight: 950;
+    }
+
+    .package-option strong {
+      color: var(--ms-green);
+      font-size: 13px;
+      line-height: 1;
+      font-weight: 950;
+    }
+
+    .package-option span {
+      color: rgba(0, 0, 128, .58);
+      font-size: 7px;
+      font-weight: 850;
+    }
+
+    .decision-note {
+      display: grid;
+      grid-template-columns: 20px 1fr;
+      gap: 7px;
+      align-items: center;
+      border-radius: 15px;
+      padding: 8px 9px;
+      background: #f3f6fb;
+      color: rgba(0, 0, 128, .66);
+      font-size: 8px;
+      line-height: 1.25;
+      font-weight: 850;
+    }
+
+    .decision-note svg {
+      width: 18px;
+      height: 18px;
+      color: var(--ms-green);
+    }
+
+    .summary-facts {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .summary-fact {
+      min-height: 39px;
+      display: grid;
+      align-content: center;
+      gap: 2px;
+      border-radius: 14px;
+      padding: 7px;
+      background: rgba(255, 255, 255, .82);
+      color: var(--ms-navy);
+      overflow: hidden;
+    }
+
+    .summary-fact b,
+    .summary-fact span {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .summary-fact b {
+      font-size: 7px;
+      font-weight: 950;
+      text-transform: uppercase;
+    }
+
+    .summary-fact span {
+      color: var(--ms-green);
+      font-size: 8px;
+      font-weight: 900;
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 7px;
+    }
+
+    .trust-item,
+    .captain-option {
+      border-radius: 15px;
+      background: #f3f6fb;
+      color: var(--ms-navy);
+    }
+
+    .trust-item {
+      min-height: 46px;
+      display: grid;
+      align-content: center;
+      gap: 2px;
+      padding: 7px;
+      overflow: hidden;
+    }
+
+    .trust-item b {
+      overflow: hidden;
+      font-size: 8px;
+      font-weight: 950;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .trust-item span {
+      overflow: hidden;
+      color: var(--ms-green);
+      font-size: 7px;
+      font-weight: 900;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .captain-option {
+      flex: 0 0 158px;
+      display: grid;
+      grid-template-columns: 38px 1fr;
+      gap: 8px;
+      align-items: center;
+      border: 1px solid rgba(0, 0, 128, .10);
+      padding: 8px;
+      text-align: left;
+    }
+
+    .avatar {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 32% 22%, rgba(255, 255, 255, .34), transparent 28%),
+        linear-gradient(145deg, var(--ms-green), var(--ms-navy));
+      color: var(--ms-white);
+      font-size: 10px;
+      font-weight: 950;
+    }
+
+    .captain-copy {
+      min-width: 0;
+      display: grid;
+      gap: 2px;
+    }
+
+    .captain-copy b,
+    .captain-copy span,
+    .captain-copy small {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .captain-copy b {
+      color: var(--ms-navy);
+      font-size: 10px;
+      font-weight: 950;
+    }
+
+    .captain-copy span {
+      color: rgba(0, 0, 128, .62);
+      font-size: 7px;
+      font-weight: 850;
+    }
+
+    .captain-copy small {
+      color: var(--ms-green);
+      font-size: 7px;
+      font-weight: 900;
+    }
+
+    .after-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .after-item {
+      min-height: 42px;
+      display: grid;
+      place-items: center;
+      gap: 2px;
+      border-radius: 14px;
+      background: #f3f6fb;
+      color: var(--ms-navy);
+      font-size: 7px;
+      font-weight: 900;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .after-item svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .summary-card {
+      background:
+        linear-gradient(135deg, rgba(255, 153, 51, .13), rgba(19, 136, 8, .08)),
+        var(--ms-white);
+    }
+
+    .summary-top {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      align-items: start;
+    }
+
+    .summary-copy {
+      min-width: 0;
+      display: grid;
+      gap: 4px;
+    }
+
+    .summary-copy b {
+      overflow: hidden;
+      color: var(--ms-navy);
+      font-size: 15px;
+      line-height: 1.05;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .summary-copy span {
+      color: rgba(0, 0, 128, .62);
+      font-size: 8px;
+      font-weight: 850;
+      line-height: 1.25;
+    }
+
+    .summary-price {
+      min-width: 72px;
+      display: grid;
+      justify-items: end;
+      gap: 3px;
+      color: var(--ms-green);
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .summary-price b {
+      font-size: 16px;
+      line-height: 1;
+    }
+
+    .summary-price span {
+      color: rgba(0, 0, 128, .58);
+      font-size: 7px;
+      font-weight: 850;
+    }
+
+    .cta-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 7px;
+      align-items: center;
+    }
+
+    .primary-cta,
+    .secondary-cta {
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--ms-pill);
+      text-decoration: none;
+      font-size: 10px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .primary-cta {
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 var(--ms-saffron), 0 10px 20px rgba(0, 0, 128, .18);
+    }
+
+    .secondary-cta {
+      border: 1px solid rgba(0, 0, 128, .14);
+      padding: 0 12px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+    }
+
+    .help-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 7px;
+    }
+
+    .help-item {
+      min-height: 42px;
+      display: grid;
+      align-content: center;
+      gap: 2px;
+      border-radius: 14px;
+      padding: 7px;
+      background: #f3f6fb;
+      overflow: hidden;
+    }
+
+    .help-item b,
+    .help-item span {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .help-item b {
+      color: var(--ms-navy);
+      font-size: 8.5px;
+      font-weight: 950;
+    }
+
+    .help-item span {
+      color: rgba(0, 0, 128, .58);
+      font-size: 7px;
+      font-weight: 850;
+    }
+
+    .bottom-dock {
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+      display: grid;
+      grid-template-columns: 52px minmax(0, 1fr) 52px;
+      gap: 8px;
+      align-items: center;
+      border: 1px solid rgba(0, 0, 128, .78);
+      border-radius: 22px;
+      padding: 7px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, .99), rgba(244, 247, 252, .99));
+      box-shadow: 0 -12px 24px rgba(0, 0, 128, .18);
+      z-index: 5;
+    }
+
+    .mool-button,
+    .chat-button {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      border: 0;
+      border-radius: 50%;
+      text-decoration: none;
+      font-size: 10px;
+      font-weight: 950;
+    }
+
+    .mool-button {
+      background:
+        radial-gradient(circle at 36% 24%, rgba(255, 255, 255, .30), transparent 32%),
+        linear-gradient(145deg, #1717ba, var(--ms-navy) 72%);
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 rgba(0, 0, 80, .35), 0 9px 18px rgba(0, 0, 128, .22);
+    }
+
+    .chat-button {
+      position: relative;
+      background: radial-gradient(circle at 50% 12%, rgba(255, 255, 255, .96), rgba(255, 255, 255, .78) 44%, rgba(240, 244, 248, .98));
+      color: var(--ms-navy);
+      border: 1px solid rgba(0, 0, 128, .16);
+      box-shadow: 0 9px 18px rgba(0, 0, 128, .12);
+    }
+
+    .chat-badge {
+      min-width: 16px;
+      height: 16px;
+      position: absolute;
+      top: 5px;
+      right: 2px;
+      display: grid;
+      place-items: center;
+      border-radius: var(--ms-pill);
+      padding: 0 4px;
+      background: var(--ms-saffron);
+      color: var(--ms-navy);
+      font-size: 9px;
+      font-weight: 950;
+    }
+
+    .dock-track {
+      min-width: 0;
+      display: flex;
+      gap: 7px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      border: 1px solid rgba(0, 0, 128, .20);
+      border-radius: 19px;
+      padding: 5px 6px;
+      background:
+        radial-gradient(circle at 50% 50%, rgba(0, 0, 128, .12), transparent 58%),
+        linear-gradient(90deg, rgba(0, 0, 128, .10), rgba(255, 255, 255, .96) 20% 80%, rgba(0, 0, 128, .10));
+      box-shadow: inset 12px 0 18px rgba(0, 0, 128, .10), inset -12px 0 18px rgba(0, 0, 128, .10);
+    }
+
+    .dock-track::-webkit-scrollbar { display: none; }
+
+    .dock-tab {
+      flex: 0 0 auto;
+      min-width: 58px;
+      min-height: 42px;
+      display: grid;
+      place-items: center;
+      gap: 2px;
+      border-radius: 17px;
+      color: var(--ms-navy);
+      text-decoration: none;
+      font-size: 9px;
+      font-weight: 950;
+    }
+
+    .dock-tab svg {
+      width: 17px;
+      height: 17px;
+    }
+
+    .dock-tab.active {
+      background: linear-gradient(180deg, #1515b8, var(--ms-navy));
+      color: var(--ms-white);
+      box-shadow: inset 0 -3px 0 var(--ms-saffron), 0 8px 18px rgba(0, 0, 128, .18);
+    }
+
+    .state-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      border-top: 1px solid var(--ms-navy);
+      border-left: 1px solid var(--ms-navy);
+    }
+
+    .state-cell {
+      border-right: 1px solid var(--ms-navy);
+      border-bottom: 1px solid var(--ms-navy);
+      padding: 14px;
+      color: var(--ms-navy);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .state-cell:nth-child(2n) { border-right: 0; }
+    .state-cell b {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--ms-green);
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 780px) {
+      .preview { grid-template-columns: 1fr; padding: 12px; }
+      .state-grid { grid-template-columns: 1fr; }
+      .state-cell { border-right: 0; }
+      .ms-page { padding: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="ms-page">
+    <section class="screen-shell">
+      <div class="back-row">
+        <a class="screen-link-home" href="../index.html">
+          <span class="back-mark">58</span>
+          Back to MoolSocial Screenbook
+        </a>
+        <span class="ms-status">Approved</span>
+      </div>
+
+      <section class="preview">
+        <div class="phone" role="img" aria-label="MoolSocial Recharge screen">
+          <div class="app">
+            <div class="status-row">
+              <span>9:41</span>
+              <span>5G 100%</span>
+            </div>
+
+            <header class="top">
+              <div class="brand-row">
+                <div class="brand-copy">
+                  <b>MoolSocial Recharge</b>
+                  <div class="identity-line" aria-hidden="true"><span></span><span></span><span></span></div>
+                  <span>mobile, DTH, data, saved</span>
+                </div>
+                <div class="top-buttons">
+                  <a class="circle-btn" href="04-universal-focus-shell.html" aria-label="Back">
+                    <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" /></svg>
+                  </a>
+                  <button class="circle-btn" aria-label="Saved places">
+                    <svg viewBox="0 0 24 24"><path d="M12 21s7-5 7-11a7 7 0 1 0-14 0c0 6 7 11 7 11Z" /><circle cx="12" cy="10" r="2" /></svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="command-bar" aria-label="Recharge search">
+                <span class="command-text">Enter number, confirm operator and choose plan.</span>
+                <button class="search-action" aria-label="Search">
+                  <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" /><path d="m20 20-3-3" /></svg>
+                </button>
+                <button class="search-action" aria-label="Use current location">
+                  <svg viewBox="0 0 24 24"><path d="M12 2v4" /><path d="M12 18v4" /><path d="M2 12h4" /><path d="M18 12h4" /><circle cx="12" cy="12" r="5" /></svg>
+                </button>
+                <button class="search-action" aria-label="Voice search">
+                  <svg viewBox="0 0 24 24"><path d="M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3Z" /><path d="M19 10a7 7 0 0 1-14 0" /><path d="M12 17v4" /></svg>
+                </button>
+              </div>
+            </header>
+
+            <main class="content">
+              <section class="route-card" aria-label="Recharge context">
+                <div class="card-head">
+                  <b>Recharge context</b>
+                  <span>payment-first action</span>
+                </div>
+                <div class="route-box">
+                  <div class="route-line">
+                    <span class="route-dot pick">A</span>
+                    <span class="route-copy">
+                      <b>Saved number: 98******21</b>
+                      <span>Tap to change number or select another saved connection</span>
+                    </span>
+                  </div>
+                  <div class="route-line">
+                    <span class="route-dot drop">M</span>
+                    <span class="route-copy">
+                      <b>Operator check required</b>
+                      <span>Final debit happens only after plan confirmation</span>
+                    </span>
+                  </div>
+                </div>
+                <div class="chip-row" aria-label="Recharge payment mode">
+                  <button class="time-chip active" data-time="UPI">UPI</button>
+                  <button class="time-chip" data-time="Card">Card</button>
+                  <button class="time-chip" data-time="Saved UPI">Saved UPI</button>
+                  <button class="time-chip" data-time="Receipt">Receipt</button>
+                </div>
+              </section>
+
+              <section class="ride-card is-hidden" aria-label="Choose recharge action" id="rideCard">
+                <div class="card-head">
+                  <b>Choose recharge</b>
+                  <span id="rideHelp">tap one type</span>
+                </div>
+                <div class="ride-row">
+                  <button class="ride-option" data-ride="Mobile">
+                    <span class="ride-top">
+                      <b>Mobile</b>
+                      <svg viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2" /><path d="M11 18h2" /><path d="M12 6v5" /><path d="M9.5 8.5 12 6l2.5 2.5" /></svg>
+                    </span>
+                    <strong>mobile, DTH, data</strong>
+                    <span>number, operator, plan</span>
+                  </button>
+                  <button class="ride-option" data-ride="DTH">
+                    <span class="ride-top">
+                      <b>DTH</b>
+                      <svg viewBox="0 0 24 24"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2Z" /><path d="M8 7h8" /><path d="M8 12h8" /></svg>
+                    </span>
+                    <strong>TV recharge</strong>
+                    <span>subscriber ID needed</span>
+                  </button>
+                  <button class="ride-option" data-ride="Data">
+                    <span class="ride-top">
+                      <b>Data</b>
+                      <svg viewBox="0 0 24 24"><path d="M4 4h6v6H4Z" /><path d="M14 4h6v6h-6Z" /><path d="M4 14h6v6H4Z" /><path d="M14 14h2" /><path d="M18 14h2" /><path d="M14 18h6" /></svg>
+                    </span>
+                    <strong>data booster</strong>
+                    <span>number, plan, receipt</span>
+                  </button>
+                  <button class="ride-option" data-ride="Saved">
+                    <span class="ride-top">
+                      <b>Saved</b>
+                      <svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z" /><path d="M8 9h8" /><path d="M8 13h5" /></svg>
+                    </span>
+                    <strong>repeat recharge</strong>
+                    <span>saved numbers</span>
+                  </button>
+                </div>
+              </section>
+
+              <section class="option-card is-hidden" aria-label="Choose recharge option" id="optionCard">
+                <div class="card-head">
+                  <b id="optionTitle">Choose option</b>
+                  <span id="optionHelp">shown after pay action</span>
+                </div>
+                <div class="package-row" id="packageRow"></div>
+                <div class="decision-note">
+                  <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-5" /><path d="M20 6 9 17l-5-5" /></svg>
+                  <span id="decisionNoteText">Number, operator, plan, amount and receipt stay visible before debit.</span>
+                </div>
+              </section>
+
+              <section class="summary-card is-hidden" aria-label="Recharge summary" id="summaryCard">
+                <div class="summary-top">
+                  <span class="summary-copy">
+                    <b id="summaryTitle">Choose recharge</b>
+                    <span id="summaryText">Choose recharge type to see number, operator and plan check.</span>
+                  </span>
+                  <span class="summary-price">
+                    <b id="summaryPrice">--</b>
+                    <span>amount</span>
+                  </span>
+                </div>
+                <div class="summary-facts" aria-label="Recharge trust facts">
+                  <span class="summary-fact"><b>Needed</b><span id="summaryInput">after choice</span></span>
+                  <span class="summary-fact"><b>Safe</b><span id="summaryProof">verified</span></span>
+                  <span class="summary-fact"><b>Record</b><span id="summaryFollow">receipt saved</span></span>
+                </div>
+                <div class="cta-row">
+                  <a class="primary-cta" href="#" id="primaryCta">Continue</a>
+                  <a class="secondary-cta" href="64-pay-receipts-history.html">Receipts</a>
+                </div>
+              </section>
+
+            </main>
+
+            <nav class="bottom-dock" aria-label="Recharge navigation">
+              <a class="mool-button" href="04-universal-focus-shell.html">Mool</a>
+              <div class="dock-track">
+                <a class="dock-tab" href="#" data-dock-ride="Mobile"><svg viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2" /><path d="M11 18h2" /></svg>Mobile</a>
+                <a class="dock-tab" href="#" data-dock-ride="DTH"><svg viewBox="0 0 24 24"><rect x="4" y="6" width="16" height="10" rx="2" /><path d="M8 20h8" /><path d="M12 16v4" /></svg>DTH</a>
+                <a class="dock-tab" href="#" data-dock-ride="Data"><svg viewBox="0 0 24 24"><path d="M5 12a7 7 0 0 1 14 0" /><path d="M8 15a4 4 0 0 1 8 0" /><path d="M12 18h.01" /></svg>Data</a>
+                <a class="dock-tab" href="#" data-dock-ride="Saved"><svg viewBox="0 0 24 24"><path d="M19 21 12 17 5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2Z" /></svg>Saved</a>
+              </div>
+              <a class="chat-button" href="23-chat-inbox-home.html" aria-label="Open chat">
+                <svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z" /></svg>
+                <span class="chat-badge">2</span>
+              </a>
+            </nav>
+          </div>
+        </div>
+
+        <div class="notes">
+          <div>
+            <h1 class="ms-title">Screen 58 makes recharge payment-first and receipt-safe.</h1>
+            <p class="ms-lead">
+              Recharge starts with a payment intent, so it belongs under Pay. The screen must confirm number,
+              operator, plan, amount and receipt before the final debit.
+            </p>
+          </div>
+
+          <div class="ms-panel">
+            <div class="ms-section-head">Screen Contract <span>Approved</span></div>
+            <div class="state-grid">
+              <div class="state-cell"><b>Entry</b>From Screen 57 Recharge, saved number, reminder, search or chat recharge request.</div>
+              <div class="state-cell"><b>User Sees</b>Mobile, DTH, Data and Saved recharge paths with number/operator/plan and receipt rule.</div>
+              <div class="state-cell"><b>Decision</b>User chooses recharge type and plan, confirms amount, then proceeds to payment confirmation.</div>
+              <div class="state-cell"><b>Backend</b>Operator lookup, plan catalogue, saved connections, payment method, recharge API, receipt ledger and failed/pending handling.</div>
+              <div class="state-cell"><b>Trust</b>Show number, operator, plan, amount and receipt before debit. No silent operator mismatch.</div>
+              <div class="state-cell"><b>Failure</b>If operator mismatch, payment pending, recharge failed or receipt missing, show retry and support.</div>
+              <div class="state-cell"><b>Next</b>Routes to recharge confirmation/payment and receipt status.</div>
+              <div class="state-cell"><b>Regression</b>Recharge stays payment-first. It must not absorb Buy, Ride, Eat or service payments.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script>
+    if ("scrollRestoration" in history) {
+      history.scrollRestoration = "manual";
+    }
+
+    function resetPhoneScroll() {
+      const content = document.querySelector(".content");
+      if (content) content.scrollTop = 0;
+    }
+
+    window.addEventListener("load", () => {
+      resetPhoneScroll();
+      requestAnimationFrame(resetPhoneScroll);
+      setTimeout(resetPhoneScroll, 80);
+    });
+
+    const rideOptions = document.querySelectorAll("[data-ride]");
+    const dockOptions = document.querySelectorAll("[data-dock-ride]");
+    const timeChips = document.querySelectorAll("[data-time]");
+    const rideCard = document.getElementById("rideCard");
+    const optionCard = document.getElementById("optionCard");
+    const summaryCard = document.getElementById("summaryCard");
+    const packageRow = document.getElementById("packageRow");
+    const optionTitle = document.getElementById("optionTitle");
+    const optionHelp = document.getElementById("optionHelp");
+    const rideHelp = document.getElementById("rideHelp");
+    const summaryTitle = document.getElementById("summaryTitle");
+    const summaryText = document.getElementById("summaryText");
+    const summaryPrice = document.getElementById("summaryPrice");
+    const summaryInput = document.getElementById("summaryInput");
+    const summaryProof = document.getElementById("summaryProof");
+    const summaryFollow = document.getElementById("summaryFollow");
+    const decisionNoteText = document.getElementById("decisionNoteText");
+    const primaryCta = document.getElementById("primaryCta");
+
+    const branchNotes = {
+      Mobile: "Confirm mobile number, operator, plan amount and validity before debit.",
+      DTH: "Confirm subscriber ID, provider, pack amount and expiry before debit.",
+      Data: "Confirm number, operator, data limit, validity and final amount before debit.",
+      Saved: "Saved recharges must still show number, operator, plan and amount before repeat payment."
+    };
+
+    const ridePackages = {
+      Mobile: [
+        { name: "Popular plan", price: "Rs 299", eta: "28 days", seat: "1.5 GB/day", note: "unlimited calls", captains: "operator matched", cta: "Continue Rs 299", input: "98******21", proof: "Jio prepaid", follow: "receipt saved", url: "58-pay-recharge.html?type=Mobile&plan=299" },
+        { name: "Value plan", price: "Rs 199", eta: "28 days", seat: "2 GB total", note: "voice + SMS", captains: "operator matched", cta: "Continue Rs 199", input: "98******21", proof: "Jio prepaid", follow: "receipt saved", url: "58-pay-recharge.html?type=Mobile&plan=199" },
+        { name: "Annual plan", price: "Rs 2999", eta: "365 days", seat: "2.5 GB/day", note: "best for regular users", captains: "operator matched", cta: "Continue Rs 2999", input: "98******21", proof: "Jio prepaid", follow: "receipt saved", url: "58-pay-recharge.html?type=Mobile&plan=2999" }
+      ],
+      DTH: [
+        { name: "Monthly pack", price: "Rs 310", eta: "30 days", seat: "family TV pack", note: "subscriber verified", captains: "provider matched", cta: "Continue Rs 310", input: "DTH ID ending 421", proof: "Tata Play", follow: "receipt saved", url: "58-pay-recharge.html?type=DTH&pack=monthly" },
+        { name: "Sports add-on", price: "Rs 89", eta: "30 days", seat: "sports channels", note: "add-on pack", captains: "provider matched", cta: "Add Rs 89", input: "DTH ID ending 421", proof: "Tata Play", follow: "receipt saved", url: "58-pay-recharge.html?type=DTH&pack=sports" },
+        { name: "Top up balance", price: "Custom", eta: "instant", seat: "wallet balance", note: "enter amount", captains: "provider matched", cta: "Enter amount", input: "DTH ID ending 421", proof: "Tata Play", follow: "receipt saved", url: "58-pay-recharge.html?type=DTH&pack=topup" }
+      ],
+      Data: [
+        { name: "1 GB booster", price: "Rs 19", eta: "active pack", seat: "extra data", note: "same validity", captains: "operator matched", cta: "Continue Rs 19", input: "98******21", proof: "Jio prepaid", follow: "receipt saved", url: "58-pay-recharge.html?type=Data&pack=1gb" },
+        { name: "6 GB booster", price: "Rs 61", eta: "active pack", seat: "extra data", note: "high use", captains: "operator matched", cta: "Continue Rs 61", input: "98******21", proof: "Jio prepaid", follow: "receipt saved", url: "58-pay-recharge.html?type=Data&pack=6gb" },
+        { name: "Work data", price: "Rs 121", eta: "active pack", seat: "12 GB extra", note: "for video calls", captains: "operator matched", cta: "Continue Rs 121", input: "98******21", proof: "Jio prepaid", follow: "receipt saved", url: "58-pay-recharge.html?type=Data&pack=work" }
+      ],
+      Saved: [
+        { name: "Mom mobile", price: "Rs 299", eta: "28 days", seat: "saved number", note: "last used plan", captains: "operator matched", cta: "Repeat Rs 299", input: "94******18", proof: "Airtel prepaid", follow: "receipt saved", url: "58-pay-recharge.html?type=Saved&who=mom" },
+        { name: "Home DTH", price: "Rs 310", eta: "30 days", seat: "saved DTH", note: "monthly pack", captains: "provider matched", cta: "Repeat Rs 310", input: "DTH ID ending 421", proof: "Tata Play", follow: "receipt saved", url: "58-pay-recharge.html?type=Saved&who=home-dth" },
+        { name: "Own data", price: "Rs 61", eta: "active pack", seat: "saved booster", note: "data top-up", captains: "operator matched", cta: "Repeat Rs 61", input: "98******21", proof: "Jio prepaid", follow: "receipt saved", url: "58-pay-recharge.html?type=Saved&who=own-data" }
+      ]
+    };
+
+    const state = {
+      ride: "",
+      packageName: "",
+      price: "--",
+      eta: "",
+      seat: "",
+      note: "",
+      captains: "",
+      input: "after choice",
+      proof: "verified",
+      follow: "if allowed",
+      url: "#",
+      cta: "Choose recharge",
+      time: "UPI"
+    };
+
+    function updateSummary() {
+      if (rideHelp) rideHelp.textContent = state.ride ? `${state.ride} selected` : "tap recharge type";
+      optionTitle.textContent = `${state.ride} options`;
+      optionHelp.textContent = `${state.captains} · ${state.time}`;
+      summaryTitle.textContent = state.packageName;
+      summaryText.textContent = `${state.seat} · ${state.eta} · ${state.note}. Number, operator, plan and amount stay visible before final payment.`;
+      summaryPrice.textContent = state.price;
+      summaryInput.textContent = state.input;
+      summaryProof.textContent = state.proof;
+      summaryFollow.textContent = state.follow;
+      decisionNoteText.textContent = branchNotes[state.ride] || "Number, operator, plan, amount and receipt stay visible before debit.";
+      primaryCta.textContent = state.cta;
+      primaryCta.href = state.url;
+    }
+
+    function applyPackage(packageItem) {
+      state.packageName = packageItem.name;
+      state.price = packageItem.price;
+      state.eta = packageItem.eta;
+      state.seat = packageItem.seat;
+      state.note = packageItem.note;
+      state.captains = packageItem.captains;
+      state.input = packageItem.input;
+      state.proof = packageItem.proof;
+      state.follow = packageItem.follow;
+      state.url = packageItem.url || "#";
+      state.cta = packageItem.cta;
+      summaryCard.classList.remove("is-hidden");
+      [...packageRow.querySelectorAll("[data-package]")].forEach((button) => {
+        button.classList.toggle("active", button.dataset.package === packageItem.name);
+      });
+      updateSummary();
+    }
+
+    function renderPackages(ride) {
+      packageRow.innerHTML = "";
+      ridePackages[ride].forEach((item, index) => {
+        const button = document.createElement("button");
+        button.className = `package-option${index === 0 ? " active" : ""}`;
+        button.dataset.package = item.name;
+        button.type = "button";
+        button.innerHTML = `<b>${item.name}</b><strong>${item.price}</strong><span>${item.eta} · ${item.note}</span>`;
+        button.addEventListener("click", () => applyPackage(item));
+        packageRow.appendChild(button);
+      });
+      applyPackage(ridePackages[ride][0]);
+    }
+
+    function applyRide(ride) {
+      rideOptions.forEach((item) => {
+        const active = item.dataset.ride === ride;
+        item.classList.toggle("active", active);
+      });
+      dockOptions.forEach((item) => item.classList.toggle("active", item.dataset.dockRide === ride));
+      state.ride = ride;
+      rideCard.classList.add("is-hidden");
+      optionCard.classList.remove("is-hidden");
+      renderPackages(ride);
+    }
+
+    rideOptions.forEach((option) => {
+      option.addEventListener("click", () => applyRide(option.dataset.ride));
+    });
+
+    dockOptions.forEach((option) => {
+      option.addEventListener("click", (event) => {
+        event.preventDefault();
+        applyRide(option.dataset.dockRide);
+      });
+    });
+
+    timeChips.forEach((chip) => {
+      chip.addEventListener("click", () => {
+        timeChips.forEach((item) => item.classList.toggle("active", item === chip));
+        state.time = chip.dataset.time;
+        updateSummary();
+      });
+    });
+
+    applyRide("Mobile");
+  </script>
+<script type="application/json" id="productionRouteContract">{"contractVersion":"mvp-route-lock-2026-07-12","prototypeScreen":58,"productionModule":"pay","routeId":"pay.recharge","routePath":"/pay/recharge","routeState":"recharge","implementation":"route-shell","launchScope":"mvp-core","separateProductionRoute":true,"productionNote":"Own production route /pay/recharge. Implement recharge as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.","canonicalMap":"architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"}</script><script type="application/json" id="prototypeApprovalContract">{"prototypeScreen":58,"status":"approved-and-frozen","authoritative":true,"approvedAt":"2026-07-12","approvalScope":"prototype-ui-ux-and-production-contract"}</script></body>
+</html>

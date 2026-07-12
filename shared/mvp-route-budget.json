@@ -1,0 +1,71 @@
+{
+  "budgetVersion": "mvp-120-route-lock-2026-07-12",
+  "launchDeadlineDays": 45,
+  "routeCeiling": 120,
+  "existingLaunchRelevantRoutes": 58,
+  "remainingRouteCapacity": 62,
+  "countingRule": "Only a new launch-relevant routeId consumes one route. route-state and embedded-panel prototypes using an existing routeId consume zero additional routes.",
+  "allocations": [
+    {
+      "budgetBucket": "manufacturer_supplier",
+      "routeAllowance": 16,
+      "workspaceTypes": ["manufacturer", "supplier", "authorised distributor", "wholesaler", "raw material supplier"],
+      "capabilityKeys": ["readiness", "catalogue", "commercial-terms", "procurement", "orders", "availability", "dispatch", "delivery-proof", "payment-protection", "receivables", "tax-documents", "claims", "relationships", "campaigns", "analytics", "team-support"],
+      "mustSolve": ["verification and business readiness", "product and SKU catalogue", "price MOQ and commercial terms", "raw-material procurement", "buyer orders", "stock and production availability", "dispatch and transport choice", "delivery proof", "advance payment protection", "receivables and payouts", "GST invoice and credit note", "returns claims and disputes", "buyer and distributor relationships", "sales campaigns", "business analytics", "staff settings and support"]
+    },
+    {
+      "budgetBucket": "captain",
+      "routeAllowance": 8,
+      "workspaceTypes": ["bike captain", "auto captain", "cab captain", "fleet driver"],
+      "capabilityKeys": ["availability", "ride-request", "pickup-navigation", "live-trip-safety", "fare-completion", "earnings-payouts", "documents-compliance", "support-paid-work"],
+      "mustSolve": ["go online and availability", "ride request decision", "pickup navigation", "live trip and safety", "fare completion", "earnings and payouts", "vehicle documents and compliance", "support plus paid onboarding work"]
+    },
+    {
+      "budgetBucket": "creator",
+      "routeAllowance": 8,
+      "workspaceTypes": ["short-video creator", "long-video creator", "social publisher", "business creator"],
+      "capabilityKeys": ["creator-home", "publish", "content-library", "performance", "audience", "campaigns", "earnings-payouts", "verification-safety"],
+      "mustSolve": ["creator home", "record upload and publish", "content library", "content performance", "audience and community", "campaign opportunities", "earnings and payouts", "channel verification settings and safety"]
+    },
+    {
+      "budgetBucket": "freelancer_earn",
+      "routeAllowance": 6,
+      "workspaceTypes": ["freelancer", "field worker", "onboarding partner", "delivery worker", "campaign worker"],
+      "capabilityKeys": ["opportunities", "applications", "active-work", "proof-outcome", "earnings-payout", "issues-history"],
+      "mustSolve": ["matched opportunities", "applications and eligibility", "active work", "proof and outcome submission", "earnings and payout", "issues ratings and work history"]
+    },
+    {
+      "budgetBucket": "generic_service_provider",
+      "routeAllowance": 8,
+      "workspaceTypes": ["restaurant", "cloud kitchen", "tiffin provider", "salon", "doctor", "hospital", "clinic", "pharmacy", "transporter", "individual service provider"],
+      "capabilityKeys": ["readiness", "catalogue-services", "availability-capacity", "orders-bookings", "fulfilment-chat", "customers-payments", "earn-campaigns", "settings-support"],
+      "mustSolve": ["profile and statutory readiness", "service menu or catalogue", "availability and capacity", "orders or bookings", "fulfilment and customer communication", "customers payments and records", "earn opportunities and campaigns", "settings staff and support"]
+    },
+    {
+      "budgetBucket": "moolsocial_admin",
+      "routeAllowance": 10,
+      "workspaceTypes": ["MoolSocial operations", "verification", "commerce operations", "ride operations", "content trust and safety", "finance operations"],
+      "capabilityKeys": ["command-centre", "verification", "catalogue-governance", "order-exceptions", "ride-exceptions", "work-governance", "content-moderation", "finance-reconciliation", "support-sla", "configuration-analytics"],
+      "mustSolve": ["operations command centre", "workspace verification", "catalogue and SKU governance", "order and fulfilment exceptions", "ride and captain exceptions", "work and campaign governance", "content moderation", "payments refunds and reconciliation", "support disputes and SLA", "configuration audit and analytics"]
+    },
+    {
+      "budgetBucket": "shared_cross_workspace",
+      "routeAllowance": 6,
+      "workspaceTypes": ["all verified workspaces"],
+      "capabilityKeys": ["notifications", "identity-consent", "global-input", "files-evidence", "security-support", "analytics-settings"],
+      "mustSolve": ["notifications and priority inbox", "documents KYC and consent", "global search ask scan and voice", "files evidence and media", "security audit and support", "cross-workspace analytics and settings"]
+    }
+  ],
+  "rules": [
+    "A future route-shell must declare one budgetBucket, one primary painSolved statement and at least one featureOutcome.",
+    "A route-state or embedded-panel must reuse an existing routeId and routePath.",
+    "A budget bucket cannot exceed its routeAllowance.",
+    "The combined launch-relevant route count cannot exceed 120.",
+    "Post-MVP routes do not consume launch budget but cannot be registered in the launch router.",
+    "Superseded prototypes remain reference-only and cannot be implemented.",
+    "One route must own loading empty offline unauthorized error and retry states.",
+    "New user-type variants should prefer configuration and permissions over duplicate screens.",
+    "Approval copies are created only after explicit user approval.",
+    "Production implementation must preserve personal consumer and social access for every workspace user."
+  ]
+}

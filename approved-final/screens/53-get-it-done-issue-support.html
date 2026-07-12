@@ -1,0 +1,882 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>53 Get It Done Issue Support - MoolSocial Screenbook</title>
+  <link rel="stylesheet" href="../shared/moolsocial-ui-foundation.css" />
+  <style>
+    .screen-shell { display: grid; gap: 18px; }
+
+    .back-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .screen-link-home {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--ms-navy);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .back-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--ms-navy);
+      border-radius: var(--ms-radius);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .preview {
+      display: grid;
+      grid-template-columns: minmax(320px, 390px) minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+      padding: 18px;
+      border-bottom: 1px solid var(--ms-navy);
+      background: var(--ms-white);
+    }
+
+    .phone {
+      width: min(100%, 370px);
+      height: 742px;
+      justify-self: center;
+      border: 10px solid var(--ms-navy);
+      border-radius: 32px;
+      background: var(--ms-navy);
+      overflow: hidden;
+      box-shadow: 0 28px 60px rgba(0, 0, 128, .22);
+    }
+
+    .app {
+      position: relative;
+      height: 100%;
+      display: grid;
+      grid-template-rows: auto auto 1fr;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 15% 8%, rgba(255, 153, 51, .18), transparent 25%),
+        radial-gradient(circle at 90% 12%, rgba(19, 136, 8, .16), transparent 27%),
+        linear-gradient(180deg, var(--ms-navy) 0 178px, #f4f7fc 178px 100%);
+      color: var(--ms-white);
+      font-family: var(--ms-font);
+    }
+
+    button,
+    a { -webkit-tap-highlight-color: transparent; }
+
+    svg {
+      width: 20px;
+      height: 20px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .status-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px 22px 8px;
+      color: var(--ms-white);
+      font-size: 11px;
+      font-weight: 950;
+    }
+
+    .top {
+      display: grid;
+      gap: 13px;
+      padding: 4px 18px 16px;
+    }
+
+    .brand-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .brand-copy {
+      min-width: 0;
+      display: grid;
+      gap: 3px;
+    }
+
+    .brand-copy b {
+      overflow: hidden;
+      color: var(--ms-white);
+      font-size: 21px;
+      line-height: .96;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .brand-copy span {
+      color: rgba(255, 255, 255, .82);
+      font-size: 9px;
+      font-weight: 850;
+      letter-spacing: 0;
+    }
+
+    .identity-line {
+      width: 112px;
+      height: 4px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      overflow: hidden;
+      border-radius: 999px;
+    }
+
+    .identity-line span:nth-child(1) { background: var(--ms-saffron); }
+    .identity-line span:nth-child(2) { background: var(--ms-white); }
+    .identity-line span:nth-child(3) { background: var(--ms-green); }
+
+    .top-buttons { display: flex; gap: 7px; }
+
+    .circle-btn,
+    .search-action {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, .35);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .16);
+      color: var(--ms-white);
+      text-decoration: none;
+    }
+
+    .command-bar {
+      min-height: 52px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 40px 40px;
+      gap: 6px;
+      align-items: center;
+      border: 1px solid rgba(255, 255, 255, .7);
+      border-radius: 999px;
+      padding: 5px 6px 5px 16px;
+      background: rgba(255, 255, 255, .09);
+    }
+
+    .command-text {
+      overflow: hidden;
+      color: var(--ms-white);
+      font-size: 11px;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .search-action {
+      border: 0;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+    }
+
+    .content {
+      min-height: 0;
+      overflow: auto;
+      display: grid;
+      align-content: start;
+      gap: 8px;
+      padding: 0 10px 104px;
+      color: var(--ms-navy);
+      scrollbar-width: none;
+    }
+
+    .content::-webkit-scrollbar { display: none; }
+
+    .issue-hero,
+    .type-card,
+    .evidence-card,
+    .resolution-card,
+    .summary-card {
+      display: grid;
+      gap: 9px;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: 21px;
+      padding: 10px;
+      background: rgba(255, 255, 255, .98);
+      box-shadow: 0 14px 30px rgba(0, 0, 128, .10);
+    }
+
+    .issue-hero {
+      margin-top: -8px;
+      border-color: rgba(255, 255, 255, .78);
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, .18), rgba(255, 255, 255, .04)),
+        var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 var(--ms-saffron), 0 14px 30px rgba(0, 0, 128, .2);
+    }
+
+    .card-head,
+    .hero-head,
+    .issue-line,
+    .evidence-line,
+    .resolution-line {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .card-head b,
+    .hero-head b {
+      min-width: 0;
+      overflow: hidden;
+      font-size: 13px;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .card-head span,
+    .hero-head span {
+      color: rgba(0, 0, 128, .55);
+      font-size: 8px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .hero-head span { color: rgba(255, 255, 255, .76); }
+
+    .hold-box {
+      display: grid;
+      grid-template-columns: 48px minmax(0, 1fr) auto;
+      gap: 10px;
+      align-items: center;
+      border-radius: 20px;
+      padding: 10px;
+      background: rgba(255, 255, 255, .1);
+    }
+
+    .hold-icon,
+    .issue-icon,
+    .evidence-icon,
+    .resolution-icon {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      box-shadow: inset 0 -3px 0 rgba(0, 0, 128, .1);
+    }
+
+    .hold-copy,
+    .issue-copy,
+    .evidence-copy,
+    .resolution-copy,
+    .summary-copy {
+      min-width: 0;
+      display: grid;
+      gap: 3px;
+    }
+
+    .hold-copy b,
+    .issue-copy b,
+    .evidence-copy b,
+    .resolution-copy b,
+    .summary-copy b {
+      overflow: hidden;
+      font-size: 11px;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .hold-copy b { color: var(--ms-white); font-size: 14px; }
+
+    .hold-copy span,
+    .issue-copy span,
+    .evidence-copy span,
+    .resolution-copy span,
+    .summary-copy span {
+      overflow: hidden;
+      color: rgba(0, 0, 128, .62);
+      font-size: 8px;
+      font-weight: 850;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .hold-copy span { color: rgba(255, 255, 255, .78); }
+
+    .hold-amount {
+      display: grid;
+      justify-items: end;
+      color: var(--ms-white);
+      font-size: 8px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .hold-amount b {
+      font-size: 16px;
+      font-weight: 950;
+    }
+
+    .hero-note {
+      min-height: 40px;
+      display: grid;
+      grid-template-columns: 28px minmax(0, 1fr);
+      gap: 7px;
+      align-items: center;
+      border-radius: 15px;
+      padding: 7px 9px;
+      background: rgba(255, 153, 51, .16);
+      color: var(--ms-white);
+    }
+
+    .hero-note svg {
+      width: 17px;
+      height: 17px;
+      justify-self: center;
+    }
+
+    .hero-note span {
+      overflow: hidden;
+      font-size: 8px;
+      font-weight: 900;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .issue-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 7px;
+    }
+
+    .issue-button {
+      min-height: 70px;
+      display: grid;
+      align-content: center;
+      gap: 5px;
+      border: 1px solid rgba(0, 0, 128, .1);
+      border-radius: 18px;
+      padding: 9px;
+      background: #f4f7fc;
+      color: var(--ms-navy);
+      font-family: inherit;
+      font-size: 9px;
+      font-weight: 950;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .issue-button small {
+      overflow: hidden;
+      color: rgba(0, 0, 128, .62);
+      font-size: 7px;
+      font-weight: 900;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .issue-button.active {
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 var(--ms-saffron);
+    }
+
+    .issue-button.active small { color: rgba(255, 255, 255, .78); }
+
+    .evidence-line,
+    .resolution-line {
+      min-height: 54px;
+      border-radius: 17px;
+      padding: 8px;
+      background: #f4f7fc;
+      color: var(--ms-navy);
+      text-decoration: none;
+    }
+
+    .state-pill {
+      min-width: 52px;
+      min-height: 28px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      background: rgba(19, 136, 8, .1);
+      color: var(--ms-green);
+      font-size: 8px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .resolution-stack,
+    .evidence-stack {
+      display: grid;
+      gap: 7px;
+    }
+
+    .resolution-line.primary {
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 var(--ms-saffron);
+    }
+
+    .resolution-line.primary .resolution-icon {
+      background: var(--ms-white);
+      color: var(--ms-navy);
+    }
+
+    .resolution-line.primary .resolution-copy b,
+    .resolution-line.primary .resolution-copy span { color: var(--ms-white); }
+
+    .summary-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .summary-copy b { color: var(--ms-navy); }
+
+    .summary-price {
+      display: grid;
+      justify-items: end;
+      color: rgba(0, 0, 128, .6);
+      font-size: 8px;
+      font-weight: 900;
+    }
+
+    .summary-price b {
+      color: var(--ms-navy);
+      font-size: 16px;
+      font-weight: 950;
+    }
+
+    .cta-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .primary-cta,
+    .secondary-cta {
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 10px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .primary-cta {
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 var(--ms-saffron), 0 10px 20px rgba(0, 0, 128, .18);
+    }
+
+    .secondary-cta {
+      border: 1px solid rgba(0, 0, 128, .14);
+      padding: 0 12px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+    }
+
+    .bottom-dock {
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+      display: grid;
+      grid-template-columns: 68px minmax(0, 1fr) 66px;
+      gap: 8px;
+      align-items: center;
+      border: 1px solid rgba(0, 0, 128, .16);
+      border-radius: 26px;
+      padding: 7px;
+      background: rgba(255, 255, 255, .96);
+      box-shadow: 0 -14px 36px rgba(0, 0, 128, .16);
+      z-index: 8;
+    }
+
+    .mool-button,
+    .chat-button {
+      min-height: 58px;
+      display: grid;
+      place-items: center;
+      border-radius: 22px;
+      text-decoration: none;
+      font-size: 9px;
+      font-weight: 950;
+    }
+
+    .mool-button {
+      background:
+        radial-gradient(circle at 35% 22%, rgba(255, 255, 255, .35), transparent 25%),
+        linear-gradient(145deg, #1d1dca, var(--ms-navy));
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 rgba(0, 0, 80, .72), 0 8px 18px rgba(0, 0, 128, .18);
+    }
+
+    .dock-track {
+      min-width: 0;
+      display: flex;
+      gap: 4px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      border-radius: 22px;
+      padding: 2px;
+      background:
+        radial-gradient(circle at left, rgba(0, 0, 128, .12), transparent 28%),
+        radial-gradient(circle at right, rgba(0, 0, 128, .12), transparent 28%),
+        linear-gradient(90deg, rgba(0, 0, 128, .08), rgba(19, 136, 8, .08));
+    }
+
+    .dock-track::-webkit-scrollbar { display: none; }
+
+    .dock-tab {
+      min-width: 62px;
+      min-height: 54px;
+      display: grid;
+      place-items: center;
+      gap: 3px;
+      border-radius: 18px;
+      padding: 6px 8px;
+      color: var(--ms-navy);
+      text-decoration: none;
+      font-size: 8px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .dock-tab svg { width: 17px; height: 17px; }
+
+    .dock-tab.active {
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 var(--ms-saffron);
+    }
+
+    .chat-button {
+      position: relative;
+      border: 1px solid rgba(0, 0, 128, .14);
+      background: var(--ms-white);
+      color: var(--ms-navy);
+    }
+
+    .chat-badge {
+      position: absolute;
+      top: 8px;
+      right: 9px;
+      min-width: 20px;
+      height: 20px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      background: #ff8f24;
+      color: var(--ms-navy);
+      font-size: 10px;
+      font-weight: 950;
+    }
+
+    .notes { display: grid; gap: 14px; padding: 8px 0; }
+    .ms-lead { max-width: 720px; }
+
+    @media (max-width: 860px) {
+      .preview { grid-template-columns: 1fr; padding: 12px; }
+      .phone { width: min(100%, 370px); }
+      .ms-page { padding: 18px; }
+    }
+  </style>
+</head>
+  <body>
+  <main class="ms-page">
+    <section class="screen-shell">
+      <div class="back-row">
+        <a class="screen-link-home" href="../index.html">
+          <span class="back-mark">53</span>
+          Back to MoolSocial Screenbook
+        </a>
+        <span class="ms-status">Draft</span>
+      </div>
+
+      <section class="preview">
+        <div class="phone" role="img" aria-label="MoolSocial Get It Done issue support screen">
+          <div class="app">
+            <div class="status-row">
+              <span>9:41</span>
+              <span>5G 100%</span>
+            </div>
+
+            <header class="top">
+              <div class="brand-row">
+                <div class="brand-copy">
+                  <b>MoolSocial Support</b>
+                  <div class="identity-line" aria-hidden="true"><span></span><span></span><span></span></div>
+                  <span>report only if something is wrong</span>
+                </div>
+                <div class="top-buttons">
+                  <a class="circle-btn" href="51-get-it-done-proof-release.html" aria-label="Back to proof">
+                    <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" /></svg>
+                  </a>
+                  <button class="circle-btn" aria-label="Saved support">
+                    <svg viewBox="0 0 24 24"><path d="M19 21 12 17 5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2Z" /></svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="command-bar" aria-label="Issue support status">
+                <span class="command-text">Tell us what went wrong. Payment stays protected.</span>
+                <button class="search-action" aria-label="Add proof">
+                  <svg viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" /><path d="M16 6l-4-4-4 4" /><path d="M12 2v13" /></svg>
+                </button>
+                <button class="search-action" aria-label="Voice support">
+                  <svg viewBox="0 0 24 24"><path d="M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3Z" /><path d="M19 10a7 7 0 0 1-14 0" /><path d="M12 17v4" /></svg>
+                </button>
+              </div>
+            </header>
+
+            <main class="content">
+              <section class="issue-hero" aria-label="Issue protection">
+                <div class="hero-head">
+                  <b>Issue support</b>
+                  <span id="supportMode">payment protected</span>
+                </div>
+                <div class="hold-box">
+                  <span class="hold-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" /><path d="M9 12l2 2 4-5" /></svg></span>
+                  <span class="hold-copy">
+                    <b id="holdTitle">Hold remains locked</b>
+                    <span id="holdText">Support will check proof, chat and payment status.</span>
+                  </span>
+                  <span class="hold-amount"><b id="holdAmount">Rs 599</b><span>under review</span></span>
+                </div>
+                <div class="hero-note">
+                  <svg viewBox="0 0 24 24"><path d="M10.3 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.7 3.86a2 2 0 0 0-3.4 0Z" /><path d="M12 9v4" /><path d="M12 17h.01" /></svg>
+                  <span>Use this only for wrong proof, incomplete task, overcharge or safety concern.</span>
+                </div>
+              </section>
+
+              <section class="type-card" aria-label="Choose issue type">
+                <div class="card-head">
+                  <b>What happened?</b>
+                  <span>select one</span>
+                </div>
+                <div class="issue-grid">
+                  <button class="issue-button active" type="button" data-issue="Wrong proof" data-resolution="Keep hold locked">
+                    Wrong proof
+                    <small>photo/bill does not match</small>
+                  </button>
+                  <button class="issue-button" type="button" data-issue="Task incomplete" data-resolution="Ask helper to finish">
+                    Task incomplete
+                    <small>work not fully done</small>
+                  </button>
+                  <button class="issue-button" type="button" data-issue="Overcharged" data-resolution="Check bill amount">
+                    Overcharged
+                    <small>spend looks higher</small>
+                  </button>
+                  <button class="issue-button" type="button" data-issue="Safety concern" data-resolution="Priority support">
+                    Safety concern
+                    <small>urgent review needed</small>
+                  </button>
+                </div>
+              </section>
+
+              <section class="evidence-card" aria-label="Issue evidence">
+                <div class="card-head">
+                  <b>Evidence attached</b>
+                  <span>from task record</span>
+                </div>
+                <div class="evidence-stack">
+                  <div class="evidence-line">
+                    <span class="evidence-icon"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z" /><circle cx="12" cy="13" r="4" /></svg></span>
+                    <span class="evidence-copy"><b>Proof photo</b><span>uploaded by helper · saved</span></span>
+                    <span class="state-pill">Saved</span>
+                  </div>
+                  <div class="evidence-line">
+                    <span class="evidence-icon"><svg viewBox="0 0 24 24"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2Z" /><path d="M8 7h8" /><path d="M8 12h8" /></svg></span>
+                    <span class="evidence-copy"><b>Bill and chat</b><span>messages, spend and release rule linked</span></span>
+                    <span class="state-pill">Linked</span>
+                  </div>
+                </div>
+              </section>
+
+              <section class="resolution-card" aria-label="Resolution options">
+                <div class="card-head">
+                  <b>Resolution</b>
+                  <span id="resolutionHint">Keep hold locked</span>
+                </div>
+                <div class="resolution-stack">
+                  <a class="resolution-line primary" href="#" id="submitIssue">
+                    <span class="resolution-icon"><svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z" /></svg></span>
+                    <span class="resolution-copy">
+                      <b id="submitTitle">Submit issue</b>
+                      <span id="submitText">support reviews before any release</span>
+                    </span>
+                    <span class="state-pill">Send</span>
+                  </a>
+                  <a class="resolution-line" href="23-chat-inbox-home.html">
+                    <span class="resolution-icon"><svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z" /></svg></span>
+                    <span class="resolution-copy"><b>Open task chat</b><span>ask helper before reporting</span></span>
+                    <span class="state-pill">Chat</span>
+                  </a>
+                </div>
+              </section>
+
+              <section class="summary-card" aria-label="Support summary">
+                <div class="summary-top">
+                  <span class="summary-copy">
+                    <b id="summaryTitle">Wrong proof selected</b>
+                    <span id="summaryText">Hold stays locked while support checks proof and chat.</span>
+                  </span>
+                  <span class="summary-price">
+                    <b id="summaryAmount">Rs 599</b>
+                    <span>protected</span>
+                  </span>
+                </div>
+                <div class="cta-row">
+                  <a class="primary-cta" href="#" id="primaryCta">Submit issue</a>
+                  <a class="secondary-cta" href="51-get-it-done-proof-release.html">Back</a>
+                </div>
+              </section>
+            </main>
+
+            <nav class="bottom-dock" aria-label="Get It Done support navigation">
+              <a class="mool-button" href="04-universal-focus-shell.html">Mool</a>
+              <div class="dock-track">
+                <a class="dock-tab" href="51-get-it-done-proof-release.html"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z" /></svg>Proof</a>
+                <a class="dock-tab active" href="#primaryCta"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="M12 9v4" /><path d="M12 17h.01" /></svg>Issue</a>
+                <a class="dock-tab" href="23-chat-inbox-home.html"><svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z" /></svg>Chat</a>
+                <a class="dock-tab" href="52-get-it-done-completed-rating.html"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></svg>Done</a>
+              </div>
+              <a class="chat-button" href="23-chat-inbox-home.html" aria-label="Open chat">
+                <svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z" /></svg>
+                <span class="chat-badge">2</span>
+              </a>
+            </nav>
+          </div>
+        </div>
+
+        <div class="notes">
+          <div>
+            <h1 class="ms-title">Screen 53 protects the user when Get It Done has an issue.</h1>
+            <p class="ms-lead">
+              This screen is for serious exceptions: wrong proof, incomplete task, overcharge or safety concern.
+              It keeps money status visible, attaches task evidence and gives support a clear resolution path.
+            </p>
+          </div>
+
+          <div class="ms-panel">
+            <div class="ms-section-head">Screen Contract <span>Approved</span></div>
+            <div class="state-grid">
+              <div class="state-cell"><b>Entry</b>From Screen 51 report issue before release, Screen 52 post-task support, task chat, or support escalation.</div>
+              <div class="state-cell"><b>User Sees</b>Payment status, issue reason, saved proof, bill/chat evidence, resolution option, task chat and support submit action.</div>
+              <div class="state-cell"><b>Decision</b>User selects issue type, confirms evidence, opens chat or submits support case.</div>
+              <div class="state-cell"><b>Backend</b>Issue case, payment hold/release state, proof archive, chat log, helper response, refund/rework/escalation and safety APIs.</div>
+              <div class="state-cell"><b>Trust</b>If payment is still held, it remains locked. If payment was released, receipt and proof are reviewed with support history.</div>
+              <div class="state-cell"><b>Failure</b>If evidence is missing, helper unavailable or safety concern is high risk, show priority support and avoid automatic closure.</div>
+              <div class="state-cell"><b>Next</b>Routes to support case status, refund/rework decision, helper response or completed support closure.</div>
+              <div class="state-cell"><b>Regression</b>No casual issue language. No hidden money state. No loss of proof. Mool and Chat remain fixed.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script>
+    if ("scrollRestoration" in history) {
+      history.scrollRestoration = "manual";
+    }
+
+    function resetPhoneScroll() {
+      const content = document.querySelector(".content");
+      if (content) content.scrollTop = 0;
+    }
+
+    window.addEventListener("load", () => {
+      resetPhoneScroll();
+      requestAnimationFrame(resetPhoneScroll);
+      setTimeout(resetPhoneScroll, 80);
+    });
+
+    const params = new URLSearchParams(window.location.search);
+    const hold = params.get("hold") || "";
+    const released = params.get("released") || "";
+    const issueButtons = Array.from(document.querySelectorAll("[data-issue]"));
+    const submitIssue = document.getElementById("submitIssue");
+    const primaryCta = document.getElementById("primaryCta");
+    const holdTitle = document.getElementById("holdTitle");
+    const holdText = document.getElementById("holdText");
+    const holdAmount = document.getElementById("holdAmount");
+    const summaryAmount = document.getElementById("summaryAmount");
+    const summaryTitle = document.getElementById("summaryTitle");
+    const summaryText = document.getElementById("summaryText");
+    const resolutionHint = document.getElementById("resolutionHint");
+    const submitTitle = document.getElementById("submitTitle");
+    const submitText = document.getElementById("submitText");
+    const selectedTask = params.get("task") || "Pickup";
+    const selectedCity = params.get("city") || "Jodhpur";
+
+    const protectedAmount = hold || released || "599";
+    const isHeld = Boolean(hold);
+    holdAmount.textContent = `Rs ${protectedAmount}`;
+    summaryAmount.textContent = `Rs ${protectedAmount}`;
+    holdTitle.textContent = isHeld ? "Hold remains locked" : "Receipt under review";
+    holdText.textContent = isHeld ? "Support checks proof before release." : "Support checks receipt, proof and chat.";
+    document.getElementById("supportMode").textContent = isHeld ? "payment protected" : "post-task review";
+
+    function applyIssue(button) {
+      issueButtons.forEach((item) => item.classList.toggle("active", item === button));
+      const issue = button.dataset.issue;
+      const resolution = button.dataset.resolution;
+      summaryTitle.textContent = `${issue} selected`;
+      summaryText.textContent = isHeld ? `${resolution}. Hold stays locked during review.` : `${resolution}. Receipt and proof will be reviewed.`;
+      resolutionHint.textContent = resolution;
+      submitTitle.textContent = `Submit ${issue.toLowerCase()}`;
+      submitText.textContent = isHeld ? "support reviews before any release" : "support reviews receipt and proof";
+    }
+
+    function syncSubmitLinks(button) {
+      const selected = button ? button.dataset.issue : (issueButtons.find((item) => item.classList.contains("active"))?.dataset.issue || "Wrong proof");
+      const nextParams = new URLSearchParams();
+      nextParams.set("task", selectedTask);
+      nextParams.set("city", selectedCity);
+      nextParams.set("issue", selected);
+      nextParams.set("amount", protectedAmount);
+      if (hold) {
+        nextParams.set("hold", hold);
+      } else if (released) {
+        nextParams.set("released", released);
+      }
+      const caseUrl = `54-get-it-done-issue-case-status.html?${nextParams.toString()}`;
+      submitIssue.href = caseUrl;
+      primaryCta.href = caseUrl;
+    }
+
+    issueButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        applyIssue(button);
+        syncSubmitLinks(button);
+      });
+    });
+
+    syncSubmitLinks(issueButtons[0]);
+  </script>
+<script type="application/json" id="productionRouteContract">{"contractVersion":"mvp-route-lock-2026-07-12","prototypeScreen":53,"productionModule":"tasks","routeId":"tasks.issue","routePath":"/tasks/:taskId/issues","routeState":"issue-submit","implementation":"route-shell","launchScope":"post-mvp","separateProductionRoute":true,"productionNote":"Own production route /tasks/:taskId/issues. Implement issue-submit as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.","canonicalMap":"architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"}</script><script type="application/json" id="prototypeApprovalContract">{"prototypeScreen":53,"status":"approved-and-frozen","authoritative":true,"approvedAt":"2026-07-12","approvalScope":"prototype-ui-ux-and-production-contract"}</script></body>
+</html>

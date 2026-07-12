@@ -1,0 +1,1202 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>30 Ride - MoolSocial Screenbook</title>
+  <link rel="stylesheet" href="../shared/moolsocial-ui-foundation.css" />
+  <style>
+    .screen-shell { display: grid; gap: 18px; }
+
+    .back-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .screen-link-home {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--ms-navy);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .back-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--ms-navy);
+      border-radius: var(--ms-radius);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .preview {
+      display: grid;
+      grid-template-columns: minmax(320px, 390px) minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+      padding: 18px;
+      border-bottom: 1px solid var(--ms-navy);
+      background: var(--ms-white);
+    }
+
+    .phone {
+      width: min(100%, 370px);
+      height: 742px;
+      justify-self: center;
+      border: 10px solid var(--ms-navy);
+      border-radius: 32px;
+      background: var(--ms-navy);
+      overflow: hidden;
+      box-shadow: 0 28px 60px rgba(0, 0, 128, .22);
+    }
+
+    .app {
+      position: relative;
+      height: 100%;
+      display: grid;
+      grid-template-rows: auto auto 1fr auto;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 18% 8%, rgba(255, 153, 51, .16), transparent 25%),
+        radial-gradient(circle at 90% 14%, rgba(19, 136, 8, .16), transparent 26%),
+        linear-gradient(180deg, var(--ms-navy) 0 166px, #f4f7fc 166px 100%);
+      color: var(--ms-white);
+      font-family: var(--ms-font);
+    }
+
+    button,
+    a { -webkit-tap-highlight-color: transparent; }
+
+    button {
+      appearance: none;
+      border: 0;
+      font-family: var(--ms-font);
+      cursor: pointer;
+    }
+
+    svg {
+      width: 19px;
+      height: 19px;
+      stroke: currentColor;
+      stroke-width: 2.4;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .status-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 16px 22px 6px;
+      color: var(--ms-white);
+      font-size: 11px;
+      font-weight: 950;
+    }
+
+    .top {
+      display: grid;
+      gap: 11px;
+      padding: 8px 18px 13px;
+    }
+
+    .brand-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .brand-copy {
+      min-width: 0;
+      display: grid;
+      gap: 2px;
+    }
+
+    .brand-copy b {
+      overflow: hidden;
+      color: var(--ms-white);
+      font-size: 20px;
+      line-height: 1;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .brand-copy span {
+      color: rgba(255, 255, 255, .78);
+      font-size: 10px;
+      font-weight: 850;
+    }
+
+    .identity-line {
+      width: 96px;
+      height: 4px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      overflow: hidden;
+      border-radius: var(--ms-pill);
+    }
+
+    .identity-line span:nth-child(1) { background: var(--ms-saffron); }
+    .identity-line span:nth-child(2) { background: var(--ms-white); }
+    .identity-line span:nth-child(3) { background: var(--ms-green); }
+
+    .top-buttons {
+      display: flex;
+      gap: 8px;
+      flex: 0 0 auto;
+    }
+
+    .circle-btn,
+    .search-action {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      text-decoration: none;
+    }
+
+    .circle-btn {
+      border: 1px solid rgba(255, 255, 255, .26);
+      background: rgba(255, 255, 255, .12);
+      color: var(--ms-white);
+    }
+
+    .command-bar {
+      min-height: 48px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto auto auto;
+      align-items: center;
+      gap: 7px;
+      border: 1px solid rgba(255, 255, 255, .85);
+      border-radius: var(--ms-pill);
+      padding: 5px 5px 5px 13px;
+      background: rgba(255, 255, 255, .10);
+    }
+
+    .command-text {
+      overflow: hidden;
+      color: var(--ms-white);
+      font-size: 11px;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .search-action {
+      background: var(--ms-white);
+      color: var(--ms-navy);
+    }
+
+    .content {
+      min-height: 0;
+      overflow: auto;
+      display: grid;
+      align-content: start;
+      gap: 8px;
+      padding: 0 10px 98px;
+      color: var(--ms-navy);
+      scrollbar-width: none;
+    }
+
+    .content::-webkit-scrollbar { display: none; }
+
+    .route-card,
+    .ride-card,
+    .option-card,
+    .trust-card,
+    .summary-card,
+    .help-card {
+      display: grid;
+      gap: 8px;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: 21px;
+      padding: 10px;
+      background: rgba(255, 255, 255, .98);
+      box-shadow: 0 14px 30px rgba(0, 0, 128, .10);
+    }
+
+    .route-card { margin-top: -8px; }
+
+    .ride-card.is-hidden,
+    .option-card.is-hidden,
+    .summary-card.is-hidden {
+      display: none;
+    }
+
+    .ride-card {
+      background:
+        linear-gradient(145deg, rgba(0, 0, 128, .05), rgba(19, 136, 8, .035)),
+        rgba(255, 255, 255, .98);
+    }
+
+    .card-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .card-head b {
+      color: var(--ms-navy);
+      font-size: 13px;
+      line-height: 1;
+      font-weight: 950;
+    }
+
+    .card-head span {
+      color: rgba(0, 0, 128, .58);
+      font-size: 8px;
+      font-weight: 850;
+      text-align: right;
+    }
+
+    .route-box {
+      display: grid;
+      gap: 7px;
+    }
+
+    .route-line {
+      min-height: 42px;
+      display: grid;
+      grid-template-columns: 32px 1fr;
+      gap: 9px;
+      align-items: center;
+      border-radius: 16px;
+      padding: 8px;
+      background: #f3f6fb;
+    }
+
+    .route-dot {
+      width: 32px;
+      height: 32px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--ms-white);
+      font-size: 10px;
+      font-weight: 950;
+    }
+
+    .route-dot.pick { background: var(--ms-green); }
+    .route-dot.drop { background: var(--ms-saffron); color: var(--ms-navy); }
+
+    .route-copy {
+      min-width: 0;
+      display: grid;
+      gap: 2px;
+    }
+
+    .route-copy b {
+      overflow: hidden;
+      color: var(--ms-navy);
+      font-size: 11px;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .route-copy span {
+      overflow: hidden;
+      color: rgba(0, 0, 128, .58);
+      font-size: 8px;
+      font-weight: 850;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .chip-row,
+    .ride-row,
+    .package-row,
+    .captain-row {
+      display: flex;
+      gap: 6px;
+      min-width: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .chip-row::-webkit-scrollbar,
+    .ride-row::-webkit-scrollbar,
+    .package-row::-webkit-scrollbar,
+    .captain-row::-webkit-scrollbar { display: none; }
+
+    .time-chip,
+    .small-chip,
+    .ride-option,
+    .package-option,
+    .captain-option,
+    .primary-cta,
+    .secondary-cta,
+    .dock-tab,
+    .mool-button,
+    .chat-button { font-family: var(--ms-font); }
+
+    .time-chip,
+    .small-chip {
+      flex: 0 0 auto;
+      min-height: 31px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: var(--ms-pill);
+      padding: 0 12px;
+      background: #f7f9fd;
+      color: var(--ms-navy);
+      font-size: 9px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .time-chip.active,
+    .small-chip.active {
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -3px 0 var(--ms-saffron), 0 8px 18px rgba(0, 0, 128, .15);
+    }
+
+    .ride-option {
+      flex: 0 0 114px;
+      min-height: 78px;
+      display: grid;
+      align-content: center;
+      gap: 5px;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: 18px;
+      padding: 10px;
+      background: #f7f9fd;
+      color: var(--ms-navy);
+      text-align: left;
+    }
+
+    .ride-option.active {
+      border-color: rgba(0, 0, 128, .42);
+      background:
+        linear-gradient(135deg, rgba(255, 153, 51, .14), rgba(19, 136, 8, .08)),
+        var(--ms-white);
+      box-shadow: inset 0 -3px 0 var(--ms-green), 0 9px 18px rgba(0, 0, 128, .10);
+    }
+
+    .ride-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .ride-top svg { color: var(--ms-navy); }
+
+    .ride-option b {
+      color: var(--ms-navy);
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .ride-option strong {
+      color: var(--ms-green);
+      font-size: 15px;
+      line-height: 1;
+      font-weight: 950;
+    }
+
+    .ride-option span {
+      color: rgba(0, 0, 128, .58);
+      font-size: 8px;
+      font-weight: 850;
+      line-height: 1.15;
+    }
+
+    .package-option {
+      flex: 0 0 134px;
+      min-height: 76px;
+      display: grid;
+      align-content: center;
+      gap: 4px;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: 18px;
+      padding: 9px;
+      background: #f7f9fd;
+      color: var(--ms-navy);
+      text-align: left;
+    }
+
+    .package-option.active {
+      border-color: rgba(0, 0, 128, .42);
+      background:
+        linear-gradient(135deg, rgba(255, 153, 51, .13), rgba(19, 136, 8, .08)),
+        var(--ms-white);
+      box-shadow: inset 0 -3px 0 var(--ms-green);
+    }
+
+    .package-option:focus-visible,
+    .ride-option:focus-visible,
+    .time-chip:focus-visible {
+      outline: 3px solid rgba(255, 153, 51, .45);
+      outline-offset: 2px;
+    }
+
+    .package-option b,
+    .package-option strong,
+    .package-option span {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .package-option b {
+      color: var(--ms-navy);
+      font-size: 10px;
+      font-weight: 950;
+    }
+
+    .package-option strong {
+      color: var(--ms-green);
+      font-size: 13px;
+      line-height: 1;
+      font-weight: 950;
+    }
+
+    .package-option span {
+      color: rgba(0, 0, 128, .58);
+      font-size: 7px;
+      font-weight: 850;
+    }
+
+    .decision-note {
+      display: grid;
+      grid-template-columns: 20px 1fr;
+      gap: 7px;
+      align-items: center;
+      border-radius: 15px;
+      padding: 8px 9px;
+      background: #f3f6fb;
+      color: rgba(0, 0, 128, .66);
+      font-size: 8px;
+      line-height: 1.25;
+      font-weight: 850;
+    }
+
+    .decision-note svg {
+      width: 18px;
+      height: 18px;
+      color: var(--ms-green);
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 7px;
+    }
+
+    .trust-item,
+    .captain-option {
+      border-radius: 15px;
+      background: #f3f6fb;
+      color: var(--ms-navy);
+    }
+
+    .trust-item {
+      min-height: 46px;
+      display: grid;
+      align-content: center;
+      gap: 2px;
+      padding: 7px;
+      overflow: hidden;
+    }
+
+    .trust-item b {
+      overflow: hidden;
+      font-size: 8px;
+      font-weight: 950;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .trust-item span {
+      overflow: hidden;
+      color: var(--ms-green);
+      font-size: 7px;
+      font-weight: 900;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .captain-option {
+      flex: 0 0 158px;
+      display: grid;
+      grid-template-columns: 38px 1fr;
+      gap: 8px;
+      align-items: center;
+      border: 1px solid rgba(0, 0, 128, .10);
+      padding: 8px;
+      text-align: left;
+    }
+
+    .avatar {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 32% 22%, rgba(255, 255, 255, .34), transparent 28%),
+        linear-gradient(145deg, var(--ms-green), var(--ms-navy));
+      color: var(--ms-white);
+      font-size: 10px;
+      font-weight: 950;
+    }
+
+    .captain-copy {
+      min-width: 0;
+      display: grid;
+      gap: 2px;
+    }
+
+    .captain-copy b,
+    .captain-copy span,
+    .captain-copy small {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .captain-copy b {
+      color: var(--ms-navy);
+      font-size: 10px;
+      font-weight: 950;
+    }
+
+    .captain-copy span {
+      color: rgba(0, 0, 128, .62);
+      font-size: 7px;
+      font-weight: 850;
+    }
+
+    .captain-copy small {
+      color: var(--ms-green);
+      font-size: 7px;
+      font-weight: 900;
+    }
+
+    .after-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .after-item {
+      min-height: 42px;
+      display: grid;
+      place-items: center;
+      gap: 2px;
+      border-radius: 14px;
+      background: #f3f6fb;
+      color: var(--ms-navy);
+      font-size: 7px;
+      font-weight: 900;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .after-item svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .summary-card {
+      background:
+        linear-gradient(135deg, rgba(255, 153, 51, .13), rgba(19, 136, 8, .08)),
+        var(--ms-white);
+    }
+
+    .summary-top {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      align-items: start;
+    }
+
+    .summary-copy {
+      min-width: 0;
+      display: grid;
+      gap: 4px;
+    }
+
+    .summary-copy b {
+      overflow: hidden;
+      color: var(--ms-navy);
+      font-size: 15px;
+      line-height: 1.05;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .summary-copy span {
+      color: rgba(0, 0, 128, .62);
+      font-size: 8px;
+      font-weight: 850;
+      line-height: 1.25;
+    }
+
+    .summary-price {
+      min-width: 72px;
+      display: grid;
+      justify-items: end;
+      gap: 3px;
+      color: var(--ms-green);
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .summary-price b {
+      font-size: 16px;
+      line-height: 1;
+    }
+
+    .summary-price span {
+      color: rgba(0, 0, 128, .58);
+      font-size: 7px;
+      font-weight: 850;
+    }
+
+    .cta-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 7px;
+      align-items: center;
+    }
+
+    .primary-cta,
+    .secondary-cta {
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--ms-pill);
+      text-decoration: none;
+      font-size: 10px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .primary-cta {
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 var(--ms-saffron), 0 10px 20px rgba(0, 0, 128, .18);
+    }
+
+    .secondary-cta {
+      border: 1px solid rgba(0, 0, 128, .14);
+      padding: 0 12px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+    }
+
+    .help-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 7px;
+    }
+
+    .help-item {
+      min-height: 42px;
+      display: grid;
+      align-content: center;
+      gap: 2px;
+      border-radius: 14px;
+      padding: 7px;
+      background: #f3f6fb;
+      overflow: hidden;
+    }
+
+    .help-item b,
+    .help-item span {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .help-item b {
+      color: var(--ms-navy);
+      font-size: 8.5px;
+      font-weight: 950;
+    }
+
+    .help-item span {
+      color: rgba(0, 0, 128, .58);
+      font-size: 7px;
+      font-weight: 850;
+    }
+
+    .bottom-dock {
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+      display: grid;
+      grid-template-columns: 52px minmax(0, 1fr) 52px;
+      gap: 8px;
+      align-items: center;
+      border: 1px solid rgba(0, 0, 128, .78);
+      border-radius: 22px;
+      padding: 7px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, .99), rgba(244, 247, 252, .99));
+      box-shadow: 0 -12px 24px rgba(0, 0, 128, .18);
+      z-index: 5;
+    }
+
+    .mool-button,
+    .chat-button {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      border: 0;
+      border-radius: 50%;
+      text-decoration: none;
+      font-size: 10px;
+      font-weight: 950;
+    }
+
+    .mool-button {
+      background:
+        radial-gradient(circle at 36% 24%, rgba(255, 255, 255, .30), transparent 32%),
+        linear-gradient(145deg, #1717ba, var(--ms-navy) 72%);
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 rgba(0, 0, 80, .35), 0 9px 18px rgba(0, 0, 128, .22);
+    }
+
+    .chat-button {
+      position: relative;
+      background: radial-gradient(circle at 50% 12%, rgba(255, 255, 255, .96), rgba(255, 255, 255, .78) 44%, rgba(240, 244, 248, .98));
+      color: var(--ms-navy);
+      border: 1px solid rgba(0, 0, 128, .16);
+      box-shadow: 0 9px 18px rgba(0, 0, 128, .12);
+    }
+
+    .chat-badge {
+      min-width: 16px;
+      height: 16px;
+      position: absolute;
+      top: 5px;
+      right: 2px;
+      display: grid;
+      place-items: center;
+      border-radius: var(--ms-pill);
+      padding: 0 4px;
+      background: var(--ms-saffron);
+      color: var(--ms-navy);
+      font-size: 9px;
+      font-weight: 950;
+    }
+
+    .dock-track {
+      min-width: 0;
+      display: flex;
+      gap: 7px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      border: 1px solid rgba(0, 0, 128, .20);
+      border-radius: 19px;
+      padding: 5px 6px;
+      background:
+        radial-gradient(circle at 50% 50%, rgba(0, 0, 128, .12), transparent 58%),
+        linear-gradient(90deg, rgba(0, 0, 128, .10), rgba(255, 255, 255, .96) 20% 80%, rgba(0, 0, 128, .10));
+      box-shadow: inset 12px 0 18px rgba(0, 0, 128, .10), inset -12px 0 18px rgba(0, 0, 128, .10);
+    }
+
+    .dock-track::-webkit-scrollbar { display: none; }
+
+    .dock-tab {
+      flex: 0 0 auto;
+      min-width: 58px;
+      min-height: 42px;
+      display: grid;
+      place-items: center;
+      gap: 2px;
+      border-radius: 17px;
+      color: var(--ms-navy);
+      text-decoration: none;
+      font-size: 9px;
+      font-weight: 950;
+    }
+
+    .dock-tab svg {
+      width: 17px;
+      height: 17px;
+    }
+
+    .dock-tab.active {
+      background: linear-gradient(180deg, #1515b8, var(--ms-navy));
+      color: var(--ms-white);
+      box-shadow: inset 0 -3px 0 var(--ms-saffron), 0 8px 18px rgba(0, 0, 128, .18);
+    }
+
+    .state-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      border-top: 1px solid var(--ms-navy);
+      border-left: 1px solid var(--ms-navy);
+    }
+
+    .state-cell {
+      border-right: 1px solid var(--ms-navy);
+      border-bottom: 1px solid var(--ms-navy);
+      padding: 14px;
+      color: var(--ms-navy);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .state-cell:nth-child(2n) { border-right: 0; }
+    .state-cell b {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--ms-green);
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 780px) {
+      .preview { grid-template-columns: 1fr; padding: 12px; }
+      .state-grid { grid-template-columns: 1fr; }
+      .state-cell { border-right: 0; }
+      .ms-page { padding: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="ms-page">
+    <section class="screen-shell">
+      <div class="back-row">
+        <a class="screen-link-home" href="../index.html">
+          <span class="back-mark">30</span>
+          Back to MoolSocial Screenbook
+        </a>
+        <span class="ms-status">Approved</span>
+      </div>
+
+      <section class="preview">
+        <div class="phone" role="img" aria-label="MoolSocial Ride screen">
+          <div class="app">
+            <div class="status-row">
+              <span>9:41</span>
+              <span>5G 100%</span>
+            </div>
+
+            <header class="top">
+              <div class="brand-row">
+                <div class="brand-copy">
+                  <b>MoolSocial Ride</b>
+                  <div class="identity-line" aria-hidden="true"><span></span><span></span><span></span></div>
+                  <span>Bike · Auto · Cab</span>
+                </div>
+                <div class="top-buttons">
+                  <a class="circle-btn" href="04-universal-focus-shell.html" aria-label="Back">
+                    <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" /></svg>
+                  </a>
+                  <button class="circle-btn" aria-label="Saved places">
+                    <svg viewBox="0 0 24 24"><path d="M12 21s7-5 7-11a7 7 0 1 0-14 0c0 6 7 11 7 11Z" /><circle cx="12" cy="10" r="2" /></svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="command-bar" aria-label="Search ride">
+                <span class="command-text">Where do you want to go?</span>
+                <button class="search-action" aria-label="Search">
+                  <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" /><path d="m20 20-3-3" /></svg>
+                </button>
+                <button class="search-action" aria-label="Use current location">
+                  <svg viewBox="0 0 24 24"><path d="M12 2v4" /><path d="M12 18v4" /><path d="M2 12h4" /><path d="M18 12h4" /><circle cx="12" cy="12" r="5" /></svg>
+                </button>
+                <button class="search-action" aria-label="Voice search">
+                  <svg viewBox="0 0 24 24"><path d="M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3Z" /><path d="M19 10a7 7 0 0 1-14 0" /><path d="M12 17v4" /></svg>
+                </button>
+              </div>
+            </header>
+
+            <main class="content">
+              <section class="route-card" aria-label="Ride route">
+                <div class="card-head">
+                  <b>Set ride</b>
+                  <span>current area detected</span>
+                </div>
+                <div class="route-box">
+                  <div class="route-line">
+                    <span class="route-dot pick">P</span>
+                    <span class="route-copy">
+                      <b>Pickup: Sardarpura, Jodhpur</b>
+                      <span>Tap to adjust gate, shop or landmark</span>
+                    </span>
+                  </div>
+                  <div class="route-line">
+                    <span class="route-dot drop">D</span>
+                    <span class="route-copy">
+                      <b>Drop: Railway Station</b>
+                      <span>4.8 km · usual route · toll not expected</span>
+                    </span>
+                  </div>
+                </div>
+                <div class="chip-row" aria-label="Ride time">
+                  <button class="time-chip active" data-time="Now">Now</button>
+                  <button class="time-chip" data-time="After 15 min">After 15 min</button>
+                  <button class="time-chip" data-time="Schedule">Schedule</button>
+                </div>
+              </section>
+
+              <section class="ride-card" aria-label="Choose ride" id="rideCard">
+                <div class="card-head">
+                  <b>Choose ride</b>
+                  <span id="rideHelp">tap one option</span>
+                </div>
+                <div class="ride-row">
+                  <button class="ride-option" data-ride="Bike">
+                    <span class="ride-top">
+                      <b>Bike</b>
+                      <svg viewBox="0 0 24 24"><circle cx="6" cy="17" r="3" /><circle cx="18" cy="17" r="3" /><path d="M8 17h4l3-7h3" /><path d="M10 10h3" /></svg>
+                    </span>
+                    <strong>from Rs 59</strong>
+                    <span>solo · quick city ride</span>
+                  </button>
+                  <button class="ride-option" data-ride="Auto">
+                    <span class="ride-top">
+                      <b>Auto</b>
+                      <svg viewBox="0 0 24 24"><path d="M4 16h16" /><path d="M6 16V9h9l3 4v3" /><circle cx="7" cy="17" r="2" /><circle cx="17" cy="17" r="2" /></svg>
+                    </span>
+                    <strong>from Rs 112</strong>
+                    <span>routine fare · local</span>
+                  </button>
+                  <button class="ride-option" data-ride="Cab">
+                    <span class="ride-top">
+                      <b>Cab</b>
+                      <svg viewBox="0 0 24 24"><path d="M5 16V9l2-4h10l2 4v7" /><path d="M5 12h14" /><circle cx="7" cy="17" r="2" /><circle cx="17" cy="17" r="2" /></svg>
+                    </span>
+                    <strong>from Rs 186</strong>
+                    <span>packages · comfort</span>
+                  </button>
+                </div>
+              </section>
+
+              <section class="option-card is-hidden" aria-label="Choose ride option" id="optionCard">
+                <div class="card-head">
+                  <b id="optionTitle">Choose fare</b>
+                  <span id="optionHelp">shown after ride type</span>
+                </div>
+                <div class="package-row" id="packageRow"></div>
+                <div class="decision-note">
+                  <svg viewBox="0 0 24 24"><path d="M12 21s7-5 7-11a7 7 0 1 0-14 0c0 6 7 11 7 11Z" /><circle cx="12" cy="10" r="2" /></svg>
+                  <span>Fare, arrival and nearby captains update here before booking.</span>
+                </div>
+              </section>
+
+              <section class="summary-card is-hidden" aria-label="Ride summary" id="summaryCard">
+                <div class="summary-top">
+                  <span class="summary-copy">
+                    <b id="summaryTitle">Ride to Railway Station</b>
+                    <span id="summaryText">Choose ride type to see fare and arrival.</span>
+                  </span>
+                  <span class="summary-price">
+                    <b id="summaryPrice">--</b>
+                    <span>estimate</span>
+                  </span>
+                </div>
+                <div class="cta-row">
+                  <a class="primary-cta" href="#" id="primaryCta">Book auto</a>
+                  <a class="secondary-cta" href="23-chat-inbox-home.html">Chat</a>
+                </div>
+              </section>
+
+            </main>
+
+            <nav class="bottom-dock" aria-label="Ride navigation">
+              <a class="mool-button" href="04-universal-focus-shell.html">Mool</a>
+              <div class="dock-track">
+                <a class="dock-tab" href="#" data-dock-ride="Bike"><svg viewBox="0 0 24 24"><circle cx="6" cy="17" r="3" /><circle cx="18" cy="17" r="3" /><path d="M8 17h4l3-7h3" /></svg>Bike</a>
+                <a class="dock-tab" href="#" data-dock-ride="Auto"><svg viewBox="0 0 24 24"><path d="M4 16h16" /><path d="M6 16V9h9l3 4v3" /></svg>Auto</a>
+                <a class="dock-tab" href="#" data-dock-ride="Cab"><svg viewBox="0 0 24 24"><path d="M5 16V9l2-4h10l2 4v7" /><circle cx="7" cy="17" r="2" /><circle cx="17" cy="17" r="2" /></svg>Cab</a>
+              </div>
+              <a class="chat-button" href="23-chat-inbox-home.html" aria-label="Open chat">
+                <svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z" /></svg>
+                <span class="chat-badge">2</span>
+              </a>
+            </nav>
+          </div>
+        </div>
+
+        <div class="notes">
+          <div>
+            <h1 class="ms-title">Screen 30 makes Ride a quick fare, time and trust decision.</h1>
+            <p class="ms-lead">
+              Ride should not feel like a listing of drivers. The user needs pickup, drop, ride type, package option,
+              fare, ETA, payment choice and cancellation clarity before booking. Captain number, call, chat and map
+              belong to the accepted-ride screen.
+            </p>
+          </div>
+
+          <div class="ms-panel">
+            <div class="ms-section-head">Screen Contract <span>Draft for review</span></div>
+            <div class="state-grid">
+              <div class="state-cell"><b>Entry</b>From Universal Screen Ride, search, saved place, location prompt, social/chat recommendation, QR at venue or repeat commute.</div>
+              <div class="state-cell"><b>User Sees</b>Pickup, drop, time, Bike/Auto/Cab, dynamic package options, fare, ETA, seats, nearby captain count, payment hint and booking action.</div>
+              <div class="state-cell"><b>Decision</b>User selects ride type, chooses the package, checks fare/ETA, then books. Captain actions appear only after acceptance.</div>
+              <div class="state-cell"><b>Backend</b>Location, saved places, fare estimate, package catalogue, distance, ETA, vehicle supply, captain matching, payment mode, cancellation rule, trip status and support APIs.</div>
+              <div class="state-cell"><b>Trust</b>Fare estimate, arrival time, captain availability count, payment method and cancellation rule are visible before booking. Captain phone, call, chat and map unlock after acceptance.</div>
+              <div class="state-cell"><b>Failure</b>If no captain, high demand, wrong location, route blocked or payment fails, show alternate ride, retry match, schedule, change pickup or support.</div>
+              <div class="state-cell"><b>Next</b>Book action routes to Screen 31 Ride Accepted, then captain arrival, live tracking, payment, receipt and rating screens.</div>
+              <div class="state-cell"><b>Regression</b>Bottom dock must keep Mool and Chat fixed; Bike, Auto and Cab are the Ride sub-actions; no marketplace/listing behavior.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script>
+    if ("scrollRestoration" in history) {
+      history.scrollRestoration = "manual";
+    }
+
+    function resetPhoneScroll() {
+      const content = document.querySelector(".content");
+      if (content) content.scrollTop = 0;
+    }
+
+    window.addEventListener("load", () => {
+      resetPhoneScroll();
+      requestAnimationFrame(resetPhoneScroll);
+      setTimeout(resetPhoneScroll, 80);
+    });
+
+    const rideOptions = document.querySelectorAll("[data-ride]");
+    const dockOptions = document.querySelectorAll("[data-dock-ride]");
+    const timeChips = document.querySelectorAll("[data-time]");
+    const rideCard = document.getElementById("rideCard");
+    const optionCard = document.getElementById("optionCard");
+    const summaryCard = document.getElementById("summaryCard");
+    const packageRow = document.getElementById("packageRow");
+    const optionTitle = document.getElementById("optionTitle");
+    const optionHelp = document.getElementById("optionHelp");
+    const rideHelp = document.getElementById("rideHelp");
+    const summaryTitle = document.getElementById("summaryTitle");
+    const summaryText = document.getElementById("summaryText");
+    const summaryPrice = document.getElementById("summaryPrice");
+    const primaryCta = document.getElementById("primaryCta");
+
+    const ridePackages = {
+      Bike: [
+        { name: "Bike Saver", price: "Rs 59", eta: "7 min", seat: "1 seat", note: "lowest fare", captains: "8 nearby", cta: "Book bike saver" },
+        { name: "Bike Now", price: "Rs 68", eta: "3 min", seat: "1 seat", note: "fastest pickup", captains: "11 nearby", cta: "Book bike" },
+        { name: "Bike Courier", price: "Rs 49", eta: "4 min", seat: "small parcel", note: "send item", captains: "5 nearby", cta: "Send by bike" }
+      ],
+      Auto: [
+        { name: "Auto", price: "Rs 112", eta: "5 min", seat: "3 seats", note: "routine fare", captains: "12 nearby", cta: "Book auto" },
+        { name: "Auto Plus", price: "Rs 138", eta: "5 min", seat: "luggage space", note: "extra room", captains: "4 nearby", cta: "Book auto plus" },
+        { name: "Shared Auto", price: "Rs 45", eta: "8 min", seat: "shared route", note: "lower fare", captains: "6 nearby", cta: "Book shared auto" }
+      ],
+      Cab: [
+        { name: "Mini", price: "Rs 186", eta: "6 min", seat: "4 seats", note: "city cab", captains: "7 nearby", cta: "Book mini cab" },
+        { name: "Sedan", price: "Rs 238", eta: "7 min", seat: "4 seats", note: "comfort", captains: "5 nearby", cta: "Book sedan" },
+        { name: "XL", price: "Rs 312", eta: "9 min", seat: "6 seats", note: "family ride", captains: "3 nearby", cta: "Book XL cab" },
+        { name: "Rental 2 hr", price: "Rs 599", eta: "10 min", seat: "local package", note: "wait included", captains: "2 nearby", cta: "Book rental" }
+      ]
+    };
+
+    const state = {
+      ride: "",
+      packageName: "",
+      price: "--",
+      eta: "",
+      seat: "",
+      note: "",
+      captains: "",
+      cta: "Choose ride",
+      time: "Now"
+    };
+
+    function updateSummary() {
+      if (rideHelp) rideHelp.textContent = state.ride ? `${state.ride} selected` : "tap one option";
+      optionTitle.textContent = `${state.ride} options`;
+      optionHelp.textContent = `${state.captains} · ${state.time}`;
+      summaryTitle.textContent = `${state.packageName} to Railway Station`;
+      summaryText.textContent = `${state.seat} · ${state.eta} arrival · ${state.note}. Captain call, chat and map open after booking.`;
+      summaryPrice.textContent = state.price;
+      primaryCta.textContent = state.cta;
+    }
+
+    function applyPackage(packageItem) {
+      state.packageName = packageItem.name;
+      state.price = packageItem.price;
+      state.eta = packageItem.eta;
+      state.seat = packageItem.seat;
+      state.note = packageItem.note;
+      state.captains = packageItem.captains;
+      state.cta = packageItem.cta;
+      summaryCard.classList.remove("is-hidden");
+      [...packageRow.querySelectorAll("[data-package]")].forEach((button) => {
+        button.classList.toggle("active", button.dataset.package === packageItem.name);
+      });
+      updateSummary();
+    }
+
+    function renderPackages(ride) {
+      packageRow.innerHTML = "";
+      ridePackages[ride].forEach((item, index) => {
+        const button = document.createElement("button");
+        button.className = `package-option${index === 0 ? " active" : ""}`;
+        button.dataset.package = item.name;
+        button.type = "button";
+        button.innerHTML = `<b>${item.name}</b><strong>${item.price}</strong><span>${item.eta} · ${item.note}</span>`;
+        button.addEventListener("click", () => applyPackage(item));
+        packageRow.appendChild(button);
+      });
+      applyPackage(ridePackages[ride][0]);
+    }
+
+    function applyRide(ride) {
+      rideOptions.forEach((item) => {
+        const active = item.dataset.ride === ride;
+        item.classList.toggle("active", active);
+      });
+      dockOptions.forEach((item) => item.classList.toggle("active", item.dataset.dockRide === ride));
+      state.ride = ride;
+      rideCard.classList.add("is-hidden");
+      optionCard.classList.remove("is-hidden");
+      renderPackages(ride);
+    }
+
+    rideOptions.forEach((option) => {
+      option.addEventListener("click", () => applyRide(option.dataset.ride));
+    });
+
+    dockOptions.forEach((option) => {
+      option.addEventListener("click", (event) => {
+        event.preventDefault();
+        applyRide(option.dataset.dockRide);
+      });
+    });
+
+    timeChips.forEach((chip) => {
+      chip.addEventListener("click", () => {
+        timeChips.forEach((item) => item.classList.toggle("active", item === chip));
+        state.time = chip.dataset.time;
+      });
+    });
+
+    updateSummary();
+  </script>
+<script type="application/json" id="productionRouteContract">{"contractVersion":"mvp-route-lock-2026-07-12","prototypeScreen":30,"productionModule":"ride","routeId":"ride.booking","routePath":"/ride","routeState":"quote-and-book","implementation":"route-shell","launchScope":"mvp-core","separateProductionRoute":true,"productionNote":"Own production route /ride. Implement quote-and-book as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.","canonicalMap":"architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"}</script><script type="application/json" id="prototypeApprovalContract">{"prototypeScreen":30,"status":"approved-and-frozen","authoritative":true,"approvedAt":"2026-07-12","approvalScope":"prototype-ui-ux-and-production-contract"}</script></body>
+</html>

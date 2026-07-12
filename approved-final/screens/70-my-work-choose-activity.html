@@ -1,0 +1,1236 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>70 Progressive Workspace Cards - MoolSocial Screenbook</title>
+  <style>
+    :root {
+      --navy: #000080;
+      --navy-deep: #000058;
+      --saffron: #ff9933;
+      --green: #138808;
+      --white: #ffffff;
+      --ink: #15162b;
+      --muted: #606579;
+      --line: #d9dced;
+      --surface: #f5f7fc;
+      --soft-blue: #eef0fb;
+      --soft-green: #edf8ee;
+      --soft-orange: #fff3e7;
+      --font: Arial, Helvetica, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      background: #eef1f8;
+      color: var(--ink);
+      font-family: var(--font);
+      letter-spacing: 0;
+    }
+
+    button,
+    input,
+    a { font: inherit; }
+
+    button { cursor: pointer; }
+
+    svg {
+      display: block;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.9;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .page {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+      padding: 30px 22px 54px;
+    }
+
+    .stage {
+      display: grid;
+      grid-template-columns: minmax(320px, 430px) minmax(0, 1fr);
+      gap: 42px;
+      align-items: start;
+    }
+
+    .phone-frame {
+      width: 100%;
+      max-width: 430px;
+      min-height: 860px;
+      position: sticky;
+      top: 18px;
+      overflow: hidden;
+      border: 9px solid var(--navy);
+      border-radius: 36px;
+      background: var(--surface);
+      box-shadow: 0 18px 50px rgba(0, 0, 88, .16);
+    }
+
+    .phone {
+      min-height: 842px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      background: var(--surface);
+    }
+
+    .app-header {
+      flex: 0 0 auto;
+      padding: 9px 15px 13px;
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .status-bar {
+      min-height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    .head-row {
+      min-height: 53px;
+      display: grid;
+      grid-template-columns: 38px minmax(0, 1fr) 38px;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .head-button {
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, .36);
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .10);
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    .head-button svg { width: 19px; height: 19px; }
+
+    .head-copy {
+      min-width: 0;
+      display: grid;
+      gap: 2px;
+    }
+
+    .head-copy b {
+      overflow: hidden;
+      color: var(--white);
+      font-size: 20px;
+      line-height: 1.05;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .head-copy span {
+      overflow: hidden;
+      color: rgba(255, 255, 255, .76);
+      font-size: 9px;
+      font-weight: 760;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .identity-line {
+      width: 78px;
+      height: 4px;
+      display: grid;
+      grid-template-columns: 1fr .48fr 1fr;
+      overflow: hidden;
+      border-radius: 999px;
+    }
+
+    .identity-line i:nth-child(1) { background: var(--saffron); }
+    .identity-line i:nth-child(2) { background: var(--white); }
+    .identity-line i:nth-child(3) { background: var(--green); }
+
+    .content {
+      min-height: 0;
+      flex: 1 1 auto;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      padding: 11px 11px 91px;
+      scrollbar-width: none;
+    }
+
+    .content::-webkit-scrollbar { display: none; }
+
+    .account-strip {
+      display: grid;
+      grid-template-columns: 34px minmax(0, 1fr) auto;
+      gap: 9px;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 9px 10px;
+      background: var(--white);
+    }
+
+    .account-icon {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--soft-green);
+      color: var(--green);
+    }
+
+    .account-icon svg { width: 17px; height: 17px; }
+
+    .account-copy {
+      min-width: 0;
+      display: grid;
+      gap: 2px;
+    }
+
+    .account-copy small {
+      color: var(--muted);
+      font-size: 7px;
+      font-weight: 850;
+      text-transform: uppercase;
+    }
+
+    .account-copy b,
+    .account-copy span {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .account-copy b { color: var(--navy); font-size: 11px; }
+    .account-copy span { color: var(--muted); font-size: 8px; font-weight: 700; }
+
+    .verified {
+      border-radius: 999px;
+      padding: 5px 7px;
+      background: var(--soft-green);
+      color: var(--green);
+      font-size: 8px;
+      font-weight: 950;
+    }
+
+    .selector-view { display: grid; gap: 9px; margin-top: 9px; }
+    .selector-view[hidden], .profile-view[hidden], .unavailable-view[hidden] { display: none; }
+
+    .selector-head {
+      display: grid;
+      gap: 7px;
+      border: 1px solid rgba(0, 0, 128, .18);
+      border-radius: 8px;
+      padding: 11px;
+      background: var(--white);
+    }
+
+    .step-line {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .step-line small {
+      color: var(--green);
+      font-size: 8px;
+      font-weight: 950;
+      text-transform: uppercase;
+    }
+
+    .step-line span {
+      color: var(--muted);
+      font-size: 8px;
+      font-weight: 850;
+    }
+
+    .selector-head h1 {
+      margin: 0;
+      color: var(--navy);
+      font-size: 18px;
+      line-height: 1.14;
+    }
+
+    .selector-head p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
+    .breadcrumbs {
+      display: flex;
+      gap: 5px;
+      overflow-x: auto;
+      padding-bottom: 1px;
+      scrollbar-width: none;
+    }
+
+    .breadcrumbs:empty { display: none; }
+    .breadcrumbs::-webkit-scrollbar { display: none; }
+
+    .crumb {
+      min-height: 25px;
+      flex: 0 0 auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      border: 1px solid rgba(0, 0, 128, .18);
+      border-radius: 999px;
+      padding: 0 8px;
+      background: var(--surface);
+      color: var(--navy);
+      font-size: 8px;
+      font-weight: 900;
+    }
+
+    .crumb[aria-current="step"] { background: var(--navy); color: var(--white); }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .card-grid.single { grid-template-columns: minmax(0, 1fr); }
+
+    .choice-card {
+      min-width: 0;
+      min-height: 112px;
+      position: relative;
+      display: grid;
+      grid-template-rows: 37px auto 1fr;
+      gap: 7px;
+      justify-items: start;
+      border: 1px solid rgba(0, 0, 128, .20);
+      border-radius: 8px;
+      padding: 11px;
+      background: var(--white);
+      color: var(--ink);
+      text-align: left;
+      box-shadow: 0 7px 16px rgba(0, 0, 88, .06);
+    }
+
+    .choice-card::after {
+      content: "›";
+      position: absolute;
+      top: 11px;
+      right: 10px;
+      color: var(--navy);
+      font-size: 17px;
+      font-weight: 900;
+    }
+
+    .choice-card:hover,
+    .choice-card:focus-visible {
+      border-color: var(--navy);
+      outline: 0;
+      box-shadow: inset 0 -3px 0 var(--saffron), 0 9px 20px rgba(0, 0, 128, .12);
+    }
+
+    .choice-icon {
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--soft-blue);
+      color: var(--navy);
+    }
+
+    .choice-icon svg { width: 19px; height: 19px; }
+
+    .choice-card:nth-child(3n + 2) .choice-icon { background: var(--soft-green); color: var(--green); }
+    .choice-card:nth-child(3n) .choice-icon { background: var(--soft-orange); color: #b35400; }
+
+    .choice-card b {
+      max-width: calc(100% - 7px);
+      color: var(--navy);
+      font-size: 11px;
+      line-height: 1.18;
+    }
+
+    .choice-card span:last-child {
+      color: var(--muted);
+      font-size: 8px;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .not-listed {
+      min-height: 32px;
+      border: 0;
+      background: transparent;
+      color: var(--navy);
+      font-size: 9px;
+      font-weight: 900;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .profile-view,
+    .unavailable-view {
+      display: grid;
+      gap: 9px;
+      margin-top: 9px;
+    }
+
+    .profile-hero {
+      overflow: hidden;
+      border: 1px solid rgba(0, 0, 128, .24);
+      border-radius: 8px;
+      background: var(--white);
+      box-shadow: 0 10px 24px rgba(0, 0, 88, .08);
+    }
+
+    .profile-hero-top {
+      display: grid;
+      grid-template-columns: 46px minmax(0, 1fr);
+      gap: 10px;
+      align-items: center;
+      padding: 13px;
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .profile-mark {
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      border: 2px solid rgba(255, 255, 255, .72);
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .10);
+      color: var(--white);
+    }
+
+    .profile-mark svg { width: 23px; height: 23px; }
+
+    .profile-title {
+      min-width: 0;
+      display: grid;
+      gap: 3px;
+    }
+
+    .profile-title small {
+      color: var(--saffron);
+      font-size: 8px;
+      font-weight: 950;
+      text-transform: uppercase;
+    }
+
+    .profile-title b {
+      overflow: hidden;
+      color: var(--white);
+      font-size: 16px;
+      line-height: 1.1;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .profile-title span {
+      color: rgba(255, 255, 255, .74);
+      font-size: 9px;
+      font-weight: 750;
+    }
+
+    .profile-summary {
+      margin: 0;
+      padding: 11px 13px;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 720;
+      line-height: 1.38;
+    }
+
+    .profile-bands {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      border-top: 1px solid var(--line);
+    }
+
+    .profile-band {
+      min-width: 0;
+      display: grid;
+      gap: 4px;
+      align-content: start;
+      padding: 9px;
+      border-right: 1px solid var(--line);
+    }
+
+    .profile-band:last-child { border-right: 0; }
+    .profile-band small { color: var(--muted); font-size: 7px; font-weight: 900; text-transform: uppercase; }
+    .profile-band b { color: var(--navy); font-size: 9px; line-height: 1.25; }
+
+    .detail-section {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--white);
+    }
+
+    .detail-head {
+      min-height: 37px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 8px 11px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .detail-head b { color: var(--navy); font-size: 11px; }
+    .detail-head span { color: var(--muted); font-size: 7px; font-weight: 850; }
+
+    .proof-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 7px;
+      padding: 9px;
+    }
+
+    .proof-item {
+      min-height: 34px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      border-radius: 6px;
+      padding: 7px;
+      background: var(--surface);
+      color: var(--ink);
+      font-size: 8px;
+      font-weight: 780;
+      line-height: 1.25;
+    }
+
+    .proof-item i {
+      width: 15px;
+      height: 15px;
+      flex: 0 0 auto;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--soft-green);
+      color: var(--green);
+      font-size: 9px;
+      font-style: normal;
+      font-weight: 950;
+    }
+
+    .contact-form { display: grid; gap: 8px; padding: 9px; }
+
+    .contact-line {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 9px;
+      align-items: center;
+      border-radius: 6px;
+      padding: 8px;
+      background: var(--surface);
+    }
+
+    .contact-line span { min-width: 0; display: grid; gap: 2px; }
+    .contact-line small { color: var(--muted); font-size: 7px; font-weight: 850; text-transform: uppercase; }
+    .contact-line b { overflow: hidden; color: var(--navy); font-size: 10px; text-overflow: ellipsis; white-space: nowrap; }
+    .contact-line em { color: var(--green); font-size: 8px; font-style: normal; font-weight: 950; }
+
+    .toggle {
+      width: 34px;
+      height: 20px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .toggle input { width: 1px; height: 1px; position: absolute; opacity: 0; }
+    .toggle-track { position: absolute; inset: 0; border-radius: 999px; background: #b8bbca; }
+    .toggle-track::after { content: ""; width: 16px; height: 16px; position: absolute; top: 2px; left: 2px; border-radius: 50%; background: var(--white); transition: transform .18s ease; }
+    .toggle input:checked + .toggle-track { background: var(--green); }
+    .toggle input:checked + .toggle-track::after { transform: translateX(14px); }
+    .toggle input:focus-visible + .toggle-track { outline: 3px solid var(--saffron); outline-offset: 2px; }
+
+    .alternate-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 7px;
+      align-items: stretch;
+    }
+
+    .secondary-field {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      overflow: hidden;
+      background: var(--white);
+    }
+
+    .secondary-field span {
+      display: grid;
+      place-items: center;
+      padding: 0 9px;
+      border-right: 1px solid var(--line);
+      color: var(--navy);
+      font-size: 10px;
+      font-weight: 900;
+    }
+
+    .secondary-field input {
+      min-width: 0;
+      height: 40px;
+      border: 0;
+      outline: 0;
+      padding: 0 10px;
+      color: var(--ink);
+      font-size: 10px;
+      font-weight: 750;
+    }
+
+    .verify-contact {
+      min-width: 68px;
+      border: 1px solid var(--navy);
+      border-radius: 6px;
+      padding: 0 10px;
+      background: var(--white);
+      color: var(--navy);
+      font-size: 8px;
+      font-weight: 950;
+    }
+
+    .verify-contact:disabled { border-color: #8bbd8e; background: var(--soft-green); color: var(--green); }
+
+    .otp-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 7px;
+      padding: 8px;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: 6px;
+      background: var(--surface);
+    }
+
+    .otp-row[hidden] { display: none; }
+    .otp-row input {
+      min-width: 0;
+      height: 36px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 0 10px;
+      background: var(--white);
+      color: var(--navy);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+
+    .secondary-help { margin: -2px 2px 0; color: var(--muted); font-size: 7px; font-weight: 700; line-height: 1.3; }
+    .secondary-help.success { color: var(--green); font-weight: 900; }
+    .secondary-help.error { color: #a92828; font-weight: 900; }
+
+    .profile-actions {
+      display: grid;
+      grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
+      gap: 8px;
+    }
+
+    .secondary-action,
+    .primary-action {
+      min-height: 43px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      border-radius: 8px;
+      padding: 0 11px;
+      font-size: 10px;
+      font-weight: 950;
+    }
+
+    .secondary-action { border: 1px solid var(--navy); background: var(--white); color: var(--navy); }
+    .primary-action { border: 0; background: var(--navy); color: var(--white); box-shadow: inset 0 -3px 0 var(--saffron); }
+
+    .primary-action svg,
+    .secondary-action svg { width: 15px; height: 15px; }
+
+    .ready-message {
+      min-height: 34px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #7ab87c;
+      border-radius: 8px;
+      padding: 7px 10px;
+      background: var(--soft-green);
+      color: var(--green);
+      font-size: 9px;
+      font-weight: 900;
+      text-align: center;
+    }
+
+    .ready-message.show { display: flex; }
+
+    .unavailable-view {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 18px 14px;
+      background: var(--white);
+      text-align: center;
+    }
+
+    .unavailable-view .profile-mark { margin: 0 auto 10px; background: var(--navy); }
+    .unavailable-view h2 { margin: 0; color: var(--navy); font-size: 17px; }
+    .unavailable-view p { margin: 7px auto 13px; color: var(--muted); font-size: 10px; font-weight: 700; line-height: 1.4; }
+
+    .intent-form { display: grid; gap: 8px; margin-top: 12px; text-align: left; }
+    .intent-form[hidden] { display: none; }
+    .intent-field { display: grid; gap: 4px; }
+    .intent-field span { color: var(--navy); font-size: 8px; font-weight: 900; }
+    .intent-field input,
+    .intent-field select {
+      width: 100%;
+      min-width: 0;
+      height: 40px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 0 10px;
+      background: var(--white);
+      color: var(--ink);
+      font-size: 10px;
+      font-weight: 750;
+    }
+
+    .intent-note { margin: 0 !important; color: var(--muted); font-size: 8px !important; text-align: left; }
+    .admin-alert {
+      display: grid;
+      gap: 4px;
+      border: 1px solid #7ab87c;
+      border-radius: 8px;
+      padding: 10px;
+      background: var(--soft-green);
+      color: var(--green);
+      text-align: left;
+    }
+    .admin-alert[hidden] { display: none; }
+    .admin-alert b { font-size: 10px; }
+    .admin-alert span { font-size: 8px; font-weight: 750; line-height: 1.35; }
+
+    .bottom-dock {
+      position: absolute;
+      right: 9px;
+      bottom: 9px;
+      left: 9px;
+      display: grid;
+      grid-template-columns: 54px minmax(0, 1fr) 54px;
+      gap: 7px;
+      align-items: center;
+      border: 1px solid rgba(0, 0, 128, .75);
+      border-radius: 23px;
+      padding: 7px;
+      background: rgba(255, 255, 255, .98);
+      box-shadow: 0 -12px 24px rgba(0, 0, 128, .15);
+      z-index: 10;
+    }
+
+    .mool-button,
+    .chat-button {
+      width: 54px;
+      height: 54px;
+      position: relative;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(0, 0, 128, .16);
+      border-radius: 50%;
+      color: var(--navy);
+      font-size: 9px;
+      font-weight: 950;
+      text-decoration: none;
+    }
+
+    .mool-button { background: var(--navy); color: var(--white); box-shadow: inset 0 -3px 0 var(--green); }
+    .mool-button::after { content: ""; width: 19px; height: 3px; position: absolute; bottom: 7px; left: 17px; border-left: 7px solid var(--saffron); border-right: 7px solid var(--green); background: var(--white); }
+    .chat-button { gap: 1px; background: var(--white); }
+    .chat-button svg { width: 20px; height: 20px; }
+
+    .chat-badge { min-width: 17px; height: 17px; position: absolute; top: 4px; right: 1px; display: grid; place-items: center; border-radius: 999px; padding: 0 4px; background: var(--saffron); color: var(--navy); font-size: 9px; font-weight: 950; }
+
+    .dock-track { min-width: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px; border: 1px solid rgba(0, 0, 128, .18); border-radius: 19px; padding: 5px; background: #f1f3fb; box-shadow: inset 10px 0 18px rgba(0, 0, 128, .08), inset -10px 0 18px rgba(0, 0, 128, .08); }
+    .dock-tab { min-width: 0; min-height: 44px; display: grid; place-items: center; gap: 2px; border-radius: 15px; color: var(--navy); font-size: 8px; font-weight: 950; text-decoration: none; }
+    .dock-tab svg { width: 16px; height: 16px; }
+    .dock-tab .rupee { font-size: 17px; line-height: 1; }
+    .dock-tab.active { background: var(--navy); color: var(--white); box-shadow: inset 0 -3px 0 var(--saffron); }
+
+    .notes { display: grid; gap: 18px; padding-top: 14px; }
+    .notes h1 { max-width: 690px; margin: 0; color: var(--navy); font-size: clamp(27px, 4vw, 48px); line-height: 1.04; }
+    .notes > p { max-width: 720px; margin: 0; color: var(--muted); font-size: 15px; line-height: 1.55; }
+    .contract { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--navy); border-left: 1px solid var(--navy); background: var(--white); }
+    .contract div { min-height: 104px; border-right: 1px solid var(--navy); border-bottom: 1px solid var(--navy); padding: 14px; color: var(--muted); font-size: 12px; line-height: 1.45; }
+    .contract b { display: block; margin-bottom: 5px; color: var(--navy); font-size: 12px; text-transform: uppercase; }
+
+    @media (max-width: 900px) {
+      .page { padding: 18px 12px 42px; }
+      .stage { grid-template-columns: 1fr; justify-items: center; }
+      .phone-frame { position: relative; top: auto; }
+      .notes { width: min(720px, 100%); }
+    }
+
+    @media (max-width: 480px) {
+      body { background: var(--surface); }
+      .page { padding: 0; }
+      .stage { display: block; }
+      .phone-frame { max-width: none; min-height: 100dvh; border: 0; border-radius: 0; box-shadow: none; }
+      .phone { min-height: 100dvh; height: 100dvh; }
+      .notes { display: none; }
+    }
+
+    @media (max-width: 350px) {
+      .app-header { padding-inline: 10px; }
+      .content { padding-inline: 8px; }
+      .choice-card { min-height: 108px; padding: 9px; }
+      .choice-card b { font-size: 10px; }
+      .bottom-dock { left: 5px; right: 5px; gap: 5px; padding: 5px; }
+      .mool-button, .chat-button { width: 50px; height: 50px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="stage">
+      <section class="phone-frame" aria-label="MoolSocial progressive workspace selection prototype">
+        <div class="phone">
+          <header class="app-header">
+            <div class="status-bar"><span>9:41</span><span>5G 100%</span></div>
+            <div class="head-row">
+              <button class="head-button" id="backButton" type="button" aria-label="Go back">
+                <svg viewBox="0 0 24 24"><path d="m15 18-6-6 6-6" /></svg>
+              </button>
+              <span class="head-copy"><b>Choose Your Work</b><span id="headerStatus">Select one card at a time</span><span class="identity-line" aria-hidden="true"><i></i><i></i><i></i></span></span>
+              <button class="head-button" type="button" aria-label="Help choosing work">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" /><path d="M9.8 9a2.3 2.3 0 1 1 3.7 1.8c-.9.7-1.5 1.2-1.5 2.2" /><path d="M12 17h.01" /></svg>
+              </button>
+            </div>
+          </header>
+
+          <div class="content">
+            <section class="account-strip" aria-label="Verified account identity">
+              <span class="account-icon"><svg viewBox="0 0 24 24"><path d="M6 2h4l2 5-3 2a15 15 0 0 0 6 6l2-3 5 2v4a4 4 0 0 1-4 4C9.2 22 2 14.8 2 6a4 4 0 0 1 4-4Z" /></svg></span>
+              <span class="account-copy"><small>Using your MoolSocial account</small><b id="accountMobile">+91 98••• ••210</b><span id="accountIdentity">Google · user@gmail.com</span></span>
+              <span class="verified">Verified</span>
+            </section>
+
+            <section class="selector-view" id="selectorView" aria-label="Choose workspace profile">
+              <div class="selector-head">
+                <span class="step-line"><small id="stepLabel">Start My Work</small><span id="stepCount">Step 1 of up to 4</span></span>
+                <h1 id="selectorTitle">What kind of work do you operate?</h1>
+                <p id="selectorNote">Only workspaces available in MoolSocial are shown.</p>
+                <nav class="breadcrumbs" id="breadcrumbs" aria-label="Selected work path"></nav>
+              </div>
+              <div class="card-grid" id="cardGrid"></div>
+              <button class="not-listed" id="notListedButton" type="button">My work is not shown</button>
+            </section>
+
+            <section class="profile-view" id="profileView" aria-label="Confirm selected workspace" hidden>
+              <article class="profile-hero">
+                <div class="profile-hero-top">
+                  <span class="profile-mark" id="profileMark"></span>
+                  <span class="profile-title"><small>Selected workspace</small><b id="profileTitle">Workspace</b><span id="profileVariant"></span></span>
+                </div>
+                <p class="profile-summary" id="profileSummary"></p>
+                <div class="profile-bands">
+                  <span class="profile-band"><small>Sell / Serve</small><b id="profileSell"></b></span>
+                  <span class="profile-band"><small>Buy / Procure</small><b id="profileBuy"></b></span>
+                  <span class="profile-band"><small>Operate</small><b id="profileOperate"></b></span>
+                </div>
+              </article>
+
+              <section class="detail-section" aria-label="Proof required after confirmation">
+                <div class="detail-head"><b>Proof after confirmation</b><span>profile specific</span></div>
+                <div class="proof-list" id="proofList"></div>
+              </section>
+
+              <section class="detail-section" aria-label="Workspace contacts">
+                <div class="detail-head"><b>Workspace contacts</b><span>account details carried forward</span></div>
+                <div class="contact-form">
+                  <div class="contact-line"><span><small>Primary contact</small><b id="primaryContact">+91 98••• ••210</b></span><label class="toggle" aria-label="Use primary account number for work"><input id="usePrimary" type="checkbox" checked><span class="toggle-track"></span></label></div>
+                  <div class="contact-line"><span><small>Account identity</small><b id="accountLogin">Google · user@gmail.com</b></span><em>Verified</em></div>
+                  <div class="alternate-row">
+                    <label class="secondary-field"><span>+91</span><input id="secondaryContact" type="tel" inputmode="numeric" autocomplete="tel" maxlength="10" placeholder="Alternate mobile (optional)"></label>
+                    <button class="verify-contact" id="sendAlternateOtp" type="button">Send OTP</button>
+                  </div>
+                  <div class="otp-row" id="alternateOtpRow" hidden>
+                    <input id="alternateOtp" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="6" aria-label="Alternate mobile OTP" placeholder="6-digit OTP">
+                    <button class="verify-contact" id="verifyAlternateOtp" type="button">Verify</button>
+                  </div>
+                  <p class="secondary-help" id="secondaryHelp">Add an alternate number if available. It must be OTP verified before use.</p>
+                </div>
+              </section>
+
+              <div class="profile-actions">
+                <button class="secondary-action" id="changeSelection" type="button"><svg viewBox="0 0 24 24"><path d="m15 18-6-6 6-6" /></svg>Change</button>
+                <button class="primary-action" id="continueProof" type="button">Continue to proof<svg viewBox="0 0 24 24"><path d="M5 12h14" /><path d="m14 7 5 5-5 5" /></svg></button>
+              </div>
+              <div class="ready-message" id="readyMessage" role="status" aria-live="polite">Profile and contacts saved for the proof step.</div>
+            </section>
+
+            <section class="unavailable-view" id="unavailableView" aria-label="Workspace unavailable" hidden>
+              <span class="profile-mark"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" /><path d="M8 12h8" /></svg></span>
+              <h2>Request a work profile</h2>
+              <p>Tell us what you operate. This request will not create a workspace.</p>
+              <form class="intent-form" id="workspaceIntentForm">
+                <label class="intent-field"><span>Workspace you need</span><input id="requestedWorkspace" maxlength="80" required placeholder="Example: tailoring shop"></label>
+                <label class="intent-field"><span>Closest work area</span><select id="requestedFamily" required><option value="">Choose one</option><option>Products & Trade</option><option>Food Business</option><option>Health & Medicine</option><option>Services & Salon</option><option>Ride & Transport</option><option>Create & Work</option><option>Other</option></select></label>
+                <label class="intent-field"><span>Operating city or area</span><input id="requestedArea" maxlength="80" required placeholder="City, area or pincode"></label>
+                <p class="intent-note">Your verified account contact will be attached to the request.</p>
+                <div class="profile-actions">
+                  <button class="secondary-action" id="backToCards" type="button">Back to cards</button>
+                  <button class="primary-action" id="notifyButton" type="submit">Send request</button>
+                </div>
+              </form>
+              <div class="admin-alert" id="notifyMessage" role="status" aria-live="polite" hidden><b>MoolSocial admin alerted</b><span id="notifyDetails"></span></div>
+            </section>
+          </div>
+
+          <nav class="bottom-dock" aria-label="Work navigation">
+            <a class="mool-button" href="04-universal-focus-shell.html">Mool</a>
+            <div class="dock-track">
+              <a class="dock-tab" href="67-work.html"><span class="rupee">₹</span><span>Earn</span></a>
+              <a class="dock-tab active" href="69-my-work-setup.html" aria-current="page"><svg viewBox="0 0 24 24"><path d="M6 21V8h12v13" /><path d="M9 8V4h6v4" /></svg><span>My Work</span></a>
+            </div>
+            <a class="chat-button" href="23-chat-inbox-home.html" aria-label="Open chat"><svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z" /></svg><span>Chat</span><span class="chat-badge">2</span></a>
+          </nav>
+        </div>
+      </section>
+
+      <aside class="notes">
+        <h1>Screen 70 resolves an exact supported workspace in two to four card taps.</h1>
+        <p>The cards combine industry vertical, value-chain activity and exact profile. GST nature, HSN/SAC and profile documents support verification after selection; they do not replace the user-facing taxonomy.</p>
+        <section class="contract" aria-label="Screen 70 contract">
+          <div><b>Available Only</b>Every selectable leaf has an active onboarding schema, proof policy and dashboard template.</div>
+          <div><b>No Wrong Creation</b>Category and child-card taps only filter. The workspace does not exist before exact-profile confirmation and proof.</div>
+          <div><b>Identity Reuse</b>Primary verified mobile and account identity carry forward. An optional alternate mobile is OTP verified for every profile.</div>
+          <div><b>Two-Sided Logic</b>Each preview exposes its sell/service side, procurement side and operating tools before confirmation.</div>
+          <div><b>Correction</b>Breadcrumb and Change preserve information. Proof mismatch pauses approval and proposes correction.</div>
+          <div><b>MVP Scope</b>Unsupported professions never receive an improvised workspace. Requested profile, work family, area and verified account identity create an admin alert.</div>
+        </section>
+      </aside>
+    </div>
+  </main>
+
+  <script src="../shared/workspace-profile-registry.js"></script>
+  <script>
+    const registry = window.MoolWorkspaceRegistry;
+    const params = new URLSearchParams(window.location.search);
+    const primaryMobile = params.get("mobile") || "+91 98765 43210";
+    const accountEmail = params.get("email") || "user@gmail.com";
+    const loginProvider = params.get("login") || "Google";
+    const opportunity = params.get("opportunity");
+    const operatingArea = params.get("area") || "Jodhpur";
+
+    const selectorView = document.getElementById("selectorView");
+    const profileView = document.getElementById("profileView");
+    const unavailableView = document.getElementById("unavailableView");
+    const cardGrid = document.getElementById("cardGrid");
+    const breadcrumbs = document.getElementById("breadcrumbs");
+    const selectorTitle = document.getElementById("selectorTitle");
+    const selectorNote = document.getElementById("selectorNote");
+    const stepLabel = document.getElementById("stepLabel");
+    const stepCount = document.getElementById("stepCount");
+    const headerStatus = document.getElementById("headerStatus");
+    const backButton = document.getElementById("backButton");
+    const secondaryContact = document.getElementById("secondaryContact");
+    const secondaryHelp = document.getElementById("secondaryHelp");
+    const sendAlternateOtp = document.getElementById("sendAlternateOtp");
+    const alternateOtpRow = document.getElementById("alternateOtpRow");
+    const alternateOtp = document.getElementById("alternateOtp");
+    const verifyAlternateOtp = document.getElementById("verifyAlternateOtp");
+    const workspaceIntentForm = document.getElementById("workspaceIntentForm");
+    const notifyMessage = document.getElementById("notifyMessage");
+    const trail = [{ label: "All work", nodeId: "root" }];
+    let selected = null;
+    let alternateVerified = false;
+
+    function maskMobile(value) {
+      const digits = value.replace(/\D/g, "");
+      if (digits.length < 6) return value;
+      const country = digits.length > 10 ? `+${digits.slice(0, digits.length - 10)} ` : "";
+      const local = digits.slice(-10);
+      return `${country}${local.slice(0, 2)}••• ••${local.slice(-3)}`;
+    }
+
+    const maskedMobile = maskMobile(primaryMobile);
+    const accountIdentity = `${loginProvider} · ${accountEmail}`;
+    document.getElementById("accountMobile").textContent = maskedMobile;
+    document.getElementById("accountIdentity").textContent = accountIdentity;
+    document.getElementById("primaryContact").textContent = maskedMobile;
+    document.getElementById("accountLogin").textContent = accountIdentity;
+    document.getElementById("requestedArea").value = operatingArea;
+
+    const iconPaths = {
+      boxes: '<path d="M4 7h7v7H4Z"/><path d="M13 4h7v7h-7Z"/><path d="M13 13h7v7h-7Z"/><path d="M4 16h7v4H4Z"/>',
+      utensils: '<path d="M7 3v8"/><path d="M4 3v5a3 3 0 0 0 6 0V3"/><path d="M7 11v10"/><path d="M16 3v18"/><path d="M16 3c3 1 4 4 4 7h-4"/>',
+      health: '<path d="M9 3h6v6h6v6h-6v6H9v-6H3V9h6Z"/>',
+      sparkles: '<path d="m12 3 1.4 4.1L17.5 8.5l-4.1 1.4L12 14l-1.4-4.1-4.1-1.4 4.1-1.4Z"/><path d="m18.5 15 .8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8Z"/>',
+      vehicle: '<path d="M3 16V9l3-4h9l4 4v7"/><path d="M6 9h10"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/>',
+      create: '<path d="M4 19 17 6l2 2L6 21H4Z"/><path d="m14 6 2-2 4 4-2 2"/>',
+      factory: '<path d="M3 21V9l6 3V8l6 4V4h6v17Z"/><path d="M7 17h2M12 17h2M17 17h2"/>',
+      warehouse: '<path d="m3 10 9-6 9 6v11H3Z"/><path d="M7 21v-7h10v7M8 10h8"/>',
+      store: '<path d="M4 9h16l-1-5H5Z"/><path d="M5 9v11h14V9"/><path d="M9 20v-6h6v6"/>',
+      foodPack: '<path d="M6 3h12l-1 18H7Z"/><path d="M8 8h8M9 12h6"/>',
+      snack: '<path d="m7 3 10 2 2 16-14-2Z"/><path d="M9 9h6M10 13h5"/>',
+      drink: '<path d="M7 3h10l-2 18H9Z"/><path d="M9 8h6"/>',
+      personal: '<path d="M9 3h6v4l2 3v11H7V10l2-3Z"/><path d="M9 13h6"/>',
+      home: '<path d="m3 11 9-7 9 7v10H3Z"/><path d="M9 21v-6h6v6"/>',
+      hygiene: '<path d="M8 3h8v5l2 3v10H6V11l2-3Z"/><path d="M9 14h6"/>',
+      materials: '<path d="m4 7 8-4 8 4-8 4Z"/><path d="m4 12 8 4 8-4"/><path d="m4 17 8 4 8-4"/>',
+      package: '<path d="m4 7 8-4 8 4v10l-8 4-8-4Z"/><path d="m4 7 8 4 8-4M12 11v10"/>',
+      basket: '<path d="M4 9h16l-2 11H6Z"/><path d="m8 9 4-6 4 6M9 13v3M15 13v3"/>',
+      personProduct: '<circle cx="9" cy="7" r="3"/><path d="M3 21v-4a6 6 0 0 1 12 0v4"/><path d="M16 8h5v5h-5Z"/>',
+      kitchen: '<path d="M4 20h16M6 20V9h12v11M9 9V4h6v5"/><path d="M9 14h6"/>',
+      tiffin: '<rect x="5" y="6" width="14" height="14" rx="2"/><path d="M8 6V3h8v3M5 12h14"/>',
+      doctor: '<circle cx="12" cy="7" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/><path d="M17 14v5M14.5 16.5h5"/>',
+      clinic: '<path d="M4 21V6h16v15"/><path d="M9 3h6v6H9Z"/><path d="M8 13h3M13 13h3M8 17h3M13 17h3"/>',
+      hospital: '<path d="M3 21V5h18v16"/><path d="M9 9h6M12 6v6M7 15h3M14 15h3"/>',
+      pharmacy: '<path d="M4 21V7h16v14"/><path d="M8 3h8v8H8Z"/><path d="M10 7h4M12 5v4"/>',
+      tools: '<path d="m14 6 4-4 4 4-4 4"/><path d="m15 9-9 9"/><path d="m4 16 4 4-2 2-4-4Z"/>',
+      salon: '<path d="M4 4c6 0 7 8 10 16"/><path d="M20 4c-6 0-7 8-10 16"/><circle cx="7" cy="6" r="2"/><circle cx="17" cy="6" r="2"/>',
+      homeBeauty: '<path d="m3 11 9-7 9 7v10H3Z"/><path d="m12 10 1 2 2 .5-2 1-1 2-1-2-2-1.5 2-.5Z"/>',
+      delivery: '<path d="M3 16V8h11v8"/><path d="M14 11h4l3 3v2h-7"/><circle cx="7" cy="18" r="2"/><circle cx="18" cy="18" r="2"/>',
+      truck: '<path d="M2 6h12v10H2Z"/><path d="M14 10h4l4 4v2h-8"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/>',
+      bike: '<circle cx="6" cy="17" r="3"/><circle cx="18" cy="17" r="3"/><path d="m6 17 4-7h4l4 7M9 17h6M10 10 8 7h3"/>',
+      auto: '<path d="M4 16V9l3-4h10l3 4v7"/><path d="M7 9h10M12 5v11"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/>',
+      car: '<path d="M3 16V9l3-4h12l3 4v7"/><path d="M6 9h12"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/>',
+      fleet: '<path d="M2 7h12v8H2Z"/><path d="M6 4h12v3M16 9h4l2 3v3h-8"/><circle cx="6" cy="17" r="2"/><circle cx="18" cy="17" r="2"/>',
+      briefcase: '<path d="M4 8h16v12H4Z"/><path d="M9 8V4h6v4M4 13h16M10 13v2h4v-2"/>',
+      task: '<path d="M7 3h10v4h3v14H4V7h3Z"/><path d="m8 13 2 2 5-5M8 18h8"/>',
+      shorts: '<path d="m9 4 8 4-5 3 5 3-8 4-2-3 5-3-5-3Z"/>',
+      video: '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m10 9 5 3-5 3Z"/>',
+      media: '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="m9 8 6 4-6 4ZM3 17h18"/>',
+      default: '<circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8"/>'
+    };
+
+    function iconSvg(name) {
+      return `<svg viewBox="0 0 24 24" aria-hidden="true">${iconPaths[name] || iconPaths.default}</svg>`;
+    }
+
+    function currentState() {
+      return trail[trail.length - 1];
+    }
+
+    function stateCards(state) {
+      if (state.nodeId === "root") return registry.roots;
+      return registry.nodes[state.nodeId]?.cards || [];
+    }
+
+    function renderBreadcrumbs() {
+      breadcrumbs.innerHTML = trail.map((item, index) => `<button class="crumb" type="button" data-crumb-index="${index}" ${index === trail.length - 1 ? 'aria-current="step"' : ""}>${item.label}</button>`).join("");
+      breadcrumbs.querySelectorAll("[data-crumb-index]").forEach((button) => {
+        button.addEventListener("click", () => {
+          trail.splice(Number(button.dataset.crumbIndex) + 1);
+          showSelector();
+        });
+      });
+    }
+
+    function showSelector() {
+      selectorView.hidden = false;
+      profileView.hidden = true;
+      unavailableView.hidden = true;
+      document.getElementById("readyMessage").classList.remove("show");
+      const state = currentState();
+      const node = state.nodeId === "root" ? null : registry.nodes[state.nodeId];
+      const cards = stateCards(state);
+      selectorTitle.textContent = node?.title || "What kind of work do you operate?";
+      selectorNote.textContent = node?.note || (state.nodeId === "root" ? "Only workspaces available in MoolSocial are shown." : "Choose the closest exact option.");
+      stepLabel.textContent = state.nodeId === "root" ? "Start My Work" : "Choose exact work";
+      stepCount.textContent = `Step ${Math.min(trail.length, registry.maxSelectionTaps)} of up to ${registry.maxSelectionTaps}`;
+      headerStatus.textContent = state.nodeId === "root" ? "Select one card at a time" : trail.slice(1).map((item) => item.label).join(" · ");
+      cardGrid.classList.toggle("single", cards.length === 1);
+      cardGrid.innerHTML = cards.map((item) => `
+        <button class="choice-card" type="button" data-card-id="${item.id}">
+          <span class="choice-icon">${iconSvg(item.icon)}</span>
+          <b>${item.label}</b>
+          <span>${item.description}</span>
+        </button>
+      `).join("");
+      cardGrid.querySelectorAll("[data-card-id]").forEach((button) => {
+        button.addEventListener("click", () => {
+          const item = cards.find((candidate) => candidate.id === button.dataset.cardId);
+          if (!item) return;
+          if (item.target.type === "node") {
+            trail.push({ label: item.label, nodeId: item.target.id, icon: item.icon });
+            showSelector();
+          } else {
+            selected = { ...item.target, card: item };
+            showProfile();
+          }
+        });
+      });
+      renderBreadcrumbs();
+    }
+
+    function showProfile() {
+      const data = registry.profiles[selected.id];
+      if (!data) return;
+      selectorView.hidden = true;
+      profileView.hidden = false;
+      unavailableView.hidden = true;
+      const variantLabel = selected.variant ? registry.variants[selected.variant] : "";
+      document.getElementById("profileMark").innerHTML = iconSvg(selected.card.icon);
+      document.getElementById("profileTitle").textContent = data.label;
+      document.getElementById("profileVariant").textContent = variantLabel || trail.slice(1).map((item) => item.label).join(" · ");
+      document.getElementById("profileSummary").textContent = data.summary;
+      document.getElementById("profileSell").textContent = data.sell.slice(0, 3).join(" · ");
+      document.getElementById("profileBuy").textContent = data.buy.slice(0, 3).join(" · ");
+      document.getElementById("profileOperate").textContent = data.operate.slice(0, 3).join(" · ");
+      document.getElementById("proofList").innerHTML = data.proof.slice(0, 4).map((item) => `<span class="proof-item"><i>✓</i>${item}</span>`).join("");
+      secondaryHelp.textContent = "Add an alternate number if available. It must be OTP verified before use.";
+      secondaryHelp.className = "secondary-help";
+      headerStatus.textContent = `${data.label} selected`;
+      document.getElementById("readyMessage").classList.remove("show");
+    }
+
+    function showUnavailable() {
+      selectorView.hidden = true;
+      profileView.hidden = true;
+      unavailableView.hidden = false;
+      headerStatus.textContent = "Only available workspaces can be created";
+      workspaceIntentForm.hidden = false;
+      notifyMessage.hidden = true;
+      document.getElementById("requestedWorkspace").value = "";
+      document.getElementById("requestedFamily").value = "";
+      document.getElementById("requestedArea").value = operatingArea;
+    }
+
+    backButton.addEventListener("click", () => {
+      if (!profileView.hidden || !unavailableView.hidden) {
+        showSelector();
+        return;
+      }
+      if (trail.length > 1) {
+        trail.pop();
+        showSelector();
+        return;
+      }
+      const returnParams = new URLSearchParams({ state: "new" });
+      returnParams.set("mobile", primaryMobile);
+      returnParams.set("email", accountEmail);
+      returnParams.set("login", loginProvider);
+      if (opportunity) returnParams.set("opportunity", opportunity);
+      window.location.href = `69-my-work-setup.html?${returnParams.toString()}`;
+    });
+
+    document.getElementById("notListedButton").addEventListener("click", showUnavailable);
+    document.getElementById("backToCards").addEventListener("click", showSelector);
+    document.getElementById("changeSelection").addEventListener("click", showSelector);
+    document.getElementById("continueProof").addEventListener("click", () => {
+      const alternateDigits = secondaryContact.value.replace(/\D/g, "");
+      if (alternateDigits && alternateDigits.length !== 10) {
+        secondaryHelp.textContent = "Enter the complete 10-digit alternate mobile number.";
+        secondaryHelp.className = "secondary-help error";
+        return;
+      }
+      if (alternateDigits && !alternateVerified) {
+        secondaryHelp.textContent = "Verify the alternate mobile with OTP before continuing.";
+        secondaryHelp.className = "secondary-help error";
+        return;
+      }
+      const proofParams = new URLSearchParams({
+        from: "70",
+        profile: selected.id,
+        mobile: primaryMobile,
+        email: accountEmail,
+        login: loginProvider,
+        area: operatingArea
+      });
+      if (selected.variant) proofParams.set("variant", selected.variant);
+      if (alternateDigits && alternateVerified) proofParams.set("alternate", `+91${alternateDigits}`);
+      if (opportunity) proofParams.set("opportunity", opportunity);
+      const readyMessage = document.getElementById("readyMessage");
+      readyMessage.textContent = "Opening profile-specific verification...";
+      readyMessage.classList.add("show");
+      window.location.href = `71-work-profile-proof.html?${proofParams.toString()}`;
+    });
+
+    secondaryContact.addEventListener("input", (event) => {
+      event.target.value = event.target.value.replace(/\D/g, "").slice(0, 10);
+      alternateVerified = false;
+      alternateOtpRow.hidden = true;
+      alternateOtp.value = "";
+      sendAlternateOtp.disabled = false;
+      sendAlternateOtp.textContent = "Send OTP";
+      secondaryHelp.textContent = "Add an alternate number if available. It must be OTP verified before use.";
+      secondaryHelp.className = "secondary-help";
+    });
+
+    sendAlternateOtp.addEventListener("click", () => {
+      if (secondaryContact.value.length !== 10) {
+        secondaryHelp.textContent = "Enter a 10-digit alternate mobile number first.";
+        secondaryHelp.className = "secondary-help error";
+        return;
+      }
+      alternateOtpRow.hidden = false;
+      sendAlternateOtp.textContent = "Resend OTP";
+      secondaryHelp.textContent = `OTP sent to ${maskMobile(`+91${secondaryContact.value}`)}.`;
+      secondaryHelp.className = "secondary-help";
+    });
+
+    alternateOtp.addEventListener("input", (event) => {
+      event.target.value = event.target.value.replace(/\D/g, "").slice(0, 6);
+    });
+
+    verifyAlternateOtp.addEventListener("click", () => {
+      if (alternateOtp.value.length !== 6) {
+        secondaryHelp.textContent = "Enter the complete 6-digit OTP.";
+        secondaryHelp.className = "secondary-help error";
+        return;
+      }
+      alternateVerified = true;
+      alternateOtpRow.hidden = true;
+      sendAlternateOtp.disabled = true;
+      sendAlternateOtp.textContent = "Verified";
+      secondaryHelp.textContent = "Alternate mobile verified and ready for this workspace.";
+      secondaryHelp.className = "secondary-help success";
+    });
+
+    workspaceIntentForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const requestedWorkspace = document.getElementById("requestedWorkspace").value.trim();
+      const requestedFamily = document.getElementById("requestedFamily").value;
+      const requestedArea = document.getElementById("requestedArea").value.trim();
+      const requestId = `WPR-${Date.now().toString().slice(-7)}`;
+      const requestPayload = {
+        event: "WORKSPACE_PROFILE_REQUESTED",
+        requestId,
+        requestedWorkspace,
+        requestedFamily,
+        requestedArea,
+        primaryMobile,
+        accountEmail,
+        loginProvider,
+        selectedPath: trail.slice(1).map((item) => item.label),
+        status: "ADMIN_REVIEW_REQUIRED"
+      };
+      sessionStorage.setItem("moolsocial:lastWorkspaceProfileRequest", JSON.stringify(requestPayload));
+      window.dispatchEvent(new CustomEvent("moolsocial:workspace-profile-requested", { detail: requestPayload }));
+      workspaceIntentForm.hidden = true;
+      document.getElementById("notifyDetails").textContent = `${requestId} · ${requestedWorkspace} · ${requestedArea}. Your verified account contact is attached for review.`;
+      notifyMessage.hidden = false;
+      headerStatus.textContent = "Workspace request sent";
+    });
+
+    showSelector();
+  </script>
+<script type="application/json" id="productionRouteContract">{"contractVersion":"mvp-route-lock-2026-07-12","prototypeScreen":70,"productionModule":"work","routeId":"workspace.create","routePath":"/workspaces/new","routeState":"choose-activity","implementation":"route-shell","launchScope":"mvp-core","separateProductionRoute":true,"productionNote":"Own production route /workspaces/new. Implement choose-activity as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.","canonicalMap":"architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"}</script><script type="application/json" id="prototypeApprovalContract">{"prototypeScreen":70,"status":"approved-and-frozen","authoritative":true,"approvedAt":"2026-07-12","approvalScope":"prototype-ui-ux-and-production-contract"}</script></body>
+</html>

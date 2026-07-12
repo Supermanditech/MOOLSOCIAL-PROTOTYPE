@@ -1,0 +1,37 @@
+name: Deploy approved MoolSocial prototype
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "approved-final/**"
+      - ".github/workflows/deploy-approved-prototype.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: moolsocial-approved-prototype
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout approved prototype
+        uses: actions/checkout@v4
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Upload approved static bundle
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: approved-final
+      - name: Deploy approved prototype
+        id: deployment
+        uses: actions/deploy-pages@v4

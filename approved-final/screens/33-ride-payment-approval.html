@@ -1,0 +1,1734 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>33 Ride Payment Approval - MoolSocial Screenbook</title>
+  <link rel="stylesheet" href="../shared/moolsocial-ui-foundation.css" />
+  <style>
+    .screen-shell { display: grid; gap: 18px; }
+
+    .back-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .screen-link-home {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--ms-navy);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .back-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--ms-navy);
+      border-radius: var(--ms-radius);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .preview {
+      display: grid;
+      grid-template-columns: minmax(320px, 390px) minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+      padding: 18px;
+      border-bottom: 1px solid var(--ms-navy);
+      background: var(--ms-white);
+    }
+
+    .phone {
+      width: min(100%, 370px);
+      height: 742px;
+      justify-self: center;
+      border: 10px solid var(--ms-navy);
+      border-radius: 32px;
+      background: var(--ms-navy);
+      overflow: hidden;
+      box-shadow: 0 28px 60px rgba(0, 0, 128, .22);
+    }
+
+    .app {
+      position: relative;
+      height: 100%;
+      display: grid;
+      grid-template-rows: auto auto 1fr auto;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 18% 8%, rgba(255, 153, 51, .16), transparent 25%),
+        radial-gradient(circle at 90% 14%, rgba(19, 136, 8, .16), transparent 26%),
+        linear-gradient(180deg, var(--ms-navy) 0 166px, #f4f7fc 166px 100%);
+      color: var(--ms-white);
+      font-family: var(--ms-font);
+    }
+
+    button,
+    a { -webkit-tap-highlight-color: transparent; }
+
+    button {
+      appearance: none;
+      border: 0;
+      font-family: var(--ms-font);
+      cursor: pointer;
+    }
+
+    svg {
+      width: 19px;
+      height: 19px;
+      stroke: currentColor;
+      stroke-width: 2.4;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .status-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 16px 22px 6px;
+      color: var(--ms-white);
+      font-size: 11px;
+      font-weight: 950;
+    }
+
+    .top {
+      display: grid;
+      gap: 11px;
+      padding: 8px 18px 13px;
+    }
+
+    .brand-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .brand-copy {
+      min-width: 0;
+      display: grid;
+      gap: 2px;
+    }
+
+    .brand-copy b {
+      overflow: hidden;
+      color: var(--ms-white);
+      font-size: 20px;
+      line-height: 1;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .brand-copy span {
+      color: rgba(255, 255, 255, .78);
+      font-size: 10px;
+      font-weight: 850;
+    }
+
+    .identity-line {
+      width: 96px;
+      height: 4px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      overflow: hidden;
+      border-radius: var(--ms-pill);
+    }
+
+    .identity-line span:nth-child(1) { background: var(--ms-saffron); }
+    .identity-line span:nth-child(2) { background: var(--ms-white); }
+    .identity-line span:nth-child(3) { background: var(--ms-green); }
+
+    .top-buttons {
+      display: flex;
+      gap: 8px;
+      flex: 0 0 auto;
+    }
+
+    .circle-btn,
+    .search-action {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      text-decoration: none;
+    }
+
+    .circle-btn {
+      border: 1px solid rgba(255, 255, 255, .26);
+      background: rgba(255, 255, 255, .12);
+      color: var(--ms-white);
+    }
+
+    .command-bar {
+      min-height: 48px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto auto auto;
+      align-items: center;
+      gap: 7px;
+      border: 1px solid rgba(255, 255, 255, .85);
+      border-radius: var(--ms-pill);
+      padding: 5px 5px 5px 13px;
+      background: rgba(255, 255, 255, .10);
+    }
+
+    .command-text {
+      overflow: hidden;
+      color: var(--ms-white);
+      font-size: 11px;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .search-action {
+      background: var(--ms-white);
+      color: var(--ms-navy);
+    }
+
+    .content {
+      min-height: 0;
+      overflow: auto;
+      display: grid;
+      align-content: start;
+      gap: 8px;
+      padding: 0 10px 98px;
+      color: var(--ms-navy);
+      scrollbar-width: none;
+    }
+
+    .content::-webkit-scrollbar { display: none; }
+
+    .route-card,
+    .ride-card,
+    .option-card,
+    .trust-card,
+    .summary-card,
+    .help-card {
+      display: grid;
+      gap: 8px;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: 21px;
+      padding: 10px;
+      background: rgba(255, 255, 255, .98);
+      box-shadow: 0 14px 30px rgba(0, 0, 128, .10);
+    }
+
+    .route-card { margin-top: -8px; }
+
+    .ride-card.is-hidden,
+    .option-card.is-hidden,
+    .summary-card.is-hidden {
+      display: none;
+    }
+
+    .ride-card {
+      background:
+        linear-gradient(145deg, rgba(0, 0, 128, .05), rgba(19, 136, 8, .035)),
+        rgba(255, 255, 255, .98);
+    }
+
+    .card-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .card-head b {
+      color: var(--ms-navy);
+      font-size: 13px;
+      line-height: 1;
+      font-weight: 950;
+    }
+
+    .card-head span {
+      color: rgba(0, 0, 128, .58);
+      font-size: 8px;
+      font-weight: 850;
+      text-align: right;
+    }
+
+    .route-box {
+      display: grid;
+      gap: 7px;
+    }
+
+    .route-line {
+      min-height: 42px;
+      display: grid;
+      grid-template-columns: 32px 1fr;
+      gap: 9px;
+      align-items: center;
+      border-radius: 16px;
+      padding: 8px;
+      background: #f3f6fb;
+    }
+
+    .route-dot {
+      width: 32px;
+      height: 32px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--ms-white);
+      font-size: 10px;
+      font-weight: 950;
+    }
+
+    .route-dot.pick { background: var(--ms-green); }
+    .route-dot.drop { background: var(--ms-saffron); color: var(--ms-navy); }
+
+    .route-copy {
+      min-width: 0;
+      display: grid;
+      gap: 2px;
+    }
+
+    .route-copy b {
+      overflow: hidden;
+      color: var(--ms-navy);
+      font-size: 11px;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .route-copy span {
+      overflow: hidden;
+      color: rgba(0, 0, 128, .58);
+      font-size: 8px;
+      font-weight: 850;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .chip-row,
+    .ride-row,
+    .package-row,
+    .captain-row {
+      display: flex;
+      gap: 6px;
+      min-width: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .chip-row::-webkit-scrollbar,
+    .ride-row::-webkit-scrollbar,
+    .package-row::-webkit-scrollbar,
+    .captain-row::-webkit-scrollbar { display: none; }
+
+    .time-chip,
+    .small-chip,
+    .ride-option,
+    .package-option,
+    .captain-option,
+    .primary-cta,
+    .secondary-cta,
+    .dock-tab,
+    .mool-button,
+    .chat-button { font-family: var(--ms-font); }
+
+    .time-chip,
+    .small-chip {
+      flex: 0 0 auto;
+      min-height: 31px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: var(--ms-pill);
+      padding: 0 12px;
+      background: #f7f9fd;
+      color: var(--ms-navy);
+      font-size: 9px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .time-chip.active,
+    .small-chip.active {
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -3px 0 var(--ms-saffron), 0 8px 18px rgba(0, 0, 128, .15);
+    }
+
+    .ride-option {
+      flex: 0 0 114px;
+      min-height: 78px;
+      display: grid;
+      align-content: center;
+      gap: 5px;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: 18px;
+      padding: 10px;
+      background: #f7f9fd;
+      color: var(--ms-navy);
+      text-align: left;
+    }
+
+    .ride-option.active {
+      border-color: rgba(0, 0, 128, .42);
+      background:
+        linear-gradient(135deg, rgba(255, 153, 51, .14), rgba(19, 136, 8, .08)),
+        var(--ms-white);
+      box-shadow: inset 0 -3px 0 var(--ms-green), 0 9px 18px rgba(0, 0, 128, .10);
+    }
+
+    .ride-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .ride-top svg { color: var(--ms-navy); }
+
+    .ride-option b {
+      color: var(--ms-navy);
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .ride-option strong {
+      color: var(--ms-green);
+      font-size: 15px;
+      line-height: 1;
+      font-weight: 950;
+    }
+
+    .ride-option span {
+      color: rgba(0, 0, 128, .58);
+      font-size: 8px;
+      font-weight: 850;
+      line-height: 1.15;
+    }
+
+    .package-option {
+      flex: 0 0 134px;
+      min-height: 76px;
+      display: grid;
+      align-content: center;
+      gap: 4px;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: 18px;
+      padding: 9px;
+      background: #f7f9fd;
+      color: var(--ms-navy);
+      text-align: left;
+    }
+
+    .package-option.active {
+      border-color: rgba(0, 0, 128, .42);
+      background:
+        linear-gradient(135deg, rgba(255, 153, 51, .13), rgba(19, 136, 8, .08)),
+        var(--ms-white);
+      box-shadow: inset 0 -3px 0 var(--ms-green);
+    }
+
+    .package-option:focus-visible,
+    .ride-option:focus-visible,
+    .time-chip:focus-visible {
+      outline: 3px solid rgba(255, 153, 51, .45);
+      outline-offset: 2px;
+    }
+
+    .package-option b,
+    .package-option strong,
+    .package-option span {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .package-option b {
+      color: var(--ms-navy);
+      font-size: 10px;
+      font-weight: 950;
+    }
+
+    .package-option strong {
+      color: var(--ms-green);
+      font-size: 13px;
+      line-height: 1;
+      font-weight: 950;
+    }
+
+    .package-option span {
+      color: rgba(0, 0, 128, .58);
+      font-size: 7px;
+      font-weight: 850;
+    }
+
+    .decision-note {
+      display: grid;
+      grid-template-columns: 20px 1fr;
+      gap: 7px;
+      align-items: center;
+      border-radius: 15px;
+      padding: 8px 9px;
+      background: #f3f6fb;
+      color: rgba(0, 0, 128, .66);
+      font-size: 8px;
+      line-height: 1.25;
+      font-weight: 850;
+    }
+
+    .decision-note svg {
+      width: 18px;
+      height: 18px;
+      color: var(--ms-green);
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 7px;
+    }
+
+    .trust-item,
+    .captain-option {
+      border-radius: 15px;
+      background: #f3f6fb;
+      color: var(--ms-navy);
+    }
+
+    .trust-item {
+      min-height: 46px;
+      display: grid;
+      align-content: center;
+      gap: 2px;
+      padding: 7px;
+      overflow: hidden;
+    }
+
+    .trust-item b {
+      overflow: hidden;
+      font-size: 8px;
+      font-weight: 950;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .trust-item span {
+      overflow: hidden;
+      color: var(--ms-green);
+      font-size: 7px;
+      font-weight: 900;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .captain-option {
+      flex: 0 0 158px;
+      display: grid;
+      grid-template-columns: 38px 1fr;
+      gap: 8px;
+      align-items: center;
+      border: 1px solid rgba(0, 0, 128, .10);
+      padding: 8px;
+      text-align: left;
+    }
+
+    .avatar {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 32% 22%, rgba(255, 255, 255, .34), transparent 28%),
+        linear-gradient(145deg, var(--ms-green), var(--ms-navy));
+      color: var(--ms-white);
+      font-size: 10px;
+      font-weight: 950;
+    }
+
+    .captain-copy {
+      min-width: 0;
+      display: grid;
+      gap: 2px;
+    }
+
+    .captain-copy b,
+    .captain-copy span,
+    .captain-copy small {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .captain-copy b {
+      color: var(--ms-navy);
+      font-size: 10px;
+      font-weight: 950;
+    }
+
+    .captain-copy span {
+      color: rgba(0, 0, 128, .62);
+      font-size: 7px;
+      font-weight: 850;
+    }
+
+    .captain-copy small {
+      color: var(--ms-green);
+      font-size: 7px;
+      font-weight: 900;
+    }
+
+    .after-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .after-item {
+      min-height: 42px;
+      display: grid;
+      place-items: center;
+      gap: 2px;
+      border-radius: 14px;
+      background: #f3f6fb;
+      color: var(--ms-navy);
+      font-size: 7px;
+      font-weight: 900;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .after-item svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .summary-card {
+      background:
+        linear-gradient(135deg, rgba(255, 153, 51, .13), rgba(19, 136, 8, .08)),
+        var(--ms-white);
+    }
+
+    .live-card,
+    .captain-card,
+    .action-card,
+    .pickup-card,
+    .fare-card,
+    .payment-card,
+    .safety-card {
+      display: grid;
+      gap: 8px;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: 21px;
+      padding: 10px;
+      background: rgba(255, 255, 255, .98);
+      box-shadow: 0 14px 30px rgba(0, 0, 128, .10);
+    }
+
+    .live-card {
+      margin-top: -8px;
+      overflow: hidden;
+      padding: 0;
+    }
+
+    .map-visual {
+      position: relative;
+      min-height: 182px;
+      overflow: hidden;
+      border-radius: 20px;
+      background:
+        radial-gradient(circle at 26% 32%, rgba(255, 153, 51, .50), transparent 14%),
+        radial-gradient(circle at 78% 67%, rgba(19, 136, 8, .42), transparent 18%),
+        linear-gradient(145deg, #eaf0ff, #f8fbff);
+    }
+
+    .map-visual::before,
+    .map-visual::after {
+      content: "";
+      position: absolute;
+      inset: 26px 24px auto;
+      height: 76px;
+      border: 8px solid rgba(0, 0, 128, .18);
+      border-right-color: transparent;
+      border-bottom-color: transparent;
+      border-radius: 50% 0 0 0;
+      transform: rotate(-14deg);
+    }
+
+    .map-visual::after {
+      inset: auto 30px 28px 36px;
+      height: 82px;
+      border-color: transparent rgba(19, 136, 8, .22) rgba(19, 136, 8, .22) transparent;
+      transform: rotate(12deg);
+    }
+
+    .map-pill {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      z-index: 2;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border-radius: var(--ms-pill);
+      padding: 8px 10px;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 9px;
+      font-weight: 950;
+      box-shadow: 0 10px 20px rgba(0, 0, 128, .22);
+    }
+
+    .map-pill svg,
+    .captain-actions svg,
+    .compact-action svg,
+    .route-tag svg,
+    .mini-control svg {
+      width: 17px;
+      height: 17px;
+    }
+
+    .captain-marker,
+    .pickup-marker,
+    .drop-marker {
+      position: absolute;
+      z-index: 3;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      font-size: 10px;
+      font-weight: 950;
+      box-shadow: 0 10px 20px rgba(0, 0, 128, .18);
+    }
+
+    .captain-marker {
+      right: 54px;
+      top: 66px;
+      width: 46px;
+      height: 46px;
+      border: 4px solid var(--ms-white);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+    }
+
+    .pickup-marker {
+      left: 48px;
+      bottom: 48px;
+      width: 34px;
+      height: 34px;
+      background: var(--ms-green);
+      color: var(--ms-white);
+    }
+
+    .drop-marker {
+      right: 28px;
+      bottom: 28px;
+      width: 34px;
+      height: 34px;
+      background: var(--ms-saffron);
+      color: var(--ms-navy);
+    }
+
+    .map-sheet {
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+      z-index: 4;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      align-items: center;
+      border: 1px solid rgba(255, 255, 255, .55);
+      border-radius: 18px;
+      padding: 10px;
+      background: rgba(255, 255, 255, .86);
+      backdrop-filter: blur(14px);
+      color: var(--ms-navy);
+    }
+
+    .map-sheet b,
+    .captain-copy b,
+    .pickup-copy b,
+    .fare-line b,
+    .safety-card b {
+      color: var(--ms-navy);
+      font-weight: 950;
+    }
+
+    .map-sheet b {
+      font-size: 14px;
+      line-height: 1;
+    }
+
+    .map-sheet span {
+      color: rgba(0, 0, 128, .64);
+      font-size: 8px;
+      font-weight: 850;
+    }
+
+    .route-tag {
+      min-height: 36px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      border-radius: var(--ms-pill);
+      padding: 0 12px;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 8px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .captain-main {
+      display: grid;
+      grid-template-columns: 54px 1fr auto;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .captain-photo {
+      width: 54px;
+      height: 54px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      background:
+        radial-gradient(circle at 32% 24%, rgba(255, 255, 255, .40), transparent 25%),
+        linear-gradient(145deg, var(--ms-green), var(--ms-navy));
+      color: var(--ms-white);
+      font-size: 14px;
+      font-weight: 950;
+      box-shadow: inset 0 -4px 0 rgba(255, 153, 51, .82);
+    }
+
+    .captain-copy,
+    .pickup-copy {
+      min-width: 0;
+      display: grid;
+      gap: 3px;
+    }
+
+    .captain-copy b {
+      overflow: hidden;
+      font-size: 14px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .captain-copy span,
+    .pickup-copy span,
+    .fare-line span,
+    .safety-card span {
+      color: rgba(0, 0, 128, .62);
+      font-size: 8px;
+      font-weight: 850;
+      line-height: 1.2;
+    }
+
+    .plate {
+      display: grid;
+      gap: 2px;
+      justify-items: end;
+      white-space: nowrap;
+    }
+
+    .plate b {
+      border: 1px solid rgba(0, 0, 128, .18);
+      border-radius: 10px;
+      padding: 5px 7px;
+      background: #f7f9fd;
+      color: var(--ms-navy);
+      font-size: 9px;
+      font-weight: 950;
+    }
+
+    .plate span {
+      color: var(--ms-green);
+      font-size: 7px;
+      font-weight: 950;
+    }
+
+    .captain-actions {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 7px;
+    }
+
+    .compact-action {
+      min-height: 58px;
+      display: grid;
+      place-items: center;
+      gap: 4px;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: 17px;
+      background: #f7f9fd;
+      color: var(--ms-navy);
+      font-size: 8px;
+      font-weight: 950;
+      text-decoration: none;
+    }
+
+    .compact-action.primary {
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -3px 0 var(--ms-saffron);
+    }
+
+    .pickup-card {
+      grid-template-columns: 38px 1fr auto;
+      align-items: center;
+    }
+
+    .pickup-icon {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--ms-green);
+      color: var(--ms-white);
+      font-weight: 950;
+    }
+
+    .mini-control {
+      min-height: 36px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      border-radius: var(--ms-pill);
+      padding: 0 10px;
+      background: rgba(0, 0, 128, .08);
+      color: var(--ms-navy);
+      font-size: 8px;
+      font-weight: 950;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .fare-card {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 7px;
+    }
+
+    .fare-line {
+      min-height: 50px;
+      display: grid;
+      align-content: center;
+      gap: 3px;
+      border-radius: 15px;
+      padding: 7px;
+      background: #f3f6fb;
+      overflow: hidden;
+    }
+
+    .fare-line b,
+    .fare-line span {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .fare-line b {
+      color: var(--ms-green);
+      font-size: 11px;
+    }
+
+    .payment-card {
+      background:
+        linear-gradient(135deg, rgba(255, 153, 51, .12), rgba(19, 136, 8, .07)),
+        var(--ms-white);
+    }
+
+    .completion-card,
+    .bill-card,
+    .approval-card,
+    .issue-card,
+    .receipt-card {
+      display: grid;
+      gap: 8px;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: 21px;
+      padding: 10px;
+      background: rgba(255, 255, 255, .98);
+      box-shadow: 0 14px 30px rgba(0, 0, 128, .10);
+    }
+
+    .completion-card {
+      margin-top: -8px;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(19, 136, 8, .16), transparent 25%),
+        linear-gradient(135deg, rgba(255, 153, 51, .12), rgba(19, 136, 8, .08)),
+        var(--ms-white);
+    }
+
+    .complete-top {
+      display: grid;
+      grid-template-columns: 54px 1fr auto;
+      gap: 9px;
+      align-items: center;
+    }
+
+    .complete-mark {
+      width: 54px;
+      height: 54px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      background: var(--ms-green);
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 var(--ms-saffron);
+    }
+
+    .complete-mark svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .complete-copy {
+      min-width: 0;
+      display: grid;
+      gap: 4px;
+    }
+
+    .complete-copy b,
+    .bill-head b,
+    .approval-copy b,
+    .receipt-card b,
+    .issue-card b {
+      overflow: hidden;
+      color: var(--ms-navy);
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .complete-copy b { font-size: 15px; }
+
+    .complete-copy span,
+    .bill-row span,
+    .approval-copy span,
+    .receipt-card span,
+    .issue-card span {
+      color: rgba(0, 0, 128, .62);
+      font-size: 8px;
+      font-weight: 850;
+      line-height: 1.25;
+    }
+
+    .final-pill {
+      border-radius: var(--ms-pill);
+      padding: 8px 10px;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 9px;
+      font-weight: 950;
+      white-space: nowrap;
+      box-shadow: inset 0 -3px 0 var(--ms-saffron);
+    }
+
+    .bill-head {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .bill-head b {
+      font-size: 13px;
+    }
+
+    .bill-total {
+      color: var(--ms-green);
+      font-size: 18px;
+      line-height: 1;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .bill-list {
+      display: grid;
+      gap: 6px;
+    }
+
+    .bill-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      align-items: center;
+      border-radius: 13px;
+      padding: 8px;
+      background: #f3f6fb;
+    }
+
+    .bill-row b {
+      color: var(--ms-navy);
+      font-size: 9px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .approval-card {
+      background:
+        linear-gradient(135deg, rgba(0, 0, 128, .05), rgba(19, 136, 8, .05)),
+        var(--ms-white);
+    }
+
+    .approval-main {
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 9px;
+      align-items: center;
+    }
+
+    .approval-icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 15px;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 var(--ms-green);
+    }
+
+    .approval-copy {
+      display: grid;
+      gap: 3px;
+      min-width: 0;
+    }
+
+    .approval-copy b { font-size: 13px; }
+
+    .payment-switch {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 7px;
+    }
+
+    .payment-choice {
+      min-height: 43px;
+      display: grid;
+      place-items: center;
+      gap: 2px;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: 15px;
+      background: #f7f9fd;
+      color: var(--ms-navy);
+      font-size: 8px;
+      font-weight: 950;
+    }
+
+    .payment-choice span {
+      color: rgba(0, 0, 128, .58);
+      font-size: 7px;
+      font-weight: 850;
+    }
+
+    .payment-choice.active {
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -3px 0 var(--ms-saffron);
+    }
+
+    .payment-choice.active span { color: rgba(255, 255, 255, .82); }
+
+    .approve-cta {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--ms-pill);
+      background: var(--ms-green);
+      color: var(--ms-white);
+      font-size: 11px;
+      font-weight: 950;
+      text-decoration: none;
+      box-shadow: 0 10px 22px rgba(19, 136, 8, .20);
+    }
+
+    .issue-card,
+    .receipt-card {
+      grid-template-columns: 1fr auto;
+      align-items: center;
+    }
+
+    .receipt-card {
+      background: var(--ms-navy);
+      color: var(--ms-white);
+    }
+
+    .receipt-card b,
+    .receipt-card span {
+      color: var(--ms-white);
+    }
+
+    .payment-head {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .payment-head span {
+      min-width: 0;
+      display: grid;
+      gap: 3px;
+    }
+
+    .payment-head b {
+      overflow: hidden;
+      color: var(--ms-navy);
+      font-size: 14px;
+      line-height: 1;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .payment-head small {
+      overflow: hidden;
+      color: rgba(0, 0, 128, .62);
+      font-size: 8px;
+      font-weight: 850;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .payment-state {
+      border-radius: var(--ms-pill);
+      padding: 8px 10px;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 8px;
+      font-weight: 950;
+      white-space: nowrap;
+      box-shadow: inset 0 -3px 0 var(--ms-saffron);
+    }
+
+    .pay-methods {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 7px;
+    }
+
+    .pay-method {
+      min-height: 47px;
+      display: grid;
+      place-items: center;
+      gap: 2px;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: 15px;
+      background: #f7f9fd;
+      color: var(--ms-navy);
+      font-size: 9px;
+      font-weight: 950;
+    }
+
+    .pay-method span {
+      color: rgba(0, 0, 128, .58);
+      font-size: 7px;
+      font-weight: 850;
+    }
+
+    .pay-method.active {
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -3px 0 var(--ms-green);
+    }
+
+    .pay-method.active span { color: rgba(255, 255, 255, .82); }
+
+    .pay-rule {
+      display: grid;
+      grid-template-columns: 20px 1fr;
+      gap: 7px;
+      align-items: center;
+      border-radius: 14px;
+      padding: 8px;
+      background: rgba(255, 255, 255, .72);
+      color: rgba(0, 0, 128, .66);
+      font-size: 8px;
+      font-weight: 850;
+      line-height: 1.25;
+    }
+
+    .pay-rule svg {
+      width: 18px;
+      height: 18px;
+      color: var(--ms-green);
+    }
+
+    .safety-card {
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      background:
+        linear-gradient(135deg, rgba(255, 153, 51, .13), rgba(19, 136, 8, .08)),
+        var(--ms-white);
+    }
+
+    .summary-top {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      align-items: start;
+    }
+
+    .summary-copy {
+      min-width: 0;
+      display: grid;
+      gap: 4px;
+    }
+
+    .summary-copy b {
+      overflow: hidden;
+      color: var(--ms-navy);
+      font-size: 15px;
+      line-height: 1.05;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .summary-copy span {
+      color: rgba(0, 0, 128, .62);
+      font-size: 8px;
+      font-weight: 850;
+      line-height: 1.25;
+    }
+
+    .summary-price {
+      min-width: 72px;
+      display: grid;
+      justify-items: end;
+      gap: 3px;
+      color: var(--ms-green);
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .summary-price b {
+      font-size: 16px;
+      line-height: 1;
+    }
+
+    .summary-price span {
+      color: rgba(0, 0, 128, .58);
+      font-size: 7px;
+      font-weight: 850;
+    }
+
+    .cta-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 7px;
+      align-items: center;
+    }
+
+    .primary-cta,
+    .secondary-cta {
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--ms-pill);
+      text-decoration: none;
+      font-size: 10px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .primary-cta {
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 var(--ms-saffron), 0 10px 20px rgba(0, 0, 128, .18);
+    }
+
+    .secondary-cta {
+      border: 1px solid rgba(0, 0, 128, .14);
+      padding: 0 12px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+    }
+
+    .help-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 7px;
+    }
+
+    .help-item {
+      min-height: 42px;
+      display: grid;
+      align-content: center;
+      gap: 2px;
+      border-radius: 14px;
+      padding: 7px;
+      background: #f3f6fb;
+      overflow: hidden;
+    }
+
+    .help-item b,
+    .help-item span {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .help-item b {
+      color: var(--ms-navy);
+      font-size: 8.5px;
+      font-weight: 950;
+    }
+
+    .help-item span {
+      color: rgba(0, 0, 128, .58);
+      font-size: 7px;
+      font-weight: 850;
+    }
+
+    .bottom-dock {
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+      display: grid;
+      grid-template-columns: 52px minmax(0, 1fr) 52px;
+      gap: 8px;
+      align-items: center;
+      border: 1px solid rgba(0, 0, 128, .78);
+      border-radius: 22px;
+      padding: 7px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, .99), rgba(244, 247, 252, .99));
+      box-shadow: 0 -12px 24px rgba(0, 0, 128, .18);
+      z-index: 5;
+    }
+
+    .mool-button,
+    .chat-button {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      border: 0;
+      border-radius: 50%;
+      text-decoration: none;
+      font-size: 10px;
+      font-weight: 950;
+    }
+
+    .mool-button {
+      background:
+        radial-gradient(circle at 36% 24%, rgba(255, 255, 255, .30), transparent 32%),
+        linear-gradient(145deg, #1717ba, var(--ms-navy) 72%);
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 rgba(0, 0, 80, .35), 0 9px 18px rgba(0, 0, 128, .22);
+    }
+
+    .chat-button {
+      position: relative;
+      background: radial-gradient(circle at 50% 12%, rgba(255, 255, 255, .96), rgba(255, 255, 255, .78) 44%, rgba(240, 244, 248, .98));
+      color: var(--ms-navy);
+      border: 1px solid rgba(0, 0, 128, .16);
+      box-shadow: 0 9px 18px rgba(0, 0, 128, .12);
+    }
+
+    .chat-badge {
+      min-width: 16px;
+      height: 16px;
+      position: absolute;
+      top: 5px;
+      right: 2px;
+      display: grid;
+      place-items: center;
+      border-radius: var(--ms-pill);
+      padding: 0 4px;
+      background: var(--ms-saffron);
+      color: var(--ms-navy);
+      font-size: 9px;
+      font-weight: 950;
+    }
+
+    .dock-track {
+      min-width: 0;
+      display: flex;
+      gap: 7px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      border: 1px solid rgba(0, 0, 128, .20);
+      border-radius: 19px;
+      padding: 5px 6px;
+      background:
+        radial-gradient(circle at 50% 50%, rgba(0, 0, 128, .12), transparent 58%),
+        linear-gradient(90deg, rgba(0, 0, 128, .10), rgba(255, 255, 255, .96) 20% 80%, rgba(0, 0, 128, .10));
+      box-shadow: inset 12px 0 18px rgba(0, 0, 128, .10), inset -12px 0 18px rgba(0, 0, 128, .10);
+    }
+
+    .dock-track::-webkit-scrollbar { display: none; }
+
+    .dock-tab {
+      flex: 0 0 auto;
+      min-width: 58px;
+      min-height: 42px;
+      display: grid;
+      place-items: center;
+      gap: 2px;
+      border-radius: 17px;
+      color: var(--ms-navy);
+      text-decoration: none;
+      font-size: 9px;
+      font-weight: 950;
+    }
+
+    .dock-tab svg {
+      width: 17px;
+      height: 17px;
+    }
+
+    .dock-tab.active {
+      background: linear-gradient(180deg, #1515b8, var(--ms-navy));
+      color: var(--ms-white);
+      box-shadow: inset 0 -3px 0 var(--ms-saffron), 0 8px 18px rgba(0, 0, 128, .18);
+    }
+
+    .state-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      border-top: 1px solid var(--ms-navy);
+      border-left: 1px solid var(--ms-navy);
+    }
+
+    .state-cell {
+      border-right: 1px solid var(--ms-navy);
+      border-bottom: 1px solid var(--ms-navy);
+      padding: 14px;
+      color: var(--ms-navy);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .state-cell:nth-child(2n) { border-right: 0; }
+    .state-cell b {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--ms-green);
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 780px) {
+      .preview { grid-template-columns: 1fr; padding: 12px; }
+      .state-grid { grid-template-columns: 1fr; }
+      .state-cell { border-right: 0; }
+      .ms-page { padding: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="ms-page">
+    <section class="screen-shell">
+      <div class="back-row">
+        <a class="screen-link-home" href="../index.html">
+          <span class="back-mark">33</span>
+          Back to MoolSocial Screenbook
+        </a>
+        <span class="ms-status">Approved</span>
+      </div>
+
+      <section class="preview">
+        <div class="phone" role="img" aria-label="MoolSocial ride payment approval screen">
+          <div class="app">
+            <div class="status-row">
+              <span>9:41</span>
+              <span>5G 100%</span>
+            </div>
+
+            <header class="top">
+              <div class="brand-row">
+                <div class="brand-copy">
+                  <b>Ride completed</b>
+                  <div class="identity-line" aria-hidden="true"><span></span><span></span><span></span></div>
+                  <span>Auto · final fare</span>
+                </div>
+                <div class="top-buttons">
+                  <a class="circle-btn" href="04-universal-focus-shell.html" aria-label="Back">
+                    <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" /></svg>
+                  </a>
+                  <button class="circle-btn" aria-label="Safety">
+                    <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" /><path d="M9 12l2 2 4-5" /></svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="command-bar" aria-label="Ride payment approval">
+                <span class="command-text">Approve final payment to close ride</span>
+                <button class="search-action" aria-label="Receipt">
+                  <svg viewBox="0 0 24 24"><path d="M6 2h12v20l-3-2-3 2-3-2-3 2Z" /><path d="M8 7h8" /><path d="M8 11h8" /><path d="M8 15h5" /></svg>
+                </button>
+                <button class="search-action" aria-label="Call captain">
+                  <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.8 19.8 0 0 1 3 5.18 2 2 0 0 1 5 3h3a2 2 0 0 1 2 1.72c.12.9.33 1.77.62 2.6a2 2 0 0 1-.45 2.11L9 10.6a16 16 0 0 0 4.4 4.4l1.17-1.17a2 2 0 0 1 2.11-.45c.83.29 1.7.5 2.6.62A2 2 0 0 1 22 16.92Z" /></svg>
+                </button>
+                <button class="search-action" aria-label="Chat with captain">
+                  <svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z" /></svg>
+                </button>
+              </div>
+            </header>
+
+            <main class="content">
+              <section class="completion-card" aria-label="Ride completed">
+                <div class="complete-top">
+                  <span class="complete-mark"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></svg></span>
+                  <span class="complete-copy">
+                    <b>Reached Railway Station</b>
+                    <span>Auto trip completed · 4.8 km · 18 min · route normal</span>
+                  </span>
+                  <strong class="final-pill">Final</strong>
+                </div>
+              </section>
+
+              <section class="bill-card" aria-label="Final fare breakdown">
+                <div class="bill-head">
+                  <span>
+                    <b>Final fare</b>
+                    <span>Check once before payment</span>
+                  </span>
+                  <strong class="bill-total">Rs 112</strong>
+                </div>
+                <div class="bill-list">
+                  <span class="bill-row"><span>Auto fare · Sardarpura to Railway Station</span><b>Rs 112</b></span>
+                  <span class="bill-row"><span>Route change / waiting / toll</span><b>Rs 0</b></span>
+                  <span class="bill-row"><span>Paid by offer or wallet</span><b>Rs 0</b></span>
+                </div>
+              </section>
+
+              <section class="approval-card" aria-label="Approve ride payment">
+                <div class="approval-main">
+                  <span class="approval-icon"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="M3 10h18" /></svg></span>
+                  <span class="approval-copy">
+                    <b id="approvalTitle">Approve card debit</b>
+                    <span id="approvalNote">Card was locked during trip. Debit Rs 112 only after you approve.</span>
+                  </span>
+                </div>
+                <div class="payment-switch" aria-label="Choose payment for final fare">
+                  <button class="payment-choice" type="button" data-final-pay="Cash" data-final-title="Cash to captain" data-final-note="Pay Rs 112 in cash. Receipt unlocks after captain confirms collection." data-final-cta="Mark cash paid"><b>Cash</b><span>pay now</span></button>
+                  <button class="payment-choice" type="button" data-final-pay="UPI" data-final-title="Pay by UPI" data-final-note="Pay Rs 112 by UPI. Receipt unlocks after payment success." data-final-cta="Pay UPI"><b>UPI</b><span>scan/pay</span></button>
+                  <button class="payment-choice active" type="button" data-final-pay="Card" data-final-title="Approve card debit" data-final-note="Card was locked during trip. Debit Rs 112 only after you approve." data-final-cta="Approve Rs 112"><b>Card</b><span>approve</span></button>
+                </div>
+                <a class="approve-cta" href="#" id="approvalCta">Approve Rs 112</a>
+              </section>
+
+              <section class="issue-card" aria-label="Issue before payment">
+                <span>
+                  <b>Wrong fare or route?</b>
+                  <span>Raise issue before payment. Route, GPS, time and captain logs will be attached.</span>
+                </span>
+                <a class="mini-control" href="#">Issue</a>
+              </section>
+
+              <section class="receipt-card" aria-label="After payment">
+                <span>
+                  <b>After payment</b>
+                  <span>Receipt, support window and captain rating open automatically.</span>
+                </span>
+                <a class="mini-control" href="#">Receipt</a>
+              </section>
+
+            </main>
+
+            <nav class="bottom-dock" aria-label="Ride navigation">
+              <a class="mool-button" href="04-universal-focus-shell.html">Mool</a>
+              <div class="dock-track">
+                <a class="dock-tab active" href="#"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="M3 10h18" /></svg>Pay</a>
+                <a class="dock-tab" href="#"><svg viewBox="0 0 24 24"><path d="M12 9v4" /><path d="M12 17h.01" /><path d="M10.3 3.9 2 18a2 2 0 0 0 1.7 3h16.6A2 2 0 0 0 22 18L13.7 3.9a2 2 0 0 0-3.4 0Z" /></svg>Issue</a>
+                <a class="dock-tab" href="#"><svg viewBox="0 0 24 24"><path d="M6 2h12v20l-3-2-3 2-3-2-3 2Z" /><path d="M8 7h8" /><path d="M8 11h8" /></svg>Receipt</a>
+              </div>
+              <a class="chat-button" href="23-chat-inbox-home.html" aria-label="Open chat">
+                <svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z" /></svg>
+                <span class="chat-badge">2</span>
+              </a>
+            </nav>
+          </div>
+        </div>
+
+        <div class="notes">
+          <div>
+            <h1 class="ms-title">Screen 33 closes the ride only after the customer approves payment.</h1>
+            <p class="ms-lead">
+              After destination arrival, the app must not silently debit the customer. It shows final fare,
+              route proof, payment method, card debit approval, Cash/UPI alternatives and an issue path before receipt.
+            </p>
+          </div>
+
+          <div class="ms-panel">
+            <div class="ms-section-head">Screen Contract <span>Approved</span></div>
+            <div class="state-grid">
+              <div class="state-cell"><b>Entry</b>From Screen 32 when captain ends trip at destination.</div>
+              <div class="state-cell"><b>User Sees</b>Destination reached, final fare, breakdown, card approval, Cash/UPI choices, issue-before-pay route, receipt handoff and captain chat.</div>
+              <div class="state-cell"><b>Decision</b>User approves card debit, switches to Cash/UPI, raises a fare/route issue before paying, or proceeds to receipt and rating.</div>
+              <div class="state-cell"><b>Backend</b>Trip completion, final fare calculation, route proof, payment method, card capture approval, UPI order, cash confirmation, issue hold, receipt and rating APIs.</div>
+              <div class="state-cell"><b>Trust</b>Card is only held during trip and is debited only after customer approval. Cash/UPI remain available at completion.</div>
+              <div class="state-cell"><b>Failure</b>If payment fails, card capture is declined, UPI timeout happens, cash mismatch occurs or user raises issue, pause receipt and open support review.</div>
+              <div class="state-cell"><b>Next</b>Successful payment opens ride receipt and rating screen.</div>
+              <div class="state-cell"><b>Regression</b>No live-trip tracking or ride shopping here; this screen is payment closure only.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script>
+    if ("scrollRestoration" in history) {
+      history.scrollRestoration = "manual";
+    }
+
+    function resetPhoneScroll() {
+      const content = document.querySelector(".content");
+      if (content) content.scrollTop = 0;
+    }
+
+    window.addEventListener("load", () => {
+      resetPhoneScroll();
+      requestAnimationFrame(resetPhoneScroll);
+      setTimeout(resetPhoneScroll, 80);
+    });
+
+    const actionButtons = document.querySelectorAll(".compact-action, .mini-control, .route-tag, .approve-cta, .dock-tab");
+    const paymentButtons = document.querySelectorAll("[data-final-pay]");
+    const approvalTitle = document.getElementById("approvalTitle");
+    const approvalNote = document.getElementById("approvalNote");
+    const approvalCta = document.getElementById("approvalCta");
+
+    paymentButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        paymentButtons.forEach((item) => item.classList.toggle("active", item === button));
+        approvalTitle.textContent = button.dataset.finalTitle;
+        approvalNote.textContent = button.dataset.finalNote;
+        approvalCta.textContent = button.dataset.finalCta;
+      });
+    });
+
+    actionButtons.forEach((button) => {
+      button.addEventListener("click", (event) => {
+        if (button.getAttribute("href") === "#") event.preventDefault();
+      });
+    });
+  </script>
+<script type="application/json" id="productionRouteContract">{"contractVersion":"mvp-route-lock-2026-07-12","prototypeScreen":33,"productionModule":"ride","routeId":"ride.trip","routePath":"/ride/trips/:tripId","routeState":"payment-approval","implementation":"route-state","launchScope":"mvp-core","separateProductionRoute":false,"productionNote":"Do not create a separate production route. Implement payment-approval inside /ride/trips/:tripId and reuse the owning route API, authorization, analytics and regression suite.","canonicalMap":"architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"}</script><script type="application/json" id="prototypeApprovalContract">{"prototypeScreen":33,"status":"approved-and-frozen","authoritative":true,"approvedAt":"2026-07-12","approvalScope":"prototype-ui-ux-and-production-contract"}</script></body>
+</html>

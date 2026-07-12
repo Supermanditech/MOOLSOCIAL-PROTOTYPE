@@ -1,0 +1,1492 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>66 Failed Payment, Reversal and Safe Retry - MoolSocial Screenbook</title>
+  <link rel="stylesheet" href="../shared/moolsocial-ui-foundation.css" />
+  <style>
+    .screen-shell { display: grid; gap: 18px; }
+
+    .back-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .screen-link-home {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--ms-navy);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .back-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--ms-navy);
+      border-radius: var(--ms-radius);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .preview {
+      display: grid;
+      grid-template-columns: minmax(320px, 390px) minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+      padding: 18px;
+      border-bottom: 1px solid var(--ms-navy);
+      background: var(--ms-white);
+    }
+
+    .phone {
+      width: min(100%, 370px);
+      height: 742px;
+      justify-self: center;
+      border: 10px solid var(--ms-navy);
+      border-radius: 32px;
+      background: var(--ms-navy);
+      overflow: hidden;
+      box-shadow: 0 28px 60px rgba(0, 0, 128, .22);
+    }
+
+    .app {
+      position: relative;
+      height: 100%;
+      display: grid;
+      grid-template-rows: auto auto 1fr auto;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 18% 8%, rgba(255, 153, 51, .16), transparent 25%),
+        radial-gradient(circle at 90% 14%, rgba(19, 136, 8, .16), transparent 26%),
+        linear-gradient(180deg, var(--ms-navy) 0 166px, #f4f7fc 166px 100%);
+      color: var(--ms-white);
+      font-family: var(--ms-font);
+    }
+
+    button,
+    a { -webkit-tap-highlight-color: transparent; }
+
+    button {
+      appearance: none;
+      border: 0;
+      font-family: var(--ms-font);
+      cursor: pointer;
+    }
+
+    svg {
+      width: 19px;
+      height: 19px;
+      stroke: currentColor;
+      stroke-width: 2.4;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .status-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 16px 22px 6px;
+      color: var(--ms-white);
+      font-size: 11px;
+      font-weight: 950;
+    }
+
+    .top {
+      display: grid;
+      gap: 11px;
+      padding: 8px 18px 13px;
+    }
+
+    .brand-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .brand-copy {
+      min-width: 0;
+      display: grid;
+      gap: 2px;
+    }
+
+    .brand-copy b {
+      overflow: hidden;
+      color: var(--ms-white);
+      font-size: 20px;
+      line-height: 1;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .brand-copy span {
+      color: rgba(255, 255, 255, .78);
+      font-size: 10px;
+      font-weight: 850;
+    }
+
+    .identity-line {
+      width: 96px;
+      height: 4px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      overflow: hidden;
+      border-radius: var(--ms-pill);
+    }
+
+    .identity-line span:nth-child(1) { background: var(--ms-saffron); }
+    .identity-line span:nth-child(2) { background: var(--ms-white); }
+    .identity-line span:nth-child(3) { background: var(--ms-green); }
+
+    .top-buttons {
+      display: flex;
+      gap: 8px;
+      flex: 0 0 auto;
+    }
+
+    .circle-btn,
+    .search-action {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      text-decoration: none;
+    }
+
+    .circle-btn {
+      border: 1px solid rgba(255, 255, 255, .26);
+      background: rgba(255, 255, 255, .12);
+      color: var(--ms-white);
+    }
+
+    .command-bar {
+      min-height: 48px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto auto auto;
+      align-items: center;
+      gap: 7px;
+      border: 1px solid rgba(255, 255, 255, .85);
+      border-radius: var(--ms-pill);
+      padding: 5px 5px 5px 13px;
+      background: rgba(255, 255, 255, .10);
+    }
+
+    .command-text {
+      overflow: hidden;
+      color: var(--ms-white);
+      font-size: 11px;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .search-action {
+      background: var(--ms-white);
+      color: var(--ms-navy);
+    }
+
+    .content {
+      min-height: 0;
+      overflow: auto;
+      display: grid;
+      align-content: start;
+      gap: 8px;
+      padding: 0 10px 98px;
+      color: var(--ms-navy);
+      scrollbar-width: none;
+    }
+
+    .content::-webkit-scrollbar { display: none; }
+
+    .route-card,
+    .ride-card,
+    .option-card,
+    .trust-card,
+    .summary-card,
+    .help-card {
+      display: grid;
+      gap: 8px;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: 21px;
+      padding: 10px;
+      background: rgba(255, 255, 255, .98);
+      box-shadow: 0 14px 30px rgba(0, 0, 128, .10);
+    }
+
+    .route-card { margin-top: -8px; }
+
+    .ride-card.is-hidden,
+    .option-card.is-hidden,
+    .summary-card.is-hidden {
+      display: none;
+    }
+
+    .ride-card {
+      background:
+        linear-gradient(145deg, rgba(0, 0, 128, .05), rgba(19, 136, 8, .035)),
+        rgba(255, 255, 255, .98);
+    }
+
+    .card-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .card-head b {
+      color: var(--ms-navy);
+      font-size: 13px;
+      line-height: 1;
+      font-weight: 950;
+    }
+
+    .card-head span {
+      color: rgba(0, 0, 128, .58);
+      font-size: 8px;
+      font-weight: 850;
+      text-align: right;
+    }
+
+    .route-box {
+      display: grid;
+      gap: 7px;
+    }
+
+    .route-line {
+      min-height: 42px;
+      display: grid;
+      grid-template-columns: 32px 1fr;
+      gap: 9px;
+      align-items: center;
+      border-radius: 16px;
+      padding: 8px;
+      background: #f3f6fb;
+    }
+
+    .route-dot {
+      width: 32px;
+      height: 32px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--ms-white);
+      font-size: 10px;
+      font-weight: 950;
+    }
+
+    .route-dot.pick { background: var(--ms-green); }
+    .route-dot.drop { background: var(--ms-saffron); color: var(--ms-navy); }
+
+    .route-copy {
+      min-width: 0;
+      display: grid;
+      gap: 2px;
+    }
+
+    .route-copy b {
+      overflow: hidden;
+      color: var(--ms-navy);
+      font-size: 11px;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .route-copy span {
+      overflow: hidden;
+      color: rgba(0, 0, 128, .58);
+      font-size: 8px;
+      font-weight: 850;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .chip-row,
+    .ride-row,
+    .package-row,
+    .captain-row {
+      display: flex;
+      gap: 6px;
+      min-width: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .chip-row::-webkit-scrollbar,
+    .ride-row::-webkit-scrollbar,
+    .package-row::-webkit-scrollbar,
+    .captain-row::-webkit-scrollbar { display: none; }
+
+    .time-chip,
+    .small-chip,
+    .ride-option,
+    .package-option,
+    .captain-option,
+    .primary-cta,
+    .secondary-cta,
+    .dock-tab,
+    .mool-button,
+    .chat-button { font-family: var(--ms-font); }
+
+    .time-chip,
+    .small-chip {
+      flex: 0 0 auto;
+      min-height: 31px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: var(--ms-pill);
+      padding: 0 12px;
+      background: #f7f9fd;
+      color: var(--ms-navy);
+      font-size: 9px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .time-chip.active,
+    .small-chip.active {
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -3px 0 var(--ms-saffron), 0 8px 18px rgba(0, 0, 128, .15);
+    }
+
+    .ride-option {
+      flex: 0 0 114px;
+      min-height: 78px;
+      display: grid;
+      align-content: center;
+      gap: 5px;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: 18px;
+      padding: 10px;
+      background: #f7f9fd;
+      color: var(--ms-navy);
+      text-align: left;
+    }
+
+    .ride-option.active {
+      border-color: rgba(0, 0, 128, .42);
+      background:
+        linear-gradient(135deg, rgba(255, 153, 51, .14), rgba(19, 136, 8, .08)),
+        var(--ms-white);
+      box-shadow: inset 0 -3px 0 var(--ms-green), 0 9px 18px rgba(0, 0, 128, .10);
+    }
+
+    .ride-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .ride-top svg { color: var(--ms-navy); }
+
+    .ride-option b {
+      color: var(--ms-navy);
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .ride-option strong {
+      color: var(--ms-green);
+      font-size: 15px;
+      line-height: 1;
+      font-weight: 950;
+    }
+
+    .ride-option span {
+      color: rgba(0, 0, 128, .58);
+      font-size: 8px;
+      font-weight: 850;
+      line-height: 1.15;
+    }
+
+    .package-option {
+      flex: 0 0 134px;
+      min-height: 76px;
+      display: grid;
+      align-content: center;
+      gap: 4px;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: 18px;
+      padding: 9px;
+      background: #f7f9fd;
+      color: var(--ms-navy);
+      text-align: left;
+    }
+
+    .package-option.active {
+      border-color: rgba(0, 0, 128, .42);
+      background:
+        linear-gradient(135deg, rgba(255, 153, 51, .13), rgba(19, 136, 8, .08)),
+        var(--ms-white);
+      box-shadow: inset 0 -3px 0 var(--ms-green);
+    }
+
+    .package-option:focus-visible,
+    .ride-option:focus-visible,
+    .time-chip:focus-visible {
+      outline: 3px solid rgba(255, 153, 51, .45);
+      outline-offset: 2px;
+    }
+
+    .package-option b,
+    .package-option strong,
+    .package-option span {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .package-option b {
+      color: var(--ms-navy);
+      font-size: 10px;
+      font-weight: 950;
+    }
+
+    .package-option strong {
+      color: var(--ms-green);
+      font-size: 13px;
+      line-height: 1;
+      font-weight: 950;
+    }
+
+    .package-option span {
+      color: rgba(0, 0, 128, .58);
+      font-size: 7px;
+      font-weight: 850;
+    }
+
+    .decision-note {
+      display: grid;
+      grid-template-columns: 20px 1fr;
+      gap: 7px;
+      align-items: center;
+      border-radius: 15px;
+      padding: 8px 9px;
+      background: #f3f6fb;
+      color: rgba(0, 0, 128, .66);
+      font-size: 8px;
+      line-height: 1.25;
+      font-weight: 850;
+    }
+
+    .decision-note svg {
+      width: 18px;
+      height: 18px;
+      color: var(--ms-green);
+    }
+
+    .summary-facts {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .summary-fact {
+      min-height: 39px;
+      display: grid;
+      align-content: center;
+      gap: 2px;
+      border-radius: 14px;
+      padding: 7px;
+      background: rgba(255, 255, 255, .82);
+      color: var(--ms-navy);
+      overflow: hidden;
+    }
+
+    .summary-fact b,
+    .summary-fact span {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .summary-fact b {
+      font-size: 7px;
+      font-weight: 950;
+      text-transform: uppercase;
+    }
+
+    .summary-fact span {
+      color: var(--ms-green);
+      font-size: 8px;
+      font-weight: 900;
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 7px;
+    }
+
+    .trust-item,
+    .captain-option {
+      border-radius: 15px;
+      background: #f3f6fb;
+      color: var(--ms-navy);
+    }
+
+    .trust-item {
+      min-height: 46px;
+      display: grid;
+      align-content: center;
+      gap: 2px;
+      padding: 7px;
+      overflow: hidden;
+    }
+
+    .trust-item b {
+      overflow: hidden;
+      font-size: 8px;
+      font-weight: 950;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .trust-item span {
+      overflow: hidden;
+      color: var(--ms-green);
+      font-size: 7px;
+      font-weight: 900;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .captain-option {
+      flex: 0 0 158px;
+      display: grid;
+      grid-template-columns: 38px 1fr;
+      gap: 8px;
+      align-items: center;
+      border: 1px solid rgba(0, 0, 128, .10);
+      padding: 8px;
+      text-align: left;
+    }
+
+    .avatar {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 32% 22%, rgba(255, 255, 255, .34), transparent 28%),
+        linear-gradient(145deg, var(--ms-green), var(--ms-navy));
+      color: var(--ms-white);
+      font-size: 10px;
+      font-weight: 950;
+    }
+
+    .captain-copy {
+      min-width: 0;
+      display: grid;
+      gap: 2px;
+    }
+
+    .captain-copy b,
+    .captain-copy span,
+    .captain-copy small {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .captain-copy b {
+      color: var(--ms-navy);
+      font-size: 10px;
+      font-weight: 950;
+    }
+
+    .captain-copy span {
+      color: rgba(0, 0, 128, .62);
+      font-size: 7px;
+      font-weight: 850;
+    }
+
+    .captain-copy small {
+      color: var(--ms-green);
+      font-size: 7px;
+      font-weight: 900;
+    }
+
+    .after-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .after-item {
+      min-height: 42px;
+      display: grid;
+      place-items: center;
+      gap: 2px;
+      border-radius: 14px;
+      background: #f3f6fb;
+      color: var(--ms-navy);
+      font-size: 7px;
+      font-weight: 900;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .after-item svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .summary-card {
+      background:
+        linear-gradient(135deg, rgba(255, 153, 51, .13), rgba(19, 136, 8, .08)),
+        var(--ms-white);
+    }
+
+    .summary-top {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      align-items: start;
+    }
+
+    .summary-copy {
+      min-width: 0;
+      display: grid;
+      gap: 4px;
+    }
+
+    .summary-copy b {
+      overflow: hidden;
+      color: var(--ms-navy);
+      font-size: 15px;
+      line-height: 1.05;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .summary-copy span {
+      color: rgba(0, 0, 128, .62);
+      font-size: 8px;
+      font-weight: 850;
+      line-height: 1.25;
+    }
+
+    .summary-price {
+      min-width: 72px;
+      display: grid;
+      justify-items: end;
+      gap: 3px;
+      color: var(--ms-green);
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .summary-price b {
+      font-size: 16px;
+      line-height: 1;
+    }
+
+    .summary-price span {
+      color: rgba(0, 0, 128, .58);
+      font-size: 7px;
+      font-weight: 850;
+    }
+
+    .cta-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 7px;
+      align-items: center;
+    }
+
+    .primary-cta,
+    .secondary-cta {
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--ms-pill);
+      text-decoration: none;
+      font-size: 10px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .primary-cta {
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 var(--ms-saffron), 0 10px 20px rgba(0, 0, 128, .18);
+    }
+
+    .secondary-cta {
+      border: 1px solid rgba(0, 0, 128, .14);
+      padding: 0 12px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+    }
+
+    .help-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 7px;
+    }
+
+    .help-item {
+      min-height: 42px;
+      display: grid;
+      align-content: center;
+      gap: 2px;
+      border-radius: 14px;
+      padding: 7px;
+      background: #f3f6fb;
+      overflow: hidden;
+    }
+
+    .help-item b,
+    .help-item span {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .help-item b {
+      color: var(--ms-navy);
+      font-size: 8.5px;
+      font-weight: 950;
+    }
+
+    .help-item span {
+      color: rgba(0, 0, 128, .58);
+      font-size: 7px;
+      font-weight: 850;
+    }
+
+    .bottom-dock {
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+      display: grid;
+      grid-template-columns: 52px minmax(0, 1fr) 52px;
+      gap: 8px;
+      align-items: center;
+      border: 1px solid rgba(0, 0, 128, .78);
+      border-radius: 22px;
+      padding: 7px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, .99), rgba(244, 247, 252, .99));
+      box-shadow: 0 -12px 24px rgba(0, 0, 128, .18);
+      z-index: 5;
+    }
+
+    .mool-button,
+    .chat-button {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      border: 0;
+      border-radius: 50%;
+      text-decoration: none;
+      font-size: 10px;
+      font-weight: 950;
+    }
+
+    .mool-button {
+      background:
+        radial-gradient(circle at 36% 24%, rgba(255, 255, 255, .30), transparent 32%),
+        linear-gradient(145deg, #1717ba, var(--ms-navy) 72%);
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 rgba(0, 0, 80, .35), 0 9px 18px rgba(0, 0, 128, .22);
+    }
+
+    .chat-button {
+      position: relative;
+      background: radial-gradient(circle at 50% 12%, rgba(255, 255, 255, .96), rgba(255, 255, 255, .78) 44%, rgba(240, 244, 248, .98));
+      color: var(--ms-navy);
+      border: 1px solid rgba(0, 0, 128, .16);
+      box-shadow: 0 9px 18px rgba(0, 0, 128, .12);
+    }
+
+    .chat-badge {
+      min-width: 16px;
+      height: 16px;
+      position: absolute;
+      top: 5px;
+      right: 2px;
+      display: grid;
+      place-items: center;
+      border-radius: var(--ms-pill);
+      padding: 0 4px;
+      background: var(--ms-saffron);
+      color: var(--ms-navy);
+      font-size: 9px;
+      font-weight: 950;
+    }
+
+    .dock-track {
+      min-width: 0;
+      display: flex;
+      gap: 7px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      border: 1px solid rgba(0, 0, 128, .20);
+      border-radius: 19px;
+      padding: 5px 6px;
+      background:
+        radial-gradient(circle at 50% 50%, rgba(0, 0, 128, .12), transparent 58%),
+        linear-gradient(90deg, rgba(0, 0, 128, .10), rgba(255, 255, 255, .96) 20% 80%, rgba(0, 0, 128, .10));
+      box-shadow: inset 12px 0 18px rgba(0, 0, 128, .10), inset -12px 0 18px rgba(0, 0, 128, .10);
+    }
+
+    .dock-track::-webkit-scrollbar { display: none; }
+
+    .dock-tab {
+      flex: 0 0 auto;
+      min-width: 58px;
+      min-height: 42px;
+      display: grid;
+      place-items: center;
+      gap: 2px;
+      border-radius: 17px;
+      color: var(--ms-navy);
+      text-decoration: none;
+      font-size: 9px;
+      font-weight: 950;
+    }
+
+    .dock-tab svg {
+      width: 17px;
+      height: 17px;
+    }
+
+    .dock-tab.active {
+      background: linear-gradient(180deg, #1515b8, var(--ms-navy));
+      color: var(--ms-white);
+      box-shadow: inset 0 -3px 0 var(--ms-saffron), 0 8px 18px rgba(0, 0, 128, .18);
+    }
+
+    .state-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      border-top: 1px solid var(--ms-navy);
+      border-left: 1px solid var(--ms-navy);
+    }
+
+    .state-cell {
+      border-right: 1px solid var(--ms-navy);
+      border-bottom: 1px solid var(--ms-navy);
+      padding: 14px;
+      color: var(--ms-navy);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .state-cell:nth-child(2n) { border-right: 0; }
+    .state-cell b {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--ms-green);
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    .success-hero {
+      display: grid;
+      grid-template-columns: 44px minmax(0, 1fr) auto;
+      gap: 10px;
+      align-items: center;
+      border-radius: 18px;
+      padding: 10px;
+      background: linear-gradient(135deg, rgba(19, 136, 8, .14), rgba(255, 255, 255, .96));
+    }
+
+    .success-seal {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--ms-green);
+      color: var(--ms-white);
+      font-size: 22px;
+      font-weight: 950;
+      box-shadow: 0 10px 22px rgba(19, 136, 8, .24);
+    }
+
+    .success-copy {
+      min-width: 0;
+      display: grid;
+      gap: 2px;
+    }
+
+    .success-copy b {
+      color: var(--ms-navy);
+      font-size: 13px;
+      font-weight: 950;
+    }
+
+    .success-copy span {
+      overflow: hidden;
+      color: rgba(0, 0, 128, .58);
+      font-size: 8px;
+      font-weight: 850;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .success-total {
+      display: grid;
+      justify-items: end;
+      gap: 2px;
+      color: var(--ms-green);
+      white-space: nowrap;
+    }
+
+    .success-total b { font-size: 17px; font-weight: 950; }
+    .success-total span { color: rgba(0, 0, 128, .58); font-size: 7px; font-weight: 850; }
+
+    .command-bar.ledger-command {
+      grid-template-columns: minmax(0, 1fr) auto auto;
+    }
+
+    .ledger-list {
+      display: grid;
+      gap: 7px;
+      overflow: visible;
+    }
+
+    .ledger-list .package-option {
+      width: 100%;
+      min-height: 48px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 10px;
+      align-items: center;
+      padding: 7px 9px;
+    }
+
+    .ledger-main,
+    .ledger-value {
+      min-width: 0;
+      display: grid;
+      gap: 3px;
+    }
+
+    .ledger-main { text-align: left; }
+    .ledger-value { justify-items: end; text-align: right; }
+
+    .ledger-main b,
+    .ledger-main span,
+    .ledger-value strong,
+    .ledger-value small {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .ledger-main b { color: var(--ms-navy); font-size: 10px; font-weight: 950; }
+    .ledger-main span { color: rgba(0, 0, 128, .58); font-size: 7px; font-weight: 850; }
+    .ledger-value strong { color: var(--ms-green); font-size: 13px; font-weight: 950; }
+    .ledger-value small { color: rgba(0, 0, 128, .58); font-size: 7px; font-weight: 900; }
+
+    .success-seal.is-pending {
+      background: var(--ms-saffron);
+      color: var(--ms-navy);
+      box-shadow: 0 10px 22px rgba(255, 153, 51, .26);
+    }
+
+    .decision-note.is-warning {
+      background: rgba(255, 153, 51, .16);
+      color: var(--ms-navy);
+    }
+
+    .decision-note.is-warning svg { color: var(--ms-saffron); }
+
+    .success-hero.is-failed {
+      background: linear-gradient(135deg, rgba(180, 35, 24, .12), rgba(255, 255, 255, .96));
+    }
+
+    .success-hero.is-reversal {
+      background: linear-gradient(135deg, rgba(255, 153, 51, .18), rgba(255, 255, 255, .96));
+    }
+
+    .success-seal.is-failed {
+      background: #b42318;
+      color: var(--ms-white);
+      box-shadow: 0 10px 22px rgba(180, 35, 24, .22);
+    }
+
+    .success-seal.is-reversal {
+      background: var(--ms-saffron);
+      color: var(--ms-navy);
+      box-shadow: 0 10px 22px rgba(255, 153, 51, .26);
+    }
+
+    .success-total.is-failed,
+    .ledger-value strong.is-failed { color: #b42318; }
+
+    .success-total.is-reversal { color: #c45d00; }
+
+    .decision-note.is-safe {
+      background: rgba(19, 136, 8, .11);
+      color: var(--ms-navy);
+    }
+
+    .decision-note.is-safe svg { color: var(--ms-green); }
+
+    @media (max-width: 780px) {
+      .preview { grid-template-columns: 1fr; padding: 12px; }
+      .state-grid { grid-template-columns: 1fr; }
+      .state-cell { border-right: 0; }
+      .ms-page { padding: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="ms-page">
+    <section class="screen-shell">
+      <div class="back-row">
+        <a class="screen-link-home" href="../index.html">
+          <span class="back-mark">66</span>
+          Back to MoolSocial Screenbook
+        </a>
+        <span class="ms-status">Approved</span>
+      </div>
+
+      <section class="preview">
+        <div class="phone" role="img" aria-label="MoolSocial failed payment and reversal status screen">
+          <div class="app">
+            <div class="status-row">
+              <span>9:41</span>
+              <span>5G 100%</span>
+            </div>
+
+            <header class="top">
+              <div class="brand-row">
+                <div class="brand-copy">
+                  <b>Payment Result</b>
+                  <div class="identity-line" aria-hidden="true"><span></span><span></span><span></span></div>
+                  <span>bank-confirmed outcome</span>
+                </div>
+                <div class="top-buttons">
+                  <a class="circle-btn" href="64-pay-receipts-history.html" aria-label="Back to receipts">
+                    <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" /></svg>
+                  </a>
+                  <button class="circle-btn" id="refreshOutcome" aria-label="Check payment result">
+                    <svg viewBox="0 0 24 24"><path d="M20 6v6h-6" /><path d="M4 18v-6h6" /><path d="M6.5 9a7 7 0 0 1 11.7-2.6L20 8" /><path d="M4 16l1.8 1.6A7 7 0 0 0 17.5 15" /></svg>
+                  </button>
+                </div>
+              </div>
+
+            </header>
+
+            <main class="content">
+              <section class="route-card" aria-label="Current payment result">
+                <div class="success-hero is-failed" id="statusHero">
+                  <span class="success-seal is-failed" id="statusSeal" aria-hidden="true">×</span>
+                  <span class="success-copy">
+                    <b id="statusHeader">Payment failed</b>
+                    <span id="statusSub">Confirmed 10 Jul · 8:04 AM</span>
+                  </span>
+                  <span class="success-total is-failed" id="statusTotal">
+                    <b id="statusAmount">Rs 600</b>
+                    <span id="statusLabel">not debited</span>
+                  </span>
+                </div>
+                <div class="route-box">
+                  <div class="route-line">
+                    <span class="route-dot pick">V</span>
+                    <span class="route-copy">
+                      <b id="statusPayee">Dr Mehta Clinic</b>
+                      <span id="statusPayeeSub">Verified clinic · payment was not received</span>
+                    </span>
+                  </div>
+                  <div class="route-line">
+                    <span class="route-dot drop">#</span>
+                    <span class="route-copy">
+                      <b id="statusLink">Appointment #DC108</b>
+                      <span id="statusLinkSub">Card •••• 6068 · bank declined</span>
+                    </span>
+                  </div>
+                </div>
+                <div class="decision-note is-safe" id="statusNote">
+                  <svg viewBox="0 0 24 24" id="statusNoteIcon"><path d="M5 12l4 4L19 6" /></svg>
+                  <span id="statusWarning">Your bank confirmed no debit. You can retry safely.</span>
+                </div>
+              </section>
+
+              <section class="ride-card is-hidden" aria-label="Choose result view" id="rideCard">
+                <div class="card-head"><b>Choose result view</b><span id="rideHelp">tap one view</span></div>
+                <div class="ride-row">
+                  <button class="ride-option" data-ride="Result"><b>Result</b><strong>Final</strong><span>bank-confirmed outcome</span></button>
+                  <button class="ride-option" data-ride="Details"><b>Details</b><strong>Linked</strong><span>payee, method and reference</span></button>
+                  <button class="ride-option" data-ride="Help"><b>Help</b><strong>Ready</strong><span>references attached</span></button>
+                </div>
+              </section>
+
+              <section class="option-card is-hidden" aria-label="Payment result information" id="optionCard">
+                <div class="card-head"><b id="optionTitle">Payment result</b><span id="optionHelp">verified outcome</span></div>
+                <div class="package-row ledger-list" id="packageRow"></div>
+                <div class="decision-note">
+                  <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-5" /><path d="M20 6 9 17l-5-5" /></svg>
+                  <span id="decisionNoteText">Retry unlocks only after the bank confirms there was no debit.</span>
+                </div>
+              </section>
+
+              <section class="summary-card is-hidden" aria-label="Payment result action" id="summaryCard">
+                <div class="summary-top">
+                  <span class="summary-copy">
+                    <b id="summaryTitle">Retry is safe</b>
+                    <span id="summaryText">No money left your account. Choose another payment method without creating a duplicate debit.</span>
+                  </span>
+                  <span class="summary-price">
+                    <b id="summaryPrice">Rs 600</b>
+                    <span id="summaryPriceLabel">not debited</span>
+                  </span>
+                </div>
+                <div class="summary-facts" aria-label="Payment result facts">
+                  <span class="summary-fact"><b>Attempt</b><span id="summaryInput">MSP240710804</span></span>
+                  <span class="summary-fact"><b>Linked</b><span id="summaryProof">visit #DC108</span></span>
+                  <span class="summary-fact"><b>Next</b><span id="summaryFollow">retry safe</span></span>
+                </div>
+                <div class="cta-row">
+                  <a class="primary-cta" href="62-pay-request-confirmation.html?request=DC108&amp;amount=600&amp;retry=safe" id="primaryCta">Try another method</a>
+                  <a class="secondary-cta" href="64-pay-receipts-history.html" id="secondaryCta">Back to receipts</a>
+                </div>
+              </section>
+
+            </main>
+
+            <nav class="bottom-dock" aria-label="Payment result navigation">
+              <a class="mool-button" href="04-universal-focus-shell.html">Mool</a>
+              <div class="dock-track">
+                <a class="dock-tab" href="#" data-dock-ride="Result"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" /><path d="M8 8l8 8" /><path d="M16 8l-8 8" /></svg>Result</a>
+                <a class="dock-tab" href="#" data-dock-ride="Details"><svg viewBox="0 0 24 24"><path d="M6 2h12v20l-3-2-3 2-3-2-3 2Z" /><path d="M9 7h6" /><path d="M9 11h6" /></svg>Details</a>
+                <a class="dock-tab" href="#" data-dock-ride="Help"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" /><path d="M9.5 9a2.5 2.5 0 1 1 4.3 1.7c-.9.8-1.8 1.3-1.8 2.8" /><path d="M12 17h.01" /></svg>Help</a>
+              </div>
+              <a class="chat-button" href="23-chat-inbox-home.html" aria-label="Open chat">
+                <svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z" /></svg>
+                <span class="chat-badge">2</span>
+              </a>
+            </nav>
+          </div>
+        </div>
+
+        <div class="notes">
+          <div>
+            <h1 class="ms-title">Screen 66 separates failed payments from reversals before retry.</h1>
+            <p class="ms-lead">
+              A failed attempt unlocks retry only after the bank confirms no debit. If money was debited, the same screen
+              becomes a reversal tracker and blocks retry until the original amount is safely returned or reconciled.
+            </p>
+          </div>
+
+          <div class="ms-panel">
+            <div class="ms-section-head">Screen Contract <span>Approved</span></div>
+            <div class="state-grid">
+              <div class="state-cell"><b>Entry</b>From Screen 63 failed outcome, Screen 65 final callback, payment alert, linked request/order or receipt history.</div>
+              <div class="state-cell"><b>User Sees</b>Failed/no-debit or debit/reversal state, amount, payee, purpose, method, attempt reference, bank timeline and valid next action.</div>
+              <div class="state-cell"><b>Decision</b>Retry with another method only when no debit is confirmed. Reversal state permits status check and support, never retry.</div>
+              <div class="state-cell"><b>Backend</b>Provider error mapping, bank debit verification, idempotency key, reversal identifier, reconciliation queue, retry token and notifications.</div>
+              <div class="state-cell"><b>Trust</b>“Failed” never implies no debit until verified. Every reversal names its original destination and expected return time.</div>
+              <div class="state-cell"><b>Failure</b>Unknown debit returns to Screen 65 pending. Late success closes retry token; reversal delay opens support with references attached.</div>
+              <div class="state-cell"><b>Next</b>Safe retry returns to Screen 62 with the payee and purpose preserved. Reversal completion returns to Screen 64 receipt history.</div>
+              <div class="state-cell"><b>Regression</b>No callback, refresh or rapid tap can create duplicate attempts, expose retry during reversal, or overwrite an authoritative bank outcome.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script>
+    if ("scrollRestoration" in history) {
+      history.scrollRestoration = "manual";
+    }
+
+    function resetPhoneScroll() {
+      const content = document.querySelector(".content");
+      if (content) content.scrollTop = 0;
+    }
+
+    window.addEventListener("load", () => {
+      resetPhoneScroll();
+      requestAnimationFrame(resetPhoneScroll);
+      setTimeout(resetPhoneScroll, 80);
+    });
+
+    const rideOptions = document.querySelectorAll("[data-ride]");
+    const dockOptions = document.querySelectorAll("[data-dock-ride]");
+    const timeChips = document.querySelectorAll("[data-time]");
+    const rideCard = document.getElementById("rideCard");
+    const optionCard = document.getElementById("optionCard");
+    const summaryCard = document.getElementById("summaryCard");
+    const packageRow = document.getElementById("packageRow");
+    const optionTitle = document.getElementById("optionTitle");
+    const optionHelp = document.getElementById("optionHelp");
+    const rideHelp = document.getElementById("rideHelp");
+    const summaryTitle = document.getElementById("summaryTitle");
+    const summaryText = document.getElementById("summaryText");
+    const summaryPrice = document.getElementById("summaryPrice");
+    const summaryPriceLabel = document.getElementById("summaryPriceLabel");
+    const summaryInput = document.getElementById("summaryInput");
+    const summaryProof = document.getElementById("summaryProof");
+    const summaryFollow = document.getElementById("summaryFollow");
+    const decisionNoteText = document.getElementById("decisionNoteText");
+    const primaryCta = document.getElementById("primaryCta");
+    const secondaryCta = document.getElementById("secondaryCta");
+    const refreshOutcome = document.getElementById("refreshOutcome");
+    const statusHero = document.getElementById("statusHero");
+    const statusSeal = document.getElementById("statusSeal");
+    const statusTotal = document.getElementById("statusTotal");
+    const statusNote = document.getElementById("statusNote");
+    const statusNoteIcon = document.getElementById("statusNoteIcon");
+    const statusHeader = document.getElementById("statusHeader");
+    const statusSub = document.getElementById("statusSub");
+    const statusAmount = document.getElementById("statusAmount");
+    const statusLabel = document.getElementById("statusLabel");
+    const statusPayee = document.getElementById("statusPayee");
+    const statusPayeeSub = document.getElementById("statusPayeeSub");
+    const statusLink = document.getElementById("statusLink");
+    const statusLinkSub = document.getElementById("statusLinkSub");
+    const statusWarning = document.getElementById("statusWarning");
+
+    const query = new URLSearchParams(location.search);
+    const queryState = query.get("state") || "failed";
+    const isReversal = queryState === "reversal" || queryState === "reversed";
+    const isReversed = queryState === "reversed";
+
+    const flow = isReversal ? {
+      seal: isReversed ? "✓" : "↺",
+      visual: "reversal",
+      note: "warning",
+      header: isReversed ? "Reversal completed" : "Reversal in progress",
+      sub: isReversed ? "Returned 10 Jul · 11:24 AM" : "Started 10 Jul · 8:06 AM",
+      amount: "Rs 600",
+      label: isReversed ? "returned" : "returning",
+      payee: "Dr Mehta Clinic",
+      payeeSub: "Verified clinic · payment was not completed",
+      link: "Appointment #DC108",
+      linkSub: isReversed ? "Returned to Card •••• 6068" : "Returning to Card •••• 6068",
+      warning: isReversed ? "Rs 600 has returned to the original card. You may retry only if the appointment still needs payment." : "Do not retry yet. Rs 600 was debited and is returning automatically.",
+      reference: isReversed ? "RV2407101124" : "RV240710806",
+      linked: "visit #DC108",
+      expected: isReversed ? "returned" : "by 12 Jul",
+      method: "Card •••• 6068",
+      reason: "Debit recorded after failed payment",
+      cta: isReversed ? "View receipt" : "Check reversal",
+      ctaUrl: isReversed ? "64-pay-receipts-history.html?view=refunds" : "66-pay-failed-reversal-safe-retry.html?payment=DC108&state=reversal&refresh=1",
+      secondary: "Get help",
+      secondaryUrl: "22-chat-order-support-thread.html?payment=DC108&topic=reversal",
+      supportUrl: "22-chat-order-support-thread.html?payment=DC108&topic=reversal"
+    } : {
+      seal: "×",
+      visual: "failed",
+      note: "safe",
+      header: "Payment failed",
+      sub: "Confirmed 10 Jul · 8:04 AM",
+      amount: "Rs 600",
+      label: "not debited",
+      payee: "Dr Mehta Clinic",
+      payeeSub: "Verified clinic · payment was not received",
+      link: "Appointment #DC108",
+      linkSub: "Card •••• 6068 · bank declined",
+      warning: "Your bank confirmed no debit. You can retry safely.",
+      reference: "MSP240710804",
+      linked: "visit #DC108",
+      expected: "retry safe",
+      method: "Card •••• 6068",
+      reason: "Bank declined this attempt",
+      cta: "Try another method",
+      ctaUrl: "62-pay-request-confirmation.html?request=DC108&amount=600&retry=safe&attempt=MSP240710804",
+      secondary: "Back to receipts",
+      secondaryUrl: "64-pay-receipts-history.html",
+      supportUrl: "22-chat-order-support-thread.html?payment=DC108&topic=failed"
+    };
+
+    function applyFlowHeader() {
+      statusSeal.textContent = flow.seal;
+      statusHero.classList.toggle("is-failed", flow.visual === "failed");
+      statusHero.classList.toggle("is-reversal", flow.visual === "reversal");
+      statusSeal.classList.toggle("is-failed", flow.visual === "failed");
+      statusSeal.classList.toggle("is-reversal", flow.visual === "reversal");
+      statusTotal.classList.toggle("is-failed", flow.visual === "failed");
+      statusTotal.classList.toggle("is-reversal", flow.visual === "reversal");
+      statusNote.classList.toggle("is-safe", flow.note === "safe");
+      statusNote.classList.toggle("is-warning", flow.note === "warning");
+      statusNoteIcon.innerHTML = flow.note === "safe"
+        ? '<path d="M5 12l4 4L19 6" />'
+        : '<path d="M12 3 2 21h20Z" /><path d="M12 9v5" /><path d="M12 18h.01" />';
+      statusHeader.textContent = flow.header;
+      statusSub.textContent = flow.sub;
+      statusAmount.textContent = flow.amount;
+      statusLabel.textContent = flow.label;
+      statusPayee.textContent = flow.payee;
+      statusPayeeSub.textContent = flow.payeeSub;
+      statusLink.textContent = flow.link;
+      statusLinkSub.textContent = flow.linkSub;
+      statusWarning.textContent = flow.warning;
+    }
+
+    const branchNotes = {
+      Result: isReversal ? "Retry remains locked until the original debit is returned or reconciled." : "No-debit confirmation creates a single-use safe retry token for this payment purpose.",
+      Details: "Payee, method, amount, attempt reference and linked purpose remain unchanged across every outcome.",
+      Help: "Support receives the bank result, payment attempt and reversal references automatically."
+    };
+
+    const ridePackages = {
+      Result: isReversal ? [
+        { name: "Payment attempt", price: "Failed", status: "8:04 AM", eta: flow.method, note: "clinic not paid", captains: "reversal timeline", title: flow.header, text: flow.warning, priceLabel: flow.label, cta: flow.cta, url: flow.ctaUrl, secondary: flow.secondary, secondaryUrl: flow.secondaryUrl, input: flow.reference, proof: flow.linked, follow: flow.expected },
+        { name: "Debit detected", price: "Rs 600", status: "Matched", eta: "bank confirmed", note: "automatic return opened", captains: "reversal timeline", title: flow.header, text: flow.warning, priceLabel: flow.label, cta: flow.cta, url: flow.ctaUrl, secondary: flow.secondary, secondaryUrl: flow.secondaryUrl, input: flow.reference, proof: flow.linked, follow: flow.expected },
+        { name: "Original method", price: isReversed ? "Returned" : "Returning", status: flow.expected, eta: flow.method, note: "notification on change", captains: "reversal timeline", title: flow.header, text: flow.warning, priceLabel: flow.label, cta: flow.cta, url: flow.ctaUrl, secondary: flow.secondary, secondaryUrl: flow.secondaryUrl, input: flow.reference, proof: flow.linked, follow: flow.expected }
+      ] : [
+        { name: "Payment attempt", price: "Failed", status: "8:04 AM", eta: flow.method, note: "request declined", captains: "confirmed result", title: "Retry is safe", text: "No money left your account. Choose another payment method without creating a duplicate debit.", priceLabel: flow.label, cta: flow.cta, url: flow.ctaUrl, secondary: flow.secondary, secondaryUrl: flow.secondaryUrl, input: flow.reference, proof: flow.linked, follow: flow.expected },
+        { name: "Bank result", price: "Declined", status: "Final", eta: flow.reason, note: "provider verified", captains: "confirmed result", title: "Retry is safe", text: "No money left your account. Choose another payment method without creating a duplicate debit.", priceLabel: flow.label, cta: flow.cta, url: flow.ctaUrl, secondary: flow.secondary, secondaryUrl: flow.secondaryUrl, input: flow.reference, proof: flow.linked, follow: flow.expected },
+        { name: "Debit check", price: "Rs 0", status: "Confirmed", eta: "no bank debit", note: "retry token ready", captains: "confirmed result", title: "Retry is safe", text: "No money left your account. Choose another payment method without creating a duplicate debit.", priceLabel: flow.label, cta: flow.cta, url: flow.ctaUrl, secondary: flow.secondary, secondaryUrl: flow.secondaryUrl, input: flow.reference, proof: flow.linked, follow: flow.expected }
+      ],
+      Details: [
+        { name: isReversal ? "Reversal ref" : "Attempt ref", price: flow.reference, status: "Saved", eta: "immutable", note: "support-ready reference", captains: "record details", title: flow.header, text: `${flow.payee} · ${flow.link} · ${flow.amount}.`, priceLabel: flow.label, cta: flow.cta, url: flow.ctaUrl, secondary: flow.secondary, secondaryUrl: flow.secondaryUrl, input: flow.reference, proof: flow.linked, follow: flow.expected },
+        { name: "Linked purpose", price: flow.linked, status: "Matched", eta: flow.payee, note: "payee and purpose locked", captains: "record details", title: flow.header, text: `${flow.payee} · ${flow.link} · ${flow.amount}.`, priceLabel: flow.label, cta: flow.cta, url: flow.ctaUrl, secondary: flow.secondary, secondaryUrl: flow.secondaryUrl, input: flow.reference, proof: flow.linked, follow: flow.expected },
+        { name: "Payment method", price: flow.method, status: "Protected", eta: flow.reason, note: "original attempt retained", captains: "record details", title: flow.header, text: `${flow.payee} · ${flow.link} · ${flow.amount}.`, priceLabel: flow.label, cta: flow.cta, url: flow.ctaUrl, secondary: flow.secondary, secondaryUrl: flow.secondaryUrl, input: flow.reference, proof: flow.linked, follow: flow.expected }
+      ],
+      Help: [
+        { name: isReversal ? "Refresh reversal" : "Safe retry", price: isReversal ? "Check" : "Ready", status: isReversal ? "No new debit" : "One use", eta: isReversal ? "provider check" : "verified no debit", note: isReversal ? "does not retry payment" : "same purpose preserved", captains: "protected actions", title: flow.header, text: flow.warning, priceLabel: flow.label, cta: flow.cta, url: flow.ctaUrl, secondary: flow.secondary, secondaryUrl: flow.secondaryUrl, input: flow.reference, proof: flow.linked, follow: flow.expected },
+        { name: "Payment support", price: "Open chat", status: "Refs attached", eta: flow.reference, note: "no details to re-enter", captains: "protected actions", title: "Support has the record", text: "Payee, amount, linked purpose and bank outcome are attached automatically.", priceLabel: flow.label, cta: "Open support", url: flow.supportUrl, secondary: "Back to receipts", secondaryUrl: "64-pay-receipts-history.html", input: flow.reference, proof: flow.linked, follow: flow.expected },
+        { name: isReversal ? "Return delayed" : "Bank shows debit", price: "Report", status: "Protected", eta: "attach bank proof", note: "support reconciles status", captains: "protected actions", title: isReversal ? "Report delayed return" : "Report bank debit", text: "Open support with this payment reference and attach bank proof only if requested.", priceLabel: flow.label, cta: isReversal ? "Report delay" : "Report debit", url: `${flow.supportUrl}&reason=${isReversal ? "return-delay" : "bank-debit"}`, secondary: "Back to receipts", secondaryUrl: "64-pay-receipts-history.html", input: flow.reference, proof: flow.linked, follow: flow.expected }
+      ]
+    };
+
+    const state = {
+      ride: "",
+      packageName: "",
+      price: flow.amount,
+      status: flow.label,
+      eta: "",
+      note: "",
+      captains: "",
+      title: flow.header,
+      text: flow.warning,
+      priceLabel: flow.label,
+      input: flow.reference,
+      proof: flow.linked,
+      follow: flow.expected,
+      url: flow.ctaUrl,
+      cta: flow.cta,
+      secondary: flow.secondary,
+      secondaryUrl: flow.secondaryUrl
+    };
+
+    const viewTitles = {
+      Result: isReversal ? "Reversal timeline" : "Payment result",
+      Details: "Record details",
+      Help: "Help options"
+    };
+
+    function updateSummary() {
+      if (rideHelp) rideHelp.textContent = state.ride ? `${state.ride} selected` : "tap a view";
+      optionTitle.textContent = viewTitles[state.ride] || state.ride;
+      optionHelp.textContent = state.captains;
+      summaryTitle.textContent = state.title;
+      summaryText.textContent = state.text;
+      summaryPrice.textContent = flow.amount;
+      summaryPriceLabel.textContent = state.priceLabel;
+      summaryInput.textContent = state.input;
+      summaryProof.textContent = state.proof;
+      summaryFollow.textContent = state.follow;
+      decisionNoteText.textContent = branchNotes[state.ride] || "Payment and order references remain linked after success.";
+      primaryCta.textContent = state.cta;
+      primaryCta.href = state.url;
+      secondaryCta.textContent = state.secondary;
+      secondaryCta.href = state.secondaryUrl;
+    }
+
+    function applyPackage(packageItem) {
+      state.packageName = packageItem.name;
+      state.price = packageItem.price;
+      state.status = packageItem.status;
+      state.eta = packageItem.eta;
+      state.note = packageItem.note;
+      state.captains = packageItem.captains;
+      state.title = packageItem.title;
+      state.text = packageItem.text;
+      state.priceLabel = packageItem.priceLabel;
+      state.input = packageItem.input;
+      state.proof = packageItem.proof;
+      state.follow = packageItem.follow;
+      state.url = packageItem.url || "#";
+      state.cta = packageItem.cta;
+      state.secondary = packageItem.secondary;
+      state.secondaryUrl = packageItem.secondaryUrl;
+      summaryCard.classList.remove("is-hidden");
+      [...packageRow.querySelectorAll("[data-package]")].forEach((button) => {
+        button.classList.toggle("active", button.dataset.package === packageItem.name);
+      });
+      updateSummary();
+    }
+
+    function renderPackages(ride) {
+      packageRow.innerHTML = "";
+      ridePackages[ride].forEach((item, index) => {
+        const button = document.createElement("button");
+        button.className = `package-option${index === 0 ? " active" : ""}`;
+        button.dataset.package = item.name;
+        button.type = "button";
+        button.innerHTML = `<span class="ledger-main"><b>${item.name}</b><span>${item.eta} · ${item.note}</span></span><span class="ledger-value"><strong>${item.price}</strong><small>${item.status}</small></span>`;
+        button.addEventListener("click", () => applyPackage(item));
+        packageRow.appendChild(button);
+      });
+      applyPackage(ridePackages[ride][0]);
+    }
+
+    function applyRide(ride) {
+      rideOptions.forEach((item) => {
+        const active = item.dataset.ride === ride;
+        item.classList.toggle("active", active);
+      });
+      dockOptions.forEach((item) => item.classList.toggle("active", item.dataset.dockRide === ride));
+      state.ride = ride;
+      rideCard.classList.add("is-hidden");
+      optionCard.classList.remove("is-hidden");
+      renderPackages(ride);
+    }
+
+    rideOptions.forEach((option) => {
+      option.addEventListener("click", () => applyRide(option.dataset.ride));
+    });
+
+    dockOptions.forEach((option) => {
+      option.addEventListener("click", (event) => {
+        event.preventDefault();
+        applyRide(option.dataset.dockRide);
+      });
+    });
+
+    refreshOutcome.addEventListener("click", () => {
+      const refreshed = new URL(location.href);
+      refreshed.searchParams.set("refresh", Date.now().toString());
+      location.href = refreshed.toString();
+    });
+
+    applyFlowHeader();
+    applyRide("Result");
+  </script>
+<script type="application/json" id="productionRouteContract">{"contractVersion":"mvp-route-lock-2026-07-12","prototypeScreen":66,"productionModule":"pay","routeId":"payment.lifecycle","routePath":"/payments/:paymentId","routeState":"failed-reversal-retry","implementation":"route-state","launchScope":"mvp-core","separateProductionRoute":false,"productionNote":"Do not create a separate production route. Implement failed-reversal-retry inside /payments/:paymentId and reuse the owning route API, authorization, analytics and regression suite.","canonicalMap":"architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"}</script><script type="application/json" id="prototypeApprovalContract">{"prototypeScreen":66,"status":"approved-and-frozen","authoritative":true,"approvedAt":"2026-07-12","approvalScope":"prototype-ui-ux-and-production-contract"}</script></body>
+</html>

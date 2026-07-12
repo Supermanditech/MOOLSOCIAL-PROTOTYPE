@@ -1,0 +1,545 @@
+{
+  "version": "prototype-approval-lock-2026-07-12",
+  "authoritative": true,
+  "approvedThroughScreen": 106,
+  "approvedPrototypeCount": 107,
+  "note": "Screens 00 through 106 are approved and frozen. Production route implementation remains controlled by productionRouteContract.",
+  "approvals": [
+    {
+      "prototypeScreen": 0,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 1,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 2,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 3,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 4,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 5,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 6,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 7,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 8,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 9,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 10,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 11,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 12,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 13,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 14,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 15,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 16,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 17,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 18,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 19,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 20,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 21,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 22,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 23,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 24,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 25,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 26,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 27,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 28,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 29,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 30,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 31,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 32,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 33,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 34,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 35,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 36,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 37,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 38,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 39,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 40,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 41,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 42,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 43,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 44,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 45,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 46,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 47,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 48,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 49,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 50,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 51,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 52,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 53,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 54,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 55,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 56,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 57,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 58,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 59,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 60,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 61,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 62,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 63,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 64,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 65,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 66,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 67,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 68,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 69,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 70,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 71,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 72,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 73,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 74,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 75,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 76,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 77,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 78,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 79,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 80,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 81,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 82,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 83,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 84,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 85,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 86,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 87,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 88,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 89,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 90,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 91,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 92,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 93,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 94,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 95,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 96,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 97,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 98,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 99,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 100,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 101,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 102,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 103,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 104,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 105,
+      "status": "approved-and-frozen",
+      "approvedAt": "2026-07-12"
+    },
+    {
+      "prototypeScreen": 106,
+      "status": "approved-and-frozen",
+      "authoritative": true,
+      "approvedAt": "2026-07-12"
+    }
+  ]
+}

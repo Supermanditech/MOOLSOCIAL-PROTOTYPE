@@ -1,0 +1,890 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>50 Get It Done Helper Accepted - MoolSocial Screenbook</title>
+  <link rel="stylesheet" href="../shared/moolsocial-ui-foundation.css" />
+  <style>
+    .screen-shell { display: grid; gap: 18px; }
+
+    .back-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .screen-link-home {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--ms-navy);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .back-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--ms-navy);
+      border-radius: var(--ms-radius);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .preview {
+      display: grid;
+      grid-template-columns: minmax(320px, 390px) minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+      padding: 18px;
+      border-bottom: 1px solid var(--ms-navy);
+      background: var(--ms-white);
+    }
+
+    .phone {
+      width: min(100%, 370px);
+      height: 742px;
+      justify-self: center;
+      border: 10px solid var(--ms-navy);
+      border-radius: 32px;
+      background: var(--ms-navy);
+      overflow: hidden;
+      box-shadow: 0 28px 60px rgba(0, 0, 128, .22);
+    }
+
+    .app {
+      position: relative;
+      height: 100%;
+      display: grid;
+      grid-template-rows: auto auto 1fr;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 14% 8%, rgba(255, 153, 51, .18), transparent 25%),
+        radial-gradient(circle at 92% 12%, rgba(19, 136, 8, .17), transparent 27%),
+        linear-gradient(180deg, var(--ms-navy) 0 180px, #f4f7fc 180px 100%);
+      color: var(--ms-white);
+      font-family: var(--ms-font);
+    }
+
+    button,
+    a { -webkit-tap-highlight-color: transparent; }
+
+    svg {
+      width: 20px;
+      height: 20px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .status-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px 22px 8px;
+      color: var(--ms-white);
+      font-size: 11px;
+      font-weight: 950;
+    }
+
+    .top {
+      display: grid;
+      gap: 13px;
+      padding: 4px 18px 16px;
+    }
+
+    .brand-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .brand-copy {
+      min-width: 0;
+      display: grid;
+      gap: 3px;
+    }
+
+    .brand-copy b {
+      overflow: hidden;
+      color: var(--ms-white);
+      font-size: 21px;
+      line-height: .96;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .brand-copy span {
+      color: rgba(255, 255, 255, .82);
+      font-size: 9px;
+      font-weight: 850;
+      letter-spacing: 0;
+    }
+
+    .identity-line {
+      width: 112px;
+      height: 4px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      overflow: hidden;
+      border-radius: 999px;
+    }
+
+    .identity-line span:nth-child(1) { background: var(--ms-saffron); }
+    .identity-line span:nth-child(2) { background: var(--ms-white); }
+    .identity-line span:nth-child(3) { background: var(--ms-green); }
+
+    .top-buttons { display: flex; gap: 7px; }
+
+    .circle-btn,
+    .search-action {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, .35);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .16);
+      color: var(--ms-white);
+      text-decoration: none;
+    }
+
+    .command-bar {
+      min-height: 52px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 40px 40px;
+      gap: 6px;
+      align-items: center;
+      border: 1px solid rgba(255, 255, 255, .7);
+      border-radius: 999px;
+      padding: 5px 6px 5px 16px;
+      background: rgba(255, 255, 255, .09);
+    }
+
+    .command-text {
+      overflow: hidden;
+      color: var(--ms-white);
+      font-size: 11px;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .search-action {
+      border: 0;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+    }
+
+    .content {
+      min-height: 0;
+      overflow: auto;
+      display: grid;
+      align-content: start;
+      gap: 8px;
+      padding: 0 10px 104px;
+      color: var(--ms-navy);
+      scrollbar-width: none;
+    }
+
+    .content::-webkit-scrollbar { display: none; }
+
+    .live-card,
+    .helper-card,
+    .timeline-card,
+    .proof-card,
+    .summary-card {
+      display: grid;
+      gap: 9px;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: 21px;
+      padding: 10px;
+      background: rgba(255, 255, 255, .98);
+      box-shadow: 0 14px 30px rgba(0, 0, 128, .10);
+    }
+
+    .live-card {
+      margin-top: -8px;
+      border-color: rgba(255, 255, 255, .78);
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, .18), rgba(255, 255, 255, .04)),
+        var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 var(--ms-saffron), 0 14px 30px rgba(0, 0, 128, .2);
+    }
+
+    .card-head,
+    .live-head,
+    .helper-line,
+    .timeline-row,
+    .proof-line {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .card-head b,
+    .live-head b {
+      min-width: 0;
+      overflow: hidden;
+      font-size: 13px;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .card-head span,
+    .live-head span {
+      color: rgba(0, 0, 128, .55);
+      font-size: 8px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .live-head span { color: rgba(255, 255, 255, .76); }
+
+    .accepted-box {
+      display: grid;
+      grid-template-columns: 48px minmax(0, 1fr) auto;
+      gap: 10px;
+      align-items: center;
+      border-radius: 20px;
+      padding: 10px;
+      background: rgba(255, 255, 255, .1);
+    }
+
+    .helper-avatar {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      background:
+        radial-gradient(circle at 32% 24%, rgba(255, 255, 255, .34), transparent 24%),
+        linear-gradient(145deg, var(--ms-green), var(--ms-navy));
+      color: var(--ms-white);
+      font-size: 15px;
+      font-weight: 950;
+      box-shadow: inset 0 -4px 0 rgba(0, 0, 80, .48);
+    }
+
+    .accepted-copy {
+      min-width: 0;
+      display: grid;
+      gap: 3px;
+    }
+
+    .accepted-copy b {
+      overflow: hidden;
+      font-size: 14px;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .accepted-copy span {
+      overflow: hidden;
+      color: rgba(255, 255, 255, .82);
+      font-size: 9px;
+      font-weight: 850;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .eta-badge {
+      min-width: 58px;
+      display: grid;
+      justify-items: end;
+      color: var(--ms-white);
+      font-size: 8px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .eta-badge b {
+      font-size: 17px;
+      font-weight: 950;
+    }
+
+    .live-map {
+      position: relative;
+      height: 122px;
+      overflow: hidden;
+      border-radius: 22px;
+      background:
+        linear-gradient(120deg, rgba(255, 255, 255, .09) 0 22%, transparent 22% 44%, rgba(255, 255, 255, .08) 44% 55%, transparent 55%),
+        radial-gradient(circle at 28% 68%, rgba(255, 153, 51, .42), transparent 16%),
+        radial-gradient(circle at 78% 30%, rgba(19, 136, 8, .44), transparent 18%),
+        linear-gradient(145deg, rgba(255, 255, 255, .08), rgba(0, 0, 80, .24));
+    }
+
+    .route-line {
+      position: absolute;
+      left: 42px;
+      right: 50px;
+      top: 60px;
+      height: 4px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--ms-saffron), var(--ms-white), var(--ms-green));
+      box-shadow: 0 0 16px rgba(255, 255, 255, .32);
+    }
+
+    .pin {
+      position: absolute;
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border: 2px solid var(--ms-white);
+      border-radius: 999px;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+    }
+
+    .pin.start { left: 30px; top: 45px; }
+    .pin.end { right: 34px; top: 45px; background: var(--ms-green); }
+
+    .map-note {
+      position: absolute;
+      left: 12px;
+      right: 12px;
+      bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      color: rgba(255, 255, 255, .86);
+      font-size: 8px;
+      font-weight: 900;
+    }
+
+    .quick-actions {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 7px;
+    }
+
+    .quick-action {
+      min-height: 52px;
+      display: grid;
+      place-items: center;
+      gap: 4px;
+      border: 1px solid rgba(255, 255, 255, .2);
+      border-radius: 17px;
+      color: var(--ms-white);
+      text-decoration: none;
+      font-size: 8px;
+      font-weight: 950;
+      text-align: center;
+    }
+
+    .helper-line,
+    .proof-line {
+      min-height: 54px;
+      border-radius: 17px;
+      padding: 8px;
+      background: #f4f7fc;
+    }
+
+    .helper-icon,
+    .proof-icon,
+    .timeline-dot {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      box-shadow: inset 0 -3px 0 rgba(0, 0, 128, .1);
+    }
+
+    .helper-copy,
+    .proof-copy,
+    .timeline-copy,
+    .summary-copy {
+      min-width: 0;
+      display: grid;
+      gap: 3px;
+    }
+
+    .helper-copy b,
+    .proof-copy b,
+    .timeline-copy b,
+    .summary-copy b {
+      overflow: hidden;
+      color: var(--ms-navy);
+      font-size: 11px;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .helper-copy span,
+    .proof-copy span,
+    .timeline-copy span,
+    .summary-copy span {
+      overflow: hidden;
+      color: rgba(0, 0, 128, .62);
+      font-size: 8px;
+      font-weight: 850;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .state-pill {
+      min-width: 54px;
+      min-height: 28px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      background: rgba(19, 136, 8, .1);
+      color: var(--ms-green);
+      font-size: 8px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 7px;
+    }
+
+    .timeline-row {
+      min-height: 50px;
+      border-radius: 17px;
+      padding: 7px;
+      background: #f4f7fc;
+    }
+
+    .timeline-row.active {
+      background: rgba(0, 0, 128, .08);
+      box-shadow: inset 0 -3px 0 var(--ms-saffron);
+    }
+
+    .timeline-dot.done {
+      background: var(--ms-green);
+      color: var(--ms-white);
+    }
+
+    .timeline-dot.active {
+      background: var(--ms-navy);
+      color: var(--ms-white);
+    }
+
+    .summary-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .summary-price {
+      display: grid;
+      justify-items: end;
+      color: rgba(0, 0, 128, .6);
+      font-size: 8px;
+      font-weight: 900;
+    }
+
+    .summary-price b {
+      color: var(--ms-navy);
+      font-size: 16px;
+      font-weight: 950;
+    }
+
+    .cta-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .primary-cta,
+    .secondary-cta {
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 10px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .primary-cta {
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 var(--ms-saffron), 0 10px 20px rgba(0, 0, 128, .18);
+    }
+
+    .secondary-cta {
+      border: 1px solid rgba(0, 0, 128, .14);
+      padding: 0 12px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+    }
+
+    .bottom-dock {
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+      display: grid;
+      grid-template-columns: 68px minmax(0, 1fr) 66px;
+      gap: 8px;
+      align-items: center;
+      border: 1px solid rgba(0, 0, 128, .16);
+      border-radius: 26px;
+      padding: 7px;
+      background: rgba(255, 255, 255, .96);
+      box-shadow: 0 -14px 36px rgba(0, 0, 128, .16);
+      z-index: 8;
+    }
+
+    .mool-button,
+    .chat-button {
+      min-height: 58px;
+      display: grid;
+      place-items: center;
+      border-radius: 22px;
+      text-decoration: none;
+      font-size: 9px;
+      font-weight: 950;
+    }
+
+    .mool-button {
+      background:
+        radial-gradient(circle at 35% 22%, rgba(255, 255, 255, .35), transparent 25%),
+        linear-gradient(145deg, #1d1dca, var(--ms-navy));
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 rgba(0, 0, 80, .72), 0 8px 18px rgba(0, 0, 128, .18);
+    }
+
+    .dock-track {
+      min-width: 0;
+      display: flex;
+      gap: 4px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      border-radius: 22px;
+      padding: 2px;
+      background:
+        radial-gradient(circle at left, rgba(0, 0, 128, .12), transparent 28%),
+        radial-gradient(circle at right, rgba(0, 0, 128, .12), transparent 28%),
+        linear-gradient(90deg, rgba(0, 0, 128, .08), rgba(19, 136, 8, .08));
+    }
+
+    .dock-track::-webkit-scrollbar { display: none; }
+
+    .dock-tab {
+      min-width: 62px;
+      min-height: 54px;
+      display: grid;
+      place-items: center;
+      gap: 3px;
+      border-radius: 18px;
+      padding: 6px 8px;
+      color: var(--ms-navy);
+      text-decoration: none;
+      font-size: 8px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .dock-tab svg { width: 17px; height: 17px; }
+
+    .dock-tab.active {
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 var(--ms-saffron);
+    }
+
+    .chat-button {
+      position: relative;
+      border: 1px solid rgba(0, 0, 128, .14);
+      background: var(--ms-white);
+      color: var(--ms-navy);
+    }
+
+    .chat-badge {
+      position: absolute;
+      top: 8px;
+      right: 9px;
+      min-width: 20px;
+      height: 20px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      background: #ff8f24;
+      color: var(--ms-navy);
+      font-size: 10px;
+      font-weight: 950;
+    }
+
+    .notes { display: grid; gap: 14px; padding: 8px 0; }
+    .ms-lead { max-width: 720px; }
+
+    @media (max-width: 860px) {
+      .preview { grid-template-columns: 1fr; padding: 12px; }
+      .phone { width: min(100%, 370px); }
+      .ms-page { padding: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="ms-page">
+    <section class="screen-shell">
+      <div class="back-row">
+        <a class="screen-link-home" href="../index.html">
+          <span class="back-mark">50</span>
+          Back to MoolSocial Screenbook
+        </a>
+        <span class="ms-status">Approved</span>
+      </div>
+
+      <section class="preview">
+        <div class="phone" role="img" aria-label="MoolSocial Get It Done helper accepted screen">
+          <div class="app">
+            <div class="status-row">
+              <span>9:41</span>
+              <span>5G 100%</span>
+            </div>
+
+            <header class="top">
+              <div class="brand-row">
+                <div class="brand-copy">
+                  <b>MoolSocial Live Task</b>
+                  <div class="identity-line" aria-hidden="true"><span></span><span></span><span></span></div>
+                  <span>helper accepted · payment held</span>
+                </div>
+                <div class="top-buttons">
+                  <a class="circle-btn" href="49-get-it-done-review-payment.html" aria-label="Back to review">
+                    <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" /></svg>
+                  </a>
+                  <button class="circle-btn" aria-label="Save task">
+                    <svg viewBox="0 0 24 24"><path d="M19 21 12 17 5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2Z" /></svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="command-bar" aria-label="Live task status">
+                <span class="command-text">Ramesh accepted. Track progress, chat or call.</span>
+                <button class="search-action" aria-label="Task proof">
+                  <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z" /><circle cx="12" cy="13" r="4" /></svg>
+                </button>
+                <button class="search-action" aria-label="Voice help">
+                  <svg viewBox="0 0 24 24"><path d="M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3Z" /><path d="M19 10a7 7 0 0 1-14 0" /><path d="M12 17v4" /></svg>
+                </button>
+              </div>
+            </header>
+
+            <main class="content">
+              <section class="live-card" aria-label="Accepted task">
+                <div class="live-head">
+                  <b>Task accepted</b>
+                  <span id="holdLabel">Rs 599 held</span>
+                </div>
+
+                <div class="accepted-box">
+                  <span class="helper-avatar">RK</span>
+                  <span class="accepted-copy">
+                    <b>Ramesh Kumar</b>
+                    <span>ID verified · 4.8 rating · 620 tasks</span>
+                  </span>
+                  <span class="eta-badge">
+                    <b>18</b>
+                    <span>min</span>
+                  </span>
+                </div>
+
+                <div class="live-map" aria-label="Task map preview">
+                  <span class="route-line"></span>
+                  <span class="pin start"><svg viewBox="0 0 24 24"><path d="M12 21s7-4.5 7-11a7 7 0 0 0-14 0c0 6.5 7 11 7 11Z" /><circle cx="12" cy="10" r="2" /></svg></span>
+                  <span class="pin end"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></svg></span>
+                  <span class="map-note"><b>Going to counter</b><span id="cityLine">Jodhpur</span></span>
+                </div>
+
+                <div class="quick-actions">
+                  <a class="quick-action" href="23-chat-inbox-home.html"><svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z" /></svg>Chat</a>
+                  <a class="quick-action" href="#"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.8 19.8 0 0 1 3 5.18 2 2 0 0 1 5 3h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.62a2 2 0 0 1-.45 2.11L9 10.6a16 16 0 0 0 4.4 4.4l1.15-1.17a2 2 0 0 1 2.11-.45c.84.29 1.72.5 2.62.62A2 2 0 0 1 22 16.92Z" /></svg>Call</a>
+                  <a class="quick-action" href="#"><svg viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" /><path d="M16 6l-4-4-4 4" /><path d="M12 2v13" /></svg>Share</a>
+                </div>
+              </section>
+
+              <section class="helper-card" aria-label="Task controls">
+                <div class="card-head">
+                  <b>Task control</b>
+                  <span>you approve release</span>
+                </div>
+                <div class="helper-line">
+                  <span class="helper-icon"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="M3 10h18" /></svg></span>
+                  <span class="helper-copy">
+                    <b id="moneyTitle">Payment held safely</b>
+                    <span id="moneyText">UPI hold · unused task spend returns</span>
+                  </span>
+                  <span class="state-pill">Safe</span>
+                </div>
+                <div class="helper-line">
+                  <span class="helper-icon"><svg viewBox="0 0 24 24"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2Z" /><path d="M8 7h8" /><path d="M8 12h8" /></svg></span>
+                  <span class="helper-copy">
+                    <b>Spend limit active</b>
+                    <span>helper cannot cross your approved limit</span>
+                  </span>
+                  <span class="state-pill" id="limitPill">Rs 500</span>
+                </div>
+              </section>
+
+              <section class="timeline-card" aria-label="Task timeline">
+                <div class="card-head">
+                  <b>Live progress</b>
+                  <span>updates here</span>
+                </div>
+                <div class="timeline">
+                  <div class="timeline-row">
+                    <span class="timeline-dot done"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></svg></span>
+                    <span class="timeline-copy"><b>Accepted</b><span>helper confirmed task and route</span></span>
+                    <span class="state-pill">Done</span>
+                  </div>
+                  <div class="timeline-row active">
+                    <span class="timeline-dot active"><svg viewBox="0 0 24 24"><path d="M12 2v4" /><path d="M12 18v4" /><path d="m4.93 4.93 2.83 2.83" /><path d="m16.24 16.24 2.83 2.83" /><path d="M2 12h4" /><path d="M18 12h4" /></svg></span>
+                    <span class="timeline-copy"><b>Going now</b><span>track live, chat if instruction changes</span></span>
+                    <span class="state-pill">Live</span>
+                  </div>
+                  <div class="timeline-row">
+                    <span class="timeline-dot"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z" /><circle cx="12" cy="13" r="4" /></svg></span>
+                    <span class="timeline-copy"><b>Proof pending</b><span>photo or bill before release</span></span>
+                    <span class="state-pill">Next</span>
+                  </div>
+                </div>
+              </section>
+
+              <section class="proof-card" aria-label="Proof and cancellation">
+                <div class="card-head">
+                  <b>Before payment release</b>
+                  <span id="proofLabel">photo proof</span>
+                </div>
+                <div class="proof-line">
+                  <span class="proof-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" /></svg></span>
+                  <span class="proof-copy">
+                    <b>No release without proof</b>
+                    <span>you can approve, ask again or raise support</span>
+                  </span>
+                  <span class="state-pill">Locked</span>
+                </div>
+              </section>
+
+              <section class="summary-card" aria-label="Next task action">
+                <div class="summary-top">
+                  <span class="summary-copy">
+                    <b id="summaryTitle">Task is moving</b>
+                    <span id="summaryText">Wait for proof, or chat with Ramesh now.</span>
+                  </span>
+                  <span class="summary-price">
+                    <b id="holdAmount">Rs 599</b>
+                    <span>held</span>
+                  </span>
+                </div>
+                <div class="cta-row">
+                  <a class="primary-cta" href="23-chat-inbox-home.html" id="primaryCta">Open task chat</a>
+                  <a class="secondary-cta" href="51-get-it-done-proof-release.html" id="proofCta">Proof</a>
+                </div>
+              </section>
+            </main>
+
+            <nav class="bottom-dock" aria-label="Get It Done live navigation">
+              <a class="mool-button" href="04-universal-focus-shell.html">Mool</a>
+              <div class="dock-track">
+                <a class="dock-tab" href="49-get-it-done-review-payment.html"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="M3 10h18" /></svg>Hold</a>
+                <a class="dock-tab active" href="#primaryCta"><svg viewBox="0 0 24 24"><path d="M12 2v4" /><path d="M12 18v4" /><path d="M2 12h4" /><path d="M18 12h4" /></svg>Live</a>
+                <a class="dock-tab" href="51-get-it-done-proof-release.html"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z" /></svg>Proof</a>
+                <a class="dock-tab" href="#"><svg viewBox="0 0 24 24"><path d="M3 6h18" /><path d="M8 6V4h8v2" /><path d="M19 6l-1 14H6L5 6" /></svg>Cancel</a>
+              </div>
+              <a class="chat-button" href="23-chat-inbox-home.html" aria-label="Open chat">
+                <svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z" /></svg>
+                <span class="chat-badge">2</span>
+              </a>
+            </nav>
+          </div>
+        </div>
+
+        <div class="notes">
+          <div>
+            <h1 class="ms-title">Screen 50 shows the accepted helper and live task control.</h1>
+            <p class="ms-lead">
+              After payment hold, the user should not fill another form. They see who accepted the task, where the helper is,
+              what amount is held, what proof is required, and how to chat, call, cancel or wait for proof.
+            </p>
+          </div>
+
+          <div class="ms-panel">
+            <div class="ms-section-head">Screen Contract <span>Approved</span></div>
+            <div class="state-grid">
+              <div class="state-cell"><b>Entry</b>From Screen 49 after Confirm task creates payment hold and task request is accepted by a verified helper.</div>
+              <div class="state-cell"><b>User Sees</b>Accepted helper, ETA, live status, task route preview, held amount, spend limit, proof rule, chat/call/share and cancel/support access.</div>
+              <div class="state-cell"><b>Decision</b>User monitors, chats, calls, changes instruction through chat, waits for proof, or cancels under visible rules.</div>
+              <div class="state-cell"><b>Backend</b>Task assignment, helper status, live location/status updates, payment hold state, spend cap, proof requirement, chat, call masking and cancellation APIs.</div>
+              <div class="state-cell"><b>Trust</b>User sees helper verification, held amount, spend cap and no-release-without-proof rule continuously.</div>
+              <div class="state-cell"><b>Failure</b>If helper cancels, location stalls, proof delayed, spend exceeds cap or task becomes unsafe, show reassignment, refund hold, support or cancel path.</div>
+              <div class="state-cell"><b>Next</b>Routes to proof review and payment release, completed task receipt/rating, or issue/support if proof fails.</div>
+              <div class="state-cell"><b>Regression</b>No repeated task capture. No hidden helper identity. No release ambiguity. Mool and Chat remain fixed.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script>
+    if ("scrollRestoration" in history) {
+      history.scrollRestoration = "manual";
+    }
+
+    function resetPhoneScroll() {
+      const content = document.querySelector(".content");
+      if (content) content.scrollTop = 0;
+    }
+
+    window.addEventListener("load", () => {
+      resetPhoneScroll();
+      requestAnimationFrame(resetPhoneScroll);
+      setTimeout(resetPhoneScroll, 80);
+    });
+
+    const params = new URLSearchParams(window.location.search);
+    const task = params.get("task") || "Pickup";
+    const city = params.get("city") || "Jodhpur";
+    const proof = params.get("proof") || "Photo";
+    const method = params.get("method") || "UPI hold";
+    const hold = params.get("hold") || "599";
+
+    const taskNames = {
+      Pickup: "Pickup work",
+      Document: "Office work",
+      Market: "Buy locally",
+      Custom: "Custom task"
+    };
+
+    document.getElementById("holdLabel").textContent = `Rs ${hold} held`;
+    document.getElementById("holdAmount").textContent = `Rs ${hold}`;
+    document.getElementById("cityLine").textContent = city;
+    document.getElementById("moneyText").textContent = `${method} · unused task spend returns`;
+    document.getElementById("proofLabel").textContent = `${proof.toLowerCase()} proof`;
+    document.getElementById("summaryText").textContent = `${taskNames[task] || "Task"} is live. Wait for ${proof.toLowerCase()} proof, or chat now.`;
+    document.getElementById("proofCta").href = `51-get-it-done-proof-release.html?task=${encodeURIComponent(task)}&city=${encodeURIComponent(city)}&proof=${encodeURIComponent(proof)}&hold=${encodeURIComponent(hold)}`;
+  </script>
+<script type="application/json" id="productionRouteContract">{"contractVersion":"mvp-route-lock-2026-07-12","prototypeScreen":50,"productionModule":"tasks","routeId":"tasks.lifecycle","routePath":"/tasks/:taskId","routeState":"helper-accepted","implementation":"route-state","launchScope":"post-mvp","separateProductionRoute":false,"productionNote":"Do not create a separate production route. Implement helper-accepted inside /tasks/:taskId and reuse the owning route API, authorization, analytics and regression suite.","canonicalMap":"architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"}</script><script type="application/json" id="prototypeApprovalContract">{"prototypeScreen":50,"status":"approved-and-frozen","authoritative":true,"approvedAt":"2026-07-12","approvalScope":"prototype-ui-ux-and-production-contract"}</script></body>
+</html>

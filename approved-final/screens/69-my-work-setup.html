@@ -1,0 +1,1171 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>69 My Work Home - MoolSocial Screenbook</title>
+  <style>
+    :root {
+      --navy: #000080;
+      --navy-deep: #000058;
+      --saffron: #ff9933;
+      --green: #138808;
+      --white: #ffffff;
+      --ink: #11142b;
+      --muted: #5b6074;
+      --line: #d9dcee;
+      --surface: #f5f7fc;
+      --success-soft: #edf8ee;
+      --saffron-soft: #fff3e7;
+      --shadow: 0 18px 50px rgba(0, 0, 88, .16);
+      --font: Arial, Helvetica, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      background: #eef1f8;
+      color: var(--ink);
+      font-family: var(--font);
+      letter-spacing: 0;
+    }
+
+    button,
+    a { font: inherit; }
+
+    button { cursor: pointer; }
+
+    svg {
+      display: block;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.9;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .page {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+      padding: 30px 22px 54px;
+    }
+
+    .stage {
+      display: grid;
+      grid-template-columns: minmax(320px, 430px) minmax(0, 1fr);
+      gap: 42px;
+      align-items: start;
+    }
+
+    .phone-frame {
+      width: 100%;
+      max-width: 430px;
+      min-height: 860px;
+      position: sticky;
+      top: 18px;
+      border: 9px solid var(--navy);
+      border-radius: 36px;
+      overflow: hidden;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .phone {
+      min-height: 842px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      background: var(--surface);
+    }
+
+    .app-header {
+      flex: 0 0 auto;
+      position: relative;
+      padding: 9px 16px 15px;
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .status-bar {
+      min-height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    .app-head-row {
+      min-height: 55px;
+      display: grid;
+      grid-template-columns: 38px minmax(0, 1fr) auto;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .head-button {
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, .36);
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .10);
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    .head-button svg { width: 19px; height: 19px; }
+
+    .head-copy {
+      min-width: 0;
+      display: grid;
+      gap: 2px;
+    }
+
+    .head-copy b {
+      overflow: hidden;
+      color: var(--white);
+      font-size: 22px;
+      line-height: 1.05;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .head-copy span {
+      overflow: hidden;
+      color: rgba(255, 255, 255, .76);
+      font-size: 10px;
+      font-weight: 750;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .head-actions {
+      display: flex;
+      gap: 7px;
+    }
+
+    .identity-line {
+      width: 82px;
+      height: 4px;
+      display: grid;
+      grid-template-columns: 1fr .48fr 1fr;
+      overflow: hidden;
+      border-radius: 999px;
+    }
+
+    .identity-line span:nth-child(1) { background: var(--saffron); }
+    .identity-line span:nth-child(2) { background: var(--white); }
+    .identity-line span:nth-child(3) { background: var(--green); }
+
+    .content {
+      min-height: 0;
+      flex: 1 1 auto;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      padding: 13px 12px 94px;
+      scrollbar-width: none;
+    }
+
+    .content::-webkit-scrollbar { display: none; }
+
+    .notice {
+      display: grid;
+      grid-template-columns: 36px minmax(0, 1fr) auto;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 10px;
+      border: 1px solid #e7a462;
+      border-radius: 8px;
+      padding: 10px;
+      background: var(--saffron-soft);
+    }
+
+    .notice[hidden] { display: none; }
+
+    .notice-mark {
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--saffron);
+      color: var(--navy);
+    }
+
+    .notice-mark svg { width: 18px; height: 18px; }
+
+    .notice-copy {
+      min-width: 0;
+      display: grid;
+      gap: 2px;
+    }
+
+    .notice-copy small {
+      color: var(--green);
+      font-size: 9px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .notice-copy b {
+      overflow: hidden;
+      color: var(--navy);
+      font-size: 13px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .notice-copy span {
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 700;
+      line-height: 1.25;
+    }
+
+    .notice-pay {
+      color: var(--navy);
+      font-size: 13px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .new-user,
+    .workspace-home { display: grid; gap: 10px; }
+
+    .new-user[hidden],
+    .workspace-home[hidden] { display: none; }
+
+    .start-panel {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(0, 0, 128, .24);
+      border-radius: 8px;
+      padding: 18px 16px 16px;
+      background: var(--white);
+      box-shadow: 0 10px 24px rgba(0, 0, 88, .08);
+    }
+
+    .start-panel::before {
+      content: "";
+      width: 86px;
+      height: 5px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: var(--saffron);
+    }
+
+    .start-panel::after {
+      content: "";
+      width: 72px;
+      height: 5px;
+      position: absolute;
+      top: 0;
+      left: 86px;
+      background: var(--green);
+    }
+
+    .start-symbol {
+      width: 60px;
+      height: 60px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 14px;
+      border-radius: 50%;
+      background: var(--navy);
+      color: var(--white);
+      box-shadow: 0 8px 18px rgba(0, 0, 128, .24);
+    }
+
+    .start-symbol svg { width: 29px; height: 29px; }
+
+    .start-panel h1 {
+      margin: 0;
+      color: var(--navy);
+      font-size: 24px;
+      line-height: 1.08;
+    }
+
+    .start-panel p {
+      max-width: 310px;
+      margin: 7px 0 15px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.38;
+    }
+
+    .primary-action {
+      min-height: 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      border: 0;
+      border-radius: 8px;
+      padding: 0 18px;
+      background: var(--navy);
+      color: var(--white);
+      font-size: 13px;
+      font-weight: 950;
+      text-decoration: none;
+      box-shadow: inset 0 -3px 0 var(--saffron), 0 10px 18px rgba(0, 0, 128, .16);
+    }
+
+    .primary-action svg { width: 18px; height: 18px; }
+
+    .primary-action:focus-visible,
+    .quiet-action:focus-visible,
+    .urgent-action:focus-visible,
+    .dock-tab:focus-visible,
+    .mool-button:focus-visible,
+    .chat-button:focus-visible,
+    .head-button:focus-visible {
+      outline: 3px solid var(--saffron);
+      outline-offset: 2px;
+    }
+
+    .value-strip {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--white);
+    }
+
+    .value-item {
+      min-width: 0;
+      display: grid;
+      gap: 5px;
+      justify-items: start;
+      padding: 11px 9px;
+      border-right: 1px solid var(--line);
+    }
+
+    .value-item:last-child { border-right: 0; }
+
+    .value-icon {
+      width: 27px;
+      height: 27px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #eef0fb;
+      color: var(--navy);
+    }
+
+    .value-icon svg { width: 14px; height: 14px; }
+
+    .value-item b {
+      color: var(--navy);
+      font-size: 10px;
+      line-height: 1.15;
+    }
+
+    .value-item span {
+      color: var(--muted);
+      font-size: 8px;
+      font-weight: 700;
+      line-height: 1.25;
+    }
+
+    .coverage-line {
+      margin: 0;
+      padding: 0 4px;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 700;
+      line-height: 1.4;
+      text-align: center;
+    }
+
+    .account-continuity {
+      display: grid;
+      grid-template-columns: 38px minmax(0, 1fr) auto;
+      gap: 10px;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 11px;
+      background: var(--white);
+    }
+
+    .account-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--success-soft);
+      color: var(--green);
+    }
+
+    .account-mark svg { width: 19px; height: 19px; }
+
+    .account-copy {
+      min-width: 0;
+      display: grid;
+      gap: 2px;
+    }
+
+    .account-copy small {
+      color: var(--muted);
+      font-size: 8px;
+      font-weight: 850;
+      text-transform: uppercase;
+    }
+
+    .account-copy b {
+      overflow: hidden;
+      color: var(--navy);
+      font-size: 12px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .account-copy span {
+      overflow: hidden;
+      color: var(--muted);
+      font-size: 9px;
+      font-weight: 700;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .account-state {
+      border-radius: 999px;
+      padding: 5px 7px;
+      background: var(--success-soft);
+      color: var(--green);
+      font-size: 8px;
+      font-weight: 950;
+    }
+
+    .workspace-card {
+      border: 1px solid rgba(0, 0, 128, .28);
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--white);
+      box-shadow: 0 10px 24px rgba(0, 0, 88, .08);
+    }
+
+    .workspace-head {
+      display: grid;
+      grid-template-columns: 43px minmax(0, 1fr) auto;
+      gap: 10px;
+      align-items: center;
+      padding: 13px;
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .workspace-logo {
+      width: 43px;
+      height: 43px;
+      display: grid;
+      place-items: center;
+      border: 2px solid rgba(255, 255, 255, .72);
+      border-radius: 50%;
+      background: var(--green);
+      color: var(--white);
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .workspace-title {
+      min-width: 0;
+      display: grid;
+      gap: 2px;
+    }
+
+    .workspace-title small {
+      color: var(--saffron);
+      font-size: 8px;
+      font-weight: 950;
+      text-transform: uppercase;
+    }
+
+    .workspace-title b {
+      overflow: hidden;
+      color: var(--white);
+      font-size: 15px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .workspace-title span {
+      color: rgba(255, 255, 255, .72);
+      font-size: 9px;
+      font-weight: 750;
+    }
+
+    .verified-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      border-radius: 999px;
+      padding: 5px 7px;
+      background: var(--success-soft);
+      color: var(--green);
+      font-size: 8px;
+      font-weight: 950;
+    }
+
+    .verified-badge svg { width: 11px; height: 11px; }
+
+    .workspace-summary {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      border-bottom: 1px solid var(--line);
+    }
+
+    .summary-metric {
+      min-width: 0;
+      display: grid;
+      gap: 3px;
+      padding: 11px 9px;
+      border-right: 1px solid var(--line);
+    }
+
+    .summary-metric:last-child { border-right: 0; }
+
+    .summary-metric small {
+      color: var(--muted);
+      font-size: 8px;
+      font-weight: 850;
+    }
+
+    .summary-metric b {
+      overflow: hidden;
+      color: var(--navy);
+      font-size: 13px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .open-workspace {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 12px 13px;
+      color: var(--navy);
+      font-size: 11px;
+      font-weight: 950;
+      text-decoration: none;
+    }
+
+    .open-workspace svg { width: 17px; height: 17px; }
+
+    .section {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--white);
+    }
+
+    .section-head {
+      min-height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 9px 11px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-head b {
+      color: var(--navy);
+      font-size: 12px;
+    }
+
+    .section-head span {
+      color: var(--muted);
+      font-size: 8px;
+      font-weight: 800;
+    }
+
+    .urgent-list { display: grid; }
+
+    .urgent-action {
+      width: 100%;
+      min-height: 53px;
+      display: grid;
+      grid-template-columns: 34px minmax(0, 1fr) auto;
+      gap: 9px;
+      align-items: center;
+      border: 0;
+      border-bottom: 1px solid var(--line);
+      padding: 8px 11px;
+      background: var(--white);
+      color: var(--ink);
+      text-align: left;
+    }
+
+    .urgent-action:last-child { border-bottom: 0; }
+
+    .urgent-icon {
+      width: 32px;
+      height: 32px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #eef0fb;
+      color: var(--navy);
+    }
+
+    .urgent-icon.warn { background: var(--saffron-soft); color: #b35400; }
+    .urgent-icon.good { background: var(--success-soft); color: var(--green); }
+    .urgent-icon svg { width: 16px; height: 16px; }
+
+    .urgent-copy {
+      min-width: 0;
+      display: grid;
+      gap: 2px;
+    }
+
+    .urgent-copy b {
+      color: var(--navy);
+      font-size: 11px;
+    }
+
+    .urgent-copy span {
+      overflow: hidden;
+      color: var(--muted);
+      font-size: 9px;
+      font-weight: 700;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .urgent-value {
+      display: grid;
+      justify-items: end;
+      gap: 1px;
+      color: var(--navy);
+      font-size: 11px;
+      font-weight: 950;
+    }
+
+    .urgent-value small {
+      color: var(--muted);
+      font-size: 7px;
+      font-weight: 800;
+    }
+
+    .other-workspaces[hidden] { display: none; }
+
+    .workspace-rail {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 10px;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+    }
+
+    .workspace-rail::-webkit-scrollbar { display: none; }
+
+    .workspace-pill {
+      min-width: 150px;
+      display: grid;
+      grid-template-columns: 33px minmax(0, 1fr);
+      gap: 8px;
+      align-items: center;
+      scroll-snap-align: start;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 9px;
+      background: var(--surface);
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .workspace-pill-mark {
+      width: 33px;
+      height: 33px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .workspace-pill-mark svg { width: 16px; height: 16px; }
+
+    .workspace-pill span {
+      min-width: 0;
+      display: grid;
+      gap: 2px;
+    }
+
+    .workspace-pill b {
+      overflow: hidden;
+      color: var(--navy);
+      font-size: 10px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .workspace-pill small {
+      color: var(--muted);
+      font-size: 8px;
+      font-weight: 750;
+    }
+
+    .quiet-action {
+      min-height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      border: 1px solid var(--navy);
+      border-radius: 8px;
+      padding: 0 13px;
+      background: var(--white);
+      color: var(--navy);
+      font-size: 11px;
+      font-weight: 950;
+      text-decoration: none;
+    }
+
+    .quiet-action svg { width: 16px; height: 16px; }
+
+    .bottom-dock {
+      position: absolute;
+      right: 9px;
+      bottom: 9px;
+      left: 9px;
+      display: grid;
+      grid-template-columns: 54px minmax(0, 1fr) 54px;
+      gap: 7px;
+      align-items: center;
+      border: 1px solid rgba(0, 0, 128, .75);
+      border-radius: 23px;
+      padding: 7px;
+      background: rgba(255, 255, 255, .98);
+      box-shadow: 0 -12px 24px rgba(0, 0, 128, .15);
+      z-index: 10;
+    }
+
+    .mool-button,
+    .chat-button {
+      width: 54px;
+      height: 54px;
+      position: relative;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(0, 0, 128, .16);
+      border-radius: 50%;
+      color: var(--navy);
+      font-size: 9px;
+      font-weight: 950;
+      text-decoration: none;
+    }
+
+    .mool-button {
+      background: var(--navy);
+      color: var(--white);
+      box-shadow: inset 0 -3px 0 var(--green), 0 5px 12px rgba(0, 0, 128, .18);
+    }
+
+    .mool-button::after {
+      content: "";
+      width: 19px;
+      height: 3px;
+      position: absolute;
+      bottom: 7px;
+      left: 17px;
+      border-left: 7px solid var(--saffron);
+      border-right: 7px solid var(--green);
+      background: var(--white);
+    }
+
+    .chat-button { gap: 1px; background: var(--white); }
+    .chat-button svg { width: 20px; height: 20px; }
+
+    .chat-badge {
+      min-width: 17px;
+      height: 17px;
+      position: absolute;
+      top: 4px;
+      right: 1px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      padding: 0 4px;
+      background: var(--saffron);
+      color: var(--navy);
+      font-size: 9px;
+      font-weight: 950;
+    }
+
+    .dock-track {
+      min-width: 0;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 4px;
+      border: 1px solid rgba(0, 0, 128, .18);
+      border-radius: 19px;
+      padding: 5px;
+      background: #f1f3fb;
+      box-shadow: inset 10px 0 18px rgba(0, 0, 128, .08), inset -10px 0 18px rgba(0, 0, 128, .08);
+    }
+
+    .dock-tab {
+      min-width: 0;
+      min-height: 44px;
+      display: grid;
+      place-items: center;
+      gap: 2px;
+      border-radius: 15px;
+      color: var(--navy);
+      font-size: 8px;
+      font-weight: 950;
+      text-decoration: none;
+    }
+
+    .dock-tab svg { width: 16px; height: 16px; }
+
+    .dock-tab .rupee {
+      font-size: 17px;
+      line-height: 1;
+    }
+
+    .dock-tab.active {
+      background: var(--navy);
+      color: var(--white);
+      box-shadow: inset 0 -3px 0 var(--saffron), 0 7px 15px rgba(0, 0, 128, .16);
+    }
+
+    .notes {
+      display: grid;
+      gap: 18px;
+      padding-top: 14px;
+    }
+
+    .notes h1 {
+      max-width: 690px;
+      margin: 0;
+      color: var(--navy);
+      font-size: clamp(27px, 4vw, 48px);
+      line-height: 1.04;
+    }
+
+    .notes > p {
+      max-width: 720px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.55;
+    }
+
+    .state-switcher {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      border-top: 1px solid var(--navy);
+      padding-top: 14px;
+    }
+
+    .state-switcher a {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--navy);
+      border-radius: 999px;
+      padding: 0 14px;
+      background: var(--white);
+      color: var(--navy);
+      font-size: 12px;
+      font-weight: 900;
+      text-decoration: none;
+    }
+
+    .state-switcher a.active { background: var(--navy); color: var(--white); }
+
+    .contract {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      border-top: 1px solid var(--navy);
+      border-left: 1px solid var(--navy);
+      background: var(--white);
+    }
+
+    .contract div {
+      min-height: 104px;
+      border-right: 1px solid var(--navy);
+      border-bottom: 1px solid var(--navy);
+      padding: 14px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .contract b {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--navy);
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 900px) {
+      .page { padding: 18px 12px 42px; }
+      .stage { grid-template-columns: 1fr; justify-items: center; }
+      .phone-frame { position: relative; top: auto; }
+      .notes { width: min(720px, 100%); }
+    }
+
+    @media (max-width: 480px) {
+      body { background: var(--surface); }
+      .page { padding: 0; }
+      .stage { display: block; }
+      .phone-frame {
+        max-width: none;
+        min-height: 100dvh;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+      }
+      .phone { min-height: 100dvh; height: 100dvh; }
+      .notes { display: none; }
+      .content { padding-bottom: 90px; }
+    }
+
+    @media (max-width: 350px) {
+      .app-header { padding-inline: 11px; }
+      .content { padding-inline: 9px; }
+      .start-panel { padding-inline: 13px; }
+      .value-item { padding-inline: 6px; }
+      .bottom-dock { left: 5px; right: 5px; gap: 5px; padding: 5px; }
+      .mool-button, .chat-button { width: 50px; height: 50px; }
+      .workspace-head { grid-template-columns: 39px minmax(0, 1fr); }
+      .verified-badge { grid-column: 2; justify-self: start; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="stage">
+      <section class="phone-frame" aria-label="MoolSocial My Work Home prototype">
+        <div class="phone">
+          <header class="app-header">
+            <div class="status-bar"><span>9:41</span><span>5G 100%</span></div>
+            <div class="app-head-row">
+              <a class="head-button" href="67-work.html?view=my-work" aria-label="Back to Work">
+                <svg viewBox="0 0 24 24"><path d="m15 18-6-6 6-6" /></svg>
+              </a>
+              <span class="head-copy">
+                <b>My Work</b>
+                <span id="headerSubline">Start and operate your work</span>
+                <span class="identity-line" aria-hidden="true"><span></span><span></span><span></span></span>
+              </span>
+              <span class="head-actions">
+                <button class="head-button" type="button" aria-label="My Work notifications">
+                  <svg viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9" /><path d="M10 21h4" /></svg>
+                </button>
+                <button class="head-button" type="button" aria-label="My Work settings">
+                  <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" /><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1-2.8 2.8-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.6v.2h-4V21a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1L4.2 17l.1-.1a1.7 1.7 0 0 0 .3-1.9A1.7 1.7 0 0 0 3 14H2.8v-4H3a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9L4.2 7 7 4.2l.1.1a1.7 1.7 0 0 0 1.9.3A1.7 1.7 0 0 0 10 3V2.8h4V3a1.7 1.7 0 0 0 1 1.6 1.7 1.7 0 0 0 1.9-.3l.1-.1L19.8 7l-.1.1a1.7 1.7 0 0 0-.3 1.9 1.7 1.7 0 0 0 1.6 1h.2v4H21a1.7 1.7 0 0 0-1.6 1Z" /></svg>
+                </button>
+              </span>
+            </div>
+          </header>
+
+          <div class="content">
+            <section class="notice" id="opportunityNotice" aria-label="Saved opportunity" hidden>
+              <span class="notice-mark"><svg viewBox="0 0 24 24"><path d="M5 4h14v17l-7-4-7 4Z" /></svg></span>
+              <span class="notice-copy"><small>Opportunity saved</small><b id="opportunityTitle">MoolSocial explainer video</b><span id="opportunityNote">Start My Work, then return to apply.</span></span>
+              <strong class="notice-pay" id="opportunityPay">₹1,500</strong>
+            </section>
+
+            <section class="new-user" id="newUserView" aria-label="Start My Work">
+              <div class="start-panel">
+                <span class="start-symbol" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M4 21V8h16v13" /><path d="M8 8V4h8v4" /><path d="M9 13h6" /><path d="M12 10v6" /></svg>
+                </span>
+                <h1>Start My Work</h1>
+                <p>Choose the exact work or business you operate. Your personal MoolSocial account stays active.</p>
+                <a class="primary-action" id="startMyWork" href="70-my-work-choose-activity.html?from=69">
+                  Start My Work
+                  <svg viewBox="0 0 24 24"><path d="M5 12h14" /><path d="m14 7 5 5-5 5" /></svg>
+                </a>
+              </div>
+
+              <div class="account-continuity" aria-label="Verified account contact">
+                <span class="account-mark"><svg viewBox="0 0 24 24"><path d="M6 2h4l2 5-3 2a15 15 0 0 0 6 6l2-3 5 2v4a4 4 0 0 1-4 4C9.2 22 2 14.8 2 6a4 4 0 0 1 4-4Z" /></svg></span>
+                <span class="account-copy"><small>Account contact</small><b id="accountMobile">+91 98••• ••210</b><span id="accountIdentity">Google · user@gmail.com</span></span>
+                <span class="account-state">Verified</span>
+              </div>
+            </section>
+
+            <section class="workspace-home" id="workspaceHome" aria-label="Current workspace" hidden>
+              <article class="workspace-card">
+                <div class="workspace-head">
+                  <span class="workspace-logo">MF</span>
+                  <span class="workspace-title"><small>Current workspace</small><b>Mahadev Fresh Mart</b><span>Retail shop · Sardarpura, Jodhpur</span></span>
+                  <span class="verified-badge"><svg viewBox="0 0 24 24"><path d="m5 12 4 4L19 6" /></svg>Verified</span>
+                </div>
+                <div class="workspace-summary">
+                  <span class="summary-metric"><small>Today</small><b>18 orders</b></span>
+                  <span class="summary-metric"><small>Sales</small><b>₹12,840</b></span>
+                  <span class="summary-metric"><small>To procure</small><b>7 items</b></span>
+                </div>
+                <a class="open-workspace" href="70-my-work-choose-activity.html?from=69&amp;workspace=mahadev-fresh-mart"><span>Open Mahadev Fresh Mart</span><svg viewBox="0 0 24 24"><path d="M5 12h14" /><path d="m14 7 5 5-5 5" /></svg></a>
+              </article>
+
+              <section class="section" aria-label="Actions needing attention">
+                <div class="section-head"><b>Needs attention</b><span>3 actions</span></div>
+                <div class="urgent-list">
+                  <button class="urgent-action" type="button">
+                    <span class="urgent-icon warn"><svg viewBox="0 0 24 24"><path d="M4 5h16v14H4Z" /><path d="M8 9h8" /></svg></span>
+                    <span class="urgent-copy"><b>Confirm new orders</b><span>Customers are waiting for stock confirmation</span></span>
+                    <span class="urgent-value">2<small>orders</small></span>
+                  </button>
+                  <button class="urgent-action" type="button">
+                    <span class="urgent-icon"><svg viewBox="0 0 24 24"><path d="M3 6h18l-2 9H6Z" /><path d="M8 20h.01" /><path d="M18 20h.01" /></svg></span>
+                    <span class="urgent-copy"><b>Buy low-stock items</b><span>Compare ready wholesale sources</span></span>
+                    <span class="urgent-value">7<small>items</small></span>
+                  </button>
+                  <button class="urgent-action" type="button">
+                    <span class="urgent-icon good"><svg viewBox="0 0 24 24"><path d="M4 7h16v12H4Z" /><path d="M16 11h4" /><path d="M7 7V5h10v2" /></svg></span>
+                    <span class="urgent-copy"><b>Settlement ready</b><span>Next payout can be reviewed</span></span>
+                    <span class="urgent-value">₹8,420<small>ready</small></span>
+                  </button>
+                </div>
+              </section>
+
+              <section class="section other-workspaces" id="otherWorkspaces" aria-label="Other workspaces" hidden>
+                <div class="section-head"><b>Other workspaces</b><span>swipe to switch</span></div>
+                <div class="workspace-rail">
+                  <a class="workspace-pill" href="#creator-work"><span class="workspace-pill-mark"><svg viewBox="0 0 24 24"><path d="M4 19 17 6l2 2L6 21H4Z" /><path d="m14 6 2-2 4 4-2 2" /></svg></span><span><b>Creator Work</b><small>1 campaign active</small></span></a>
+                  <a class="workspace-pill" href="#delivery-work"><span class="workspace-pill-mark"><svg viewBox="0 0 24 24"><path d="M3 16V8h11v8" /><path d="M14 11h4l3 3v2h-7" /><circle cx="7" cy="18" r="2" /><circle cx="18" cy="18" r="2" /></svg></span><span><b>Delivery Work</b><small>Available tonight</small></span></a>
+                </div>
+              </section>
+
+              <a class="quiet-action" id="addAnotherWork" href="70-my-work-choose-activity.html?from=69&amp;intent=add"><svg viewBox="0 0 24 24"><path d="M12 5v14" /><path d="M5 12h14" /></svg>Add Another Work</a>
+            </section>
+          </div>
+
+          <nav class="bottom-dock" aria-label="Work navigation">
+            <a class="mool-button" href="04-universal-focus-shell.html">Mool</a>
+            <div class="dock-track">
+              <a class="dock-tab" href="67-work.html"><span class="rupee">₹</span><span>Earn</span></a>
+              <a class="dock-tab active" href="69-my-work-setup.html" aria-current="page"><svg viewBox="0 0 24 24"><path d="M6 21V8h12v13" /><path d="M9 8V4h6v4" /></svg><span>My Work</span></a>
+            </div>
+            <a class="chat-button" href="23-chat-inbox-home.html" aria-label="Open chat"><svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z" /></svg><span>Chat</span><span class="chat-badge">2</span></a>
+          </nav>
+        </div>
+      </section>
+
+      <aside class="notes">
+        <h1>Screen 69 is the My Work home and universal workspace gateway.</h1>
+        <p>It never assumes the user is a freelancer. New users start one work or business profile; existing users open their active workspace and urgent actions; multiple-workspace users switch or add work only inside My Work.</p>
+
+        <nav class="state-switcher" aria-label="Screen 69 prototype states">
+          <a href="69-my-work-setup.html?state=new" data-state-link="new">New user</a>
+          <a href="69-my-work-setup.html?state=new&amp;opportunity=creator-explainer" data-state-link="opportunity">From opportunity</a>
+          <a href="69-my-work-setup.html?state=single" data-state-link="single">One workspace</a>
+          <a href="69-my-work-setup.html?state=multiple" data-state-link="multiple">Multiple workspaces</a>
+        </nav>
+
+        <section class="contract" aria-label="Screen 69 contract">
+          <div><b>Identity</b>One personal account remains the permanent consumer and social identity. Workspaces are added operating layers.</div>
+          <div><b>New User</b>One primary action opens the two-to-four-tap card tree. Profile cards appear only after Start My Work.</div>
+          <div><b>Existing User</b>One workspace opens directly with urgent operating actions. Verification is not repeated without a valid reason.</div>
+          <div><b>Multiple Workspaces</b>The current workspace stays primary. Other workspaces and Add Another Work live only inside My Work.</div>
+          <div><b>Opportunity Entry</b>The opportunity remains saved. Screen 69 recommends setup but never silently creates a role or workspace.</div>
+          <div><b>Identity</b>The verified account mobile and login identity carry forward. Screen 70 asks only for an optional or role-required secondary work number.</div>
+        </section>
+      </aside>
+    </div>
+  </main>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const state = ["single", "multiple"].includes(params.get("state")) ? params.get("state") : "new";
+    const opportunity = params.get("opportunity");
+    const primaryMobile = params.get("mobile") || "+91 98765 43210";
+    const accountEmail = params.get("email") || "user@gmail.com";
+    const loginProvider = params.get("login") || "Google";
+    const newUserView = document.getElementById("newUserView");
+    const workspaceHome = document.getElementById("workspaceHome");
+    const opportunityNotice = document.getElementById("opportunityNotice");
+    const otherWorkspaces = document.getElementById("otherWorkspaces");
+    const headerSubline = document.getElementById("headerSubline");
+    const startMyWork = document.getElementById("startMyWork");
+
+    function maskMobile(value) {
+      const digits = value.replace(/\D/g, "");
+      if (digits.length < 6) return value;
+      const country = digits.length > 10 ? `+${digits.slice(0, digits.length - 10)} ` : "";
+      const local = digits.slice(-10);
+      return `${country}${local.slice(0, 2)}••• ••${local.slice(-3)}`;
+    }
+
+    document.getElementById("accountMobile").textContent = maskMobile(primaryMobile);
+    document.getElementById("accountIdentity").textContent = `${loginProvider} · ${accountEmail}`;
+
+    const opportunities = {
+      "creator-explainer": {
+        title: "MoolSocial explainer video",
+        pay: "₹1,500",
+        note: "Start My Work, then return to apply."
+      },
+      "shakti-product-demo": {
+        title: "Two product-demo shorts",
+        pay: "₹1,200",
+        note: "Your opportunity stays saved during setup."
+      },
+      "business-growth": {
+        title: "Activate local businesses",
+        pay: "₹350",
+        note: "Your opportunity stays saved during setup."
+      }
+    };
+
+    if (state === "new") {
+      newUserView.hidden = false;
+      workspaceHome.hidden = true;
+      headerSubline.textContent = opportunity ? "Opportunity saved · start your work profile" : "Start and operate your work";
+      const nextParams = new URLSearchParams({ from: "69" });
+      if (opportunity) nextParams.set("opportunity", opportunity);
+      nextParams.set("mobile", primaryMobile);
+      nextParams.set("email", accountEmail);
+      nextParams.set("login", loginProvider);
+      startMyWork.href = `70-my-work-choose-activity.html?${nextParams.toString()}`;
+    } else {
+      newUserView.hidden = true;
+      workspaceHome.hidden = false;
+      headerSubline.textContent = state === "multiple" ? "3 workspaces · Mahadev Fresh Mart active" : "Mahadev Fresh Mart · current workspace";
+      otherWorkspaces.hidden = state !== "multiple";
+    }
+
+    if (opportunity) {
+      const data = opportunities[opportunity] || {
+        title: "Paid opportunity",
+        pay: "Saved",
+        note: "Your opportunity stays saved during setup."
+      };
+      opportunityNotice.hidden = false;
+      document.getElementById("opportunityTitle").textContent = data.title;
+      document.getElementById("opportunityPay").textContent = data.pay;
+      document.getElementById("opportunityNote").textContent = state === "new" ? data.note : "Your current verified workspace can be checked for eligibility.";
+    }
+
+    document.querySelectorAll("[data-state-link]").forEach((link) => {
+      const linkState = link.dataset.stateLink;
+      const active = linkState === state || (linkState === "opportunity" && state === "new" && opportunity);
+      link.classList.toggle("active", Boolean(active));
+    });
+  </script>
+<script type="application/json" id="productionRouteContract">{"contractVersion":"mvp-route-lock-2026-07-12","prototypeScreen":69,"productionModule":"work","routeId":"workspace.create","routePath":"/workspaces/new","routeState":"obsolete-freeform-setup","implementation":"reference-only","launchScope":"superseded-do-not-implement","separateProductionRoute":false,"productionNote":"Do not implement this prototype. It is superseded decision evidence only; follow the replacement route contract in the canonical map.","canonicalMap":"architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"}</script><script type="application/json" id="prototypeApprovalContract">{"prototypeScreen":69,"status":"approved-and-frozen","authoritative":true,"approvedAt":"2026-07-12","approvalScope":"prototype-ui-ux-and-production-contract"}</script></body>
+</html>

@@ -1,0 +1,2292 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>67 Work - MoolSocial Screenbook</title>
+  <link rel="stylesheet" href="../shared/moolsocial-ui-foundation.css" />
+  <style>
+    .screen-shell { display: grid; gap: 18px; }
+
+    .back-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .screen-link-home {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--ms-navy);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .back-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--ms-navy);
+      border-radius: var(--ms-radius);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .preview {
+      display: grid;
+      grid-template-columns: minmax(320px, 390px) minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+      padding: 18px;
+      border-bottom: 1px solid var(--ms-navy);
+      background: var(--ms-white);
+    }
+
+    .phone {
+      width: min(100%, 370px);
+      height: 742px;
+      justify-self: center;
+      border: 10px solid var(--ms-navy);
+      border-radius: 32px;
+      background: var(--ms-navy);
+      overflow: hidden;
+      box-shadow: 0 28px 60px rgba(0, 0, 128, .22);
+    }
+
+    .app {
+      position: relative;
+      height: 100%;
+      display: grid;
+      grid-template-rows: auto auto 1fr auto;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 18% 8%, rgba(255, 153, 51, .16), transparent 25%),
+        radial-gradient(circle at 90% 14%, rgba(19, 136, 8, .16), transparent 26%),
+        linear-gradient(180deg, var(--ms-navy) 0 166px, #f4f7fc 166px 100%);
+      color: var(--ms-white);
+      font-family: var(--ms-font);
+    }
+
+    button,
+    a { -webkit-tap-highlight-color: transparent; }
+
+    button {
+      appearance: none;
+      border: 0;
+      font-family: var(--ms-font);
+      cursor: pointer;
+    }
+
+    svg {
+      width: 19px;
+      height: 19px;
+      stroke: currentColor;
+      stroke-width: 2.4;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .status-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 16px 22px 6px;
+      color: var(--ms-white);
+      font-size: 11px;
+      font-weight: 950;
+    }
+
+    .top {
+      display: grid;
+      gap: 11px;
+      padding: 8px 18px 13px;
+    }
+
+    .brand-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .brand-copy {
+      min-width: 0;
+      display: grid;
+      gap: 2px;
+    }
+
+    .brand-copy b {
+      overflow: hidden;
+      color: var(--ms-white);
+      font-size: 20px;
+      line-height: 1;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .brand-copy span {
+      color: rgba(255, 255, 255, .78);
+      font-size: 10px;
+      font-weight: 850;
+    }
+
+    .identity-line {
+      width: 96px;
+      height: 4px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      overflow: hidden;
+      border-radius: var(--ms-pill);
+    }
+
+    .identity-line span:nth-child(1) { background: var(--ms-saffron); }
+    .identity-line span:nth-child(2) { background: var(--ms-white); }
+    .identity-line span:nth-child(3) { background: var(--ms-green); }
+
+    .top-buttons {
+      display: flex;
+      gap: 8px;
+      flex: 0 0 auto;
+    }
+
+    .circle-btn,
+    .search-action {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      text-decoration: none;
+    }
+
+    .circle-btn {
+      border: 1px solid rgba(255, 255, 255, .26);
+      background: rgba(255, 255, 255, .12);
+      color: var(--ms-white);
+    }
+
+    .command-bar {
+      min-height: 48px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto auto auto;
+      align-items: center;
+      gap: 7px;
+      border: 1px solid rgba(255, 255, 255, .85);
+      border-radius: var(--ms-pill);
+      padding: 5px 5px 5px 13px;
+      background: rgba(255, 255, 255, .10);
+    }
+
+    .command-text {
+      overflow: hidden;
+      color: var(--ms-white);
+      font-size: 11px;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .search-action {
+      background: var(--ms-white);
+      color: var(--ms-navy);
+    }
+
+    .content {
+      min-height: 0;
+      overflow: auto;
+      display: grid;
+      align-content: start;
+      gap: 8px;
+      padding: 0 10px 98px;
+      color: var(--ms-navy);
+      scrollbar-width: none;
+    }
+
+    .content::-webkit-scrollbar { display: none; }
+
+    .route-card,
+    .ride-card,
+    .option-card,
+    .trust-card,
+    .summary-card,
+    .help-card {
+      display: grid;
+      gap: 8px;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: 21px;
+      padding: 10px;
+      background: rgba(255, 255, 255, .98);
+      box-shadow: 0 14px 30px rgba(0, 0, 128, .10);
+    }
+
+    .route-card { margin-top: -8px; }
+
+    .ride-card.is-hidden,
+    .option-card.is-hidden,
+    .summary-card.is-hidden {
+      display: none;
+    }
+
+    .ride-card {
+      background:
+        linear-gradient(145deg, rgba(0, 0, 128, .05), rgba(19, 136, 8, .035)),
+        rgba(255, 255, 255, .98);
+    }
+
+    .card-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .card-head b {
+      color: var(--ms-navy);
+      font-size: 13px;
+      line-height: 1;
+      font-weight: 950;
+    }
+
+    .card-head span {
+      color: rgba(0, 0, 128, .58);
+      font-size: 8px;
+      font-weight: 850;
+      text-align: right;
+    }
+
+    .route-box {
+      display: grid;
+      gap: 7px;
+    }
+
+    .route-line {
+      min-height: 42px;
+      display: grid;
+      grid-template-columns: 32px 1fr;
+      gap: 9px;
+      align-items: center;
+      border-radius: 16px;
+      padding: 8px;
+      background: #f3f6fb;
+    }
+
+    .route-dot {
+      width: 32px;
+      height: 32px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--ms-white);
+      font-size: 10px;
+      font-weight: 950;
+    }
+
+    .route-dot.pick { background: var(--ms-green); }
+    .route-dot.drop { background: var(--ms-saffron); color: var(--ms-navy); }
+
+    .route-copy {
+      min-width: 0;
+      display: grid;
+      gap: 2px;
+    }
+
+    .route-copy b {
+      overflow: hidden;
+      color: var(--ms-navy);
+      font-size: 11px;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .route-copy span {
+      overflow: hidden;
+      color: rgba(0, 0, 128, .58);
+      font-size: 8px;
+      font-weight: 850;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .potential-strip {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 9px;
+      align-items: center;
+      border-radius: 16px;
+      padding: 9px 10px;
+      background:
+        radial-gradient(circle at 88% 20%, rgba(255, 153, 51, .22), transparent 30%),
+        linear-gradient(135deg, #1717ba, var(--ms-navy));
+      color: var(--ms-white);
+    }
+
+    .potential-copy {
+      min-width: 0;
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      column-gap: 8px;
+      row-gap: 2px;
+      align-items: end;
+    }
+
+    .potential-copy small {
+      grid-column: 1 / -1;
+      color: rgba(255, 255, 255, .74);
+      font-size: 6.5px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .potential-copy b {
+      color: var(--ms-white);
+      font-size: 16px;
+      line-height: 1;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .potential-copy span {
+      overflow: hidden;
+      padding-bottom: 1px;
+      color: rgba(255, 255, 255, .76);
+      font-size: 7px;
+      line-height: 1.1;
+      font-weight: 850;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .potential-info {
+      width: 30px;
+      height: 30px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, .52);
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .12);
+      color: var(--ms-white);
+      font-family: var(--ms-font);
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .potential-note {
+      display: grid;
+      gap: 3px;
+      border-left: 3px solid var(--ms-saffron);
+      padding: 4px 0 4px 8px;
+      color: rgba(0, 0, 128, .62);
+      font-size: 7px;
+      line-height: 1.3;
+      font-weight: 850;
+    }
+
+    .potential-note.is-hidden { display: none; }
+
+    .potential-note b {
+      color: var(--ms-navy);
+      font-size: 8px;
+      font-weight: 950;
+    }
+
+    .potential-metrics {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 6px;
+      margin: 2px 0 3px;
+    }
+
+    .potential-metric {
+      min-width: 0;
+      display: grid;
+      gap: 2px;
+      border-radius: 11px;
+      padding: 7px;
+      background: #f3f6fb;
+    }
+
+    .potential-metric small {
+      overflow: hidden;
+      color: rgba(0, 0, 128, .52);
+      font-size: 6px;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .potential-metric b {
+      overflow: hidden;
+      color: var(--ms-green);
+      font-size: 11px;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .chip-row,
+    .ride-row,
+    .package-row,
+    .captain-row {
+      display: flex;
+      gap: 6px;
+      min-width: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .chip-row::-webkit-scrollbar,
+    .ride-row::-webkit-scrollbar,
+    .package-row::-webkit-scrollbar,
+    .captain-row::-webkit-scrollbar { display: none; }
+
+    .time-chip,
+    .small-chip,
+    .ride-option,
+    .package-option,
+    .captain-option,
+    .primary-cta,
+    .secondary-cta,
+    .dock-tab,
+    .mool-button,
+    .chat-button { font-family: var(--ms-font); }
+
+    .time-chip,
+    .small-chip {
+      flex: 0 0 auto;
+      min-height: 31px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: var(--ms-pill);
+      padding: 0 12px;
+      background: #f7f9fd;
+      color: var(--ms-navy);
+      font-size: 9px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .time-chip.active,
+    .small-chip.active {
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -3px 0 var(--ms-saffron), 0 8px 18px rgba(0, 0, 128, .15);
+    }
+
+    .ride-option {
+      flex: 0 0 114px;
+      min-height: 78px;
+      display: grid;
+      align-content: center;
+      gap: 5px;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: 18px;
+      padding: 10px;
+      background: #f7f9fd;
+      color: var(--ms-navy);
+      text-align: left;
+    }
+
+    .ride-option.active {
+      border-color: rgba(0, 0, 128, .42);
+      background:
+        linear-gradient(135deg, rgba(255, 153, 51, .14), rgba(19, 136, 8, .08)),
+        var(--ms-white);
+      box-shadow: inset 0 -3px 0 var(--ms-green), 0 9px 18px rgba(0, 0, 128, .10);
+    }
+
+    .ride-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .ride-top svg { color: var(--ms-navy); }
+
+    .ride-option b {
+      color: var(--ms-navy);
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .ride-option strong {
+      color: var(--ms-green);
+      font-size: 15px;
+      line-height: 1;
+      font-weight: 950;
+    }
+
+    .ride-option span {
+      color: rgba(0, 0, 128, .58);
+      font-size: 8px;
+      font-weight: 850;
+      line-height: 1.15;
+    }
+
+    .package-option {
+      flex: 0 0 134px;
+      min-height: 76px;
+      display: grid;
+      align-content: center;
+      gap: 4px;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: 18px;
+      padding: 9px;
+      background: #f7f9fd;
+      color: var(--ms-navy);
+      text-align: left;
+    }
+
+    .package-option.active {
+      border-color: rgba(0, 0, 128, .42);
+      background:
+        linear-gradient(135deg, rgba(255, 153, 51, .13), rgba(19, 136, 8, .08)),
+        var(--ms-white);
+      box-shadow: inset 0 -3px 0 var(--ms-green);
+    }
+
+    .package-option:focus-visible,
+    .ride-option:focus-visible,
+    .time-chip:focus-visible {
+      outline: 3px solid rgba(255, 153, 51, .45);
+      outline-offset: 2px;
+    }
+
+    .package-option b,
+    .package-option strong,
+    .package-option span {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .package-option b {
+      color: var(--ms-navy);
+      font-size: 10px;
+      font-weight: 950;
+    }
+
+    .package-option strong {
+      color: var(--ms-green);
+      font-size: 13px;
+      line-height: 1;
+      font-weight: 950;
+    }
+
+    .package-option span {
+      color: rgba(0, 0, 128, .58);
+      font-size: 7px;
+      font-weight: 850;
+    }
+
+    .decision-note {
+      display: grid;
+      grid-template-columns: 20px 1fr;
+      gap: 7px;
+      align-items: center;
+      border-radius: 15px;
+      padding: 8px 9px;
+      background: #f3f6fb;
+      color: rgba(0, 0, 128, .66);
+      font-size: 8px;
+      line-height: 1.25;
+      font-weight: 850;
+    }
+
+    .decision-note svg {
+      width: 18px;
+      height: 18px;
+      color: var(--ms-green);
+    }
+
+    .summary-facts {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .summary-fact {
+      min-height: 39px;
+      display: grid;
+      align-content: center;
+      gap: 2px;
+      border-radius: 14px;
+      padding: 7px;
+      background: rgba(255, 255, 255, .82);
+      color: var(--ms-navy);
+      overflow: hidden;
+    }
+
+    .summary-fact b,
+    .summary-fact span {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .summary-fact b {
+      font-size: 7px;
+      font-weight: 950;
+      text-transform: uppercase;
+    }
+
+    .summary-fact span {
+      color: var(--ms-green);
+      font-size: 8px;
+      font-weight: 900;
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 7px;
+    }
+
+    .trust-item,
+    .captain-option {
+      border-radius: 15px;
+      background: #f3f6fb;
+      color: var(--ms-navy);
+    }
+
+    .trust-item {
+      min-height: 46px;
+      display: grid;
+      align-content: center;
+      gap: 2px;
+      padding: 7px;
+      overflow: hidden;
+    }
+
+    .trust-item b {
+      overflow: hidden;
+      font-size: 8px;
+      font-weight: 950;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .trust-item span {
+      overflow: hidden;
+      color: var(--ms-green);
+      font-size: 7px;
+      font-weight: 900;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .captain-option {
+      flex: 0 0 158px;
+      display: grid;
+      grid-template-columns: 38px 1fr;
+      gap: 8px;
+      align-items: center;
+      border: 1px solid rgba(0, 0, 128, .10);
+      padding: 8px;
+      text-align: left;
+    }
+
+    .avatar {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 32% 22%, rgba(255, 255, 255, .34), transparent 28%),
+        linear-gradient(145deg, var(--ms-green), var(--ms-navy));
+      color: var(--ms-white);
+      font-size: 10px;
+      font-weight: 950;
+    }
+
+    .captain-copy {
+      min-width: 0;
+      display: grid;
+      gap: 2px;
+    }
+
+    .captain-copy b,
+    .captain-copy span,
+    .captain-copy small {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .captain-copy b {
+      color: var(--ms-navy);
+      font-size: 10px;
+      font-weight: 950;
+    }
+
+    .captain-copy span {
+      color: rgba(0, 0, 128, .62);
+      font-size: 7px;
+      font-weight: 850;
+    }
+
+    .captain-copy small {
+      color: var(--ms-green);
+      font-size: 7px;
+      font-weight: 900;
+    }
+
+    .after-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .after-item {
+      min-height: 42px;
+      display: grid;
+      place-items: center;
+      gap: 2px;
+      border-radius: 14px;
+      background: #f3f6fb;
+      color: var(--ms-navy);
+      font-size: 7px;
+      font-weight: 900;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .after-item svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .summary-card {
+      background:
+        linear-gradient(135deg, rgba(255, 153, 51, .13), rgba(19, 136, 8, .08)),
+        var(--ms-white);
+    }
+
+    .summary-top {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      align-items: start;
+    }
+
+    .summary-copy {
+      min-width: 0;
+      display: grid;
+      gap: 4px;
+    }
+
+    .summary-copy b {
+      overflow: hidden;
+      color: var(--ms-navy);
+      font-size: 15px;
+      line-height: 1.05;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .summary-copy span {
+      color: rgba(0, 0, 128, .62);
+      font-size: 8px;
+      font-weight: 850;
+      line-height: 1.25;
+    }
+
+    .summary-price {
+      min-width: 72px;
+      display: grid;
+      justify-items: end;
+      gap: 3px;
+      color: var(--ms-green);
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .summary-price b {
+      font-size: 16px;
+      line-height: 1;
+    }
+
+    .summary-price span {
+      color: rgba(0, 0, 128, .58);
+      font-size: 7px;
+      font-weight: 850;
+    }
+
+    .cta-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 7px;
+      align-items: center;
+    }
+
+    .primary-cta,
+    .secondary-cta {
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--ms-pill);
+      text-decoration: none;
+      font-size: 10px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .primary-cta {
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 var(--ms-saffron), 0 10px 20px rgba(0, 0, 128, .18);
+    }
+
+    .secondary-cta {
+      border: 1px solid rgba(0, 0, 128, .14);
+      padding: 0 12px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+    }
+
+    .help-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 7px;
+    }
+
+    .help-item {
+      min-height: 42px;
+      display: grid;
+      align-content: center;
+      gap: 2px;
+      border-radius: 14px;
+      padding: 7px;
+      background: #f3f6fb;
+      overflow: hidden;
+    }
+
+    .help-item b,
+    .help-item span {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .help-item b {
+      color: var(--ms-navy);
+      font-size: 8.5px;
+      font-weight: 950;
+    }
+
+    .help-item span {
+      color: rgba(0, 0, 128, .58);
+      font-size: 7px;
+      font-weight: 850;
+    }
+
+    .bottom-dock {
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+      display: grid;
+      grid-template-columns: 52px minmax(0, 1fr) 52px;
+      gap: 8px;
+      align-items: center;
+      border: 1px solid rgba(0, 0, 128, .78);
+      border-radius: 22px;
+      padding: 7px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, .99), rgba(244, 247, 252, .99));
+      box-shadow: 0 -12px 24px rgba(0, 0, 128, .18);
+      z-index: 5;
+    }
+
+    .mool-button,
+    .chat-button {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      border: 0;
+      border-radius: 50%;
+      text-decoration: none;
+      font-size: 10px;
+      font-weight: 950;
+    }
+
+    .mool-button {
+      background:
+        radial-gradient(circle at 36% 24%, rgba(255, 255, 255, .30), transparent 32%),
+        linear-gradient(145deg, #1717ba, var(--ms-navy) 72%);
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 rgba(0, 0, 80, .35), 0 9px 18px rgba(0, 0, 128, .22);
+    }
+
+    .chat-button {
+      position: relative;
+      background: radial-gradient(circle at 50% 12%, rgba(255, 255, 255, .96), rgba(255, 255, 255, .78) 44%, rgba(240, 244, 248, .98));
+      color: var(--ms-navy);
+      border: 1px solid rgba(0, 0, 128, .16);
+      box-shadow: 0 9px 18px rgba(0, 0, 128, .12);
+    }
+
+    .chat-badge {
+      min-width: 16px;
+      height: 16px;
+      position: absolute;
+      top: 5px;
+      right: 2px;
+      display: grid;
+      place-items: center;
+      border-radius: var(--ms-pill);
+      padding: 0 4px;
+      background: var(--ms-saffron);
+      color: var(--ms-navy);
+      font-size: 9px;
+      font-weight: 950;
+    }
+
+    .dock-track {
+      min-width: 0;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 4px;
+      border: 1px solid rgba(0, 0, 128, .20);
+      border-radius: 19px;
+      padding: 5px;
+      background:
+        radial-gradient(circle at 50% 50%, rgba(0, 0, 128, .12), transparent 58%),
+        linear-gradient(90deg, rgba(0, 0, 128, .10), rgba(255, 255, 255, .96) 20% 80%, rgba(0, 0, 128, .10));
+      box-shadow: inset 12px 0 18px rgba(0, 0, 128, .10), inset -12px 0 18px rgba(0, 0, 128, .10);
+    }
+
+    .dock-tab {
+      min-width: 0;
+      min-height: 42px;
+      display: grid;
+      place-items: center;
+      gap: 2px;
+      border-radius: 17px;
+      color: var(--ms-navy);
+      text-decoration: none;
+      font-size: 8px;
+      font-weight: 950;
+    }
+
+    .dock-tab svg {
+      width: 15px;
+      height: 15px;
+    }
+
+    .dock-tab.active {
+      background: linear-gradient(180deg, #1515b8, var(--ms-navy));
+      color: var(--ms-white);
+      box-shadow: inset 0 -3px 0 var(--ms-saffron), 0 8px 18px rgba(0, 0, 128, .18);
+    }
+
+    .view-panel.is-hidden,
+    .my-work-card.is-hidden { display: none; }
+
+    .opportunity-list {
+      display: grid;
+      gap: 8px;
+    }
+
+    .opportunity-tools {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .opportunity-tools > span {
+      color: rgba(0, 0, 128, .58);
+      font-size: 8px;
+      font-weight: 850;
+    }
+
+    .filter-button,
+    .filter-close {
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(0, 0, 128, .14);
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      font-family: var(--ms-font);
+    }
+
+    .filter-button {
+      position: relative;
+      width: 31px;
+      height: 31px;
+      border-radius: 50%;
+    }
+
+    .filter-button svg,
+    .filter-close svg { width: 16px; height: 16px; }
+
+    .filter-button.active::after {
+      content: "";
+      width: 7px;
+      height: 7px;
+      position: absolute;
+      top: 1px;
+      right: 1px;
+      border: 2px solid var(--ms-white);
+      border-radius: 50%;
+      background: var(--ms-saffron);
+    }
+
+    .filter-layer {
+      position: absolute;
+      inset: 0;
+      z-index: 9;
+      display: grid;
+      align-items: end;
+      padding: 16px 12px 88px;
+      background: rgba(0, 0, 45, .42);
+      backdrop-filter: blur(3px);
+    }
+
+    .filter-layer.is-hidden { display: none; }
+
+    .filter-sheet {
+      display: grid;
+      gap: 12px;
+      border: 1px solid rgba(0, 0, 128, .16);
+      border-radius: 22px;
+      padding: 13px;
+      background: var(--ms-white);
+      box-shadow: 0 20px 44px rgba(0, 0, 80, .28);
+    }
+
+    .filter-sheet-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .filter-sheet-head span {
+      display: grid;
+      gap: 2px;
+    }
+
+    .filter-sheet-head b {
+      color: var(--ms-navy);
+      font-size: 13px;
+      font-weight: 950;
+    }
+
+    .filter-sheet-head small {
+      color: rgba(0, 0, 128, .58);
+      font-size: 8px;
+      font-weight: 850;
+    }
+
+    .filter-close {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+    }
+
+    .filter-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .opportunity-card {
+      display: grid;
+      gap: 7px;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: 18px;
+      padding: 9px;
+      background: #f8faff;
+      color: var(--ms-navy);
+      text-decoration: none;
+      box-shadow: 0 8px 18px rgba(0, 0, 128, .07);
+    }
+
+    .opportunity-card.featured {
+      border-color: rgba(0, 0, 128, .34);
+      background:
+        linear-gradient(135deg, rgba(255, 153, 51, .10), rgba(19, 136, 8, .06)),
+        var(--ms-white);
+      box-shadow: inset 3px 0 0 var(--ms-saffron), 0 10px 22px rgba(0, 0, 128, .10);
+    }
+
+    .opportunity-card[hidden] { display: none; }
+
+    .opportunity-card:focus-visible,
+    .start-work-button:focus-visible {
+      outline: 3px solid rgba(255, 153, 51, .45);
+      outline-offset: 2px;
+    }
+
+    .issuer-row {
+      display: grid;
+      grid-template-columns: 31px minmax(0, 1fr) auto;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .issuer-avatar {
+      width: 31px;
+      height: 31px;
+      display: grid;
+      place-items: center;
+      border-radius: 11px;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 8px;
+      font-weight: 950;
+      box-shadow: inset 0 -3px 0 var(--ms-saffron);
+    }
+
+    .issuer-avatar.manufacturer { background: #115f54; }
+    .issuer-avatar.retailer { background: #146f2d; }
+    .issuer-avatar.creator { background: #3434a7; }
+    .issuer-avatar.delivery { background: #8a4c00; }
+
+    .issuer-copy {
+      min-width: 0;
+      display: grid;
+      gap: 2px;
+    }
+
+    .issuer-copy b {
+      overflow: hidden;
+      color: var(--ms-navy);
+      font-size: 9px;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .issuer-copy span {
+      overflow: hidden;
+      color: rgba(0, 0, 128, .56);
+      font-size: 6.5px;
+      font-weight: 850;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .issuer-copy em {
+      color: var(--ms-green);
+      font-style: normal;
+      font-weight: 950;
+    }
+
+    .opportunity-top {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 8px;
+      align-items: start;
+    }
+
+    .opportunity-name {
+      min-width: 0;
+      display: grid;
+      gap: 3px;
+    }
+
+    .opportunity-name span {
+      color: var(--ms-green);
+      font-size: 7px;
+      font-weight: 950;
+      text-transform: uppercase;
+    }
+
+    .opportunity-name b {
+      color: var(--ms-navy);
+      font-size: 11px;
+      line-height: 1.08;
+      font-weight: 950;
+    }
+
+    .opportunity-name small {
+      overflow: hidden;
+      color: rgba(0, 0, 128, .58);
+      font-size: 8px;
+      font-weight: 850;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .opportunity-pay {
+      display: grid;
+      justify-items: end;
+      gap: 2px;
+      color: var(--ms-green);
+      white-space: nowrap;
+    }
+
+    .opportunity-pay b {
+      font-size: 14px;
+      line-height: 1;
+      font-weight: 950;
+    }
+
+    .opportunity-pay span {
+      color: rgba(0, 0, 128, .56);
+      font-size: 7px;
+      font-weight: 850;
+    }
+
+    .opportunity-facts {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 5px;
+    }
+
+    .opportunity-fact {
+      min-width: 0;
+      display: grid;
+      gap: 2px;
+      border-radius: 11px;
+      padding: 6px;
+      background: var(--ms-white);
+    }
+
+    .opportunity-fact b {
+      color: rgba(0, 0, 128, .52);
+      font-size: 6px;
+      font-weight: 950;
+      text-transform: uppercase;
+    }
+
+    .opportunity-fact span {
+      overflow: hidden;
+      color: var(--ms-navy);
+      font-size: 7px;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .opportunity-countdown {
+      min-width: 65px;
+      color: var(--ms-green) !important;
+      font-variant-numeric: tabular-nums;
+      letter-spacing: 0;
+    }
+
+    .opportunity-countdown.urgent {
+      color: #9a5600 !important;
+    }
+
+    .opportunity-card.expired {
+      opacity: .68;
+      box-shadow: none;
+      cursor: default;
+    }
+
+    .opportunity-card.expired .opportunity-countdown,
+    .opportunity-card.expired .opportunity-action strong,
+    .opportunity-card.expired .scan-cta {
+      color: rgba(0, 0, 128, .48) !important;
+    }
+
+    .opportunity-card.scan-card {
+      display: block;
+      overflow: hidden;
+      gap: 0;
+      border-radius: 15px;
+      padding: 0;
+      background: var(--ms-white);
+      box-shadow: 0 5px 13px rgba(0, 0, 128, .06);
+    }
+
+    .opportunity-card.scan-card.expanded {
+      border-color: rgba(0, 0, 128, .30);
+      box-shadow: 0 9px 21px rgba(0, 0, 128, .10);
+    }
+
+    .opportunity-scan {
+      width: 100%;
+      min-height: 66px;
+      display: grid;
+      grid-template-columns: 32px minmax(0, 1fr) auto;
+      gap: 8px;
+      align-items: center;
+      border: 0;
+      padding: 7px 8px;
+      background: transparent;
+      color: var(--ms-navy);
+      font-family: var(--ms-font);
+      text-align: left;
+    }
+
+    .opportunity-scan:focus-visible {
+      outline: 3px solid rgba(255, 153, 51, .42);
+      outline-offset: -3px;
+    }
+
+    .scan-mark {
+      width: 32px;
+      height: 32px;
+      display: grid;
+      place-items: center;
+      border-radius: 11px;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 7px;
+      font-weight: 950;
+      box-shadow: inset 0 -3px 0 var(--ms-saffron);
+    }
+
+    .scan-mark.manufacturer { background: #115f54; }
+    .scan-mark.retailer { background: #146f2d; }
+    .scan-mark.creator { background: #3434a7; }
+    .scan-mark.delivery { background: #8a4c00; }
+
+    .scan-copy {
+      min-width: 0;
+      display: grid;
+      gap: 3px;
+    }
+
+    .scan-eyebrow {
+      overflow: hidden;
+      color: var(--ms-green);
+      font-size: 6px;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .scan-title {
+      overflow: hidden;
+      color: var(--ms-navy);
+      font-size: 9px;
+      line-height: 1.12;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .scan-meta {
+      min-width: 0;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      overflow: hidden;
+      color: rgba(0, 0, 128, .56);
+      font-size: 6.5px;
+      font-weight: 850;
+      white-space: nowrap;
+    }
+
+    .scan-meta span + span::before {
+      margin-right: 6px;
+      color: rgba(0, 0, 128, .24);
+      content: "·";
+    }
+
+    .scan-meta .opportunity-countdown {
+      min-width: 0;
+      color: var(--ms-green) !important;
+      font-size: 6.5px;
+    }
+
+    .scan-meta .opportunity-countdown.urgent { color: #9a5600 !important; }
+
+    .scan-pay {
+      min-width: 58px;
+      display: grid;
+      justify-items: end;
+      gap: 2px;
+      white-space: nowrap;
+    }
+
+    .scan-pay b {
+      color: var(--ms-green);
+      font-size: 12px;
+      line-height: 1;
+      font-weight: 950;
+    }
+
+    .scan-pay small {
+      color: rgba(0, 0, 128, .48);
+      font-size: 5.8px;
+      font-weight: 850;
+    }
+
+    .scan-pay i {
+      color: rgba(0, 0, 128, .54);
+      font-size: 11px;
+      font-style: normal;
+      line-height: .7;
+      transition: transform .18s ease;
+    }
+
+    .opportunity-card.expanded .scan-pay i { transform: rotate(180deg); }
+
+    .opportunity-expand {
+      display: grid;
+      gap: 7px;
+      border-top: 1px solid rgba(0, 0, 128, .09);
+      padding: 8px 9px 9px 48px;
+      background: #f8faff;
+    }
+
+    .opportunity-expand[hidden] { display: none; }
+
+    .scan-outcome {
+      color: rgba(0, 0, 128, .66);
+      font-size: 7px;
+      line-height: 1.3;
+      font-weight: 850;
+    }
+
+    .scan-facts {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 5px;
+    }
+
+    .scan-fact {
+      min-width: 0;
+      display: grid;
+      gap: 2px;
+      border-radius: 9px;
+      padding: 5px 6px;
+      background: var(--ms-white);
+    }
+
+    .scan-fact small {
+      color: rgba(0, 0, 128, .44);
+      font-size: 5.5px;
+      font-weight: 950;
+      text-transform: uppercase;
+    }
+
+    .scan-fact b {
+      overflow: hidden;
+      color: var(--ms-navy);
+      font-size: 6.5px;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .scan-action {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .scan-funded {
+      overflow: hidden;
+      color: var(--ms-green);
+      font-size: 6.5px;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .scan-cta {
+      flex: 0 0 auto;
+      min-height: 30px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--ms-pill);
+      padding: 0 11px;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      text-decoration: none;
+      font-size: 7px;
+      font-weight: 950;
+      box-shadow: inset 0 -3px 0 var(--ms-saffron);
+    }
+
+    .opportunity-card.expired .scan-cta {
+      pointer-events: none;
+      background: #e3e7ef;
+      box-shadow: none;
+    }
+
+    .opportunity-action {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      border-top: 1px solid rgba(0, 0, 128, .10);
+      padding-top: 7px;
+      color: var(--ms-navy);
+      font-size: 8px;
+      font-weight: 950;
+    }
+
+    .opportunity-action span:first-child {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .opportunity-action strong {
+      color: var(--ms-green);
+      font-size: 9px;
+      white-space: nowrap;
+    }
+
+    .empty-filter {
+      display: none;
+      border-radius: 16px;
+      padding: 14px;
+      background: #f3f6fb;
+      color: rgba(0, 0, 128, .66);
+      font-size: 9px;
+      font-weight: 850;
+      text-align: center;
+    }
+
+    .empty-filter.show { display: block; }
+
+    .my-work-card {
+      display: grid;
+      gap: 12px;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: 22px;
+      padding: 14px;
+      background:
+        linear-gradient(145deg, rgba(255, 153, 51, .12), rgba(19, 136, 8, .07)),
+        var(--ms-white);
+      box-shadow: 0 14px 30px rgba(0, 0, 128, .10);
+    }
+
+    .my-work-mark {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 17px;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 var(--ms-saffron), 0 10px 18px rgba(0, 0, 128, .18);
+    }
+
+    .my-work-mark svg { width: 23px; height: 23px; }
+
+    .my-work-copy {
+      display: grid;
+      gap: 5px;
+    }
+
+    .my-work-copy b {
+      color: var(--ms-navy);
+      font-size: 18px;
+      line-height: 1;
+      font-weight: 950;
+    }
+
+    .my-work-copy span {
+      color: rgba(0, 0, 128, .64);
+      font-size: 9px;
+      line-height: 1.35;
+      font-weight: 850;
+    }
+
+    .start-work-button {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 0;
+      border-radius: var(--ms-pill);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-family: var(--ms-font);
+      font-size: 11px;
+      font-weight: 950;
+      box-shadow: inset 0 -4px 0 var(--ms-saffron), 0 10px 20px rgba(0, 0, 128, .18);
+    }
+
+    .work-intents {
+      display: grid;
+      gap: 8px;
+    }
+
+    .work-intents.is-hidden { display: none; }
+
+    .intent-door {
+      min-height: 62px;
+      display: grid;
+      grid-template-columns: 36px minmax(0, 1fr) auto;
+      gap: 9px;
+      align-items: center;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: 17px;
+      padding: 9px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      text-decoration: none;
+    }
+
+    .intent-icon {
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      border-radius: 13px;
+      background: #f0f4f8;
+      color: var(--ms-navy);
+    }
+
+    .intent-icon svg { width: 18px; height: 18px; }
+
+    .intent-copy {
+      min-width: 0;
+      display: grid;
+      gap: 3px;
+    }
+
+    .intent-copy b {
+      font-size: 11px;
+      font-weight: 950;
+    }
+
+    .intent-copy span {
+      overflow: hidden;
+      color: rgba(0, 0, 128, .58);
+      font-size: 7px;
+      font-weight: 850;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .intent-door strong {
+      color: var(--ms-green);
+      font-size: 16px;
+    }
+
+    .rupee-glyph {
+      display: inline-grid;
+      place-items: center;
+      color: currentColor;
+      font-size: 18px;
+      line-height: 1;
+      font-weight: 950;
+    }
+
+    .dock-tab .rupee-glyph { font-size: 16px; }
+
+    .state-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      border-top: 1px solid var(--ms-navy);
+      border-left: 1px solid var(--ms-navy);
+    }
+
+    .state-cell {
+      border-right: 1px solid var(--ms-navy);
+      border-bottom: 1px solid var(--ms-navy);
+      padding: 14px;
+      color: var(--ms-navy);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .state-cell:nth-child(2n) { border-right: 0; }
+    .state-cell b {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--ms-green);
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 780px) {
+      .preview { grid-template-columns: 1fr; padding: 12px; }
+      .state-grid { grid-template-columns: 1fr; }
+      .state-cell { border-right: 0; }
+      .ms-page { padding: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="ms-page">
+    <section class="screen-shell">
+      <div class="back-row">
+        <a class="screen-link-home" href="../index.html">
+          <span class="back-mark">67</span>
+          Back to MoolSocial Screenbook
+        </a>
+        <span class="ms-status">Approved</span>
+      </div>
+
+      <section class="preview">
+        <div class="phone" role="img" aria-label="MoolSocial Work screen">
+          <div class="app">
+            <div class="status-row">
+              <span>9:41</span>
+              <span>5G 100%</span>
+            </div>
+
+            <header class="top">
+              <div class="brand-row">
+                <div class="brand-copy">
+                  <b>MoolSocial Work</b>
+                  <div class="identity-line" aria-hidden="true"><span></span><span></span><span></span></div>
+                  <span>earn from verified work</span>
+                </div>
+                <div class="top-buttons">
+                  <a class="circle-btn" href="04-universal-focus-shell.html" aria-label="Back">
+                    <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" /></svg>
+                  </a>
+                  <button class="circle-btn" aria-label="Work location">
+                    <svg viewBox="0 0 24 24"><path d="M12 21s7-5 7-11a7 7 0 1 0-14 0c0 6 7 11 7 11Z" /><circle cx="12" cy="10" r="2" /></svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="command-bar" aria-label="Work search">
+                <span class="command-text">Search jobs, freelance work or campaigns.</span>
+                <button class="search-action" aria-label="Search work">
+                  <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" /><path d="m20 20-3-3" /></svg>
+                </button>
+                <button class="search-action" aria-label="Use current location">
+                  <svg viewBox="0 0 24 24"><path d="M12 2v4" /><path d="M12 18v4" /><path d="M2 12h4" /><path d="M18 12h4" /><circle cx="12" cy="12" r="5" /></svg>
+                </button>
+                <button class="search-action" aria-label="Voice search">
+                  <svg viewBox="0 0 24 24"><path d="M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3Z" /><path d="M19 10a7 7 0 0 1-14 0" /><path d="M12 17v4" /></svg>
+                </button>
+              </div>
+            </header>
+
+            <main class="content">
+              <div class="view-panel" id="earnView">
+                <section class="route-card" aria-label="Earn opportunities">
+                  <div class="card-head">
+                    <b>Earn from verified work</b>
+                    <span>updated live</span>
+                  </div>
+                  <div class="route-line">
+                    <span class="route-dot pick">J</span>
+                    <span class="route-copy">
+                      <b>Jodhpur · remote and nearby</b>
+                      <span>Payment, requirement and deadline shown before Apply</span>
+                    </span>
+                  </div>
+                  <div class="potential-strip" aria-label="Current monthly earning potential">
+                    <span class="potential-copy">
+                      <small id="potentialLabel">Monthly earning potential</small>
+                      <b id="potentialAmount">₹35,000–₹80,000</b>
+                      <span id="potentialBasis">10,248 funded actions matched</span>
+                    </span>
+                    <button class="potential-info" id="potentialInfo" type="button" aria-label="How monthly potential is calculated" aria-expanded="false">i</button>
+                  </div>
+                  <div class="potential-note is-hidden" id="potentialNote">
+                    <b id="potentialNoteTitle">How this range is calculated</b>
+                    <span class="potential-metrics">
+                      <span class="potential-metric"><small id="poolLabel">Eligible funded work</small><b id="poolAmount">₹2,40,000</b></span>
+                      <span class="potential-metric"><small id="reservedLabel">Reserved payout</small><b id="reservedAmount">₹0</b></span>
+                    </span>
+                    <span id="potentialNoteText">Current funded opportunities × realistic monthly capacity. Approval, availability and eligibility apply; this is not guaranteed income.</span>
+                  </div>
+                </section>
+
+                <section class="option-card" aria-label="Available earning opportunities">
+                  <div class="card-head">
+                    <b>Paid work for you</b>
+                    <span class="opportunity-tools">
+                      <span id="opportunityCount">7 live</span>
+                      <button class="filter-button" id="filterButton" type="button" aria-label="Filter opportunities" aria-expanded="false">
+                        <svg viewBox="0 0 24 24"><path d="M4 6h16" /><path d="M7 12h10" /><path d="M10 18h4" /></svg>
+                      </button>
+                    </span>
+                  </div>
+                  <div class="opportunity-list" id="opportunityList">
+                    <article class="opportunity-card scan-card featured" data-tags="Freelance Campaigns" data-deadline="2026-07-14T18:00:00+05:30" data-deadline-label="14 Jul, 6:00 PM IST">
+                      <button class="opportunity-scan" type="button" data-opportunity-toggle aria-expanded="false">
+                        <span class="scan-mark">MOOL</span>
+                        <span class="scan-copy">
+                          <span class="scan-eyebrow">Create · MoolSocial verified</span>
+                          <span class="scan-title">Make one MoolSocial explainer video</span>
+                          <span class="scan-meta"><span>Remote India</span><span>12 slots</span><span class="opportunity-countdown" aria-live="off">--:--:--</span></span>
+                        </span>
+                        <span class="scan-pay"><b>₹1,500</b><small>per approved video</small><i>⌄</i></span>
+                      </button>
+                      <div class="opportunity-expand" hidden>
+                        <span class="scan-outcome">Create one original 45–60 second Hindi or regional-language vertical video.</span>
+                        <span class="scan-facts"><span class="scan-fact"><small>Required</small><b>Creator Work</b></span><span class="scan-fact"><small>Payout</small><b>Within 3 days</b></span><span class="scan-fact"><small>Terms</small><b>Version 3</b></span></span>
+                        <span class="scan-action"><span class="scan-funded">Funded · disclosure required</span><a class="scan-cta" href="68-work-opportunity-terms-apply.html?opportunity=creator-explainer">Review &amp; Apply →</a></span>
+                      </div>
+                    </article>
+
+                    <article class="opportunity-card scan-card" data-tags="Freelance Campaigns" data-deadline="2026-07-15T18:00:00+05:30" data-deadline-label="15 Jul, 6:00 PM IST">
+                      <button class="opportunity-scan" type="button" data-opportunity-toggle aria-expanded="false">
+                        <span class="scan-mark manufacturer">SF</span>
+                        <span class="scan-copy"><span class="scan-eyebrow">Create · Shakti Foods verified</span><span class="scan-title">Make two product-demo shorts</span><span class="scan-meta"><span>Remote India</span><span>18 slots</span><span class="opportunity-countdown" aria-live="off">--:--:--</span></span></span>
+                        <span class="scan-pay"><b>₹1,200</b><small>per approved pair</small><i>⌄</i></span>
+                      </button>
+                      <div class="opportunity-expand" hidden>
+                        <span class="scan-outcome">Show the supplied product pack, preparation and final serving in two original shorts.</span>
+                        <span class="scan-facts"><span class="scan-fact"><small>Required</small><b>Creator Work</b></span><span class="scan-fact"><small>Payout</small><b>Within 5 days</b></span><span class="scan-fact"><small>Terms</small><b>Version 2</b></span></span>
+                        <span class="scan-action"><span class="scan-funded">Funded · product supplied</span><a class="scan-cta" href="68-work-opportunity-terms-apply.html?opportunity=shakti-product-demo">Review &amp; Apply →</a></span>
+                      </div>
+                    </article>
+
+                    <article class="opportunity-card scan-card" data-tags="Campaigns Nearby" data-deadline="2026-07-13T21:00:00+05:30" data-deadline-label="13 Jul, 9:00 PM IST">
+                      <button class="opportunity-scan" type="button" data-opportunity-toggle aria-expanded="false">
+                        <span class="scan-mark retailer">MF</span>
+                        <span class="scan-copy"><span class="scan-eyebrow">Promote · Mahadev Fresh Mart verified</span><span class="scan-title">Bring completed grocery orders</span><span class="scan-meta"><span>Jodhpur · 4 km</span><span>20 orders</span><span class="opportunity-countdown" aria-live="off">--:--:--</span></span></span>
+                        <span class="scan-pay"><b>₹20</b><small>per delivered order</small><i>⌄</i></span>
+                      </button>
+                      <div class="opportunity-expand" hidden>
+                        <span class="scan-outcome">Bring trackable paid orders that are delivered and remain outside the refund window.</span>
+                        <span class="scan-facts"><span class="scan-fact"><small>Required</small><b>Freelancer Work</b></span><span class="scan-fact"><small>Payout</small><b>T+2 days</b></span><span class="scan-fact"><small>Maximum</small><b>₹400</b></span></span>
+                        <span class="scan-action"><span class="scan-funded">Funded · completed orders only</span><a class="scan-cta" href="68-work-opportunity-terms-apply.html?opportunity=mahadev-paid-orders">Review &amp; Apply →</a></span>
+                      </div>
+                    </article>
+
+                    <article class="opportunity-card scan-card" data-tags="Freelance Campaigns" data-deadline="2026-07-16T18:00:00+05:30" data-deadline-label="16 Jul, 6:00 PM IST">
+                      <button class="opportunity-scan" type="button" data-opportunity-toggle aria-expanded="false">
+                        <span class="scan-mark creator">RS</span>
+                        <span class="scan-copy"><span class="scan-eyebrow">Edit · Riya Sharma verified</span><span class="scan-title">Edit three vertical short videos</span><span class="scan-meta"><span>Remote India</span><span>6 packs</span><span class="opportunity-countdown" aria-live="off">--:--:--</span></span></span>
+                        <span class="scan-pay"><b>₹900</b><small>per approved pack</small><i>⌄</i></span>
+                      </button>
+                      <div class="opportunity-expand" hidden>
+                        <span class="scan-outcome">Edit three supplied clips with approved captions, pacing and brand styling.</span>
+                        <span class="scan-facts"><span class="scan-fact"><small>Required</small><b>Creator Work</b></span><span class="scan-fact"><small>Payout</small><b>Within 3 days</b></span><span class="scan-fact"><small>Correction</small><b>1 round</b></span></span>
+                        <span class="scan-action"><span class="scan-funded">Funded · files supplied</span><a class="scan-cta" href="68-work-opportunity-terms-apply.html?opportunity=creator-edit-pack">Review &amp; Apply →</a></span>
+                      </div>
+                    </article>
+
+                    <article class="opportunity-card scan-card" data-tags="Freelance Nearby" data-deadline="2026-07-11T18:00:00+05:30" data-deadline-label="11 Jul, 6:00 PM IST">
+                      <button class="opportunity-scan" type="button" data-opportunity-toggle aria-expanded="false">
+                        <span class="scan-mark delivery">MD</span>
+                        <span class="scan-copy"><span class="scan-eyebrow">Deliver · MoolSocial verified</span><span class="scan-title">Complete an evening grocery route</span><span class="scan-meta"><span>Jodhpur central</span><span>10 routes</span><span class="opportunity-countdown" aria-live="off">--:--:--</span></span></span>
+                        <span class="scan-pay"><b>₹520</b><small>for 8 drops</small><i>⌄</i></span>
+                      </button>
+                      <div class="opportunity-expand" hidden>
+                        <span class="scan-outcome">Collect prepaid orders and complete eight OTP-verified drops from 6–9 PM.</span>
+                        <span class="scan-facts"><span class="scan-fact"><small>Required</small><b>Delivery Work</b></span><span class="scan-fact"><small>Payout</small><b>Next payout</b></span><span class="scan-fact"><small>Zone</small><b>Central</b></span></span>
+                        <span class="scan-action"><span class="scan-funded">Funded · route support included</span><a class="scan-cta" href="68-work-opportunity-terms-apply.html?opportunity=delivery-block">Review &amp; Apply →</a></span>
+                      </div>
+                    </article>
+
+                    <article class="opportunity-card scan-card" data-tags="Freelance Nearby" data-deadline="2026-07-18T18:00:00+05:30" data-deadline-label="18 Jul, 6:00 PM IST">
+                      <button class="opportunity-scan" type="button" data-opportunity-toggle aria-expanded="false">
+                        <span class="scan-mark">MOOL</span>
+                        <span class="scan-copy"><span class="scan-eyebrow">Onboard · MoolSocial verified</span><span class="scan-title">Activate local businesses</span><span class="scan-meta"><span>Jodhpur district</span><span>40 nearby</span><span class="opportunity-countdown" aria-live="off">--:--:--</span></span></span>
+                        <span class="scan-pay"><b>₹350</b><small>per activation</small><i>⌄</i></span>
+                      </button>
+                      <div class="opportunity-expand" hidden>
+                        <span class="scan-outcome">Complete owner-approved setup and the first verified business activation action.</span>
+                        <span class="scan-facts"><span class="scan-fact"><small>Required</small><b>Freelancer Work</b></span><span class="scan-fact"><small>Payout</small><b>T+1 review</b></span><span class="scan-fact"><small>Potential</small><b>₹14,000</b></span></span>
+                        <span class="scan-action"><span class="scan-funded">Funded · verified activation</span><a class="scan-cta" href="68-work-opportunity-terms-apply.html?opportunity=business-growth">Review &amp; Apply →</a></span>
+                      </div>
+                    </article>
+
+                    <article class="opportunity-card scan-card" data-tags="Jobs Nearby" data-deadline="2026-07-20T18:00:00+05:30" data-deadline-label="20 Jul, 6:00 PM IST">
+                      <button class="opportunity-scan" type="button" data-opportunity-toggle aria-expanded="false">
+                        <span class="scan-mark">MOOL</span>
+                        <span class="scan-copy"><span class="scan-eyebrow">Job · MoolSocial verified</span><span class="scan-title">City operations coordinator</span><span class="scan-meta"><span>Jodhpur · on-site</span><span>2 roles</span><span class="opportunity-countdown" aria-live="off">--:--:--</span></span></span>
+                        <span class="scan-pay"><b>₹25k–35k</b><small>monthly salary</small><i>⌄</i></span>
+                      </button>
+                      <div class="opportunity-expand" hidden>
+                        <span class="scan-outcome">Own city partner quality, support resolution and revenue execution.</span>
+                        <span class="scan-facts"><span class="scan-fact"><small>Required</small><b>Job Seeker Work</b></span><span class="scan-fact"><small>Type</small><b>Full time</b></span><span class="scan-fact"><small>Selection</small><b>Interview</b></span></span>
+                        <span class="scan-action"><span class="scan-funded">No application fee</span><a class="scan-cta" href="68-work-opportunity-terms-apply.html?opportunity=city-operations">Review &amp; Apply →</a></span>
+                      </div>
+                    </article>
+                  </div>
+                  <div class="empty-filter" id="emptyFilter">No live opportunities in this filter right now.</div>
+                </section>
+              </div>
+
+              <div class="view-panel is-hidden" id="myWorkView">
+                <section class="my-work-card" aria-label="Start My Work" id="myWorkStart">
+                  <span class="my-work-mark">
+                    <svg viewBox="0 0 24 24"><path d="M4 21V8h16v13" /><path d="M8 8V4h8v4" /><path d="M9 14h6" /></svg>
+                  </span>
+                  <span class="my-work-copy">
+                    <b>Start My Work</b>
+                    <span>Set up one verified activity. You can add another work later without changing your personal account.</span>
+                  </span>
+                  <button class="start-work-button" id="startWorkButton" type="button">Start My Work</button>
+                </section>
+
+                <section class="work-intents is-hidden" id="workIntents" aria-label="Choose how to start work">
+                  <div class="card-head">
+                    <b>How do you want to begin?</b>
+                    <span>choose one</span>
+                  </div>
+                  <a class="intent-door" href="69-my-work-setup.html?intent=earn">
+                    <span class="intent-icon"><span class="rupee-glyph">₹</span></span>
+                    <span class="intent-copy"><b>Earn with MoolSocial</b><span>Freelancer, delivery, captain or service work</span></span>
+                    <strong>→</strong>
+                  </a>
+                  <a class="intent-door" href="69-my-work-setup.html?intent=business">
+                    <span class="intent-icon"><svg viewBox="0 0 24 24"><path d="M3 21h18" /><path d="M5 21V9h14v12" /><path d="M8 9V4h8v5" /></svg></span>
+                    <span class="intent-copy"><b>Grow my business</b><span>Shop, food, health, salon, transport or supply</span></span>
+                    <strong>→</strong>
+                  </a>
+                  <a class="intent-door" href="69-my-work-setup.html?intent=create">
+                    <span class="intent-icon"><svg viewBox="0 0 24 24"><path d="M4 19 17 6l2 2L6 21H4Z" /><path d="m14 6 2-2 4 4-2 2" /></svg></span>
+                    <span class="intent-copy"><b>Create or promote</b><span>Creator work and funded advertising campaigns</span></span>
+                    <strong>→</strong>
+                  </a>
+                </section>
+              </div>
+            </main>
+
+            <div class="filter-layer is-hidden" id="filterLayer" aria-hidden="true">
+              <section class="filter-sheet" role="dialog" aria-modal="true" aria-label="Filter earning opportunities">
+                <div class="filter-sheet-head">
+                  <span><b>Filter opportunities</b><small>Choose what you want to see</small></span>
+                  <button class="filter-close" id="filterClose" type="button" aria-label="Close filters">
+                    <svg viewBox="0 0 24 24"><path d="m6 6 12 12" /><path d="M18 6 6 18" /></svg>
+                  </button>
+                </div>
+                <div class="filter-options">
+                  <button class="time-chip active" data-filter="All">For You</button>
+                  <button class="time-chip" data-filter="Jobs">Jobs</button>
+                  <button class="time-chip" data-filter="Freelance">Freelance</button>
+                  <button class="time-chip" data-filter="Campaigns">Campaigns</button>
+                  <button class="time-chip" data-filter="Nearby">Nearby</button>
+                </div>
+              </section>
+            </div>
+
+            <nav class="bottom-dock" aria-label="Work navigation">
+              <a class="mool-button" href="04-universal-focus-shell.html">Mool</a>
+              <div class="dock-track">
+                <a class="dock-tab" href="#" data-work-view="earn"><span class="rupee-glyph">₹</span>Earn</a>
+                <a class="dock-tab" href="#" data-work-view="my-work"><svg viewBox="0 0 24 24"><path d="M6 21V8h12v13" /><path d="M9 8V4h6v4" /></svg>My Work</a>
+              </div>
+              <a class="chat-button" href="23-chat-inbox-home.html" aria-label="Open chat">
+                <svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z" /></svg>
+                <span class="chat-badge">2</span>
+              </a>
+            </nav>
+          </div>
+        </div>
+
+        <div class="notes">
+          <div>
+            <h1 class="ms-title">Screen 67 gives every consumer one-tap access to Earn and My Work.</h1>
+            <p class="ms-lead">
+              Earn is the public opportunity feed. My Work progressively activates or opens the verified activity required to execute work,
+              while the personal consumer account remains available.
+            </p>
+          </div>
+
+          <div class="ms-panel">
+            <div class="ms-section-head">Screen Contract <span>Approved</span></div>
+            <div class="state-grid">
+              <div class="state-cell"><b>Entry</b>Universal Work opens Earn. Opportunity, campaign and workspace notifications may deep-link to the exact relevant state.</div>
+              <div class="state-cell"><b>User Sees</b>Mool, Earn, My Work and Chat. Compact opportunity rows expose work, publisher, location, capacity, payment and live time without opening details.</div>
+              <div class="state-cell"><b>Decision</b>One row expands inline at a time for outcome, required My Work, payout and terms. The next row automatically collapses the previous one.</div>
+              <div class="state-cell"><b>Apply Router</b>The selected opportunity is saved first. Existing eligible My Work applies directly; otherwise the exact required setup opens and returns to the application.</div>
+              <div class="state-cell"><b>My Work</b>No activity shows Start My Work. One verified activity opens directly. Multiple activities show My Work choices and Add Another Work.</div>
+              <div class="state-cell"><b>Campaigns</b>MoolSocial and verified manufacturer, retailer, creator or other work types can publish only funded, outcome-defined opportunities from My Work.</div>
+              <div class="state-cell"><b>Scale</b>Server-ranked cursor pagination and mobile list virtualisation deliver relevant opportunities progressively; the client never loads the full opportunity universe.</div>
+              <div class="state-cell"><b>Next</b>Screen 68 is Opportunity Details and Terms. Screen 69 starts the guided My Work intent and controlled user-type setup.</div>
+              <div class="state-cell"><b>Deadline</b>API deadline_at and server_time are authoritative. The client countdown is presentation only; expiry or capacity closure disables the action.</div>
+              <div class="state-cell"><b>Regression</b>One personal account remains active. Each work activity keeps separate verification, operations, compliance, reviews and settlement.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script>
+    if ("scrollRestoration" in history) {
+      history.scrollRestoration = "manual";
+    }
+
+    function resetPhoneScroll() {
+      const content = document.querySelector(".content");
+      if (content) content.scrollTop = 0;
+      window.scrollTo(0, 0);
+    }
+
+    window.addEventListener("load", () => {
+      resetPhoneScroll();
+      requestAnimationFrame(resetPhoneScroll);
+      setTimeout(resetPhoneScroll, 80);
+      setTimeout(resetPhoneScroll, 250);
+      setTimeout(resetPhoneScroll, 600);
+    });
+
+    window.addEventListener("pageshow", () => {
+      resetPhoneScroll();
+      setTimeout(resetPhoneScroll, 250);
+    });
+
+    const viewButtons = document.querySelectorAll("[data-work-view]");
+    const filterButtons = document.querySelectorAll("[data-filter]");
+    const opportunityCards = document.querySelectorAll("[data-tags]");
+    const opportunityToggles = document.querySelectorAll("[data-opportunity-toggle]");
+    const earnView = document.getElementById("earnView");
+    const myWorkView = document.getElementById("myWorkView");
+    const opportunityCount = document.getElementById("opportunityCount");
+    const emptyFilter = document.getElementById("emptyFilter");
+    const filterButton = document.getElementById("filterButton");
+    const filterLayer = document.getElementById("filterLayer");
+    const filterClose = document.getElementById("filterClose");
+    const potentialLabel = document.getElementById("potentialLabel");
+    const potentialAmount = document.getElementById("potentialAmount");
+    const potentialBasis = document.getElementById("potentialBasis");
+    const potentialInfo = document.getElementById("potentialInfo");
+    const potentialNote = document.getElementById("potentialNote");
+    const potentialNoteText = document.getElementById("potentialNoteText");
+    const poolLabel = document.getElementById("poolLabel");
+    const poolAmount = document.getElementById("poolAmount");
+    const reservedLabel = document.getElementById("reservedLabel");
+    const reservedAmount = document.getElementById("reservedAmount");
+    const startWorkButton = document.getElementById("startWorkButton");
+    const myWorkStart = document.getElementById("myWorkStart");
+    const workIntents = document.getElementById("workIntents");
+    let activeOpportunityFilter = "All";
+
+    const potentialByFilter = {
+      All: {
+        label: "Monthly earning potential",
+        amount: "₹35,000–₹80,000",
+        basis: "10,248 funded actions matched",
+        poolLabel: "Eligible funded work",
+        poolAmount: "₹2,40,000",
+        reservedLabel: "Reserved payout",
+        reservedAmount: "₹0",
+        note: "Potential after activating eligible My Work. Excludes full-time salary and is capped by realistic monthly capacity. Reserved payout starts only after funded work is assigned."
+      },
+      Jobs: {
+        label: "Monthly salary range",
+        amount: "₹25,000–₹35,000",
+        basis: "2 live matched roles",
+        poolLabel: "Live salary roles",
+        poolAmount: "2 openings",
+        reservedLabel: "Selected offer",
+        reservedAmount: "Not yet",
+        note: "Salary is shown separately and is never added to flexible work potential. Selection, interview and employer terms apply."
+      },
+      Freelance: {
+        label: "Freelance monthly potential",
+        amount: "₹30,000–₹75,000",
+        basis: "8,640 funded actions matched",
+        poolLabel: "Eligible funded work",
+        poolAmount: "₹1,75,000",
+        reservedLabel: "Reserved payout",
+        reservedAmount: "₹0",
+        note: "Based on available approved outputs and realistic monthly capacity. Unfunded leads, incomplete work and rejected output earn nothing."
+      },
+      Campaigns: {
+        label: "Campaign monthly potential",
+        amount: "₹18,000–₹45,000",
+        basis: "1,284 funded campaign actions",
+        poolLabel: "Eligible campaign value",
+        poolAmount: "₹96,000",
+        reservedLabel: "Reserved payout",
+        reservedAmount: "₹0",
+        note: "Based on current funded campaign slots and realistic approved output. Sponsorship, brief, disclosure and approval rules apply."
+      },
+      Nearby: {
+        label: "Nearby monthly potential",
+        amount: "₹25,000–₹60,000",
+        basis: "2,760 funded actions nearby",
+        poolLabel: "Eligible nearby work",
+        poolAmount: "₹1,10,000",
+        reservedLabel: "Reserved payout",
+        reservedAmount: "₹0",
+        note: "Based on funded nearby tasks, route capacity and approved completions. Actual work changes with location, timing and availability."
+      }
+    };
+
+    function closeFilters() {
+      filterLayer.classList.add("is-hidden");
+      filterLayer.setAttribute("aria-hidden", "true");
+      filterButton.setAttribute("aria-expanded", "false");
+    }
+
+    function openFilters() {
+      filterLayer.classList.remove("is-hidden");
+      filterLayer.setAttribute("aria-hidden", "false");
+      filterButton.setAttribute("aria-expanded", "true");
+    }
+
+    function showView(view, updateUrl = true) {
+      const isMyWork = view === "my-work";
+      earnView.classList.toggle("is-hidden", isMyWork);
+      myWorkView.classList.toggle("is-hidden", !isMyWork);
+      viewButtons.forEach((button) => {
+        button.classList.toggle("active", button.dataset.workView === view);
+      });
+      if (updateUrl) {
+        const url = new URL(location.href);
+        if (isMyWork) url.searchParams.set("view", "my-work");
+        else url.searchParams.delete("view");
+        history.replaceState({}, "", url);
+      }
+      potentialNote.classList.add("is-hidden");
+      potentialInfo.setAttribute("aria-expanded", "false");
+      closeFilters();
+      resetPhoneScroll();
+    }
+
+    function updatePotential(filter) {
+      const potential = potentialByFilter[filter] || potentialByFilter.All;
+      potentialLabel.textContent = potential.label;
+      potentialAmount.textContent = potential.amount;
+      potentialBasis.textContent = potential.basis;
+      poolLabel.textContent = potential.poolLabel;
+      poolAmount.textContent = potential.poolAmount;
+      reservedLabel.textContent = potential.reservedLabel;
+      reservedAmount.textContent = potential.reservedAmount;
+      potentialNoteText.textContent = potential.note;
+      potentialNote.classList.add("is-hidden");
+      potentialInfo.setAttribute("aria-expanded", "false");
+    }
+
+    function formatOpportunityTime(remainingMs) {
+      if (remainingMs <= 0) return "Closed";
+      const totalSeconds = Math.ceil(remainingMs / 1000);
+      const days = Math.floor(totalSeconds / 86400);
+      const hours = Math.floor((totalSeconds % 86400) / 3600);
+      const minutes = Math.floor((totalSeconds % 3600) / 60);
+      const seconds = totalSeconds % 60;
+      const clock = [hours, minutes, seconds].map((value) => String(value).padStart(2, "0")).join(":");
+      return days > 0 ? `${days}d ${clock}` : clock;
+    }
+
+    function refreshOpportunityCount() {
+      let live = 0;
+      let matching = 0;
+      opportunityCards.forEach((card) => {
+        const tags = (card.dataset.tags || "").split(" ");
+        const matches = activeOpportunityFilter === "All" || tags.includes(activeOpportunityFilter);
+        if (matches) matching += 1;
+        if (matches && !card.classList.contains("expired")) live += 1;
+      });
+      opportunityCount.textContent = `${live} live`;
+      emptyFilter.classList.toggle("show", matching === 0);
+    }
+
+    function updateOpportunityCountdowns() {
+      const now = Date.now();
+      opportunityCards.forEach((card) => {
+        const countdown = card.querySelector(".opportunity-countdown");
+        const deadline = Date.parse(card.dataset.deadline || "");
+        if (!countdown || Number.isNaN(deadline)) return;
+        const remaining = deadline - now;
+        const expired = remaining <= 0;
+        const urgent = remaining > 0 && remaining <= 24 * 60 * 60 * 1000;
+        countdown.textContent = formatOpportunityTime(remaining);
+        countdown.title = expired ? "This opportunity is closed" : `Closes ${card.dataset.deadlineLabel}`;
+        countdown.classList.toggle("urgent", urgent);
+        card.classList.toggle("expired", expired);
+        card.setAttribute("aria-disabled", String(expired));
+        const action = card.querySelector(".scan-cta");
+        if (action) {
+          if (!action.dataset.openLabel) action.dataset.openLabel = action.textContent;
+          action.textContent = expired ? "Closed" : action.dataset.openLabel;
+          action.setAttribute("aria-disabled", String(expired));
+        }
+      });
+      refreshOpportunityCount();
+    }
+
+    function collapseOpportunity(card) {
+      const toggle = card.querySelector("[data-opportunity-toggle]");
+      const panel = card.querySelector(".opportunity-expand");
+      card.classList.remove("expanded");
+      if (toggle) toggle.setAttribute("aria-expanded", "false");
+      if (panel) panel.hidden = true;
+    }
+
+    function toggleOpportunity(card) {
+      const willOpen = !card.classList.contains("expanded");
+      opportunityCards.forEach(collapseOpportunity);
+      if (!willOpen) return;
+      const toggle = card.querySelector("[data-opportunity-toggle]");
+      const panel = card.querySelector(".opportunity-expand");
+      card.classList.add("expanded");
+      if (toggle) toggle.setAttribute("aria-expanded", "true");
+      if (panel) panel.hidden = false;
+    }
+
+    function filterOpportunities(filter) {
+      activeOpportunityFilter = filter;
+      opportunityCards.forEach((card) => {
+        const tags = (card.dataset.tags || "").split(" ");
+        const show = filter === "All" || tags.includes(filter);
+        card.hidden = !show;
+        if (!show) collapseOpportunity(card);
+      });
+      refreshOpportunityCount();
+      filterButton.classList.toggle("active", filter !== "All");
+      updatePotential(filter);
+    }
+
+    viewButtons.forEach((button) => {
+      button.addEventListener("click", (event) => {
+        event.preventDefault();
+        showView(button.dataset.workView);
+      });
+    });
+
+    filterButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        filterButtons.forEach((item) => item.classList.toggle("active", item === button));
+        filterOpportunities(button.dataset.filter);
+        closeFilters();
+      });
+    });
+
+    filterButton.addEventListener("click", openFilters);
+    filterClose.addEventListener("click", closeFilters);
+    filterLayer.addEventListener("click", (event) => {
+      if (event.target === filterLayer) closeFilters();
+    });
+    potentialInfo.addEventListener("click", () => {
+      const willOpen = potentialNote.classList.contains("is-hidden");
+      potentialNote.classList.toggle("is-hidden", !willOpen);
+      potentialInfo.setAttribute("aria-expanded", String(willOpen));
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeFilters();
+    });
+
+    startWorkButton.addEventListener("click", () => {
+      myWorkStart.classList.add("is-hidden");
+      workIntents.classList.remove("is-hidden");
+      resetPhoneScroll();
+    });
+
+    opportunityToggles.forEach((toggle) => {
+      toggle.addEventListener("click", () => toggleOpportunity(toggle.closest(".opportunity-card")));
+    });
+
+    document.querySelectorAll(".scan-cta").forEach((action) => {
+      action.addEventListener("click", (event) => {
+        if (action.closest(".opportunity-card").classList.contains("expired")) event.preventDefault();
+      });
+    });
+
+    const initialView = new URLSearchParams(location.search).get("view") === "my-work" ? "my-work" : "earn";
+    updateOpportunityCountdowns();
+    setInterval(updateOpportunityCountdowns, 1000);
+    filterOpportunities("All");
+    showView(initialView, false);
+  </script>
+<script type="application/json" id="productionRouteContract">{"contractVersion":"mvp-route-lock-2026-07-12","prototypeScreen":67,"productionModule":"work","routeId":"earn.home","routePath":"/earn","routeState":"opportunity-feed","implementation":"route-shell","launchScope":"mvp-core","separateProductionRoute":true,"productionNote":"Own production route /earn. Implement opportunity-feed as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.","canonicalMap":"architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"}</script><script type="application/json" id="prototypeApprovalContract">{"prototypeScreen":67,"status":"approved-and-frozen","authoritative":true,"approvedAt":"2026-07-12","approvalScope":"prototype-ui-ux-and-production-contract"}</script></body>
+</html>

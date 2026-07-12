@@ -1,0 +1,1136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>28 Eat > Book Table - MoolSocial Screenbook</title>
+  <link rel="stylesheet" href="../shared/moolsocial-ui-foundation.css" />
+  <style>
+    .screen-shell { display: grid; gap: 18px; }
+
+    .back-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .screen-link-home {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--ms-navy);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .back-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--ms-navy);
+      border-radius: var(--ms-radius);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .preview {
+      display: grid;
+      grid-template-columns: minmax(320px, 390px) minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+      padding: 18px;
+      border-bottom: 1px solid var(--ms-navy);
+      background: var(--ms-white);
+    }
+
+    .phone {
+      width: min(100%, 370px);
+      height: 742px;
+      justify-self: center;
+      border: 10px solid var(--ms-navy);
+      border-radius: 32px;
+      background: var(--ms-navy);
+      overflow: hidden;
+      box-shadow: 0 28px 60px rgba(0, 0, 128, .22);
+    }
+
+    .app {
+      position: relative;
+      height: 100%;
+      display: grid;
+      grid-template-rows: auto auto 1fr auto;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 14% 7%, rgba(255, 153, 51, .18), transparent 24%),
+        radial-gradient(circle at 88% 13%, rgba(19, 136, 8, .14), transparent 25%),
+        linear-gradient(180deg, var(--ms-navy) 0 150px, #f5f7fb 150px 100%);
+      color: var(--ms-white);
+      font-family: var(--ms-font);
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    button {
+      appearance: none;
+      border: 0;
+      font-family: var(--ms-font);
+      cursor: pointer;
+    }
+
+    svg {
+      width: 18px;
+      height: 18px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .status-row {
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 18px 0;
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    .top-zone {
+      display: grid;
+      gap: 10px;
+      padding: 8px 12px 12px;
+    }
+
+    .brand-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .title-lockup {
+      min-width: 0;
+      display: grid;
+      gap: 4px;
+    }
+
+    .title-lockup b {
+      overflow: hidden;
+      color: var(--ms-white);
+      font-size: 19px;
+      line-height: 1;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .title-lockup span {
+      overflow: hidden;
+      color: rgba(255, 255, 255, .76);
+      font-size: 10px;
+      font-weight: 850;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .identity-line {
+      width: 98px;
+      height: 3px;
+      display: grid;
+      grid-template-columns: 45fr 14fr 41fr;
+      border-radius: var(--ms-pill);
+      overflow: hidden;
+    }
+
+    .identity-line span:nth-child(1) { background: var(--ms-saffron); }
+    .identity-line span:nth-child(2) { background: var(--ms-white); }
+    .identity-line span:nth-child(3) { background: var(--ms-green); }
+
+    .top-buttons {
+      display: flex;
+      gap: 7px;
+    }
+
+    .circle-btn,
+    .search-action {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      text-decoration: none;
+    }
+
+    .circle-btn {
+      border: 1px solid rgba(255, 255, 255, .26);
+      background: rgba(255, 255, 255, .12);
+      color: var(--ms-white);
+    }
+
+    .command-bar {
+      min-height: 43px;
+      display: grid;
+      grid-template-columns: 1fr repeat(3, 34px);
+      gap: 6px;
+      align-items: center;
+      border: 1px solid rgba(255, 255, 255, .84);
+      border-radius: var(--ms-pill);
+      padding: 5px 5px 5px 13px;
+      background: rgba(255, 255, 255, .1);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .08);
+    }
+
+    .command-text {
+      min-width: 0;
+      overflow: hidden;
+      color: var(--ms-white);
+      font-size: 11px;
+      font-weight: 900;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .search-action {
+      background: var(--ms-white);
+      color: var(--ms-navy);
+    }
+
+    .content {
+      min-height: 0;
+      overflow: auto;
+      display: grid;
+      align-content: start;
+      gap: 10px;
+      padding: 0 10px 98px;
+      color: var(--ms-navy);
+      scrollbar-width: none;
+    }
+
+    .content::-webkit-scrollbar { display: none; }
+
+    .restaurant-card,
+    .booking-card,
+    .summary-card,
+    .service-card {
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: 21px;
+      background: rgba(255, 255, 255, .98);
+      box-shadow: 0 14px 30px rgba(0, 0, 128, .10);
+    }
+
+    .restaurant-card {
+      display: grid;
+      gap: 8px;
+      margin-top: -8px;
+      padding: 10px;
+    }
+
+    .restaurant-rail {
+      display: flex;
+      gap: 7px;
+      min-width: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .restaurant-rail::-webkit-scrollbar { display: none; }
+
+    .restaurant-option {
+      flex: 0 0 156px;
+      display: grid;
+      grid-template-columns: 36px 1fr;
+      gap: 7px;
+      align-items: center;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: 18px;
+      padding: 8px;
+      background: #f7f9fd;
+      color: var(--ms-navy);
+      text-align: left;
+    }
+
+    .restaurant-option.active {
+      border-color: rgba(0, 0, 128, .42);
+      background:
+        linear-gradient(135deg, rgba(255, 153, 51, .14), rgba(19, 136, 8, .08)),
+        var(--ms-white);
+      box-shadow: inset 0 -3px 0 var(--ms-green), 0 9px 18px rgba(0, 0, 128, .10);
+    }
+
+    .restaurant-logo {
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      border-radius: 15px;
+      background:
+        radial-gradient(circle at 34% 22%, rgba(255, 255, 255, .32), transparent 30%),
+        linear-gradient(145deg, var(--ms-green), var(--ms-navy));
+      color: var(--ms-white);
+      font-size: 10px;
+      font-weight: 950;
+      box-shadow: inset 0 -4px 0 var(--ms-saffron);
+    }
+
+    .restaurant-copy {
+      min-width: 0;
+      display: grid;
+      gap: 3px;
+    }
+
+    .restaurant-copy b {
+      overflow: hidden;
+      color: var(--ms-navy);
+      font-size: 10px;
+      line-height: 1;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .restaurant-copy span,
+    .restaurant-copy small {
+      overflow: hidden;
+      color: rgba(0, 0, 128, .62);
+      font-size: 7px;
+      font-weight: 850;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .small-action,
+    .primary-cta,
+    .secondary-cta,
+    .slot-chip,
+    .people-chip,
+    .offer-chip,
+    .seat-card {
+      font-family: var(--ms-font);
+    }
+
+    .small-action {
+      min-height: 31px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--ms-pill);
+      padding: 0 10px;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      text-decoration: none;
+      font-size: 8px;
+      font-weight: 950;
+      box-shadow: inset 0 -3px 0 var(--ms-saffron);
+      white-space: nowrap;
+    }
+
+    .booking-card {
+      display: grid;
+      gap: 9px;
+      padding: 11px;
+    }
+
+    .card-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .card-head b {
+      color: var(--ms-navy);
+      font-size: 14px;
+      line-height: 1;
+      font-weight: 950;
+    }
+
+    .card-head span {
+      color: rgba(0, 0, 128, .58);
+      font-size: 8px;
+      font-weight: 850;
+      text-align: right;
+    }
+
+    .choice-row {
+      display: grid;
+      gap: 6px;
+    }
+
+    .choice-title {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      color: rgba(0, 0, 128, .70);
+      font-size: 8px;
+      font-weight: 950;
+      text-transform: uppercase;
+    }
+
+    .chip-row,
+    .seat-row,
+    .offer-row {
+      display: flex;
+      gap: 6px;
+      min-width: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .chip-row::-webkit-scrollbar,
+    .seat-row::-webkit-scrollbar,
+    .offer-row::-webkit-scrollbar { display: none; }
+
+    .people-chip,
+    .slot-chip,
+    .offer-chip {
+      flex: 0 0 auto;
+      min-height: 34px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: var(--ms-pill);
+      padding: 0 12px;
+      background: #f7f9fd;
+      color: var(--ms-navy);
+      font-size: 9px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .people-chip.active,
+    .slot-chip.active,
+    .offer-chip.active {
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -3px 0 var(--ms-saffron), 0 8px 18px rgba(0, 0, 128, .15);
+    }
+
+    .seat-card {
+      flex: 0 0 132px;
+      min-height: 70px;
+      display: grid;
+      align-content: center;
+      gap: 4px;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: 18px;
+      padding: 9px;
+      background: #f7f9fd;
+      color: var(--ms-navy);
+      text-align: left;
+    }
+
+    .seat-card b {
+      overflow: hidden;
+      font-size: 10px;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .seat-card span {
+      color: rgba(0, 0, 128, .58);
+      font-size: 7px;
+      font-weight: 850;
+      line-height: 1.15;
+    }
+
+    .seat-card.active {
+      border-color: rgba(0, 0, 128, .42);
+      background:
+        linear-gradient(135deg, rgba(255, 153, 51, .13), rgba(19, 136, 8, .08)),
+        var(--ms-white);
+      box-shadow: inset 0 -3px 0 var(--ms-green);
+    }
+
+    .offer-chip {
+      min-height: 30px;
+      gap: 5px;
+      background: rgba(0, 0, 128, .04);
+      font-size: 8px;
+    }
+
+    .summary-card {
+      display: grid;
+      gap: 9px;
+      padding: 11px;
+      background:
+        linear-gradient(135deg, rgba(255, 153, 51, .13), rgba(19, 136, 8, .08)),
+        var(--ms-white);
+    }
+
+    .summary-top {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      align-items: start;
+    }
+
+    .summary-copy {
+      min-width: 0;
+      display: grid;
+      gap: 4px;
+    }
+
+    .summary-copy b {
+      overflow: hidden;
+      color: var(--ms-navy);
+      font-size: 15px;
+      line-height: 1.05;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .summary-copy span {
+      color: rgba(0, 0, 128, .62);
+      font-size: 8px;
+      font-weight: 850;
+      line-height: 1.25;
+    }
+
+    .summary-price {
+      min-width: 74px;
+      display: grid;
+      justify-items: end;
+      gap: 3px;
+      color: var(--ms-green);
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .summary-price b {
+      font-size: 16px;
+      line-height: 1;
+    }
+
+    .summary-price span {
+      color: rgba(0, 0, 128, .58);
+      font-size: 7px;
+      font-weight: 850;
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .summary-add-row {
+      display: flex;
+      gap: 6px;
+      min-width: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+      padding-top: 1px;
+    }
+
+    .summary-add-row::-webkit-scrollbar { display: none; }
+
+    .trust-pill {
+      min-height: 38px;
+      display: grid;
+      align-content: center;
+      gap: 2px;
+      border-radius: 14px;
+      padding: 6px;
+      background: rgba(255, 255, 255, .80);
+      color: var(--ms-navy);
+      overflow: hidden;
+    }
+
+    .trust-pill b {
+      overflow: hidden;
+      font-size: 8px;
+      font-weight: 950;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .trust-pill span {
+      overflow: hidden;
+      color: var(--ms-green);
+      font-size: 7px;
+      font-weight: 900;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .cta-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 7px;
+      align-items: center;
+    }
+
+    .primary-cta,
+    .secondary-cta {
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--ms-pill);
+      text-decoration: none;
+      font-size: 10px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .primary-cta {
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 var(--ms-saffron), 0 10px 20px rgba(0, 0, 128, .18);
+    }
+
+    .secondary-cta {
+      border: 1px solid rgba(0, 0, 128, .14);
+      padding: 0 12px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+    }
+
+    .service-card {
+      display: grid;
+      gap: 9px;
+      padding: 10px;
+    }
+
+    .service-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 7px;
+    }
+
+    .service-item {
+      min-height: 48px;
+      display: grid;
+      align-content: center;
+      gap: 2px;
+      border-radius: 15px;
+      padding: 8px;
+      background: #f3f6fb;
+      color: var(--ms-navy);
+      overflow: hidden;
+    }
+
+    .service-item b {
+      overflow: hidden;
+      font-size: 9px;
+      font-weight: 950;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .service-item span {
+      color: rgba(0, 0, 128, .60);
+      font-size: 7px;
+      font-weight: 850;
+      line-height: 1.15;
+    }
+
+    .bottom-dock {
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+      display: grid;
+      grid-template-columns: 52px minmax(0, 1fr) 52px;
+      align-items: center;
+      gap: 6px;
+      border: 1px solid rgba(0, 0, 128, .78);
+      border-radius: 22px;
+      padding: 7px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, .99), rgba(244, 247, 252, .99));
+      box-shadow: 0 -14px 32px rgba(0, 0, 128, .16), 0 2px 0 rgba(255, 255, 255, .95) inset, 0 -2px 0 rgba(0, 0, 128, .07) inset;
+      z-index: 10;
+    }
+
+    .mool-button,
+    .chat-button {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      border: 0;
+      border-radius: 50%;
+      text-decoration: none;
+      font-size: 10px;
+      font-weight: 950;
+    }
+
+    .mool-button {
+      background:
+        radial-gradient(circle at 36% 24%, rgba(255, 255, 255, .30), transparent 32%),
+        linear-gradient(145deg, #1717ba, var(--ms-navy) 72%);
+      color: var(--ms-white);
+      box-shadow: 0 9px 19px rgba(0, 0, 128, .24), inset 0 -5px 0 rgba(0, 0, 90, .36);
+    }
+
+    .chat-button {
+      position: relative;
+      background: radial-gradient(circle at 50% 12%, rgba(255, 255, 255, .96), rgba(255, 255, 255, .78) 44%, rgba(240, 244, 248, .98));
+      color: var(--ms-navy);
+      border: 1px solid rgba(0, 0, 128, .16);
+      box-shadow: 0 9px 18px rgba(0, 0, 128, .12);
+    }
+
+    .chat-badge {
+      min-width: 16px;
+      height: 16px;
+      position: absolute;
+      top: 5px;
+      right: 2px;
+      display: grid;
+      place-items: center;
+      border-radius: var(--ms-pill);
+      padding: 0 4px;
+      background: var(--ms-saffron);
+      color: var(--ms-navy);
+      font-size: 8px;
+      font-weight: 950;
+    }
+
+    .dock-track {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      min-width: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+      border: 1px solid rgba(0, 0, 128, .20);
+      border-radius: 19px;
+      padding: 5px 6px;
+      background:
+        linear-gradient(180deg, rgba(0, 0, 128, .14), rgba(255, 255, 255, .72) 44%, rgba(0, 0, 128, .08)),
+        radial-gradient(circle at 50% 0, rgba(255, 255, 255, .92), transparent 58%);
+      box-shadow: inset 0 9px 16px rgba(0, 0, 128, .14), inset 0 -8px 14px rgba(255, 255, 255, .92);
+      mask-image: linear-gradient(90deg, transparent 0, #000 16px, #000 calc(100% - 16px), transparent 100%);
+    }
+
+    .dock-track::-webkit-scrollbar { display: none; }
+
+    .dock-tab {
+      flex: 0 0 62px;
+      min-height: 46px;
+      display: grid;
+      place-items: center;
+      align-content: center;
+      gap: 3px;
+      border-radius: 17px;
+      color: var(--ms-navy);
+      text-decoration: none;
+      font-size: 8px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .dock-tab svg {
+      width: 17px;
+      height: 17px;
+    }
+
+    .dock-tab.active {
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 var(--ms-saffron), 0 8px 18px rgba(0, 0, 128, .16);
+    }
+
+    .notes {
+      display: grid;
+      gap: 18px;
+      min-width: 0;
+    }
+
+    .state-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .state-cell {
+      min-height: 112px;
+      display: grid;
+      align-content: start;
+      gap: 8px;
+      border-right: 1px solid var(--ms-navy);
+      border-bottom: 1px solid var(--ms-navy);
+      padding: 14px;
+      color: var(--ms-navy);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .state-cell:nth-child(2n) { border-right: 0; }
+    .state-cell b {
+      color: var(--ms-green);
+      font-size: 12px;
+      font-weight: 950;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 860px) {
+      .preview { grid-template-columns: 1fr; padding: 12px; }
+      .state-grid { grid-template-columns: 1fr; }
+      .state-cell { border-right: 0; }
+      .ms-page { padding: 18px; }
+    }
+  </style>
+</head>
+<body class="ms-doc">
+  <main class="ms-page screen-shell">
+    <div class="back-row">
+      <a class="screen-link-home" href="../index.html">
+        <span class="back-mark">28</span>
+        Back to MoolSocial Screenbook
+      </a>
+      <span class="ms-status">Approved</span>
+    </div>
+
+    <section class="preview">
+      <div class="phone" role="img" aria-label="MoolSocial Eat book table screen">
+        <div class="app">
+          <div class="status-row">
+            <span>9:41</span>
+            <span>5G 100%</span>
+          </div>
+
+          <header class="top-zone">
+            <div class="brand-row">
+              <div class="title-lockup">
+                <b>MoolSocial Eat</b>
+                <div class="identity-line" aria-hidden="true"><span></span><span></span><span></span></div>
+                <span>Book table</span>
+              </div>
+              <div class="top-buttons">
+                <a class="circle-btn" href="26-eat.html" aria-label="Back to Eat">
+                  <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" /></svg>
+                </a>
+                <button class="circle-btn" aria-label="Saved restaurants">
+                  <svg viewBox="0 0 24 24"><path d="M19 21l-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2Z" /></svg>
+                </button>
+              </div>
+            </div>
+
+            <div class="command-bar" aria-label="Search table booking">
+              <span class="command-text">Search restaurant, cuisine, offer or area</span>
+              <button class="search-action" aria-label="Search">
+                <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" /><path d="m20 20-3-3" /></svg>
+              </button>
+              <button class="search-action" aria-label="Scan restaurant QR">
+                <svg viewBox="0 0 24 24"><path d="M4 8V4h4" /><path d="M16 4h4v4" /><path d="M20 16v4h-4" /><path d="M8 20H4v-4" /></svg>
+              </button>
+              <button class="search-action" aria-label="Voice search">
+                <svg viewBox="0 0 24 24"><path d="M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3Z" /><path d="M19 10a7 7 0 0 1-14 0" /><path d="M12 17v4" /></svg>
+              </button>
+            </div>
+          </header>
+
+          <main class="content">
+            <section class="restaurant-card" aria-label="Choose restaurant">
+              <div class="card-head">
+                <b>Choose place</b>
+                <span id="restaurantStatus">Spice Darbar selected</span>
+              </div>
+              <div class="restaurant-rail">
+                <button class="restaurant-option active" data-restaurant="Spice Darbar" data-area="Ratanada · 1.1 km" data-status="2 tables left" data-price="Rs 0" data-label="booking" data-deposit="No deposit" data-cancel="Cancel free till 7:00" data-confirm="Instant confirm">
+                  <span class="restaurant-logo">SD</span>
+                  <span class="restaurant-copy">
+                    <b>Spice Darbar</b>
+                    <span>Ratanada · 1.1 km</span>
+                    <small>Rs 0 · 2 tables</small>
+                  </span>
+                </button>
+                <button class="restaurant-option" data-restaurant="Taj Jodhpur" data-area="Premium dining · 3.8 km" data-status="7:30 PM available" data-price="Rs 1,500" data-label="cover" data-deposit="Cover adjusted in bill" data-cancel="Cancel free till 6:30" data-confirm="Restaurant confirms">
+                  <span class="restaurant-logo">TJ</span>
+                  <span class="restaurant-copy">
+                    <b>Taj Jodhpur</b>
+                    <span>Premium dining · 3.8 km</span>
+                    <small>Cover Rs 1,500</small>
+                  </span>
+                </button>
+                <button class="restaurant-option" data-restaurant="Blue Lime Cafe" data-area="Cafe · 2.4 km" data-status="Window table open" data-price="Rs 0" data-label="booking" data-deposit="No deposit" data-cancel="Cancel free till 7:30" data-confirm="Instant confirm">
+                  <span class="restaurant-logo">BL</span>
+                  <span class="restaurant-copy">
+                    <b>Blue Lime Cafe</b>
+                    <span>Cafe · 2.4 km</span>
+                    <small>Free booking</small>
+                  </span>
+                </button>
+                <button class="restaurant-option" data-restaurant="Raas Rooftop" data-area="Rooftop · 4.2 km" data-status="Sunset slot open" data-price="Rs 500" data-label="hold" data-deposit="Hold amount adjusted" data-cancel="Cancel free till 6:45" data-confirm="Quick confirm">
+                  <span class="restaurant-logo">RR</span>
+                  <span class="restaurant-copy">
+                    <b>Raas Rooftop</b>
+                    <span>Rooftop · 4.2 km</span>
+                    <small>Hold Rs 500</small>
+                  </span>
+                </button>
+              </div>
+            </section>
+
+            <section class="booking-card" aria-label="Book table choices">
+              <div class="card-head">
+                <b>Book your table</b>
+                <span>People, time and table choice</span>
+              </div>
+
+              <div class="choice-row">
+                <div class="choice-title">
+                  <span>People</span>
+                  <span id="peopleHelp">Family table selected</span>
+                </div>
+                <div class="chip-row" aria-label="People count">
+                  <button class="people-chip" data-people="2">2 people</button>
+                  <button class="people-chip active" data-people="4">4 people</button>
+                  <button class="people-chip" data-people="6">6 people</button>
+                  <button class="people-chip" data-people="8+">8+ people</button>
+                </div>
+              </div>
+
+              <div class="choice-row">
+                <div class="choice-title">
+                  <span>Time</span>
+                  <span id="slotHelp">Hold 10 min after slot</span>
+                </div>
+                <div class="chip-row" aria-label="Time slots">
+                  <button class="slot-chip" data-time="Now" data-cancel="Cancel before arrival">Now</button>
+                  <button class="slot-chip active" data-time="7:30 PM" data-cancel="Cancel free till 7:00">7:30 PM</button>
+                  <button class="slot-chip" data-time="8:00 PM" data-cancel="Cancel free till 7:30">8:00 PM</button>
+                  <button class="slot-chip" data-time="8:30 PM" data-cancel="Cancel free till 8:00">8:30 PM</button>
+                </div>
+              </div>
+
+              <div class="choice-row">
+                <div class="choice-title">
+                  <span>Table choice</span>
+                  <span id="seatHelp">No deposit today</span>
+                </div>
+                <div class="seat-row" aria-label="Seat choice">
+                  <button class="seat-card active" data-seat="Standard table" data-note="Simple booking" data-price="" data-label="" data-deposit="">
+                    <b>Standard table</b>
+                    <span>normal table · fastest confirm</span>
+                  </button>
+                  <button class="seat-card" data-seat="Family dining" data-note="Best for family" data-price="" data-label="" data-deposit="">
+                    <b>Family dining</b>
+                    <span>bigger table · child friendly</span>
+                  </button>
+                  <button class="seat-card" data-seat="Dining pack" data-note="Starter included" data-price="Rs 1,200" data-label="pack" data-deposit="Pack adjusted in bill">
+                    <b>Dining pack</b>
+                    <span>starter hold · bill adjusted</span>
+                  </button>
+                  <button class="seat-card" data-seat="Buffet seat" data-note="Per person price" data-price="Rs 899" data-label="person" data-deposit="Pay at restaurant">
+                    <b>Buffet seat</b>
+                    <span>per person · limited slot</span>
+                  </button>
+                  <button class="seat-card" data-seat="Celebration setup" data-note="Restaurant confirms setup" data-price="Rs 2,000" data-label="setup" data-deposit="Advance may apply">
+                    <b>Celebration setup</b>
+                    <span>decor · cake note · confirm</span>
+                  </button>
+                </div>
+              </div>
+            </section>
+
+            <section class="summary-card" aria-label="Booking summary">
+              <div class="summary-top">
+                <span class="summary-copy">
+                  <b id="summaryTitle">Spice Darbar · 4 at 7:30 PM</b>
+                  <span id="summaryText">Standard table · Free dessert · Instant confirm.</span>
+                </span>
+                <span class="summary-price">
+                  <b id="summaryPrice">Rs 0</b>
+                  <span id="summaryPriceLabel">booking</span>
+                </span>
+              </div>
+              <div class="trust-grid">
+                <span class="trust-pill"><b>No wait</b><span id="holdRule">Hold 10 min</span></span>
+                <span class="trust-pill"><b>Cost clear</b><span id="depositRule">No deposit</span></span>
+                <span class="trust-pill"><b>Free cancel</b><span id="cancelRule">till 7:00</span></span>
+              </div>
+              <div class="summary-add-row" aria-label="Add to table booking">
+                <button class="offer-chip active" data-offer="Free dessert"><svg viewBox="0 0 24 24"><path d="M4 10h16" /><path d="M6 10v7a3 3 0 0 0 3 3h6a3 3 0 0 0 3-3v-7" /><path d="M8 6h8" /></svg>Free dessert</button>
+                <button class="offer-chip" data-offer="Use 120 points"><svg viewBox="0 0 24 24"><path d="m12 2 3 7 7 1-5 5 1 7-6-4-6 4 1-7-5-5 7-1Z" /></svg>Use points</button>
+                <button class="offer-chip" data-offer="Preorder starter"><svg viewBox="0 0 24 24"><path d="M4 11h16" /><path d="M6 11a6 6 0 0 1 12 0" /><path d="M5 17h14" /></svg>Preorder</button>
+              </div>
+              <div class="cta-row">
+                <a class="primary-cta" href="#">Book table</a>
+                <a class="secondary-cta" href="24-chat-business-thread.html">Chat</a>
+              </div>
+            </section>
+
+            <section class="service-card" aria-label="Restaurant visit help">
+              <div class="card-head">
+                <b>Before you go</b>
+                <span>clear before arrival</span>
+              </div>
+              <div class="service-list">
+                <span class="service-item"><b>Parking</b><span>front lane busy after 8 PM</span></span>
+                <span class="service-item"><b>Call</b><span>restaurant answers in app</span></span>
+                <span class="service-item"><b>Menu</b><span>check prices before visit</span></span>
+                <span class="service-item"><b>Late arrival</b><span>seat may release after hold</span></span>
+              </div>
+            </section>
+          </main>
+
+          <nav class="bottom-dock" aria-label="Eat booking navigation">
+            <a class="mool-button" href="04-universal-focus-shell.html">Mool</a>
+            <div class="dock-track">
+              <a class="dock-tab" href="26-eat.html"><svg viewBox="0 0 24 24"><path d="M4 11h16" /><path d="M6 11a6 6 0 0 1 12 0" /></svg>Order</a>
+              <a class="dock-tab active" href="#"><svg viewBox="0 0 24 24"><path d="M4 10h16" /><path d="M6 10v10" /><path d="M18 10v10" /></svg>Table</a>
+              <a class="dock-tab" href="#"><svg viewBox="0 0 24 24"><rect x="4" y="6" width="16" height="12" rx="3" /><path d="M4 12h16" /></svg>Tiffin</a>
+            </div>
+            <a class="chat-button" href="23-chat-inbox-home.html" aria-label="Open chat">
+              <svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z" /></svg>
+              <span class="chat-badge">2</span>
+            </a>
+          </nav>
+        </div>
+      </div>
+
+      <div class="notes">
+        <div>
+          <h1 class="ms-title">Screen 28 turns table booking into one confident decision.</h1>
+          <p class="ms-lead">
+            This approved screen keeps Book Table decisive: the user can choose Taj Jodhpur, Spice Darbar or another restaurant,
+            then pick people, time, table choice, offer, hold rule, cancellation and confirm without a cluttered listing view.
+          </p>
+        </div>
+
+        <div class="ms-panel">
+          <div class="ms-section-head">Screen Contract <span>Approved</span></div>
+          <div class="state-grid">
+            <div class="state-cell"><b>Entry</b>From Screen 26 Book Table, restaurant QR, restaurant search, social food post or chat recommendation.</div>
+            <div class="state-cell"><b>User Sees</b>Compact restaurant choices, available party size, live slots, table choice/package, offer, booking cost, hold window and cancellation rule.</div>
+            <div class="state-cell"><b>Decision</b>User selects restaurant, people, time, table choice and optional offer, then books table or chats/calls restaurant.</div>
+            <div class="state-cell"><b>Backend</b>Restaurant profile, table inventory, slot availability, table package, cover/deposit, offer eligibility, hold expiry, cancellation rule and booking confirmation APIs.</div>
+            <div class="state-cell"><b>Trust</b>User sees booking price, cover/deposit, package rule, table hold, late-arrival rule and cancellation before confirming.</div>
+            <div class="state-cell"><b>Failure</b>If slot fills, restaurant closes or table choice is unavailable, show next slot, alternate table, call restaurant or pick another restaurant.</div>
+            <div class="state-cell"><b>Next</b>Confirmed booking should route to table confirmation, restaurant chat, map/direction, menu preorder or QR table order when user reaches restaurant.</div>
+            <div class="state-cell"><b>Regression</b>Bottom dock must match the approved MoolSocial dock shape; Mool and Chat remain fixed; Table stays active in this flow.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const restaurantOptions = document.querySelectorAll("[data-restaurant]");
+    const peopleChips = document.querySelectorAll("[data-people]");
+    const slotChips = document.querySelectorAll("[data-time]");
+    const seatCards = document.querySelectorAll("[data-seat]");
+    const offerChips = document.querySelectorAll("[data-offer]");
+    const summaryTitle = document.getElementById("summaryTitle");
+    const summaryText = document.getElementById("summaryText");
+    const summaryPrice = document.getElementById("summaryPrice");
+    const summaryPriceLabel = document.getElementById("summaryPriceLabel");
+    const peopleHelp = document.getElementById("peopleHelp");
+    const slotHelp = document.getElementById("slotHelp");
+    const seatHelp = document.getElementById("seatHelp");
+    const cancelRule = document.getElementById("cancelRule");
+    const holdRule = document.getElementById("holdRule");
+    const depositRule = document.getElementById("depositRule");
+    const restaurantStatus = document.getElementById("restaurantStatus");
+
+    const state = {
+      restaurant: "Spice Darbar",
+      status: "2 tables left",
+      basePrice: "Rs 0",
+      baseLabel: "booking",
+      baseDeposit: "No deposit",
+      confirm: "Instant confirm",
+      people: "4",
+      time: "7:30 PM",
+      seat: "Standard table",
+      seatNote: "Simple booking",
+      seatPrice: "",
+      seatLabel: "",
+      seatDeposit: "",
+      offer: "Free dessert",
+      cancel: "Cancel free till 7:00"
+    };
+
+    function updateSummary() {
+      const finalPrice = state.seatPrice || state.basePrice;
+      const finalLabel = state.seatLabel || state.baseLabel;
+      const finalDeposit = state.seatDeposit || state.baseDeposit;
+      summaryTitle.textContent = `${state.restaurant} · ${state.people} at ${state.time}`;
+      summaryText.textContent = `${state.seat} · ${state.offer} · ${state.confirm}.`;
+      summaryPrice.textContent = finalPrice;
+      summaryPriceLabel.textContent = finalLabel;
+      peopleHelp.textContent = `${state.seat} selected`;
+      slotHelp.textContent = state.time === "Now" ? "Reach within 20 min" : "Hold 10 min after slot";
+      seatHelp.textContent = state.seatNote;
+      cancelRule.textContent = state.cancel.replace("Cancel free ", "");
+      holdRule.textContent = state.time === "Now" ? "20 min" : "Hold 10 min";
+      depositRule.textContent = finalDeposit;
+      restaurantStatus.textContent = `${state.restaurant} selected · ${state.status}`;
+    }
+
+    restaurantOptions.forEach((option) => {
+      option.addEventListener("click", () => {
+        restaurantOptions.forEach((item) => item.classList.toggle("active", item === option));
+        state.restaurant = option.dataset.restaurant;
+        state.status = option.dataset.status;
+        state.basePrice = option.dataset.price;
+        state.baseLabel = option.dataset.label;
+        state.baseDeposit = option.dataset.deposit;
+        state.cancel = option.dataset.cancel;
+        state.confirm = option.dataset.confirm;
+        const defaultSeat = seatCards[0];
+        seatCards.forEach((item) => item.classList.toggle("active", item === defaultSeat));
+        state.seat = defaultSeat.dataset.seat;
+        state.seatNote = defaultSeat.dataset.note;
+        state.seatPrice = defaultSeat.dataset.price;
+        state.seatLabel = defaultSeat.dataset.label;
+        state.seatDeposit = defaultSeat.dataset.deposit;
+        updateSummary();
+      });
+    });
+
+    peopleChips.forEach((chip) => {
+      chip.addEventListener("click", () => {
+        peopleChips.forEach((item) => item.classList.toggle("active", item === chip));
+        state.people = chip.dataset.people;
+        updateSummary();
+      });
+    });
+
+    slotChips.forEach((chip) => {
+      chip.addEventListener("click", () => {
+        slotChips.forEach((item) => item.classList.toggle("active", item === chip));
+        state.time = chip.dataset.time;
+        state.cancel = chip.dataset.cancel;
+        updateSummary();
+      });
+    });
+
+    seatCards.forEach((card) => {
+      card.addEventListener("click", () => {
+        seatCards.forEach((item) => item.classList.toggle("active", item === card));
+        state.seat = card.dataset.seat;
+        state.seatNote = card.dataset.note;
+        state.seatPrice = card.dataset.price;
+        state.seatLabel = card.dataset.label;
+        state.seatDeposit = card.dataset.deposit;
+        updateSummary();
+      });
+    });
+
+    offerChips.forEach((chip) => {
+      chip.addEventListener("click", () => {
+        offerChips.forEach((item) => item.classList.toggle("active", item === chip));
+        state.offer = chip.dataset.offer;
+        updateSummary();
+      });
+    });
+  </script>
+<script type="application/json" id="productionRouteContract">{"contractVersion":"mvp-route-lock-2026-07-12","prototypeScreen":28,"productionModule":"eat","routeId":"eat.table-booking","routePath":"/eat/restaurants/:restaurantId/tables","routeState":"table-booking","implementation":"route-shell","launchScope":"post-mvp","separateProductionRoute":true,"productionNote":"Own production route /eat/restaurants/:restaurantId/tables. Implement table-booking as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.","canonicalMap":"architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"}</script><script type="application/json" id="prototypeApprovalContract">{"prototypeScreen":28,"status":"approved-and-frozen","authoritative":true,"approvedAt":"2026-07-12","approvalScope":"prototype-ui-ux-and-production-contract"}</script></body>
+</html>

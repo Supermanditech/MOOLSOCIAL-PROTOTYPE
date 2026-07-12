@@ -1,0 +1,906 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MoolSocial UI/UX Screenbook</title>
+  <link rel="stylesheet" href="shared/styles.css" />
+</head>
+<body>
+  <main class="shell">
+    <header class="screenbook-header">
+      <div>
+        <div class="brand-mark">
+          <span class="brand-icon">BR</span>
+          MoolSocial UI/UX Screenbook
+        </div>
+        <h1>Brand-first, screen-wise architecture for production-grade buildout.</h1>
+        <p class="lead">
+          This folder is the visual and textual source of truth before coding each screen.
+          Every screen must be approved here, then implemented, tested, and regression-locked before the next screen starts.
+        </p>
+      </div>
+      <span class="status-pill">Foundation locked</span>
+    </header>
+
+    <section class="hero-grid">
+      <div class="panel">
+        <p class="kicker">Build Rule</p>
+        <h2>Foundation first, production code second.</h2>
+        <p class="lead">
+          The HTML files in this folder are not the final app. They are the locked brand and UI/UX architecture reference
+          for Codex before building the production frontend, backend APIs, and tests.
+        </p>
+        <div class="note">
+          No screen should move into production until brand usage, entry conditions, visible UI, tap behavior,
+          data needs, failure states, compliance gates, and regression checklist are written here.
+        </div>
+      </div>
+
+      <div class="panel">
+        <p class="kicker">Current Scope</p>
+        <h2>Foundation is ready. Screens start next.</h2>
+        <div class="screen-list">
+          <a class="screen-link" href="moolsocial-approved-logo-specs.html">
+            <span class="screen-num">LG</span>
+            <span>
+              <strong>MoolSocial Approved Logo Specs</strong>
+              <span>Final logo, colours, logotype, tagline and usage rules.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="moolsocial-freeze-brand-system.html">
+            <span class="screen-num">FR</span>
+            <span>
+              <strong>Freeze Brand System</strong>
+              <span>Locked brand, product principles, legal boundary and usage rules.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="moolsocial-domain-strategy.html">
+            <span class="screen-num">DM</span>
+            <span>
+              <strong>Domain Names</strong>
+              <span>Main domain, defensive domains, redirects and production subdomains.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="moolsocial-shared-ui-foundation.html">
+            <span class="screen-num">UI</span>
+            <span>
+              <strong>Shared UI Foundation</strong>
+              <span>Reusable tokens, controls, decision cards and universal screen primitives.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/00-install-app.html">
+            <span class="screen-num">00</span>
+            <span>
+              <strong>Install App</strong>
+              <span>Approved Play Store listing, install action, and open-app handoff.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/01-app-splash-first-open.html">
+            <span class="screen-num">01</span>
+            <span>
+              <strong>App Splash / First Open Handoff</strong>
+              <span>Approved splash, boot checks, route logic, and first setup handoff.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/02-first-setup-language-location.html">
+            <span class="screen-num">02</span>
+            <span>
+              <strong>First Setup / Language + Location</strong>
+              <span>Approved auto language, smart location consent, login handoff, travel and home-area logic.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/03-login-account-handoff.html">
+            <span class="screen-num">03</span>
+            <span>
+              <strong>Login / Account Handoff</strong>
+              <span>Approved one-method login, OTP autofill logic, provider routes, and clean route to Screen 04.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/04-universal-focus-shell.html">
+            <span class="screen-num">04</span>
+            <span>
+              <strong>Universal Focus Shell</strong>
+              <span>Approved one-focused-world main app screen with one-tap switching.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/05-social-shorts.html">
+            <span class="screen-num">05</span>
+            <span>
+              <strong>Social &gt; Shorts</strong>
+              <span>Approved full-screen Shorts viewer with creator identity, social actions, hidden details and Mool/Chat access.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/06-social-videos.html">
+            <span class="screen-num">06</span>
+            <span>
+              <strong>Social &gt; Videos</strong>
+              <span>Approved video feed/watch flow with YouTube-style chips, Shorts link, verified proof and action context.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/07-social-feed.html">
+            <span class="screen-num">07</span>
+            <span>
+              <strong>Social &gt; Feed</strong>
+              <span>Approved social feed with post detail, comments, repost/share and verified action context.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/08-social-create.html">
+            <span class="screen-num">08</span>
+            <span>
+              <strong>Social &gt; Create</strong>
+              <span>Approved all-in-one social creation hub for text, photo, shorts, videos, stories, live, threads, polls and creator earning path.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/09-buy.html">
+            <span class="screen-num">09</span>
+            <span>
+              <strong>Buy</strong>
+              <span>Approved commerce entry with QR shop session, progressive route into grocery decision, compact categories, basket offers and decision-ready products.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/10-buy-grocery-decision.html">
+            <span class="screen-num">10</span>
+            <span>
+              <strong>Buy &gt; Grocery Decision</strong>
+              <span>Approved shop-specific grocery flow with retailer capability settings, retail/family-pack/wholesale-MOQ/shop-offer choices and basket continuation.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/11-buy-product-detail.html">
+            <span class="screen-num">11</span>
+            <span>
+              <strong>Buy &gt; Product Detail</strong>
+              <span>Approved product detail and add-to-basket flow with selected shop/product, shop settings, rate, unit, quantity, fulfilment and proof.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/12-buy-basket-checkout.html">
+            <span class="screen-num">12</span>
+            <span>
+              <strong>Buy &gt; Basket / Checkout Decision</strong>
+              <span>Approved basket checkout flow with item quantities, fulfilment, retailer stock lock, estimated/confirmed payable amount and payment handoff.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/13-retailer-stock-confirmation.html">
+            <span class="screen-num">13</span>
+            <span>
+              <strong>Retailer Stock Confirmation Alert</strong>
+              <span>Approved retailer alert for stock lock, item confirmation, mismatch handling, SLA and payment unlock.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/14-customer-payment-order-confirmation.html">
+            <span class="screen-num">14</span>
+            <span>
+              <strong>Customer Payment / Order Confirmation</strong>
+              <span>Approved payment flow after retailer stock lock with final amount, stock timer, fulfilment, protected charge, pickup code, receipt and tracking handoff.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/15-counter-ready-receipt.html">
+            <span class="screen-num">15</span>
+            <span>
+              <strong>Counter Ready Receipt</strong>
+              <span>Approved counter pickup receipt handoff with live shop queue match, paid order signals, counter view, QR backup and collected state.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/16-order-completed-bill-rating.html">
+            <span class="screen-num">16</span>
+            <span>
+              <strong>Order Completed / Bill &amp; Rating</strong>
+              <span>Approved completed pickup closeout with final bill, issue window, trust feedback, repeat basket, monthly basket and low-rating support path.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/17-home-delivery-tracking.html">
+            <span class="screen-num">17</span>
+            <span>
+              <strong>Home Delivery Tracking</strong>
+              <span>Approved delivery branch with ETA, item summary, safe OTP unlock, proof timestamps, address help, delay support and rider reassignment.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/18-home-delivery-completed-bill-rating.html">
+            <span class="screen-num">18</span>
+            <span>
+              <strong>Home Delivery Completed / Bill &amp; Rating</strong>
+              <span>Approved delivery closeout with calm delivered summary, final bill, compact proof, issue window, order rating and repeat basket.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/19-order-issue-refund-evidence.html">
+            <span class="screen-num">19</span>
+            <span>
+              <strong>Order Issue / Refund Evidence</strong>
+              <span>Approved guided issue assistant with affected item, issue type, suggested refund/replacement, proof capture and support review path.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/20-issue-review-status-retailer-response.html">
+            <span class="screen-num">20</span>
+            <span>
+              <strong>Issue Status / Retailer Response</strong>
+              <span>Approved customer-facing live issue tracker with shop reply timer, proof packet, refund/replacement status, support fallback and safe resolved confirmation.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/21-issue-result-refund-replacement.html">
+            <span class="screen-num">21</span>
+            <span>
+              <strong>Issue Result / Refund Replacement</strong>
+              <span>Approved final issue outcome with refund amount, replacement route, support decision, bill adjustment, saved proof and next actions.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/22-chat-order-support-thread.html">
+            <span class="screen-num">22</span>
+            <span>
+              <strong>Chat / Order Support Thread</strong>
+              <span>Approved order/support chat with WhatsApp-quality text, call, video, photo, file, bill/proof attachment and support fallback.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/23-chat-inbox-home.html">
+            <span class="screen-num">23</span>
+            <span>
+              <strong>Chat Inbox / Chat Home</strong>
+              <span>Approved premium chat inbox with WhatsApp-like thread list, unread filters, call/video/media/file capability signals and context-aware routing.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/24-chat-business-thread.html">
+            <span class="screen-num">24</span>
+            <span>
+              <strong>Chat / Business Thread</strong>
+              <span>Approved verified business chat with WhatsApp-quality messaging, audio/video call, media/file sharing, quote expiry, pickup/delivery choice and safe payment actions.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/25-chat-people-thread.html">
+            <span class="screen-num">25</span>
+            <span>
+              <strong>Chat / People Thread</strong>
+              <span>Approved personal/group chat with WhatsApp-quality attachment tray, photo/file previews, reply, typing, reactions, voice, basket, poll and invite actions.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/26-eat.html">
+            <span class="screen-num">26</span>
+            <span>
+              <strong>Eat / Food Decision Home</strong>
+              <span>Approved Eat main action with restaurant chooser, delivery/QR/search/offers context, loyalty, and Order Food/Table/Tiffin decision panels.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/27-eat-order-food.html">
+            <span class="screen-num">27</span>
+            <span>
+              <strong>Eat &gt; Order Food</strong>
+              <span>Approved restaurant menu/order decision screen with fulfilment choice, menu categories, item cards, live basket and acceptance-before-payment logic.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/28-eat-book-table.html">
+            <span class="screen-num">28</span>
+            <span>
+              <strong>Eat &gt; Book Table</strong>
+              <span>Approved table booking flow with restaurant choices, people, time slot, table package, offer, cover/deposit, cancellation and confirm action.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/29-eat-tiffin.html">
+            <span class="screen-num">29</span>
+            <span>
+              <strong>Eat &gt; Tiffin</strong>
+              <span>Approved tiffin decision screen with kitchen choice, food style, meal slot, menu calendar, trial/weekly/monthly price, pause/skip control and start action.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/30-ride.html">
+            <span class="screen-num">30</span>
+            <span>
+              <strong>Ride</strong>
+              <span>Approved progressive ride decision screen with pickup/drop, Bike/Auto/Cab choice, package reveal, fare, ETA and booking action.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/31-ride-accepted-captain-arriving.html">
+            <span class="screen-num">31</span>
+            <span>
+              <strong>Ride &gt; Captain Arriving</strong>
+              <span>Approved accepted ride screen with captain identity, vehicle number, ETA, call, chat, live map, pickup instruction, cancellation and safety handoff.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/32-ride-live-trip.html">
+            <span class="screen-num">32</span>
+            <span>
+              <strong>Ride &gt; Live Trip</strong>
+              <span>Approved on-trip screen with route progress, destination ETA, fare lock, Cash/UPI/Card payment lock, call/chat/share/safety, add stop and trip completion handoff.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/33-ride-payment-approval.html">
+            <span class="screen-num">33</span>
+            <span>
+              <strong>Ride &gt; Payment Approval</strong>
+              <span>Approved ride-ended payment screen with final fare, customer-approved card debit, Cash/UPI collection, issue-before-pay route and receipt/rating handoff.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/34-ride-receipt-rating.html">
+            <span class="screen-num">34</span>
+            <span>
+              <strong>Ride &gt; Receipt &amp; Rating</strong>
+              <span>Approved ride closure screen with paid receipt, trip proof, captain rating, support window, share/download receipt and next ride action.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/35-ride-post-trip-support.html">
+            <span class="screen-num">35</span>
+            <span>
+              <strong>Ride &gt; Post-Trip Support</strong>
+              <span>Approved ride support screen with belongings warning, missing item report, fare issue, route issue, safety concern, attached proof, timeline and support chat handoff.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/36-book.html">
+            <span class="screen-num">36</span>
+            <span>
+              <strong>Book</strong>
+              <span>Approved Book master screen with Get It Done, Services, Doctor and Salon decisions, doctor/hospital/follow-up logic, provider proof, time, fee, cancellation and booking action.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/37-book-doctor-appointment.html">
+            <span class="screen-num">37</span>
+            <span>
+              <strong>Book &gt; Doctor Appointment</strong>
+              <span>Approved doctor appointment decision screen with clinic doctor, hospital OPD, video consult, follow-up, symptoms/reports, fee, queue/slot, proof and confirm action.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/38-book-patient-details-reports.html">
+            <span class="screen-num">38</span>
+            <span>
+              <strong>Book &gt; Patient Details &amp; Reports</strong>
+              <span>Approved patient details and reports screen with family patient selection, symptoms, report upload, prescription link, privacy consent and appointment confirmation readiness.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/39-doctor-patient-invite-followup.html">
+            <span class="screen-num">39</span>
+            <span>
+              <strong>Doctor &gt; Patient Invite &amp; Follow-Up</strong>
+              <span>Approved doctor/clinic growth screen with walk-in patient QR/link invite, follow-up window, reminders, report sharing and patient app onboarding reason.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/40-patient-clinic-invite-join.html">
+            <span class="screen-num">40</span>
+            <span>
+              <strong>Patient &gt; Clinic Invite Join</strong>
+              <span>Approved patient-side QR/link handoff screen with verified doctor, follow-up benefit, report upload, consent, login/link route and clinic chat.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/41-patient-followup-workspace.html">
+            <span class="screen-num">41</span>
+            <span>
+              <strong>Patient &gt; Follow-Up Workspace</strong>
+              <span>Approved patient-owned follow-up workspace with active doctor case, report upload, medicine reminders, prescription record, rebook/review, sharing control and clinic chat.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/42-book-salon-appointment.html">
+            <span class="screen-num">42</span>
+            <span>
+              <strong>Book &gt; Salon Appointment</strong>
+              <span>Approved salon booking decision screen with salon visit, home visit, makeup and package paths, service need, price, slot, proof, cancellation and booking action.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/43-salon-booking-confirm.html">
+            <span class="screen-num">43</span>
+            <span>
+              <strong>Salon &gt; Booking Confirmation</strong>
+              <span>Approved salon confirmation screen with selected provider, service, slot, amount, payment choice, MoolSocial payment benefit, add-ons, cancellation, reminder and final confirm action.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/44-salon-booking-confirmed.html">
+            <span class="screen-num">44</span>
+            <span>
+              <strong>Salon &gt; Booking Confirmed</strong>
+              <span>Approved confirmed salon slot screen with booking ID, payment status, MoolSocial payment nudge, reminder, route, reschedule/cancel and booking chat.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/45-salon-visit-check-in.html">
+            <span class="screen-num">45</span>
+            <span>
+              <strong>Salon &gt; Visit Check-In</strong>
+              <span>Approved salon arrival screen with checked-in state, salon acknowledgment, stylist/queue readiness, MoolSocial payment reason, issue-before-pay support and service completion handoff.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/46-salon-service-payment-rating.html">
+            <span class="screen-num">46</span>
+            <span>
+              <strong>Salon &gt; Service Payment Rating</strong>
+              <span>Approved salon completion screen with finished service state, payment approval, bill, rating, repeat booking, support and receipt handoff.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/47-salon-post-visit-support.html">
+            <span class="screen-num">47</span>
+            <span>
+              <strong>Salon &gt; Post-Visit Support</strong>
+              <span>Approved salon support screen after payment/rating with saved visit record, bill correction, service issue, safety concern, proof-if-needed, review action and support chat handoff.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/48-book-get-it-done.html">
+            <span class="screen-num">48</span>
+            <span>
+              <strong>Book &gt; Get It Done</strong>
+              <span>Approved progressive flow with task city, pickup/document/market/custom choices, verified help, missing details, proof preference, payment hold, review handoff and chat.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/49-get-it-done-review-payment.html">
+            <span class="screen-num">49</span>
+            <span>
+              <strong>Get It Done &gt; Review &amp; Payment Hold</strong>
+              <span>Approved review screen with completed task summary, helper fee, spend limit, total hold, payment method, proof release rule, edit, confirm and chat.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/50-get-it-done-helper-accepted.html">
+            <span class="screen-num">50</span>
+            <span>
+              <strong>Get It Done &gt; Helper Accepted</strong>
+              <span>Approved live task screen with accepted helper, ETA, route preview, held amount, spend cap, proof rule, chat/call/share, cancel and proof handoff.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/51-get-it-done-proof-release.html">
+            <span class="screen-num">51</span>
+            <span>
+              <strong>Get It Done &gt; Proof Review &amp; Release</strong>
+              <span>Approved proof review screen with proof preview, bill/status, helper fee, actual spend, unused return, release, ask again and issue path.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/52-get-it-done-completed-rating.html">
+            <span class="screen-num">52</span>
+            <span>
+              <strong>Get It Done &gt; Completed &amp; Rating</strong>
+              <span>Approved completion screen with released amount, unused return, receipt/proof saved, rating, repeat task, save helper, share and support.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/53-get-it-done-issue-support.html">
+            <span class="screen-num">53</span>
+            <span>
+              <strong>Get It Done &gt; Issue Support</strong>
+              <span>Approved issue support screen for wrong proof, incomplete task, overcharge, safety concern, payment status, evidence, resolution option, chat and support submit.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/54-get-it-done-issue-case-status.html">
+            <span class="screen-num">54</span>
+            <span>
+              <strong>Get It Done &gt; Issue Case Status</strong>
+              <span>Approved issue case-status screen showing review stage, ETA, protected amount, chat handoff and edit/retry path after issue submit.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/55-get-it-done-issue-resolution.html">
+            <span class="screen-num">55</span>
+            <span>
+              <strong>Get It Done &gt; Issue Resolution</strong>
+              <span>Approved issue resolution screen showing refund, rework, bill adjustment or close-case choices after support review.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/56-get-it-done-resolution-complete.html">
+            <span class="screen-num">56</span>
+            <span>
+              <strong>Get It Done &gt; Resolution Complete</strong>
+              <span>Approved final resolution screen confirming refund, rework, adjusted bill or close case with saved record and next action.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/57-pay.html">
+            <span class="screen-num">57</span>
+            <span>
+              <strong>Pay</strong>
+              <span>Approved Pay master screen for payment-first actions: Recharge, Bills, Scan Pay and Pay Requests, with Receipts kept secondary.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/58-pay-recharge.html">
+            <span class="screen-num">58</span>
+            <span>
+              <strong>Pay &gt; Recharge</strong>
+              <span>Approved recharge screen for mobile, DTH, data and saved recharges with number/operator/plan check, payment mode and receipt rule.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/59-pay-bills.html">
+            <span class="screen-num">59</span>
+            <span>
+              <strong>Pay &gt; Bills</strong>
+              <span>Approved bills screen for electricity, water, gas and internet with biller lookup, consumer number, due amount, due date, payment mode and receipt rule.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/60-pay-scan.html">
+            <span class="screen-num">60</span>
+            <span>
+              <strong>Pay &gt; Scan Pay</strong>
+              <span>Approved scan pay screen for shop QR, order QR, provider QR and UPI ID with payee verification, amount confirmation, purpose and receipt rule.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/61-pay-requests.html">
+            <span class="screen-num">61</span>
+            <span>
+              <strong>Pay &gt; Pay Requests</strong>
+              <span>Approved payment requests screen for pending, order, business and people requests with verified requester, linked purpose, amount, expiry and approve-or-decline action.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/62-pay-request-confirmation.html">
+            <span class="screen-num">62</span>
+            <span>
+              <strong>Pay &gt; Request Confirmation</strong>
+              <span>Approved final approval screen with verified payee, linked purpose, exact debit, expiry, payment method, decline and payment authentication handoff.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/63-pay-processing-receipt.html">
+            <span class="screen-num">63</span>
+            <span>
+              <strong>Pay &gt; Success &amp; Receipt</strong>
+              <span>Approved authoritative payment outcome with transaction references, receipt, linked order update, tracking, pending/failure safeguards and support.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/64-pay-receipts-history.html">
+            <span class="screen-num">64</span>
+            <span>
+              <strong>Pay &gt; Receipts &amp; History</strong>
+              <span>Approved searchable consumer payment ledger with All, Pending and Refunds, immutable references, linked purposes, receipt actions and safe support routes.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/65-pay-pending-refund-status.html?payment=DC108&amp;state=pending">
+            <span class="screen-num">65</span>
+            <span>
+              <strong>Pay &gt; Pending &amp; Refund Status</strong>
+              <span>Approved reusable status screen for pending payments and refunds with no-repeat-payment protection, verified timeline, linked references and support.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/66-pay-failed-reversal-safe-retry.html?payment=DC108&amp;state=failed">
+            <span class="screen-num">66</span>
+            <span>
+              <strong>Pay &gt; Failed, Reversal &amp; Safe Retry</strong>
+              <span>Approved payment exception screen separating verified no-debit failure from debit reversal, with retry unlocked only when bank-confirmed safe.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/67-work.html">
+            <span class="screen-num">67</span>
+            <span>
+              <strong>Work</strong>
+              <span>Approved compact opportunity scanner with one-at-a-time inline decisions, funded earning potential, progressive My Work activation and required-work Apply routing.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/68-work-opportunity-terms-apply.html?opportunity=creator-explainer">
+            <span class="screen-num">68</span>
+            <span>
+              <strong>Work &gt; Opportunity Details &amp; Apply</strong>
+              <span>Approved decision screen with exact funded outcome; Apply checks a valid existing workspace or preserves the opportunity while the user enters My Work.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/69-my-work-setup.html?state=new">
+            <span class="screen-num">69</span>
+            <span>
+              <strong>My Work &gt; Home</strong>
+              <span>Approved identity-ready My Work gateway. Start My Work opens the progressive profile card tree.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/70-my-work-choose-activity.html?from=69">
+            <span class="screen-num">70</span>
+            <span>
+              <strong>My Work &gt; Progressive Profile Cards</strong>
+              <span>Approved two-to-four-tap workspace identification with exact profile preview, alternate-mobile OTP and unsupported-profile admin alert.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/71-work-profile-proof.html?profile=grocery_retailer&amp;area=Jodhpur">
+            <span class="screen-num">71</span>
+            <span>
+              <strong>My Work &gt; Profile Verification</strong>
+              <span>Approved exact-profile verification with India/Rajasthan compliance rules, mandatory personal KYC, consent-based identity routes, conditional statutory documents and GST-pending business reminders.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/72-my-work-verification-status.html?profile=grocery_retailer&amp;gst=pending&amp;area=Jodhpur">
+            <span class="screen-num">72</span>
+            <span>
+              <strong>My Work &gt; Verification Status</strong>
+              <span>Approved review tracker with required-check status, corrections, nonblocking GST-pending reminders and later certificate submission.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/73-workspace-ready-handoff.html?profile=grocery_retailer&amp;workspace=WK-256619&amp;area=Jodhpur">
+            <span class="screen-num">73</span>
+            <span>
+              <strong>My Work &gt; Workspace Ready</strong>
+              <span>Approved post-review handoff with exact profile-specific setup steps, one next action and publication locked until operational readiness is complete.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/74-retail-products-stock-setup.html?profile=grocery_retailer&amp;workspace=WK-256619&amp;name=Mahadev%20Fresh%20Mart&amp;area=Jodhpur">
+            <span class="screen-num">74</span>
+            <span>
+              <strong>Retail Workspace &gt; Operating Home</strong>
+              <span>Approved retailer operating app shell with unified Orders, phone/counter sales, delivery, final My Stock, 10,000-plus master catalog, wholesale cart-to-purchase-order, Business Book and demand opportunities.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/75-retailer-order-review-fulfilment.html?order=MS-2841&amp;state=new">
+            <span class="screen-num">75</span>
+            <span>
+              <strong>Retail Orders &gt; Review &amp; Fulfil</strong>
+              <span>Approved retailer order decision with compact sales bill, exact stock and payment checks, 12/12 packing gate, fulfilment request and automatic best-retailer rerouting when fulfilment fails.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/76-retailer-delivery-assignment-handover.html?order=MS-2841&amp;state=assigned">
+            <span class="screen-num">76</span>
+            <span>
+              <strong>Retail Delivery &gt; Assign &amp; Hand Over</strong>
+              <span>Approved verified-captain assignment, parcel readiness, geofenced arrival and dual-event handover flow without a counter OTP.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/77-retailer-delivery-tracking-completion.html?order=MS-2841&amp;state=out">
+            <span class="screen-num">77</span>
+            <span>
+              <strong>Retail Delivery &gt; Track &amp; Complete</strong>
+              <span>Approved live route progress, delay-specific ETA handling and proof-driven completion with automatic inventory debit, sales posting, invoice, payment reconciliation and delivery settlement.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/78-retailer-create-order.html?source=phone">
+            <span class="screen-num">78</span>
+            <span>
+              <strong>Retail Orders &gt; Create Counter, Phone or Chat Order</strong>
+              <span>Approved progressive order builder using live My Stock, optional counter identity, repeat baskets, one live bill, fulfilment, payment, reservation and connected invoice output.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/79-retailer-counter-management.html">
+            <span class="screen-num">79</span>
+            <span>
+              <strong>Retail Orders &gt; Counter Management</strong>
+              <span>Approved counter control with shop-wide totals, a swipeable Counter N selector, one focused counter workspace, purpose naming, operator control, activity and one-tap order entry.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/80-retailer-counter-sale-invoice.html">
+            <span class="screen-num">80</span>
+            <span>
+              <strong>Retail Counter &gt; Complete Sale &amp; Invoice</strong>
+              <span>Approved reusable retailer POS with a dominant payable amount, optional item details, clear payment selection, one-tap completion and a clean consent-aware receipt and invoice handoff.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/81-retailer-wholesale-buy-catalog.html">
+            <span class="screen-num">81</span>
+            <span>
+              <strong>Retail Wholesale Buy &gt; Procurement Catalog</strong>
+              <span>Approved scalable canonical-SKU catalogue showing case rate, MOQ, delivery window, payment term, delivery owner and offer, with protected-payment and supplier terms one tap away.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/82-retailer-wholesale-cart-purchase-order.html">
+            <span class="screen-num">82</span>
+            <span>
+              <strong>Retail Wholesale Buy &gt; Cart &amp; Purchase Order</strong>
+              <span>Approved wholesale order review with exact delivery windows, delivery ownership, protected advance, payment-on-delivery balance, GST details and supplier-wise purchase orders.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/83-retailer-wholesale-order-confirmed.html">
+            <span class="screen-num">83</span>
+            <span>
+              <strong>Retail Wholesale Buy &gt; Order Confirmation</strong>
+              <span>Approved supplier-wise purchase-order result with protected advance, payment on delivery, dispatch deadlines, delivery windows, transport ownership, GST invoice timing and goods-receipt stock control.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/84-retailer-wholesale-delivery-tracking.html">
+            <span class="screen-num">84</span>
+            <span>
+              <strong>Retail Wholesale Buy &gt; Delivery Tracking</strong>
+              <span>Approved supplier-wise tracking with honest pre-dispatch commitments, telemetry-backed live ETA, stale-GPS warning, delivery ownership, protected advance status and goods-receipt handoff.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/85-retailer-wholesale-goods-receipt.html">
+            <span class="screen-num">85</span>
+            <span>
+              <strong>Retail Wholesale Buy &gt; Goods Receipt</strong>
+              <span>Approved compact goods receipt with accepted quantity, discrepancy evidence, GST invoice matching, accepted-stock posting and protected advance or payment-on-delivery settlement control.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/86-retailer-wholesale-receipt-result.html">
+            <span class="screen-num">86</span>
+            <span>
+              <strong>Retail Wholesale Buy &gt; Receipt Result</strong>
+              <span>Approved compact post-receipt result with GRN, accepted stock, purchase-book entry, GST invoice and authoritative protected-payment event status.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/87-retailer-purchase-book.html">
+            <span class="screen-num">87</span>
+            <span>
+              <strong>Retailer &gt; Purchase Book</strong>
+              <span>Approved retailer Purchase Book combining wholesale POs, direct supplier bills, accepted stock, invoice-photo extraction, GST references, actions and payment status.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/88-retailer-supplier-bill-payment.html">
+            <span class="screen-num">88</span>
+            <span>
+              <strong>Retailer &gt; Supplier Bill &amp; Payment</strong>
+              <span>Approved supplier obligation detail with original invoice, extracted items, PO/GRN/GST reconciliation, due terms, issues and safe payment authorization.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/89-retailer-supplier-payment-status.html">
+            <span class="screen-num">89</span>
+            <span>
+              <strong>Retailer &gt; Supplier Payment Status</strong>
+              <span>Approved authoritative processing, settled, failed and reversed supplier-payment states with bill linkage, receipt truth and safe retry.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/90-retailer-sales-book.html">
+            <span class="screen-num">90</span>
+            <span>
+              <strong>Retailer &gt; Sales Book</strong>
+              <span>Approved unified sales ledger for app, counter, phone and Chat sales with invoice, payment, fulfilment, stock, margin and return truth.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/91-retailer-stock-statement.html">
+            <span class="screen-num">91</span>
+            <span>
+              <strong>Retailer &gt; Stock Statement</strong>
+              <span>Approved auditable stock statement with available stock, reservations, incoming goods, movement history, exceptions and item-level balances.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/92-retailer-business-book-home.html">
+            <span class="screen-num">92</span>
+            <span>
+              <strong>Retailer &gt; Business Book Home</strong>
+              <span>Approved compact business position connecting sales, purchases, stock, money due, expenses, GST summary, margin and reconciliation.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/93-retailer-business-services.html">
+            <span class="screen-num">93</span>
+            <span>
+              <strong>Retailer &gt; Business Services</strong>
+              <span>Approved always-visible professional offerings for delivery support, sales expansion, tax and books, offers and advertising.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/94-retailer-business-service-plan.html?service=delivery">
+            <span class="screen-num">94</span>
+            <span>
+              <strong>Retailer &gt; Business Service Plan</strong>
+              <span>Approved service-specific plan comparison, exact charge rules, spending control and activation review.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/95-retailer-business-service-activation.html?service=delivery&amp;plan=starter&amp;limit=3000">
+            <span class="screen-num">95</span>
+            <span>
+              <strong>Retailer &gt; Business Service Activation</strong>
+              <span>Approved final plan review, payment mandate, service consent and activation authorization.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/96-retailer-business-service-active.html?service=delivery&amp;plan=starter&amp;limit=3000&amp;payment=upi">
+            <span class="screen-num">96</span>
+            <span>
+              <strong>Retailer &gt; Active Business Service</strong>
+              <span>Approved active-service operating home with usage, spend, readiness, first action and support.</span>
+            </span>
+            <span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/97-retailer-customers-loyalty.html">
+            <span class="screen-num">97</span><span><strong>Retailer &gt; Customers &amp; Loyalty</strong><span>Approved customer records, permissions, repeat behavior and retention actions.</span></span><span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/98-retailer-customer-detail-retention.html">
+            <span class="screen-num">98</span><span><strong>Retailer &gt; Customer Detail &amp; Retention</strong><span>Approved customer history, repeat basket and permission-aware reminder flow.</span></span><span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/99-retailer-offers-campaigns.html">
+            <span class="screen-num">99</span><span><strong>Retailer &gt; Offers &amp; Campaigns</strong><span>Approved campaign control centre with live performance and pause controls.</span></span><span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/100-retailer-offer-campaign-builder.html">
+            <span class="screen-num">100</span><span><strong>Retailer &gt; Campaign Builder</strong><span>Approved progressive audience, offer, budget and approval workflow.</span></span><span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/101-retailer-slow-stock-liquidation.html">
+            <span class="screen-num">101</span><span><strong>Retailer &gt; Slow Stock Liquidation</strong><span>Approved stock recovery route with quantity and price-floor control.</span></span><span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/102-retailer-ai-operating-assistant.html">
+            <span class="screen-num">102</span><span><strong>Retailer &gt; AI Operating Assistant</strong><span>Approved approval-gated operating suggestions for stock, orders and buying.</span></span><span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/103-retailer-staff-permissions.html">
+            <span class="screen-num">103</span><span><strong>Retailer &gt; Staff &amp; Permissions</strong><span>Approved team access and permission management for shop operations.</span></span><span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/104-retailer-store-settings-readiness.html">
+            <span class="screen-num">104</span><span><strong>Retailer &gt; Store Settings &amp; Readiness</strong><span>Approved shop readiness, fulfilment, payment and compliance controls.</span></span><span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/105-retailer-returns-customer-issues.html">
+            <span class="screen-num">105</span><span><strong>Retailer &gt; Returns &amp; Customer Issues</strong><span>Approved case inbox and evidence-led resolution workflow.</span></span><span class="arrow">Open</span>
+          </a>
+          <a class="screen-link" href="screens/106-retailer-cash-bank-expenses-reconciliation.html">
+            <span class="screen-num">106</span><span><strong>Retailer &gt; Cash, Bank &amp; Reconciliation</strong><span>Approved money position, expenses and close-the-day controls.</span></span><span class="arrow">Open</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="panel">
+        <p class="kicker">Regression Discipline</p>
+        <h2>Lock one screen before touching the next.</h2>
+        <ul class="list">
+          <li>Brand foundation must remain stable across every screen.</li>
+          <li>Screen spec approved in this screenbook.</li>
+          <li>Production screen implemented against the approved spec.</li>
+          <li>API/data contract written before backend integration.</li>
+          <li>Happy, empty, loading, and error states tested.</li>
+          <li>Screenshot or visual baseline saved for regression checks.</li>
+          <li>Future changes must keep all locked tests passing.</li>
+        </ul>
+      </div>
+    </section>
+
+    <p class="footer-note">
+      Source folder: C:\GUARANTEED OUTCOME\supermandi-uiux-screenbook
+    </p>
+  </main>
+  <script src="shared/screen-data.js"></script>
+</body>
+</html>

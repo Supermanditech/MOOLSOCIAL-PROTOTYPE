@@ -2,15 +2,37 @@
 
 This repository is the approved UI/UX prototype screenbook for MoolSocial.
 
+## Required Architecture Reading
+
+Before designing Screen 69 or any provider, business, professional, creator, worker or organization screen, read:
+
+`architecture/MY-WORK-AND-PROVIDER-WORKSPACE-ARCHITECTURE-LOCK.md`
+
+`architecture/WORK-PROFILE-TAXONOMY-AND-RESOLVER-LOCK.md`
+
+`project-memory/DECISION-LOG.md`
+
+Before manufacturer, distributor, wholesaler, supplier, transport or wholesale-procurement implementation, also read:
+
+`architecture/SUPPLIER-OFFER-PAYMENT-DELIVERY-LOCK.md`
+
+Visual architecture map:
+
+`architecture/my-work-provider-workspace-architecture.html`
+
+This file locks My Work as the universal workspace gateway, the consumer-first identity rule, provider/value-chain coverage, two-sided sell and procurement operations, activation gates and the screen architecture from Screen 69 onward.
+
 ## Current Approved Baseline
 
 Approved screens are frozen in:
 
 `approved-final/`
 
-Current approved range:
+Approved prototype baseline:
 
-`00` to `08`
+`Screens 00 through 106 - all approved and frozen`
+
+Every prototype remains subject to its production route contract. Approval of a prototype does not require a separate production route.
 
 ## Open Locally
 
@@ -26,13 +48,35 @@ Then open:
 http://127.0.0.1:8787/approved-final/index.html
 ```
 
+Complete retailer workspace review:
+
+```text
+http://127.0.0.1:8787/retailer-workspace-review.html
+```
+
+Screens 97-106 remain working drafts until the consolidated retailer review is approved.
+
 ## Prototype Structure
 
 - `approved-final/` - locked approved screen baseline
 - `screens/` - active working screen prototypes
 - `shared/` - shared design foundation and registry
 - `assets/` - prototype visual assets
+- `architecture/` - locked production and UI/UX architecture decisions
+- `project-memory/` - durable user decisions and continuation context
 - `_working-notes/` - approval notes and planning records
+
+## Production Route Contracts
+
+Every numbered screen from 00 through 106 contains an invisible `script#productionRouteContract`. Production implementation must read this contract before creating a route.
+
+- Canonical rules: `architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md`
+- Machine-readable registry: `shared/production-route-map.json`
+- Reproducible updater: `architecture/Apply-Production-Route-Contracts.ps1`
+- 120-route launch machine: `architecture/Mvp-Screen-Machine.ps1`
+- Locked route budget: `shared/mvp-route-budget.json`
+
+The current 107 prototypes resolve to 74 total route groups, of which 51 are MVP core and 7 are MVP conditional. Post-MVP and superseded routes do not consume the 45-day launch budget.
 
 ## Regression Rule
 

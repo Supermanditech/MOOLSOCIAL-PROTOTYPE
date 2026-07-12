@@ -1,0 +1,983 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>51 Get It Done Proof Release - MoolSocial Screenbook</title>
+  <link rel="stylesheet" href="../shared/moolsocial-ui-foundation.css" />
+  <style>
+    .screen-shell { display: grid; gap: 18px; }
+
+    .back-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .screen-link-home {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--ms-navy);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .back-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--ms-navy);
+      border-radius: var(--ms-radius);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .preview {
+      display: grid;
+      grid-template-columns: minmax(320px, 390px) minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+      padding: 18px;
+      border-bottom: 1px solid var(--ms-navy);
+      background: var(--ms-white);
+    }
+
+    .phone {
+      width: min(100%, 370px);
+      height: 742px;
+      justify-self: center;
+      border: 10px solid var(--ms-navy);
+      border-radius: 32px;
+      background: var(--ms-navy);
+      overflow: hidden;
+      box-shadow: 0 28px 60px rgba(0, 0, 128, .22);
+    }
+
+    .app {
+      position: relative;
+      height: 100%;
+      display: grid;
+      grid-template-rows: auto auto 1fr;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 14% 8%, rgba(255, 153, 51, .18), transparent 25%),
+        radial-gradient(circle at 90% 12%, rgba(19, 136, 8, .18), transparent 27%),
+        linear-gradient(180deg, var(--ms-navy) 0 178px, #f4f7fc 178px 100%);
+      color: var(--ms-white);
+      font-family: var(--ms-font);
+    }
+
+    button,
+    a { -webkit-tap-highlight-color: transparent; }
+
+    svg {
+      width: 20px;
+      height: 20px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .status-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px 22px 8px;
+      color: var(--ms-white);
+      font-size: 11px;
+      font-weight: 950;
+    }
+
+    .top {
+      display: grid;
+      gap: 13px;
+      padding: 4px 18px 16px;
+    }
+
+    .brand-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .brand-copy {
+      min-width: 0;
+      display: grid;
+      gap: 3px;
+    }
+
+    .brand-copy b {
+      overflow: hidden;
+      color: var(--ms-white);
+      font-size: 21px;
+      line-height: .96;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .brand-copy span {
+      color: rgba(255, 255, 255, .82);
+      font-size: 9px;
+      font-weight: 850;
+      letter-spacing: 0;
+    }
+
+    .identity-line {
+      width: 112px;
+      height: 4px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      overflow: hidden;
+      border-radius: 999px;
+    }
+
+    .identity-line span:nth-child(1) { background: var(--ms-saffron); }
+    .identity-line span:nth-child(2) { background: var(--ms-white); }
+    .identity-line span:nth-child(3) { background: var(--ms-green); }
+
+    .top-buttons { display: flex; gap: 7px; }
+
+    .circle-btn,
+    .search-action {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, .35);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .16);
+      color: var(--ms-white);
+      text-decoration: none;
+    }
+
+    .command-bar {
+      min-height: 52px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 40px 40px;
+      gap: 6px;
+      align-items: center;
+      border: 1px solid rgba(255, 255, 255, .7);
+      border-radius: 999px;
+      padding: 5px 6px 5px 16px;
+      background: rgba(255, 255, 255, .09);
+    }
+
+    .command-text {
+      overflow: hidden;
+      color: var(--ms-white);
+      font-size: 11px;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .search-action {
+      border: 0;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+    }
+
+    .content {
+      min-height: 0;
+      overflow: auto;
+      display: grid;
+      align-content: start;
+      gap: 8px;
+      padding: 0 10px 104px;
+      color: var(--ms-navy);
+      scrollbar-width: none;
+    }
+
+    .content::-webkit-scrollbar { display: none; }
+
+    .proof-hero,
+    .proof-card,
+    .money-card,
+    .decision-card,
+    .summary-card {
+      display: grid;
+      gap: 9px;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: 21px;
+      padding: 10px;
+      background: rgba(255, 255, 255, .98);
+      box-shadow: 0 14px 30px rgba(0, 0, 128, .10);
+    }
+
+    .proof-hero {
+      margin-top: -8px;
+      border-color: rgba(255, 255, 255, .78);
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, .18), rgba(255, 255, 255, .04)),
+        var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 var(--ms-saffron), 0 14px 30px rgba(0, 0, 128, .2);
+    }
+
+    .card-head,
+    .hero-head,
+    .money-line,
+    .decision-line {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .card-head b,
+    .hero-head b {
+      min-width: 0;
+      overflow: hidden;
+      font-size: 13px;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .card-head span,
+    .hero-head span {
+      color: rgba(0, 0, 128, .55);
+      font-size: 8px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .hero-head span { color: rgba(255, 255, 255, .76); }
+
+    .progress-rail {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 5px;
+    }
+
+    .step-pill {
+      display: grid;
+      gap: 3px;
+      border-radius: 14px;
+      padding: 7px 5px;
+      background: rgba(255, 255, 255, .1);
+      color: rgba(255, 255, 255, .76);
+      font-size: 7px;
+      font-weight: 950;
+      text-align: center;
+    }
+
+    .step-pill b {
+      color: var(--ms-white);
+      font-size: 9px;
+      line-height: 1.05;
+    }
+
+    .step-pill.active {
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      box-shadow: inset 0 -3px 0 var(--ms-saffron);
+    }
+
+    .step-pill.active b { color: var(--ms-navy); }
+
+    .proof-preview {
+      position: relative;
+      height: 152px;
+      overflow: hidden;
+      border-radius: 22px;
+      background:
+        radial-gradient(circle at 30% 28%, rgba(255, 153, 51, .42), transparent 17%),
+        radial-gradient(circle at 74% 68%, rgba(19, 136, 8, .42), transparent 20%),
+        linear-gradient(145deg, rgba(255, 255, 255, .13), rgba(0, 0, 80, .28));
+    }
+
+    .proof-paper {
+      position: absolute;
+      left: 28px;
+      top: 22px;
+      width: 112px;
+      height: 108px;
+      display: grid;
+      align-content: center;
+      gap: 8px;
+      border-radius: 18px;
+      padding: 12px;
+      background: rgba(255, 255, 255, .93);
+      color: var(--ms-navy);
+      box-shadow: 0 18px 30px rgba(0, 0, 80, .18);
+    }
+
+    .proof-paper span {
+      height: 7px;
+      border-radius: 999px;
+      background: rgba(0, 0, 128, .18);
+    }
+
+    .proof-paper span:nth-child(1) { width: 84px; background: var(--ms-saffron); }
+    .proof-paper span:nth-child(2) { width: 64px; }
+    .proof-paper span:nth-child(3) { width: 92px; background: rgba(19, 136, 8, .28); }
+
+    .proof-image {
+      position: absolute;
+      right: 20px;
+      top: 34px;
+      width: 132px;
+      height: 92px;
+      display: grid;
+      place-items: center;
+      border: 3px solid rgba(255, 255, 255, .82);
+      border-radius: 22px;
+      background:
+        radial-gradient(circle at 36% 38%, rgba(255, 153, 51, .55), transparent 18%),
+        linear-gradient(145deg, rgba(19, 136, 8, .5), rgba(0, 0, 128, .5));
+      color: var(--ms-white);
+    }
+
+    .proof-badge {
+      position: absolute;
+      left: 12px;
+      right: 12px;
+      bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      color: rgba(255, 255, 255, .9);
+      font-size: 8px;
+      font-weight: 950;
+    }
+
+    .fact-row,
+    .money-line,
+    .decision-line {
+      min-height: 54px;
+      border-radius: 17px;
+      padding: 8px;
+      background: #f4f7fc;
+    }
+
+    .fact-row {
+      display: grid;
+      grid-template-columns: 40px minmax(0, 1fr) auto;
+      gap: 9px;
+      align-items: center;
+    }
+
+    .fact-icon,
+    .decision-icon {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      box-shadow: inset 0 -3px 0 rgba(0, 0, 128, .1);
+    }
+
+    .fact-copy,
+    .decision-copy,
+    .summary-copy {
+      min-width: 0;
+      display: grid;
+      gap: 3px;
+    }
+
+    .fact-copy b,
+    .decision-copy b,
+    .summary-copy b {
+      overflow: hidden;
+      color: var(--ms-navy);
+      font-size: 11px;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .fact-copy span,
+    .decision-copy span,
+    .summary-copy span {
+      overflow: hidden;
+      color: rgba(0, 0, 128, .62);
+      font-size: 8px;
+      font-weight: 850;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .state-pill {
+      min-width: 50px;
+      min-height: 28px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      background: rgba(19, 136, 8, .1);
+      color: var(--ms-green);
+      font-size: 8px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .money-grid {
+      display: grid;
+      gap: 7px;
+    }
+
+    .release-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 7px;
+    }
+
+    .release-part {
+      min-width: 0;
+      min-height: 48px;
+      display: grid;
+      place-items: center;
+      gap: 2px;
+      border: 1px solid rgba(0, 0, 128, .1);
+      border-radius: 17px;
+      background: #f4f7fc;
+      color: var(--ms-navy);
+      text-align: center;
+    }
+
+    .release-part b {
+      max-width: 100%;
+      overflow: hidden;
+      font-size: 12px;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .release-part small {
+      max-width: 100%;
+      overflow: hidden;
+      color: rgba(0, 0, 128, .62);
+      font-size: 7px;
+      font-weight: 900;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .release-part.main {
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -3px 0 var(--ms-saffron);
+    }
+
+    .release-part.main small { color: rgba(255, 255, 255, .76); }
+
+    .release-part.return {
+      background: rgba(19, 136, 8, .1);
+      border-color: rgba(19, 136, 8, .18);
+      color: var(--ms-green);
+    }
+
+    .hold-note {
+      min-height: 44px;
+      display: grid;
+      grid-template-columns: 34px minmax(0, 1fr);
+      gap: 8px;
+      align-items: center;
+      border-radius: 16px;
+      padding: 7px 9px;
+      background: rgba(255, 153, 51, .12);
+      color: var(--ms-navy);
+    }
+
+    .hold-note svg {
+      width: 18px;
+      height: 18px;
+      justify-self: center;
+      color: var(--ms-navy);
+    }
+
+    .hold-note span {
+      overflow: hidden;
+      font-size: 8px;
+      font-weight: 900;
+      line-height: 1.3;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .money-line {
+      color: var(--ms-navy);
+      font-size: 10px;
+      font-weight: 900;
+    }
+
+    .money-line b {
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .money-line strong {
+      color: var(--ms-green);
+      font-size: 13px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .money-line.return strong { color: var(--ms-navy); }
+
+    .decision-stack {
+      display: grid;
+      gap: 7px;
+    }
+
+    .decision-line {
+      border: 1px solid rgba(0, 0, 128, .06);
+      text-decoration: none;
+      color: var(--ms-navy);
+    }
+
+    .decision-line.primary {
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 var(--ms-saffron), 0 10px 18px rgba(0, 0, 128, .14);
+    }
+
+    .decision-line.primary .decision-icon {
+      background: var(--ms-white);
+      color: var(--ms-navy);
+    }
+
+    .decision-line.primary .decision-copy b,
+    .decision-line.primary .decision-copy span { color: var(--ms-white); }
+
+    .decision-line.warn .state-pill {
+      background: rgba(255, 153, 51, .18);
+      color: var(--ms-navy);
+    }
+
+    .summary-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .summary-price {
+      display: grid;
+      justify-items: end;
+      color: rgba(0, 0, 128, .6);
+      font-size: 8px;
+      font-weight: 900;
+    }
+
+    .summary-price b {
+      color: var(--ms-navy);
+      font-size: 16px;
+      font-weight: 950;
+    }
+
+    .cta-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .primary-cta,
+    .secondary-cta {
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 10px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .primary-cta {
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 var(--ms-saffron), 0 10px 20px rgba(0, 0, 128, .18);
+    }
+
+    .secondary-cta {
+      border: 1px solid rgba(0, 0, 128, .14);
+      padding: 0 12px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+    }
+
+    .bottom-dock {
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+      display: grid;
+      grid-template-columns: 68px minmax(0, 1fr) 66px;
+      gap: 8px;
+      align-items: center;
+      border: 1px solid rgba(0, 0, 128, .16);
+      border-radius: 26px;
+      padding: 7px;
+      background: rgba(255, 255, 255, .96);
+      box-shadow: 0 -14px 36px rgba(0, 0, 128, .16);
+      z-index: 8;
+    }
+
+    .mool-button,
+    .chat-button {
+      min-height: 58px;
+      display: grid;
+      place-items: center;
+      border-radius: 22px;
+      text-decoration: none;
+      font-size: 9px;
+      font-weight: 950;
+    }
+
+    .mool-button {
+      background:
+        radial-gradient(circle at 35% 22%, rgba(255, 255, 255, .35), transparent 25%),
+        linear-gradient(145deg, #1d1dca, var(--ms-navy));
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 rgba(0, 0, 80, .72), 0 8px 18px rgba(0, 0, 128, .18);
+    }
+
+    .dock-track {
+      min-width: 0;
+      display: flex;
+      gap: 4px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      border-radius: 22px;
+      padding: 2px;
+      background:
+        radial-gradient(circle at left, rgba(0, 0, 128, .12), transparent 28%),
+        radial-gradient(circle at right, rgba(0, 0, 128, .12), transparent 28%),
+        linear-gradient(90deg, rgba(0, 0, 128, .08), rgba(19, 136, 8, .08));
+    }
+
+    .dock-track::-webkit-scrollbar { display: none; }
+
+    .dock-tab {
+      min-width: 62px;
+      min-height: 54px;
+      display: grid;
+      place-items: center;
+      gap: 3px;
+      border-radius: 18px;
+      padding: 6px 8px;
+      color: var(--ms-navy);
+      text-decoration: none;
+      font-size: 8px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .dock-tab svg { width: 17px; height: 17px; }
+
+    .dock-tab.active {
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 var(--ms-saffron);
+    }
+
+    .chat-button {
+      position: relative;
+      border: 1px solid rgba(0, 0, 128, .14);
+      background: var(--ms-white);
+      color: var(--ms-navy);
+    }
+
+    .chat-badge {
+      position: absolute;
+      top: 8px;
+      right: 9px;
+      min-width: 20px;
+      height: 20px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      background: #ff8f24;
+      color: var(--ms-navy);
+      font-size: 10px;
+      font-weight: 950;
+    }
+
+    .notes { display: grid; gap: 14px; padding: 8px 0; }
+    .ms-lead { max-width: 720px; }
+
+    @media (max-width: 860px) {
+      .preview { grid-template-columns: 1fr; padding: 12px; }
+      .phone { width: min(100%, 370px); }
+      .ms-page { padding: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="ms-page">
+    <section class="screen-shell">
+      <div class="back-row">
+        <a class="screen-link-home" href="../index.html">
+          <span class="back-mark">51</span>
+          Back to MoolSocial Screenbook
+        </a>
+        <span class="ms-status">Approved</span>
+      </div>
+
+      <section class="preview">
+        <div class="phone" role="img" aria-label="MoolSocial Get It Done proof and release screen">
+          <div class="app">
+            <div class="status-row">
+              <span>9:41</span>
+              <span>5G 100%</span>
+            </div>
+
+            <header class="top">
+              <div class="brand-row">
+                <div class="brand-copy">
+                  <b>MoolSocial Proof</b>
+                  <div class="identity-line" aria-hidden="true"><span></span><span></span><span></span></div>
+                  <span>check proof · release only if okay</span>
+                </div>
+                <div class="top-buttons">
+                  <a class="circle-btn" href="50-get-it-done-helper-accepted.html" aria-label="Back to live task">
+                    <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" /></svg>
+                  </a>
+                  <button class="circle-btn" aria-label="Save proof">
+                    <svg viewBox="0 0 24 24"><path d="M19 21 12 17 5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2Z" /></svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="command-bar" aria-label="Proof status">
+                <span class="command-text">Proof received. Review before releasing payment.</span>
+                <button class="search-action" aria-label="Zoom proof">
+                  <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" /><path d="m20 20-3-3" /></svg>
+                </button>
+                <button class="search-action" aria-label="Voice help">
+                  <svg viewBox="0 0 24 24"><path d="M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3Z" /><path d="M19 10a7 7 0 0 1-14 0" /><path d="M12 17v4" /></svg>
+                </button>
+              </div>
+            </header>
+
+            <main class="content">
+              <section class="proof-hero" aria-label="Proof review">
+                <div class="hero-head">
+                  <b>Proof arrived</b>
+                  <span>step 3 of 4</span>
+                </div>
+
+                <div class="progress-rail">
+                  <span class="step-pill"><b>Done</b>Accepted</span>
+                  <span class="step-pill active"><b>Now</b>Proof</span>
+                  <span class="step-pill"><b>Next</b>Release</span>
+                  <span class="step-pill"><b>End</b>Receipt</span>
+                </div>
+
+                <div class="proof-preview">
+                  <span class="proof-paper"><span></span><span></span><span></span></span>
+                  <span class="proof-image"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></svg></span>
+                  <span class="proof-badge"><b id="proofBadge">Photo proof</b><span>uploaded by Ramesh</span></span>
+                </div>
+              </section>
+
+              <section class="proof-card" aria-label="Proof facts">
+                <div class="card-head">
+                  <b>Check before release</b>
+                  <span>not auto released</span>
+                </div>
+                <div class="fact-row">
+                  <span class="fact-icon"><svg viewBox="0 0 24 24"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2Z" /><path d="M8 7h8" /><path d="M8 12h8" /></svg></span>
+                  <span class="fact-copy">
+                    <b>Counter bill saved</b>
+                    <span>Mahadev counter · bill photo attached</span>
+                  </span>
+                  <span class="state-pill">Saved</span>
+                </div>
+                <div class="fact-row">
+                  <span class="fact-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" /></svg></span>
+                  <span class="fact-copy">
+                    <b>Release remains with you</b>
+                    <span>approve only if task proof looks correct</span>
+                  </span>
+                  <span class="state-pill">Locked</span>
+                </div>
+                <div class="hold-note">
+                  <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" /><path d="M9 12l2 2 4-5" /></svg>
+                  <span>If proof is unclear, ask again or report issue. Hold stays locked.</span>
+                </div>
+              </section>
+
+              <section class="money-card" aria-label="Release amount">
+                <div class="card-head">
+                  <b>Money release</b>
+                  <span>unused returns</span>
+                </div>
+                <div class="release-strip" aria-label="Release money summary">
+                  <span class="release-part main"><b id="releaseQuick">Rs 519</b><small>release</small></span>
+                  <span class="release-part return"><b id="returnQuick">Rs 80</b><small>returns</small></span>
+                  <span class="release-part"><b>Locked</b><small>if doubt</small></span>
+                </div>
+                <div class="money-grid">
+                  <div class="money-line">
+                    <span><b>Helper fee</b><br />Ramesh task fee</span>
+                    <strong id="helperFee">Rs 99</strong>
+                  </div>
+                  <div class="money-line">
+                    <span><b>Actual task spend</b><br />from approved limit</span>
+                    <strong id="actualSpend">Rs 420</strong>
+                  </div>
+                  <div class="money-line return">
+                    <span><b>Returns to you</b><br />unused held amount</span>
+                    <strong id="returnAmount">Rs 80</strong>
+                  </div>
+                </div>
+              </section>
+
+              <section class="decision-card" aria-label="Release decision">
+                <div class="card-head">
+                  <b>Your decision</b>
+                  <span>choose one</span>
+                </div>
+                <div class="decision-stack">
+                  <a class="decision-line primary" href="52-get-it-done-completed-rating.html" id="releaseLink">
+                    <span class="decision-icon"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></svg></span>
+                    <span class="decision-copy">
+                      <b id="releaseTitle">Release Rs 519</b>
+                      <span>task done, proof accepted</span>
+                    </span>
+                    <span class="state-pill">Release</span>
+                  </a>
+                  <a class="decision-line warn" href="23-chat-inbox-home.html">
+                    <span class="decision-icon"><svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z" /></svg></span>
+                    <span class="decision-copy">
+                      <b>Ask for clearer proof</b>
+                      <span>payment remains held while helper responds</span>
+                    </span>
+                    <span class="state-pill">Chat</span>
+                  </a>
+                  <a class="decision-line" href="53-get-it-done-issue-support.html" id="issueLink">
+                    <span class="decision-icon"><svg viewBox="0 0 24 24"><path d="M10.3 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.7 3.86a2 2 0 0 0-3.4 0Z" /><path d="M12 9v4" /><path d="M12 17h.01" /></svg></span>
+                    <span class="decision-copy">
+                      <b>Report issue</b>
+                      <span>wrong proof, incomplete task or safety concern</span>
+                    </span>
+                    <span class="state-pill">Hold</span>
+                  </a>
+                </div>
+              </section>
+
+              <section class="summary-card" aria-label="Release summary">
+                <div class="summary-top">
+                  <span class="summary-copy">
+                    <b id="summaryTitle">Review carefully</b>
+                    <span id="summaryText">Release only if photo and bill match the task.</span>
+                  </span>
+                  <span class="summary-price">
+                    <b id="releaseAmount">Rs 519</b>
+                    <span>release</span>
+                  </span>
+                </div>
+                <div class="cta-row">
+                  <a class="primary-cta" href="52-get-it-done-completed-rating.html" id="primaryCta">Release payment</a>
+                  <a class="secondary-cta" href="23-chat-inbox-home.html">Chat</a>
+                </div>
+              </section>
+            </main>
+
+            <nav class="bottom-dock" aria-label="Get It Done proof navigation">
+              <a class="mool-button" href="04-universal-focus-shell.html">Mool</a>
+              <div class="dock-track">
+                <a class="dock-tab" href="50-get-it-done-helper-accepted.html"><svg viewBox="0 0 24 24"><path d="M12 2v4" /><path d="M12 18v4" /><path d="M2 12h4" /><path d="M18 12h4" /></svg>Live</a>
+                <a class="dock-tab active" href="#primaryCta"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z" /></svg>Proof</a>
+                <a class="dock-tab" href="52-get-it-done-completed-rating.html"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></svg>Release</a>
+                <a class="dock-tab" href="53-get-it-done-issue-support.html"><svg viewBox="0 0 24 24"><path d="M12 9v4" /><path d="M12 17h.01" /><circle cx="12" cy="12" r="10" /></svg>Issue</a>
+              </div>
+              <a class="chat-button" href="23-chat-inbox-home.html" aria-label="Open chat">
+                <svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z" /></svg>
+                <span class="chat-badge">2</span>
+              </a>
+            </nav>
+          </div>
+        </div>
+
+        <div class="notes">
+          <div>
+            <h1 class="ms-title">Screen 51 lets the user review proof before payment release.</h1>
+            <p class="ms-lead">
+              The helper has uploaded proof. The user sees photo, bill/status, held amount, actual spend, unused return,
+              and three clear decisions: release, ask again, or report an issue.
+            </p>
+          </div>
+
+          <div class="ms-panel">
+            <div class="ms-section-head">Screen Contract <span>Approved</span></div>
+            <div class="state-grid">
+              <div class="state-cell"><b>Entry</b>From Screen 50 when helper marks task done and uploads required proof/status.</div>
+              <div class="state-cell"><b>User Sees</b>Proof preview, bill/status, held amount, helper fee, actual task spend, unused return, release action, ask again and issue path.</div>
+              <div class="state-cell"><b>Decision</b>User accepts proof and releases payment, asks for clearer proof through chat, or raises issue while hold remains locked.</div>
+              <div class="state-cell"><b>Backend</b>Proof upload, proof review state, payment release calculation, refund unused hold, chat, dispute/issue APIs and immutable task log.</div>
+              <div class="state-cell"><b>Trust</b>No payment release without user action. User sees what will release and what returns before tapping release.</div>
+              <div class="state-cell"><b>Failure</b>If proof is missing, unreadable, spend exceeds cap, helper disputes or user reports issue, keep hold locked and route support.</div>
+              <div class="state-cell"><b>Next</b>Routes to completed receipt/rating after release, or issue support if proof fails.</div>
+              <div class="state-cell"><b>Regression</b>No auto release. No hidden spend. No unclear refund. Mool and Chat remain fixed.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script>
+    if ("scrollRestoration" in history) {
+      history.scrollRestoration = "manual";
+    }
+
+    function resetPhoneScroll() {
+      const content = document.querySelector(".content");
+      if (content) content.scrollTop = 0;
+    }
+
+    window.addEventListener("load", () => {
+      resetPhoneScroll();
+      requestAnimationFrame(resetPhoneScroll);
+      setTimeout(resetPhoneScroll, 80);
+    });
+
+    const params = new URLSearchParams(window.location.search);
+    const task = params.get("task") || "Pickup";
+    const city = params.get("city") || "Jodhpur";
+    const proof = params.get("proof") || "Photo";
+    const hold = Number(params.get("hold") || 599);
+    const helperFee = 99;
+    const actualSpend = Math.min(420, Math.max(0, hold - helperFee));
+    const release = helperFee + actualSpend;
+    const refund = Math.max(0, hold - release);
+
+    function money(value) {
+      return `Rs ${value}`;
+    }
+
+    document.getElementById("proofBadge").textContent = `${proof} proof`;
+    document.getElementById("helperFee").textContent = money(helperFee);
+    document.getElementById("actualSpend").textContent = money(actualSpend);
+    document.getElementById("returnAmount").textContent = money(refund);
+    document.getElementById("releaseQuick").textContent = money(release);
+    document.getElementById("returnQuick").textContent = money(refund);
+    document.getElementById("releaseTitle").textContent = `Release ${money(release)}`;
+    document.getElementById("releaseAmount").textContent = money(release);
+    document.getElementById("summaryText").textContent = `${money(release)} releases, ${money(refund)} returns. If unsure, keep hold locked.`;
+    document.getElementById("primaryCta").href = `52-get-it-done-completed-rating.html?task=${encodeURIComponent(task)}&city=${encodeURIComponent(city)}&released=${encodeURIComponent(release)}&refund=${encodeURIComponent(refund)}`;
+    document.getElementById("releaseLink").href = document.getElementById("primaryCta").href;
+    document.getElementById("issueLink").href = `53-get-it-done-issue-support.html?task=${encodeURIComponent(task)}&city=${encodeURIComponent(city)}&hold=${encodeURIComponent(hold)}`;
+  </script>
+<script type="application/json" id="productionRouteContract">{"contractVersion":"mvp-route-lock-2026-07-12","prototypeScreen":51,"productionModule":"tasks","routeId":"tasks.lifecycle","routePath":"/tasks/:taskId","routeState":"proof-release","implementation":"route-state","launchScope":"post-mvp","separateProductionRoute":false,"productionNote":"Do not create a separate production route. Implement proof-release inside /tasks/:taskId and reuse the owning route API, authorization, analytics and regression suite.","canonicalMap":"architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"}</script><script type="application/json" id="prototypeApprovalContract">{"prototypeScreen":51,"status":"approved-and-frozen","authoritative":true,"approvedAt":"2026-07-12","approvalScope":"prototype-ui-ux-and-production-contract"}</script></body>
+</html>

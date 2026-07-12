@@ -1,0 +1,959 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>49 Get It Done Review Payment - MoolSocial Screenbook</title>
+  <link rel="stylesheet" href="../shared/moolsocial-ui-foundation.css" />
+  <style>
+    .screen-shell { display: grid; gap: 18px; }
+
+    .back-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .screen-link-home {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--ms-navy);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .back-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--ms-navy);
+      border-radius: var(--ms-radius);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .preview {
+      display: grid;
+      grid-template-columns: minmax(320px, 390px) minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+      padding: 18px;
+      border-bottom: 1px solid var(--ms-navy);
+      background: var(--ms-white);
+    }
+
+    .phone {
+      width: min(100%, 370px);
+      height: 742px;
+      justify-self: center;
+      border: 10px solid var(--ms-navy);
+      border-radius: 32px;
+      background: var(--ms-navy);
+      overflow: hidden;
+      box-shadow: 0 28px 60px rgba(0, 0, 128, .22);
+    }
+
+    .app {
+      position: relative;
+      height: 100%;
+      display: grid;
+      grid-template-rows: auto auto 1fr;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 16% 8%, rgba(255, 153, 51, .18), transparent 25%),
+        radial-gradient(circle at 88% 12%, rgba(19, 136, 8, .16), transparent 27%),
+        linear-gradient(180deg, var(--ms-navy) 0 178px, #f4f7fc 178px 100%);
+      color: var(--ms-white);
+      font-family: var(--ms-font);
+    }
+
+    button,
+    a { -webkit-tap-highlight-color: transparent; }
+
+    svg {
+      width: 20px;
+      height: 20px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .status-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px 22px 8px;
+      color: var(--ms-white);
+      font-size: 11px;
+      font-weight: 950;
+    }
+
+    .top {
+      display: grid;
+      gap: 13px;
+      padding: 4px 18px 16px;
+    }
+
+    .brand-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .brand-copy {
+      min-width: 0;
+      display: grid;
+      gap: 3px;
+    }
+
+    .brand-copy b {
+      overflow: hidden;
+      color: var(--ms-white);
+      font-size: 21px;
+      line-height: .96;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .brand-copy span {
+      color: rgba(255, 255, 255, .82);
+      font-size: 9px;
+      font-weight: 850;
+      letter-spacing: 0;
+    }
+
+    .identity-line {
+      width: 112px;
+      height: 4px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      overflow: hidden;
+      border-radius: 999px;
+    }
+
+    .identity-line span:nth-child(1) { background: var(--ms-saffron); }
+    .identity-line span:nth-child(2) { background: var(--ms-white); }
+    .identity-line span:nth-child(3) { background: var(--ms-green); }
+
+    .top-buttons { display: flex; gap: 7px; }
+
+    .circle-btn,
+    .search-action {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, .35);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .16);
+      color: var(--ms-white);
+      text-decoration: none;
+    }
+
+    .command-bar {
+      min-height: 52px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 40px 40px;
+      gap: 6px;
+      align-items: center;
+      border: 1px solid rgba(255, 255, 255, .7);
+      border-radius: 999px;
+      padding: 5px 6px 5px 16px;
+      background: rgba(255, 255, 255, .09);
+    }
+
+    .command-text {
+      overflow: hidden;
+      color: var(--ms-white);
+      font-size: 11px;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .search-action {
+      border: 0;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+    }
+
+    .content {
+      min-height: 0;
+      overflow: auto;
+      display: grid;
+      align-content: start;
+      gap: 8px;
+      padding: 0 10px 104px;
+      color: var(--ms-navy);
+      scrollbar-width: none;
+    }
+
+    .content::-webkit-scrollbar { display: none; }
+
+    .review-card,
+    .money-card,
+    .method-card,
+    .release-card,
+    .summary-card {
+      display: grid;
+      gap: 9px;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: 21px;
+      padding: 10px;
+      background: rgba(255, 255, 255, .98);
+      box-shadow: 0 14px 30px rgba(0, 0, 128, .10);
+    }
+
+    .review-card {
+      margin-top: -8px;
+      border-color: rgba(255, 255, 255, .78);
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, .18), rgba(255, 255, 255, .04)),
+        var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 var(--ms-saffron), 0 14px 30px rgba(0, 0, 128, .2);
+    }
+
+    .card-head,
+    .review-head,
+    .money-line,
+    .release-line {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .card-head b,
+    .review-head b {
+      min-width: 0;
+      overflow: hidden;
+      font-size: 13px;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .card-head span,
+    .review-head span {
+      color: rgba(0, 0, 128, .55);
+      font-size: 8px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .review-head span { color: rgba(255, 255, 255, .76); }
+
+    .progress-rail {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 5px;
+    }
+
+    .step-pill {
+      display: grid;
+      gap: 3px;
+      border-radius: 14px;
+      padding: 7px 5px;
+      background: rgba(255, 255, 255, .1);
+      color: rgba(255, 255, 255, .76);
+      font-size: 7px;
+      font-weight: 950;
+      text-align: center;
+    }
+
+    .step-pill b {
+      color: var(--ms-white);
+      font-size: 9px;
+      line-height: 1.05;
+    }
+
+    .step-pill.active {
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      box-shadow: inset 0 -3px 0 var(--ms-saffron);
+    }
+
+    .step-pill.active b { color: var(--ms-navy); }
+
+    .task-summary {
+      display: grid;
+      grid-template-columns: 42px minmax(0, 1fr) auto;
+      gap: 9px;
+      align-items: center;
+      border-radius: 18px;
+      padding: 9px;
+      background: rgba(255, 255, 255, .1);
+    }
+
+    .task-icon,
+    .method-icon,
+    .release-icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 15px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      box-shadow: inset 0 -3px 0 rgba(0, 0, 128, .12);
+    }
+
+    .task-copy {
+      min-width: 0;
+      display: grid;
+      gap: 3px;
+    }
+
+    .task-copy b {
+      overflow: hidden;
+      font-size: 14px;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .task-copy span {
+      overflow: hidden;
+      color: rgba(255, 255, 255, .8);
+      font-size: 9px;
+      font-weight: 850;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .task-price {
+      display: grid;
+      justify-items: end;
+      color: var(--ms-white);
+      font-size: 9px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .task-price b {
+      font-size: 16px;
+      font-weight: 950;
+    }
+
+    .chips {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .chips::-webkit-scrollbar { display: none; }
+
+    .chip {
+      flex: 0 0 auto;
+      min-height: 30px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      border: 1px solid rgba(255, 255, 255, .22);
+      border-radius: 999px;
+      padding: 0 10px;
+      color: var(--ms-white);
+      font-size: 8px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .chip svg { width: 13px; height: 13px; }
+
+    .money-grid {
+      display: grid;
+      gap: 7px;
+    }
+
+    .money-line {
+      min-height: 42px;
+      border-radius: 16px;
+      padding: 8px 10px;
+      background: #f4f7fc;
+      color: var(--ms-navy);
+      font-size: 10px;
+      font-weight: 900;
+    }
+
+    .money-line b {
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .money-line strong {
+      color: var(--ms-green);
+      font-size: 13px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .money-line.total {
+      background: rgba(0, 0, 128, .08);
+      box-shadow: inset 0 -3px 0 var(--ms-saffron);
+    }
+
+    .method-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 7px;
+    }
+
+    .method-button {
+      min-width: 0;
+      min-height: 68px;
+      display: grid;
+      place-items: center;
+      gap: 5px;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: 18px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      font-family: inherit;
+      font-size: 8px;
+      font-weight: 950;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .method-button.active {
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 var(--ms-saffron), 0 10px 18px rgba(0, 0, 128, .14);
+    }
+
+    .method-button small {
+      color: currentColor;
+      opacity: .72;
+      font-size: 7px;
+      font-weight: 900;
+    }
+
+    .release-stack {
+      display: grid;
+      gap: 7px;
+    }
+
+    .release-line {
+      min-height: 54px;
+      border-radius: 17px;
+      padding: 8px;
+      background: #f4f7fc;
+    }
+
+    .release-copy {
+      min-width: 0;
+      display: grid;
+      gap: 2px;
+    }
+
+    .release-copy b {
+      overflow: hidden;
+      font-size: 11px;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .release-copy span {
+      overflow: hidden;
+      color: rgba(0, 0, 128, .62);
+      font-size: 8px;
+      font-weight: 850;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .release-state {
+      min-width: 44px;
+      min-height: 28px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      background: rgba(19, 136, 8, .1);
+      color: var(--ms-green);
+      font-size: 8px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .summary-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .summary-copy {
+      min-width: 0;
+      display: grid;
+      gap: 3px;
+    }
+
+    .summary-copy b {
+      overflow: hidden;
+      color: var(--ms-navy);
+      font-size: 14px;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .summary-copy span {
+      overflow: hidden;
+      color: rgba(0, 0, 128, .66);
+      font-size: 9px;
+      font-weight: 850;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .summary-price {
+      display: grid;
+      justify-items: end;
+      color: rgba(0, 0, 128, .6);
+      font-size: 8px;
+      font-weight: 900;
+    }
+
+    .summary-price b {
+      color: var(--ms-navy);
+      font-size: 16px;
+      font-weight: 950;
+    }
+
+    .cta-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .primary-cta,
+    .secondary-cta {
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 10px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .primary-cta {
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 var(--ms-saffron), 0 10px 20px rgba(0, 0, 128, .18);
+    }
+
+    .secondary-cta {
+      border: 1px solid rgba(0, 0, 128, .14);
+      padding: 0 12px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+    }
+
+    .bottom-dock {
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+      display: grid;
+      grid-template-columns: 68px minmax(0, 1fr) 66px;
+      gap: 8px;
+      align-items: center;
+      border: 1px solid rgba(0, 0, 128, .16);
+      border-radius: 26px;
+      padding: 7px;
+      background: rgba(255, 255, 255, .96);
+      box-shadow: 0 -14px 36px rgba(0, 0, 128, .16);
+      z-index: 8;
+    }
+
+    .mool-button,
+    .chat-button {
+      min-height: 58px;
+      display: grid;
+      place-items: center;
+      border-radius: 22px;
+      text-decoration: none;
+      font-size: 9px;
+      font-weight: 950;
+    }
+
+    .mool-button {
+      background:
+        radial-gradient(circle at 35% 22%, rgba(255, 255, 255, .35), transparent 25%),
+        linear-gradient(145deg, #1d1dca, var(--ms-navy));
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 rgba(0, 0, 80, .72), 0 8px 18px rgba(0, 0, 128, .18);
+    }
+
+    .dock-track {
+      min-width: 0;
+      display: flex;
+      gap: 4px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      border-radius: 22px;
+      padding: 2px;
+      background:
+        radial-gradient(circle at left, rgba(0, 0, 128, .12), transparent 28%),
+        radial-gradient(circle at right, rgba(0, 0, 128, .12), transparent 28%),
+        linear-gradient(90deg, rgba(0, 0, 128, .08), rgba(19, 136, 8, .08));
+    }
+
+    .dock-track::-webkit-scrollbar { display: none; }
+
+    .dock-tab {
+      min-width: 62px;
+      min-height: 54px;
+      display: grid;
+      place-items: center;
+      gap: 3px;
+      border-radius: 18px;
+      padding: 6px 8px;
+      color: var(--ms-navy);
+      text-decoration: none;
+      font-size: 8px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .dock-tab svg { width: 17px; height: 17px; }
+
+    .dock-tab.active {
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 var(--ms-saffron);
+    }
+
+    .chat-button {
+      position: relative;
+      border: 1px solid rgba(0, 0, 128, .14);
+      background: var(--ms-white);
+      color: var(--ms-navy);
+    }
+
+    .chat-badge {
+      position: absolute;
+      top: 8px;
+      right: 9px;
+      min-width: 20px;
+      height: 20px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      background: #ff8f24;
+      color: var(--ms-navy);
+      font-size: 10px;
+      font-weight: 950;
+    }
+
+    .notes { display: grid; gap: 14px; padding: 8px 0; }
+    .ms-lead { max-width: 720px; }
+
+    @media (max-width: 860px) {
+      .preview { grid-template-columns: 1fr; padding: 12px; }
+      .phone { width: min(100%, 370px); }
+      .ms-page { padding: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="ms-page">
+    <section class="screen-shell">
+      <div class="back-row">
+        <a class="screen-link-home" href="../index.html">
+          <span class="back-mark">49</span>
+          Back to MoolSocial Screenbook
+        </a>
+        <span class="ms-status">Approved</span>
+      </div>
+
+      <section class="preview">
+        <div class="phone" role="img" aria-label="MoolSocial Get It Done review and payment hold screen">
+          <div class="app">
+            <div class="status-row">
+              <span>9:41</span>
+              <span>5G 100%</span>
+            </div>
+
+            <header class="top">
+              <div class="brand-row">
+                <div class="brand-copy">
+                  <b>MoolSocial Review</b>
+                  <div class="identity-line" aria-hidden="true"><span></span><span></span><span></span></div>
+                  <span>confirm task · hold safely</span>
+                </div>
+                <div class="top-buttons">
+                  <a class="circle-btn" href="48-book-get-it-done.html" aria-label="Back to task details">
+                    <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" /></svg>
+                  </a>
+                  <button class="circle-btn" aria-label="Saved task">
+                    <svg viewBox="0 0 24 24"><path d="M19 21 12 17 5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2Z" /></svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="command-bar" aria-label="Review status">
+                <span class="command-text">Details ready. Review payment hold and release rule.</span>
+                <button class="search-action" aria-label="Task proof">
+                  <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-5" /><path d="M21 12a9 9 0 1 1-9-9" /></svg>
+                </button>
+                <button class="search-action" aria-label="Voice help">
+                  <svg viewBox="0 0 24 24"><path d="M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3Z" /><path d="M19 10a7 7 0 0 1-14 0" /><path d="M12 17v4" /></svg>
+                </button>
+              </div>
+            </header>
+
+            <main class="content">
+              <section class="review-card" aria-label="Task review">
+                <div class="review-head">
+                  <b>Review task</b>
+                  <span>step 2 of 4</span>
+                </div>
+
+                <div class="progress-rail">
+                  <span class="step-pill"><b>Done</b>Details</span>
+                  <span class="step-pill active"><b>Now</b>Hold</span>
+                  <span class="step-pill"><b>Next</b>Accept</span>
+                  <span class="step-pill"><b>End</b>Proof</span>
+                </div>
+
+                <div class="task-summary">
+                  <span class="task-icon"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73L13 2.27a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z" /></svg></span>
+                  <span class="task-copy">
+                    <b id="taskTitle">Pickup work</b>
+                    <span id="taskMeta">Jodhpur · verified helper · photo proof</span>
+                  </span>
+                  <span class="task-price">
+                    <b id="taskFee">Rs 99</b>
+                    <span>fee</span>
+                  </span>
+                </div>
+
+                <div class="chips" aria-label="Task decision facts">
+                  <span class="chip"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></svg>Details ready</span>
+                  <span class="chip"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="M12 6v6l4 2" /></svg>60 min target</span>
+                  <span class="chip"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" /></svg>Verified helper</span>
+                </div>
+              </section>
+
+              <section class="money-card" aria-label="Task money hold">
+                <div class="card-head">
+                  <b>Money hold</b>
+                  <span>unused returns</span>
+                </div>
+                <div class="money-grid">
+                  <div class="money-line">
+                    <span><b>Helper fee</b><br />paid after completion</span>
+                    <strong id="helperFee">Rs 99</strong>
+                  </div>
+                  <div class="money-line">
+                    <span><b>Task spend limit</b><br />helper cannot cross this</span>
+                    <strong id="spendLimit">Rs 500</strong>
+                  </div>
+                  <div class="money-line total">
+                    <span><b>Total hold</b><br />not released without proof</span>
+                    <strong id="totalHold">Rs 599</strong>
+                  </div>
+                </div>
+              </section>
+
+              <section class="method-card" aria-label="Payment method">
+                <div class="card-head">
+                  <b>Pay through MoolSocial</b>
+                  <span>proof linked</span>
+                </div>
+                <div class="method-grid">
+                  <button class="method-button active" type="button" data-method="UPI hold">
+                    <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="M3 10h18" /></svg>
+                    UPI hold
+                    <small>fast</small>
+                  </button>
+                  <button class="method-button" type="button" data-method="Card hold">
+                    <svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2" /><path d="M2 10h20" /></svg>
+                    Card hold
+                    <small>approve</small>
+                  </button>
+                  <button class="method-button" type="button" data-method="Wallet">
+                    <svg viewBox="0 0 24 24"><path d="M20 7H5a3 3 0 0 0 0 6h15v6H5a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3h15Z" /><path d="M16 12h4" /></svg>
+                    Wallet
+                    <small>balance</small>
+                  </button>
+                </div>
+              </section>
+
+              <section class="release-card" aria-label="Release controls">
+                <div class="card-head">
+                  <b>Release rule</b>
+                  <span id="releaseHint">photo proof</span>
+                </div>
+                <div class="release-stack">
+                  <div class="release-line">
+                    <span class="release-icon"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z" /><circle cx="12" cy="13" r="4" /></svg></span>
+                    <span class="release-copy">
+                      <b id="proofTitle">Photo before release</b>
+                      <span>helper uploads proof before payment release</span>
+                    </span>
+                    <span class="release-state">Required</span>
+                  </div>
+                  <div class="release-line">
+                    <span class="release-icon"><svg viewBox="0 0 24 24"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2Z" /><path d="M8 7h8" /><path d="M8 12h8" /></svg></span>
+                    <span class="release-copy">
+                      <b>Bill or status record</b>
+                      <span>kept inside task chat for later issue</span>
+                    </span>
+                    <span class="release-state">Saved</span>
+                  </div>
+                </div>
+              </section>
+
+              <section class="summary-card" aria-label="Confirm task">
+                <div class="summary-top">
+                  <span class="summary-copy">
+                    <b id="summaryTitle">Ready to send task</b>
+                    <span id="summaryText">UPI hold · Rs 599 · release after photo proof.</span>
+                  </span>
+                  <span class="summary-price">
+                    <b id="summaryAmount">Rs 599</b>
+                    <span>hold</span>
+                  </span>
+                </div>
+                <div class="cta-row">
+                  <a class="primary-cta" href="50-get-it-done-helper-accepted.html" id="primaryCta">Confirm task</a>
+                  <a class="secondary-cta" href="48-book-get-it-done.html">Edit</a>
+                </div>
+              </section>
+            </main>
+
+            <nav class="bottom-dock" aria-label="Get It Done review navigation">
+              <a class="mool-button" href="04-universal-focus-shell.html">Mool</a>
+              <div class="dock-track">
+                <a class="dock-tab" href="48-book-get-it-done.html"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-5" /><path d="M21 12a9 9 0 1 1-9-9" /></svg>Details</a>
+                <a class="dock-tab active" href="#primaryCta"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="M3 10h18" /></svg>Hold</a>
+                <a class="dock-tab" href="#"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" /></svg>Proof</a>
+                <a class="dock-tab" href="23-chat-inbox-home.html"><svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z" /></svg>Support</a>
+              </div>
+              <a class="chat-button" href="23-chat-inbox-home.html" aria-label="Open chat">
+                <svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z" /></svg>
+                <span class="chat-badge">2</span>
+              </a>
+            </nav>
+          </div>
+        </div>
+
+        <div class="notes">
+          <div>
+            <h1 class="ms-title">Screen 49 reviews the task and locks payment safely.</h1>
+            <p class="ms-lead">
+              This screen should feel like progress after Screen 48. The task details are already captured; the user only checks helper fee,
+              spend limit, payment hold, proof rule and then confirms the task.
+            </p>
+          </div>
+
+          <div class="ms-panel">
+            <div class="ms-section-head">Screen Contract <span>Approved</span></div>
+            <div class="state-grid">
+              <div class="state-cell"><b>Entry</b>From Screen 48 Review task after task type, city, helper choice, missing details and proof preference are ready.</div>
+              <div class="state-cell"><b>User Sees</b>Completed task summary, helper fee, task spend limit, total hold, payment method, proof release rule, edit and chat.</div>
+              <div class="state-cell"><b>Decision</b>User chooses payment method and confirms the task. They can return to edit before any hold is created.</div>
+              <div class="state-cell"><b>Backend</b>Draft task validation, fee estimate, spend cap, payment hold intent, KYC/helper eligibility, task chat, proof policy and cancellation rule.</div>
+              <div class="state-cell"><b>Trust</b>Payment is held inside MoolSocial and released only after required proof/status. Unused task spend returns automatically.</div>
+              <div class="state-cell"><b>Failure</b>If payment fails, helper unavailable, task unsafe, spend cap too low, or city unsupported, show edit, schedule, support or cancel without confusing the user.</div>
+              <div class="state-cell"><b>Next</b>Routes to helper acceptance, live task progress, proof review, payment release and completed task rating.</div>
+              <div class="state-cell"><b>Regression</b>No duplicate task details. No hidden fee. No release before proof. Mool and Chat remain fixed.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script>
+    if ("scrollRestoration" in history) {
+      history.scrollRestoration = "manual";
+    }
+
+    function resetPhoneScroll() {
+      const content = document.querySelector(".content");
+      if (content) content.scrollTop = 0;
+    }
+
+    window.addEventListener("load", () => {
+      resetPhoneScroll();
+      requestAnimationFrame(resetPhoneScroll);
+      setTimeout(resetPhoneScroll, 80);
+    });
+
+    const params = new URLSearchParams(window.location.search);
+    const task = params.get("task") || "Pickup";
+    const city = params.get("city") || "Jodhpur";
+    const proof = params.get("proof") || "Photo";
+    const methodButtons = Array.from(document.querySelectorAll("[data-method]"));
+    const taskTitle = document.getElementById("taskTitle");
+    const taskMeta = document.getElementById("taskMeta");
+    const proofTitle = document.getElementById("proofTitle");
+    const releaseHint = document.getElementById("releaseHint");
+    const summaryText = document.getElementById("summaryText");
+    const primaryCta = document.getElementById("primaryCta");
+
+    const taskCopy = {
+      Pickup: { title: "Pickup work", fee: 99, limit: 500, eta: "60 min target" },
+      Document: { title: "Office work", fee: 149, limit: 300, eta: "today" },
+      Market: { title: "Buy locally", fee: 129, limit: 800, eta: "90 min target" },
+      Custom: { title: "Custom task", fee: 199, limit: 700, eta: "after helper check" }
+    };
+
+    const activeTask = taskCopy[task] || taskCopy.Pickup;
+    const total = activeTask.fee + activeTask.limit;
+    let method = params.get("method") || "UPI hold";
+
+    function money(value) {
+      return `Rs ${value}`;
+    }
+
+    function render() {
+      taskTitle.textContent = activeTask.title;
+      taskMeta.textContent = `${city} · verified helper · ${proof.toLowerCase()} proof`;
+      document.getElementById("taskFee").textContent = money(activeTask.fee);
+      document.getElementById("helperFee").textContent = money(activeTask.fee);
+      document.getElementById("spendLimit").textContent = money(activeTask.limit);
+      document.getElementById("totalHold").textContent = money(total);
+      document.getElementById("summaryAmount").textContent = money(total);
+      proofTitle.textContent = `${proof} before release`;
+      releaseHint.textContent = `${proof.toLowerCase()} proof`;
+      summaryText.textContent = `${method} · ${money(total)} · release after ${proof.toLowerCase()} proof.`;
+      primaryCta.href = `50-get-it-done-helper-accepted.html?task=${encodeURIComponent(task)}&city=${encodeURIComponent(city)}&proof=${encodeURIComponent(proof)}&method=${encodeURIComponent(method)}&hold=${encodeURIComponent(total)}`;
+      methodButtons.forEach((button) => {
+        button.classList.toggle("active", button.dataset.method === method);
+      });
+    }
+
+    methodButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        method = button.dataset.method;
+        methodButtons.forEach((item) => item.classList.toggle("active", item === button));
+        render();
+      });
+    });
+
+    render();
+  </script>
+<script type="application/json" id="productionRouteContract">{"contractVersion":"mvp-route-lock-2026-07-12","prototypeScreen":49,"productionModule":"tasks","routeId":"tasks.payment","routePath":"/tasks/:taskId/payment","routeState":"review-payment","implementation":"route-shell","launchScope":"post-mvp","separateProductionRoute":true,"productionNote":"Own production route /tasks/:taskId/payment. Implement review-payment as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.","canonicalMap":"architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"}</script><script type="application/json" id="prototypeApprovalContract">{"prototypeScreen":49,"status":"approved-and-frozen","authoritative":true,"approvedAt":"2026-07-12","approvalScope":"prototype-ui-ux-and-production-contract"}</script></body>
+</html>

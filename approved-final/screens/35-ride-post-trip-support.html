@@ -1,0 +1,2081 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>35 Ride Post Trip Support - MoolSocial Screenbook</title>
+  <link rel="stylesheet" href="../shared/moolsocial-ui-foundation.css" />
+  <style>
+    .screen-shell { display: grid; gap: 18px; }
+
+    .back-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .screen-link-home {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--ms-navy);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .back-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--ms-navy);
+      border-radius: var(--ms-radius);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .preview {
+      display: grid;
+      grid-template-columns: minmax(320px, 390px) minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+      padding: 18px;
+      border-bottom: 1px solid var(--ms-navy);
+      background: var(--ms-white);
+    }
+
+    .phone {
+      width: min(100%, 370px);
+      height: 742px;
+      justify-self: center;
+      border: 10px solid var(--ms-navy);
+      border-radius: 32px;
+      background: var(--ms-navy);
+      overflow: hidden;
+      box-shadow: 0 28px 60px rgba(0, 0, 128, .22);
+    }
+
+    .app {
+      position: relative;
+      height: 100%;
+      display: grid;
+      grid-template-rows: auto auto 1fr auto;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 18% 8%, rgba(255, 153, 51, .16), transparent 25%),
+        radial-gradient(circle at 90% 14%, rgba(19, 136, 8, .16), transparent 26%),
+        linear-gradient(180deg, var(--ms-navy) 0 166px, #f4f7fc 166px 100%);
+      color: var(--ms-white);
+      font-family: var(--ms-font);
+    }
+
+    button,
+    a { -webkit-tap-highlight-color: transparent; }
+
+    button {
+      appearance: none;
+      border: 0;
+      font-family: var(--ms-font);
+      cursor: pointer;
+    }
+
+    svg {
+      width: 19px;
+      height: 19px;
+      stroke: currentColor;
+      stroke-width: 2.4;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .status-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 16px 22px 6px;
+      color: var(--ms-white);
+      font-size: 11px;
+      font-weight: 950;
+    }
+
+    .top {
+      display: grid;
+      gap: 11px;
+      padding: 8px 18px 13px;
+    }
+
+    .brand-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .brand-copy {
+      min-width: 0;
+      display: grid;
+      gap: 2px;
+    }
+
+    .brand-copy b {
+      overflow: hidden;
+      color: var(--ms-white);
+      font-size: 20px;
+      line-height: 1;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .brand-copy span {
+      color: rgba(255, 255, 255, .78);
+      font-size: 10px;
+      font-weight: 850;
+    }
+
+    .identity-line {
+      width: 96px;
+      height: 4px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      overflow: hidden;
+      border-radius: var(--ms-pill);
+    }
+
+    .identity-line span:nth-child(1) { background: var(--ms-saffron); }
+    .identity-line span:nth-child(2) { background: var(--ms-white); }
+    .identity-line span:nth-child(3) { background: var(--ms-green); }
+
+    .top-buttons {
+      display: flex;
+      gap: 8px;
+      flex: 0 0 auto;
+    }
+
+    .circle-btn,
+    .search-action {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      text-decoration: none;
+    }
+
+    .circle-btn {
+      border: 1px solid rgba(255, 255, 255, .26);
+      background: rgba(255, 255, 255, .12);
+      color: var(--ms-white);
+    }
+
+    .command-bar {
+      min-height: 48px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto auto auto;
+      align-items: center;
+      gap: 7px;
+      border: 1px solid rgba(255, 255, 255, .85);
+      border-radius: var(--ms-pill);
+      padding: 5px 5px 5px 13px;
+      background: rgba(255, 255, 255, .10);
+    }
+
+    .command-text {
+      overflow: hidden;
+      color: var(--ms-white);
+      font-size: 11px;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .search-action {
+      background: var(--ms-white);
+      color: var(--ms-navy);
+    }
+
+    .content {
+      min-height: 0;
+      overflow: auto;
+      display: grid;
+      align-content: start;
+      gap: 8px;
+      padding: 0 10px 98px;
+      color: var(--ms-navy);
+      scrollbar-width: none;
+    }
+
+    .content::-webkit-scrollbar { display: none; }
+
+    .route-card,
+    .ride-card,
+    .option-card,
+    .trust-card,
+    .summary-card,
+    .help-card {
+      display: grid;
+      gap: 8px;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: 21px;
+      padding: 10px;
+      background: rgba(255, 255, 255, .98);
+      box-shadow: 0 14px 30px rgba(0, 0, 128, .10);
+    }
+
+    .route-card { margin-top: -8px; }
+
+    .ride-card.is-hidden,
+    .option-card.is-hidden,
+    .summary-card.is-hidden {
+      display: none;
+    }
+
+    .ride-card {
+      background:
+        linear-gradient(145deg, rgba(0, 0, 128, .05), rgba(19, 136, 8, .035)),
+        rgba(255, 255, 255, .98);
+    }
+
+    .card-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .card-head b {
+      color: var(--ms-navy);
+      font-size: 13px;
+      line-height: 1;
+      font-weight: 950;
+    }
+
+    .card-head span {
+      color: rgba(0, 0, 128, .58);
+      font-size: 8px;
+      font-weight: 850;
+      text-align: right;
+    }
+
+    .route-box {
+      display: grid;
+      gap: 7px;
+    }
+
+    .route-line {
+      min-height: 42px;
+      display: grid;
+      grid-template-columns: 32px 1fr;
+      gap: 9px;
+      align-items: center;
+      border-radius: 16px;
+      padding: 8px;
+      background: #f3f6fb;
+    }
+
+    .route-dot {
+      width: 32px;
+      height: 32px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--ms-white);
+      font-size: 10px;
+      font-weight: 950;
+    }
+
+    .route-dot.pick { background: var(--ms-green); }
+    .route-dot.drop { background: var(--ms-saffron); color: var(--ms-navy); }
+
+    .route-copy {
+      min-width: 0;
+      display: grid;
+      gap: 2px;
+    }
+
+    .route-copy b {
+      overflow: hidden;
+      color: var(--ms-navy);
+      font-size: 11px;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .route-copy span {
+      overflow: hidden;
+      color: rgba(0, 0, 128, .58);
+      font-size: 8px;
+      font-weight: 850;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .chip-row,
+    .ride-row,
+    .package-row,
+    .captain-row {
+      display: flex;
+      gap: 6px;
+      min-width: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .chip-row::-webkit-scrollbar,
+    .ride-row::-webkit-scrollbar,
+    .package-row::-webkit-scrollbar,
+    .captain-row::-webkit-scrollbar { display: none; }
+
+    .time-chip,
+    .small-chip,
+    .ride-option,
+    .package-option,
+    .captain-option,
+    .primary-cta,
+    .secondary-cta,
+    .dock-tab,
+    .mool-button,
+    .chat-button { font-family: var(--ms-font); }
+
+    .time-chip,
+    .small-chip {
+      flex: 0 0 auto;
+      min-height: 31px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: var(--ms-pill);
+      padding: 0 12px;
+      background: #f7f9fd;
+      color: var(--ms-navy);
+      font-size: 9px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .time-chip.active,
+    .small-chip.active {
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -3px 0 var(--ms-saffron), 0 8px 18px rgba(0, 0, 128, .15);
+    }
+
+    .ride-option {
+      flex: 0 0 114px;
+      min-height: 78px;
+      display: grid;
+      align-content: center;
+      gap: 5px;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: 18px;
+      padding: 10px;
+      background: #f7f9fd;
+      color: var(--ms-navy);
+      text-align: left;
+    }
+
+    .ride-option.active {
+      border-color: rgba(0, 0, 128, .42);
+      background:
+        linear-gradient(135deg, rgba(255, 153, 51, .14), rgba(19, 136, 8, .08)),
+        var(--ms-white);
+      box-shadow: inset 0 -3px 0 var(--ms-green), 0 9px 18px rgba(0, 0, 128, .10);
+    }
+
+    .ride-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .ride-top svg { color: var(--ms-navy); }
+
+    .ride-option b {
+      color: var(--ms-navy);
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .ride-option strong {
+      color: var(--ms-green);
+      font-size: 15px;
+      line-height: 1;
+      font-weight: 950;
+    }
+
+    .ride-option span {
+      color: rgba(0, 0, 128, .58);
+      font-size: 8px;
+      font-weight: 850;
+      line-height: 1.15;
+    }
+
+    .package-option {
+      flex: 0 0 134px;
+      min-height: 76px;
+      display: grid;
+      align-content: center;
+      gap: 4px;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: 18px;
+      padding: 9px;
+      background: #f7f9fd;
+      color: var(--ms-navy);
+      text-align: left;
+    }
+
+    .package-option.active {
+      border-color: rgba(0, 0, 128, .42);
+      background:
+        linear-gradient(135deg, rgba(255, 153, 51, .13), rgba(19, 136, 8, .08)),
+        var(--ms-white);
+      box-shadow: inset 0 -3px 0 var(--ms-green);
+    }
+
+    .package-option:focus-visible,
+    .ride-option:focus-visible,
+    .time-chip:focus-visible {
+      outline: 3px solid rgba(255, 153, 51, .45);
+      outline-offset: 2px;
+    }
+
+    .package-option b,
+    .package-option strong,
+    .package-option span {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .package-option b {
+      color: var(--ms-navy);
+      font-size: 10px;
+      font-weight: 950;
+    }
+
+    .package-option strong {
+      color: var(--ms-green);
+      font-size: 13px;
+      line-height: 1;
+      font-weight: 950;
+    }
+
+    .package-option span {
+      color: rgba(0, 0, 128, .58);
+      font-size: 7px;
+      font-weight: 850;
+    }
+
+    .decision-note {
+      display: grid;
+      grid-template-columns: 20px 1fr;
+      gap: 7px;
+      align-items: center;
+      border-radius: 15px;
+      padding: 8px 9px;
+      background: #f3f6fb;
+      color: rgba(0, 0, 128, .66);
+      font-size: 8px;
+      line-height: 1.25;
+      font-weight: 850;
+    }
+
+    .decision-note svg {
+      width: 18px;
+      height: 18px;
+      color: var(--ms-green);
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 7px;
+    }
+
+    .trust-item,
+    .captain-option {
+      border-radius: 15px;
+      background: #f3f6fb;
+      color: var(--ms-navy);
+    }
+
+    .trust-item {
+      min-height: 46px;
+      display: grid;
+      align-content: center;
+      gap: 2px;
+      padding: 7px;
+      overflow: hidden;
+    }
+
+    .trust-item b {
+      overflow: hidden;
+      font-size: 8px;
+      font-weight: 950;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .trust-item span {
+      overflow: hidden;
+      color: var(--ms-green);
+      font-size: 7px;
+      font-weight: 900;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .captain-option {
+      flex: 0 0 158px;
+      display: grid;
+      grid-template-columns: 38px 1fr;
+      gap: 8px;
+      align-items: center;
+      border: 1px solid rgba(0, 0, 128, .10);
+      padding: 8px;
+      text-align: left;
+    }
+
+    .avatar {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 32% 22%, rgba(255, 255, 255, .34), transparent 28%),
+        linear-gradient(145deg, var(--ms-green), var(--ms-navy));
+      color: var(--ms-white);
+      font-size: 10px;
+      font-weight: 950;
+    }
+
+    .captain-copy {
+      min-width: 0;
+      display: grid;
+      gap: 2px;
+    }
+
+    .captain-copy b,
+    .captain-copy span,
+    .captain-copy small {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .captain-copy b {
+      color: var(--ms-navy);
+      font-size: 10px;
+      font-weight: 950;
+    }
+
+    .captain-copy span {
+      color: rgba(0, 0, 128, .62);
+      font-size: 7px;
+      font-weight: 850;
+    }
+
+    .captain-copy small {
+      color: var(--ms-green);
+      font-size: 7px;
+      font-weight: 900;
+    }
+
+    .after-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .after-item {
+      min-height: 42px;
+      display: grid;
+      place-items: center;
+      gap: 2px;
+      border-radius: 14px;
+      background: #f3f6fb;
+      color: var(--ms-navy);
+      font-size: 7px;
+      font-weight: 900;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .after-item svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .summary-card {
+      background:
+        linear-gradient(135deg, rgba(255, 153, 51, .13), rgba(19, 136, 8, .08)),
+        var(--ms-white);
+    }
+
+    .live-card,
+    .captain-card,
+    .action-card,
+    .pickup-card,
+    .fare-card,
+    .payment-card,
+    .safety-card {
+      display: grid;
+      gap: 8px;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: 21px;
+      padding: 10px;
+      background: rgba(255, 255, 255, .98);
+      box-shadow: 0 14px 30px rgba(0, 0, 128, .10);
+    }
+
+    .live-card {
+      margin-top: -8px;
+      overflow: hidden;
+      padding: 0;
+    }
+
+    .map-visual {
+      position: relative;
+      min-height: 182px;
+      overflow: hidden;
+      border-radius: 20px;
+      background:
+        radial-gradient(circle at 26% 32%, rgba(255, 153, 51, .50), transparent 14%),
+        radial-gradient(circle at 78% 67%, rgba(19, 136, 8, .42), transparent 18%),
+        linear-gradient(145deg, #eaf0ff, #f8fbff);
+    }
+
+    .map-visual::before,
+    .map-visual::after {
+      content: "";
+      position: absolute;
+      inset: 26px 24px auto;
+      height: 76px;
+      border: 8px solid rgba(0, 0, 128, .18);
+      border-right-color: transparent;
+      border-bottom-color: transparent;
+      border-radius: 50% 0 0 0;
+      transform: rotate(-14deg);
+    }
+
+    .map-visual::after {
+      inset: auto 30px 28px 36px;
+      height: 82px;
+      border-color: transparent rgba(19, 136, 8, .22) rgba(19, 136, 8, .22) transparent;
+      transform: rotate(12deg);
+    }
+
+    .map-pill {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      z-index: 2;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border-radius: var(--ms-pill);
+      padding: 8px 10px;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 9px;
+      font-weight: 950;
+      box-shadow: 0 10px 20px rgba(0, 0, 128, .22);
+    }
+
+    .map-pill svg,
+    .captain-actions svg,
+    .compact-action svg,
+    .route-tag svg,
+    .mini-control svg {
+      width: 17px;
+      height: 17px;
+    }
+
+    .captain-marker,
+    .pickup-marker,
+    .drop-marker {
+      position: absolute;
+      z-index: 3;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      font-size: 10px;
+      font-weight: 950;
+      box-shadow: 0 10px 20px rgba(0, 0, 128, .18);
+    }
+
+    .captain-marker {
+      right: 54px;
+      top: 66px;
+      width: 46px;
+      height: 46px;
+      border: 4px solid var(--ms-white);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+    }
+
+    .pickup-marker {
+      left: 48px;
+      bottom: 48px;
+      width: 34px;
+      height: 34px;
+      background: var(--ms-green);
+      color: var(--ms-white);
+    }
+
+    .drop-marker {
+      right: 28px;
+      bottom: 28px;
+      width: 34px;
+      height: 34px;
+      background: var(--ms-saffron);
+      color: var(--ms-navy);
+    }
+
+    .map-sheet {
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+      z-index: 4;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      align-items: center;
+      border: 1px solid rgba(255, 255, 255, .55);
+      border-radius: 18px;
+      padding: 10px;
+      background: rgba(255, 255, 255, .86);
+      backdrop-filter: blur(14px);
+      color: var(--ms-navy);
+    }
+
+    .map-sheet b,
+    .captain-copy b,
+    .pickup-copy b,
+    .fare-line b,
+    .safety-card b {
+      color: var(--ms-navy);
+      font-weight: 950;
+    }
+
+    .map-sheet b {
+      font-size: 14px;
+      line-height: 1;
+    }
+
+    .map-sheet span {
+      color: rgba(0, 0, 128, .64);
+      font-size: 8px;
+      font-weight: 850;
+    }
+
+    .route-tag {
+      min-height: 36px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      border-radius: var(--ms-pill);
+      padding: 0 12px;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 8px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .captain-main {
+      display: grid;
+      grid-template-columns: 54px 1fr auto;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .captain-photo {
+      width: 54px;
+      height: 54px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      background:
+        radial-gradient(circle at 32% 24%, rgba(255, 255, 255, .40), transparent 25%),
+        linear-gradient(145deg, var(--ms-green), var(--ms-navy));
+      color: var(--ms-white);
+      font-size: 14px;
+      font-weight: 950;
+      box-shadow: inset 0 -4px 0 rgba(255, 153, 51, .82);
+    }
+
+    .captain-copy,
+    .pickup-copy {
+      min-width: 0;
+      display: grid;
+      gap: 3px;
+    }
+
+    .captain-copy b {
+      overflow: hidden;
+      font-size: 14px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .captain-copy span,
+    .pickup-copy span,
+    .fare-line span,
+    .safety-card span {
+      color: rgba(0, 0, 128, .62);
+      font-size: 8px;
+      font-weight: 850;
+      line-height: 1.2;
+    }
+
+    .plate {
+      display: grid;
+      gap: 2px;
+      justify-items: end;
+      white-space: nowrap;
+    }
+
+    .plate b {
+      border: 1px solid rgba(0, 0, 128, .18);
+      border-radius: 10px;
+      padding: 5px 7px;
+      background: #f7f9fd;
+      color: var(--ms-navy);
+      font-size: 9px;
+      font-weight: 950;
+    }
+
+    .plate span {
+      color: var(--ms-green);
+      font-size: 7px;
+      font-weight: 950;
+    }
+
+    .captain-actions {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 7px;
+    }
+
+    .compact-action {
+      min-height: 58px;
+      display: grid;
+      place-items: center;
+      gap: 4px;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: 17px;
+      background: #f7f9fd;
+      color: var(--ms-navy);
+      font-size: 8px;
+      font-weight: 950;
+      text-decoration: none;
+    }
+
+    .compact-action.primary {
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -3px 0 var(--ms-saffron);
+    }
+
+    .pickup-card {
+      grid-template-columns: 38px 1fr auto;
+      align-items: center;
+    }
+
+    .pickup-icon {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--ms-green);
+      color: var(--ms-white);
+      font-weight: 950;
+    }
+
+    .mini-control {
+      min-height: 36px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      border-radius: var(--ms-pill);
+      padding: 0 10px;
+      background: rgba(0, 0, 128, .08);
+      color: var(--ms-navy);
+      font-size: 8px;
+      font-weight: 950;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .fare-card {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 7px;
+    }
+
+    .fare-line {
+      min-height: 50px;
+      display: grid;
+      align-content: center;
+      gap: 3px;
+      border-radius: 15px;
+      padding: 7px;
+      background: #f3f6fb;
+      overflow: hidden;
+    }
+
+    .fare-line b,
+    .fare-line span {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .fare-line b {
+      color: var(--ms-green);
+      font-size: 11px;
+    }
+
+    .payment-card {
+      background:
+        linear-gradient(135deg, rgba(255, 153, 51, .12), rgba(19, 136, 8, .07)),
+        var(--ms-white);
+    }
+
+    .completion-card,
+    .bill-card,
+    .approval-card,
+    .issue-card,
+    .receipt-card,
+    .rating-card,
+    .support-card,
+    .next-card {
+      display: grid;
+      gap: 8px;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: 21px;
+      padding: 10px;
+      background: rgba(255, 255, 255, .98);
+      box-shadow: 0 14px 30px rgba(0, 0, 128, .10);
+    }
+
+    .completion-card {
+      margin-top: -8px;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(19, 136, 8, .16), transparent 25%),
+        linear-gradient(135deg, rgba(255, 153, 51, .12), rgba(19, 136, 8, .08)),
+        var(--ms-white);
+    }
+
+    .complete-top {
+      display: grid;
+      grid-template-columns: 54px 1fr auto;
+      gap: 9px;
+      align-items: center;
+    }
+
+    .complete-mark {
+      width: 54px;
+      height: 54px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      background: var(--ms-green);
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 var(--ms-saffron);
+    }
+
+    .complete-mark svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .complete-copy {
+      min-width: 0;
+      display: grid;
+      gap: 4px;
+    }
+
+    .complete-copy b,
+    .bill-head b,
+    .approval-copy b,
+    .receipt-card b,
+    .issue-card b {
+      overflow: hidden;
+      color: var(--ms-navy);
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .complete-copy b { font-size: 15px; }
+
+    .complete-copy span,
+    .bill-row span,
+    .approval-copy span,
+    .receipt-card span,
+    .issue-card span {
+      color: rgba(0, 0, 128, .62);
+      font-size: 8px;
+      font-weight: 850;
+      line-height: 1.25;
+    }
+
+    .final-pill {
+      border-radius: var(--ms-pill);
+      padding: 8px 10px;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 9px;
+      font-weight: 950;
+      white-space: nowrap;
+      box-shadow: inset 0 -3px 0 var(--ms-saffron);
+    }
+
+    .bill-head {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .bill-head b {
+      font-size: 13px;
+    }
+
+    .bill-total {
+      color: var(--ms-green);
+      font-size: 18px;
+      line-height: 1;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .bill-list {
+      display: grid;
+      gap: 6px;
+    }
+
+    .bill-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      align-items: center;
+      border-radius: 13px;
+      padding: 8px;
+      background: #f3f6fb;
+    }
+
+    .bill-row b {
+      color: var(--ms-navy);
+      font-size: 9px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .approval-card {
+      background:
+        linear-gradient(135deg, rgba(0, 0, 128, .05), rgba(19, 136, 8, .05)),
+        var(--ms-white);
+    }
+
+    .approval-main {
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 9px;
+      align-items: center;
+    }
+
+    .approval-icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 15px;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 var(--ms-green);
+    }
+
+    .approval-copy {
+      display: grid;
+      gap: 3px;
+      min-width: 0;
+    }
+
+    .approval-copy b { font-size: 13px; }
+
+    .payment-switch {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 7px;
+    }
+
+    .payment-choice {
+      min-height: 43px;
+      display: grid;
+      place-items: center;
+      gap: 2px;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: 15px;
+      background: #f7f9fd;
+      color: var(--ms-navy);
+      font-size: 8px;
+      font-weight: 950;
+    }
+
+    .payment-choice span {
+      color: rgba(0, 0, 128, .58);
+      font-size: 7px;
+      font-weight: 850;
+    }
+
+    .payment-choice.active {
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -3px 0 var(--ms-saffron);
+    }
+
+    .payment-choice.active span { color: rgba(255, 255, 255, .82); }
+
+    .approve-cta {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--ms-pill);
+      background: var(--ms-green);
+      color: var(--ms-white);
+      font-size: 11px;
+      font-weight: 950;
+      text-decoration: none;
+      box-shadow: 0 10px 22px rgba(19, 136, 8, .20);
+    }
+
+    .issue-card,
+    .receipt-card {
+      grid-template-columns: 1fr auto;
+      align-items: center;
+    }
+
+    .receipt-card {
+      background: var(--ms-navy);
+      color: var(--ms-white);
+    }
+
+    .receipt-card b,
+    .receipt-card span {
+      color: var(--ms-white);
+    }
+
+    .receipt-proof {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 7px;
+    }
+
+    .proof-chip {
+      min-height: 44px;
+      display: grid;
+      align-content: center;
+      gap: 2px;
+      border-radius: 14px;
+      padding: 7px;
+      background: #f3f6fb;
+    }
+
+    .proof-chip b {
+      overflow: hidden;
+      color: var(--ms-navy);
+      font-size: 9px;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .proof-chip span {
+      overflow: hidden;
+      color: rgba(0, 0, 128, .58);
+      font-size: 7px;
+      font-weight: 850;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .rating-card {
+      background:
+        linear-gradient(135deg, rgba(255, 153, 51, .12), rgba(19, 136, 8, .08)),
+        var(--ms-white);
+    }
+
+    .rating-head {
+      display: grid;
+      grid-template-columns: 42px 1fr auto;
+      gap: 9px;
+      align-items: center;
+    }
+
+    .captain-avatar {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 12px;
+      font-weight: 950;
+      box-shadow: inset 0 -4px 0 var(--ms-saffron);
+    }
+
+    .rating-copy {
+      min-width: 0;
+      display: grid;
+      gap: 2px;
+    }
+
+    .rating-copy b {
+      overflow: hidden;
+      color: var(--ms-navy);
+      font-size: 13px;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .rating-copy span {
+      overflow: hidden;
+      color: rgba(0, 0, 128, .58);
+      font-size: 8px;
+      font-weight: 850;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .rating-score {
+      border-radius: var(--ms-pill);
+      padding: 7px 9px;
+      background: var(--ms-white);
+      color: var(--ms-green);
+      font-size: 10px;
+      font-weight: 950;
+      white-space: nowrap;
+      box-shadow: inset 0 0 0 1px rgba(0, 0, 128, .10);
+    }
+
+    .star-row {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 7px;
+    }
+
+    .star-btn {
+      min-height: 42px;
+      border-radius: 15px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      font-size: 19px;
+      font-weight: 950;
+      box-shadow: inset 0 0 0 1px rgba(0, 0, 128, .12);
+    }
+
+    .star-btn.active {
+      background: var(--ms-navy);
+      color: var(--ms-saffron);
+      box-shadow: inset 0 -4px 0 var(--ms-green), 0 8px 16px rgba(0, 0, 128, .16);
+    }
+
+    .compliment-row {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .compliment-row::-webkit-scrollbar { display: none; }
+
+    .compliment-chip {
+      flex: 0 0 auto;
+      min-height: 30px;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: var(--ms-pill);
+      padding: 0 11px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+      font-size: 8px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .compliment-chip.active {
+      background: var(--ms-green);
+      color: var(--ms-white);
+      box-shadow: inset 0 -3px 0 var(--ms-saffron);
+    }
+
+    .support-card,
+    .next-card {
+      grid-template-columns: 1fr auto;
+      align-items: center;
+    }
+
+    .next-actions {
+      display: flex;
+      gap: 7px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .next-actions::-webkit-scrollbar { display: none; }
+
+    .issue-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 7px;
+    }
+
+    .issue-choice {
+      min-height: 54px;
+      display: grid;
+      align-content: center;
+      gap: 3px;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: 16px;
+      padding: 9px;
+      background: #f7f9fd;
+      color: var(--ms-navy);
+      text-align: left;
+    }
+
+    .issue-choice b,
+    .issue-choice span {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .issue-choice b {
+      color: var(--ms-navy);
+      font-size: 10px;
+      font-weight: 950;
+    }
+
+    .issue-choice span {
+      color: rgba(0, 0, 128, .58);
+      font-size: 7px;
+      font-weight: 850;
+    }
+
+    .issue-choice.active {
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 var(--ms-saffron), 0 9px 18px rgba(0, 0, 128, .16);
+    }
+
+    .issue-choice.active b,
+    .issue-choice.active span { color: var(--ms-white); }
+
+    .support-status {
+      border-radius: var(--ms-pill);
+      padding: 7px 9px;
+      background: var(--ms-white);
+      color: var(--ms-green);
+      font-size: 9px;
+      font-weight: 950;
+      white-space: nowrap;
+      box-shadow: inset 0 0 0 1px rgba(0, 0, 128, .10);
+    }
+
+    .ticket-card {
+      background:
+        radial-gradient(circle at 10% 14%, rgba(255, 153, 51, .16), transparent 24%),
+        linear-gradient(135deg, rgba(0, 0, 128, .06), rgba(19, 136, 8, .06)),
+        var(--ms-white);
+    }
+
+    .timeline-list {
+      display: grid;
+      gap: 6px;
+    }
+
+    .timeline-step {
+      display: grid;
+      grid-template-columns: 26px 1fr auto;
+      gap: 8px;
+      align-items: center;
+      border-radius: 14px;
+      padding: 7px;
+      background: #f3f6fb;
+    }
+
+    .timeline-dot {
+      width: 26px;
+      height: 26px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 9px;
+      font-weight: 950;
+    }
+
+    .timeline-copy {
+      min-width: 0;
+      display: grid;
+      gap: 2px;
+    }
+
+    .timeline-copy b,
+    .timeline-copy span {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .timeline-copy b {
+      color: var(--ms-navy);
+      font-size: 9px;
+      font-weight: 950;
+    }
+
+    .timeline-copy span {
+      color: rgba(0, 0, 128, .58);
+      font-size: 7px;
+      font-weight: 850;
+    }
+
+    .timeline-step strong {
+      color: var(--ms-green);
+      font-size: 8px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .urgent-card {
+      background: var(--ms-navy);
+      color: var(--ms-white);
+    }
+
+    .urgent-card b,
+    .urgent-card span { color: var(--ms-white); }
+
+    .warning-card {
+      border-color: rgba(255, 153, 51, .42);
+      background:
+        linear-gradient(135deg, rgba(255, 153, 51, .18), rgba(255, 255, 255, .98)),
+        var(--ms-white);
+    }
+
+    .warning-card b {
+      color: var(--ms-navy);
+    }
+
+    .payment-head {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .payment-head span {
+      min-width: 0;
+      display: grid;
+      gap: 3px;
+    }
+
+    .payment-head b {
+      overflow: hidden;
+      color: var(--ms-navy);
+      font-size: 14px;
+      line-height: 1;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .payment-head small {
+      overflow: hidden;
+      color: rgba(0, 0, 128, .62);
+      font-size: 8px;
+      font-weight: 850;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .payment-state {
+      border-radius: var(--ms-pill);
+      padding: 8px 10px;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 8px;
+      font-weight: 950;
+      white-space: nowrap;
+      box-shadow: inset 0 -3px 0 var(--ms-saffron);
+    }
+
+    .pay-methods {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 7px;
+    }
+
+    .pay-method {
+      min-height: 47px;
+      display: grid;
+      place-items: center;
+      gap: 2px;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: 15px;
+      background: #f7f9fd;
+      color: var(--ms-navy);
+      font-size: 9px;
+      font-weight: 950;
+    }
+
+    .pay-method span {
+      color: rgba(0, 0, 128, .58);
+      font-size: 7px;
+      font-weight: 850;
+    }
+
+    .pay-method.active {
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -3px 0 var(--ms-green);
+    }
+
+    .pay-method.active span { color: rgba(255, 255, 255, .82); }
+
+    .pay-rule {
+      display: grid;
+      grid-template-columns: 20px 1fr;
+      gap: 7px;
+      align-items: center;
+      border-radius: 14px;
+      padding: 8px;
+      background: rgba(255, 255, 255, .72);
+      color: rgba(0, 0, 128, .66);
+      font-size: 8px;
+      font-weight: 850;
+      line-height: 1.25;
+    }
+
+    .pay-rule svg {
+      width: 18px;
+      height: 18px;
+      color: var(--ms-green);
+    }
+
+    .safety-card {
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      background:
+        linear-gradient(135deg, rgba(255, 153, 51, .13), rgba(19, 136, 8, .08)),
+        var(--ms-white);
+    }
+
+    .summary-top {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      align-items: start;
+    }
+
+    .summary-copy {
+      min-width: 0;
+      display: grid;
+      gap: 4px;
+    }
+
+    .summary-copy b {
+      overflow: hidden;
+      color: var(--ms-navy);
+      font-size: 15px;
+      line-height: 1.05;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .summary-copy span {
+      color: rgba(0, 0, 128, .62);
+      font-size: 8px;
+      font-weight: 850;
+      line-height: 1.25;
+    }
+
+    .summary-price {
+      min-width: 72px;
+      display: grid;
+      justify-items: end;
+      gap: 3px;
+      color: var(--ms-green);
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .summary-price b {
+      font-size: 16px;
+      line-height: 1;
+    }
+
+    .summary-price span {
+      color: rgba(0, 0, 128, .58);
+      font-size: 7px;
+      font-weight: 850;
+    }
+
+    .cta-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 7px;
+      align-items: center;
+    }
+
+    .primary-cta,
+    .secondary-cta {
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--ms-pill);
+      text-decoration: none;
+      font-size: 10px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .primary-cta {
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 var(--ms-saffron), 0 10px 20px rgba(0, 0, 128, .18);
+    }
+
+    .secondary-cta {
+      border: 1px solid rgba(0, 0, 128, .14);
+      padding: 0 12px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+    }
+
+    .help-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 7px;
+    }
+
+    .help-item {
+      min-height: 42px;
+      display: grid;
+      align-content: center;
+      gap: 2px;
+      border-radius: 14px;
+      padding: 7px;
+      background: #f3f6fb;
+      overflow: hidden;
+    }
+
+    .help-item b,
+    .help-item span {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .help-item b {
+      color: var(--ms-navy);
+      font-size: 8.5px;
+      font-weight: 950;
+    }
+
+    .help-item span {
+      color: rgba(0, 0, 128, .58);
+      font-size: 7px;
+      font-weight: 850;
+    }
+
+    .bottom-dock {
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+      display: grid;
+      grid-template-columns: 52px minmax(0, 1fr) 52px;
+      gap: 8px;
+      align-items: center;
+      border: 1px solid rgba(0, 0, 128, .78);
+      border-radius: 22px;
+      padding: 7px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, .99), rgba(244, 247, 252, .99));
+      box-shadow: 0 -12px 24px rgba(0, 0, 128, .18);
+      z-index: 5;
+    }
+
+    .mool-button,
+    .chat-button {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      border: 0;
+      border-radius: 50%;
+      text-decoration: none;
+      font-size: 10px;
+      font-weight: 950;
+    }
+
+    .mool-button {
+      background:
+        radial-gradient(circle at 36% 24%, rgba(255, 255, 255, .30), transparent 32%),
+        linear-gradient(145deg, #1717ba, var(--ms-navy) 72%);
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 rgba(0, 0, 80, .35), 0 9px 18px rgba(0, 0, 128, .22);
+    }
+
+    .chat-button {
+      position: relative;
+      background: radial-gradient(circle at 50% 12%, rgba(255, 255, 255, .96), rgba(255, 255, 255, .78) 44%, rgba(240, 244, 248, .98));
+      color: var(--ms-navy);
+      border: 1px solid rgba(0, 0, 128, .16);
+      box-shadow: 0 9px 18px rgba(0, 0, 128, .12);
+    }
+
+    .chat-badge {
+      min-width: 16px;
+      height: 16px;
+      position: absolute;
+      top: 5px;
+      right: 2px;
+      display: grid;
+      place-items: center;
+      border-radius: var(--ms-pill);
+      padding: 0 4px;
+      background: var(--ms-saffron);
+      color: var(--ms-navy);
+      font-size: 9px;
+      font-weight: 950;
+    }
+
+    .dock-track {
+      min-width: 0;
+      display: flex;
+      gap: 7px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      border: 1px solid rgba(0, 0, 128, .20);
+      border-radius: 19px;
+      padding: 5px 6px;
+      background:
+        radial-gradient(circle at 50% 50%, rgba(0, 0, 128, .12), transparent 58%),
+        linear-gradient(90deg, rgba(0, 0, 128, .10), rgba(255, 255, 255, .96) 20% 80%, rgba(0, 0, 128, .10));
+      box-shadow: inset 12px 0 18px rgba(0, 0, 128, .10), inset -12px 0 18px rgba(0, 0, 128, .10);
+    }
+
+    .dock-track::-webkit-scrollbar { display: none; }
+
+    .dock-tab {
+      flex: 0 0 auto;
+      min-width: 58px;
+      min-height: 42px;
+      display: grid;
+      place-items: center;
+      gap: 2px;
+      border-radius: 17px;
+      color: var(--ms-navy);
+      text-decoration: none;
+      font-size: 9px;
+      font-weight: 950;
+    }
+
+    .dock-tab svg {
+      width: 17px;
+      height: 17px;
+    }
+
+    .dock-tab.active {
+      background: linear-gradient(180deg, #1515b8, var(--ms-navy));
+      color: var(--ms-white);
+      box-shadow: inset 0 -3px 0 var(--ms-saffron), 0 8px 18px rgba(0, 0, 128, .18);
+    }
+
+    .state-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      border-top: 1px solid var(--ms-navy);
+      border-left: 1px solid var(--ms-navy);
+    }
+
+    .state-cell {
+      border-right: 1px solid var(--ms-navy);
+      border-bottom: 1px solid var(--ms-navy);
+      padding: 14px;
+      color: var(--ms-navy);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .state-cell:nth-child(2n) { border-right: 0; }
+    .state-cell b {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--ms-green);
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 780px) {
+      .preview { grid-template-columns: 1fr; padding: 12px; }
+      .state-grid { grid-template-columns: 1fr; }
+      .state-cell { border-right: 0; }
+      .ms-page { padding: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="ms-page">
+    <section class="screen-shell">
+      <div class="back-row">
+        <a class="screen-link-home" href="../index.html">
+          <span class="back-mark">35</span>
+          Back to MoolSocial Screenbook
+        </a>
+        <span class="ms-status">Approved</span>
+      </div>
+
+      <section class="preview">
+        <div class="phone" role="img" aria-label="MoolSocial ride post-trip support screen">
+          <div class="app">
+            <div class="status-row">
+              <span>9:41</span>
+              <span>5G 100%</span>
+            </div>
+
+            <header class="top">
+              <div class="brand-row">
+                <div class="brand-copy">
+                  <b>Ride support</b>
+                  <div class="identity-line" aria-hidden="true"><span></span><span></span><span></span></div>
+                  <span>Auto · proof attached</span>
+                </div>
+                <div class="top-buttons">
+                  <a class="circle-btn" href="04-universal-focus-shell.html" aria-label="Back">
+                    <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" /></svg>
+                  </a>
+                  <button class="circle-btn" aria-label="Safety">
+                    <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" /><path d="M9 12l2 2 4-5" /></svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="command-bar" aria-label="Ride post-trip support">
+                <span class="command-text">Choose issue · proof already attached</span>
+                <button class="search-action" aria-label="Receipt proof">
+                  <svg viewBox="0 0 24 24"><path d="M6 2h12v20l-3-2-3 2-3-2-3 2Z" /><path d="M8 7h8" /><path d="M8 11h8" /></svg>
+                </button>
+                <button class="search-action" aria-label="Call support">
+                  <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.8 19.8 0 0 1 3 5.18 2 2 0 0 1 5 3h3a2 2 0 0 1 2 1.72c.12.9.33 1.77.62 2.6a2 2 0 0 1-.45 2.11L9 10.6a16 16 0 0 0 4.4 4.4l1.17-1.17a2 2 0 0 1 2.11-.45c.83.29 1.7.5 2.6.62A2 2 0 0 1 22 16.92Z" /></svg>
+                </button>
+                <button class="search-action" aria-label="Support chat">
+                  <svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z" /></svg>
+                </button>
+              </div>
+            </header>
+
+            <main class="content">
+              <section class="completion-card ticket-card" aria-label="Ride support ticket">
+                <div class="complete-top">
+                  <span class="complete-mark"><svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z" /></svg></span>
+                  <span class="complete-copy">
+                    <b>Support for MS-RD-9042</b>
+                    <span>Use support if something went wrong. Ride proof is attached.</span>
+                  </span>
+                  <strong class="support-status">24 hr</strong>
+                </div>
+              </section>
+
+              <section class="support-card warning-card" aria-label="Belongings warning">
+                <span>
+                  <b>Check belongings before leaving</b>
+                  <span>Phone, wallet, keys, documents and bags should stay with you. If something is missing, report to MoolSocial immediately.</span>
+                </span>
+                <a class="mini-control" href="#">Alert</a>
+              </section>
+
+              <section class="bill-card" aria-label="Choose ride issue">
+                <div class="bill-head">
+                  <span>
+                    <b>Report a ride issue</b>
+                    <span>Use only when support is needed. MoolSocial keeps proof ready.</span>
+                  </span>
+                  <strong class="bill-total">Help</strong>
+                </div>
+                <div class="issue-grid" aria-label="Ride issue choices">
+                  <button class="issue-choice active" type="button" data-issue="Item missing" data-title="Report missing item" data-note="If something is missing, share details now. MoolSocial will contact the captain and keep support chat open." data-cta="Report missing item"><b>Item missing</b><span>unwanted incident</span></button>
+                  <button class="issue-choice" type="button" data-issue="Fare issue" data-title="Review fare" data-note="Fare, route, time and payment proof will be reviewed before any adjustment." data-cta="Raise fare review"><b>Fare issue</b><span>extra, wrong charge</span></button>
+                  <button class="issue-choice" type="button" data-issue="Route issue" data-title="Check route" data-note="GPS trail and destination proof will be attached for route review." data-cta="Raise route review"><b>Route issue</b><span>wrong route, detour</span></button>
+                  <button class="issue-choice" type="button" data-issue="Safety concern" data-title="Report safety concern" data-note="Safety team gets priority access to trip, captain and location proof." data-cta="Report safely"><b>Safety</b><span>urgent review</span></button>
+                </div>
+              </section>
+
+              <section class="rating-card" aria-label="Issue action">
+                <div class="approval-main">
+                  <span class="approval-icon"><svg viewBox="0 0 24 24"><path d="M12 9v4" /><path d="M12 17h.01" /><path d="M10.3 3.9 2 18a2 2 0 0 0 1.7 3h16.6A2 2 0 0 0 22 18L13.7 3.9a2 2 0 0 0-3.4 0Z" /></svg></span>
+                  <span class="rating-copy">
+                    <b id="issueTitle">Report missing item</b>
+                    <span id="issueNote">If something is missing, share details now. MoolSocial will contact the captain and keep support chat open.</span>
+                  </span>
+                </div>
+                <div class="compliment-row" aria-label="Issue quick details">
+                  <button class="compliment-chip active" type="button">Phone</button>
+                  <button class="compliment-chip" type="button">Wallet</button>
+                  <button class="compliment-chip" type="button">Bag</button>
+                  <button class="compliment-chip" type="button">Keys</button>
+                </div>
+                <a class="approve-cta" href="#" id="issueCta">Report missing item</a>
+              </section>
+
+              <section class="bill-card" aria-label="Attached proof">
+                <div class="bill-head">
+                  <span>
+                    <b>Proof attached</b>
+                    <span>No need to upload trip details again.</span>
+                  </span>
+                  <strong class="support-status">Ready</strong>
+                </div>
+                <div class="receipt-proof" aria-label="Attached support proof">
+                  <span class="proof-chip"><b>Receipt</b><span>Rs 112 paid</span></span>
+                  <span class="proof-chip"><b>Route</b><span>GPS trail</span></span>
+                  <span class="proof-chip"><b>Captain</b><span>RJ 19 AU 4581</span></span>
+                </div>
+              </section>
+
+              <section class="support-card" aria-label="Support timeline">
+                <span>
+                  <b>What happens next?</b>
+                  <span>Captain response and support review are tracked in one place.</span>
+                </span>
+                <a class="mini-control" href="#">Track</a>
+              </section>
+
+              <section class="bill-card" aria-label="Support status">
+                <div class="timeline-list">
+                  <div class="timeline-step"><span class="timeline-dot">1</span><span class="timeline-copy"><b>Request created</b><span>Issue type and proof saved</span></span><strong>Now</strong></div>
+                  <div class="timeline-step"><span class="timeline-dot">2</span><span class="timeline-copy"><b>Captain response</b><span>Chat stays open for update</span></span><strong>10 min</strong></div>
+                  <div class="timeline-step"><span class="timeline-dot">3</span><span class="timeline-copy"><b>Mool review</b><span>Fare, route or safety team checks</span></span><strong>30 min</strong></div>
+                </div>
+              </section>
+
+              <section class="receipt-card urgent-card" aria-label="Urgent safety">
+                <span>
+                  <b>Urgent safety?</b>
+                  <span>Call safety support immediately. Trip proof and location are available.</span>
+                </span>
+                <a class="mini-control" href="#">Call</a>
+              </section>
+
+            </main>
+
+            <nav class="bottom-dock" aria-label="Ride navigation">
+              <a class="mool-button" href="04-universal-focus-shell.html">Mool</a>
+              <div class="dock-track">
+                <a class="dock-tab active" href="#"><svg viewBox="0 0 24 24"><path d="M12 9v4" /><path d="M12 17h.01" /><path d="M10.3 3.9 2 18a2 2 0 0 0 1.7 3h16.6A2 2 0 0 0 22 18L13.7 3.9a2 2 0 0 0-3.4 0Z" /></svg>Help</a>
+                <a class="dock-tab" href="34-ride-receipt-rating.html"><svg viewBox="0 0 24 24"><path d="M6 2h12v20l-3-2-3 2-3-2-3 2Z" /><path d="M8 7h8" /><path d="M8 11h8" /></svg>Receipt</a>
+                <a class="dock-tab" href="#"><svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z" /></svg>Track</a>
+              </div>
+              <a class="chat-button" href="23-chat-inbox-home.html" aria-label="Open chat">
+                <svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z" /></svg>
+                <span class="chat-badge">2</span>
+              </a>
+            </nav>
+          </div>
+        </div>
+
+        <div class="notes">
+          <div>
+            <h1 class="ms-title">Screen 35 handles post-trip ride support with proof already attached.</h1>
+            <p class="ms-lead">
+              Riders must be reminded to keep valuables, documents and bags with them. If something unwanted happens,
+              the customer can report a missing item, fare issue, route issue or safety concern while receipt, route,
+              payment and captain proof stay attached automatically.
+            </p>
+          </div>
+
+          <div class="ms-panel">
+            <div class="ms-section-head">Screen Contract <span>Approved</span></div>
+            <div class="state-grid">
+              <div class="state-cell"><b>Entry</b>From Screen 34 when user taps Support, Help, fare issue, route issue, item missing or safety.</div>
+              <div class="state-cell"><b>User Sees</b>Support ticket context, issue choices, attached receipt/route/payment/captain proof, timeline, support chat and urgent safety call.</div>
+              <div class="state-cell"><b>Decision</b>User selects issue type, adds quick details, starts request, tracks response, opens support chat or calls safety.</div>
+              <div class="state-cell"><b>Backend</b>Ride support ticket, issue category, evidence bundle, captain notification, support SLA, safety escalation, chat thread and refund/adjustment routing APIs.</div>
+              <div class="state-cell"><b>Trust</b>UI must warn riders to check belongings first. If something is missing, customer should not re-explain trip details because proof is attached automatically.</div>
+              <div class="state-cell"><b>Failure</b>If evidence bundle is delayed, create ticket with receipt ID and attach proof later. If urgent safety fails, expose phone support.</div>
+              <div class="state-cell"><b>Next</b>Support thread opens in Chat. Resolution may lead to refund, adjustment, missing item return, warning or safety case.</div>
+              <div class="state-cell"><b>Regression</b>No rating/payment action here; this screen is post-trip support only.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script>
+    if ("scrollRestoration" in history) {
+      history.scrollRestoration = "manual";
+    }
+
+    function resetPhoneScroll() {
+      const content = document.querySelector(".content");
+      if (content) content.scrollTop = 0;
+    }
+
+    window.addEventListener("load", () => {
+      resetPhoneScroll();
+      requestAnimationFrame(resetPhoneScroll);
+      setTimeout(resetPhoneScroll, 80);
+    });
+
+    const actionButtons = document.querySelectorAll(".compact-action, .mini-control, .route-tag, .approve-cta, .dock-tab, .secondary-cta");
+    const issueButtons = document.querySelectorAll("[data-issue]");
+    const issueTitle = document.getElementById("issueTitle");
+    const issueNote = document.getElementById("issueNote");
+    const issueCta = document.getElementById("issueCta");
+    const complimentButtons = document.querySelectorAll(".compliment-chip");
+
+    issueButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        issueButtons.forEach((item) => item.classList.toggle("active", item === button));
+        issueTitle.textContent = button.dataset.title;
+        issueNote.textContent = button.dataset.note;
+        issueCta.textContent = button.dataset.cta;
+      });
+    });
+
+    complimentButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        button.classList.toggle("active");
+      });
+    });
+
+    actionButtons.forEach((button) => {
+      button.addEventListener("click", (event) => {
+        if (button.getAttribute("href") === "#") event.preventDefault();
+      });
+    });
+  </script>
+<script type="application/json" id="productionRouteContract">{"contractVersion":"mvp-route-lock-2026-07-12","prototypeScreen":35,"productionModule":"ride","routeId":"ride.support","routePath":"/ride/trips/:tripId/support","routeState":"post-trip-support","implementation":"route-shell","launchScope":"mvp-core","separateProductionRoute":true,"productionNote":"Own production route /ride/trips/:tripId/support. Implement post-trip-support as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.","canonicalMap":"architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"}</script><script type="application/json" id="prototypeApprovalContract">{"prototypeScreen":35,"status":"approved-and-frozen","authoritative":true,"approvedAt":"2026-07-12","approvalScope":"prototype-ui-ux-and-production-contract"}</script></body>
+</html>

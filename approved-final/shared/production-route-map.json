@@ -1,0 +1,2507 @@
+{
+  "contractVersion": "mvp-route-lock-2026-07-12",
+  "generatedAt": "2026-07-12",
+  "prototypeScreenCount": 107,
+  "productionRouteGroupCount": 74,
+  "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md",
+  "routes": [
+    {
+      "routeId": "app.launch",
+      "routePath": "/launch",
+      "productionModule": "launch",
+      "prototypeScreens": [
+        1
+      ],
+      "routeStates": [
+        "splash"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ]
+    },
+    {
+      "routeId": "booking.home",
+      "routePath": "/book",
+      "productionModule": "booking",
+      "prototypeScreens": [
+        36
+      ],
+      "routeStates": [
+        "discovery"
+      ],
+      "launchScopes": [
+        "post-mvp"
+      ]
+    },
+    {
+      "routeId": "chat.business",
+      "routePath": "/chat/business/:threadId",
+      "productionModule": "chat",
+      "prototypeScreens": [
+        24
+      ],
+      "routeStates": [
+        "business-thread"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ]
+    },
+    {
+      "routeId": "chat.inbox",
+      "routePath": "/chat",
+      "productionModule": "chat",
+      "prototypeScreens": [
+        23
+      ],
+      "routeStates": [
+        "inbox"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ]
+    },
+    {
+      "routeId": "chat.order-support",
+      "routePath": "/chat/orders/:orderId",
+      "productionModule": "chat",
+      "prototypeScreens": [
+        22
+      ],
+      "routeStates": [
+        "support-thread"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ]
+    },
+    {
+      "routeId": "chat.people",
+      "routePath": "/chat/people/:threadId",
+      "productionModule": "chat",
+      "prototypeScreens": [
+        25
+      ],
+      "routeStates": [
+        "people-thread"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ]
+    },
+    {
+      "routeId": "commerce.buy",
+      "routePath": "/buy",
+      "productionModule": "commerce",
+      "prototypeScreens": [
+        9
+      ],
+      "routeStates": [
+        "discovery"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ]
+    },
+    {
+      "routeId": "commerce.cart",
+      "routePath": "/buy/cart",
+      "productionModule": "commerce",
+      "prototypeScreens": [
+        12
+      ],
+      "routeStates": [
+        "basket-checkout"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ]
+    },
+    {
+      "routeId": "commerce.grocery",
+      "routePath": "/buy/grocery",
+      "productionModule": "commerce",
+      "prototypeScreens": [
+        10
+      ],
+      "routeStates": [
+        "store-catalog"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ]
+    },
+    {
+      "routeId": "commerce.product",
+      "routePath": "/buy/products/:productId",
+      "productionModule": "commerce",
+      "prototypeScreens": [
+        11
+      ],
+      "routeStates": [
+        "product-detail"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ]
+    },
+    {
+      "routeId": "distribution.store-listing",
+      "routePath": "external:play-store",
+      "productionModule": "distribution",
+      "prototypeScreens": [
+        0
+      ],
+      "routeStates": [
+        "store-listing"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ]
+    },
+    {
+      "routeId": "doctor.patient-invite",
+      "routePath": "/doctor/patients/invites/new",
+      "productionModule": "health",
+      "prototypeScreens": [
+        39
+      ],
+      "routeStates": [
+        "invite-followup"
+      ],
+      "launchScopes": [
+        "post-mvp"
+      ]
+    },
+    {
+      "routeId": "earn.home",
+      "routePath": "/earn",
+      "productionModule": "work",
+      "prototypeScreens": [
+        67
+      ],
+      "routeStates": [
+        "opportunity-feed"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ]
+    },
+    {
+      "routeId": "earn.opportunity",
+      "routePath": "/earn/opportunities/:opportunityId",
+      "productionModule": "work",
+      "prototypeScreens": [
+        68
+      ],
+      "routeStates": [
+        "terms-apply"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ]
+    },
+    {
+      "routeId": "eat.home",
+      "routePath": "/eat",
+      "productionModule": "eat",
+      "prototypeScreens": [
+        26
+      ],
+      "routeStates": [
+        "discovery"
+      ],
+      "launchScopes": [
+        "post-mvp"
+      ]
+    },
+    {
+      "routeId": "eat.restaurant-order",
+      "routePath": "/eat/restaurants/:restaurantId/order",
+      "productionModule": "eat",
+      "prototypeScreens": [
+        27
+      ],
+      "routeStates": [
+        "menu-cart"
+      ],
+      "launchScopes": [
+        "post-mvp"
+      ]
+    },
+    {
+      "routeId": "eat.table-booking",
+      "routePath": "/eat/restaurants/:restaurantId/tables",
+      "productionModule": "eat",
+      "prototypeScreens": [
+        28
+      ],
+      "routeStates": [
+        "table-booking"
+      ],
+      "launchScopes": [
+        "post-mvp"
+      ]
+    },
+    {
+      "routeId": "eat.tiffin",
+      "routePath": "/eat/tiffin",
+      "productionModule": "eat",
+      "prototypeScreens": [
+        29
+      ],
+      "routeStates": [
+        "provider-menu-plan"
+      ],
+      "launchScopes": [
+        "post-mvp"
+      ]
+    },
+    {
+      "routeId": "health.appointment",
+      "routePath": "/health/appointments/:appointmentId",
+      "productionModule": "health",
+      "prototypeScreens": [
+        38
+      ],
+      "routeStates": [
+        "patient-details-reports"
+      ],
+      "launchScopes": [
+        "post-mvp"
+      ]
+    },
+    {
+      "routeId": "health.doctor-booking",
+      "routePath": "/book/doctors/:doctorId",
+      "productionModule": "health",
+      "prototypeScreens": [
+        37
+      ],
+      "routeStates": [
+        "slot-selection"
+      ],
+      "launchScopes": [
+        "post-mvp"
+      ]
+    },
+    {
+      "routeId": "health.followup",
+      "routePath": "/health/followups/:followupId",
+      "productionModule": "health",
+      "prototypeScreens": [
+        41
+      ],
+      "routeStates": [
+        "patient-workspace"
+      ],
+      "launchScopes": [
+        "post-mvp"
+      ]
+    },
+    {
+      "routeId": "health.invite",
+      "routePath": "/health/invites/:token",
+      "productionModule": "health",
+      "prototypeScreens": [
+        40
+      ],
+      "routeStates": [
+        "patient-join"
+      ],
+      "launchScopes": [
+        "post-mvp"
+      ]
+    },
+    {
+      "routeId": "identity.auth",
+      "routePath": "/auth",
+      "productionModule": "identity",
+      "prototypeScreens": [
+        3
+      ],
+      "routeStates": [
+        "method-otp-handoff"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ]
+    },
+    {
+      "routeId": "onboarding.setup",
+      "routePath": "/onboarding/setup",
+      "productionModule": "onboarding",
+      "prototypeScreens": [
+        2
+      ],
+      "routeStates": [
+        "language-location"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ]
+    },
+    {
+      "routeId": "orders.issue",
+      "routePath": "/orders/:orderId/issues",
+      "productionModule": "orders",
+      "prototypeScreens": [
+        19,
+        20,
+        21
+      ],
+      "routeStates": [
+        "evidence-submit",
+        "review-retailer-response",
+        "resolution-result"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ]
+    },
+    {
+      "routeId": "orders.lifecycle",
+      "routePath": "/orders/:orderId",
+      "productionModule": "orders",
+      "prototypeScreens": [
+        15,
+        16,
+        17,
+        18
+      ],
+      "routeStates": [
+        "counter-ready",
+        "counter-completed-rating",
+        "home-delivery-tracking",
+        "home-delivery-completed-rating"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ]
+    },
+    {
+      "routeId": "orders.payment",
+      "routePath": "/orders/:orderId/payment",
+      "productionModule": "orders",
+      "prototypeScreens": [
+        14
+      ],
+      "routeStates": [
+        "review-confirmation"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ]
+    },
+    {
+      "routeId": "pay.bills",
+      "routePath": "/pay/bills",
+      "productionModule": "pay",
+      "prototypeScreens": [
+        59
+      ],
+      "routeStates": [
+        "bill-payment"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ]
+    },
+    {
+      "routeId": "pay.home",
+      "routePath": "/pay",
+      "productionModule": "pay",
+      "prototypeScreens": [
+        57
+      ],
+      "routeStates": [
+        "action-home"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ]
+    },
+    {
+      "routeId": "pay.recharge",
+      "routePath": "/pay/recharge",
+      "productionModule": "pay",
+      "prototypeScreens": [
+        58
+      ],
+      "routeStates": [
+        "recharge"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ]
+    },
+    {
+      "routeId": "pay.request-detail",
+      "routePath": "/pay/requests/:requestId",
+      "productionModule": "pay",
+      "prototypeScreens": [
+        62
+      ],
+      "routeStates": [
+        "review-confirmation"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ]
+    },
+    {
+      "routeId": "pay.requests",
+      "routePath": "/pay/requests",
+      "productionModule": "pay",
+      "prototypeScreens": [
+        61
+      ],
+      "routeStates": [
+        "request-inbox"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ]
+    },
+    {
+      "routeId": "pay.scan",
+      "routePath": "/pay/scan",
+      "productionModule": "pay",
+      "prototypeScreens": [
+        60
+      ],
+      "routeStates": [
+        "scan-confirm"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ]
+    },
+    {
+      "routeId": "payment.history",
+      "routePath": "/payments",
+      "productionModule": "pay",
+      "prototypeScreens": [
+        64
+      ],
+      "routeStates": [
+        "receipt-history"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ]
+    },
+    {
+      "routeId": "payment.lifecycle",
+      "routePath": "/payments/:paymentId",
+      "productionModule": "pay",
+      "prototypeScreens": [
+        63,
+        65,
+        66
+      ],
+      "routeStates": [
+        "processing-receipt",
+        "pending-refund",
+        "failed-reversal-retry"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ]
+    },
+    {
+      "routeId": "retailer.business-book",
+      "routePath": "/retailer/books",
+      "productionModule": "retailer",
+      "prototypeScreens": [
+        92,
+        106
+      ],
+      "routeStates": [
+        "business-position",
+        "cash-bank-reconciliation"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ]
+    },
+    {
+      "routeId": "retailer.campaign-create",
+      "routePath": "/retailer/campaigns/new",
+      "productionModule": "retailer",
+      "prototypeScreens": [
+        100
+      ],
+      "routeStates": [
+        "progressive-builder"
+      ],
+      "launchScopes": [
+        "mvp-conditional"
+      ]
+    },
+    {
+      "routeId": "retailer.campaigns",
+      "routePath": "/retailer/campaigns",
+      "productionModule": "retailer",
+      "prototypeScreens": [
+        99
+      ],
+      "routeStates": [
+        "campaign-list-control"
+      ],
+      "launchScopes": [
+        "mvp-conditional"
+      ]
+    },
+    {
+      "routeId": "retailer.customer-detail",
+      "routePath": "/retailer/customers/:customerId",
+      "productionModule": "retailer",
+      "prototypeScreens": [
+        98
+      ],
+      "routeStates": [
+        "customer-retention"
+      ],
+      "launchScopes": [
+        "mvp-conditional"
+      ]
+    },
+    {
+      "routeId": "retailer.customers",
+      "routePath": "/retailer/customers",
+      "productionModule": "retailer",
+      "prototypeScreens": [
+        97
+      ],
+      "routeStates": [
+        "customers-loyalty"
+      ],
+      "launchScopes": [
+        "mvp-conditional"
+      ]
+    },
+    {
+      "routeId": "retailer.home",
+      "routePath": "/retailer",
+      "productionModule": "retailer",
+      "prototypeScreens": [
+        74,
+        102
+      ],
+      "routeStates": [
+        "operating-home",
+        "ai-operating-assistant"
+      ],
+      "launchScopes": [
+        "mvp-conditional",
+        "mvp-core"
+      ]
+    },
+    {
+      "routeId": "retailer.order",
+      "routePath": "/retailer/orders/:orderId",
+      "productionModule": "retailer",
+      "prototypeScreens": [
+        13,
+        75,
+        76,
+        77
+      ],
+      "routeStates": [
+        "stock-confirmation",
+        "review-fulfilment",
+        "delivery-assignment-handover",
+        "delivery-tracking-completion"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ]
+    },
+    {
+      "routeId": "retailer.order-create",
+      "routePath": "/retailer/orders/new",
+      "productionModule": "retailer",
+      "prototypeScreens": [
+        78
+      ],
+      "routeStates": [
+        "assisted-order"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ]
+    },
+    {
+      "routeId": "retailer.order-issues",
+      "routePath": "/retailer/orders/issues",
+      "productionModule": "retailer",
+      "prototypeScreens": [
+        105
+      ],
+      "routeStates": [
+        "returns-customer-issues"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ]
+    },
+    {
+      "routeId": "retailer.pos-counters",
+      "routePath": "/retailer/pos/counters",
+      "productionModule": "retailer",
+      "prototypeScreens": [
+        79
+      ],
+      "routeStates": [
+        "counter-management"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ]
+    },
+    {
+      "routeId": "retailer.pos-sale",
+      "routePath": "/retailer/pos/sales/new",
+      "productionModule": "retailer",
+      "prototypeScreens": [
+        80
+      ],
+      "routeStates": [
+        "counter-sale-invoice"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ]
+    },
+    {
+      "routeId": "retailer.purchase-book",
+      "routePath": "/retailer/books/purchases",
+      "productionModule": "retailer",
+      "prototypeScreens": [
+        87
+      ],
+      "routeStates": [
+        "purchase-book"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ]
+    },
+    {
+      "routeId": "retailer.purchase-detail",
+      "routePath": "/retailer/books/purchases/:purchaseId",
+      "productionModule": "retailer",
+      "prototypeScreens": [
+        88,
+        89
+      ],
+      "routeStates": [
+        "supplier-payment-review",
+        "supplier-payment-status"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ]
+    },
+    {
+      "routeId": "retailer.sales-book",
+      "routePath": "/retailer/books/sales",
+      "productionModule": "retailer",
+      "prototypeScreens": [
+        90
+      ],
+      "routeStates": [
+        "sales-book"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ]
+    },
+    {
+      "routeId": "retailer.service-detail",
+      "routePath": "/retailer/services/:serviceId",
+      "productionModule": "retailer",
+      "prototypeScreens": [
+        94,
+        95,
+        96
+      ],
+      "routeStates": [
+        "plan-selection",
+        "activation-review",
+        "active-service"
+      ],
+      "launchScopes": [
+        "mvp-conditional"
+      ]
+    },
+    {
+      "routeId": "retailer.services",
+      "routePath": "/retailer/services",
+      "productionModule": "retailer",
+      "prototypeScreens": [
+        93
+      ],
+      "routeStates": [
+        "service-catalog"
+      ],
+      "launchScopes": [
+        "mvp-conditional"
+      ]
+    },
+    {
+      "routeId": "retailer.settings",
+      "routePath": "/retailer/settings",
+      "productionModule": "retailer",
+      "prototypeScreens": [
+        104
+      ],
+      "routeStates": [
+        "store-readiness"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ]
+    },
+    {
+      "routeId": "retailer.settings-team",
+      "routePath": "/retailer/settings/team",
+      "productionModule": "retailer",
+      "prototypeScreens": [
+        103
+      ],
+      "routeStates": [
+        "staff-permissions"
+      ],
+      "launchScopes": [
+        "mvp-conditional"
+      ]
+    },
+    {
+      "routeId": "retailer.stock",
+      "routePath": "/retailer/stock",
+      "productionModule": "retailer",
+      "prototypeScreens": [
+        91,
+        101
+      ],
+      "routeStates": [
+        "stock-statement",
+        "slow-stock-liquidation"
+      ],
+      "launchScopes": [
+        "mvp-conditional",
+        "mvp-core"
+      ]
+    },
+    {
+      "routeId": "retailer.wholesale-cart",
+      "routePath": "/retailer/wholesale/cart",
+      "productionModule": "retailer",
+      "prototypeScreens": [
+        82
+      ],
+      "routeStates": [
+        "purchase-order-review"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ]
+    },
+    {
+      "routeId": "retailer.wholesale-catalog",
+      "routePath": "/retailer/wholesale",
+      "productionModule": "retailer",
+      "prototypeScreens": [
+        81
+      ],
+      "routeStates": [
+        "catalog"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ]
+    },
+    {
+      "routeId": "retailer.wholesale-order",
+      "routePath": "/retailer/wholesale/orders/:orderId",
+      "productionModule": "retailer",
+      "prototypeScreens": [
+        83,
+        84,
+        85,
+        86
+      ],
+      "routeStates": [
+        "confirmed",
+        "delivery-tracking",
+        "goods-receipt",
+        "receipt-result"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ]
+    },
+    {
+      "routeId": "ride.booking",
+      "routePath": "/ride",
+      "productionModule": "ride",
+      "prototypeScreens": [
+        30
+      ],
+      "routeStates": [
+        "quote-and-book"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ]
+    },
+    {
+      "routeId": "ride.support",
+      "routePath": "/ride/trips/:tripId/support",
+      "productionModule": "ride",
+      "prototypeScreens": [
+        35
+      ],
+      "routeStates": [
+        "post-trip-support"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ]
+    },
+    {
+      "routeId": "ride.trip",
+      "routePath": "/ride/trips/:tripId",
+      "productionModule": "ride",
+      "prototypeScreens": [
+        31,
+        32,
+        33,
+        34
+      ],
+      "routeStates": [
+        "captain-arriving",
+        "live-trip",
+        "payment-approval",
+        "receipt-rating"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ]
+    },
+    {
+      "routeId": "salon.booking",
+      "routePath": "/book/salons/:salonId",
+      "productionModule": "salon",
+      "prototypeScreens": [
+        42
+      ],
+      "routeStates": [
+        "service-slot"
+      ],
+      "launchScopes": [
+        "post-mvp"
+      ]
+    },
+    {
+      "routeId": "salon.booking-lifecycle",
+      "routePath": "/bookings/:bookingId",
+      "productionModule": "salon",
+      "prototypeScreens": [
+        43,
+        44,
+        45,
+        46,
+        47
+      ],
+      "routeStates": [
+        "review-confirm",
+        "confirmed",
+        "visit-check-in",
+        "payment-rating",
+        "post-visit-support"
+      ],
+      "launchScopes": [
+        "post-mvp"
+      ]
+    },
+    {
+      "routeId": "social.create",
+      "routePath": "/social/create",
+      "productionModule": "social",
+      "prototypeScreens": [
+        8
+      ],
+      "routeStates": [
+        "composer"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ]
+    },
+    {
+      "routeId": "social.feed",
+      "routePath": "/social/feed",
+      "productionModule": "social",
+      "prototypeScreens": [
+        7
+      ],
+      "routeStates": [
+        "timeline-post-replies"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ]
+    },
+    {
+      "routeId": "social.shorts",
+      "routePath": "/social/shorts",
+      "productionModule": "social",
+      "prototypeScreens": [
+        5
+      ],
+      "routeStates": [
+        "viewer"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ]
+    },
+    {
+      "routeId": "social.videos",
+      "routePath": "/social/videos",
+      "productionModule": "social",
+      "prototypeScreens": [
+        6
+      ],
+      "routeStates": [
+        "catalog-player"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ]
+    },
+    {
+      "routeId": "tasks.create",
+      "routePath": "/tasks/new",
+      "productionModule": "tasks",
+      "prototypeScreens": [
+        48
+      ],
+      "routeStates": [
+        "task-details"
+      ],
+      "launchScopes": [
+        "post-mvp"
+      ]
+    },
+    {
+      "routeId": "tasks.issue",
+      "routePath": "/tasks/:taskId/issues",
+      "productionModule": "tasks",
+      "prototypeScreens": [
+        53,
+        54,
+        55,
+        56
+      ],
+      "routeStates": [
+        "issue-submit",
+        "case-status",
+        "resolution",
+        "resolution-complete"
+      ],
+      "launchScopes": [
+        "post-mvp"
+      ]
+    },
+    {
+      "routeId": "tasks.lifecycle",
+      "routePath": "/tasks/:taskId",
+      "productionModule": "tasks",
+      "prototypeScreens": [
+        50,
+        51,
+        52
+      ],
+      "routeStates": [
+        "helper-accepted",
+        "proof-release",
+        "completed-rating"
+      ],
+      "launchScopes": [
+        "post-mvp"
+      ]
+    },
+    {
+      "routeId": "tasks.payment",
+      "routePath": "/tasks/:taskId/payment",
+      "productionModule": "tasks",
+      "prototypeScreens": [
+        49
+      ],
+      "routeStates": [
+        "review-payment"
+      ],
+      "launchScopes": [
+        "post-mvp"
+      ]
+    },
+    {
+      "routeId": "universal.app",
+      "routePath": "/app",
+      "productionModule": "universal",
+      "prototypeScreens": [
+        4
+      ],
+      "routeStates": [
+        "social-default-focus-shell"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ]
+    },
+    {
+      "routeId": "workspace.application",
+      "routePath": "/workspaces/applications/:applicationId",
+      "productionModule": "work",
+      "prototypeScreens": [
+        72
+      ],
+      "routeStates": [
+        "verification-status"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ]
+    },
+    {
+      "routeId": "workspace.create",
+      "routePath": "/workspaces/new",
+      "productionModule": "work",
+      "prototypeScreens": [
+        69,
+        70,
+        71
+      ],
+      "routeStates": [
+        "obsolete-freeform-setup",
+        "choose-activity",
+        "profile-proof"
+      ],
+      "launchScopes": [
+        "mvp-core",
+        "superseded-do-not-implement"
+      ]
+    },
+    {
+      "routeId": "workspace.home",
+      "routePath": "/workspaces/:workspaceId",
+      "productionModule": "work",
+      "prototypeScreens": [
+        73
+      ],
+      "routeStates": [
+        "ready-handoff"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ]
+    }
+  ],
+  "screenContracts": [
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 0,
+      "productionModule": "distribution",
+      "routeId": "distribution.store-listing",
+      "routePath": "external:play-store",
+      "routeState": "store-listing",
+      "implementation": "external-surface",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": false,
+      "productionNote": "This prototype belongs to external:play-store outside the authenticated application router. Keep its handoff contract with the app launch route.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 1,
+      "productionModule": "launch",
+      "routeId": "app.launch",
+      "routePath": "/launch",
+      "routeState": "splash",
+      "implementation": "route-state",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": false,
+      "productionNote": "Do not create a separate production route. Implement splash inside /launch and reuse the owning route API, authorization, analytics and regression suite.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 2,
+      "productionModule": "onboarding",
+      "routeId": "onboarding.setup",
+      "routePath": "/onboarding/setup",
+      "routeState": "language-location",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "productionNote": "Own production route /onboarding/setup. Implement language-location as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 3,
+      "productionModule": "identity",
+      "routeId": "identity.auth",
+      "routePath": "/auth",
+      "routeState": "method-otp-handoff",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "productionNote": "Own production route /auth. Implement method-otp-handoff as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 4,
+      "productionModule": "universal",
+      "routeId": "universal.app",
+      "routePath": "/app",
+      "routeState": "social-default-focus-shell",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "productionNote": "Own production route /app. Implement social-default-focus-shell as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 5,
+      "productionModule": "social",
+      "routeId": "social.shorts",
+      "routePath": "/social/shorts",
+      "routeState": "viewer",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "productionNote": "Own production route /social/shorts. Implement viewer as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 6,
+      "productionModule": "social",
+      "routeId": "social.videos",
+      "routePath": "/social/videos",
+      "routeState": "catalog-player",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "productionNote": "Own production route /social/videos. Implement catalog-player as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 7,
+      "productionModule": "social",
+      "routeId": "social.feed",
+      "routePath": "/social/feed",
+      "routeState": "timeline-post-replies",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "productionNote": "Own production route /social/feed. Implement timeline-post-replies as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 8,
+      "productionModule": "social",
+      "routeId": "social.create",
+      "routePath": "/social/create",
+      "routeState": "composer",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "productionNote": "Own production route /social/create. Implement composer as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 9,
+      "productionModule": "commerce",
+      "routeId": "commerce.buy",
+      "routePath": "/buy",
+      "routeState": "discovery",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "productionNote": "Own production route /buy. Implement discovery as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 10,
+      "productionModule": "commerce",
+      "routeId": "commerce.grocery",
+      "routePath": "/buy/grocery",
+      "routeState": "store-catalog",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "productionNote": "Own production route /buy/grocery. Implement store-catalog as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 11,
+      "productionModule": "commerce",
+      "routeId": "commerce.product",
+      "routePath": "/buy/products/:productId",
+      "routeState": "product-detail",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "productionNote": "Own production route /buy/products/:productId. Implement product-detail as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 12,
+      "productionModule": "commerce",
+      "routeId": "commerce.cart",
+      "routePath": "/buy/cart",
+      "routeState": "basket-checkout",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "productionNote": "Own production route /buy/cart. Implement basket-checkout as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 13,
+      "productionModule": "retailer",
+      "routeId": "retailer.order",
+      "routePath": "/retailer/orders/:orderId",
+      "routeState": "stock-confirmation",
+      "implementation": "route-state",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": false,
+      "productionNote": "Do not create a separate production route. Implement stock-confirmation inside /retailer/orders/:orderId and reuse the owning route API, authorization, analytics and regression suite.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 14,
+      "productionModule": "orders",
+      "routeId": "orders.payment",
+      "routePath": "/orders/:orderId/payment",
+      "routeState": "review-confirmation",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "productionNote": "Own production route /orders/:orderId/payment. Implement review-confirmation as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 15,
+      "productionModule": "orders",
+      "routeId": "orders.lifecycle",
+      "routePath": "/orders/:orderId",
+      "routeState": "counter-ready",
+      "implementation": "route-state",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": false,
+      "productionNote": "Do not create a separate production route. Implement counter-ready inside /orders/:orderId and reuse the owning route API, authorization, analytics and regression suite.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 16,
+      "productionModule": "orders",
+      "routeId": "orders.lifecycle",
+      "routePath": "/orders/:orderId",
+      "routeState": "counter-completed-rating",
+      "implementation": "route-state",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": false,
+      "productionNote": "Do not create a separate production route. Implement counter-completed-rating inside /orders/:orderId and reuse the owning route API, authorization, analytics and regression suite.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 17,
+      "productionModule": "orders",
+      "routeId": "orders.lifecycle",
+      "routePath": "/orders/:orderId",
+      "routeState": "home-delivery-tracking",
+      "implementation": "route-state",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": false,
+      "productionNote": "Do not create a separate production route. Implement home-delivery-tracking inside /orders/:orderId and reuse the owning route API, authorization, analytics and regression suite.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 18,
+      "productionModule": "orders",
+      "routeId": "orders.lifecycle",
+      "routePath": "/orders/:orderId",
+      "routeState": "home-delivery-completed-rating",
+      "implementation": "route-state",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": false,
+      "productionNote": "Do not create a separate production route. Implement home-delivery-completed-rating inside /orders/:orderId and reuse the owning route API, authorization, analytics and regression suite.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 19,
+      "productionModule": "orders",
+      "routeId": "orders.issue",
+      "routePath": "/orders/:orderId/issues",
+      "routeState": "evidence-submit",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "productionNote": "Own production route /orders/:orderId/issues. Implement evidence-submit as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 20,
+      "productionModule": "orders",
+      "routeId": "orders.issue",
+      "routePath": "/orders/:orderId/issues",
+      "routeState": "review-retailer-response",
+      "implementation": "route-state",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": false,
+      "productionNote": "Do not create a separate production route. Implement review-retailer-response inside /orders/:orderId/issues and reuse the owning route API, authorization, analytics and regression suite.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 21,
+      "productionModule": "orders",
+      "routeId": "orders.issue",
+      "routePath": "/orders/:orderId/issues",
+      "routeState": "resolution-result",
+      "implementation": "route-state",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": false,
+      "productionNote": "Do not create a separate production route. Implement resolution-result inside /orders/:orderId/issues and reuse the owning route API, authorization, analytics and regression suite.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 22,
+      "productionModule": "chat",
+      "routeId": "chat.order-support",
+      "routePath": "/chat/orders/:orderId",
+      "routeState": "support-thread",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "productionNote": "Own production route /chat/orders/:orderId. Implement support-thread as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 23,
+      "productionModule": "chat",
+      "routeId": "chat.inbox",
+      "routePath": "/chat",
+      "routeState": "inbox",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "productionNote": "Own production route /chat. Implement inbox as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 24,
+      "productionModule": "chat",
+      "routeId": "chat.business",
+      "routePath": "/chat/business/:threadId",
+      "routeState": "business-thread",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "productionNote": "Own production route /chat/business/:threadId. Implement business-thread as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 25,
+      "productionModule": "chat",
+      "routeId": "chat.people",
+      "routePath": "/chat/people/:threadId",
+      "routeState": "people-thread",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "productionNote": "Own production route /chat/people/:threadId. Implement people-thread as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 26,
+      "productionModule": "eat",
+      "routeId": "eat.home",
+      "routePath": "/eat",
+      "routeState": "discovery",
+      "implementation": "route-shell",
+      "launchScope": "post-mvp",
+      "separateProductionRoute": true,
+      "productionNote": "Own production route /eat. Implement discovery as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 27,
+      "productionModule": "eat",
+      "routeId": "eat.restaurant-order",
+      "routePath": "/eat/restaurants/:restaurantId/order",
+      "routeState": "menu-cart",
+      "implementation": "route-shell",
+      "launchScope": "post-mvp",
+      "separateProductionRoute": true,
+      "productionNote": "Own production route /eat/restaurants/:restaurantId/order. Implement menu-cart as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 28,
+      "productionModule": "eat",
+      "routeId": "eat.table-booking",
+      "routePath": "/eat/restaurants/:restaurantId/tables",
+      "routeState": "table-booking",
+      "implementation": "route-shell",
+      "launchScope": "post-mvp",
+      "separateProductionRoute": true,
+      "productionNote": "Own production route /eat/restaurants/:restaurantId/tables. Implement table-booking as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 29,
+      "productionModule": "eat",
+      "routeId": "eat.tiffin",
+      "routePath": "/eat/tiffin",
+      "routeState": "provider-menu-plan",
+      "implementation": "route-shell",
+      "launchScope": "post-mvp",
+      "separateProductionRoute": true,
+      "productionNote": "Own production route /eat/tiffin. Implement provider-menu-plan as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 30,
+      "productionModule": "ride",
+      "routeId": "ride.booking",
+      "routePath": "/ride",
+      "routeState": "quote-and-book",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "productionNote": "Own production route /ride. Implement quote-and-book as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 31,
+      "productionModule": "ride",
+      "routeId": "ride.trip",
+      "routePath": "/ride/trips/:tripId",
+      "routeState": "captain-arriving",
+      "implementation": "route-state",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": false,
+      "productionNote": "Do not create a separate production route. Implement captain-arriving inside /ride/trips/:tripId and reuse the owning route API, authorization, analytics and regression suite.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 32,
+      "productionModule": "ride",
+      "routeId": "ride.trip",
+      "routePath": "/ride/trips/:tripId",
+      "routeState": "live-trip",
+      "implementation": "route-state",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": false,
+      "productionNote": "Do not create a separate production route. Implement live-trip inside /ride/trips/:tripId and reuse the owning route API, authorization, analytics and regression suite.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 33,
+      "productionModule": "ride",
+      "routeId": "ride.trip",
+      "routePath": "/ride/trips/:tripId",
+      "routeState": "payment-approval",
+      "implementation": "route-state",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": false,
+      "productionNote": "Do not create a separate production route. Implement payment-approval inside /ride/trips/:tripId and reuse the owning route API, authorization, analytics and regression suite.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 34,
+      "productionModule": "ride",
+      "routeId": "ride.trip",
+      "routePath": "/ride/trips/:tripId",
+      "routeState": "receipt-rating",
+      "implementation": "route-state",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": false,
+      "productionNote": "Do not create a separate production route. Implement receipt-rating inside /ride/trips/:tripId and reuse the owning route API, authorization, analytics and regression suite.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 35,
+      "productionModule": "ride",
+      "routeId": "ride.support",
+      "routePath": "/ride/trips/:tripId/support",
+      "routeState": "post-trip-support",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "productionNote": "Own production route /ride/trips/:tripId/support. Implement post-trip-support as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 36,
+      "productionModule": "booking",
+      "routeId": "booking.home",
+      "routePath": "/book",
+      "routeState": "discovery",
+      "implementation": "route-shell",
+      "launchScope": "post-mvp",
+      "separateProductionRoute": true,
+      "productionNote": "Own production route /book. Implement discovery as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 37,
+      "productionModule": "health",
+      "routeId": "health.doctor-booking",
+      "routePath": "/book/doctors/:doctorId",
+      "routeState": "slot-selection",
+      "implementation": "route-shell",
+      "launchScope": "post-mvp",
+      "separateProductionRoute": true,
+      "productionNote": "Own production route /book/doctors/:doctorId. Implement slot-selection as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 38,
+      "productionModule": "health",
+      "routeId": "health.appointment",
+      "routePath": "/health/appointments/:appointmentId",
+      "routeState": "patient-details-reports",
+      "implementation": "route-state",
+      "launchScope": "post-mvp",
+      "separateProductionRoute": false,
+      "productionNote": "Do not create a separate production route. Implement patient-details-reports inside /health/appointments/:appointmentId and reuse the owning route API, authorization, analytics and regression suite.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 39,
+      "productionModule": "health",
+      "routeId": "doctor.patient-invite",
+      "routePath": "/doctor/patients/invites/new",
+      "routeState": "invite-followup",
+      "implementation": "route-shell",
+      "launchScope": "post-mvp",
+      "separateProductionRoute": true,
+      "productionNote": "Own production route /doctor/patients/invites/new. Implement invite-followup as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 40,
+      "productionModule": "health",
+      "routeId": "health.invite",
+      "routePath": "/health/invites/:token",
+      "routeState": "patient-join",
+      "implementation": "route-shell",
+      "launchScope": "post-mvp",
+      "separateProductionRoute": true,
+      "productionNote": "Own production route /health/invites/:token. Implement patient-join as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 41,
+      "productionModule": "health",
+      "routeId": "health.followup",
+      "routePath": "/health/followups/:followupId",
+      "routeState": "patient-workspace",
+      "implementation": "route-shell",
+      "launchScope": "post-mvp",
+      "separateProductionRoute": true,
+      "productionNote": "Own production route /health/followups/:followupId. Implement patient-workspace as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 42,
+      "productionModule": "salon",
+      "routeId": "salon.booking",
+      "routePath": "/book/salons/:salonId",
+      "routeState": "service-slot",
+      "implementation": "route-shell",
+      "launchScope": "post-mvp",
+      "separateProductionRoute": true,
+      "productionNote": "Own production route /book/salons/:salonId. Implement service-slot as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 43,
+      "productionModule": "salon",
+      "routeId": "salon.booking-lifecycle",
+      "routePath": "/bookings/:bookingId",
+      "routeState": "review-confirm",
+      "implementation": "route-state",
+      "launchScope": "post-mvp",
+      "separateProductionRoute": false,
+      "productionNote": "Do not create a separate production route. Implement review-confirm inside /bookings/:bookingId and reuse the owning route API, authorization, analytics and regression suite.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 44,
+      "productionModule": "salon",
+      "routeId": "salon.booking-lifecycle",
+      "routePath": "/bookings/:bookingId",
+      "routeState": "confirmed",
+      "implementation": "route-state",
+      "launchScope": "post-mvp",
+      "separateProductionRoute": false,
+      "productionNote": "Do not create a separate production route. Implement confirmed inside /bookings/:bookingId and reuse the owning route API, authorization, analytics and regression suite.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 45,
+      "productionModule": "salon",
+      "routeId": "salon.booking-lifecycle",
+      "routePath": "/bookings/:bookingId",
+      "routeState": "visit-check-in",
+      "implementation": "route-state",
+      "launchScope": "post-mvp",
+      "separateProductionRoute": false,
+      "productionNote": "Do not create a separate production route. Implement visit-check-in inside /bookings/:bookingId and reuse the owning route API, authorization, analytics and regression suite.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 46,
+      "productionModule": "salon",
+      "routeId": "salon.booking-lifecycle",
+      "routePath": "/bookings/:bookingId",
+      "routeState": "payment-rating",
+      "implementation": "route-state",
+      "launchScope": "post-mvp",
+      "separateProductionRoute": false,
+      "productionNote": "Do not create a separate production route. Implement payment-rating inside /bookings/:bookingId and reuse the owning route API, authorization, analytics and regression suite.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 47,
+      "productionModule": "salon",
+      "routeId": "salon.booking-lifecycle",
+      "routePath": "/bookings/:bookingId",
+      "routeState": "post-visit-support",
+      "implementation": "route-state",
+      "launchScope": "post-mvp",
+      "separateProductionRoute": false,
+      "productionNote": "Do not create a separate production route. Implement post-visit-support inside /bookings/:bookingId and reuse the owning route API, authorization, analytics and regression suite.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 48,
+      "productionModule": "tasks",
+      "routeId": "tasks.create",
+      "routePath": "/tasks/new",
+      "routeState": "task-details",
+      "implementation": "route-shell",
+      "launchScope": "post-mvp",
+      "separateProductionRoute": true,
+      "productionNote": "Own production route /tasks/new. Implement task-details as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 49,
+      "productionModule": "tasks",
+      "routeId": "tasks.payment",
+      "routePath": "/tasks/:taskId/payment",
+      "routeState": "review-payment",
+      "implementation": "route-shell",
+      "launchScope": "post-mvp",
+      "separateProductionRoute": true,
+      "productionNote": "Own production route /tasks/:taskId/payment. Implement review-payment as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 50,
+      "productionModule": "tasks",
+      "routeId": "tasks.lifecycle",
+      "routePath": "/tasks/:taskId",
+      "routeState": "helper-accepted",
+      "implementation": "route-state",
+      "launchScope": "post-mvp",
+      "separateProductionRoute": false,
+      "productionNote": "Do not create a separate production route. Implement helper-accepted inside /tasks/:taskId and reuse the owning route API, authorization, analytics and regression suite.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 51,
+      "productionModule": "tasks",
+      "routeId": "tasks.lifecycle",
+      "routePath": "/tasks/:taskId",
+      "routeState": "proof-release",
+      "implementation": "route-state",
+      "launchScope": "post-mvp",
+      "separateProductionRoute": false,
+      "productionNote": "Do not create a separate production route. Implement proof-release inside /tasks/:taskId and reuse the owning route API, authorization, analytics and regression suite.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 52,
+      "productionModule": "tasks",
+      "routeId": "tasks.lifecycle",
+      "routePath": "/tasks/:taskId",
+      "routeState": "completed-rating",
+      "implementation": "route-state",
+      "launchScope": "post-mvp",
+      "separateProductionRoute": false,
+      "productionNote": "Do not create a separate production route. Implement completed-rating inside /tasks/:taskId and reuse the owning route API, authorization, analytics and regression suite.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 53,
+      "productionModule": "tasks",
+      "routeId": "tasks.issue",
+      "routePath": "/tasks/:taskId/issues",
+      "routeState": "issue-submit",
+      "implementation": "route-shell",
+      "launchScope": "post-mvp",
+      "separateProductionRoute": true,
+      "productionNote": "Own production route /tasks/:taskId/issues. Implement issue-submit as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 54,
+      "productionModule": "tasks",
+      "routeId": "tasks.issue",
+      "routePath": "/tasks/:taskId/issues",
+      "routeState": "case-status",
+      "implementation": "route-state",
+      "launchScope": "post-mvp",
+      "separateProductionRoute": false,
+      "productionNote": "Do not create a separate production route. Implement case-status inside /tasks/:taskId/issues and reuse the owning route API, authorization, analytics and regression suite.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 55,
+      "productionModule": "tasks",
+      "routeId": "tasks.issue",
+      "routePath": "/tasks/:taskId/issues",
+      "routeState": "resolution",
+      "implementation": "route-state",
+      "launchScope": "post-mvp",
+      "separateProductionRoute": false,
+      "productionNote": "Do not create a separate production route. Implement resolution inside /tasks/:taskId/issues and reuse the owning route API, authorization, analytics and regression suite.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 56,
+      "productionModule": "tasks",
+      "routeId": "tasks.issue",
+      "routePath": "/tasks/:taskId/issues",
+      "routeState": "resolution-complete",
+      "implementation": "route-state",
+      "launchScope": "post-mvp",
+      "separateProductionRoute": false,
+      "productionNote": "Do not create a separate production route. Implement resolution-complete inside /tasks/:taskId/issues and reuse the owning route API, authorization, analytics and regression suite.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 57,
+      "productionModule": "pay",
+      "routeId": "pay.home",
+      "routePath": "/pay",
+      "routeState": "action-home",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "productionNote": "Own production route /pay. Implement action-home as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 58,
+      "productionModule": "pay",
+      "routeId": "pay.recharge",
+      "routePath": "/pay/recharge",
+      "routeState": "recharge",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "productionNote": "Own production route /pay/recharge. Implement recharge as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 59,
+      "productionModule": "pay",
+      "routeId": "pay.bills",
+      "routePath": "/pay/bills",
+      "routeState": "bill-payment",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "productionNote": "Own production route /pay/bills. Implement bill-payment as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 60,
+      "productionModule": "pay",
+      "routeId": "pay.scan",
+      "routePath": "/pay/scan",
+      "routeState": "scan-confirm",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "productionNote": "Own production route /pay/scan. Implement scan-confirm as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 61,
+      "productionModule": "pay",
+      "routeId": "pay.requests",
+      "routePath": "/pay/requests",
+      "routeState": "request-inbox",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "productionNote": "Own production route /pay/requests. Implement request-inbox as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 62,
+      "productionModule": "pay",
+      "routeId": "pay.request-detail",
+      "routePath": "/pay/requests/:requestId",
+      "routeState": "review-confirmation",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "productionNote": "Own production route /pay/requests/:requestId. Implement review-confirmation as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 63,
+      "productionModule": "pay",
+      "routeId": "payment.lifecycle",
+      "routePath": "/payments/:paymentId",
+      "routeState": "processing-receipt",
+      "implementation": "route-state",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": false,
+      "productionNote": "Do not create a separate production route. Implement processing-receipt inside /payments/:paymentId and reuse the owning route API, authorization, analytics and regression suite.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 64,
+      "productionModule": "pay",
+      "routeId": "payment.history",
+      "routePath": "/payments",
+      "routeState": "receipt-history",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "productionNote": "Own production route /payments. Implement receipt-history as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 65,
+      "productionModule": "pay",
+      "routeId": "payment.lifecycle",
+      "routePath": "/payments/:paymentId",
+      "routeState": "pending-refund",
+      "implementation": "route-state",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": false,
+      "productionNote": "Do not create a separate production route. Implement pending-refund inside /payments/:paymentId and reuse the owning route API, authorization, analytics and regression suite.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 66,
+      "productionModule": "pay",
+      "routeId": "payment.lifecycle",
+      "routePath": "/payments/:paymentId",
+      "routeState": "failed-reversal-retry",
+      "implementation": "route-state",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": false,
+      "productionNote": "Do not create a separate production route. Implement failed-reversal-retry inside /payments/:paymentId and reuse the owning route API, authorization, analytics and regression suite.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 67,
+      "productionModule": "work",
+      "routeId": "earn.home",
+      "routePath": "/earn",
+      "routeState": "opportunity-feed",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "productionNote": "Own production route /earn. Implement opportunity-feed as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 68,
+      "productionModule": "work",
+      "routeId": "earn.opportunity",
+      "routePath": "/earn/opportunities/:opportunityId",
+      "routeState": "terms-apply",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "productionNote": "Own production route /earn/opportunities/:opportunityId. Implement terms-apply as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 69,
+      "productionModule": "work",
+      "routeId": "workspace.create",
+      "routePath": "/workspaces/new",
+      "routeState": "obsolete-freeform-setup",
+      "implementation": "reference-only",
+      "launchScope": "superseded-do-not-implement",
+      "separateProductionRoute": false,
+      "productionNote": "Do not implement this prototype. It is superseded decision evidence only; follow the replacement route contract in the canonical map.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 70,
+      "productionModule": "work",
+      "routeId": "workspace.create",
+      "routePath": "/workspaces/new",
+      "routeState": "choose-activity",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "productionNote": "Own production route /workspaces/new. Implement choose-activity as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 71,
+      "productionModule": "work",
+      "routeId": "workspace.create",
+      "routePath": "/workspaces/new",
+      "routeState": "profile-proof",
+      "implementation": "route-state",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": false,
+      "productionNote": "Do not create a separate production route. Implement profile-proof inside /workspaces/new and reuse the owning route API, authorization, analytics and regression suite.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 72,
+      "productionModule": "work",
+      "routeId": "workspace.application",
+      "routePath": "/workspaces/applications/:applicationId",
+      "routeState": "verification-status",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "productionNote": "Own production route /workspaces/applications/:applicationId. Implement verification-status as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 73,
+      "productionModule": "work",
+      "routeId": "workspace.home",
+      "routePath": "/workspaces/:workspaceId",
+      "routeState": "ready-handoff",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "productionNote": "Own production route /workspaces/:workspaceId. Implement ready-handoff as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 74,
+      "productionModule": "retailer",
+      "routeId": "retailer.home",
+      "routePath": "/retailer",
+      "routeState": "operating-home",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "productionNote": "Own production route /retailer. Implement operating-home as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 75,
+      "productionModule": "retailer",
+      "routeId": "retailer.order",
+      "routePath": "/retailer/orders/:orderId",
+      "routeState": "review-fulfilment",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "productionNote": "Own production route /retailer/orders/:orderId. Implement review-fulfilment as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 76,
+      "productionModule": "retailer",
+      "routeId": "retailer.order",
+      "routePath": "/retailer/orders/:orderId",
+      "routeState": "delivery-assignment-handover",
+      "implementation": "route-state",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": false,
+      "productionNote": "Do not create a separate production route. Implement delivery-assignment-handover inside /retailer/orders/:orderId and reuse the owning route API, authorization, analytics and regression suite.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 77,
+      "productionModule": "retailer",
+      "routeId": "retailer.order",
+      "routePath": "/retailer/orders/:orderId",
+      "routeState": "delivery-tracking-completion",
+      "implementation": "route-state",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": false,
+      "productionNote": "Do not create a separate production route. Implement delivery-tracking-completion inside /retailer/orders/:orderId and reuse the owning route API, authorization, analytics and regression suite.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 78,
+      "productionModule": "retailer",
+      "routeId": "retailer.order-create",
+      "routePath": "/retailer/orders/new",
+      "routeState": "assisted-order",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "productionNote": "Own production route /retailer/orders/new. Implement assisted-order as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 79,
+      "productionModule": "retailer",
+      "routeId": "retailer.pos-counters",
+      "routePath": "/retailer/pos/counters",
+      "routeState": "counter-management",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "productionNote": "Own production route /retailer/pos/counters. Implement counter-management as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 80,
+      "productionModule": "retailer",
+      "routeId": "retailer.pos-sale",
+      "routePath": "/retailer/pos/sales/new",
+      "routeState": "counter-sale-invoice",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "productionNote": "Own production route /retailer/pos/sales/new. Implement counter-sale-invoice as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 81,
+      "productionModule": "retailer",
+      "routeId": "retailer.wholesale-catalog",
+      "routePath": "/retailer/wholesale",
+      "routeState": "catalog",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "productionNote": "Own production route /retailer/wholesale. Implement catalog as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 82,
+      "productionModule": "retailer",
+      "routeId": "retailer.wholesale-cart",
+      "routePath": "/retailer/wholesale/cart",
+      "routeState": "purchase-order-review",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "productionNote": "Own production route /retailer/wholesale/cart. Implement purchase-order-review as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 83,
+      "productionModule": "retailer",
+      "routeId": "retailer.wholesale-order",
+      "routePath": "/retailer/wholesale/orders/:orderId",
+      "routeState": "confirmed",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "productionNote": "Own production route /retailer/wholesale/orders/:orderId. Implement confirmed as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 84,
+      "productionModule": "retailer",
+      "routeId": "retailer.wholesale-order",
+      "routePath": "/retailer/wholesale/orders/:orderId",
+      "routeState": "delivery-tracking",
+      "implementation": "route-state",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": false,
+      "productionNote": "Do not create a separate production route. Implement delivery-tracking inside /retailer/wholesale/orders/:orderId and reuse the owning route API, authorization, analytics and regression suite.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 85,
+      "productionModule": "retailer",
+      "routeId": "retailer.wholesale-order",
+      "routePath": "/retailer/wholesale/orders/:orderId",
+      "routeState": "goods-receipt",
+      "implementation": "route-state",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": false,
+      "productionNote": "Do not create a separate production route. Implement goods-receipt inside /retailer/wholesale/orders/:orderId and reuse the owning route API, authorization, analytics and regression suite.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 86,
+      "productionModule": "retailer",
+      "routeId": "retailer.wholesale-order",
+      "routePath": "/retailer/wholesale/orders/:orderId",
+      "routeState": "receipt-result",
+      "implementation": "route-state",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": false,
+      "productionNote": "Do not create a separate production route. Implement receipt-result inside /retailer/wholesale/orders/:orderId and reuse the owning route API, authorization, analytics and regression suite.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 87,
+      "productionModule": "retailer",
+      "routeId": "retailer.purchase-book",
+      "routePath": "/retailer/books/purchases",
+      "routeState": "purchase-book",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "productionNote": "Own production route /retailer/books/purchases. Implement purchase-book as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 88,
+      "productionModule": "retailer",
+      "routeId": "retailer.purchase-detail",
+      "routePath": "/retailer/books/purchases/:purchaseId",
+      "routeState": "supplier-payment-review",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "productionNote": "Own production route /retailer/books/purchases/:purchaseId. Implement supplier-payment-review as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 89,
+      "productionModule": "retailer",
+      "routeId": "retailer.purchase-detail",
+      "routePath": "/retailer/books/purchases/:purchaseId",
+      "routeState": "supplier-payment-status",
+      "implementation": "route-state",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": false,
+      "productionNote": "Do not create a separate production route. Implement supplier-payment-status inside /retailer/books/purchases/:purchaseId and reuse the owning route API, authorization, analytics and regression suite.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 90,
+      "productionModule": "retailer",
+      "routeId": "retailer.sales-book",
+      "routePath": "/retailer/books/sales",
+      "routeState": "sales-book",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "productionNote": "Own production route /retailer/books/sales. Implement sales-book as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 91,
+      "productionModule": "retailer",
+      "routeId": "retailer.stock",
+      "routePath": "/retailer/stock",
+      "routeState": "stock-statement",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "productionNote": "Own production route /retailer/stock. Implement stock-statement as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 92,
+      "productionModule": "retailer",
+      "routeId": "retailer.business-book",
+      "routePath": "/retailer/books",
+      "routeState": "business-position",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "productionNote": "Own production route /retailer/books. Implement business-position as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 93,
+      "productionModule": "retailer",
+      "routeId": "retailer.services",
+      "routePath": "/retailer/services",
+      "routeState": "service-catalog",
+      "implementation": "route-shell",
+      "launchScope": "mvp-conditional",
+      "separateProductionRoute": true,
+      "productionNote": "Own production route /retailer/services. Implement service-catalog as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 94,
+      "productionModule": "retailer",
+      "routeId": "retailer.service-detail",
+      "routePath": "/retailer/services/:serviceId",
+      "routeState": "plan-selection",
+      "implementation": "route-shell",
+      "launchScope": "mvp-conditional",
+      "separateProductionRoute": true,
+      "productionNote": "Own production route /retailer/services/:serviceId. Implement plan-selection as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 95,
+      "productionModule": "retailer",
+      "routeId": "retailer.service-detail",
+      "routePath": "/retailer/services/:serviceId",
+      "routeState": "activation-review",
+      "implementation": "route-state",
+      "launchScope": "mvp-conditional",
+      "separateProductionRoute": false,
+      "productionNote": "Do not create a separate production route. Implement activation-review inside /retailer/services/:serviceId and reuse the owning route API, authorization, analytics and regression suite.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 96,
+      "productionModule": "retailer",
+      "routeId": "retailer.service-detail",
+      "routePath": "/retailer/services/:serviceId",
+      "routeState": "active-service",
+      "implementation": "route-state",
+      "launchScope": "mvp-conditional",
+      "separateProductionRoute": false,
+      "productionNote": "Do not create a separate production route. Implement active-service inside /retailer/services/:serviceId and reuse the owning route API, authorization, analytics and regression suite.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 97,
+      "productionModule": "retailer",
+      "routeId": "retailer.customers",
+      "routePath": "/retailer/customers",
+      "routeState": "customers-loyalty",
+      "implementation": "route-shell",
+      "launchScope": "mvp-conditional",
+      "separateProductionRoute": true,
+      "productionNote": "Own production route /retailer/customers. Implement customers-loyalty as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 98,
+      "productionModule": "retailer",
+      "routeId": "retailer.customer-detail",
+      "routePath": "/retailer/customers/:customerId",
+      "routeState": "customer-retention",
+      "implementation": "route-shell",
+      "launchScope": "mvp-conditional",
+      "separateProductionRoute": true,
+      "productionNote": "Own production route /retailer/customers/:customerId. Implement customer-retention as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 99,
+      "productionModule": "retailer",
+      "routeId": "retailer.campaigns",
+      "routePath": "/retailer/campaigns",
+      "routeState": "campaign-list-control",
+      "implementation": "route-shell",
+      "launchScope": "mvp-conditional",
+      "separateProductionRoute": true,
+      "productionNote": "Own production route /retailer/campaigns. Implement campaign-list-control as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 100,
+      "productionModule": "retailer",
+      "routeId": "retailer.campaign-create",
+      "routePath": "/retailer/campaigns/new",
+      "routeState": "progressive-builder",
+      "implementation": "route-shell",
+      "launchScope": "mvp-conditional",
+      "separateProductionRoute": true,
+      "productionNote": "Own production route /retailer/campaigns/new. Implement progressive-builder as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 101,
+      "productionModule": "retailer",
+      "routeId": "retailer.stock",
+      "routePath": "/retailer/stock",
+      "routeState": "slow-stock-liquidation",
+      "implementation": "route-state",
+      "launchScope": "mvp-conditional",
+      "separateProductionRoute": false,
+      "productionNote": "Do not create a separate production route. Implement slow-stock-liquidation inside /retailer/stock and reuse the owning route API, authorization, analytics and regression suite.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 102,
+      "productionModule": "retailer",
+      "routeId": "retailer.home",
+      "routePath": "/retailer",
+      "routeState": "ai-operating-assistant",
+      "implementation": "embedded-panel",
+      "launchScope": "mvp-conditional",
+      "separateProductionRoute": false,
+      "productionNote": "Do not create a separate production route. Render ai-operating-assistant as an on-demand panel inside /retailer and require explicit user approval before any business mutation.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 103,
+      "productionModule": "retailer",
+      "routeId": "retailer.settings-team",
+      "routePath": "/retailer/settings/team",
+      "routeState": "staff-permissions",
+      "implementation": "route-shell",
+      "launchScope": "mvp-conditional",
+      "separateProductionRoute": true,
+      "productionNote": "Own production route /retailer/settings/team. Implement staff-permissions as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 104,
+      "productionModule": "retailer",
+      "routeId": "retailer.settings",
+      "routePath": "/retailer/settings",
+      "routeState": "store-readiness",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "productionNote": "Own production route /retailer/settings. Implement store-readiness as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 105,
+      "productionModule": "retailer",
+      "routeId": "retailer.order-issues",
+      "routePath": "/retailer/orders/issues",
+      "routeState": "returns-customer-issues",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "productionNote": "Own production route /retailer/orders/issues. Implement returns-customer-issues as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    },
+    {
+      "contractVersion": "mvp-route-lock-2026-07-12",
+      "prototypeScreen": 106,
+      "productionModule": "retailer",
+      "routeId": "retailer.business-book",
+      "routePath": "/retailer/books",
+      "routeState": "cash-bank-reconciliation",
+      "implementation": "route-state",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": false,
+      "productionNote": "Do not create a separate production route. Implement cash-bank-reconciliation inside /retailer/books and reuse the owning route API, authorization, analytics and regression suite.",
+      "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+    }
+  ]
+}

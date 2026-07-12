@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>72 My Work Verification Status - MoolSocial Screenbook</title>
+  <style>
+    :root { --navy:#000080; --saffron:#ff9933; --green:#138808; --ink:#101124; --muted:#5f6376; --surface:#f4f6fb; --line:#d9dced; --white:#fff; --soft-green:#edf8ed; --soft-orange:#fff4e7; }
+    * { box-sizing:border-box; letter-spacing:0; }
+    html, body { min-width:280px; min-height:100%; margin:0; background:#eef1f7; color:var(--ink); font-family:Arial,Helvetica,sans-serif; }
+    button, input { font:inherit; }
+    button { cursor:pointer; }
+    svg { fill:none; stroke:currentColor; stroke-linecap:round; stroke-linejoin:round; stroke-width:2; }
+    [hidden] { display:none !important; }
+
+    .screenbook { width:min(1180px,100%); margin:0 auto; display:grid; grid-template-columns:430px minmax(0,1fr); gap:34px; padding:18px; }
+    .phone { width:min(100%,410px); height:min(820px,calc(100vh - 36px)); min-height:650px; position:sticky; top:18px; overflow:hidden; border:10px solid var(--navy); border-radius:38px; background:var(--surface); box-shadow:0 22px 55px rgba(0,0,72,.20); }
+    .phone-header { min-height:94px; padding:13px 16px 14px; background:var(--navy); color:var(--white); }
+    .status { display:flex; justify-content:space-between; font-size:9px; font-weight:900; }
+    .appbar { display:grid; grid-template-columns:36px minmax(0,1fr) 36px; gap:10px; align-items:center; margin-top:11px; }
+    .icon-button { width:36px; height:36px; display:grid; place-items:center; border:1px solid rgba(255,255,255,.34); border-radius:50%; background:transparent; color:var(--white); }
+    .icon-button svg { width:18px; height:18px; }
+    .app-title { min-width:0; display:grid; gap:2px; }
+    .app-title b { overflow:hidden; font-size:18px; text-overflow:ellipsis; white-space:nowrap; }
+    .app-title span { overflow:hidden; color:rgba(255,255,255,.76); font-size:9px; font-weight:750; text-overflow:ellipsis; white-space:nowrap; }
+    .content-scroll { height:calc(100% - 178px); overflow-y:auto; padding:10px 10px 16px; scrollbar-width:none; }
+    .content-scroll::-webkit-scrollbar { display:none; }
+
+    .identity-strip { display:grid; grid-template-columns:34px minmax(0,1fr) auto; gap:8px; align-items:center; border:1px solid var(--line); border-radius:8px; padding:8px; background:var(--white); }
+    .identity-icon { width:34px; height:34px; display:grid; place-items:center; border-radius:50%; background:var(--soft-green); color:var(--green); }
+    .identity-icon svg { width:18px; height:18px; }
+    .identity-copy { min-width:0; display:grid; gap:2px; }
+    .identity-copy small { color:var(--muted); font-size:7px; font-weight:900; text-transform:uppercase; }
+    .identity-copy b, .identity-copy span { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+    .identity-copy b { color:var(--navy); font-size:9px; }
+    .identity-copy span { color:var(--muted); font-size:7px; font-weight:700; }
+    .verified { border-radius:999px; padding:5px 7px; background:var(--soft-green); color:var(--green); font-size:7px; font-weight:950; }
+
+    .review-hero { display:grid; gap:10px; margin-top:9px; border-radius:9px; padding:13px; background:var(--navy); color:var(--white); box-shadow:0 12px 24px rgba(0,0,80,.14); }
+    .hero-top { display:grid; grid-template-columns:46px minmax(0,1fr); gap:10px; align-items:center; }
+    .hero-mark { width:46px; height:46px; display:grid; place-items:center; border:1px solid rgba(255,255,255,.55); border-radius:50%; }
+    .hero-mark svg { width:23px; height:23px; }
+    .hero-copy { min-width:0; display:grid; gap:2px; }
+    .hero-copy small { color:var(--saffron); font-size:7px; font-weight:950; text-transform:uppercase; }
+    .hero-copy b { overflow:hidden; font-size:15px; text-overflow:ellipsis; white-space:nowrap; }
+    .hero-copy span { color:rgba(255,255,255,.76); font-size:8px; font-weight:750; }
+    .review-state { display:flex; align-items:center; justify-content:space-between; gap:8px; border-top:1px solid rgba(255,255,255,.20); padding-top:9px; }
+    .review-state b { font-size:10px; }
+    .review-state span { border-radius:999px; padding:5px 7px; background:var(--soft-orange); color:#9c4b00; font-size:7px; font-weight:950; }
+
+    .timeline { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:5px; margin-top:9px; border:1px solid var(--line); border-radius:8px; padding:6px; background:var(--white); }
+    .timeline-step { min-width:0; display:grid; gap:4px; place-items:center; padding:6px 3px; color:var(--muted); font-size:7px; font-weight:900; text-align:center; }
+    .timeline-step i { width:22px; height:22px; display:grid; place-items:center; border-radius:50%; background:#eceef6; font-size:8px; font-style:normal; }
+    .timeline-step.done { color:var(--green); }
+    .timeline-step.done i { background:var(--soft-green); }
+    .timeline-step.active { color:var(--navy); }
+    .timeline-step.active i { background:var(--navy); color:var(--white); box-shadow:inset 0 -2px 0 var(--saffron); }
+
+    .section { display:grid; gap:8px; margin-top:9px; border:1px solid var(--line); border-radius:8px; padding:11px; background:var(--white); }
+    .section-head { display:flex; align-items:start; justify-content:space-between; gap:8px; }
+    .section-head span { display:grid; gap:3px; }
+    .section-head small { color:var(--green); font-size:7px; font-weight:950; text-transform:uppercase; }
+    .section-head b { color:var(--navy); font-size:13px; }
+    .section-head em { color:var(--muted); font-size:7px; font-style:normal; font-weight:800; }
+
+    .pending-card { display:grid; gap:8px; border:1px solid #f0b46f; border-radius:8px; padding:10px; background:var(--soft-orange); }
+    .pending-card.resolved { border-color:#7ab87c; background:var(--soft-green); }
+    .pending-title { display:grid; grid-template-columns:32px minmax(0,1fr) auto; gap:8px; align-items:center; }
+    .pending-icon { width:32px; height:32px; display:grid; place-items:center; border-radius:50%; background:var(--white); color:#9c4b00; }
+    .pending-card.resolved .pending-icon { color:var(--green); }
+    .pending-icon svg { width:17px; height:17px; }
+    .pending-copy { min-width:0; display:grid; gap:2px; }
+    .pending-copy b { color:var(--navy); font-size:10px; }
+    .pending-copy span { color:var(--muted); font-size:7px; font-weight:750; line-height:1.3; }
+    .pending-badge { border-radius:999px; padding:5px 7px; background:var(--white); color:#9c4b00; font-size:7px; font-weight:950; }
+    .pending-card.resolved .pending-badge { color:var(--green); }
+
+    .check-list { display:grid; gap:6px; }
+    .check-row { display:grid; grid-template-columns:25px minmax(0,1fr) auto; gap:7px; align-items:center; border-radius:6px; padding:7px; background:var(--surface); }
+    .check-mark { width:25px; height:25px; display:grid; place-items:center; border-radius:50%; background:var(--soft-green); color:var(--green); font-size:8px; font-weight:950; }
+    .check-copy { min-width:0; display:grid; gap:2px; }
+    .check-copy b { color:var(--navy); font-size:8px; }
+    .check-copy span { color:var(--muted); font-size:7px; font-weight:700; }
+    .check-status { color:var(--green); font-size:7px; font-weight:950; }
+
+    .notice { border-left:3px solid var(--green); border-radius:5px; padding:8px; background:var(--soft-green); color:var(--green); font-size:8px; font-weight:800; line-height:1.35; }
+    .actions { display:grid; grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr); gap:7px; }
+    .secondary-action, .primary-action { min-height:40px; display:flex; align-items:center; justify-content:center; border-radius:7px; padding:0 10px; font-size:9px; font-weight:950; text-decoration:none; }
+    .secondary-action { border:1px solid var(--navy); background:var(--white); color:var(--navy); }
+    .primary-action { border:0; background:var(--navy); color:var(--white); box-shadow:inset 0 -3px 0 var(--saffron); }
+    .primary-action:disabled { background:#a8aabd; box-shadow:none; cursor:not-allowed; }
+
+    .gst-sheet { position:absolute; inset:0; display:grid; align-items:end; background:rgba(0,0,50,.48); z-index:20; }
+    .sheet-card { display:grid; gap:9px; border-radius:18px 18px 0 0; padding:16px 14px 22px; background:var(--white); box-shadow:0 -16px 38px rgba(0,0,60,.22); }
+    .sheet-handle { width:44px; height:4px; margin:0 auto 2px; border-radius:999px; background:#c8cad6; }
+    .sheet-card h2 { margin:0; color:var(--navy); font-size:16px; }
+    .sheet-card p { margin:0; color:var(--muted); font-size:8px; font-weight:700; line-height:1.35; }
+    .gst-field { display:grid; gap:4px; }
+    .gst-field span { color:var(--navy); font-size:8px; font-weight:900; }
+    .gst-field input { height:42px; border:1px solid var(--line); border-radius:6px; padding:0 10px; color:var(--navy); font-size:10px; font-weight:900; text-transform:uppercase; }
+    .upload-row { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:8px; align-items:center; border:1px solid var(--line); border-radius:7px; padding:9px; background:var(--surface); }
+    .upload-row span { display:grid; gap:2px; color:var(--navy); font-size:9px; font-weight:900; }
+    .upload-row small { color:var(--muted); font-size:7px; }
+
+    .bottom-dock { position:absolute; right:9px; bottom:9px; left:9px; display:grid; grid-template-columns:54px minmax(0,1fr) 54px; gap:7px; align-items:center; border:1px solid rgba(0,0,128,.75); border-radius:23px; padding:7px; background:rgba(255,255,255,.98); box-shadow:0 -12px 24px rgba(0,0,128,.15); z-index:10; }
+    .mool-button, .chat-button { width:54px; height:54px; position:relative; display:grid; place-items:center; border:1px solid rgba(0,0,128,.16); border-radius:50%; color:var(--navy); font-size:9px; font-weight:950; text-decoration:none; }
+    .mool-button { background:var(--navy); color:var(--white); box-shadow:inset 0 -3px 0 var(--green); }
+    .mool-button::after { content:""; width:19px; height:3px; position:absolute; bottom:7px; left:17px; border-left:7px solid var(--saffron); border-right:7px solid var(--green); background:var(--white); }
+    .chat-button { gap:1px; background:var(--white); }
+    .chat-button svg { width:20px; height:20px; }
+    .chat-badge { min-width:17px; height:17px; position:absolute; top:4px; right:1px; display:grid; place-items:center; border-radius:999px; padding:0 4px; background:var(--saffron); color:var(--navy); font-size:9px; font-weight:950; }
+    .dock-track { min-width:0; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:4px; border:1px solid rgba(0,0,128,.18); border-radius:19px; padding:5px; background:#f1f3fb; box-shadow:inset 10px 0 18px rgba(0,0,128,.08),inset -10px 0 18px rgba(0,0,128,.08); }
+    .dock-tab { min-width:0; min-height:44px; display:grid; place-items:center; gap:2px; border-radius:15px; color:var(--navy); font-size:8px; font-weight:950; text-decoration:none; }
+    .dock-tab svg { width:16px; height:16px; }
+    .dock-tab .rupee { font-size:17px; line-height:1; }
+    .dock-tab.active { background:var(--navy); color:var(--white); box-shadow:inset 0 -3px 0 var(--saffron); }
+
+    .notes { display:grid; gap:18px; padding-top:14px; }
+    .notes h1 { max-width:690px; margin:0; color:var(--navy); font-size:clamp(27px,4vw,48px); line-height:1.04; }
+    .notes>p { max-width:720px; margin:0; color:var(--muted); font-size:15px; line-height:1.55; }
+    .contract { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); border-top:1px solid var(--navy); border-left:1px solid var(--navy); background:var(--white); }
+    .contract div { min-height:104px; border-right:1px solid var(--navy); border-bottom:1px solid var(--navy); padding:14px; color:var(--muted); font-size:12px; line-height:1.45; }
+    .contract b { display:block; margin-bottom:5px; color:var(--navy); font-size:12px; text-transform:uppercase; }
+    @media(max-width:850px){.screenbook{display:block;padding:0}.phone{width:100%;height:100vh;min-height:620px;position:relative;top:0;border:0;border-radius:0}.notes{display:none}}
+    @media(max-width:350px){.phone-header{padding-right:10px;padding-left:10px}.content-scroll{padding-right:8px;padding-left:8px}.bottom-dock{right:5px;left:5px;grid-template-columns:50px minmax(0,1fr) 50px;gap:5px;padding:6px}.mool-button,.chat-button{width:50px;height:50px}}
+  </style>
+</head>
+<body>
+  <main class="screenbook">
+    <section class="phone" aria-label="MoolSocial work verification status prototype">
+      <header class="phone-header"><div class="status"><span>9:41</span><span>5G 100%</span></div><div class="appbar"><a class="icon-button" href="69-my-work-setup.html?state=single" aria-label="Back to My Work"><svg viewBox="0 0 24 24"><path d="m15 18-6-6 6-6" /></svg></a><span class="app-title"><b>My Work Status</b><span id="headerProfile">Work profile review</span></span><a class="icon-button" href="23-chat-inbox-home.html" aria-label="Open review support chat"><svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z" /></svg></a></div></header>
+      <div class="content-scroll">
+        <section class="identity-strip" aria-label="Verified account identity"><span class="identity-icon"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.4 19.4 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.8a2 2 0 0 1-.4 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z" /></svg></span><span class="identity-copy"><small>Account owner</small><b id="primaryContact">+91 98••• ••210</b><span id="accountIdentity">Google · user@gmail.com</span></span><span class="verified">KYC received</span></section>
+
+        <section class="review-hero"><div class="hero-top"><span class="hero-mark"><svg viewBox="0 0 24 24"><path d="M4 21V7h16v14" /><path d="M8 3h8v8H8Z" /><path d="M10 7h4M12 5v4" /></svg></span><span class="hero-copy"><small>Work profile review</small><b id="profileName">Grocery / Kirana Shop</b><span id="caseReference">Case WP-000000 · India / Rajasthan</span></span></div><div class="review-state"><b>Review in progress</b><span id="gstHeroBadge">GST pending</span></div></section>
+
+        <section class="timeline" aria-label="Review progress"><span class="timeline-step done"><i>✓</i>Submitted</span><span class="timeline-step active"><i>2</i>Checks</span><span class="timeline-step"><i>3</i>Activation</span></section>
+
+        <section class="section" id="gstSection"><div class="section-head"><span><small>Action available</small><b>Complete business verification</b></span><em>Review continues</em></div><article class="pending-card" id="gstCard"><div class="pending-title"><span class="pending-icon"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6Z" /><path d="M14 2v6h6M9 13h6M9 17h6" /></svg></span><span class="pending-copy"><b id="gstCardTitle">GST certificate pending</b><span id="gstCardCopy">Add it when available. A reminder remains in My Work until verified or resolved by review.</span></span><span class="pending-badge" id="gstBadge">Pending</span></div><div class="actions" id="gstActions"><button class="secondary-action" id="remindGst" type="button">Remind later</button><button class="primary-action" id="addGst" type="button">Add GST</button></div></article><div class="notice" id="gstNotice">You can continue using MoolSocial. Business verification remains GST pending.</div></section>
+
+        <section class="section"><div class="section-head"><span><small>Received</small><b>Verification checks</b></span><em id="checkCount">0 checks</em></div><div class="check-list" id="checkList"></div></section>
+
+        <section class="section"><div class="section-head"><span><small>Review team</small><b>Updates and corrections</b></span><em>Chat enabled</em></div><div class="notice">If a document is unclear or a conditional approval applies, the exact correction will appear here and in Chat. Your personal account stays active.</div><div class="actions"><a class="secondary-action" href="23-chat-inbox-home.html">Open Chat</a><a class="primary-action" href="69-my-work-setup.html?state=single">Open My Work</a></div></section>
+      </div>
+
+      <section class="gst-sheet" id="gstSheet" role="dialog" aria-modal="true" aria-labelledby="gstSheetTitle" hidden><div class="sheet-card"><span class="sheet-handle"></span><h2 id="gstSheetTitle">Add GST certificate</h2><p>Business review can continue without this document, but the GST reminder remains until verification or applicability review is complete.</p><label class="gst-field"><span>GSTIN</span><input id="gstinInput" inputmode="text" maxlength="15" placeholder="15-character GSTIN"></label><div class="upload-row"><span>GST certificate<small id="uploadStatus">PDF or clear image</small></span><button class="secondary-action" id="attachGst" type="button">Attach</button></div><div class="actions"><button class="secondary-action" id="closeGst" type="button">Cancel</button><button class="primary-action" id="submitGst" type="button" disabled>Submit GST</button></div></div></section>
+
+      <nav class="bottom-dock" aria-label="Work navigation"><a class="mool-button" href="04-universal-focus-shell.html">Mool</a><div class="dock-track"><a class="dock-tab" href="67-work.html"><span class="rupee">₹</span><span>Earn</span></a><a class="dock-tab active" href="69-my-work-setup.html" aria-current="page"><svg viewBox="0 0 24 24"><path d="M6 21V8h12v13" /><path d="M9 8V4h6v4" /></svg><span>My Work</span></a></div><a class="chat-button" href="23-chat-inbox-home.html" aria-label="Open chat"><svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z" /></svg><span>Chat</span><span class="chat-badge">2</span></a></nav>
+    </section>
+
+    <aside class="notes"><h1>Screen 72 keeps review, corrections and GST-pending action in one place.</h1><p>Personal KYC is mandatory. A business user can continue onboarding when GST is unavailable, while the workspace remains visibly GST pending and reminders stay active.</p><section class="contract"><div><b>One Status</b>Case reference, exact workspace and review stage remain visible without opening support.</div><div><b>GST Pending</b>Add later does not lose progress. Reminder remains until document verification or applicability review resolves it.</div><div><b>Corrections</b>Only exact failed or conditional checks are requested. Valid proof is never re-collected.</div><div><b>Identity</b>The verified personal account owns the request and remains usable during business review.</div><div><b>Notification</b>Status changes appear in My Work and Chat, with no repeated polling or duplicate submissions.</div><div><b>Activation</b>Profile activation follows successful required checks and applicable statutory verification.</div></section></aside>
+  </main>
+
+  <script src="../shared/workspace-profile-registry.js"></script>
+  <script src="../shared/india-rajasthan-compliance-registry.js"></script>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const profileId = params.get("profile") || "grocery_retailer";
+    const caseId = params.get("case") || "WP-256619";
+    const gstState = params.get("gst") || "pending";
+    const primaryMobile = params.get("mobile") || "+91 98765 43210";
+    const accountEmail = params.get("email") || "user@gmail.com";
+    const loginProvider = params.get("login") || "Google";
+    const profile = window.MoolWorkspaceRegistry.profiles[profileId] || window.MoolWorkspaceRegistry.profiles.grocery_retailer;
+    const compliance = window.MoolIndiaCompliance.resolve(profileId, "", { country:"IN", state:"RJ" });
+    const maskMobile = (value) => { const digits=value.replace(/\D/g,""); const local=digits.slice(-10); return `+91 ${local.slice(0,2)}••• ••${local.slice(-3)}`; };
+    const gstSection = document.getElementById("gstSection");
+    const gstSheet = document.getElementById("gstSheet");
+    const gstinInput = document.getElementById("gstinInput");
+    const submitGst = document.getElementById("submitGst");
+    let gstAttached = false;
+
+    document.getElementById("headerProfile").textContent = profile.label;
+    document.getElementById("profileName").textContent = profile.label;
+    document.getElementById("caseReference").textContent = `Case ${caseId} · ${compliance.jurisdictionLabel}`;
+    document.getElementById("primaryContact").textContent = maskMobile(primaryMobile);
+    document.getElementById("accountIdentity").textContent = `${loginProvider} · ${accountEmail}`;
+
+    const receivedChecks = compliance.blockingItems.slice(0,4);
+    document.getElementById("checkCount").textContent = `${receivedChecks.length} checks`;
+    document.getElementById("checkList").innerHTML = receivedChecks.map((item) => `<div class="check-row"><span class="check-mark">✓</span><span class="check-copy"><b>${item.label}</b><span>${item.authority}</span></span><span class="check-status">Received</span></div>`).join("");
+
+    if (compliance.profileType !== "business" || gstState !== "pending") {
+      gstSection.hidden = true;
+      document.getElementById("gstHeroBadge").textContent = compliance.profileType === "business" ? "GST received" : "Individual profile";
+    }
+
+    function updateSubmitState() { submitGst.disabled = !(gstinInput.value.length === 15 && gstAttached); }
+    document.getElementById("addGst").addEventListener("click", () => { gstSheet.hidden=false; });
+    document.getElementById("closeGst").addEventListener("click", () => { gstSheet.hidden=true; });
+    gstinInput.addEventListener("input", (event) => { event.target.value=event.target.value.toUpperCase().replace(/[^0-9A-Z]/g,"").slice(0,15); updateSubmitState(); });
+    document.getElementById("attachGst").addEventListener("click", () => { gstAttached=true; document.getElementById("uploadStatus").textContent="Certificate attached"; document.getElementById("attachGst").textContent="Attached"; updateSubmitState(); });
+    document.getElementById("remindGst").addEventListener("click", () => { document.getElementById("gstNotice").textContent="Reminder set. GST remains visible in My Work and the review continues."; document.getElementById("remindGst").textContent="Reminder set"; });
+    submitGst.addEventListener("click", () => { gstSheet.hidden=true; document.getElementById("gstCard").classList.add("resolved"); document.getElementById("gstCardTitle").textContent="GST submitted for verification"; document.getElementById("gstCardCopy").textContent=`${gstinInput.value} · certificate attached`; document.getElementById("gstBadge").textContent="Received"; document.getElementById("gstActions").hidden=true; document.getElementById("gstNotice").textContent="GST verification has been added to the existing review case. No new application was created."; document.getElementById("gstHeroBadge").textContent="GST received"; });
+  </script>
+<script type="application/json" id="productionRouteContract">{"contractVersion":"mvp-route-lock-2026-07-12","prototypeScreen":72,"productionModule":"work","routeId":"workspace.application","routePath":"/workspaces/applications/:applicationId","routeState":"verification-status","implementation":"route-shell","launchScope":"mvp-core","separateProductionRoute":true,"productionNote":"Own production route /workspaces/applications/:applicationId. Implement verification-status as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.","canonicalMap":"architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"}</script><script type="application/json" id="prototypeApprovalContract">{"prototypeScreen":72,"status":"approved-and-frozen","authoritative":true,"approvedAt":"2026-07-12","approvalScope":"prototype-ui-ux-and-production-contract"}</script></body>
+</html>

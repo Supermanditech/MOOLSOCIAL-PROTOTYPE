@@ -1,0 +1,1301 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>47 Salon Post-Visit Support - MoolSocial Screenbook</title>
+  <link rel="stylesheet" href="../shared/moolsocial-ui-foundation.css" />
+  <style>
+    .screen-shell { display: grid; gap: 18px; }
+
+    .back-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .screen-link-home {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--ms-navy);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .back-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--ms-navy);
+      border-radius: var(--ms-radius);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .preview {
+      display: grid;
+      grid-template-columns: minmax(320px, 390px) minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+      padding: 18px;
+      border-bottom: 1px solid var(--ms-navy);
+      background: var(--ms-white);
+    }
+
+    .phone {
+      width: min(100%, 370px);
+      height: 742px;
+      justify-self: center;
+      border: 10px solid var(--ms-navy);
+      border-radius: 32px;
+      background: var(--ms-navy);
+      overflow: hidden;
+      box-shadow: 0 28px 60px rgba(0, 0, 128, .22);
+    }
+
+    .app {
+      position: relative;
+      height: 100%;
+      display: grid;
+      grid-template-rows: auto auto 1fr auto;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 18% 8%, rgba(255, 153, 51, .16), transparent 25%),
+        radial-gradient(circle at 90% 14%, rgba(19, 136, 8, .16), transparent 26%),
+        linear-gradient(180deg, var(--ms-navy) 0 166px, #f4f7fc 166px 100%);
+      color: var(--ms-white);
+      font-family: var(--ms-font);
+    }
+
+    button,
+    a { -webkit-tap-highlight-color: transparent; }
+
+    button {
+      appearance: none;
+      border: 0;
+      font-family: var(--ms-font);
+      cursor: pointer;
+    }
+
+    svg {
+      width: 19px;
+      height: 19px;
+      stroke: currentColor;
+      stroke-width: 2.4;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .status-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 16px 22px 6px;
+      color: var(--ms-white);
+      font-size: 11px;
+      font-weight: 950;
+    }
+
+    .top {
+      display: grid;
+      gap: 11px;
+      padding: 8px 18px 13px;
+    }
+
+    .brand-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .brand-copy {
+      min-width: 0;
+      display: grid;
+      gap: 2px;
+    }
+
+    .brand-copy b {
+      overflow: hidden;
+      color: var(--ms-white);
+      font-size: 20px;
+      line-height: 1;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .brand-copy span {
+      color: rgba(255, 255, 255, .78);
+      font-size: 10px;
+      font-weight: 850;
+    }
+
+    .identity-line {
+      width: 96px;
+      height: 4px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      overflow: hidden;
+      border-radius: var(--ms-pill);
+    }
+
+    .identity-line span:nth-child(1) { background: var(--ms-saffron); }
+    .identity-line span:nth-child(2) { background: var(--ms-white); }
+    .identity-line span:nth-child(3) { background: var(--ms-green); }
+
+    .top-buttons {
+      display: flex;
+      gap: 8px;
+      flex: 0 0 auto;
+    }
+
+    .circle-btn,
+    .search-action {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      text-decoration: none;
+    }
+
+    .circle-btn {
+      border: 1px solid rgba(255, 255, 255, .26);
+      background: rgba(255, 255, 255, .12);
+      color: var(--ms-white);
+    }
+
+    .command-bar {
+      min-height: 48px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto auto auto;
+      align-items: center;
+      gap: 7px;
+      border: 1px solid rgba(255, 255, 255, .85);
+      border-radius: var(--ms-pill);
+      padding: 5px 5px 5px 13px;
+      background: rgba(255, 255, 255, .10);
+    }
+
+    .command-text {
+      overflow: hidden;
+      color: var(--ms-white);
+      font-size: 11px;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .search-action {
+      border: 0;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+    }
+
+    .content {
+      min-height: 0;
+      overflow: auto;
+      display: grid;
+      align-content: start;
+      gap: 8px;
+      padding: 0 10px 98px;
+      color: var(--ms-navy);
+      scrollbar-width: none;
+    }
+
+    .content::-webkit-scrollbar { display: none; }
+
+    .context-card,
+    .mode-card,
+    .need-card,
+    .decision-card,
+    .doctor-card,
+    .summary-card {
+      display: grid;
+      gap: 8px;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: 21px;
+      padding: 10px;
+      background: rgba(255, 255, 255, .98);
+      box-shadow: 0 14px 30px rgba(0, 0, 128, .10);
+    }
+
+    .context-card {
+      margin-top: -8px;
+      border-color: rgba(255, 255, 255, .78);
+      background:
+        radial-gradient(circle at 18% 16%, rgba(255, 255, 255, .18), transparent 24%),
+        linear-gradient(145deg, #1515b8, var(--ms-navy));
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 rgba(255, 153, 51, .82), 0 16px 34px rgba(0, 0, 128, .18);
+    }
+
+    .context-card .card-head b,
+    .context-card .card-head span,
+    .context-card .line-copy b,
+    .context-card .line-copy span,
+    .context-card .line-price b,
+    .context-card .line-price span {
+      color: var(--ms-white);
+    }
+
+    .context-card .card-head span,
+    .context-card .line-copy span,
+    .context-card .line-price span {
+      opacity: .78;
+    }
+
+    .card-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .card-head b {
+      color: var(--ms-navy);
+      font-size: 13px;
+      line-height: 1;
+      font-weight: 950;
+    }
+
+    .card-head span {
+      color: rgba(0, 0, 128, .58);
+      font-size: 8px;
+      font-weight: 850;
+      text-align: right;
+    }
+
+    .context-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 5px;
+    }
+
+    .context-item,
+    .decision-pill,
+    .need-chip,
+    .mode-option,
+    .doctor-option,
+    .fact {
+      border: 1px solid rgba(0, 0, 128, .12);
+      background: #f7f9fd;
+      color: var(--ms-navy);
+    }
+
+    .context-item {
+      min-height: 38px;
+      display: grid;
+      align-content: center;
+      gap: 2px;
+      border-radius: 13px;
+      padding: 6px;
+      overflow: hidden;
+    }
+
+    .context-item b,
+    .context-item span {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .context-item b {
+      color: var(--ms-navy);
+      font-size: 9px;
+      font-weight: 950;
+    }
+
+    .context-item span {
+      color: rgba(0, 0, 128, .60);
+      font-size: 8px;
+      font-weight: 850;
+    }
+
+    .need-row,
+    .doctor-list {
+      display: flex;
+      gap: 6px;
+      min-width: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .need-row::-webkit-scrollbar,
+    .doctor-list::-webkit-scrollbar { display: none; }
+
+    .mode-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 6px;
+      min-width: 0;
+    }
+
+    .mode-option {
+      min-width: 0;
+      min-height: 58px;
+      display: grid;
+      align-content: center;
+      gap: 4px;
+      border-radius: 18px;
+      padding: 8px;
+      text-align: left;
+    }
+
+    .mode-option.active,
+    .doctor-option.active,
+    .need-chip.active {
+      border-color: rgba(0, 0, 128, .42);
+      background:
+        linear-gradient(135deg, rgba(255, 153, 51, .14), rgba(19, 136, 8, .08)),
+        var(--ms-white);
+      box-shadow: inset 0 -3px 0 var(--ms-green), 0 9px 18px rgba(0, 0, 128, .10);
+    }
+
+    .mode-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .mode-top b {
+      color: var(--ms-navy);
+      font-size: 10px;
+      font-weight: 950;
+    }
+
+    .mode-option strong {
+      color: var(--ms-green);
+      font-size: 11px;
+      line-height: 1;
+      font-weight: 950;
+    }
+
+    .mode-option span {
+      color: rgba(0, 0, 128, .58);
+      font-size: 7px;
+      font-weight: 850;
+      line-height: 1.15;
+    }
+
+    .mode-option.active {
+      background:
+        radial-gradient(circle at 28% 12%, rgba(255, 255, 255, .20), transparent 28%),
+        linear-gradient(180deg, #1515b8, var(--ms-navy));
+      box-shadow: inset 0 -3px 0 var(--ms-saffron), 0 9px 18px rgba(0, 0, 128, .16);
+    }
+
+    .mode-option.active .mode-top b,
+    .mode-option.active span {
+      color: rgba(255, 255, 255, .82);
+    }
+
+    .mode-option.active strong {
+      color: var(--ms-white);
+    }
+
+    .pay-reason {
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 8px;
+      align-items: center;
+      border: 1px solid rgba(19, 136, 8, .18);
+      border-radius: 17px;
+      padding: 9px;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(19, 136, 8, .10), transparent 24%),
+        linear-gradient(135deg, rgba(19, 136, 8, .08), rgba(255, 153, 51, .10)),
+        #fff;
+    }
+
+    .pay-reason-icon {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: linear-gradient(145deg, var(--ms-green), var(--ms-navy));
+      color: var(--ms-white);
+    }
+
+    .pay-reason-icon svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .pay-reason-copy {
+      min-width: 0;
+      display: grid;
+      gap: 2px;
+    }
+
+    .pay-reason-copy b,
+    .pay-reason-copy span {
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .pay-reason-copy b {
+      color: var(--ms-navy);
+      font-size: 10px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .pay-reason-copy span {
+      color: rgba(0, 0, 128, .64);
+      font-size: 8px;
+      font-weight: 850;
+      line-height: 1.25;
+    }
+
+    .need-row {
+      flex-wrap: nowrap;
+    }
+
+    .need-chip {
+      flex: 0 0 auto;
+      min-height: 34px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--ms-pill);
+      padding: 0 12px;
+      color: var(--ms-navy);
+      font-size: 9px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .decision-card {
+      background:
+        linear-gradient(135deg, rgba(0, 0, 128, .04), rgba(19, 136, 8, .06)),
+        rgba(255, 255, 255, .99);
+    }
+
+    .decision-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 6px;
+    }
+
+    .decision-pill {
+      min-height: 45px;
+      display: grid;
+      align-content: center;
+      gap: 2px;
+      border-radius: 16px;
+      padding: 7px;
+      overflow: hidden;
+    }
+
+    .context-card .decision-pill {
+      border-color: rgba(255, 255, 255, .22);
+      background: rgba(255, 255, 255, .12);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, .12);
+    }
+
+    .context-card .decision-pill b {
+      color: rgba(255, 255, 255, .72);
+    }
+
+    .context-card .decision-pill span {
+      color: var(--ms-white);
+    }
+
+    .decision-pill b,
+    .decision-pill span {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .decision-pill b {
+      color: var(--ms-navy);
+      font-size: 9px;
+      font-weight: 950;
+    }
+
+    .decision-pill span {
+      color: var(--ms-green);
+      font-size: 8px;
+      font-weight: 900;
+    }
+
+    .doctor-list {
+      flex-direction: column;
+      overflow: visible;
+    }
+
+    .doctor-option {
+      display: grid;
+      grid-template-columns: 42px 1fr auto;
+      gap: 9px;
+      align-items: center;
+      border-radius: 18px;
+      padding: 9px;
+      text-align: left;
+      text-decoration: none;
+    }
+
+    .avatar {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 32% 22%, rgba(255, 255, 255, .34), transparent 28%),
+        linear-gradient(145deg, var(--ms-green), var(--ms-navy));
+      color: var(--ms-white);
+      font-size: 10px;
+      font-weight: 950;
+    }
+
+    .context-card .avatar {
+      background:
+        radial-gradient(circle at 35% 24%, rgba(255, 255, 255, .48), transparent 25%),
+        linear-gradient(145deg, var(--ms-green), #006b5f);
+      box-shadow: 0 0 0 2px rgba(255, 255, 255, .18);
+    }
+
+    .appointment-line {
+      display: grid;
+      grid-template-columns: 42px 1fr auto;
+      gap: 9px;
+      align-items: center;
+    }
+
+    .line-copy {
+      min-width: 0;
+      display: grid;
+      gap: 2px;
+    }
+
+    .line-copy b,
+    .line-copy span {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .line-copy b {
+      color: var(--ms-navy);
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .line-copy span {
+      color: rgba(0, 0, 128, .62);
+      font-size: 8px;
+      font-weight: 850;
+    }
+
+    .line-price {
+      min-width: 58px;
+      display: grid;
+      justify-items: end;
+      gap: 3px;
+    }
+
+    .line-price b {
+      color: var(--ms-navy);
+      font-size: 12px;
+      font-weight: 950;
+      line-height: 1;
+    }
+
+    .line-price span {
+      color: rgba(0, 0, 128, .58);
+      font-size: 7px;
+      font-weight: 850;
+    }
+
+    .doctor-copy {
+      min-width: 0;
+      display: grid;
+      gap: 2px;
+    }
+
+    .doctor-copy b,
+    .doctor-copy span,
+    .doctor-copy small {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .doctor-copy b {
+      color: var(--ms-navy);
+      font-size: 11px;
+      font-weight: 950;
+    }
+
+    .doctor-copy span {
+      color: rgba(0, 0, 128, .62);
+      font-size: 8px;
+      font-weight: 850;
+    }
+
+    .doctor-copy small {
+      color: var(--ms-green);
+      font-size: 8px;
+      font-weight: 900;
+    }
+
+    .doctor-price {
+      min-width: 52px;
+      display: grid;
+      justify-items: end;
+      gap: 3px;
+      color: var(--ms-green);
+      font-weight: 950;
+    }
+
+    .doctor-price b {
+      font-size: 12px;
+      line-height: 1;
+    }
+
+    .doctor-price span {
+      color: rgba(0, 0, 128, .58);
+      font-size: 7px;
+      font-weight: 850;
+    }
+
+    .summary-card {
+      position: relative;
+      background:
+        linear-gradient(135deg, rgba(255, 153, 51, .13), rgba(19, 136, 8, .08)),
+        var(--ms-white);
+      z-index: 2;
+    }
+
+    .summary-top {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      align-items: start;
+    }
+
+    .summary-copy {
+      min-width: 0;
+      display: grid;
+      gap: 4px;
+    }
+
+    .summary-copy b {
+      overflow: hidden;
+      color: var(--ms-navy);
+      font-size: 14px;
+      line-height: 1.05;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .summary-copy span {
+      color: rgba(0, 0, 128, .62);
+      font-size: 8px;
+      font-weight: 850;
+      line-height: 1.25;
+    }
+
+    .summary-price {
+      min-width: 64px;
+      display: grid;
+      justify-items: end;
+      gap: 3px;
+      color: var(--ms-green);
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .summary-price b {
+      font-size: 15px;
+      line-height: 1;
+    }
+
+    .summary-price span {
+      color: rgba(0, 0, 128, .58);
+      font-size: 7px;
+      font-weight: 850;
+    }
+
+    .fact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .fact {
+      min-height: 38px;
+      display: grid;
+      align-content: center;
+      gap: 2px;
+      border-radius: 14px;
+      padding: 7px;
+      overflow: hidden;
+    }
+
+    .fact b,
+    .fact span {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .fact b {
+      color: var(--ms-navy);
+      font-size: 7px;
+      font-weight: 950;
+      text-transform: uppercase;
+    }
+
+    .fact span {
+      color: var(--ms-green);
+      font-size: 8px;
+      font-weight: 900;
+    }
+
+    .cta-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 7px;
+      align-items: center;
+    }
+
+    .primary-cta,
+    .secondary-cta {
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--ms-pill);
+      text-decoration: none;
+      font-size: 10px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .primary-cta {
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 var(--ms-saffron), 0 10px 20px rgba(0, 0, 128, .18);
+    }
+
+    .secondary-cta {
+      border: 1px solid rgba(0, 0, 128, .14);
+      padding: 0 12px;
+      background: var(--ms-white);
+      color: var(--ms-navy);
+    }
+
+    .bottom-dock {
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+      display: grid;
+      grid-template-columns: 68px minmax(0, 1fr) 66px;
+      gap: 8px;
+      align-items: center;
+      border: 1px solid rgba(0, 0, 128, .16);
+      border-radius: 26px;
+      padding: 7px;
+      background: rgba(255, 255, 255, .96);
+      box-shadow: 0 -14px 36px rgba(0, 0, 128, .16);
+      z-index: 8;
+    }
+
+    .mool-button,
+    .chat-button {
+      min-height: 58px;
+      display: grid;
+      place-items: center;
+      border-radius: 22px;
+      text-decoration: none;
+      font-size: 9px;
+      font-weight: 950;
+    }
+
+    .mool-button {
+      background:
+        radial-gradient(circle at 35% 22%, rgba(255, 255, 255, .35), transparent 25%),
+        linear-gradient(145deg, #1d1dca, var(--ms-navy));
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 rgba(0, 0, 80, .72), 0 8px 18px rgba(0, 0, 128, .18);
+    }
+
+    .dock-track {
+      min-width: 0;
+      display: flex;
+      gap: 4px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      border-radius: 22px;
+      padding: 2px;
+      background:
+        radial-gradient(circle at left, rgba(0, 0, 128, .12), transparent 28%),
+        radial-gradient(circle at right, rgba(0, 0, 128, .12), transparent 28%),
+        #f7f9fd;
+    }
+
+    .dock-track::-webkit-scrollbar { display: none; }
+
+    .dock-tab {
+      flex: 0 0 auto;
+      min-width: 50px;
+      min-height: 42px;
+      display: grid;
+      place-items: center;
+      gap: 2px;
+      border-radius: 17px;
+      color: var(--ms-navy);
+      text-decoration: none;
+      font-size: 8px;
+      font-weight: 950;
+    }
+
+    .dock-tab svg {
+      width: 17px;
+      height: 17px;
+    }
+
+    .dock-tab.active {
+      background: linear-gradient(180deg, #1515b8, var(--ms-navy));
+      color: var(--ms-white);
+      box-shadow: inset 0 -3px 0 var(--ms-saffron), 0 8px 18px rgba(0, 0, 128, .18);
+    }
+
+    .chat-button {
+      position: relative;
+      border: 1px solid rgba(0, 0, 128, .14);
+      background: var(--ms-white);
+      color: var(--ms-navy);
+    }
+
+    .chat-badge {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      width: 20px;
+      height: 20px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--ms-saffron);
+      color: var(--ms-navy);
+      font-size: 10px;
+      font-weight: 950;
+    }
+
+    .state-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      border-top: 1px solid var(--ms-navy);
+      border-left: 1px solid var(--ms-navy);
+    }
+
+    .state-cell {
+      border-right: 1px solid var(--ms-navy);
+      border-bottom: 1px solid var(--ms-navy);
+      padding: 14px;
+      color: var(--ms-navy);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .state-cell:nth-child(2n) { border-right: 0; }
+    .state-cell b {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--ms-green);
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 780px) {
+      .preview { grid-template-columns: 1fr; padding: 12px; }
+      .state-grid { grid-template-columns: 1fr; }
+      .state-cell { border-right: 0; }
+      .ms-page { padding: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="ms-page">
+    <section class="screen-shell">
+      <div class="back-row">
+        <a class="screen-link-home" href="../index.html">
+          <span class="back-mark">47</span>
+          Back to MoolSocial Screenbook
+        </a>
+        <span class="ms-status">Approved</span>
+      </div>
+
+      <section class="preview">
+        <div class="phone" role="img" aria-label="MoolSocial Salon Post-Visit Support screen">
+          <div class="app">
+            <div class="status-row">
+              <span>9:41</span>
+              <span>5G 100%</span>
+            </div>
+
+            <header class="top">
+              <div class="brand-row">
+                <div class="brand-copy">
+                  <b>MoolSocial Salon</b>
+                  <div class="identity-line" aria-hidden="true"><span></span><span></span><span></span></div>
+                  <span>support · saved visit · resolve</span>
+                </div>
+                <div class="top-buttons">
+                  <a class="circle-btn" href="46-salon-service-payment-rating.html" aria-label="Back to salon receipt">
+                    <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" /></svg>
+                  </a>
+                  <button class="circle-btn" aria-label="Saved salons">
+                    <svg viewBox="0 0 24 24"><path d="M20 4 8.5 15.5" /><circle cx="6" cy="6" r="3" /><circle cx="6" cy="18" r="3" /><path d="M14 14l6 6" /></svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="command-bar" aria-label="Salon post visit support actions">
+                <span class="command-text">Bill SAL-2047 · saved visit</span>
+                <a class="search-action" href="#issueLine" aria-label="Issue status">
+                  <svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></svg>
+                </a>
+                <button class="search-action" aria-label="Call salon">
+                  <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.32 1.78.6 2.62a2 2 0 0 1-.45 2.11L8 9.71a16 16 0 0 0 6.29 6.29l1.26-1.26a2 2 0 0 1 2.11-.45c.84.28 1.72.48 2.62.6A2 2 0 0 1 22 16.92Z" /></svg>
+                </button>
+                <a class="search-action" href="23-chat-inbox-home.html" aria-label="Salon support chat">
+                  <svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z" /></svg>
+                </a>
+              </div>
+            </header>
+
+            <main class="content">
+              <section class="context-card" aria-label="Salon post visit support">
+                <div class="card-head">
+                  <b>Support window</b>
+                  <span id="decisionHint">visit record saved</span>
+                </div>
+                <div class="appointment-line">
+                  <span class="avatar" id="providerInitials">RT</span>
+                  <span class="line-copy">
+                    <b id="providerName">Royal Touch Salon</b>
+                    <span id="providerMeta">Haircut · bill SAL-2047 · receipt linked</span>
+                  </span>
+                  <span class="line-price">
+                    <b id="slotTime">24 hr</b>
+                    <span id="slotDay">window</span>
+                  </span>
+                </div>
+                <div class="decision-grid">
+                  <span class="decision-pill"><b>Visit</b><span id="decisionNeed">Haircut</span></span>
+                  <span class="decision-pill"><b>Bill</b><span id="decisionMode">Rs 199</span></span>
+                  <span class="decision-pill"><b>Status</b><span id="decisionAmount">Open</span></span>
+                </div>
+              </section>
+
+              <section class="mode-card" aria-label="MoolSocial salon support assurance">
+                <div class="card-head">
+                  <b id="modeTitle">Need support?</b>
+                  <span id="modeHint">visit record ready</span>
+                </div>
+                <div class="pay-reason" aria-label="Reason to pay through MoolSocial">
+                  <span class="pay-reason-icon">
+                    <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-5" /><path d="M20 6 9 17l-5-5" /></svg>
+                  </span>
+                  <span class="pay-reason-copy">
+                    <b id="payReasonTitle">Your visit record is saved</b>
+                    <span id="payReasonText">Bill, payment, rating and salon chat stay linked so support can verify quickly.</span>
+                  </span>
+                </div>
+                <div class="cta-row">
+                  <a class="primary-cta" href="#issueLine" id="payCta">Choose issue</a>
+                  <a class="secondary-cta" href="23-chat-inbox-home.html">Open chat</a>
+                </div>
+              </section>
+
+              <section class="need-card" aria-label="Salon support issue choices">
+                <div class="card-head">
+                  <b>Choose issue</b>
+                  <span id="issueLine">tap one</span>
+                </div>
+                <div class="mode-row">
+                  <button class="mode-option active" type="button">
+                    <span class="mode-top">
+                      <b>Bill</b>
+                      <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="M3 10h18" /></svg>
+                    </span>
+                    <strong>Correction</strong>
+                    <span>wrong amount</span>
+                  </button>
+                  <button class="mode-option" type="button">
+                    <span class="mode-top">
+                      <b>Service</b>
+                      <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.8-3.8a6 6 0 0 1-7.9 7.9L6.7 20.3a2.1 2.1 0 0 1-3-3l6.9-6.9a6 6 0 0 1 7.9-7.9Z" /></svg>
+                    </span>
+                    <strong>Service</strong>
+                    <span>quality issue</span>
+                  </button>
+                  <button class="mode-option" type="button">
+                    <span class="mode-top">
+                      <b>Safety</b>
+                      <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" /></svg>
+                    </span>
+                    <strong>Concern</strong>
+                    <span>hygiene or safety</span>
+                  </button>
+                </div>
+              </section>
+
+              <section class="doctor-card" aria-label="Salon support resolution actions">
+                <div class="card-head">
+                  <b>Next step</b>
+                  <span>proof if needed</span>
+                </div>
+                <div class="doctor-list">
+                  <a class="doctor-option active" href="#primaryCta">
+                    <span class="avatar">S</span>
+                    <span class="doctor-copy">
+                      <b>Ask review</b>
+                      <span id="directionsLine">Correction, refund, rework or salon reply</span>
+                      <small>MoolSocial sends saved bill, payment and rating record.</small>
+                    </span>
+                    <span class="doctor-price"><b>Review</b><span>open</span></span>
+                  </a>
+                  <a class="doctor-option" href="23-chat-inbox-home.html">
+                    <span class="avatar">I</span>
+                    <span class="doctor-copy">
+                      <b>Add proof</b>
+                      <span id="cancelLine">Photo, bill, chat note or short comment</span>
+                      <small>Do this only when needed for verification.</small>
+                    </span>
+                    <span class="doctor-price"><b>Add</b><span>proof</span></span>
+                  </a>
+                </div>
+              </section>
+
+              <section class="summary-card" aria-label="Salon support case summary">
+                <div class="summary-top">
+                  <span class="summary-copy">
+                    <b id="summaryTitle">Support SAL-2047</b>
+                    <span id="summaryText">Royal Touch Salon · Haircut · saved visit ready.</span>
+                  </span>
+                  <span class="summary-price">
+                    <b id="summaryPrice">Rs 199</b>
+                    <span id="priceStatus">due</span>
+                  </span>
+                </div>
+                <div class="fact-grid">
+                  <span class="fact"><b>Issue</b><span id="selectedIssue">select one</span></span>
+                  <span class="fact"><b>Proof</b><span id="payText">optional</span></span>
+                  <span class="fact"><b>Reply</b><span>same day</span></span>
+                </div>
+                <div class="cta-row">
+                  <a class="primary-cta" href="23-chat-inbox-home.html" id="primaryCta">Continue in chat</a>
+                  <a class="secondary-cta" href="04-universal-focus-shell.html">Close</a>
+                </div>
+              </section>
+            </main>
+
+            <nav class="bottom-dock" aria-label="Salon post visit support navigation">
+              <a class="mool-button" href="04-universal-focus-shell.html">Mool</a>
+              <div class="dock-track">
+                <a class="dock-tab active" href="#issueLine"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="M3 10h18" /></svg>Issue</a>
+                <a class="dock-tab" href="#primaryCta"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" /></svg>Proof</a>
+                <a class="dock-tab" href="23-chat-inbox-home.html"><svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z" /></svg>Support</a>
+              </div>
+              <a class="chat-button" href="23-chat-inbox-home.html" aria-label="Open chat">
+                <svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z" /></svg>
+                <span class="chat-badge">2</span>
+                <span>Chat</span>
+              </a>
+            </nav>
+          </div>
+        </div>
+
+        <div class="notes">
+          <div>
+            <h1 class="ms-title">Screen 47 closes salon visit support safely.</h1>
+            <p class="ms-lead">
+              After payment and rating, the user should not feel pushed into a complaint flow. If something is wrong,
+              the app should use the saved bill, payment, rating and salon chat record to resolve it quickly.
+            </p>
+          </div>
+
+          <div class="ms-panel">
+            <div class="ms-section-head">Screen Contract <span>Approved</span></div>
+            <div class="state-grid">
+              <div class="state-cell"><b>Entry</b>From Screen 46 when user taps Need help, Support, low rating route, bill mismatch, or salon support chat.</div>
+              <div class="state-cell"><b>User Sees</b>Support window, saved visit record, issue type choices, proof option, expected reply and direct support chat.</div>
+              <div class="state-cell"><b>Decision</b>User chooses bill, service quality, hygiene/safety, attaches proof only if needed, opens support chat or closes.</div>
+              <div class="state-cell"><b>Backend</b>Support case, order/booking link, bill, payment, rating, proof upload, salon response SLA and support chat APIs.</div>
+              <div class="state-cell"><b>Trust</b>The app uses the saved record to resolve faster; it does not make the customer repeat details or argue at the counter.</div>
+              <div class="state-cell"><b>Failure</b>If proof upload fails, keep text case active; if salon does not reply, escalate to MoolSocial support.</div>
+              <div class="state-cell"><b>Next</b>Support chat, refund/rework/correction result, saved receipt, repeat booking or return to universal screen.</div>
+              <div class="state-cell"><b>Regression</b>Do not make this screen look like a complaint invitation; keep tone calm, record-linked and action-specific.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script>
+    if ("scrollRestoration" in history) {
+      history.scrollRestoration = "manual";
+    }
+
+    function resetPhoneScroll() {
+      const content = document.querySelector(".content");
+      if (content) content.scrollTop = 0;
+    }
+
+    window.addEventListener("load", () => {
+      resetPhoneScroll();
+      requestAnimationFrame(resetPhoneScroll);
+      setTimeout(resetPhoneScroll, 80);
+    });
+
+    const params = new URLSearchParams(window.location.search);
+    const booking = {
+      provider: params.get("provider") || "Royal Touch Salon",
+      initials: "RT",
+      service: params.get("service") || "Haircut",
+      place: "Salon",
+      slotTime: "24 hr",
+      slotDay: "window",
+      amount: params.get("amount") || "Rs 199",
+      pay: params.get("pay") || "Pay at salon",
+      id: "SAL-2047"
+    };
+
+    const paymentStates = {
+      "Pay at salon": {
+        title: "Need support?",
+        hint: "visit record ready",
+        status: "optional",
+        priceStatus: "record",
+        cta: "Choose issue",
+        ctaHref: "#issueLine",
+        reasonTitle: "Your visit record is saved",
+        reasonText: "Bill, payment, rating and salon chat stay linked so support can verify quickly.",
+        summaryNote: "saved visit ready"
+      },
+      "UPI now": {
+        title: "Receipt linked",
+        hint: "support can verify",
+        status: "optional",
+        priceStatus: "record",
+        cta: "Choose issue",
+        ctaHref: "#issueLine",
+        reasonTitle: "Payment proof is saved",
+        reasonText: "UPI receipt, salon bill, rating and chat are already attached to this visit.",
+        summaryNote: "receipt linked"
+      },
+      "Card hold": {
+        title: "Card record linked",
+        hint: "support can verify",
+        status: "optional",
+        priceStatus: "record",
+        cta: "Choose issue",
+        ctaHref: "#issueLine",
+        reasonTitle: "Card approval record is saved",
+        reasonText: "Bill, approval, salon response and support chat stay connected for correction.",
+        summaryNote: "card record linked"
+      }
+    };
+
+    const payment = paymentStates[booking.pay] || paymentStates["Pay at salon"];
+    const providerInitials = document.getElementById("providerInitials");
+    const providerName = document.getElementById("providerName");
+    const providerMeta = document.getElementById("providerMeta");
+    const slotTime = document.getElementById("slotTime");
+    const slotDay = document.getElementById("slotDay");
+    const decisionHint = document.getElementById("decisionHint");
+    const decisionNeed = document.getElementById("decisionNeed");
+    const decisionMode = document.getElementById("decisionMode");
+    const decisionAmount = document.getElementById("decisionAmount");
+    const modeTitle = document.getElementById("modeTitle");
+    const modeHint = document.getElementById("modeHint");
+    const summaryText = document.getElementById("summaryText");
+    const summaryPrice = document.getElementById("summaryPrice");
+    const priceStatus = document.getElementById("priceStatus");
+    const payText = document.getElementById("payText");
+    const payReasonTitle = document.getElementById("payReasonTitle");
+    const payReasonText = document.getElementById("payReasonText");
+    const payCta = document.getElementById("payCta");
+    const primaryCta = document.getElementById("primaryCta");
+    const selectedIssue = document.getElementById("selectedIssue");
+    const issueLine = document.getElementById("issueLine");
+    const issueOptions = Array.from(document.querySelectorAll(".mode-option"));
+
+    const issueCopy = [
+      {
+        label: "bill correction",
+        summary: "Bill correction selected",
+        line: "wrong amount"
+      },
+      {
+        label: "service quality",
+        summary: "Service quality selected",
+        line: "quality issue"
+      },
+      {
+        label: "safety concern",
+        summary: "Safety concern selected",
+        line: "hygiene or safety"
+      }
+    ];
+
+    function updateReceipt() {
+      providerInitials.textContent = booking.initials;
+      providerName.textContent = booking.provider;
+      providerMeta.textContent = `${booking.service} · bill ${booking.id} · receipt linked`;
+      slotTime.textContent = booking.slotTime;
+      slotDay.textContent = booking.slotDay;
+      decisionHint.textContent = "visit record saved";
+      decisionNeed.textContent = booking.service;
+      decisionMode.textContent = booking.amount;
+      decisionAmount.textContent = "Open";
+      modeTitle.textContent = payment.title;
+      modeHint.textContent = payment.hint;
+      summaryText.textContent = `${booking.provider} · ${booking.service} · ${payment.summaryNote}.`;
+      summaryPrice.textContent = booking.amount;
+      priceStatus.textContent = payment.priceStatus;
+      payText.textContent = payment.status;
+      payReasonTitle.textContent = payment.reasonTitle;
+      payReasonText.textContent = payment.reasonText;
+      payCta.textContent = payment.cta;
+      payCta.href = payment.ctaHref;
+      primaryCta.textContent = "Continue in chat";
+      primaryCta.href = "23-chat-inbox-home.html";
+    }
+
+    updateReceipt();
+
+    issueOptions.forEach((option, index) => {
+      option.addEventListener("click", () => {
+        const issue = issueCopy[index] || issueCopy[0];
+        issueOptions.forEach((item) => item.classList.remove("active"));
+        option.classList.add("active");
+        selectedIssue.textContent = issue.label;
+        issueLine.textContent = issue.line;
+        summaryText.textContent = `${booking.provider} · ${booking.service} · ${issue.summary}.`;
+      });
+    });
+  </script>
+<script type="application/json" id="productionRouteContract">{"contractVersion":"mvp-route-lock-2026-07-12","prototypeScreen":47,"productionModule":"salon","routeId":"salon.booking-lifecycle","routePath":"/bookings/:bookingId","routeState":"post-visit-support","implementation":"route-state","launchScope":"post-mvp","separateProductionRoute":false,"productionNote":"Do not create a separate production route. Implement post-visit-support inside /bookings/:bookingId and reuse the owning route API, authorization, analytics and regression suite.","canonicalMap":"architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"}</script><script type="application/json" id="prototypeApprovalContract">{"prototypeScreen":47,"status":"approved-and-frozen","authoritative":true,"approvedAt":"2026-07-12","approvalScope":"prototype-ui-ux-and-production-contract"}</script></body>
+</html>
