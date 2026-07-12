@@ -1,8 +1,8 @@
 {
   "contractVersion": "mvp-route-machine-flex-2026-07-12",
   "generatedAt": "2026-07-12",
-  "prototypeScreenCount": 116,
-  "productionRouteGroupCount": 83,
+  "prototypeScreenCount": 124,
+  "productionRouteGroupCount": 91,
   "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md",
   "routes": [
     {
@@ -34,6 +34,142 @@
         "post-mvp"
       ],
       "budgetBuckets": []
+    },
+    {
+      "routeId": "captain.completion",
+      "routePath": "/captain/trips/:tripId/complete",
+      "productionModule": "captain",
+      "prototypeScreens": [
+        120
+      ],
+      "routeStates": [
+        "fare-payment"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ],
+      "budgetBuckets": [
+        "captain"
+      ]
+    },
+    {
+      "routeId": "captain.compliance",
+      "routePath": "/captain/compliance",
+      "productionModule": "captain",
+      "prototypeScreens": [
+        122
+      ],
+      "routeStates": [
+        "readiness"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ],
+      "budgetBuckets": [
+        "captain"
+      ]
+    },
+    {
+      "routeId": "captain.earnings",
+      "routePath": "/captain/earnings",
+      "productionModule": "captain",
+      "prototypeScreens": [
+        121
+      ],
+      "routeStates": [
+        "summary"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ],
+      "budgetBuckets": [
+        "captain"
+      ]
+    },
+    {
+      "routeId": "captain.home",
+      "routePath": "/captain",
+      "productionModule": "captain",
+      "prototypeScreens": [
+        116
+      ],
+      "routeStates": [
+        "home"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ],
+      "budgetBuckets": [
+        "captain"
+      ]
+    },
+    {
+      "routeId": "captain.pickup",
+      "routePath": "/captain/trips/:tripId/pickup",
+      "productionModule": "captain",
+      "prototypeScreens": [
+        118
+      ],
+      "routeStates": [
+        "navigating"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ],
+      "budgetBuckets": [
+        "captain"
+      ]
+    },
+    {
+      "routeId": "captain.requests",
+      "routePath": "/captain/requests",
+      "productionModule": "captain",
+      "prototypeScreens": [
+        117
+      ],
+      "routeStates": [
+        "decision"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ],
+      "budgetBuckets": [
+        "captain"
+      ]
+    },
+    {
+      "routeId": "captain.support-work",
+      "routePath": "/captain/support-work",
+      "productionModule": "captain",
+      "prototypeScreens": [
+        123
+      ],
+      "routeStates": [
+        "support"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ],
+      "budgetBuckets": [
+        "captain"
+      ]
+    },
+    {
+      "routeId": "captain.trip",
+      "routePath": "/captain/trips/:tripId",
+      "productionModule": "captain",
+      "prototypeScreens": [
+        119
+      ],
+      "routeStates": [
+        "live"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ],
+      "budgetBuckets": [
+        "captain"
+      ]
     },
     {
       "routeId": "chat.business",
@@ -3032,6 +3168,214 @@
       "budgetExtension": false,
       "budgetExtensionReason": null,
       "productionNote": "Own production route /supply/services and keep all progressive states inside it.",
+      "canonicalMap": "architecture/MVP-120-ROUTE-MACHINE.md"
+    },
+    {
+      "contractVersion": "mvp-route-machine-flex-2026-07-12",
+      "prototypeScreen": 116,
+      "prototypeName": "Captain Home and Availability",
+      "productionModule": "captain",
+      "budgetBucket": "captain",
+      "routeId": "captain.home",
+      "routePath": "/captain",
+      "routeState": "home",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "painSolved": "Verified captains need a deliberate go-online state, live zone demand, priority trip, earnings and compliance actions without losing personal Mool access.",
+      "capabilityKeys": [
+        "availability"
+      ],
+      "featureOutcomes": [
+        "Go online deliberately with location freshness",
+        "See live demand and priority work",
+        "Open requests trips earnings compliance and chat in one tap"
+      ],
+      "budgetExtension": false,
+      "budgetExtensionReason": null,
+      "productionNote": "Own production route /captain and keep all progressive states inside it.",
+      "canonicalMap": "architecture/MVP-120-ROUTE-MACHINE.md"
+    },
+    {
+      "contractVersion": "mvp-route-machine-flex-2026-07-12",
+      "prototypeScreen": 117,
+      "prototypeName": "Captain Ride Request Decision",
+      "productionModule": "captain",
+      "budgetBucket": "captain",
+      "routeId": "captain.requests",
+      "routePath": "/captain/requests",
+      "routeState": "decision",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "painSolved": "Captains need exact pickup destination distance duration payment method gross fare charges and expected net before accepting a committed ride.",
+      "capabilityKeys": [
+        "ride-request"
+      ],
+      "featureOutcomes": [
+        "Compare complete ride economics before acceptance",
+        "Accept through an idempotent assignment command",
+        "Pause or decline without hidden destination or fare"
+      ],
+      "budgetExtension": false,
+      "budgetExtensionReason": null,
+      "productionNote": "Own production route /captain/requests and keep all progressive states inside it.",
+      "canonicalMap": "architecture/MVP-120-ROUTE-MACHINE.md"
+    },
+    {
+      "contractVersion": "mvp-route-machine-flex-2026-07-12",
+      "prototypeScreen": 118,
+      "prototypeName": "Captain Pickup Navigation and Arrival",
+      "productionModule": "captain",
+      "budgetBucket": "captain",
+      "routeId": "captain.pickup",
+      "routePath": "/captain/trips/:tripId/pickup",
+      "routeState": "navigating",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "painSolved": "An assigned captain needs focused pickup navigation, masked rider contact, geofence arrival and OTP-backed trip start.",
+      "capabilityKeys": [
+        "pickup-navigation"
+      ],
+      "featureOutcomes": [
+        "Navigate to the exact pickup",
+        "Contact rider without exposing phone numbers",
+        "Start only after fresh geofence and customer OTP"
+      ],
+      "budgetExtension": false,
+      "budgetExtensionReason": null,
+      "productionNote": "Own production route /captain/trips/:tripId/pickup and keep all progressive states inside it.",
+      "canonicalMap": "architecture/MVP-120-ROUTE-MACHINE.md"
+    },
+    {
+      "contractVersion": "mvp-route-machine-flex-2026-07-12",
+      "prototypeScreen": 119,
+      "prototypeName": "Captain Live Trip and Safety",
+      "productionModule": "captain",
+      "budgetBucket": "captain",
+      "routeId": "captain.trip",
+      "routePath": "/captain/trips/:tripId",
+      "routeState": "live",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "painSolved": "Captain and rider need one shared live trip state with route ETA location freshness contact SOS support and destination arrival.",
+      "capabilityKeys": [
+        "live-trip-safety"
+      ],
+      "featureOutcomes": [
+        "Use focused live navigation",
+        "Open case-linked SOS and trip support",
+        "Confirm destination arrival with location evidence"
+      ],
+      "budgetExtension": false,
+      "budgetExtensionReason": null,
+      "productionNote": "Own production route /captain/trips/:tripId and keep all progressive states inside it.",
+      "canonicalMap": "architecture/MVP-120-ROUTE-MACHINE.md"
+    },
+    {
+      "contractVersion": "mvp-route-machine-flex-2026-07-12",
+      "prototypeScreen": 120,
+      "prototypeName": "Captain Fare Completion and Collection",
+      "productionModule": "captain",
+      "budgetBucket": "captain",
+      "routeId": "captain.completion",
+      "routePath": "/captain/trips/:tripId/complete",
+      "routeState": "fare-payment",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "painSolved": "Captains need transparent final fare approved additions customer payment truth own net earning and completion before payout eligibility.",
+      "capabilityKeys": [
+        "fare-completion"
+      ],
+      "featureOutcomes": [
+        "Finalize fare after verified arrival",
+        "Confirm UPI card or recorded cash through authoritative ledgers",
+        "Issue receipt and unlock payout eligibility only after reconciliation"
+      ],
+      "budgetExtension": false,
+      "budgetExtensionReason": null,
+      "productionNote": "Own production route /captain/trips/:tripId/complete and keep all progressive states inside it.",
+      "canonicalMap": "architecture/MVP-120-ROUTE-MACHINE.md"
+    },
+    {
+      "contractVersion": "mvp-route-machine-flex-2026-07-12",
+      "prototypeScreen": 121,
+      "prototypeName": "Captain Earnings and Payouts",
+      "productionModule": "captain",
+      "budgetBucket": "captain",
+      "routeId": "captain.earnings",
+      "routePath": "/captain/earnings",
+      "routeState": "summary",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "painSolved": "Captains need understandable trip earnings platform charges incentives cash adjustments tax summaries and payout status tied to authoritative records.",
+      "capabilityKeys": [
+        "earnings-payouts"
+      ],
+      "featureOutcomes": [
+        "Review today week and payout summaries",
+        "Trace every earning to a completed trip",
+        "Understand cash adjustment deductions and bank payout status"
+      ],
+      "budgetExtension": false,
+      "budgetExtensionReason": null,
+      "productionNote": "Own production route /captain/earnings and keep all progressive states inside it.",
+      "canonicalMap": "architecture/MVP-120-ROUTE-MACHINE.md"
+    },
+    {
+      "contractVersion": "mvp-route-machine-flex-2026-07-12",
+      "prototypeScreen": 122,
+      "prototypeName": "Captain Vehicle and Compliance",
+      "productionModule": "captain",
+      "budgetBucket": "captain",
+      "routeId": "captain.compliance",
+      "routePath": "/captain/compliance",
+      "routeState": "readiness",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "painSolved": "Captain eligibility requires clear vehicle-specific India and Rajasthan document readiness expiry reminders updates and automatic pause rules.",
+      "capabilityKeys": [
+        "documents-compliance"
+      ],
+      "featureOutcomes": [
+        "Verify driver and vehicle evidence by applicable classification",
+        "Warn before expiry and pause ineligible service",
+        "Add or update a vehicle through controlled verification"
+      ],
+      "budgetExtension": false,
+      "budgetExtensionReason": null,
+      "productionNote": "Own production route /captain/compliance and keep all progressive states inside it.",
+      "canonicalMap": "architecture/MVP-120-ROUTE-MACHINE.md"
+    },
+    {
+      "contractVersion": "mvp-route-machine-flex-2026-07-12",
+      "prototypeScreen": 123,
+      "prototypeName": "Captain Support and Paid Work",
+      "productionModule": "captain",
+      "budgetBucket": "captain",
+      "routeId": "captain.support-work",
+      "routePath": "/captain/support-work",
+      "routeState": "support",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "painSolved": "Captains need immediate trip money vehicle and safety support plus transparent funded work without mixing delivery tasks into passenger rides.",
+      "capabilityKeys": [
+        "support-paid-work"
+      ],
+      "featureOutcomes": [
+        "Open record-linked support cases",
+        "Review funded mobility work with payment geography and proof",
+        "Keep delivery eligibility in a separate Delivery Partner workspace"
+      ],
+      "budgetExtension": false,
+      "budgetExtensionReason": null,
+      "productionNote": "Own production route /captain/support-work and keep all progressive states inside it.",
       "canonicalMap": "architecture/MVP-120-ROUTE-MACHINE.md"
     }
   ]
