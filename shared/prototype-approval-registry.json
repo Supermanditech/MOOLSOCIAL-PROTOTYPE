@@ -548,6 +548,12 @@
       "approvedAt": "2026-07-12"
     },
     {
+      "prototypeScreen": 109,
+      "status": "approved-and-frozen",
+      "authoritative": true,
+      "approvedAt": "2026-07-12"
+    },
+    {
       "prototypeScreen": 107,
       "status": "approved-and-frozen",
       "authoritative": true,

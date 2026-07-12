@@ -46,6 +46,7 @@
       if(action==='products-live'){productMode='live';render('products');return}
       if(action==='products-catalog'){productMode='catalog';render('products');return}
       if(action==='availability'){location.href='109-manufacturer-product-catalogue-stock.html?mode=stock';return}
+      if(action==='order-detail'){location.href='110-manufacturer-order-review-fulfilment.html?state=review';return}
       if(action==='add-input'){cart++;render('inputs');return}
       if(action==='books'){openSheet('Manufacturer Business Book','Accounting remains separate from Stock and uses the same verified sales and purchase transactions.','Open Business Book','<div class="sheet-list"><span>Sales & GST invoices</span><span>Purchase bills</span><span>Receivables</span><span>Payables</span><span>Cash & bank</span><span>GST & reconciliation</span></div><div class="sheet-note">Stock controls buyer-visible quantity. Business Book controls financial and statutory records.</div>');return}
       if(action==='accept-order'){openSheet('Confirm supply','Confirm available quantity, production date, dispatch responsibility and locked commercial terms.','Confirm supply');return}

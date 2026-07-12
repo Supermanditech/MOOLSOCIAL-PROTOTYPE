@@ -1,8 +1,8 @@
 {
   "contractVersion": "mvp-route-machine-flex-2026-07-12",
   "generatedAt": "2026-07-12",
-  "prototypeScreenCount": 110,
-  "productionRouteGroupCount": 77,
+  "prototypeScreenCount": 111,
+  "productionRouteGroupCount": 78,
   "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md",
   "routes": [
     {
@@ -1075,6 +1075,23 @@
       ],
       "routeStates": [
         "stock"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ],
+      "budgetBuckets": [
+        "manufacturer_supplier"
+      ]
+    },
+    {
+      "routeId": "supply.orders",
+      "routePath": "/supply/orders",
+      "productionModule": "manufacturer_supplier",
+      "prototypeScreens": [
+        110
+      ],
+      "routeStates": [
+        "review"
       ],
       "launchScopes": [
         "mvp-core"
@@ -2727,6 +2744,40 @@
       "budgetExtension": false,
       "budgetExtensionReason": null,
       "productionNote": "Own production route /supply/catalogue and keep all progressive states inside it.",
+      "canonicalMap": "architecture/MVP-120-ROUTE-MACHINE.md"
+    },
+    {
+      "contractVersion": "mvp-route-machine-flex-2026-07-12",
+      "prototypeScreen": 110,
+      "prototypeName": "Manufacturer Order Review and Fulfilment",
+      "productionModule": "manufacturer_supplier",
+      "budgetBucket": "manufacturer_supplier",
+      "routeId": "supply.orders",
+      "routePath": "/supply/orders",
+      "routeState": "review",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "painSolved": "Manufacturers need a decision-ready sales order showing buyer line quantities available stock price tax protected money dispatch and delivery terms before confirming full partial or unable-to-fulfil outcomes.",
+      "capabilityKeys": [
+        "orders",
+        "availability",
+        "payment-protection",
+        "dispatch",
+        "delivery-proof",
+        "receivables",
+        "tax-documents"
+      ],
+      "featureOutcomes": [
+        "Review verified buyer and exact commercial order lines",
+        "Confirm full partial or unable-to-fulfil without silent quantity changes",
+        "Return remaining demand visibly to allocation",
+        "Progress through production packing dispatch delivery invoice and receivable states",
+        "Preserve protected money and commercial audit history inside one route"
+      ],
+      "budgetExtension": false,
+      "budgetExtensionReason": null,
+      "productionNote": "Own production route /supply/orders and keep all progressive states inside it.",
       "canonicalMap": "architecture/MVP-120-ROUTE-MACHINE.md"
     }
   ]

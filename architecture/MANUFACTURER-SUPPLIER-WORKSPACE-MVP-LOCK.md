@@ -111,3 +111,16 @@ Screen 109 owns the detailed manufacturer catalogue and saleable-stock route. It
 - Product details, quantity update, terms, batch handling and publish/pause actions open progressively inside the route.
 - Adding or changing a product updates a proposed product-to-input mapping. The manufacturer must confirm the mapping before it changes Wholesale Buy recommendations.
 - Search, filters, cursor pagination, virtualisation and server-side facets are mandatory production behaviours; never preload the master catalogue.
+
+## Screen 110 Contract
+
+Screen 110 owns manufacturer buyer-order review and fulfilment. It is one production route with progressive order states, not separate routes for every status.
+
+- Buyer identity and type must be visible: retailer, hotel, restaurant, distributor or demand pool.
+- The order must show product, pack, ordered quantity, unit/case price, GST, line total and current available-to-promise quantity.
+- Locked decision terms must show payment protection, credit/advance status, delivery responsibility, expected dispatch, delivery location and cancellation rule.
+- Manufacturer actions are `Confirm Full`, `Confirm Partial` and `Cannot Fulfil`; no silent quantity reduction is allowed.
+- A partial confirmation requires line-level confirmed quantity and creates an explicit remaining-demand state for reassignment or split fulfilment.
+- `Cannot Fulfil` returns unconfirmed demand to the allocation engine without charging or penalising the buyer. Reliability consequences are recorded separately and transparently.
+- Confirmed orders progress through production/ready, packing, dispatch, goods receipt, GST invoice and receivable states inside the same route.
+- Every money-affecting change must use the authoritative payment ledger and every commercial-term change must preserve an audit trail.
