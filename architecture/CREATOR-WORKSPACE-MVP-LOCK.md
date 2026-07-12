@@ -31,6 +31,37 @@ Views, likes and followers are performance signals, not automatic payout liabili
 
 Payout rules, attribution window, geography, content format, disclosure, exclusions, evidence, review and cancellation must be visible before campaign acceptance.
 
+## Monetisation Ladder
+
+MoolSocial should compete through more transparent earning routes, not by promising that every creator will earn more than another platform.
+
+1. **Open publishing:** every eligible user can publish without a Creator workspace.
+2. **Verified campaign work:** identity, payout readiness, content-category fit and campaign-specific safety permit micro and established creators to accept funded work without one universal follower threshold.
+3. **Attributed commerce:** creator payout can use verified demand, order, booking, subscription or approved outcome attribution.
+4. **Channel memberships:** eligible creators may offer monthly and yearly member plans, with optional founding-member pricing and clearly described benefits.
+5. **Premium creator access:** later-compatible states may support paid live sessions, premium posts/videos, fan support and creator storefront activity where policy and payment rules permit.
+
+Every earning surface shows gross amount, platform/service charge, payment charge, applicable tax/deduction, creator take-home, payout timing, refund/cancellation effect and dispute route before activation.
+
+## Membership Eligibility
+
+Membership activation is configuration-driven and reviewable. The MVP eligibility resolver considers:
+
+- verified identity, age and payout account;
+- at least five eligible original public content items;
+- at least 100 followers or a smaller verified returning-audience threshold approved by risk policy;
+- no active severe safety, fraud or unresolved rights restriction;
+- clear member benefits and delivery capability;
+- acceptance of membership billing, cancellation, refund, tax and content terms.
+
+These are launch defaults, not permanent hard-coded promises. MoolSocial may lower or raise thresholds by geography, risk, category and payment readiness, but must show the creator the exact current rule and progress.
+
+Memberships support monthly and yearly billing. Members control renewal and cancellation; creators cannot hide cancellation or retain payment for benefits that were not delivered. Annual plans show the effective monthly price and refund/cancellation treatment before payment.
+
+## Audience Migration
+
+Creators may connect or display public profiles, share their MoolSocial channel link and invite followers through consented channels. MoolSocial must not request external-platform passwords, scrape private follower data or claim imported followers that did not deliberately join.
+
 ## Content and Rights
 
 - Uploading is asynchronous and resumable.

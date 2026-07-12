@@ -1,8 +1,8 @@
 {
   "contractVersion": "mvp-route-machine-flex-2026-07-12",
   "generatedAt": "2026-07-12",
-  "prototypeScreenCount": 124,
-  "productionRouteGroupCount": 91,
+  "prototypeScreenCount": 133,
+  "productionRouteGroupCount": 99,
   "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md",
   "routes": [
     {
@@ -290,6 +290,144 @@
         "mvp-core"
       ],
       "budgetBuckets": []
+    },
+    {
+      "routeId": "creator.audience",
+      "routePath": "/creator/audience",
+      "productionModule": "creator",
+      "prototypeScreens": [
+        128,
+        132
+      ],
+      "routeStates": [
+        "overview",
+        "memberships"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ],
+      "budgetBuckets": [
+        "creator"
+      ]
+    },
+    {
+      "routeId": "creator.campaigns",
+      "routePath": "/creator/campaigns",
+      "productionModule": "creator",
+      "prototypeScreens": [
+        129
+      ],
+      "routeStates": [
+        "available"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ],
+      "budgetBuckets": [
+        "creator"
+      ]
+    },
+    {
+      "routeId": "creator.content",
+      "routePath": "/creator/content",
+      "productionModule": "creator",
+      "prototypeScreens": [
+        126
+      ],
+      "routeStates": [
+        "library"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ],
+      "budgetBuckets": [
+        "creator"
+      ]
+    },
+    {
+      "routeId": "creator.control",
+      "routePath": "/creator/control",
+      "productionModule": "creator",
+      "prototypeScreens": [
+        131
+      ],
+      "routeStates": [
+        "verification"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ],
+      "budgetBuckets": [
+        "creator"
+      ]
+    },
+    {
+      "routeId": "creator.earnings",
+      "routePath": "/creator/earnings",
+      "productionModule": "creator",
+      "prototypeScreens": [
+        130
+      ],
+      "routeStates": [
+        "summary"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ],
+      "budgetBuckets": [
+        "creator"
+      ]
+    },
+    {
+      "routeId": "creator.home",
+      "routePath": "/creator",
+      "productionModule": "creator",
+      "prototypeScreens": [
+        124
+      ],
+      "routeStates": [
+        "home"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ],
+      "budgetBuckets": [
+        "creator"
+      ]
+    },
+    {
+      "routeId": "creator.performance",
+      "routePath": "/creator/performance",
+      "productionModule": "creator",
+      "prototypeScreens": [
+        127
+      ],
+      "routeStates": [
+        "overview"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ],
+      "budgetBuckets": [
+        "creator"
+      ]
+    },
+    {
+      "routeId": "creator.publish",
+      "routePath": "/creator/publish",
+      "productionModule": "creator",
+      "prototypeScreens": [
+        125
+      ],
+      "routeStates": [
+        "composer"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ],
+      "budgetBuckets": [
+        "creator"
+      ]
     },
     {
       "routeId": "distribution.store-listing",
@@ -3376,6 +3514,242 @@
       "budgetExtension": false,
       "budgetExtensionReason": null,
       "productionNote": "Own production route /captain/support-work and keep all progressive states inside it.",
+      "canonicalMap": "architecture/MVP-120-ROUTE-MACHINE.md"
+    },
+    {
+      "contractVersion": "mvp-route-machine-flex-2026-07-12",
+      "prototypeScreen": 124,
+      "prototypeName": "Creator Studio Home",
+      "productionModule": "creator",
+      "budgetBucket": "creator",
+      "routeId": "creator.home",
+      "routePath": "/creator",
+      "routeState": "home",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "painSolved": "Verified creators need one mobile and web operating home for priority content, campaign, audience, attribution and earnings actions without losing Social or consumer access.",
+      "capabilityKeys": [
+        "creator-home"
+      ],
+      "featureOutcomes": [
+        "See verified value and creator priorities",
+        "Open Create content campaigns audience and earnings in one tap",
+        "Use responsive mobile and web Studio on the same workspace"
+      ],
+      "budgetExtension": false,
+      "budgetExtensionReason": null,
+      "productionNote": "Own production route /creator and keep all progressive states inside it.",
+      "canonicalMap": "architecture/MVP-120-ROUTE-MACHINE.md"
+    },
+    {
+      "contractVersion": "mvp-route-machine-flex-2026-07-12",
+      "prototypeScreen": 125,
+      "prototypeName": "Creator Create and Publish",
+      "productionModule": "creator",
+      "budgetBucket": "creator",
+      "routeId": "creator.publish",
+      "routePath": "/creator/publish",
+      "routeState": "composer",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "painSolved": "Creators need mobile capture plus web resumable long-form upload with titles captions thumbnails subtitles scheduling rights disclosure and reliable publishing states.",
+      "capabilityKeys": [
+        "publish"
+      ],
+      "featureOutcomes": [
+        "Create Shorts videos and posts on mobile",
+        "Use drag and drop resumable web uploads",
+        "Review rights disclosure visibility and schedule before publishing"
+      ],
+      "budgetExtension": false,
+      "budgetExtensionReason": null,
+      "productionNote": "Own production route /creator/publish and keep all progressive states inside it.",
+      "canonicalMap": "architecture/MVP-120-ROUTE-MACHINE.md"
+    },
+    {
+      "contractVersion": "mvp-route-machine-flex-2026-07-12",
+      "prototypeScreen": 126,
+      "prototypeName": "Creator Content Library",
+      "productionModule": "creator",
+      "budgetBucket": "creator",
+      "routeId": "creator.content",
+      "routePath": "/creator/content",
+      "routeState": "library",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "painSolved": "Creators need one searchable mobile and web library for drafts uploads processing scheduled published limited removed and appealed content.",
+      "capabilityKeys": [
+        "content-library"
+      ],
+      "featureOutcomes": [
+        "Manage every content format and state",
+        "Search filter and paginate large libraries",
+        "Keep rights campaign performance and monetisation attached to content IDs"
+      ],
+      "budgetExtension": false,
+      "budgetExtensionReason": null,
+      "productionNote": "Own production route /creator/content and keep all progressive states inside it.",
+      "canonicalMap": "architecture/MVP-120-ROUTE-MACHINE.md"
+    },
+    {
+      "contractVersion": "mvp-route-machine-flex-2026-07-12",
+      "prototypeScreen": 127,
+      "prototypeName": "Creator Content Performance",
+      "productionModule": "creator",
+      "budgetBucket": "creator",
+      "routeId": "creator.performance",
+      "routePath": "/creator/performance",
+      "routeState": "overview",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "painSolved": "Creators need understandable attention demand conversion attributed value and payable performance rather than view-only vanity metrics.",
+      "capabilityKeys": [
+        "performance"
+      ],
+      "featureOutcomes": [
+        "Compare reach watch time engagement and conversions",
+        "See demand originated educated and converted",
+        "Export privacy-safe mobile and web performance reports"
+      ],
+      "budgetExtension": false,
+      "budgetExtensionReason": null,
+      "productionNote": "Own production route /creator/performance and keep all progressive states inside it.",
+      "canonicalMap": "architecture/MVP-120-ROUTE-MACHINE.md"
+    },
+    {
+      "contractVersion": "mvp-route-machine-flex-2026-07-12",
+      "prototypeScreen": 128,
+      "prototypeName": "Creator Audience and Community",
+      "productionModule": "creator",
+      "budgetBucket": "creator",
+      "routeId": "creator.audience",
+      "routePath": "/creator/audience",
+      "routeState": "overview",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "painSolved": "Creators need aggregated audience geography interests community actions and channel growth without access to private viewer or purchase identities.",
+      "capabilityKeys": [
+        "audience"
+      ],
+      "featureOutcomes": [
+        "Understand thresholded audience geography and interests",
+        "Engage community through shared Social systems",
+        "Invite followers through public channel links without external passwords"
+      ],
+      "budgetExtension": false,
+      "budgetExtensionReason": null,
+      "productionNote": "Own production route /creator/audience and keep all progressive states inside it.",
+      "canonicalMap": "architecture/MVP-120-ROUTE-MACHINE.md"
+    },
+    {
+      "contractVersion": "mvp-route-machine-flex-2026-07-12",
+      "prototypeScreen": 129,
+      "prototypeName": "Creator Campaign Opportunities",
+      "productionModule": "creator",
+      "budgetBucket": "creator",
+      "routeId": "creator.campaigns",
+      "routePath": "/creator/campaigns",
+      "routeState": "available",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "painSolved": "Creators need direct funded campaign opportunities with fit geography format payout objective rights disclosure attribution and cancellation terms before acceptance.",
+      "capabilityKeys": [
+        "campaigns"
+      ],
+      "featureOutcomes": [
+        "Compare campaign fit and total earning potential",
+        "Accept a versioned funded commercial brief",
+        "Manage deliverables review and completion on mobile and web"
+      ],
+      "budgetExtension": false,
+      "budgetExtensionReason": null,
+      "productionNote": "Own production route /creator/campaigns and keep all progressive states inside it.",
+      "canonicalMap": "architecture/MVP-120-ROUTE-MACHINE.md"
+    },
+    {
+      "contractVersion": "mvp-route-machine-flex-2026-07-12",
+      "prototypeScreen": 130,
+      "prototypeName": "Creator Earnings and Payouts",
+      "productionModule": "creator",
+      "budgetBucket": "creator",
+      "routeId": "creator.earnings",
+      "routePath": "/creator/earnings",
+      "routeState": "summary",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "painSolved": "Creators need an authoritative ledger showing funded campaigns verified attribution adjustments deductions available money and payout status.",
+      "capabilityKeys": [
+        "earnings-payouts"
+      ],
+      "featureOutcomes": [
+        "Trace every payable amount to its rule",
+        "Review earnings deductions and payouts",
+        "Download creator statements on mobile and web"
+      ],
+      "budgetExtension": false,
+      "budgetExtensionReason": null,
+      "productionNote": "Own production route /creator/earnings and keep all progressive states inside it.",
+      "canonicalMap": "architecture/MVP-120-ROUTE-MACHINE.md"
+    },
+    {
+      "contractVersion": "mvp-route-machine-flex-2026-07-12",
+      "prototypeScreen": 131,
+      "prototypeName": "Creator Verification Rights and Safety",
+      "productionModule": "creator",
+      "budgetBucket": "creator",
+      "routeId": "creator.control",
+      "routePath": "/creator/control",
+      "routeState": "verification",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "painSolved": "Creator monetisation requires controlled identity payout channel rights disclosure team security moderation and appeal states while ordinary posting remains open.",
+      "capabilityKeys": [
+        "verification-safety"
+      ],
+      "featureOutcomes": [
+        "Manage verified channel and payout readiness",
+        "Record content rights and paid disclosures",
+        "Review moderation decisions and appeals with reason evidence and policy version"
+      ],
+      "budgetExtension": false,
+      "budgetExtensionReason": null,
+      "productionNote": "Own production route /creator/control and keep all progressive states inside it.",
+      "canonicalMap": "architecture/MVP-120-ROUTE-MACHINE.md"
+    },
+    {
+      "contractVersion": "mvp-route-machine-flex-2026-07-12",
+      "prototypeScreen": 132,
+      "prototypeName": "Creator Memberships",
+      "productionModule": "creator",
+      "budgetBucket": "creator",
+      "routeId": "creator.audience",
+      "routePath": "/creator/audience",
+      "routeState": "memberships",
+      "implementation": "route-state",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": false,
+      "painSolved": "Eligible creators need transparent monthly and yearly channel memberships with clear benefits take-home billing cancellation renewal refund and recurring-income reporting on mobile and web.",
+      "capabilityKeys": [
+        "audience",
+        "earnings-payouts"
+      ],
+      "featureOutcomes": [
+        "Qualify through transparent identity content audience and safety rules",
+        "Create monthly and yearly membership plans",
+        "Preview gross charges tax effect creator net and payout timing",
+        "Protect member renewal cancellation and benefit delivery"
+      ],
+      "budgetExtension": false,
+      "budgetExtensionReason": null,
+      "productionNote": "Do not create a route. Implement memberships inside /creator/audience.",
       "canonicalMap": "architecture/MVP-120-ROUTE-MACHINE.md"
     }
   ]

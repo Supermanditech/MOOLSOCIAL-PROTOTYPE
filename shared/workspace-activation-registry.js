@@ -26,14 +26,14 @@
       bike_captain: setup("Set up my bike", ["Vehicle and service zone", "Go-online availability", "Trips and payout account"], "116-captain-home-availability.html"),
       auto_captain: setup("Set up my auto", ["Vehicle and service zone", "Go-online availability", "Trips and payout account"], "116-captain-home-availability.html"),
       cab_captain: setup("Set up my car", ["Vehicle and service zone", "Ride packages and availability", "Trips and payout account"], "116-captain-home-availability.html"),
-      delivery_partner: setup("Set up delivery", ["Movement mode and zone", "Availability and routes", "Proof and item limits"]),
+      delivery_partner: setup("Set up delivery", ["Movement mode and zone", "Availability and routes", "Proof and item limits"], "133-earn-opportunities.html"),
       local_transporter: setup("Set up transport", ["Vehicle and capacity", "Routes and service area", "Quotes, proof and settlement"]),
       fleet_operator: setup("Set up fleet", ["Vehicles and drivers", "Capacity and routes", "Assignments and settlement"]),
       creator_shorts: setup("Set up creator profile", ["Channel and audience", "Shorts and content rights", "Campaigns and payout"], "124-creator-studio-home.html"),
       creator_long: setup("Set up creator profile", ["Channel and audience", "Videos and content rights", "Campaigns and payout"], "124-creator-studio-home.html"),
       creator_multi: setup("Set up creator profile", ["Channels and audience", "Formats and content rights", "Campaigns and payout"], "124-creator-studio-home.html"),
-      freelancer: setup("Set up field work", ["Skills and work area", "Availability and proof training", "Assignments and payout"]),
-      get_it_done: setup("Set up task work", ["Task types and area", "Availability and proof", "Approval and payout"])
+      freelancer: setup("Set up field work", ["Skills and work area", "Availability and proof training", "Assignments and payout"], "133-earn-opportunities.html"),
+      get_it_done: setup("Set up task work", ["Task types and area", "Availability and proof", "Approval and payout"], "133-earn-opportunities.html")
     },
     get(profileId) {
       return this.profiles[profileId] || setup("Continue workspace setup", ["What you provide", "Availability and fulfilment", "Payments and operating rules"]);
