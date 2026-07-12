@@ -4,7 +4,7 @@
   "approvedScreenCount": 107,
   "operationalFlowCount": 29,
   "generatedAt": "2026-07-12",
-  "defaultFlow": "onboarding",
+  "defaultFlow": "all-approved",
   "flows": [
     {
       "id": "all-approved",
