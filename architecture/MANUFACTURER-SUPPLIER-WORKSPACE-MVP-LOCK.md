@@ -8,6 +8,18 @@ The manufacturer and supplier workspace is the verified B2B supply side that ful
 
 Every workspace owner remains a personal MoolSocial consumer and social user. The Mool control returns to that personal layer in one tap.
 
+## Manufacturer-Only Boundary
+
+Screens 107 onward in this workspace apply to a verified manufacturer: a business that transforms inputs into confirmed saleable outputs. They must not be assigned unchanged to a trader, wholesaler or distributor that buys and resells finished goods.
+
+- `operatingModel = manufacturer` may use confirmed product-to-input mapping and raw-material recommendations.
+- `operatingModel = trader`, `wholesaler` or `distributor` receives finished-goods sourcing, resale stock, buyer orders and trading books; it must not receive BOM, formulation or raw-material recommendations inferred from resale products.
+- A hybrid business must activate and verify its manufacturing activity separately. Manufacturer recommendations remain scoped to the verified manufacturing unit and its confirmed output SKUs.
+- Backend recommendation eligibility requires verified operating model, industry activity, manufacturing location, confirmed output catalogue and manufacturer-approved input mapping.
+- Missing or uncertain classification produces no automatic input recommendation and routes the profile to review; it never guesses from free text or catalogue similarity.
+
+The later trader/wholesaler workspace may reuse shared order, payment, chat and logistics components, but it owns a separate capability configuration and recommendation policy.
+
 ## Two-Sided Operating Model
 
 Sell side:
@@ -124,3 +136,19 @@ Screen 110 owns manufacturer buyer-order review and fulfilment. It is one produc
 - `Cannot Fulfil` returns unconfirmed demand to the allocation engine without charging or penalising the buyer. Reliability consequences are recorded separately and transparently.
 - Confirmed orders progress through production/ready, packing, dispatch, goods receipt, GST invoice and receivable states inside the same route.
 - Every money-affecting change must use the authoritative payment ledger and every commercial-term change must preserve an audit trail.
+
+## Manufacturer Paid Business Services
+
+MoolSocial Business Services remain permanently visible from the manufacturer operating home. They are paid operating products, not hidden support links and not marketplace listings.
+
+- exclusive product sales execution by area, district, zone, state or national territory
+- product pickup, line-haul, hub delivery and buyer delivery operations
+- advertising and sales campaigns by local, regional, state or national geography
+- GST, ITR, income-tax data preparation, accounting, audit support and filing coordination
+- exclusive input/raw-material sourcing contracts with agreed category, geography, service level and outcome
+
+Each service must show scope, geography, included work, base subscription, success-linked charge, exclusions, term, evidence, cancellation and next action before activation. Professional or regulated work must be performed by appropriately qualified providers; MoolSocial must not represent an estimate or software output as filed tax, statutory audit or professional advice.
+
+## Screen 115 Contract
+
+Screen 115 consolidates manufacturer service discovery, plan review, activation and active-service management into one production route. It must support multiple simultaneously active services without changing the core manufacturer workspace navigation.

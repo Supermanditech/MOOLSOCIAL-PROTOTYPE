@@ -1,8 +1,8 @@
 {
   "contractVersion": "mvp-route-machine-flex-2026-07-12",
   "generatedAt": "2026-07-12",
-  "prototypeScreenCount": 111,
-  "productionRouteGroupCount": 78,
+  "prototypeScreenCount": 116,
+  "productionRouteGroupCount": 83,
   "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md",
   "routes": [
     {
@@ -1084,6 +1084,57 @@
       ]
     },
     {
+      "routeId": "supply.control",
+      "routePath": "/supply/control",
+      "productionModule": "manufacturer_supplier",
+      "prototypeScreens": [
+        114
+      ],
+      "routeStates": [
+        "claims"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ],
+      "budgetBuckets": [
+        "manufacturer_supplier"
+      ]
+    },
+    {
+      "routeId": "supply.dispatch",
+      "routePath": "/supply/dispatch",
+      "productionModule": "manufacturer_supplier",
+      "prototypeScreens": [
+        112
+      ],
+      "routeStates": [
+        "ready"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ],
+      "budgetBuckets": [
+        "manufacturer_supplier"
+      ]
+    },
+    {
+      "routeId": "supply.growth",
+      "routePath": "/supply/growth",
+      "productionModule": "manufacturer_supplier",
+      "prototypeScreens": [
+        113
+      ],
+      "routeStates": [
+        "buyers"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ],
+      "budgetBuckets": [
+        "manufacturer_supplier"
+      ]
+    },
+    {
       "routeId": "supply.orders",
       "routePath": "/supply/orders",
       "productionModule": "manufacturer_supplier",
@@ -1092,6 +1143,40 @@
       ],
       "routeStates": [
         "review"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ],
+      "budgetBuckets": [
+        "manufacturer_supplier"
+      ]
+    },
+    {
+      "routeId": "supply.purchases",
+      "routePath": "/supply/purchases",
+      "productionModule": "manufacturer_supplier",
+      "prototypeScreens": [
+        111
+      ],
+      "routeStates": [
+        "matched-inputs"
+      ],
+      "launchScopes": [
+        "mvp-core"
+      ],
+      "budgetBuckets": [
+        "manufacturer_supplier"
+      ]
+    },
+    {
+      "routeId": "supply.services",
+      "routePath": "/supply/services",
+      "productionModule": "manufacturer_supplier",
+      "prototypeScreens": [
+        115
+      ],
+      "routeStates": [
+        "catalogue"
       ],
       "launchScopes": [
         "mvp-core"
@@ -2778,6 +2863,175 @@
       "budgetExtension": false,
       "budgetExtensionReason": null,
       "productionNote": "Own production route /supply/orders and keep all progressive states inside it.",
+      "canonicalMap": "architecture/MVP-120-ROUTE-MACHINE.md"
+    },
+    {
+      "contractVersion": "mvp-route-machine-flex-2026-07-12",
+      "prototypeScreen": 111,
+      "prototypeName": "Manufacturer Input Procurement",
+      "productionModule": "manufacturer_supplier",
+      "budgetBucket": "manufacturer_supplier",
+      "routeId": "supply.purchases",
+      "routePath": "/supply/purchases",
+      "routeState": "matched-inputs",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "painSolved": "Verified manufacturers need input recommendations tied only to confirmed manufacturing outputs plus supplier price MOQ pack delivery payment protected advance purchase order goods receipt and supplier payment states.",
+      "capabilityKeys": [
+        "procurement",
+        "commercial-terms",
+        "payment-protection",
+        "tax-documents",
+        "claims",
+        "relationships"
+      ],
+      "featureOutcomes": [
+        "Restrict input matching to verified manufacturing activity",
+        "Compare input offers with price MOQ delivery and payment terms",
+        "Create supplier-grouped purchase orders with protected advance",
+        "Track inward delivery goods receipt GST invoice and supplier payment",
+        "Prevent raw-material inference for trader or wholesaler resale catalogues"
+      ],
+      "budgetExtension": false,
+      "budgetExtensionReason": null,
+      "productionNote": "Own production route /supply/purchases and keep all progressive states inside it.",
+      "canonicalMap": "architecture/MVP-120-ROUTE-MACHINE.md"
+    },
+    {
+      "contractVersion": "mvp-route-machine-flex-2026-07-12",
+      "prototypeScreen": 112,
+      "prototypeName": "Manufacturer Dispatch and Delivery Control",
+      "productionModule": "manufacturer_supplier",
+      "budgetBucket": "manufacturer_supplier",
+      "routeId": "supply.dispatch",
+      "routePath": "/supply/dispatch",
+      "routeState": "ready",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "painSolved": "Manufacturers need one logistics control route for packed orders transport choice GST invoice LR e-way bill dispatch live tracking delivery proof buyer goods receipt and payment-release eligibility.",
+      "capabilityKeys": [
+        "orders",
+        "dispatch",
+        "delivery-proof",
+        "payment-protection",
+        "tax-documents",
+        "claims",
+        "relationships"
+      ],
+      "featureOutcomes": [
+        "Manage ready in-transit and delivered shipments",
+        "Choose own fleet or MoolSocial Transport",
+        "Gate dispatch on required documents",
+        "Track live shipments and ETA",
+        "Match buyer goods receipt and delivery proof",
+        "Trigger payment eligibility only through authoritative receipt state"
+      ],
+      "budgetExtension": false,
+      "budgetExtensionReason": null,
+      "productionNote": "Own production route /supply/dispatch and keep all progressive states inside it.",
+      "canonicalMap": "architecture/MVP-120-ROUTE-MACHINE.md"
+    },
+    {
+      "contractVersion": "mvp-route-machine-flex-2026-07-12",
+      "prototypeScreen": 113,
+      "prototypeName": "Manufacturer Buyers Demand and Campaigns",
+      "productionModule": "manufacturer_supplier",
+      "budgetBucket": "manufacturer_supplier",
+      "routeId": "supply.growth",
+      "routePath": "/supply/growth",
+      "routeState": "buyers",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "painSolved": "Manufacturers need one direct growth route for verified buyer relationships aggregated demand pools funded outcome-based campaigns and sales analytics without becoming a supplier listing marketplace.",
+      "capabilityKeys": [
+        "relationships",
+        "campaigns",
+        "analytics",
+        "orders",
+        "receivables",
+        "team-support"
+      ],
+      "featureOutcomes": [
+        "Manage verified buyer relationships and repeat demand",
+        "Act on aggregated demand with quantity geography price and close time",
+        "Create funded campaigns with measurable outcomes",
+        "Use verified Earn participants for approved field execution",
+        "Track conversion retention geography and demand forecast"
+      ],
+      "budgetExtension": false,
+      "budgetExtensionReason": null,
+      "productionNote": "Own production route /supply/growth and keep all progressive states inside it.",
+      "canonicalMap": "architecture/MVP-120-ROUTE-MACHINE.md"
+    },
+    {
+      "contractVersion": "mvp-route-machine-flex-2026-07-12",
+      "prototypeScreen": 114,
+      "prototypeName": "Manufacturer Claims Team and Workspace Control",
+      "productionModule": "manufacturer_supplier",
+      "budgetBucket": "manufacturer_supplier",
+      "routeId": "supply.control",
+      "routePath": "/supply/control",
+      "routeState": "claims",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "painSolved": "Manufacturers need one controlled route for buyer and supplier claims staff permissions verified operating settings security audit and case-linked support while preserving the manufacturer-only operating model.",
+      "capabilityKeys": [
+        "claims",
+        "team-support",
+        "readiness",
+        "relationships",
+        "tax-documents",
+        "payment-protection"
+      ],
+      "featureOutcomes": [
+        "Resolve buyer supplier and transport claims with evidence",
+        "Assign least-privilege team roles",
+        "Keep manufacturer operating model separately verified",
+        "Control devices approvals notifications fleet and factory settings",
+        "Access order money GST security and workspace support"
+      ],
+      "budgetExtension": false,
+      "budgetExtensionReason": null,
+      "productionNote": "Own production route /supply/control and keep all progressive states inside it.",
+      "canonicalMap": "architecture/MVP-120-ROUTE-MACHINE.md"
+    },
+    {
+      "contractVersion": "mvp-route-machine-flex-2026-07-12",
+      "prototypeScreen": 115,
+      "prototypeName": "Manufacturer Business Services",
+      "productionModule": "manufacturer_supplier",
+      "budgetBucket": "manufacturer_supplier",
+      "routeId": "supply.services",
+      "routePath": "/supply/services",
+      "routeState": "catalogue",
+      "implementation": "route-shell",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": true,
+      "painSolved": "Manufacturers need permanently visible paid operating products for exclusive sales territories logistics advertising tax accounts audit coordination and exclusive input sourcing with disclosed scope pricing outcomes and professional boundaries.",
+      "capabilityKeys": [
+        "campaigns",
+        "dispatch",
+        "procurement",
+        "tax-documents",
+        "team-support",
+        "relationships",
+        "analytics"
+      ],
+      "featureOutcomes": [
+        "Review manufacturer-specific paid services at all times",
+        "Choose area district zone state or national sales scope",
+        "Activate pickup delivery and campaign services",
+        "Access qualified tax accounts and audit coordination",
+        "Request exclusive confirmed-input sourcing contracts",
+        "Manage plan review activation active status and requests inside one route"
+      ],
+      "budgetExtension": false,
+      "budgetExtensionReason": null,
+      "productionNote": "Own production route /supply/services and keep all progressive states inside it.",
       "canonicalMap": "architecture/MVP-120-ROUTE-MACHINE.md"
     }
   ]
