@@ -12,7 +12,9 @@
     [153,"Trust & Safety","153-admin-content-trust-safety.html","TS"],
     [154,"Finance","154-admin-finance-reconciliation.html","₹"],
     [155,"Support","155-admin-support-disputes.html","SP"],
-    [156,"Launch & Config","156-admin-audience-launch-configuration.html","LC"]
+    [156,"Launch & Config","156-admin-audience-launch-configuration.html","LC"],
+    [163,"Activity & Health","163-admin-user-activity-product-health.html","AH"],
+    [164,"Signals & Privacy","164-admin-signals-consent-personalization.html","SG"]
   ];
   const root=document.getElementById("app");
   const nav=routes.map(([id,label,file,icon])=>`<a class="nav-link ${id===cfg.screen?'active':''}" href="${file}"><i>${icon}</i><span>${label}</span></a>`).join("");

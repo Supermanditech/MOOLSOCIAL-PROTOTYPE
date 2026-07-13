@@ -1,9 +1,17 @@
 {
   "contractVersion": "mvp-route-machine-flex-2026-07-12",
   "generatedAt": "2026-07-12",
-  "prototypeScreenCount": 163,
+  "prototypeScreenCount": 165,
   "productionRouteGroupCount": 129,
   "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md",
+  "crossCuttingContracts": [
+    {
+      "contractId": "activity-observability-personalization",
+      "path": "shared/activity-observability-contract.json",
+      "appliesTo": "all launch routes, route states, clients and workspace types",
+      "required": true
+    }
+  ],
   "routes": [
     {
       "routeId": "admin.catalogue",
@@ -27,10 +35,12 @@
       "routePath": "/admin",
       "productionModule": "admin",
       "prototypeScreens": [
-        147
+        147,
+        163
       ],
       "routeStates": [
-        "overview"
+        "overview",
+        "activity-health"
       ],
       "launchScopes": [
         "mvp-core"
@@ -61,10 +71,12 @@
       "routePath": "/admin/configuration",
       "productionModule": "admin",
       "prototypeScreens": [
-        156
+        156,
+        164
       ],
       "routeStates": [
-        "audience-launch"
+        "audience-launch",
+        "telemetry-governance"
       ],
       "launchScopes": [
         "mvp-core"
@@ -5040,6 +5052,58 @@
       "budgetExtension": false,
       "budgetExtensionReason": null,
       "productionNote": "Own production route /account/workspaces and keep all progressive states inside it.",
+      "canonicalMap": "architecture/MVP-120-ROUTE-MACHINE.md"
+    },
+    {
+      "contractVersion": "mvp-route-machine-flex-2026-07-12",
+      "prototypeScreen": 163,
+      "prototypeName": "Admin User Activity and Product Health",
+      "productionModule": "admin",
+      "budgetBucket": "moolsocial_admin",
+      "routeId": "admin.command",
+      "routePath": "/admin",
+      "routeState": "activity-health",
+      "implementation": "route-state",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": false,
+      "painSolved": "MoolSocial needs cross-user product observability that traces every meaningful screen action to technical outcomes while protecting private content and sensitive credentials.",
+      "capabilityKeys": [
+        "command-centre"
+      ],
+      "featureOutcomes": [
+        "Detect journey regressions across every user and workspace type",
+        "Trace authorized tokenized user activity from UI to responsible API",
+        "Control releases telemetry and recovery without blocking business operations"
+      ],
+      "budgetExtension": false,
+      "budgetExtensionReason": null,
+      "productionNote": "Do not create a route. Implement activity-health inside /admin.",
+      "canonicalMap": "architecture/MVP-120-ROUTE-MACHINE.md"
+    },
+    {
+      "contractVersion": "mvp-route-machine-flex-2026-07-12",
+      "prototypeScreen": 164,
+      "prototypeName": "Admin Signals Consent and Personalization",
+      "productionModule": "admin",
+      "budgetBucket": "moolsocial_admin",
+      "routeId": "admin.configuration",
+      "routePath": "/admin/configuration",
+      "routeState": "telemetry-governance",
+      "implementation": "route-state",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": false,
+      "painSolved": "MoolSocial needs explainable consent-aware intent signals event rules retention and kill switches so relevant offers work features and advertisements reach eligible users safely.",
+      "capabilityKeys": [
+        "configuration-analytics"
+      ],
+      "featureOutcomes": [
+        "Build explainable audiences from structured allowed actions",
+        "Enforce consent suppression retention and forbidden-field rules",
+        "Send approved segments into the governed launch workflow"
+      ],
+      "budgetExtension": false,
+      "budgetExtensionReason": null,
+      "productionNote": "Do not create a route. Implement telemetry-governance inside /admin/configuration.",
       "canonicalMap": "architecture/MVP-120-ROUTE-MACHINE.md"
     }
   ]

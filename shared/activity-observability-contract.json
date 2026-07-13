@@ -1,0 +1,101 @@
+{
+  "contractVersion": "activity-observability-v1-2026-07-13",
+  "appliesTo": "all launch routes, route states, supported clients and workspace types",
+  "architectureLock": "architecture/ADMIN-USER-ACTIVITY-OBSERVABILITY-AND-PERSONALIZATION-LOCK.md",
+  "purposes": {
+    "productHealth": "Detect crashes, failures, latency and blocked journeys and trace them to the responsible release and service.",
+    "support": "Reconstruct a tokenized user journey only for an authorized support, safety, fraud or incident purpose.",
+    "personalization": "Build explainable, consent-aware relevance from structured actions, declared preferences and verified eligibility."
+  },
+  "eventEnvelopeRequired": [
+    "event_id",
+    "event_name",
+    "schema_version",
+    "occurred_at",
+    "actor_id",
+    "session_id",
+    "screen_id",
+    "route_id",
+    "route_state",
+    "action_id",
+    "result",
+    "trace_id",
+    "app_version",
+    "device_class",
+    "locale",
+    "consent_version"
+  ],
+  "eventNames": [
+    "screen_opened",
+    "action_presented",
+    "action_tapped",
+    "action_completed",
+    "action_failed",
+    "validation_failed",
+    "screen_exited",
+    "api_completed",
+    "offline_state_changed",
+    "crash_detected",
+    "consent_changed",
+    "communication_exposed",
+    "communication_acted"
+  ],
+  "forbiddenPayloads": [
+    "password",
+    "OTP",
+    "UPI PIN",
+    "CVV",
+    "payment token",
+    "authentication secret",
+    "private chat text or attachment",
+    "clinical content",
+    "unmasked statutory identifier",
+    "raw biometric",
+    "continuous location history",
+    "unrestricted free text",
+    "contact book"
+  ],
+  "ingestion": {
+    "endpoint": "POST /v1/activity/events:batch",
+    "idempotency": "event_id",
+    "behavior": "non-blocking, offline queued, encrypted, batched, retried and schema validated",
+    "failureRule": "telemetry failure must never block a business transaction"
+  },
+  "gcpMvp": [
+    "Cloud Run or API Gateway",
+    "Pub/Sub",
+    "Cloud Logging",
+    "Error Reporting",
+    "Cloud Monitoring",
+    "Cloud Trace",
+    "BigQuery",
+    "Cloud KMS",
+    "Secret Manager"
+  ],
+  "adminStates": {
+    "productHealth": {
+      "prototypeScreen": 163,
+      "routeId": "admin.command",
+      "routeState": "activity-health"
+    },
+    "signalsAndGovernance": {
+      "prototypeScreen": 164,
+      "routeId": "admin.configuration",
+      "routeState": "telemetry-governance"
+    },
+    "audienceLaunch": {
+      "prototypeScreen": 156,
+      "routeId": "admin.configuration",
+      "routeState": "audience-launch"
+    }
+  },
+  "releaseGates": [
+    "registered action IDs on every primary control",
+    "forbidden-field contract tests",
+    "trace correlation from UI to API",
+    "consent withdrawal suppression test",
+    "event and personalization kill-switch test",
+    "authorized purpose-logged user timeline test",
+    "synthetic journey tests for every MVP module"
+  ]
+}
