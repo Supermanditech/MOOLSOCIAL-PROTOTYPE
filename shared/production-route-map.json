@@ -16,6 +16,12 @@
       "path": "shared/personalized-control-contract.json",
       "appliesTo": "personal accounts, social profiles and every verified workspace type",
       "required": true
+    },
+    {
+      "contractId": "mool-agent-work-manager",
+      "path": "shared/agentic-work-manager-contract.json",
+      "appliesTo": "personal accounts and every verified workspace type with an active agent entitlement",
+      "required": true
     }
   ],
   "routes": [

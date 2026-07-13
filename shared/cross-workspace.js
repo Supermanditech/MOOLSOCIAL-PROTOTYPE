@@ -3,7 +3,7 @@
   const app=document.querySelector("#app");
   let active=(c.filters||[])[0]||"All";
   const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[m]));
-  const icon=t=>({Required:"!",Orders:"O",Work:"₹",Offers:"%",Updates:"+",Identity:"ID",Files:"F",Security:"S",Workspace:"W",Personal:"P",Social:"@",Communication:"C",Availability:"ON",Privacy:"◌"}[t]||"•");
+  const icon=t=>({Required:"!",Orders:"O",Work:"₹",Offers:"%",Updates:"+",Identity:"ID",Files:"F",Security:"S",Workspace:"W",Personal:"P",Social:"@",Communication:"C",Availability:"ON",Agent:"A",Privacy:"◌"}[t]||"•");
 
   function render(){
     const items=(c.items||[]).filter(x=>active==="All"||x.category===active||x.tags?.includes(active));
@@ -33,13 +33,16 @@
     const controls=x.controls?.length?`<div class="control-list">${x.controls.map((control,index)=>`<button class="control-row" data-setting="${index}" role="switch" aria-checked="${control.on?"true":"false"}" aria-disabled="${control.locked?"true":"false"}"><span><b>${esc(control.label)}</b><small>${esc(control.note||"")}</small></span><i class="toggle ${control.on?"on":""} ${control.locked?"locked":""}"><em></em></i></button>`).join("")}</div>`:"";
     const schedule=x.schedule?.length?`<div class="schedule-block"><div class="schedule-head"><b>${esc(x.scheduleTitle||"Automatic schedule")}</b><span>${esc(x.timezone||"Asia/Kolkata")}</span></div>${x.schedule.map(s=>`<div class="schedule-row"><strong>${esc(s[0])}</strong><span>${esc(s[1])}</span></div>`).join("")}</div>`:"";
     const preview=x.preview?`<div class="customer-preview"><small>LIVE PREVIEW</small><b>${esc(x.preview[0])}</b><span>${esc(x.preview[1])}</span></div>`:"";
+    const subscription=x.subscription?`<div class="subscription-card"><div><small>${esc(x.subscription.label||"MONTHLY SUBSCRIPTION")}</small><strong>${esc(x.subscription.state||"Not active")}</strong><span>${esc(x.subscription.note||"")}</span></div><b>${esc(x.subscription.scope||"")}</b></div>`:"";
     const facts=x.facts?.length?`<div class="facts">${x.facts.map(f=>`<div class="fact"><small>${esc(f[0])}</small><strong>${esc(f[1])}</strong></div>`).join("")}</div>`:"";
+    const authority=x.authority?.length?`<div class="authority-list">${x.authority.map(group=>`<section class="authority ${esc(group.tone||"")}"><header><i></i><strong>${esc(group.level)}</strong><span>${esc(group.note||"")}</span></header><ul>${(group.items||[]).map(item=>`<li>${esc(item)}</li>`).join("")}</ul></section>`).join("")}</div>`:"";
     const steps=x.steps?.length?`<div class="steps">${x.steps.map((s,i)=>`<div class="step ${i<x.currentStep?"done":i===x.currentStep?"active":""}"><i>${i<x.currentStep?"✓":i+1}</i><div><strong>${esc(s[0])}</strong><div class="meta">${esc(s[1])}</div></div></div>`).join("")}</div>`:"";
-    sheet.innerHTML=`<div class="sheethead"><span class="glyph ${x.tone||""}">${esc(x.glyph||icon(x.category))}</span><div><h2>${esc(x.title)}</h2><p>${esc(x.summary)}</p></div><button class="iconbtn close" aria-label="Close">×</button></div>${x.why?`<div class="why"><strong>What this controls</strong><br>${esc(x.why)}</div>`:""}${preview}${facts}${controls}${schedule}${steps}<div class="actions">${x.secondary?`<button class="secondary">${esc(x.secondary)}</button>`:""}<button class="primary">${esc(x.primary||"Save changes")}</button></div>`;
+    sheet.innerHTML=`<div class="sheethead"><span class="glyph ${x.tone||""}">${esc(x.glyph||icon(x.category))}</span><div><h2>${esc(x.title)}</h2><p>${esc(x.summary)}</p></div><button class="iconbtn close" aria-label="Close">×</button></div>${x.why?`<div class="why"><strong>What this controls</strong><br>${esc(x.why)}</div>`:""}${preview}${subscription}${facts}${controls}${schedule}${authority}${steps}<div class="actions">${x.secondary?`<button class="secondary">${esc(x.secondary)}</button>`:""}<button class="primary">${esc(x.primary||"Save changes")}</button></div>`;
     sheet.querySelector(".close").onclick=close;
     sheet.querySelectorAll("[data-setting]").forEach(button=>button.onclick=()=>{
       const control=x.controls[+button.dataset.setting];
       if(control.locked){toast(control.lockedMessage||"This required setting cannot be turned off here.");return;}
+      if(control.subscriptionRequired&&x.subscription?.state!=="Active"){toast(control.subscriptionMessage||"Choose a monthly plan before activating Mool Agent.");return;}
       control.on=!control.on;
       button.setAttribute("aria-checked",String(control.on));
       button.querySelector(".toggle").classList.toggle("on",control.on);

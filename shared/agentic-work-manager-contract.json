@@ -1,0 +1,100 @@
+{
+  "contractVersion": "mool-agent-work-manager-v1-2026-07-13",
+  "architectureLock": "architecture/MOOL-AGENT-WORK-MANAGER-LOCK.md",
+  "appliesTo": "personal accounts and every verified workspace type",
+  "route": {
+    "prototypeScreen": 165,
+    "routeId": "shared.workspaces",
+    "routePath": "/account/workspaces",
+    "routeState": "personalized-controls",
+    "separateProductionRoute": false
+  },
+  "entitlement": {
+    "billing": "monthly subscription",
+    "owner": "account",
+    "pricingSource": "MoolSocial Admin entitlement service",
+    "subscriptionDoesNotGrantAuthority": true
+  },
+  "executionModes": [
+    "draft",
+    "ask",
+    "run_within_limit"
+  ],
+  "authorityTiers": {
+    "standing_authority": [
+      "monitor and summarize",
+      "prioritize queues",
+      "prepare drafts",
+      "apply saved schedules",
+      "send approved routine templates",
+      "run exact pre-authorized actions within saved limits"
+    ],
+    "owner_approval_required": [
+      "money movement",
+      "purchase commitments outside saved limits",
+      "price offer MOQ credit or terms changes",
+      "accept cancel or materially change commitments",
+      "public publishing and advertising",
+      "new audience or communication channel",
+      "contracts and statutory filings",
+      "staff permissions customer data or legal profile changes"
+    ],
+    "never_delegated": [
+      "OTP PIN password or recovery secret",
+      "borrowing credit or personal guarantee",
+      "verification or licence bypass",
+      "owner impersonation or legal declaration",
+      "private chat targeting",
+      "audit evidence or consent tampering"
+    ]
+  },
+  "policyFields": [
+    "owner_id",
+    "workspace_id",
+    "capability_key",
+    "execution_mode",
+    "schedule",
+    "timezone",
+    "counterparty_scope",
+    "amount_limit",
+    "quantity_limit",
+    "audience_limit",
+    "policy_version",
+    "expires_at",
+    "paused_at"
+  ],
+  "workspaceCapabilityPacks": [
+    "personal_social",
+    "retailer",
+    "manufacturer_supplier",
+    "restaurant_tiffin_cloud_kitchen",
+    "doctor_clinic_hospital",
+    "salon_individual_provider",
+    "captain_transporter",
+    "creator",
+    "freelancer_get_it_done"
+  ],
+  "apis": [
+    "GET /v1/agent/entitlement",
+    "GET /v1/agent/recommendations",
+    "GET /v1/agent/policies",
+    "PUT /v1/agent/policies/{policy_id}",
+    "POST /v1/agent/subscriptions",
+    "PATCH /v1/agent/subscriptions/{subscription_id}",
+    "POST /v1/agent:pause",
+    "POST /v1/agent:resume",
+    "GET /v1/agent/approvals",
+    "POST /v1/agent/approvals/{approval_id}:approve",
+    "POST /v1/agent/approvals/{approval_id}:reject",
+    "GET /v1/agent/executions",
+    "GET /v1/agent/receipts/{receipt_id}"
+  ],
+  "productionRules": [
+    "subscription and authority are separate",
+    "server time and policy version are authoritative",
+    "all autonomous actions require exact saved limits and idempotency",
+    "all sensitive actions require fresh scoped approval",
+    "owner pause stops new executions without hiding accepted obligations",
+    "every action produces an owner-visible audit receipt"
+  ]
+}

@@ -16,6 +16,7 @@
     "workspace demand acceptance",
     "automatic schedules and exceptions",
     "fulfilment modes and capacity",
+    "governed agent subscription schedules and authority",
     "privacy and personalization"
   ],
   "precedence": [
@@ -59,6 +60,8 @@
     "temporary overrides require expiry",
     "communication purpose and channel are stored separately",
     "withdrawal stops future optional communications",
+    "agent subscription and agent authority are stored separately",
+    "agent authority never overrides fresh approval requirements or blocked actions",
     "all changes require version, actor, source and audit receipt"
   ]
 }
