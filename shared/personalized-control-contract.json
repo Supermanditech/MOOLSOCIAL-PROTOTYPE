@@ -1,0 +1,64 @@
+{
+  "contractVersion": "personal-social-workspace-controls-v1-2026-07-13",
+  "architectureLock": "architecture/PERSONAL-SOCIAL-WORKSPACE-CONTROLS-LOCK.md",
+  "appliesTo": "personal accounts, social profiles and every verified workspace type",
+  "route": {
+    "prototypeScreen": 165,
+    "routeId": "shared.workspaces",
+    "routePath": "/account/workspaces",
+    "routeState": "personalized-controls"
+  },
+  "controlDomains": [
+    "personal experience",
+    "social interaction",
+    "communication purposes and channels",
+    "workspace visibility",
+    "workspace demand acceptance",
+    "automatic schedules and exceptions",
+    "fulfilment modes and capacity",
+    "privacy and personalization"
+  ],
+  "precedence": [
+    "legal safety fraud or compliance restriction",
+    "accepted transaction or work obligation",
+    "temporary owner override",
+    "holiday leave or date exception",
+    "workspace schedule and capacity",
+    "account default",
+    "platform recommendation"
+  ],
+  "requiredSeparation": [
+    "visible",
+    "accepting new demand",
+    "communication permission"
+  ],
+  "workspaceTemplates": {
+    "retailer": ["public shop", "accept orders", "opening hours", "counter pickup", "home delivery", "scheduled delivery"],
+    "restaurant": ["public menu", "accept food orders", "meal windows", "kitchen capacity", "delivery", "pickup", "table service"],
+    "doctor": ["public verified profile", "accept appointments", "slots", "leave", "clinic", "video", "follow-up"],
+    "captain": ["verified profile", "online state", "service area", "vehicle availability"],
+    "manufacturer_supplier": ["public catalogue", "accept wholesale orders", "order window", "capacity", "dispatch modes"],
+    "creator": ["public channel", "message requests", "campaign invitations", "collaboration availability"],
+    "freelancer_provider": ["work profile", "accept work matches", "availability", "area", "capacity"]
+  },
+  "apis": [
+    "GET /v1/users/me/preferences",
+    "PATCH /v1/users/me/preferences",
+    "GET /v1/users/me/communication-preferences",
+    "PATCH /v1/users/me/communication-preferences",
+    "GET /v1/workspaces/{workspace_id}/availability",
+    "PUT /v1/workspaces/{workspace_id}/availability",
+    "POST /v1/workspaces/{workspace_id}/availability:override",
+    "DELETE /v1/workspaces/{workspace_id}/availability:override",
+    "GET /v1/workspaces/{workspace_id}/availability:preview"
+  ],
+  "productionRules": [
+    "settings are capability-driven rather than duplicated by user type",
+    "accepted obligations survive availability changes",
+    "server time and workspace timezone are authoritative",
+    "temporary overrides require expiry",
+    "communication purpose and channel are stored separately",
+    "withdrawal stops future optional communications",
+    "all changes require version, actor, source and audit receipt"
+  ]
+}

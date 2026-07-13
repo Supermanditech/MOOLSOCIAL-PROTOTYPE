@@ -1,7 +1,7 @@
 {
   "contractVersion": "mvp-route-machine-flex-2026-07-12",
   "generatedAt": "2026-07-12",
-  "prototypeScreenCount": 165,
+  "prototypeScreenCount": 166,
   "productionRouteGroupCount": 129,
   "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md",
   "crossCuttingContracts": [
@@ -9,6 +9,12 @@
       "contractId": "activity-observability-personalization",
       "path": "shared/activity-observability-contract.json",
       "appliesTo": "all launch routes, route states, clients and workspace types",
+      "required": true
+    },
+    {
+      "contractId": "personal-social-workspace-controls",
+      "path": "shared/personalized-control-contract.json",
+      "appliesTo": "personal accounts, social profiles and every verified workspace type",
       "required": true
     }
   ],
@@ -1773,10 +1779,12 @@
       "routePath": "/account/workspaces",
       "productionModule": "shared",
       "prototypeScreens": [
-        162
+        162,
+        165
       ],
       "routeStates": [
-        "analytics-settings"
+        "analytics-settings",
+        "personalized-controls"
       ],
       "launchScopes": [
         "mvp-core"
@@ -5104,6 +5112,32 @@
       "budgetExtension": false,
       "budgetExtensionReason": null,
       "productionNote": "Do not create a route. Implement telemetry-governance inside /admin/configuration.",
+      "canonicalMap": "architecture/MVP-120-ROUTE-MACHINE.md"
+    },
+    {
+      "contractVersion": "mvp-route-machine-flex-2026-07-12",
+      "prototypeScreen": 165,
+      "prototypeName": "Shared Personalized Personal Social and Workspace Controls",
+      "productionModule": "shared",
+      "budgetBucket": "shared_cross_workspace",
+      "routeId": "shared.workspaces",
+      "routePath": "/account/workspaces",
+      "routeState": "personalized-controls",
+      "implementation": "route-state",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": false,
+      "painSolved": "Every personal social and verified workspace context needs capability-specific visibility availability schedule communication and privacy controls without duplicating routes or hiding accepted obligations.",
+      "capabilityKeys": [
+        "analytics-settings"
+      ],
+      "featureOutcomes": [
+        "Control personal social communication and privacy preferences progressively",
+        "Schedule workspace visibility and demand acceptance with truthful customer previews",
+        "Render only controls supported by each verified workspace type"
+      ],
+      "budgetExtension": false,
+      "budgetExtensionReason": null,
+      "productionNote": "Do not create a route. Implement personalized-controls inside /account/workspaces.",
       "canonicalMap": "architecture/MVP-120-ROUTE-MACHINE.md"
     }
   ]
