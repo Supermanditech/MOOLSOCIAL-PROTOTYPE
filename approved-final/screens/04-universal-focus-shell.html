@@ -1006,6 +1006,72 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
+    .universal-action-sheet {
+      position: absolute;
+      inset: auto 14px 86px;
+      z-index: 30;
+      display: none;
+      padding: 16px;
+      border: 1px solid rgba(10, 10, 150, .2);
+      border-radius: 18px;
+      background: #fff;
+      color: #08086f;
+      box-shadow: 0 18px 48px rgba(0, 0, 80, .24);
+    }
+
+    .universal-action-sheet.open { display: block; }
+
+    .universal-action-sheet b { display: block; font-size: 17px; }
+
+    .universal-action-sheet p {
+      margin: 7px 0 14px;
+      color: #4d5270;
+      font-size: 13px;
+      line-height: 1.42;
+    }
+
+    .universal-action-sheet .sheet-actions {
+      display: flex;
+      gap: 8px;
+      justify-content: flex-end;
+    }
+
+    .universal-action-sheet button {
+      min-height: 38px;
+      padding: 0 15px;
+      border: 1px solid #d9dcf0;
+      border-radius: 10px;
+      background: #fff;
+      color: #080890;
+      font: inherit;
+      font-weight: 800;
+    }
+
+    .universal-action-sheet button.primary {
+      border-color: #080890;
+      background: #080890;
+      color: #fff;
+    }
+
+    .universal-toast {
+      position: absolute;
+      left: 50%;
+      bottom: 92px;
+      z-index: 35;
+      max-width: calc(100% - 40px);
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: #05054f;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 800;
+      opacity: 0;
+      pointer-events: none;
+      transform: translate(-50%, 8px);
+      transition: .18s ease;
+    }
+
+    .universal-toast.show { opacity: 1; transform: translate(-50%, 0); }
   </style>
 </head>
 <body class="ms-doc">
@@ -1441,6 +1507,16 @@
             </main>
 
             <aside class="content-action-rail" aria-label="Content actions" data-action-rail></aside>
+
+            <section class="universal-action-sheet" data-universal-sheet aria-live="polite" aria-label="Action details">
+              <b data-universal-sheet-title>Continue</b>
+              <p data-universal-sheet-note>Choose the next action.</p>
+              <div class="sheet-actions">
+                <button type="button" data-universal-sheet-close>Close</button>
+                <button class="primary" type="button" data-universal-sheet-continue>Continue</button>
+              </div>
+            </section>
+            <div class="universal-toast" data-universal-toast role="status"></div>
 
             <nav class="bottom-dock" aria-label="Current mode tabs">
               <button class="mool-trigger" type="button" data-mool-open aria-label="Open Mool actions">
@@ -2035,7 +2111,7 @@
       const actions = actionConfig[tab] || [];
       if (!rail) return;
       rail.innerHTML = actions.map((action) => `
-        <button class="action-button" type="button" aria-label="${action.label}">
+        <button class="action-button" type="button" data-rail-action="${action.id}" aria-label="${action.label}">
           ${icons[action.id] || icons.more}
           <span>${action.label}</span>
         </button>
@@ -2083,9 +2159,132 @@
       if (switchButton) setWorld(switchButton.dataset.switch);
     });
 
-    document.querySelector("[data-mool-open]")?.addEventListener("click", () => setWorld("social", { resetToDefault: true }));
+    const universalRoutes = {
+      shorts: "05-social-shorts.html",
+      video: "06-social-videos.html",
+      feed: "07-social-feed.html",
+      create: "08-social-create.html",
+      grocery: "09-buy.html?view=grocery",
+      categories: "09-buy.html?view=categories",
+      medicine: "09-buy.html?view=medicine",
+      basket: "12-buy-basket-checkout.html",
+      "order-food": "27-eat-order-food.html",
+      "book-table": "28-eat-book-table.html",
+      tiffin: "29-eat-tiffin.html",
+      bike: "30-ride.html?ride=bike",
+      auto: "30-ride.html?ride=auto",
+      cab: "30-ride.html?ride=cab",
+      "get-done": "48-book-get-it-done.html",
+      doctor: "37-book-doctor-appointment.html",
+      salon: "42-book-salon-appointment.html",
+      "earn-today": "67-work.html",
+      verify: "70-my-work-choose-activity.html?intent=verify",
+      onboard: "70-my-work-choose-activity.html?intent=onboard",
+      delivery: "133-earn-opportunities.html?type=delivery",
+      workspace: "69-my-work-setup.html",
+      "scan-pay": "60-pay-scan.html",
+      bills: "59-pay-bills.html",
+      recharge: "58-pay-recharge.html",
+      receipts: "64-pay-receipts-history.html",
+      people: "25-chat-people-thread.html",
+      "business-chat": "24-chat-business-thread.html",
+      orders: "22-chat-order-support-thread.html",
+      support: "22-chat-order-support-thread.html?thread=support"
+    };
+
+    const universalSheet = document.querySelector("[data-universal-sheet]");
+    const universalSheetTitle = document.querySelector("[data-universal-sheet-title]");
+    const universalSheetNote = document.querySelector("[data-universal-sheet-note]");
+    const universalSheetContinue = document.querySelector("[data-universal-sheet-continue]");
+    const universalToast = document.querySelector("[data-universal-toast]");
+    let universalNextRoute = "";
+    let universalToastTimer;
+
+    function showUniversalToast(message) {
+      if (!universalToast) return;
+      universalToast.textContent = message;
+      universalToast.classList.add("show");
+      clearTimeout(universalToastTimer);
+      universalToastTimer = setTimeout(() => universalToast.classList.remove("show"), 1600);
+    }
+
+    function openUniversalSheet(title, note, route = "") {
+      if (!universalSheet) return;
+      universalNextRoute = route;
+      universalSheetTitle.textContent = title;
+      universalSheetNote.textContent = note;
+      universalSheetContinue.hidden = !route;
+      universalSheet.classList.add("open");
+    }
+
+    function continueTo(route) {
+      if (route) window.location.href = route;
+    }
+
+    document.querySelectorAll(".search-action").forEach((button) => {
+      button.addEventListener("click", () => {
+        const label = button.getAttribute("aria-label") || "Search";
+        const notes = {
+          Search: `Search inside ${actionLabels[activeWorldName]} without leaving this focus.`,
+          Scan: "Camera permission opens only after this confirmation; cancelling returns here.",
+          Voice: "Microphone permission opens only after this confirmation; cancelling returns here."
+        };
+        openUniversalSheet(label, notes[label] || "Continue with this tool.");
+      });
+    });
+
+    document.querySelectorAll(".need-tile").forEach((button) => {
+      button.addEventListener("click", () => {
+        const label = button.textContent.trim();
+        const routeByLabel = {
+          Text: "08-social-create.html?mode=text",
+          Short: "08-social-create.html?mode=short",
+          Video: "08-social-create.html?mode=video",
+          Fresh: "09-buy.html?view=fresh",
+          Monthly: "09-buy.html?view=monthly",
+          Nearby: "09-buy.html?view=nearby",
+          Salon: "42-book-salon-appointment.html",
+          Repair: "36-book.html?service=repair",
+          Laundry: "36-book.html?service=laundry"
+        };
+        continueTo(routeByLabel[label]);
+      });
+    });
+
+    document.querySelector("[data-action-rail]")?.addEventListener("click", (event) => {
+      const button = event.target.closest("[data-rail-action]");
+      if (!button) return;
+      const action = button.dataset.railAction;
+      const tab = activeTabs[activeWorldName];
+      if (["like", "save", "repost"].includes(action)) {
+        button.classList.toggle("active");
+        showUniversalToast(`${button.getAttribute("aria-label")} ${button.classList.contains("active") ? "saved" : "removed"}.`);
+        return;
+      }
+      if (["comment", "chat"].includes(action)) {
+        continueTo(activeWorldName === "social" ? "23-chat-inbox-home.html?from=social" : "23-chat-inbox-home.html?from=universal");
+        return;
+      }
+      const primaryRoute = universalRoutes[tab] || "";
+      if (["apply", "pay", "scan", "open", "compare"].includes(action) && primaryRoute) {
+        continueTo(primaryRoute);
+        return;
+      }
+      openUniversalSheet(button.getAttribute("aria-label"), `Continue from ${actionLabels[activeWorldName]} ${worldConfig[activeWorldName].tabs.find((item) => item.id === tab)?.label || ""}.`, primaryRoute);
+    });
+
+    document.querySelector("[data-universal-sheet-close]")?.addEventListener("click", () => universalSheet?.classList.remove("open"));
+    universalSheetContinue?.addEventListener("click", () => continueTo(universalNextRoute));
+    document.querySelector(".chat-trigger")?.addEventListener("click", () => continueTo("23-chat-inbox-home.html"));
+
+    document.querySelector("[data-mool-open]")?.addEventListener("click", () => {
+      if (activeWorldName === "social") showUniversalToast("All Mool actions are ready in the centre rail.");
+      setWorld("social", { resetToDefault: true });
+    });
 
     setWorld("social");
   </script>
-<script type="application/json" id="productionRouteContract">{"contractVersion":"mvp-route-lock-2026-07-12","prototypeScreen":4,"productionModule":"universal","routeId":"universal.app","routePath":"/app","routeState":"social-default-focus-shell","implementation":"route-shell","launchScope":"mvp-core","separateProductionRoute":true,"productionNote":"Own production route /app. Implement social-default-focus-shell as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.","canonicalMap":"architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"}</script><script type="application/json" id="prototypeApprovalContract">{"prototypeScreen":4,"status":"approved-and-frozen","authoritative":true,"approvedAt":"2026-07-12","approvalScope":"prototype-ui-ux-and-production-contract"}</script></body>
+<script type="application/json" id="productionRouteContract">{"contractVersion":"mvp-route-lock-2026-07-12","prototypeScreen":4,"productionModule":"universal","routeId":"universal.app","routePath":"/app","routeState":"social-default-focus-shell","implementation":"route-shell","launchScope":"mvp-core","separateProductionRoute":true,"productionNote":"Own production route /app. Implement social-default-focus-shell as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.","canonicalMap":"architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"}</script><script type="application/json" id="prototypeApprovalContract">{"prototypeScreen":4,"status":"approved-and-frozen","authoritative":true,"approvedAt":"2026-07-12","approvalScope":"prototype-ui-ux-and-production-contract"}</script>  <script src="../shared/prototype-interaction-contracts.js"></script>
+  <script src="../shared/prototype-interaction-runtime.js"></script>
+</body>
 </html>

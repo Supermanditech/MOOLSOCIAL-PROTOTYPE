@@ -1,0 +1,2298 @@
+{
+  "generatedAt": "2026-07-13T18:48:56.6825834+05:30",
+  "count": 134,
+  "transitions": [
+    {
+      "flow": "buy-counter",
+      "from": 11,
+      "to": 12,
+      "next": "12-buy-basket-checkout.html",
+      "candidates": [
+        "Retail Rs 37 shop price now",
+        "Family Pack Rs 34 2 kg pack",
+        "Wholesale MOQ Rs 31 MOQ target",
+        "Shop Offer Rs 34 basket offer",
+        "500 g Rs 37 single buy",
+        "1 kg Rs 72 family use",
+        "2 kg Rs 136 pack save",
+        "-",
+        "+",
+        "Pickup 8 min pay in app, collect from counter",
+        "Deliver 22 min local delivery from this shop",
+        "Schedule evening or tomorrow slot"
+      ]
+    },
+    {
+      "flow": "buy-counter",
+      "from": 12,
+      "to": 13,
+      "next": "13-retailer-stock-confirmation.html",
+      "candidates": [
+        "-",
+        "+",
+        "Pickup 8 min packed at Mahadev counter",
+        "Deliver 22 min local delivery available",
+        "Schedule evening or tomorrow slot",
+        "Call Me ask before any change",
+        "Approve Replace show substitute first",
+        "Remove Item pay only available items",
+        "Confirm Stock First",
+        "Mool",
+        "Shop",
+        "Browse"
+      ]
+    },
+    {
+      "flow": "buy-counter",
+      "from": 13,
+      "to": 14,
+      "next": "14-customer-payment-order-confirmation.html",
+      "candidates": [
+        "-",
+        "+",
+        "Confirm All unlock customer payment",
+        "Edit Qty send changed quantity",
+        "Mark Unavailable payment stays blocked",
+        "Need More Time customer sees delay",
+        "Mool",
+        "Orders",
+        "Stock",
+        "Payout",
+        "Offers",
+        "1"
+      ]
+    },
+    {
+      "flow": "buy-counter",
+      "from": 14,
+      "to": 15,
+      "next": "15-counter-ready-receipt.html",
+      "candidates": [
+        "UPI recommended for fastest confirmation",
+        "Mool Wallet instant refund path when live",
+        "Card debit, credit and saved cards",
+        "Counter QR pay at shop QR after app lock",
+        "Pay Rs 645",
+        "Mool",
+        "Shop",
+        "Basket",
+        "Pay",
+        "Orders",
+        "2"
+      ]
+    },
+    {
+      "flow": "buy-counter",
+      "from": 15,
+      "to": 16,
+      "next": "16-order-completed-bill-rating.html",
+      "candidates": [
+        "Ask counter",
+        "Chat shop",
+        "Refresh",
+        "Collected",
+        "Show",
+        "Mool",
+        "Shop",
+        "Basket",
+        "Receipt",
+        "Orders",
+        "2"
+      ]
+    },
+    {
+      "flow": "buy-delivery",
+      "from": 11,
+      "to": 12,
+      "next": "12-buy-basket-checkout.html",
+      "candidates": [
+        "Retail Rs 37 shop price now",
+        "Family Pack Rs 34 2 kg pack",
+        "Wholesale MOQ Rs 31 MOQ target",
+        "Shop Offer Rs 34 basket offer",
+        "500 g Rs 37 single buy",
+        "1 kg Rs 72 family use",
+        "2 kg Rs 136 pack save",
+        "-",
+        "+",
+        "Pickup 8 min pay in app, collect from counter",
+        "Deliver 22 min local delivery from this shop",
+        "Schedule evening or tomorrow slot"
+      ]
+    },
+    {
+      "flow": "buy-delivery",
+      "from": 12,
+      "to": 13,
+      "next": "13-retailer-stock-confirmation.html",
+      "candidates": [
+        "-",
+        "+",
+        "Pickup 8 min packed at Mahadev counter",
+        "Deliver 22 min local delivery available",
+        "Schedule evening or tomorrow slot",
+        "Call Me ask before any change",
+        "Approve Replace show substitute first",
+        "Remove Item pay only available items",
+        "Confirm Stock First",
+        "Mool",
+        "Shop",
+        "Browse"
+      ]
+    },
+    {
+      "flow": "buy-delivery",
+      "from": 13,
+      "to": 14,
+      "next": "14-customer-payment-order-confirmation.html",
+      "candidates": [
+        "-",
+        "+",
+        "Confirm All unlock customer payment",
+        "Edit Qty send changed quantity",
+        "Mark Unavailable payment stays blocked",
+        "Need More Time customer sees delay",
+        "Mool",
+        "Orders",
+        "Stock",
+        "Payout",
+        "Offers",
+        "1"
+      ]
+    },
+    {
+      "flow": "buy-delivery",
+      "from": 14,
+      "to": 17,
+      "next": "17-home-delivery-tracking.html",
+      "candidates": [
+        "UPI recommended for fastest confirmation",
+        "Mool Wallet instant refund path when live",
+        "Card debit, credit and saved cards",
+        "Counter QR pay at shop QR after app lock",
+        "Pay Rs 645",
+        "Mool",
+        "Shop",
+        "Basket",
+        "Pay",
+        "Orders",
+        "2"
+      ]
+    },
+    {
+      "flow": "buy-delivery",
+      "from": 17,
+      "to": 18,
+      "next": "18-home-delivery-completed-bill-rating.html",
+      "candidates": [
+        "Call",
+        "Edit",
+        "Change landmark",
+        "Cannot find me",
+        "Share live location",
+        "Refresh",
+        "Chat",
+        "Delay",
+        "Rider changed",
+        "Refresh status",
+        "Mool",
+        "Shop"
+      ]
+    },
+    {
+      "flow": "buy-issue",
+      "from": 18,
+      "to": 19,
+      "next": "19-order-issue-refund-evidence.html",
+      "candidates": [
+        "Rate Order shop and delivery",
+        "Report Problem missing, damaged, bill",
+        "Buy Again repeat basket",
+        "Download bill",
+        "Share bill",
+        "Orders",
+        "View proof",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ]
+    },
+    {
+      "flow": "buy-issue",
+      "from": 19,
+      "to": 20,
+      "next": "20-issue-review-status-retailer-response.html",
+      "candidates": [
+        "Hybrid Tomato 500 g - Rs 37",
+        "Green Chilli 100 g - Rs 16",
+        "Staples Pack rice, atta, dal - Rs 399",
+        "Full order bill or delivery issue",
+        "Missing item paid item not received",
+        "Wrong item different item received",
+        "Damaged item leak, broken, spoiled",
+        "Bill issue price or quantity mismatch",
+        "Late delivery delivery crossed promised time",
+        "Other needs support review",
+        "Item photo camera/gallery",
+        "Bill mark select item"
+      ]
+    },
+    {
+      "flow": "buy-issue",
+      "from": 20,
+      "to": 21,
+      "next": "21-issue-result-refund-replacement.html",
+      "candidates": [
+        "Chat case shop/support",
+        "Add proof more photo",
+        "Mark resolved only if fixed",
+        "Keep open",
+        "Resolved",
+        "Refresh",
+        "Mool",
+        "Bill",
+        "Proof",
+        "Review",
+        "Orders",
+        "2"
+      ]
+    },
+    {
+      "flow": "buy-issue",
+      "from": 21,
+      "to": 22,
+      "next": "22-chat-order-support-thread.html",
+      "candidates": [
+        "View bill final receipt",
+        "Buy again basket/shop",
+        "Chat case support",
+        "Done",
+        "Mool",
+        "Bill",
+        "Status",
+        "Result",
+        "2",
+        "Refund approved",
+        "Replacement set",
+        "Support decision"
+      ]
+    },
+    {
+      "flow": "chat",
+      "from": 23,
+      "to": 24,
+      "next": "24-chat-business-thread.html",
+      "candidates": [
+        "All 5",
+        "Unread 3",
+        "People",
+        "Business",
+        "Orders 2",
+        "Support",
+        "x",
+        "Person family or group",
+        "Business shop or service",
+        "Order bill or delivery",
+        "Support case help",
+        "Photo image/video"
+      ]
+    },
+    {
+      "flow": "chat",
+      "from": 24,
+      "to": 25,
+      "next": "25-chat-people-thread.html",
+      "candidates": [
+        "Chat live",
+        "Catalog shop items",
+        "Quote basket price",
+        "Orders 2 linked",
+        "Pay after confirm",
+        "Change items",
+        "Confirm quote",
+        "Need GST bill",
+        "Share location",
+        "Home delivery",
+        "Counter pickup",
+        "Send photo"
+      ]
+    },
+    {
+      "flow": "eat-order",
+      "from": 26,
+      "to": 27,
+      "next": "27-eat-order-food.html",
+      "candidates": [
+        "Scan",
+        "Deliver home",
+        "QR table",
+        "Find name",
+        "Offers save",
+        "SD Spice Darbar North Indian · 1.1 km Open Order · Table · Pickup · 10% reward",
+        "BL Blue Lime Cafe Cafe · 700 m Seat Table · Pickup · Free dessert reward",
+        "MT Maa Tiffin Home kitchen · 2.0 km Plan Trial · Monthly plan · Pause allowed",
+        "Order Food delivery or pickup",
+        "Book Table seat confirmed",
+        "Tiffin trial or plan",
+        "Order now"
+      ]
+    },
+    {
+      "flow": "eat-table",
+      "from": 26,
+      "to": 28,
+      "next": "28-eat-book-table.html",
+      "candidates": [
+        "Scan",
+        "Deliver home",
+        "QR table",
+        "Find name",
+        "Offers save",
+        "SD Spice Darbar North Indian · 1.1 km Open Order · Table · Pickup · 10% reward",
+        "BL Blue Lime Cafe Cafe · 700 m Seat Table · Pickup · Free dessert reward",
+        "MT Maa Tiffin Home kitchen · 2.0 km Plan Trial · Monthly plan · Pause allowed",
+        "Order Food delivery or pickup",
+        "Book Table seat confirmed",
+        "Tiffin trial or plan",
+        "Order now"
+      ]
+    },
+    {
+      "flow": "eat-tiffin",
+      "from": 26,
+      "to": 29,
+      "next": "29-eat-tiffin.html",
+      "candidates": [
+        "Scan",
+        "Deliver home",
+        "QR table",
+        "Find name",
+        "Offers save",
+        "SD Spice Darbar North Indian · 1.1 km Open Order · Table · Pickup · 10% reward",
+        "BL Blue Lime Cafe Cafe · 700 m Seat Table · Pickup · Free dessert reward",
+        "MT Maa Tiffin Home kitchen · 2.0 km Plan Trial · Monthly plan · Pause allowed",
+        "Order Food delivery or pickup",
+        "Book Table seat confirmed",
+        "Tiffin trial or plan",
+        "Order now"
+      ]
+    },
+    {
+      "flow": "ride",
+      "from": 30,
+      "to": 31,
+      "next": "31-ride-accepted-captain-arriving.html",
+      "candidates": [
+        "30 Back to MoolSocial Screenbook",
+        "Now",
+        "After 15 min",
+        "Schedule",
+        "Bike from Rs 59 solo · quick city ride",
+        "Auto from Rs 112 routine fare · local",
+        "Cab from Rs 186 packages · comfort",
+        "Book auto",
+        "Chat",
+        "Mool",
+        "Bike",
+        "Auto"
+      ]
+    },
+    {
+      "flow": "ride",
+      "from": 31,
+      "to": 32,
+      "next": "32-ride-live-trip.html",
+      "candidates": [
+        "31 Back to MoolSocial Screenbook",
+        "Map",
+        "Call",
+        "Chat",
+        "Share",
+        "Edit",
+        "Cancel",
+        "Mool",
+        "Trip",
+        "Safe",
+        "2"
+      ]
+    },
+    {
+      "flow": "ride",
+      "from": 32,
+      "to": 33,
+      "next": "33-ride-payment-approval.html",
+      "candidates": [
+        "32 Back to MoolSocial Screenbook",
+        "Map",
+        "Call",
+        "Chat",
+        "Safety",
+        "Share",
+        "Add stop",
+        "Cash after trip",
+        "UPI after trip",
+        "Card held only",
+        "Help",
+        "Mool"
+      ]
+    },
+    {
+      "flow": "ride",
+      "from": 33,
+      "to": 34,
+      "next": "34-ride-receipt-rating.html",
+      "candidates": [
+        "33 Back to MoolSocial Screenbook",
+        "Cash pay now",
+        "UPI scan/pay",
+        "Card approve",
+        "Approve Rs 112",
+        "Issue",
+        "Receipt",
+        "Mool",
+        "Pay",
+        "2"
+      ]
+    },
+    {
+      "flow": "ride",
+      "from": 34,
+      "to": 35,
+      "next": "35-ride-post-trip-support.html",
+      "candidates": [
+        "34 Back to MoolSocial Screenbook",
+        "★",
+        "Clean ride",
+        "Polite",
+        "Safe driving",
+        "On time",
+        "Submit rating",
+        "Support",
+        "Share",
+        "Ride again",
+        "Mool",
+        "Receipt"
+      ]
+    },
+    {
+      "flow": "doctor-invite",
+      "from": 39,
+      "to": 40,
+      "next": "40-patient-clinic-invite-join.html",
+      "candidates": [
+        "39 Back to MoolSocial Screenbook",
+        "Show QR counter scan",
+        "Send link SMS/WhatsApp",
+        "Desk code reception",
+        "Rx QR on print",
+        "7-day",
+        "3-day",
+        "Paid",
+        "Reports",
+        "Video",
+        "Off",
+        "Reminders auto follow-up"
+      ]
+    },
+    {
+      "flow": "doctor-invite",
+      "from": 40,
+      "to": 41,
+      "next": "41-patient-followup-workspace.html",
+      "candidates": [
+        "40 Back to MoolSocial Screenbook",
+        "Join visit doctor link",
+        "Upload reports before review",
+        "Book follow-up slot/video",
+        "Ask clinic chat",
+        "7-day",
+        "3-day",
+        "Paid",
+        "Reports",
+        "Video",
+        "Decline",
+        "Reminders medicine & review"
+      ]
+    },
+    {
+      "flow": "salon",
+      "from": 36,
+      "to": 42,
+      "next": "42-book-salon-appointment.html",
+      "candidates": [
+        "36 Back to MoolSocial Screenbook",
+        "Now",
+        "Today evening",
+        "Tomorrow",
+        "Schedule",
+        "Get It Done from Rs 99 remote/local task",
+        "Services visit fee clear repair, cleaning, help",
+        "Doctor slot + fee clinic, video, OPD",
+        "Salon slot ready salon visit or home",
+        "Continue",
+        "Chat",
+        "Mool"
+      ]
+    },
+    {
+      "flow": "salon",
+      "from": 44,
+      "to": 45,
+      "next": "45-salon-visit-check-in.html",
+      "candidates": [
+        "44 Back to MoolSocial Screenbook",
+        "Pay via MoolSocial",
+        "Need help?",
+        "Arrive 5:30 PM 10 min early",
+        "Reminder 30 min before slot",
+        "Counter show app no code needed",
+        "Open booking chat",
+        "Change",
+        "Mool",
+        "Slot",
+        "Pay",
+        "Route"
+      ]
+    },
+    {
+      "flow": "get-it-done",
+      "from": 54,
+      "to": 55,
+      "next": "55-get-it-done-issue-resolution.html",
+      "candidates": [
+        "53 Back to MoolSocial Screenbook",
+        "Report filed Case created from Screen 53",
+        "Evidence synced Proof and bill attached",
+        "Verification Support validates with helper",
+        "Decision Refund / rework / keep hold",
+        "Case ETA 5-15 minutes for specialist response 5-15m",
+        "Open task chat chat with support while waiting Chat",
+        "Open support case",
+        "Edit issue",
+        "Mool",
+        "Proof",
+        "Issue"
+      ]
+    },
+    {
+      "flow": "pay-recharge",
+      "from": 58,
+      "to": 63,
+      "next": "63-pay-processing-receipt.html",
+      "candidates": [
+        "58 Back to MoolSocial Screenbook",
+        "UPI",
+        "Card",
+        "Saved UPI",
+        "Receipt",
+        "Mobile mobile, DTH, data number, operator, plan",
+        "DTH TV recharge subscriber ID needed",
+        "Data data booster number, plan, receipt",
+        "Saved repeat recharge saved numbers",
+        "Continue",
+        "Receipts",
+        "Mool"
+      ]
+    },
+    {
+      "flow": "pay-recharge",
+      "from": 63,
+      "to": 64,
+      "next": "64-pay-receipts-history.html",
+      "candidates": [
+        "63 Back to MoolSocial Screenbook",
+        "Receipt Saved transaction references",
+        "Order Confirmed preparation and delivery",
+        "Help 24×7 payment or order support",
+        "Track order",
+        "Receipt",
+        "Mool",
+        "Order",
+        "Help",
+        "2"
+      ]
+    },
+    {
+      "flow": "pay-bills",
+      "from": 59,
+      "to": 63,
+      "next": "63-pay-processing-receipt.html",
+      "candidates": [
+        "59 Back to MoolSocial Screenbook",
+        "UPI",
+        "Card",
+        "Autopay",
+        "Receipt",
+        "Electricity fetch due bill consumer number",
+        "Water municipal bill account number",
+        "Gas LPG / piped gas consumer ID",
+        "Internet broadband bill customer ID",
+        "Continue",
+        "Receipts",
+        "Mool"
+      ]
+    },
+    {
+      "flow": "pay-bills",
+      "from": 63,
+      "to": 64,
+      "next": "64-pay-receipts-history.html",
+      "candidates": [
+        "63 Back to MoolSocial Screenbook",
+        "Receipt Saved transaction references",
+        "Order Confirmed preparation and delivery",
+        "Help 24×7 payment or order support",
+        "Track order",
+        "Receipt",
+        "Mool",
+        "Order",
+        "Help",
+        "2"
+      ]
+    },
+    {
+      "flow": "pay-scan",
+      "from": 60,
+      "to": 63,
+      "next": "63-pay-processing-receipt.html",
+      "candidates": [
+        "60 Back to MoolSocial Screenbook",
+        "UPI",
+        "Card",
+        "Saved UPI",
+        "Receipt",
+        "Shop QR counter payment merchant name check",
+        "Order QR MoolSocial order bill already linked",
+        "Provider QR service/captain verified provider",
+        "Enter UPI pay by ID UPI/name check",
+        "Continue",
+        "Receipts",
+        "Mool"
+      ]
+    },
+    {
+      "flow": "pay-scan",
+      "from": 63,
+      "to": 64,
+      "next": "64-pay-receipts-history.html",
+      "candidates": [
+        "63 Back to MoolSocial Screenbook",
+        "Receipt Saved transaction references",
+        "Order Confirmed preparation and delivery",
+        "Help 24×7 payment or order support",
+        "Track order",
+        "Receipt",
+        "Mool",
+        "Order",
+        "Help",
+        "2"
+      ]
+    },
+    {
+      "flow": "pay-request",
+      "from": 63,
+      "to": 64,
+      "next": "64-pay-receipts-history.html",
+      "candidates": [
+        "63 Back to MoolSocial Screenbook",
+        "Receipt Saved transaction references",
+        "Order Confirmed preparation and delivery",
+        "Help 24×7 payment or order support",
+        "Track order",
+        "Receipt",
+        "Mool",
+        "Order",
+        "Help",
+        "2"
+      ]
+    },
+    {
+      "flow": "pay-refund",
+      "from": 63,
+      "to": 65,
+      "next": "65-pay-pending-refund-status.html",
+      "candidates": [
+        "63 Back to MoolSocial Screenbook",
+        "Receipt Saved transaction references",
+        "Order Confirmed preparation and delivery",
+        "Help 24×7 payment or order support",
+        "Track order",
+        "Receipt",
+        "Mool",
+        "Order",
+        "Help",
+        "2"
+      ]
+    },
+    {
+      "flow": "pay-failure",
+      "from": 62,
+      "to": 66,
+      "next": "66-pay-failed-reversal-safe-retry.html",
+      "candidates": [
+        "62 Back to MoolSocial Screenbook",
+        "UPI •••• 4821",
+        "Other UPI",
+        "Card •••• 6068",
+        "Add method",
+        "Review Rs 645 payee + purpose + total",
+        "Pay With UPI or card choose payment method",
+        "Safety verified + locked receipt and support",
+        "Pay Rs 645",
+        "Decline",
+        "Mool",
+        "Review"
+      ]
+    },
+    {
+      "flow": "earn-workspace",
+      "from": 72,
+      "to": 73,
+      "next": "73-workspace-ready-handoff.html",
+      "candidates": [
+        "Remind later",
+        "Add GST",
+        "Open Chat",
+        "Open My Work",
+        "Attach",
+        "Cancel",
+        "Submit GST",
+        "Mool",
+        "₹ Earn",
+        "My Work",
+        "Chat 2"
+      ]
+    },
+    {
+      "flow": "retailer-onboarding",
+      "from": 72,
+      "to": 73,
+      "next": "73-workspace-ready-handoff.html",
+      "candidates": [
+        "Remind later",
+        "Add GST",
+        "Open Chat",
+        "Open My Work",
+        "Attach",
+        "Cancel",
+        "Submit GST",
+        "Mool",
+        "₹ Earn",
+        "My Work",
+        "Chat 2"
+      ]
+    },
+    {
+      "flow": "retailer-orders",
+      "from": 74,
+      "to": 75,
+      "next": "75-retailer-order-review-fulfilment.html",
+      "candidates": [
+        "Mahadev Fresh Mart Grocery / Kirana · Jodhpur",
+        "Orders on",
+        "4",
+        "Mool",
+        "Orders",
+        "Stock",
+        "Wholesale Buy",
+        "Chat 2",
+        "×",
+        "Continue",
+        "Business Home",
+        "Business Book"
+      ]
+    },
+    {
+      "flow": "retailer-orders",
+      "from": 75,
+      "to": 76,
+      "next": "76-retailer-delivery-assignment-handover.html",
+      "candidates": [
+        "3",
+        "Mool",
+        "Orders",
+        "Stock",
+        "Wholesale Buy",
+        "Chat 2",
+        "×",
+        "Continue",
+        "${index<packedCount?\"✓\":\"\"}",
+        "Cannot fulfil",
+        "Accept order",
+        "Back to orders"
+      ]
+    },
+    {
+      "flow": "retailer-orders",
+      "from": 76,
+      "to": 77,
+      "next": "77-retailer-delivery-tracking-completion.html",
+      "candidates": [
+        "1",
+        "Mool",
+        "Orders",
+        "Stock",
+        "Wholesale Buy",
+        "Chat 2",
+        "×",
+        "Continue",
+        "Delivery issue",
+        "Parcel ready",
+        "Track captain",
+        "Captain is here"
+      ]
+    },
+    {
+      "flow": "retailer-pos",
+      "from": 74,
+      "to": 78,
+      "next": "78-retailer-create-order.html",
+      "candidates": [
+        "Mahadev Fresh Mart Grocery / Kirana · Jodhpur",
+        "Orders on",
+        "4",
+        "Mool",
+        "Orders",
+        "Stock",
+        "Wholesale Buy",
+        "Chat 2",
+        "×",
+        "Continue",
+        "Business Home",
+        "Business Book"
+      ]
+    },
+    {
+      "flow": "retailer-pos",
+      "from": 79,
+      "to": 80,
+      "next": "80-retailer-counter-sale-invoice.html",
+      "candidates": [
+        "1",
+        "Mool",
+        "Orders",
+        "Stock",
+        "Wholesale Buy",
+        "Chat 2",
+        "×",
+        "Main Billing",
+        "Express",
+        "Delivery Orders",
+        "Wholesale",
+        "Returns"
+      ]
+    },
+    {
+      "flow": "retailer-pos",
+      "from": 80,
+      "to": 90,
+      "next": "90-retailer-sales-book.html",
+      "candidates": [
+        "1",
+        "Mool",
+        "Orders",
+        "Stock",
+        "Wholesale Buy",
+        "Chat 2",
+        "×",
+        "Done",
+        "${icons.bag} 3 items in this sale Oil, atta and salt View",
+        "${item[2]}${item[1]} ${item[0]===\"upi\"?\"Matched\":item[0]===\"cash\"?\"At counter\":\"Terminal\"}",
+        "Complete ${method.label} sale",
+        "Edit order instead"
+      ]
+    },
+    {
+      "flow": "retailer-wholesale",
+      "from": 74,
+      "to": 81,
+      "next": "81-retailer-wholesale-buy-catalog.html",
+      "candidates": [
+        "Mahadev Fresh Mart Grocery / Kirana · Jodhpur",
+        "Orders on",
+        "4",
+        "Mool",
+        "Orders",
+        "Stock",
+        "Wholesale Buy",
+        "Chat 2",
+        "×",
+        "Continue",
+        "Business Home",
+        "Business Book"
+      ]
+    },
+    {
+      "flow": "retailer-wholesale",
+      "from": 82,
+      "to": 83,
+      "next": "83-retailer-wholesale-order-confirmed.html",
+      "candidates": [
+        "Review Order",
+        "Mool",
+        "Orders",
+        "Stock",
+        "Wholesale Buy",
+        "Chat 2",
+        "×",
+        "Continue",
+        "${icon.info} Price & Terms",
+        "−",
+        "+",
+        "Browse Wholesale Products"
+      ]
+    },
+    {
+      "flow": "retailer-wholesale",
+      "from": 83,
+      "to": 84,
+      "next": "84-retailer-wholesale-delivery-tracking.html",
+      "candidates": [
+        "Track Orders",
+        "Mool",
+        "Orders",
+        "Stock",
+        "Wholesale Buy",
+        "Chat 2",
+        "×",
+        "Done",
+        "View PO",
+        "Track Order"
+      ]
+    },
+    {
+      "flow": "retailer-wholesale",
+      "from": 84,
+      "to": 85,
+      "next": "85-retailer-wholesale-goods-receipt.html",
+      "candidates": [
+        "Delivery Help",
+        "Mool",
+        "Orders",
+        "Stock",
+        "Wholesale Buy",
+        "Chat 2",
+        "×",
+        "Done",
+        "${order.id} ${order.status} · ${order.deliveryMode}",
+        "${icon.phone} Call",
+        "${icon.chat} Chat",
+        "${icon.alert} Report delay"
+      ]
+    },
+    {
+      "flow": "retailer-wholesale",
+      "from": 85,
+      "to": 86,
+      "next": "86-retailer-wholesale-receipt-result.html",
+      "candidates": [
+        "Confirm Receipt",
+        "Mool",
+        "Orders",
+        "Stock",
+        "Wholesale Buy",
+        "Chat 2",
+        "×",
+        "Done",
+        "${icon.check} All Received 3 cases · good condition",
+        "Report Issue short, damaged or mismatch",
+        "Report Issue change receipt result",
+        "Short Quantity"
+      ]
+    },
+    {
+      "flow": "retailer-wholesale",
+      "from": 86,
+      "to": 87,
+      "next": "87-retailer-purchase-book.html",
+      "candidates": [
+        "Whole Wheat Atta 5 kg Aashirvaad · existing catalogue item 28 packs NEW STOCK",
+        "Protected advance Payment partner release initiated ₹856.80 PROCESSING",
+        "Balance on delivery Authorized against accepted receipt ₹1,999.20 AUTHORIZED",
+        "Purchase value Posted to Purchase Book ₹2,856.00 POSTED",
+        "GRN-85021 3 cases · 12 packs · no discrepancy",
+        "GST invoice INV-SM-2941 Matched to PO and accepted quantity",
+        "View Stock",
+        "Mool",
+        "Orders",
+        "Stock",
+        "Wholesale Buy",
+        "Chat 2"
+      ]
+    },
+    {
+      "flow": "retailer-wholesale",
+      "from": 87,
+      "to": 88,
+      "next": "88-retailer-supplier-bill-payment.html",
+      "candidates": [
+        "Jul 2026",
+        "Purchases",
+        "Payables 2",
+        "Returns",
+        "View",
+        "All 18",
+        "MoolSocial POs",
+        "Direct Bills",
+        "Paid",
+        "Mool",
+        "Orders",
+        "Stock"
+      ]
+    },
+    {
+      "flow": "retailer-wholesale",
+      "from": 88,
+      "to": 89,
+      "next": "89-retailer-supplier-payment-status.html",
+      "candidates": [
+        "RT Rajasthan Tea Distribution GSTIN 08AABCR7781M1ZP · Jodhpur VERIFIED",
+        "✓ PO Matched 1 case",
+        "✓ GRN Matched 12 packs",
+        "✓ GST Valid Invoice ready",
+        "Report Issue",
+        "Review Payment",
+        "Mool",
+        "Orders",
+        "Stock",
+        "Wholesale Buy",
+        "Chat 2",
+        "×"
+      ]
+    },
+    {
+      "flow": "retailer-wholesale",
+      "from": 89,
+      "to": 91,
+      "next": "91-retailer-stock-statement.html",
+      "candidates": [
+        "Refresh",
+        "Mool",
+        "Orders",
+        "Stock",
+        "Wholesale Buy",
+        "Chat 2",
+        "×",
+        "Done",
+        "View Bill",
+        "${state===\"settled\"?\"Payment Receipt\":\"Acknowledgement\"}"
+      ]
+    },
+    {
+      "flow": "retailer-wholesale",
+      "from": 91,
+      "to": 92,
+      "next": "92-retailer-business-book-home.html",
+      "candidates": [
+        "Today",
+        "Review",
+        "Movements",
+        "Stock Checks 12",
+        "All",
+        "Received",
+        "Sold",
+        "Reserved",
+        "Returns",
+        "Damage",
+        "Count",
+        "Mool"
+      ]
+    },
+    {
+      "flow": "retailer-books",
+      "from": 74,
+      "to": 90,
+      "next": "90-retailer-sales-book.html",
+      "candidates": [
+        "Mahadev Fresh Mart Grocery / Kirana · Jodhpur",
+        "Orders on",
+        "4",
+        "Mool",
+        "Orders",
+        "Stock",
+        "Wholesale Buy",
+        "Chat 2",
+        "×",
+        "Continue",
+        "Business Home",
+        "Business Book"
+      ]
+    },
+    {
+      "flow": "retailer-books",
+      "from": 90,
+      "to": 91,
+      "next": "91-retailer-stock-statement.html",
+      "candidates": [
+        "Today",
+        "Sales",
+        "Payments 2",
+        "Returns 1",
+        "Review",
+        "All",
+        "App",
+        "Counter",
+        "Phone",
+        "Chat",
+        "Due",
+        "Mool"
+      ]
+    },
+    {
+      "flow": "retailer-books",
+      "from": 91,
+      "to": 92,
+      "next": "92-retailer-business-book-home.html",
+      "candidates": [
+        "Today",
+        "Review",
+        "Movements",
+        "Stock Checks 12",
+        "All",
+        "Received",
+        "Sold",
+        "Reserved",
+        "Returns",
+        "Damage",
+        "Count",
+        "Mool"
+      ]
+    },
+    {
+      "flow": "retailer-books",
+      "from": 92,
+      "to": 106,
+      "next": "106-retailer-cash-bank-expenses-reconciliation.html",
+      "candidates": [
+        "July",
+        "Review",
+        "AI Ask about sales, stock, dues or profit ›",
+        "S Sales Book App, counter, phone and Chat sales ₹4,82,900 42 today",
+        "P Purchase Book Supplier bills, payments and returns ₹3,31,400 2 due",
+        "ST Stock Statement Value, movements, checks and incoming stock ₹3,84,620 24 low",
+        "GST GST working summary Output ₹24,180 · Input ₹18,540 · not filed 2 docs",
+        "Mool",
+        "Orders",
+        "Stock",
+        "Wholesale Buy",
+        "Chat 2"
+      ]
+    },
+    {
+      "flow": "retailer-growth",
+      "from": 98,
+      "to": 99,
+      "next": "99-retailer-offers-campaigns.html",
+      "candidates": [
+        "Edit basket",
+        "Create order",
+        "INV Invoice MS-2840 ₹645 · UPI · home delivery Completed 4 days ago View PDF",
+        "INV Invoice MS-2712 ₹428 · counter pickup Completed 32 days ago View Receipt",
+        "Mool Chat",
+        "WhatsApp",
+        "SMS off",
+        "Send reminder",
+        "Mool",
+        "Orders",
+        "Stock",
+        "Wholesale Buy"
+      ]
+    },
+    {
+      "flow": "retailer-controls",
+      "from": 74,
+      "to": 91,
+      "next": "91-retailer-stock-statement.html",
+      "candidates": [
+        "Mahadev Fresh Mart Grocery / Kirana · Jodhpur",
+        "Orders on",
+        "4",
+        "Mool",
+        "Orders",
+        "Stock",
+        "Wholesale Buy",
+        "Chat 2",
+        "×",
+        "Continue",
+        "Business Home",
+        "Business Book"
+      ]
+    },
+    {
+      "flow": "retailer-controls",
+      "from": 91,
+      "to": 101,
+      "next": "101-retailer-slow-stock-liquidation.html",
+      "candidates": [
+        "Today",
+        "Review",
+        "Movements",
+        "Stock Checks 12",
+        "All",
+        "Received",
+        "Sold",
+        "Reserved",
+        "Returns",
+        "Damage",
+        "Count",
+        "Mool"
+      ]
+    },
+    {
+      "flow": "retailer-controls",
+      "from": 101,
+      "to": 102,
+      "next": "102-retailer-ai-operating-assistant.html",
+      "candidates": [
+        "Customer offer Nearby verified demand",
+        "Retailer transfer Nearby shops bid above floor",
+        "Build a bundle Pair with faster products",
+        "Supplier claim Only where return terms allow",
+        "Review & publish",
+        "Mool",
+        "Orders",
+        "Stock",
+        "Wholesale Buy",
+        "Chat 2"
+      ]
+    },
+    {
+      "flow": "retailer-controls",
+      "from": 102,
+      "to": 103,
+      "next": "103-retailer-staff-permissions.html",
+      "candidates": [
+        "Ask",
+        "Restock",
+        "Slow stock",
+        "Dues",
+        "Offer",
+        "Profit",
+        "Dismiss",
+        "Review purchase",
+        "Review offer",
+        "Mool",
+        "Orders",
+        "Stock"
+      ]
+    },
+    {
+      "flow": "retailer-controls",
+      "from": 103,
+      "to": 104,
+      "next": "104-retailer-store-settings-readiness.html",
+      "candidates": [
+        "Close",
+        "Send secure invite",
+        "Manage",
+        "Review",
+        "DEV Active devices 6 devices · last sign-in and branch Review",
+        "LOG Permission history Every grant, revoke and limit change View",
+        "Mool",
+        "Orders",
+        "Stock",
+        "Wholesale Buy",
+        "Chat 2"
+      ]
+    },
+    {
+      "flow": "retailer-controls",
+      "from": 104,
+      "to": 105,
+      "next": "105-retailer-returns-customer-issues.html",
+      "candidates": [
+        "Fix 1",
+        "Edit",
+        "View",
+        "MS MoolSocial Business Services Delivery, growth, tax, books, offers and ads View",
+        "Mool",
+        "Orders",
+        "Stock",
+        "Wholesale Buy",
+        "Chat 2"
+      ]
+    },
+    {
+      "flow": "retailer-controls",
+      "from": 105,
+      "to": 106,
+      "next": "106-retailer-cash-bank-expenses-reconciliation.html",
+      "candidates": [
+        "All",
+        "Need action",
+        "Replacement",
+        "Refund",
+        "Closed",
+        "Review now",
+        "Replace",
+        "Refund ₹132",
+        "Ask evidence",
+        "Confirm resolution",
+        "Mool",
+        "Orders"
+      ]
+    },
+    {
+      "flow": "manufacturer-sales",
+      "from": 109,
+      "to": 110,
+      "next": "110-manufacturer-order-review-fulfilment.html",
+      "candidates": [
+        "Mool",
+        "Orders",
+        "Stock",
+        "Wholesale Buy",
+        "Chat 3",
+        "×",
+        "Save",
+        "Review",
+        "My Stock",
+        "Add Products",
+        "Import CSV",
+        "Scan"
+      ]
+    },
+    {
+      "flow": "manufacturer-sales",
+      "from": 110,
+      "to": 112,
+      "next": "112-manufacturer-dispatch-delivery.html",
+      "candidates": [
+        "Mool",
+        "Orders",
+        "Stock",
+        "Wholesale Buy",
+        "Chat 3",
+        "×",
+        "Continue",
+        "${s[0].toUpperCase()+s.slice(1)}",
+        "Cannot Fulfil",
+        "Confirm Partial",
+        "Confirm Full",
+        "Production"
+      ]
+    },
+    {
+      "flow": "manufacturer-procurement",
+      "from": 111,
+      "to": 108,
+      "next": "108-manufacturer-business-book.html",
+      "candidates": [
+        "Mool",
+        "Orders",
+        "Stock",
+        "Wholesale Buy",
+        "Chat 3",
+        "×",
+        "Continue",
+        "Matched Inputs",
+        "PO Cart",
+        "Purchases",
+        "Add MOQ",
+        "Filter"
+      ]
+    },
+    {
+      "flow": "manufacturer-growth",
+      "from": 113,
+      "to": 115,
+      "next": "115-manufacturer-business-services.html",
+      "candidates": [
+        "Mool",
+        "Orders",
+        "Stock",
+        "Wholesale Buy",
+        "Chat 3",
+        "×",
+        "Continue",
+        "${x[0].toUpperCase()+x.slice(1)}",
+        "${cta}",
+        "Manage Campaign"
+      ]
+    },
+    {
+      "flow": "manufacturer-control",
+      "from": 114,
+      "to": 108,
+      "next": "108-manufacturer-business-book.html",
+      "candidates": [
+        "Mool",
+        "Orders",
+        "Stock",
+        "Wholesale Buy",
+        "Chat 3",
+        "×",
+        "Continue",
+        "${x[0].toUpperCase()+x.slice(1)}",
+        "${mark} ${title} ${copy} ${meta} ›",
+        "VERIFIED Business & GST GSTIN, bank, address and authorised person",
+        "LOCKED MODEL Manufacturer Trader activity requires separate verification",
+        "OPERATIONS Factory & Capacity Location, hours, lines and dispatch cut-off"
+      ]
+    },
+    {
+      "flow": "captain-workspace",
+      "from": 121,
+      "to": 122,
+      "next": "122-captain-vehicle-compliance.html",
+      "candidates": [
+        "‹",
+        "↓",
+        "Today",
+        "This Week",
+        "Payouts",
+        "Details",
+        "₹ MS-R4821 · Airport Gross ₹278 · platform ₹28 Net ₹250 · paid ›",
+        "₹ MS-R4817 · Railway Station Gross ₹196 · platform ₹20 Net ₹176 · paid ›",
+        "Mool",
+        "R Requests",
+        "T Trips",
+        "₹ Earnings"
+      ]
+    },
+    {
+      "flow": "captain-workspace",
+      "from": 122,
+      "to": 123,
+      "next": "123-captain-support-paid-work.html",
+      "candidates": [
+        "‹",
+        "+",
+        "DL Driving Licence Verified · face and identity matched Valid to 12 Mar 2029 Valid",
+        "RC Vehicle Registration RJ19 GB 4421 · owner authorization matched Verified Valid",
+        "INS Vehicle Insurance Comprehensive policy · update renewal Expires 30 Jul 2026 18 days",
+        "PUC PUC Certificate Document and vehicle number matched Valid to 18 Dec 2026 Valid",
+        "Mool",
+        "R Requests",
+        "T Trips",
+        "₹ Earnings",
+        "Chat",
+        "X"
+      ]
+    },
+    {
+      "flow": "creator-workspace",
+      "from": 127,
+      "to": 128,
+      "next": "128-creator-audience-community.html",
+      "candidates": [
+        "‹",
+        "↓",
+        "7 days",
+        "28 days",
+        "90 days",
+        "Content",
+        "Campaign",
+        "How local baskets save time 48.2K views · 126 orders ₹2,840 payable ›",
+        "Mool",
+        "+ Create",
+        "S Studio",
+        "₹ Earnings"
+      ]
+    },
+    {
+      "flow": "creator-workspace",
+      "from": 128,
+      "to": 129,
+      "next": "129-creator-campaigns.html",
+      "candidates": [
+        "‹",
+        "+",
+        "Mool",
+        "+ Create",
+        "S Studio",
+        "₹ Earnings",
+        "Chat",
+        "X",
+        "Share Channel"
+      ]
+    },
+    {
+      "flow": "creator-workspace",
+      "from": 130,
+      "to": 131,
+      "next": "131-creator-verification-rights-safety.html",
+      "candidates": [
+        "‹",
+        "↓",
+        "Mool",
+        "+ Create",
+        "S Studio",
+        "₹ Earnings",
+        "Chat",
+        "X",
+        "Prepare Statement"
+      ]
+    },
+    {
+      "flow": "creator-workspace",
+      "from": 131,
+      "to": 132,
+      "next": "132-creator-memberships.html",
+      "candidates": [
+        "‹",
+        "?",
+        "VERIFIED Identity & Payout KYC, bank, tax details and account holder",
+        "PUBLIC PROFILE Channel Settings Name, category, language, links and visibility",
+        "1 REVIEW Content Rights Audio, video, image, people and brand permissions",
+        "COMMERCIAL Paid Disclosure Partnership labels and regulated-category rules",
+        "2 MEMBERS Team & Access Editor, analyst and campaign roles",
+        "POLICY Safety & Moderation Strikes, limits, removals and appeal history",
+        "R Audio rights review · CR-2041 Monetisation held for one Short Evidence due in 6 days ›",
+        "SEC Account security MFA on · 2 trusted devices No unusual access ›",
+        "Mool",
+        "+ Create"
+      ]
+    },
+    {
+      "flow": "creator-funded-campaign",
+      "from": 100,
+      "to": 152,
+      "next": "152-admin-work-campaign-governance.html",
+      "candidates": [
+        "Increase sales",
+        "Bring customers back",
+        "Clear slow stock",
+        "Reach a new area",
+        "Scan",
+        "Repeat customers",
+        "Nearby customers",
+        "Loyalty eligible",
+        "New area",
+        "MoolSocial",
+        "Permitted WhatsApp",
+        "Continue"
+      ]
+    },
+    {
+      "flow": "creator-funded-campaign",
+      "from": 152,
+      "to": 129,
+      "next": "129-creator-campaigns.html",
+      "candidates": []
+    },
+    {
+      "flow": "creator-funded-campaign",
+      "from": 125,
+      "to": 5,
+      "next": "05-social-shorts.html",
+      "candidates": [
+        "‹",
+        "D",
+        "Short",
+        "Video",
+        "Post",
+        "Camera",
+        "Gallery",
+        "Files",
+        "Public",
+        "Followers",
+        "Schedule",
+        "Location"
+      ]
+    },
+    {
+      "flow": "creator-funded-campaign",
+      "from": 5,
+      "to": 127,
+      "next": "127-creator-content-performance.html",
+      "candidates": [
+        "For You",
+        "Following",
+        "Near You",
+        "Trending",
+        "MS Mahadev Fresh Mart Verified local shop · Jodhpur",
+        "Details",
+        "RK Rasoi Kitchen Verified restaurant · Lunch live",
+        "GO Ground Ops Verified work · Paid task",
+        "MS Follow",
+        "12K",
+        "294",
+        "Share"
+      ]
+    },
+    {
+      "flow": "creator-funded-campaign",
+      "from": 127,
+      "to": 154,
+      "next": "154-admin-finance-reconciliation.html",
+      "candidates": [
+        "‹",
+        "↓",
+        "7 days",
+        "28 days",
+        "90 days",
+        "Content",
+        "Campaign",
+        "How local baskets save time 48.2K views · 126 orders ₹2,840 payable ›",
+        "Mool",
+        "+ Create",
+        "S Studio",
+        "₹ Earnings"
+      ]
+    },
+    {
+      "flow": "creator-funded-campaign",
+      "from": 154,
+      "to": 130,
+      "next": "130-creator-earnings-payouts.html",
+      "candidates": []
+    },
+    {
+      "flow": "creator-commerce-share",
+      "from": 99,
+      "to": 129,
+      "next": "129-creator-campaigns.html",
+      "candidates": [
+        "+ Create",
+        "All",
+        "Active",
+        "Drafts",
+        "Completed",
+        "Loyalty",
+        "Use again",
+        "Pause",
+        "View details",
+        "Delete",
+        "Continue",
+        "Mool"
+      ]
+    },
+    {
+      "flow": "creator-commerce-share",
+      "from": 125,
+      "to": 5,
+      "next": "05-social-shorts.html",
+      "candidates": [
+        "‹",
+        "D",
+        "Short",
+        "Video",
+        "Post",
+        "Camera",
+        "Gallery",
+        "Files",
+        "Public",
+        "Followers",
+        "Schedule",
+        "Location"
+      ]
+    },
+    {
+      "flow": "creator-commerce-share",
+      "from": 5,
+      "to": 9,
+      "next": "09-buy.html",
+      "candidates": [
+        "For You",
+        "Following",
+        "Near You",
+        "Trending",
+        "MS Mahadev Fresh Mart Verified local shop · Jodhpur",
+        "Details",
+        "RK Rasoi Kitchen Verified restaurant · Lunch live",
+        "GO Ground Ops Verified work · Paid task",
+        "MS Follow",
+        "12K",
+        "294",
+        "Share"
+      ]
+    },
+    {
+      "flow": "creator-commerce-share",
+      "from": 9,
+      "to": 14,
+      "next": "14-customer-payment-order-confirmation.html",
+      "candidates": [
+        "Shop",
+        "Browse",
+        "Meds",
+        "Basket",
+        "Buy Here",
+        "Scan Item",
+        "Counter Pickup",
+        "Home Delivery",
+        "Buy Retail shop price now",
+        "Family Pack more qty save",
+        "Wholesale Rate MOQ based",
+        "Shop Offer discounts"
+      ]
+    },
+    {
+      "flow": "creator-commerce-share",
+      "from": 14,
+      "to": 18,
+      "next": "18-home-delivery-completed-bill-rating.html",
+      "candidates": [
+        "UPI recommended for fastest confirmation",
+        "Mool Wallet instant refund path when live",
+        "Card debit, credit and saved cards",
+        "Counter QR pay at shop QR after app lock",
+        "Pay Rs 645",
+        "Mool",
+        "Shop",
+        "Basket",
+        "Pay",
+        "Orders",
+        "2"
+      ]
+    },
+    {
+      "flow": "creator-commerce-share",
+      "from": 18,
+      "to": 127,
+      "next": "127-creator-content-performance.html",
+      "candidates": [
+        "Rate Order shop and delivery",
+        "Report Problem missing, damaged, bill",
+        "Buy Again repeat basket",
+        "Download bill",
+        "Share bill",
+        "Orders",
+        "View proof",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ]
+    },
+    {
+      "flow": "creator-commerce-share",
+      "from": 127,
+      "to": 154,
+      "next": "154-admin-finance-reconciliation.html",
+      "candidates": [
+        "‹",
+        "↓",
+        "7 days",
+        "28 days",
+        "90 days",
+        "Content",
+        "Campaign",
+        "How local baskets save time 48.2K views · 126 orders ₹2,840 payable ›",
+        "Mool",
+        "+ Create",
+        "S Studio",
+        "₹ Earnings"
+      ]
+    },
+    {
+      "flow": "creator-commerce-share",
+      "from": 154,
+      "to": 130,
+      "next": "130-creator-earnings-payouts.html",
+      "candidates": []
+    },
+    {
+      "flow": "creator-membership",
+      "from": 132,
+      "to": 7,
+      "next": "07-social-feed.html",
+      "candidates": [
+        "‹",
+        "?",
+        "Manage Plan",
+        "Create Membership Plan",
+        "Mool",
+        "+ Create",
+        "S Studio",
+        "₹ Earnings",
+        "Chat",
+        "X",
+        "Continue Plan Setup"
+      ]
+    },
+    {
+      "flow": "creator-membership",
+      "from": 7,
+      "to": 62,
+      "next": "62-pay-request-confirmation.html",
+      "candidates": [
+        "For you",
+        "Following",
+        "Near you",
+        "Creators",
+        "Business",
+        "Work",
+        "Post",
+        "Photo",
+        "Poll",
+        "...",
+        "Like",
+        "Comment"
+      ]
+    },
+    {
+      "flow": "creator-membership",
+      "from": 63,
+      "to": 130,
+      "next": "130-creator-earnings-payouts.html",
+      "candidates": [
+        "63 Back to MoolSocial Screenbook",
+        "Receipt Saved transaction references",
+        "Order Confirmed preparation and delivery",
+        "Help 24×7 payment or order support",
+        "Track order",
+        "Receipt",
+        "Mool",
+        "Order",
+        "Help",
+        "2"
+      ]
+    },
+    {
+      "flow": "creator-content-pool",
+      "from": 6,
+      "to": 127,
+      "next": "127-creator-content-performance.html",
+      "candidates": [
+        "All",
+        "Live",
+        "News",
+        "Forensic Science",
+        "Music",
+        "Podcasts",
+        "Live television",
+        "Electric vehicles",
+        "Products",
+        "Consumer Electronics",
+        "Indian Music",
+        "Recently uploaded"
+      ]
+    },
+    {
+      "flow": "creator-content-pool",
+      "from": 127,
+      "to": 154,
+      "next": "154-admin-finance-reconciliation.html",
+      "candidates": [
+        "‹",
+        "↓",
+        "7 days",
+        "28 days",
+        "90 days",
+        "Content",
+        "Campaign",
+        "How local baskets save time 48.2K views · 126 orders ₹2,840 payable ›",
+        "Mool",
+        "+ Create",
+        "S Studio",
+        "₹ Earnings"
+      ]
+    },
+    {
+      "flow": "creator-content-pool",
+      "from": 154,
+      "to": 130,
+      "next": "130-creator-earnings-payouts.html",
+      "candidates": []
+    },
+    {
+      "flow": "creator-local-production",
+      "from": 100,
+      "to": 129,
+      "next": "129-creator-campaigns.html",
+      "candidates": [
+        "Increase sales",
+        "Bring customers back",
+        "Clear slow stock",
+        "Reach a new area",
+        "Scan",
+        "Repeat customers",
+        "Nearby customers",
+        "Loyalty eligible",
+        "New area",
+        "MoolSocial",
+        "Permitted WhatsApp",
+        "Continue"
+      ]
+    },
+    {
+      "flow": "creator-local-production",
+      "from": 125,
+      "to": 152,
+      "next": "152-admin-work-campaign-governance.html",
+      "candidates": [
+        "‹",
+        "D",
+        "Short",
+        "Video",
+        "Post",
+        "Camera",
+        "Gallery",
+        "Files",
+        "Public",
+        "Followers",
+        "Schedule",
+        "Location"
+      ]
+    },
+    {
+      "flow": "creator-local-production",
+      "from": 152,
+      "to": 154,
+      "next": "154-admin-finance-reconciliation.html",
+      "candidates": []
+    },
+    {
+      "flow": "creator-local-production",
+      "from": 154,
+      "to": 130,
+      "next": "130-creator-earnings-payouts.html",
+      "candidates": []
+    },
+    {
+      "flow": "creator-onboarding",
+      "from": 152,
+      "to": 133,
+      "next": "133-earn-opportunities.html",
+      "candidates": []
+    },
+    {
+      "flow": "creator-onboarding",
+      "from": 137,
+      "to": 130,
+      "next": "130-creator-earnings-payouts.html",
+      "candidates": [
+        "‹",
+        "↓",
+        "Mool",
+        "₹ Opportunities",
+        "W My Work",
+        "₹ Earnings",
+        "Chat",
+        "X",
+        "Prepare Statement"
+      ]
+    },
+    {
+      "flow": "creator-live-event",
+      "from": 113,
+      "to": 156,
+      "next": "156-admin-audience-launch-configuration.html",
+      "candidates": [
+        "Mool",
+        "Orders",
+        "Stock",
+        "Wholesale Buy",
+        "Chat 3",
+        "×",
+        "Continue",
+        "${x[0].toUpperCase()+x.slice(1)}",
+        "${cta}",
+        "Manage Campaign"
+      ]
+    },
+    {
+      "flow": "creator-live-event",
+      "from": 156,
+      "to": 129,
+      "next": "129-creator-campaigns.html",
+      "candidates": []
+    },
+    {
+      "flow": "creator-live-event",
+      "from": 125,
+      "to": 7,
+      "next": "07-social-feed.html",
+      "candidates": [
+        "‹",
+        "D",
+        "Short",
+        "Video",
+        "Post",
+        "Camera",
+        "Gallery",
+        "Files",
+        "Public",
+        "Followers",
+        "Schedule",
+        "Location"
+      ]
+    },
+    {
+      "flow": "creator-live-event",
+      "from": 7,
+      "to": 62,
+      "next": "62-pay-request-confirmation.html",
+      "candidates": [
+        "For you",
+        "Following",
+        "Near you",
+        "Creators",
+        "Business",
+        "Work",
+        "Post",
+        "Photo",
+        "Poll",
+        "...",
+        "Like",
+        "Comment"
+      ]
+    },
+    {
+      "flow": "creator-live-event",
+      "from": 63,
+      "to": 127,
+      "next": "127-creator-content-performance.html",
+      "candidates": [
+        "63 Back to MoolSocial Screenbook",
+        "Receipt Saved transaction references",
+        "Order Confirmed preparation and delivery",
+        "Help 24×7 payment or order support",
+        "Track order",
+        "Receipt",
+        "Mool",
+        "Order",
+        "Help",
+        "2"
+      ]
+    },
+    {
+      "flow": "creator-licence",
+      "from": 99,
+      "to": 131,
+      "next": "131-creator-verification-rights-safety.html",
+      "candidates": [
+        "+ Create",
+        "All",
+        "Active",
+        "Drafts",
+        "Completed",
+        "Loyalty",
+        "Use again",
+        "Pause",
+        "View details",
+        "Delete",
+        "Continue",
+        "Mool"
+      ]
+    },
+    {
+      "flow": "creator-licence",
+      "from": 131,
+      "to": 154,
+      "next": "154-admin-finance-reconciliation.html",
+      "candidates": [
+        "‹",
+        "?",
+        "VERIFIED Identity & Payout KYC, bank, tax details and account holder",
+        "PUBLIC PROFILE Channel Settings Name, category, language, links and visibility",
+        "1 REVIEW Content Rights Audio, video, image, people and brand permissions",
+        "COMMERCIAL Paid Disclosure Partnership labels and regulated-category rules",
+        "2 MEMBERS Team & Access Editor, analyst and campaign roles",
+        "POLICY Safety & Moderation Strikes, limits, removals and appeal history",
+        "R Audio rights review · CR-2041 Monetisation held for one Short Evidence due in 6 days ›",
+        "SEC Account security MFA on · 2 trusted devices No unusual access ›",
+        "Mool",
+        "+ Create"
+      ]
+    },
+    {
+      "flow": "creator-licence",
+      "from": 154,
+      "to": 130,
+      "next": "130-creator-earnings-payouts.html",
+      "candidates": []
+    },
+    {
+      "flow": "earn-operations",
+      "from": 137,
+      "to": 138,
+      "next": "138-earn-issues-ratings-history.html",
+      "candidates": [
+        "‹",
+        "↓",
+        "Mool",
+        "₹ Opportunities",
+        "W My Work",
+        "₹ Earnings",
+        "Chat",
+        "X",
+        "Prepare Statement"
+      ]
+    },
+    {
+      "flow": "provider-workspace",
+      "from": 140,
+      "to": 141,
+      "next": "141-provider-availability.html",
+      "candidates": [
+        "‹",
+        "+",
+        "Live",
+        "Draft",
+        "Paused",
+        "Needs update",
+        "Edit",
+        "Preview",
+        "Mool",
+        "O Requests",
+        "C Services",
+        "₹ Money"
+      ]
+    },
+    {
+      "flow": "provider-workspace",
+      "from": 144,
+      "to": 145,
+      "next": "145-provider-growth.html",
+      "candidates": [
+        "‹",
+        "↓",
+        "Payments",
+        "Customers",
+        "Receipts",
+        "Refunds",
+        "₹ ₹850 - Priya Sharma RQ-2401 - completed Available ›",
+        "INV Receipt MS-2941 Tax and provider details recorded Download ›",
+        "H ₹1,250 - Aarav Mehta Active request - terms locked Expected ›",
+        "REPEAT 18 due Send reminder",
+        "LOYAL 32 active Review benefit",
+        "Mool"
+      ]
+    },
+    {
+      "flow": "provider-workspace",
+      "from": 145,
+      "to": 146,
+      "next": "146-provider-control.html",
+      "candidates": [
+        "‹",
+        "F",
+        "Best match",
+        "Earn",
+        "Promote",
+        "Nearby",
+        "Review terms",
+        "Mool",
+        "O Requests",
+        "₹ Earn",
+        "B Business",
+        "Chat"
+      ]
+    },
+    {
+      "flow": "admin-operations",
+      "from": 147,
+      "to": 148,
+      "next": "148-admin-workspace-verification.html",
+      "candidates": []
+    },
+    {
+      "flow": "admin-operations",
+      "from": 148,
+      "to": 149,
+      "next": "149-admin-catalogue-governance.html",
+      "candidates": []
+    },
+    {
+      "flow": "admin-operations",
+      "from": 149,
+      "to": 150,
+      "next": "150-admin-commerce-exceptions.html",
+      "candidates": []
+    },
+    {
+      "flow": "admin-operations",
+      "from": 150,
+      "to": 151,
+      "next": "151-admin-ride-operations.html",
+      "candidates": []
+    },
+    {
+      "flow": "admin-operations",
+      "from": 151,
+      "to": 152,
+      "next": "152-admin-work-campaign-governance.html",
+      "candidates": []
+    },
+    {
+      "flow": "admin-operations",
+      "from": 152,
+      "to": 153,
+      "next": "153-admin-content-trust-safety.html",
+      "candidates": []
+    },
+    {
+      "flow": "admin-operations",
+      "from": 153,
+      "to": 154,
+      "next": "154-admin-finance-reconciliation.html",
+      "candidates": []
+    },
+    {
+      "flow": "admin-operations",
+      "from": 154,
+      "to": 155,
+      "next": "155-admin-support-disputes.html",
+      "candidates": []
+    },
+    {
+      "flow": "admin-operations",
+      "from": 155,
+      "to": 156,
+      "next": "156-admin-audience-launch-configuration.html",
+      "candidates": []
+    },
+    {
+      "flow": "admin-operations",
+      "from": 156,
+      "to": 163,
+      "next": "163-admin-user-activity-product-health.html",
+      "candidates": []
+    },
+    {
+      "flow": "admin-operations",
+      "from": 163,
+      "to": 164,
+      "next": "164-admin-signals-consent-personalization.html",
+      "candidates": []
+    },
+    {
+      "flow": "shared-controls",
+      "from": 157,
+      "to": 158,
+      "next": "158-shared-identity-documents-consent.html",
+      "candidates": []
+    },
+    {
+      "flow": "shared-controls",
+      "from": 158,
+      "to": 159,
+      "next": "159-shared-universal-input.html",
+      "candidates": []
+    },
+    {
+      "flow": "shared-controls",
+      "from": 159,
+      "to": 160,
+      "next": "160-shared-files-evidence-media.html",
+      "candidates": []
+    },
+    {
+      "flow": "shared-controls",
+      "from": 160,
+      "to": 161,
+      "next": "161-shared-security-support.html",
+      "candidates": []
+    },
+    {
+      "flow": "shared-controls",
+      "from": 161,
+      "to": 162,
+      "next": "162-shared-workspaces-settings-analytics.html",
+      "candidates": []
+    },
+    {
+      "flow": "shared-controls",
+      "from": 162,
+      "to": 165,
+      "next": "165-shared-personalized-controls.html",
+      "candidates": []
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "contractVersion": "regression-manifest-v1-2026-07-14",
+  "status": "frozen-for-production-planning",
+  "prototypeBaseline": {
+    "approvedScreens": 166,
+    "operationalFlows": 47,
+    "strictInteractions": 3190,
+    "expectedFailures": 0,
+    "expectedSkipped": 0,
+    "flowSource": "flows/approved-flows.json",
+    "tapEvidence": "quality/generated/flow-browser-tap-final.json",
+    "mobileEvidence": "quality/generated/mobile-user-flow-final.json",
+    "renderEvidence": "quality/generated/mobile-render-inventory.json"
+  },
+  "goldenFlows": [
+    "onboarding",
+    "social",
+    "buy-counter",
+    "buy-delivery",
+    "buy-issue",
+    "ride",
+    "pay-request",
+    "pay-failure",
+    "earn-workspace",
+    "retailer-wholesale",
+    "manufacturer-sales",
+    "captain-workspace",
+    "creator-funded-campaign",
+    "provider-workspace",
+    "admin-operations",
+    "shared-controls"
+  ],
+  "testLayers": {
+    "unit": {
+      "required": true,
+      "scope": ["state reducers", "money calculations", "capacity rules", "formatters", "component behavior"]
+    },
+    "component": {
+      "required": true,
+      "scope": ["all registry states", "keyboard and screen-reader behavior", "responsive composition", "error recovery"]
+    },
+    "contract": {
+      "required": true,
+      "scope": ["OpenAPI request and response", "event envelope", "webhook signature and retry", "idempotency", "cursor pagination", "problem errors"]
+    },
+    "integration": {
+      "required": true,
+      "scope": ["payment reconciliation", "stock confirmation and reroute", "ride assignment", "work proof and earnings", "chat delivery", "agent approval"]
+    },
+    "endToEnd": {
+      "required": true,
+      "scope": "all 47 approved operational flows with visible-control actions"
+    },
+    "visual": {
+      "required": true,
+      "viewports": [
+        { "name": "minimum-mobile", "width": 320, "height": 568 },
+        { "name": "small-mobile", "width": 360, "height": 800 },
+        { "name": "reference-mobile", "width": 390, "height": 844 },
+        { "name": "large-mobile", "width": 412, "height": 915 },
+        { "name": "tablet", "width": 768, "height": 1024 },
+        { "name": "admin-desktop", "width": 1440, "height": 900 }
+      ],
+      "rules": ["no incoherent overlap", "no page horizontal overflow", "no clipped action label", "stable loading layout", "safe-area fit"]
+    },
+    "failureInjection": {
+      "required": true,
+      "scenarios": ["offline", "timeout", "partial response", "stale version", "duplicate command", "out-of-order webhook", "provider failure", "capacity exhausted", "permission denied"]
+    },
+    "load": {
+      "required": true,
+      "scenarios": [
+        "social feed read surge",
+        "catalogue search across 50k SKU",
+        "order and stock-confirmation burst",
+        "ride matching surge",
+        "chat fanout",
+        "work opportunity scan",
+        "admin communication publish"
+      ],
+      "initialBudgets": {
+        "readP95Ms": 500,
+        "commandAcceptedP95Ms": 900,
+        "errorRatePercentMaximum": 1,
+        "duplicateMutationCount": 0
+      }
+    }
+  },
+  "featureFlags": {
+    "requiredFor": ["new workspace capability", "payment provider", "agent execution", "new earning policy", "fulfilment reroute", "personalization model"],
+    "requirements": ["owner", "default state", "eligible cohort", "expiry date", "kill switch", "metrics"]
+  },
+  "canary": {
+    "stagesPercent": [1, 5, 20, 50, 100],
+    "minimumObservationMinutes": [30, 60, 120, 240, 0],
+    "advanceWhen": ["golden flows pass", "no money or state invariant breach", "error and latency within budget", "support signal stable"],
+    "haltWhen": ["duplicate charge order ride task earning or payout", "state divergence", "critical flow failure", "error budget breach", "unexpected permission or data exposure"]
+  },
+  "rollback": {
+    "requirements": [
+      "previous client remains compatible with additive API changes",
+      "feature flag can disable the changed capability",
+      "deployment artifact is immutable and redeployable",
+      "state transitions are forward-corrected rather than destructively rewound",
+      "ledger records use compensating entries",
+      "rollback is rehearsed on staging for every high-risk release"
+    ],
+    "targetMinutes": 15
+  },
+  "releaseEvidence": [
+    "test report",
+    "contract diff",
+    "visual diff",
+    "load summary",
+    "feature flag snapshot",
+    "canary metrics",
+    "rollback decision and owner"
+  ],
+  "explicitExclusionsByUser": [
+    "domain and database architecture",
+    "security and compliance program",
+    "production ticket creation"
+  ]
+}

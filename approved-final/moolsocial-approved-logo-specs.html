@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MoolSocial Approved Logo Specs</title>
+  <style>
+    :root {
+      --moolsocial-saffron: #FF9933;
+      --moolsocial-white: #FFFFFF;
+      --moolsocial-green: #138808;
+      --moolsocial-navy: #000080;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--moolsocial-navy);
+      background: var(--moolsocial-white);
+    }
+
+    .page {
+      width: min(1240px, 100%);
+      margin: 0 auto;
+      padding: 28px;
+    }
+
+    h1, h2, h3, p, pre { margin: 0; }
+
+    .topbar {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 22px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      max-width: 850px;
+      color: var(--moolsocial-navy);
+      font-size: clamp(31px, 3.4vw, 48px);
+      line-height: 1.03;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      max-width: 940px;
+      margin-top: 10px;
+      color: var(--moolsocial-navy);
+      font-size: 15px;
+      line-height: 1.58;
+    }
+
+    .status {
+      min-height: 34px;
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--moolsocial-navy);
+      border-radius: 999px;
+      padding: 7px 13px;
+      background: var(--moolsocial-white);
+      color: var(--moolsocial-navy);
+      font-size: 12px;
+      font-weight: 920;
+      white-space: nowrap;
+      text-transform: uppercase;
+    }
+
+    .panel {
+      border: 1px solid var(--moolsocial-navy);
+      border-radius: 8px;
+      background: var(--moolsocial-white);
+      overflow: hidden;
+    }
+
+    .section-head {
+      min-height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      border-bottom: 1px solid var(--moolsocial-navy);
+      padding: 12px 18px;
+      color: var(--moolsocial-navy);
+      font-size: 13px;
+      font-weight: 940;
+      text-transform: uppercase;
+    }
+
+    .section-head span {
+      color: var(--moolsocial-green);
+      font-size: 11px;
+      font-weight: 850;
+      text-transform: none;
+      text-align: right;
+    }
+
+    .approved-stage {
+      display: grid;
+      place-items: center;
+      min-height: 430px;
+      padding: 28px;
+      border-bottom: 1px solid var(--moolsocial-navy);
+      background: var(--moolsocial-white);
+    }
+
+    .approved-board {
+      width: min(860px, 100%);
+      min-height: 260px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--moolsocial-white);
+      border-radius: 8px;
+      background: var(--moolsocial-navy);
+      color: var(--moolsocial-white);
+      padding: 36px 26px;
+    }
+
+    .logo-lockup {
+      display: grid;
+      justify-items: center;
+      gap: 12px;
+      width: fit-content;
+      max-width: 100%;
+    }
+
+    .logo-wordmark {
+      color: var(--moolsocial-white);
+      font-size: clamp(44px, 8vw, 88px);
+      font-weight: 950;
+      line-height: .92;
+      letter-spacing: 0;
+      white-space: nowrap;
+    }
+
+    .identity-line {
+      width: 62%;
+      height: 6px;
+      display: grid;
+      grid-template-columns: 45fr 14fr 41fr;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .identity-line span:nth-child(1) { background: var(--moolsocial-saffron); }
+    .identity-line span:nth-child(2) { background: var(--moolsocial-white); }
+    .identity-line span:nth-child(3) { background: var(--moolsocial-green); }
+
+    .logo-tagline {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      padding: 0 22px;
+      background: var(--moolsocial-white);
+      color: var(--moolsocial-navy);
+      font-size: clamp(15px, 2.1vw, 22px);
+      font-weight: 820;
+      line-height: 1;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .spec-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      border-bottom: 1px solid var(--moolsocial-navy);
+    }
+
+    .spec-card {
+      min-height: 184px;
+      display: grid;
+      align-content: start;
+      gap: 8px;
+      padding: 18px;
+      border-right: 1px solid var(--moolsocial-navy);
+    }
+
+    .spec-card:nth-child(3n) { border-right: 0; }
+
+    .spec-card h3 {
+      color: var(--moolsocial-green);
+      font-size: 13px;
+      line-height: 1.25;
+      text-transform: uppercase;
+    }
+
+    .spec-card p {
+      color: var(--moolsocial-navy);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .colour-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      border-bottom: 1px solid var(--moolsocial-navy);
+    }
+
+    .colour-card {
+      display: grid;
+      grid-template-rows: 58px 1fr;
+      min-height: 210px;
+      border-right: 1px solid var(--moolsocial-navy);
+      color: var(--moolsocial-navy);
+    }
+
+    .colour-card:last-child { border-right: 0; }
+
+    .colour-swatch {
+      border-bottom: 1px solid var(--moolsocial-navy);
+    }
+
+    .saffron { background: var(--moolsocial-saffron); }
+    .white { background: var(--moolsocial-white); }
+    .green { background: var(--moolsocial-green); }
+    .navy { background: var(--moolsocial-navy); }
+
+    .colour-copy {
+      display: grid;
+      gap: 5px;
+      padding: 14px;
+      font-size: 12px;
+      line-height: 1.25;
+    }
+
+    .colour-copy b {
+      color: var(--moolsocial-navy);
+      font-size: 12px;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+
+    .variants {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      border-bottom: 1px solid var(--moolsocial-navy);
+    }
+
+    .variant-card {
+      display: grid;
+      place-items: center;
+      min-height: 230px;
+      padding: 24px;
+      border-right: 1px solid var(--moolsocial-navy);
+    }
+
+    .variant-card:last-child { border-right: 0; }
+
+    .variant-card.dark {
+      background: var(--moolsocial-navy);
+    }
+
+    .variant-card.light {
+      background: var(--moolsocial-white);
+    }
+
+    .variant-card.light .logo-wordmark {
+      color: var(--moolsocial-navy);
+      font-size: clamp(32px, 5vw, 52px);
+    }
+
+    .variant-card.light .logo-tagline {
+      background: var(--moolsocial-navy);
+      color: var(--moolsocial-white);
+      font-size: clamp(12px, 1.8vw, 16px);
+    }
+
+    .variant-card.dark .logo-wordmark {
+      font-size: clamp(32px, 5vw, 52px);
+    }
+
+    .variant-card.dark .logo-tagline {
+      font-size: clamp(12px, 1.8vw, 16px);
+    }
+
+    .code-panel {
+      display: grid;
+      gap: 12px;
+      padding: 18px;
+      border-bottom: 1px solid var(--moolsocial-navy);
+    }
+
+    pre {
+      overflow-x: auto;
+      border: 1px solid var(--moolsocial-navy);
+      border-radius: 8px;
+      padding: 14px;
+      color: var(--moolsocial-navy);
+      background: var(--moolsocial-white);
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .rules {
+      display: grid;
+      gap: 8px;
+      padding: 18px;
+      color: var(--moolsocial-navy);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .rules b { color: var(--moolsocial-green); }
+
+    @media (max-width: 900px) {
+      .spec-grid,
+      .colour-grid,
+      .variants {
+        grid-template-columns: 1fr;
+      }
+
+      .spec-card,
+      .colour-card,
+      .variant-card {
+        border-right: 0;
+        border-bottom: 1px solid var(--moolsocial-navy);
+      }
+
+      .spec-card:nth-child(3n) { border-right: 0; }
+      .variant-card:last-child,
+      .colour-card:last-child { border-bottom: 0; }
+    }
+
+    @media (max-width: 640px) {
+      .page { padding: 16px; }
+      .topbar { display: grid; }
+      .approved-stage { padding: 16px; min-height: 340px; }
+      .approved-board { min-height: 220px; padding: 28px 18px; }
+      .logo-wordmark { font-size: 42px; }
+      .identity-line { height: 5px; }
+      .logo-tagline {
+        white-space: normal;
+        min-height: 36px;
+        padding: 8px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="topbar">
+      <div>
+        <h1>MoolSocial Approved Logo Specs</h1>
+        <p class="lead">
+          Final logo, colour and logotype source of truth for app UI, website, signboards, QR stickers, print collateral and future production coding.
+        </p>
+      </div>
+      <span class="status">Approved</span>
+    </header>
+
+    <section class="panel">
+      <div class="section-head">Approved Primary Logo <span>Use this lockup first</span></div>
+      <div class="approved-stage">
+        <div class="approved-board" aria-label="MoolSocial approved logo">
+          <div class="logo-lockup">
+            <div class="logo-wordmark">MoolSocial</div>
+            <div class="identity-line" aria-hidden="true"><span></span><span></span><span></span></div>
+            <div class="logo-tagline">India Ka Socio Commerce App</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-head">Logo Type <span>Wordmark-first identity</span></div>
+      <div class="spec-grid">
+        <article class="spec-card">
+          <h3>Master Name</h3>
+          <p>Always write the brand as one joined word: <b>MoolSocial</b>. Do not split it as Mool Social in the logo.</p>
+        </article>
+        <article class="spec-card">
+          <h3>Approved Lockup</h3>
+          <p>White wordmark on navy field, saffron-white-green identity line, and white tagline pill with navy text.</p>
+        </article>
+        <article class="spec-card">
+          <h3>Tagline</h3>
+          <p>Use exactly: <b>India Ka Socio Commerce App</b>. Keep it in the pill for brand surfaces.</p>
+        </article>
+        <article class="spec-card">
+          <h3>Typography</h3>
+          <p>Use Inter or a close geometric sans fallback at 950 weight for the wordmark. Letter spacing must remain 0.</p>
+        </article>
+        <article class="spec-card">
+          <h3>Shape System</h3>
+          <p>Logo field and app surfaces use 8px radius. The tagline pill and identity line use full rounded ends.</p>
+        </article>
+        <article class="spec-card">
+          <h3>Motion Rule</h3>
+          <p>Motion is allowed only on digital splash or hero screens. Print, QR, legal, app icon and signboard outputs must use the static logo.</p>
+        </article>
+      </div>
+
+      <div class="section-head">Approved Colours <span>Original India-inspired values only</span></div>
+      <div class="colour-grid">
+        <article class="colour-card">
+          <div class="colour-swatch saffron"></div>
+          <div class="colour-copy">
+            <b>India Saffron / Kesari</b>
+            <span>HEX: #FF9933</span>
+            <span>RGB: 255, 153, 51</span>
+            <span>CMYK: 0, 40, 80, 0</span>
+            <span>Pantone: 715 C</span>
+          </div>
+        </article>
+        <article class="colour-card">
+          <div class="colour-swatch white"></div>
+          <div class="colour-copy">
+            <b>White</b>
+            <span>HEX: #FFFFFF</span>
+            <span>RGB: 255, 255, 255</span>
+            <span>CMYK: 0, 0, 0, 0</span>
+            <span>Pantone: 7436 C</span>
+          </div>
+        </article>
+        <article class="colour-card">
+          <div class="colour-swatch green"></div>
+          <div class="colour-copy">
+            <b>India Green</b>
+            <span>HEX: #138808</span>
+            <span>RGB: 19, 136, 8</span>
+            <span>CMYK: 86, 0, 94, 47</span>
+            <span>Pantone: 3529 C</span>
+          </div>
+        </article>
+        <article class="colour-card">
+          <div class="colour-swatch navy"></div>
+          <div class="colour-copy">
+            <b>Navy Blue</b>
+            <span>HEX: #000080</span>
+            <span>RGB: 0, 0, 128</span>
+            <span>CMYK: 100, 100, 0, 50</span>
+            <span>Pantone: 2738 C</span>
+          </div>
+        </article>
+      </div>
+
+      <div class="section-head">Approved Variants <span>Use only when needed</span></div>
+      <div class="variants">
+        <div class="variant-card dark">
+          <div class="logo-lockup">
+            <div class="logo-wordmark">MoolSocial</div>
+            <div class="identity-line" aria-hidden="true"><span></span><span></span><span></span></div>
+            <div class="logo-tagline">India Ka Socio Commerce App</div>
+          </div>
+        </div>
+        <div class="variant-card light">
+          <div class="logo-lockup">
+            <div class="logo-wordmark">MoolSocial</div>
+            <div class="identity-line" aria-hidden="true"><span></span><span></span><span></span></div>
+            <div class="logo-tagline">India Ka Socio Commerce App</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-head">Production Tokens <span>Copy into app theme</span></div>
+      <div class="code-panel">
+        <pre>:root {
+  --moolsocial-saffron: #FF9933;
+  --moolsocial-white: #FFFFFF;
+  --moolsocial-green: #138808;
+  --moolsocial-navy: #000080;
+}</pre>
+        <pre>.moolsocial-logo-wordmark {
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-weight: 950;
+  letter-spacing: 0;
+  color: #FFFFFF;
+}
+
+.moolsocial-logo-line {
+  background: linear-gradient(90deg, #FF9933 0 45%, #FFFFFF 45% 59%, #138808 59% 100%);
+}</pre>
+      </div>
+
+      <div class="section-head">Usage Rules <span>For all future screens and collateral</span></div>
+      <div class="rules">
+        <p><b>Do:</b> use the navy-background primary logo for app splash, Play Store graphics, signboards, QR stickers, partner boards and major website sections.</p>
+        <p><b>Do:</b> keep MoolSocial as one word, keep the tagline text exact, and keep the identity line below the wordmark.</p>
+        <p><b>Do not:</b> use an MS monogram, M-only icon, separate external symbol, spectacles-style oo animation, Ashoka Chakra, national emblem, flag ratio, waving flag layout, or government-style approval signal.</p>
+        <p><b>Regression rule:</b> future UI coding must use these tokens and logo proportions unless a new approved brand-spec file replaces this one.</p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

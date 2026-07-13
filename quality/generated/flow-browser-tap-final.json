@@ -1,0 +1,1509 @@
+{
+  "startedAt": "2026-07-13T20:19:07.652Z",
+  "complete": true,
+  "summary": {
+    "tested": 3190,
+    "passed": 3190,
+    "failed": 0,
+    "skipped": 0,
+    "screens": 166
+  },
+  "screens": [
+    {
+      "screen": 0,
+      "file": "00-install-app.html",
+      "controls": 2,
+      "passed": 2,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 1,
+      "file": "01-app-splash-first-open.html",
+      "controls": 1,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 2,
+      "file": "02-first-setup-language-location.html",
+      "controls": 4,
+      "passed": 4,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 3,
+      "file": "03-login-account-handoff.html",
+      "controls": 9,
+      "passed": 9,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 4,
+      "file": "04-universal-focus-shell.html",
+      "controls": 43,
+      "passed": 43,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 5,
+      "file": "05-social-shorts.html",
+      "controls": 27,
+      "passed": 27,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 6,
+      "file": "06-social-videos.html",
+      "controls": 30,
+      "passed": 30,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 7,
+      "file": "07-social-feed.html",
+      "controls": 40,
+      "passed": 40,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 8,
+      "file": "08-social-create.html",
+      "controls": 35,
+      "passed": 35,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 9,
+      "file": "09-buy.html",
+      "controls": 31,
+      "passed": 31,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 10,
+      "file": "10-buy-grocery-decision.html",
+      "controls": 43,
+      "passed": 43,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 11,
+      "file": "11-buy-product-detail.html",
+      "controls": 28,
+      "passed": 28,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 12,
+      "file": "12-buy-basket-checkout.html",
+      "controls": 22,
+      "passed": 22,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 13,
+      "file": "13-retailer-stock-confirmation.html",
+      "controls": 19,
+      "passed": 19,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 14,
+      "file": "14-customer-payment-order-confirmation.html",
+      "controls": 14,
+      "passed": 14,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 15,
+      "file": "15-counter-ready-receipt.html",
+      "controls": 14,
+      "passed": 14,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 16,
+      "file": "16-order-completed-bill-rating.html",
+      "controls": 30,
+      "passed": 30,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 17,
+      "file": "17-home-delivery-tracking.html",
+      "controls": 19,
+      "passed": 19,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 18,
+      "file": "18-home-delivery-completed-bill-rating.html",
+      "controls": 38,
+      "passed": 38,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 19,
+      "file": "19-order-issue-refund-evidence.html",
+      "controls": 26,
+      "passed": 26,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 20,
+      "file": "20-issue-review-status-retailer-response.html",
+      "controls": 16,
+      "passed": 16,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 21,
+      "file": "21-issue-result-refund-replacement.html",
+      "controls": 15,
+      "passed": 15,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 22,
+      "file": "22-chat-order-support-thread.html",
+      "controls": 37,
+      "passed": 37,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 23,
+      "file": "23-chat-inbox-home.html",
+      "controls": 24,
+      "passed": 24,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 24,
+      "file": "24-chat-business-thread.html",
+      "controls": 27,
+      "passed": 27,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 25,
+      "file": "25-chat-people-thread.html",
+      "controls": 25,
+      "passed": 25,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 26,
+      "file": "26-eat.html",
+      "controls": 26,
+      "passed": 26,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 27,
+      "file": "27-eat-order-food.html",
+      "controls": 29,
+      "passed": 29,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 28,
+      "file": "28-eat-book-table.html",
+      "controls": 33,
+      "passed": 33,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 29,
+      "file": "29-eat-tiffin.html",
+      "controls": 32,
+      "passed": 32,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 30,
+      "file": "30-ride.html",
+      "controls": 17,
+      "passed": 17,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 31,
+      "file": "31-ride-accepted-captain-arriving.html",
+      "controls": 18,
+      "passed": 18,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 32,
+      "file": "32-ride-live-trip.html",
+      "controls": 21,
+      "passed": 21,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 33,
+      "file": "33-ride-payment-approval.html",
+      "controls": 17,
+      "passed": 17,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 34,
+      "file": "34-ride-receipt-rating.html",
+      "controls": 25,
+      "passed": 25,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 35,
+      "file": "35-ride-post-trip-support.html",
+      "controls": 23,
+      "passed": 23,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 36,
+      "file": "36-book.html",
+      "controls": 20,
+      "passed": 20,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 37,
+      "file": "37-book-doctor-appointment.html",
+      "controls": 26,
+      "passed": 26,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 38,
+      "file": "38-book-patient-details-reports.html",
+      "controls": 29,
+      "passed": 29,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 39,
+      "file": "39-doctor-patient-invite-followup.html",
+      "controls": 29,
+      "passed": 29,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 40,
+      "file": "40-patient-clinic-invite-join.html",
+      "controls": 29,
+      "passed": 29,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 41,
+      "file": "41-patient-followup-workspace.html",
+      "controls": 29,
+      "passed": 29,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 42,
+      "file": "42-book-salon-appointment.html",
+      "controls": 26,
+      "passed": 26,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 43,
+      "file": "43-salon-booking-confirm.html",
+      "controls": 22,
+      "passed": 22,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 44,
+      "file": "44-salon-booking-confirmed.html",
+      "controls": 20,
+      "passed": 20,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 45,
+      "file": "45-salon-visit-check-in.html",
+      "controls": 20,
+      "passed": 20,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 46,
+      "file": "46-salon-service-payment-rating.html",
+      "controls": 20,
+      "passed": 20,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 47,
+      "file": "47-salon-post-visit-support.html",
+      "controls": 20,
+      "passed": 20,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 48,
+      "file": "48-book-get-it-done.html",
+      "controls": 31,
+      "passed": 31,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 49,
+      "file": "49-get-it-done-review-payment.html",
+      "controls": 16,
+      "passed": 16,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 50,
+      "file": "50-get-it-done-helper-accepted.html",
+      "controls": 16,
+      "passed": 16,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 51,
+      "file": "51-get-it-done-proof-release.html",
+      "controls": 16,
+      "passed": 16,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 52,
+      "file": "52-get-it-done-completed-rating.html",
+      "controls": 22,
+      "passed": 22,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 53,
+      "file": "53-get-it-done-issue-support.html",
+      "controls": 19,
+      "passed": 19,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 54,
+      "file": "54-get-it-done-issue-case-status.html",
+      "controls": 19,
+      "passed": 19,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 55,
+      "file": "55-get-it-done-issue-resolution.html",
+      "controls": 19,
+      "passed": 19,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 56,
+      "file": "56-get-it-done-resolution-complete.html",
+      "controls": 19,
+      "passed": 19,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 57,
+      "file": "57-pay.html",
+      "controls": 21,
+      "passed": 21,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 58,
+      "file": "58-pay-recharge.html",
+      "controls": 21,
+      "passed": 21,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 59,
+      "file": "59-pay-bills.html",
+      "controls": 21,
+      "passed": 21,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 60,
+      "file": "60-pay-scan.html",
+      "controls": 21,
+      "passed": 21,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 61,
+      "file": "61-pay-requests.html",
+      "controls": 20,
+      "passed": 20,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 62,
+      "file": "62-pay-request-confirmation.html",
+      "controls": 17,
+      "passed": 17,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 63,
+      "file": "63-pay-processing-receipt.html",
+      "controls": 13,
+      "passed": 13,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 64,
+      "file": "64-pay-receipts-history.html",
+      "controls": 15,
+      "passed": 15,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 65,
+      "file": "65-pay-pending-refund-status.html",
+      "controls": 13,
+      "passed": 13,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 66,
+      "file": "66-pay-failed-reversal-safe-retry.html",
+      "controls": 13,
+      "passed": 13,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 67,
+      "file": "67-work.html",
+      "controls": 19,
+      "passed": 19,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 68,
+      "file": "68-work-opportunity-terms-apply.html",
+      "controls": 10,
+      "passed": 10,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 69,
+      "file": "69-my-work-setup.html",
+      "controls": 8,
+      "passed": 8,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 70,
+      "file": "70-my-work-choose-activity.html",
+      "controls": 14,
+      "passed": 14,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 71,
+      "file": "71-work-profile-proof.html",
+      "controls": 10,
+      "passed": 10,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 72,
+      "file": "72-my-work-verification-status.html",
+      "controls": 10,
+      "passed": 10,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 73,
+      "file": "73-workspace-ready-handoff.html",
+      "controls": 7,
+      "passed": 7,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 74,
+      "file": "74-retail-products-stock-setup.html",
+      "controls": 29,
+      "passed": 29,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 75,
+      "file": "75-retailer-order-review-fulfilment.html",
+      "controls": 13,
+      "passed": 13,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 76,
+      "file": "76-retailer-delivery-assignment-handover.html",
+      "controls": 12,
+      "passed": 12,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 77,
+      "file": "77-retailer-delivery-tracking-completion.html",
+      "controls": 12,
+      "passed": 12,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 78,
+      "file": "78-retailer-create-order.html",
+      "controls": 29,
+      "passed": 29,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 79,
+      "file": "79-retailer-counter-management.html",
+      "controls": 15,
+      "passed": 15,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 80,
+      "file": "80-retailer-counter-sale-invoice.html",
+      "controls": 14,
+      "passed": 14,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 81,
+      "file": "81-retailer-wholesale-buy-catalog.html",
+      "controls": 26,
+      "passed": 26,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 82,
+      "file": "82-retailer-wholesale-cart-purchase-order.html",
+      "controls": 16,
+      "passed": 16,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 83,
+      "file": "83-retailer-wholesale-order-confirmed.html",
+      "controls": 12,
+      "passed": 12,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 84,
+      "file": "84-retailer-wholesale-delivery-tracking.html",
+      "controls": 13,
+      "passed": 13,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 85,
+      "file": "85-retailer-wholesale-goods-receipt.html",
+      "controls": 10,
+      "passed": 10,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 86,
+      "file": "86-retailer-wholesale-receipt-result.html",
+      "controls": 14,
+      "passed": 14,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 87,
+      "file": "87-retailer-purchase-book.html",
+      "controls": 22,
+      "passed": 22,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 88,
+      "file": "88-retailer-supplier-bill-payment.html",
+      "controls": 14,
+      "passed": 14,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 89,
+      "file": "89-retailer-supplier-payment-status.html",
+      "controls": 10,
+      "passed": 10,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 90,
+      "file": "90-retailer-sales-book.html",
+      "controls": 24,
+      "passed": 24,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 91,
+      "file": "91-retailer-stock-statement.html",
+      "controls": 26,
+      "passed": 26,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 92,
+      "file": "92-retailer-business-book-home.html",
+      "controls": 15,
+      "passed": 15,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 93,
+      "file": "93-retailer-business-services.html",
+      "controls": 11,
+      "passed": 11,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 94,
+      "file": "94-retailer-business-service-plan.html",
+      "controls": 13,
+      "passed": 13,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 95,
+      "file": "95-retailer-business-service-activation.html",
+      "controls": 12,
+      "passed": 12,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 96,
+      "file": "96-retailer-business-service-active.html",
+      "controls": 13,
+      "passed": 13,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 97,
+      "file": "97-retailer-customers-loyalty.html",
+      "controls": 22,
+      "passed": 22,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 98,
+      "file": "98-retailer-customer-detail-retention.html",
+      "controls": 16,
+      "passed": 16,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 99,
+      "file": "99-retailer-offers-campaigns.html",
+      "controls": 25,
+      "passed": 25,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 100,
+      "file": "100-retailer-offer-campaign-builder.html",
+      "controls": 20,
+      "passed": 20,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 101,
+      "file": "101-retailer-slow-stock-liquidation.html",
+      "controls": 18,
+      "passed": 18,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 102,
+      "file": "102-retailer-ai-operating-assistant.html",
+      "controls": 20,
+      "passed": 20,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 103,
+      "file": "103-retailer-staff-permissions.html",
+      "controls": 12,
+      "passed": 12,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 104,
+      "file": "104-retailer-store-settings-readiness.html",
+      "controls": 18,
+      "passed": 18,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 105,
+      "file": "105-retailer-returns-customer-issues.html",
+      "controls": 22,
+      "passed": 22,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 106,
+      "file": "106-retailer-cash-bank-expenses-reconciliation.html",
+      "controls": 18,
+      "passed": 18,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 107,
+      "file": "107-manufacturer-supplier-workspace-home.html",
+      "controls": 24,
+      "passed": 24,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 108,
+      "file": "108-manufacturer-business-book.html",
+      "controls": 22,
+      "passed": 22,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 109,
+      "file": "109-manufacturer-product-catalogue-stock.html",
+      "controls": 24,
+      "passed": 24,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 110,
+      "file": "110-manufacturer-order-review-fulfilment.html",
+      "controls": 16,
+      "passed": 16,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 111,
+      "file": "111-manufacturer-input-procurement.html",
+      "controls": 21,
+      "passed": 21,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 112,
+      "file": "112-manufacturer-dispatch-delivery.html",
+      "controls": 14,
+      "passed": 14,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 113,
+      "file": "113-manufacturer-buyers-demand-campaigns.html",
+      "controls": 21,
+      "passed": 21,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 114,
+      "file": "114-manufacturer-claims-team-control.html",
+      "controls": 14,
+      "passed": 14,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 115,
+      "file": "115-manufacturer-business-services.html",
+      "controls": 21,
+      "passed": 21,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 116,
+      "file": "116-captain-home-availability.html",
+      "controls": 10,
+      "passed": 10,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 117,
+      "file": "117-captain-ride-request.html",
+      "controls": 9,
+      "passed": 9,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 118,
+      "file": "118-captain-pickup-navigation.html",
+      "controls": 10,
+      "passed": 10,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 119,
+      "file": "119-captain-live-trip-safety.html",
+      "controls": 10,
+      "passed": 10,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 120,
+      "file": "120-captain-fare-completion.html",
+      "controls": 7,
+      "passed": 7,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 121,
+      "file": "121-captain-earnings-payouts.html",
+      "controls": 13,
+      "passed": 13,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 122,
+      "file": "122-captain-vehicle-compliance.html",
+      "controls": 12,
+      "passed": 12,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 123,
+      "file": "123-captain-support-paid-work.html",
+      "controls": 14,
+      "passed": 14,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 124,
+      "file": "124-creator-studio-home.html",
+      "controls": 21,
+      "passed": 21,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 125,
+      "file": "125-creator-create-publish.html",
+      "controls": 21,
+      "passed": 21,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 126,
+      "file": "126-creator-content-library.html",
+      "controls": 15,
+      "passed": 15,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 127,
+      "file": "127-creator-content-performance.html",
+      "controls": 13,
+      "passed": 13,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 128,
+      "file": "128-creator-audience-community.html",
+      "controls": 10,
+      "passed": 10,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 129,
+      "file": "129-creator-campaigns.html",
+      "controls": 25,
+      "passed": 25,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 130,
+      "file": "130-creator-earnings-payouts.html",
+      "controls": 17,
+      "passed": 17,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 131,
+      "file": "131-creator-verification-rights-safety.html",
+      "controls": 17,
+      "passed": 17,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 132,
+      "file": "132-creator-memberships.html",
+      "controls": 12,
+      "passed": 12,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 133,
+      "file": "133-earn-opportunities.html",
+      "controls": 16,
+      "passed": 16,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 134,
+      "file": "134-earn-applications-eligibility.html",
+      "controls": 12,
+      "passed": 12,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 135,
+      "file": "135-earn-active-work.html",
+      "controls": 8,
+      "passed": 8,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 136,
+      "file": "136-earn-proof-outcome.html",
+      "controls": 12,
+      "passed": 12,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 137,
+      "file": "137-earn-earnings-payout.html",
+      "controls": 7,
+      "passed": 7,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 138,
+      "file": "138-earn-issues-ratings-history.html",
+      "controls": 12,
+      "passed": 12,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 139,
+      "file": "139-provider-home-readiness.html",
+      "controls": 14,
+      "passed": 14,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 140,
+      "file": "140-provider-catalogue.html",
+      "controls": 15,
+      "passed": 15,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 141,
+      "file": "141-provider-availability.html",
+      "controls": 15,
+      "passed": 15,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 142,
+      "file": "142-provider-requests.html",
+      "controls": 14,
+      "passed": 14,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 143,
+      "file": "143-provider-fulfilment.html",
+      "controls": 9,
+      "passed": 9,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 144,
+      "file": "144-provider-business.html",
+      "controls": 16,
+      "passed": 16,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 145,
+      "file": "145-provider-growth.html",
+      "controls": 20,
+      "passed": 20,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 146,
+      "file": "146-provider-control.html",
+      "controls": 18,
+      "passed": 18,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 147,
+      "file": "147-admin-command-centre.html",
+      "controls": 27,
+      "passed": 27,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 148,
+      "file": "148-admin-workspace-verification.html",
+      "controls": 27,
+      "passed": 27,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 149,
+      "file": "149-admin-catalogue-governance.html",
+      "controls": 26,
+      "passed": 26,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 150,
+      "file": "150-admin-commerce-exceptions.html",
+      "controls": 26,
+      "passed": 26,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 151,
+      "file": "151-admin-ride-operations.html",
+      "controls": 26,
+      "passed": 26,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 152,
+      "file": "152-admin-work-campaign-governance.html",
+      "controls": 27,
+      "passed": 27,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 153,
+      "file": "153-admin-content-trust-safety.html",
+      "controls": 26,
+      "passed": 26,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 154,
+      "file": "154-admin-finance-reconciliation.html",
+      "controls": 27,
+      "passed": 27,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 155,
+      "file": "155-admin-support-disputes.html",
+      "controls": 27,
+      "passed": 27,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 156,
+      "file": "156-admin-audience-launch-configuration.html",
+      "controls": 37,
+      "passed": 37,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 157,
+      "file": "157-shared-priority-inbox.html",
+      "controls": 16,
+      "passed": 16,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 158,
+      "file": "158-shared-identity-documents-consent.html",
+      "controls": 13,
+      "passed": 13,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 159,
+      "file": "159-shared-universal-input.html",
+      "controls": 11,
+      "passed": 11,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 160,
+      "file": "160-shared-files-evidence-media.html",
+      "controls": 15,
+      "passed": 15,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 161,
+      "file": "161-shared-security-support.html",
+      "controls": 13,
+      "passed": 13,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 162,
+      "file": "162-shared-workspaces-settings-analytics.html",
+      "controls": 20,
+      "passed": 20,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 163,
+      "file": "163-admin-user-activity-product-health.html",
+      "controls": 29,
+      "passed": 29,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 164,
+      "file": "164-admin-signals-consent-personalization.html",
+      "controls": 29,
+      "passed": 29,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    },
+    {
+      "screen": 165,
+      "file": "165-shared-personalized-controls.html",
+      "controls": 21,
+      "passed": 21,
+      "failed": 0,
+      "skipped": 0,
+      "issues": []
+    }
+  ],
+  "issues": [],
+  "completedAt": "2026-07-13T20:25:21.699Z"
+}

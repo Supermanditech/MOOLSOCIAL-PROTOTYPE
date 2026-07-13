@@ -1,7 +1,9 @@
-{
-  "approvedScreenCount": 166,
-  "operationalFlowCount": 39,
-  "coveredScreenCount": 166,
-  "missingScreens": [],
-  "status": "passed"
+﻿{
+    "approvedScreenCount":  166,
+    "operationalFlowCount":  47,
+    "coveredScreenCount":  166,
+    "missingScreens":  [
+
+                       ],
+    "status":  "passed"
 }

@@ -1,0 +1,371 @@
+{
+  "version": "mobile-user-flow-audit-2026-07-14",
+  "generatedAt": "2026-07-13T21:33:24.702Z",
+  "status": "passed",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "runner": "mobile-user-flow.html audit mode with visible-control taps",
+  "summary": {
+    "operationalFlowsTested": 47,
+    "approvedScreensRendered": 166,
+    "loadErrors": 0,
+    "consoleErrors": 0,
+    "horizontalOverflows": 0,
+    "deadEnds": 0,
+    "wrongParameters": 0,
+    "brokenBackPaths": 0,
+    "brokenCrossWorkspaceTransitions": 0
+  },
+  "bundleSmoke": [
+    {
+      "flow": "onboarding",
+      "pass": true
+    },
+    {
+      "flow": "ride",
+      "pass": true
+    },
+    {
+      "flow": "creator-commerce-share",
+      "pass": true
+    },
+    {
+      "flow": "shared-controls",
+      "pass": true
+    }
+  ],
+  "flows": [
+    {
+      "flow": "onboarding",
+      "status": "passed",
+      "steps": 4,
+      "multiTargets": 0,
+      "error": null
+    },
+    {
+      "flow": "social",
+      "status": "passed",
+      "steps": 6,
+      "multiTargets": 0,
+      "error": null
+    },
+    {
+      "flow": "buy-counter",
+      "status": "passed",
+      "steps": 11,
+      "multiTargets": 2,
+      "error": null
+    },
+    {
+      "flow": "buy-delivery",
+      "status": "passed",
+      "steps": 11,
+      "multiTargets": 0,
+      "error": null
+    },
+    {
+      "flow": "buy-issue",
+      "status": "passed",
+      "steps": 6,
+      "multiTargets": 0,
+      "error": null
+    },
+    {
+      "flow": "chat",
+      "status": "passed",
+      "steps": 7,
+      "multiTargets": 0,
+      "error": null
+    },
+    {
+      "flow": "eat-order",
+      "status": "passed",
+      "steps": 3,
+      "multiTargets": 0,
+      "error": null
+    },
+    {
+      "flow": "eat-table",
+      "status": "passed",
+      "steps": 3,
+      "multiTargets": 0,
+      "error": null
+    },
+    {
+      "flow": "eat-tiffin",
+      "status": "passed",
+      "steps": 3,
+      "multiTargets": 0,
+      "error": null
+    },
+    {
+      "flow": "ride",
+      "status": "passed",
+      "steps": 7,
+      "multiTargets": 0,
+      "error": null
+    },
+    {
+      "flow": "doctor-booking",
+      "status": "passed",
+      "steps": 4,
+      "multiTargets": 0,
+      "error": null
+    },
+    {
+      "flow": "doctor-invite",
+      "status": "passed",
+      "steps": 5,
+      "multiTargets": 0,
+      "error": null
+    },
+    {
+      "flow": "salon",
+      "status": "passed",
+      "steps": 7,
+      "multiTargets": 3,
+      "error": null
+    },
+    {
+      "flow": "get-it-done",
+      "status": "passed",
+      "steps": 11,
+      "multiTargets": 11,
+      "error": null
+    },
+    {
+      "flow": "pay-recharge",
+      "status": "passed",
+      "steps": 5,
+      "multiTargets": 2,
+      "error": null
+    },
+    {
+      "flow": "pay-bills",
+      "status": "passed",
+      "steps": 5,
+      "multiTargets": 2,
+      "error": null
+    },
+    {
+      "flow": "pay-scan",
+      "status": "passed",
+      "steps": 5,
+      "multiTargets": 2,
+      "error": null
+    },
+    {
+      "flow": "pay-request",
+      "status": "passed",
+      "steps": 6,
+      "multiTargets": 2,
+      "error": null
+    },
+    {
+      "flow": "pay-refund",
+      "status": "passed",
+      "steps": 5,
+      "multiTargets": 0,
+      "error": null
+    },
+    {
+      "flow": "pay-failure",
+      "status": "passed",
+      "steps": 5,
+      "multiTargets": 0,
+      "error": null
+    },
+    {
+      "flow": "earn-workspace",
+      "status": "passed",
+      "steps": 8,
+      "multiTargets": 3,
+      "error": null
+    },
+    {
+      "flow": "retailer-onboarding",
+      "status": "passed",
+      "steps": 5,
+      "multiTargets": 0,
+      "error": null
+    },
+    {
+      "flow": "retailer-orders",
+      "status": "passed",
+      "steps": 5,
+      "multiTargets": 2,
+      "error": null
+    },
+    {
+      "flow": "retailer-pos",
+      "status": "passed",
+      "steps": 8,
+      "multiTargets": 0,
+      "error": null
+    },
+    {
+      "flow": "retailer-wholesale",
+      "status": "passed",
+      "steps": 12,
+      "multiTargets": 2,
+      "error": null
+    },
+    {
+      "flow": "retailer-books",
+      "status": "passed",
+      "steps": 9,
+      "multiTargets": 0,
+      "error": null
+    },
+    {
+      "flow": "retailer-services",
+      "status": "passed",
+      "steps": 7,
+      "multiTargets": 0,
+      "error": null
+    },
+    {
+      "flow": "retailer-growth",
+      "status": "passed",
+      "steps": 8,
+      "multiTargets": 15,
+      "error": null
+    },
+    {
+      "flow": "retailer-controls",
+      "status": "passed",
+      "steps": 15,
+      "multiTargets": 15,
+      "error": null
+    },
+    {
+      "flow": "manufacturer-sales",
+      "status": "passed",
+      "steps": 6,
+      "multiTargets": 2,
+      "error": null
+    },
+    {
+      "flow": "manufacturer-procurement",
+      "status": "passed",
+      "steps": 5,
+      "multiTargets": 4,
+      "error": null
+    },
+    {
+      "flow": "manufacturer-growth",
+      "status": "passed",
+      "steps": 6,
+      "multiTargets": 2,
+      "error": null
+    },
+    {
+      "flow": "manufacturer-control",
+      "status": "passed",
+      "steps": 6,
+      "multiTargets": 6,
+      "error": null
+    },
+    {
+      "flow": "captain-workspace",
+      "status": "passed",
+      "steps": 12,
+      "multiTargets": 0,
+      "error": null
+    },
+    {
+      "flow": "creator-workspace",
+      "status": "passed",
+      "steps": 18,
+      "multiTargets": 16,
+      "error": null
+    },
+    {
+      "flow": "creator-funded-campaign",
+      "status": "passed",
+      "steps": 8,
+      "multiTargets": 0,
+      "error": null
+    },
+    {
+      "flow": "creator-commerce-share",
+      "status": "passed",
+      "steps": 9,
+      "multiTargets": 0,
+      "error": null
+    },
+    {
+      "flow": "creator-membership",
+      "status": "passed",
+      "steps": 5,
+      "multiTargets": 0,
+      "error": null
+    },
+    {
+      "flow": "creator-content-pool",
+      "status": "passed",
+      "steps": 4,
+      "multiTargets": 0,
+      "error": null
+    },
+    {
+      "flow": "creator-local-production",
+      "status": "passed",
+      "steps": 7,
+      "multiTargets": 0,
+      "error": null
+    },
+    {
+      "flow": "creator-onboarding",
+      "status": "passed",
+      "steps": 7,
+      "multiTargets": 0,
+      "error": null
+    },
+    {
+      "flow": "creator-live-event",
+      "status": "passed",
+      "steps": 8,
+      "multiTargets": 0,
+      "error": null
+    },
+    {
+      "flow": "creator-licence",
+      "status": "passed",
+      "steps": 6,
+      "multiTargets": 0,
+      "error": null
+    },
+    {
+      "flow": "earn-operations",
+      "status": "passed",
+      "steps": 8,
+      "multiTargets": 0,
+      "error": null
+    },
+    {
+      "flow": "provider-workspace",
+      "status": "passed",
+      "steps": 13,
+      "multiTargets": 12,
+      "error": null
+    },
+    {
+      "flow": "admin-operations",
+      "status": "passed",
+      "steps": 13,
+      "multiTargets": 0,
+      "error": null
+    },
+    {
+      "flow": "shared-controls",
+      "status": "passed",
+      "steps": 18,
+      "multiTargets": 0,
+      "error": null
+    }
+  ],
+  "failures": []
+}

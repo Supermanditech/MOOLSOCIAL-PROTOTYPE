@@ -1,0 +1,18 @@
+{
+  "generatedAt": "2026-07-14T03:03:47.9376641+05:30",
+  "status": "passed",
+  "screens": 166,
+  "approvedScreens": 166,
+  "operationalFlows": 47,
+  "flowNodesChecked": 469,
+  "localNavigationTargetsChecked": 1053,
+  "localAssetsChecked": 474,
+  "buttonsIndexed": 1877,
+  "staticButtonCandidatesForBrowserTapTest": 108,
+  "missingTargets": [],
+  "missingAssets": [],
+  "contractIssues": [],
+  "flowIssues": [],
+  "creatorEconomicsIssues": [],
+  "browserTapReport": "quality/generated/flow-browser-tap-audit.json"
+}

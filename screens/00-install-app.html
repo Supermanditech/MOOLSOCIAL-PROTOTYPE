@@ -55,8 +55,12 @@
     }
 
     .install-button {
+      display: block;
       background: var(--ms-navy);
       box-shadow: none;
+      color: var(--ms-white);
+      text-align: center;
+      text-decoration: none;
     }
   </style>
 </head>
@@ -163,7 +167,7 @@
               </div>
             </div>
 
-            <button class="install-button">Install</button>
+            <a class="install-button" href="01-app-splash-first-open.html?source=play-store&amp;install=complete" aria-label="Install and open MoolSocial">Install</a>
 
             <div class="section-title">Screens preview</div>
             <div class="screen-strip">
@@ -217,7 +221,7 @@
             </tr>
             <tr>
               <th>Exit to next screen</th>
-              <td>Open app -> Screen 01 First Open / Splash. Screen 01 is not designed yet.</td>
+              <td>Open app -> Screen 01 First Open / Splash with the Play Store install handoff retained.</td>
             </tr>
           </table>
         </div>
@@ -309,5 +313,5 @@
       </section>
     </section>
   </main>
-</body>
+<script type="application/json" id="productionRouteContract">{"contractVersion":"mvp-route-lock-2026-07-12","prototypeScreen":0,"productionModule":"distribution","routeId":"distribution.store-listing","routePath":"external:play-store","routeState":"store-listing","implementation":"external-surface","launchScope":"mvp-core","separateProductionRoute":false,"productionNote":"This prototype belongs to external:play-store outside the authenticated application router. Keep its handoff contract with the app launch route.","canonicalMap":"architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"}</script><script type="application/json" id="prototypeApprovalContract">{"prototypeScreen":0,"status":"approved-and-frozen","authoritative":true,"approvedAt":"2026-07-13"}</script></body>
 </html>

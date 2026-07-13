@@ -1,0 +1,110 @@
+{
+  "contractVersion": "production-ui-state-v1-2026-07-14",
+  "status": "frozen-for-production-planning",
+  "appliesTo": {
+    "approvedPrototypeScreens": 166,
+    "operationalFlows": 47,
+    "clients": ["android", "responsive-web", "admin-web"]
+  },
+  "coreExperience": {
+    "defaultEntry": "consumer-social",
+    "focusRule": "one focused action at a time",
+    "rootAccess": "Mool remains one tap away",
+    "chatAccess": "Chat remains one tap away and may show unread count",
+    "workspaceRule": "verified workspaces add operating capability without removing personal consumer access",
+    "roleRule": "do not expose a manual role switcher on the universal consumer screen"
+  },
+  "requiredRouteStates": [
+    "loading",
+    "ready",
+    "empty",
+    "partial",
+    "submitting",
+    "success",
+    "offline",
+    "timeout",
+    "error",
+    "permission-denied",
+    "restricted",
+    "stale",
+    "duplicate-request"
+  ],
+  "actionDensity": {
+    "primaryActionsAboveFold": 1,
+    "secondaryActionsAboveFoldMaximum": 2,
+    "mobilePersistentRootActionsMaximum": 2,
+    "compactDockVisibleItemsMaximum": 5,
+    "moreThanFiveActions": "use a labelled horizontal rail, menu or progressive next state",
+    "duplicateRule": "the same action label must not appear in both page content and the persistent dock unless one is a clearly named shortcut",
+    "destructiveRule": "destructive actions require confirmation and an undo or recovery path where technically possible"
+  },
+  "personalization": {
+    "allowedSignals": [
+      "chosen language",
+      "consented current or saved area",
+      "explicit interests",
+      "recent in-app actions",
+      "serviceability",
+      "verified workspace capabilities",
+      "pending orders bookings rides work and payments",
+      "availability schedule",
+      "communication consent"
+    ],
+    "fallbackOrder": [
+      "explicit user choice",
+      "last successful state",
+      "serviceable local default",
+      "national default",
+      "neutral empty state"
+    ],
+    "mustNeverInfer": [
+      "professional qualification",
+      "medical condition",
+      "financial capacity",
+      "workspace verification",
+      "consent"
+    ],
+    "explanationRule": "when personalization changes price, availability, eligibility, ranking or payout, show the deciding reason in plain language"
+  },
+  "responsive": {
+    "minimumViewportWidth": 320,
+    "referenceMobileViewport": { "width": 390, "height": 844 },
+    "breakpoints": { "compact": 359, "mobile": 767, "tablet": 1023, "desktop": 1024 },
+    "safeArea": "persistent controls must include device safe-area insets",
+    "keyboard": "the focused input and primary submit action must remain visible above the software keyboard",
+    "overflow": "no page-level horizontal overflow; dense tables use an explicitly labelled scroll region or responsive row layout",
+    "text": "no viewport-width font scaling; long labels wrap or use a shorter approved label"
+  },
+  "accessibility": {
+    "minimumTapTargetPx": 44,
+    "bodyContrastMinimum": "4.5:1",
+    "largeTextContrastMinimum": "3:1",
+    "requirements": [
+      "every interactive control has a stable accessible name",
+      "icons are not the sole meaning for unfamiliar actions",
+      "focus order follows reading and action order",
+      "selected expanded invalid busy and live states are announced",
+      "motion respects reduced-motion preference",
+      "colour is never the only status signal",
+      "forms preserve values after validation or network failure",
+      "video has captions controls and a non-motion fallback"
+    ]
+  },
+  "stateBehavior": {
+    "loading": "use a stable skeleton matching the final layout; never shift the primary action",
+    "empty": "state what is empty, why it may be empty and the single best next action",
+    "partial": "render available decision data and mark only the missing field; do not block unrelated actions",
+    "offline": "show cached safe content, queue eligible writes and clearly mark actions that require connectivity",
+    "timeout": "preserve input and expose retry plus support after repeated failure",
+    "error": "show plain-language cause category, recovery action and reference ID without internal stack text",
+    "permission-denied": "explain the affected feature and provide settings or manual fallback",
+    "restricted": "state the verification, serviceability or policy condition and the allowed next step",
+    "stale": "show last-updated time and prevent irreversible decisions on expired price, stock, location or payout data",
+    "duplicate-request": "return the original result for idempotent commands and never create a second charge order payout or task"
+  },
+  "qualityEvidence": {
+    "strictInteractions": { "tested": 3190, "passed": 3190, "failed": 0, "skipped": 0 },
+    "mobileScreens": { "tested": 166, "loadErrors": 0, "consoleErrors": 0, "horizontalOverflows": 0 },
+    "operationalFlows": { "tested": 47, "failed": 0 }
+  }
+}

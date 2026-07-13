@@ -880,9 +880,9 @@
                   <a class="circle-btn" id="backToGrocery" href="10-buy-grocery-decision.html" aria-label="Back to grocery decision">
                     <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" /></svg>
                   </a>
-                  <button class="circle-btn" aria-label="Open basket">
+                  <a class="circle-btn" href="12-buy-basket-checkout.html" aria-label="Open basket">
                     <svg viewBox="0 0 24 24"><path d="M6 7h15l-2 9H8L6 3H3" /><path d="M9 20h.01M18 20h.01" /></svg>
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>
@@ -1039,7 +1039,7 @@
                   <svg viewBox="0 0 24 24"><path d="M8 4h8v16H8zM4 8h16M12 8v12" /></svg>
                   Meds
                 </a>
-                <a class="dock-tab" href="09-buy.html" aria-label="Open basket">
+                <a class="dock-tab" href="12-buy-basket-checkout.html" aria-label="Open basket">
                   <svg viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6L5 8Z" /><path d="M9 8a3 3 0 0 1 6 0" /></svg>
                   Basket
                 </a>
@@ -1360,5 +1360,7 @@
     document.getElementById("backToGrocery").href = `10-buy-grocery-decision.html?entry=shop&intent=buy&wholesale=${settings.wholesale ? "on" : "off"}`;
     render();
   </script>
-<script type="application/json" id="productionRouteContract">{"contractVersion":"mvp-route-lock-2026-07-12","prototypeScreen":11,"productionModule":"commerce","routeId":"commerce.product","routePath":"/buy/products/:productId","routeState":"product-detail","implementation":"route-shell","launchScope":"mvp-core","separateProductionRoute":true,"productionNote":"Own production route /buy/products/:productId. Implement product-detail as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.","canonicalMap":"architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"}</script><script type="application/json" id="prototypeApprovalContract">{"prototypeScreen":11,"status":"approved-and-frozen","authoritative":true,"approvedAt":"2026-07-12","approvalScope":"prototype-ui-ux-and-production-contract"}</script></body>
+<script type="application/json" id="productionRouteContract">{"contractVersion":"mvp-route-lock-2026-07-12","prototypeScreen":11,"productionModule":"commerce","routeId":"commerce.product","routePath":"/buy/products/:productId","routeState":"product-detail","implementation":"route-shell","launchScope":"mvp-core","separateProductionRoute":true,"productionNote":"Own production route /buy/products/:productId. Implement product-detail as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.","canonicalMap":"architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"}</script><script type="application/json" id="prototypeApprovalContract">{"prototypeScreen":11,"status":"approved-and-frozen","authoritative":true,"approvedAt":"2026-07-12","approvalScope":"prototype-ui-ux-and-production-contract"}</script>  <script src="../shared/prototype-interaction-contracts.js"></script>
+  <script src="../shared/prototype-interaction-runtime.js"></script>
+</body>
 </html>

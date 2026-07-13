@@ -1,0 +1,27 @@
+{
+  "generatedAt": "2026-07-14T03:49:46.7656538+05:30",
+  "status": "ready",
+  "completedRequestedSteps": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    7,
+    9
+  ],
+  "excludedByUser": [
+    "6 - domain and database architecture",
+    "8 - security and compliance",
+    "10 - production tickets"
+  ],
+  "approvedScreens": 166,
+  "operationalFlows": 47,
+  "strictInteractions": 3190,
+  "openInteractions": 0,
+  "contractArtifacts": 8,
+  "productionComponents": 27,
+  "economicsPolicies": 13,
+  "blockers": [],
+  "finalMobileTestingLinkMayBeShared": true
+}

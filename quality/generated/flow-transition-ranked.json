@@ -1,0 +1,8057 @@
+{
+  "generatedAt": "2026-07-13T13:37:03.037Z",
+  "count": 224,
+  "rows": [
+    {
+      "flow": "onboarding",
+      "from": 0,
+      "to": 1,
+      "direct": true,
+      "choice": "Install and open MoolSocial",
+      "score": 99,
+      "top": [
+        "Install and open MoolSocial"
+      ]
+    },
+    {
+      "flow": "onboarding",
+      "from": 1,
+      "to": 2,
+      "direct": false,
+      "choice": "BR Back to Screenbook",
+      "score": -14,
+      "top": [
+        {
+          "label": "BR Back to Screenbook",
+          "score": -14,
+          "reasons": [
+            "screenbook"
+          ],
+          "cls": "screen-link-home"
+        }
+      ]
+    },
+    {
+      "flow": "onboarding",
+      "from": 2,
+      "to": 3,
+      "direct": false,
+      "choice": "Skip now Continue to login and set area after signup",
+      "score": 11,
+      "top": [
+        {
+          "label": "Skip now Continue to login and set area after signup",
+          "score": 11,
+          "reasons": [
+            "login"
+          ],
+          "cls": "location-choice"
+        },
+        {
+          "label": "Use current location Best when you are at the place now",
+          "score": 0,
+          "reasons": [],
+          "cls": "location-choice"
+        },
+        {
+          "label": "Set manually Search area, pin code, address or choose on map",
+          "score": 0,
+          "reasons": [],
+          "cls": "location-choice"
+        },
+        {
+          "label": "BR Back to Screenbook",
+          "score": -14,
+          "reasons": [
+            "screenbook"
+          ],
+          "cls": "screen-link-home"
+        }
+      ]
+    },
+    {
+      "flow": "onboarding",
+      "from": 3,
+      "to": 4,
+      "direct": false,
+      "choice": "Verify",
+      "score": 8,
+      "top": [
+        {
+          "label": "Verify",
+          "score": 8,
+          "reasons": [],
+          "cls": "primary-button"
+        },
+        {
+          "label": "Continue with Google",
+          "score": 6,
+          "reasons": [],
+          "cls": "provider provider-google"
+        },
+        {
+          "label": "Continue with Apple",
+          "score": 6,
+          "reasons": [],
+          "cls": "provider provider-apple"
+        },
+        {
+          "label": "Continue with X",
+          "score": 6,
+          "reasons": [],
+          "cls": "provider provider-x"
+        },
+        {
+          "label": "Continue with Instagram",
+          "score": 6,
+          "reasons": [],
+          "cls": "provider provider-instagram"
+        }
+      ]
+    },
+    {
+      "flow": "social",
+      "from": 4,
+      "to": 5,
+      "direct": false,
+      "choice": "Open social",
+      "score": 11,
+      "top": [
+        {
+          "label": "Open social",
+          "score": 11,
+          "reasons": [
+            "social"
+          ],
+          "cls": "root-action-button active "
+        },
+        {
+          "label": "Open social",
+          "score": 11,
+          "reasons": [
+            "social"
+          ],
+          "cls": "root-action-button active "
+        },
+        {
+          "label": "Open social",
+          "score": 11,
+          "reasons": [
+            "social"
+          ],
+          "cls": "root-action-button active "
+        },
+        {
+          "label": "Open Mool actions",
+          "score": 6,
+          "reasons": [],
+          "cls": "mool-trigger"
+        },
+        {
+          "label": "Open product buying",
+          "score": 6,
+          "reasons": [],
+          "cls": "root-action-button  near-active"
+        }
+      ]
+    },
+    {
+      "flow": "social",
+      "from": 5,
+      "to": 6,
+      "direct": true,
+      "choice": "Open Videos",
+      "score": 99,
+      "top": [
+        "Open Videos"
+      ]
+    },
+    {
+      "flow": "social",
+      "from": 6,
+      "to": 7,
+      "direct": true,
+      "choice": "Open Feed",
+      "score": 99,
+      "top": [
+        "Open Feed"
+      ]
+    },
+    {
+      "flow": "social",
+      "from": 7,
+      "to": 8,
+      "direct": true,
+      "choice": "Open Create",
+      "score": 99,
+      "top": [
+        "Open Create"
+      ]
+    },
+    {
+      "flow": "buy-counter",
+      "from": 4,
+      "to": 9,
+      "direct": false,
+      "choice": "Open product buying",
+      "score": 11,
+      "top": [
+        {
+          "label": "Open product buying",
+          "score": 11,
+          "reasons": [
+            "buy"
+          ],
+          "cls": "root-action-button  near-active"
+        },
+        {
+          "label": "Open product buying",
+          "score": 11,
+          "reasons": [
+            "buy"
+          ],
+          "cls": "root-action-button  near-active"
+        },
+        {
+          "label": "Open product buying",
+          "score": 11,
+          "reasons": [
+            "buy"
+          ],
+          "cls": "root-action-button  near-active"
+        },
+        {
+          "label": "Open Mool actions",
+          "score": 6,
+          "reasons": [],
+          "cls": "mool-trigger"
+        },
+        {
+          "label": "Open social",
+          "score": 6,
+          "reasons": [],
+          "cls": "root-action-button active "
+        }
+      ]
+    },
+    {
+      "flow": "buy-counter",
+      "from": 9,
+      "to": 10,
+      "direct": false,
+      "choice": "Buy Here",
+      "score": 13,
+      "top": [
+        {
+          "label": "Buy Here",
+          "score": 13,
+          "reasons": [
+            "buy"
+          ],
+          "cls": "shop-action primary active"
+        },
+        {
+          "label": "Open shop buying",
+          "score": 11,
+          "reasons": [
+            "buy"
+          ],
+          "cls": "dock-tab active"
+        },
+        {
+          "label": "Open Mool",
+          "score": 7,
+          "reasons": [],
+          "cls": "mool-button"
+        },
+        {
+          "label": "View cart 4 items · Rs 256",
+          "score": 6,
+          "reasons": [],
+          "cls": "cart-float"
+        },
+        {
+          "label": "Open basket",
+          "score": 6,
+          "reasons": [],
+          "cls": "dock-tab"
+        }
+      ]
+    },
+    {
+      "flow": "buy-counter",
+      "from": 10,
+      "to": 11,
+      "direct": false,
+      "choice": "Counter Pickup pay and collect",
+      "score": 11,
+      "top": [
+        {
+          "label": "Counter Pickup pay and collect",
+          "score": 11,
+          "reasons": [
+            "counter"
+          ],
+          "cls": "setting-toggle"
+        },
+        {
+          "label": "Open Mool",
+          "score": 7,
+          "reasons": [],
+          "cls": "mool-button"
+        },
+        {
+          "label": "Open grocery",
+          "score": 7,
+          "reasons": [],
+          "cls": "dock-tab active"
+        },
+        {
+          "label": "Open medicines",
+          "score": 7,
+          "reasons": [],
+          "cls": "dock-tab"
+        },
+        {
+          "label": "Open basket",
+          "score": 7,
+          "reasons": [],
+          "cls": "dock-tab"
+        }
+      ]
+    },
+    {
+      "flow": "buy-counter",
+      "from": 11,
+      "to": 12,
+      "direct": false,
+      "choice": "Open basket",
+      "score": 12,
+      "top": [
+        {
+          "label": "Open basket",
+          "score": 12,
+          "reasons": [
+            "basket"
+          ],
+          "cls": "dock-tab"
+        },
+        {
+          "label": "Open basket",
+          "score": 11,
+          "reasons": [
+            "basket"
+          ],
+          "cls": "circle-btn"
+        },
+        {
+          "label": "Pickup 8 min pay in app, collect from counter",
+          "score": 11,
+          "reasons": [
+            "counter"
+          ],
+          "cls": "fulfil-btn active"
+        },
+        {
+          "label": "Counter Pickup pay and collect",
+          "score": 11,
+          "reasons": [
+            "counter"
+          ],
+          "cls": "setting-toggle"
+        },
+        {
+          "label": "Open Mool",
+          "score": 7,
+          "reasons": [],
+          "cls": "mool-button"
+        }
+      ]
+    },
+    {
+      "flow": "buy-counter",
+      "from": 12,
+      "to": 13,
+      "direct": false,
+      "choice": "Confirm Stock First",
+      "score": 11,
+      "top": [
+        {
+          "label": "Confirm Stock First",
+          "score": 11,
+          "reasons": [
+            "stock"
+          ],
+          "cls": "checkout-btn"
+        },
+        {
+          "label": "Open Mool",
+          "score": 7,
+          "reasons": [],
+          "cls": "mool-button"
+        },
+        {
+          "label": "Open shop",
+          "score": 7,
+          "reasons": [],
+          "cls": "dock-tab"
+        },
+        {
+          "label": "Open basket",
+          "score": 7,
+          "reasons": [],
+          "cls": "dock-tab active"
+        },
+        {
+          "label": "Open offers",
+          "score": 7,
+          "reasons": [],
+          "cls": "dock-tab"
+        }
+      ]
+    },
+    {
+      "flow": "buy-counter",
+      "from": 13,
+      "to": 14,
+      "direct": false,
+      "choice": "Confirm All unlock customer payment",
+      "score": 24,
+      "top": [
+        {
+          "label": "Confirm All unlock customer payment",
+          "score": 24,
+          "reasons": [
+            "customer",
+            "payment"
+          ],
+          "cls": "action-btn primary"
+        },
+        {
+          "label": "Open orders",
+          "score": 12,
+          "reasons": [
+            "order"
+          ],
+          "cls": "dock-tab active"
+        },
+        {
+          "label": "Open Mool",
+          "score": 7,
+          "reasons": [],
+          "cls": "mool-button"
+        },
+        {
+          "label": "Open stock",
+          "score": 7,
+          "reasons": [],
+          "cls": "dock-tab"
+        },
+        {
+          "label": "Open payouts",
+          "score": 7,
+          "reasons": [],
+          "cls": "dock-tab"
+        }
+      ]
+    },
+    {
+      "flow": "buy-counter",
+      "from": 14,
+      "to": 15,
+      "direct": false,
+      "choice": "Open receipt",
+      "score": 11,
+      "top": [
+        {
+          "label": "Open receipt",
+          "score": 11,
+          "reasons": [
+            "receipt"
+          ],
+          "cls": "circle-btn"
+        },
+        {
+          "label": "Counter QR pay at shop QR after app lock",
+          "score": 11,
+          "reasons": [
+            "counter"
+          ],
+          "cls": "method-btn"
+        },
+        {
+          "label": "Open Mool",
+          "score": 7,
+          "reasons": [],
+          "cls": "mool-button"
+        },
+        {
+          "label": "Open shop",
+          "score": 7,
+          "reasons": [],
+          "cls": "dock-tab"
+        },
+        {
+          "label": "Open basket",
+          "score": 7,
+          "reasons": [],
+          "cls": "dock-tab"
+        }
+      ]
+    },
+    {
+      "flow": "buy-counter",
+      "from": 15,
+      "to": 16,
+      "direct": false,
+      "choice": "Open orders",
+      "score": 12,
+      "top": [
+        {
+          "label": "Open orders",
+          "score": 12,
+          "reasons": [
+            "order"
+          ],
+          "cls": "dock-tab"
+        },
+        {
+          "label": "Show",
+          "score": 8,
+          "reasons": [],
+          "cls": "action-btn primary"
+        },
+        {
+          "label": "Open Mool",
+          "score": 7,
+          "reasons": [],
+          "cls": "mool-button"
+        },
+        {
+          "label": "Open shop",
+          "score": 7,
+          "reasons": [],
+          "cls": "dock-tab"
+        },
+        {
+          "label": "Open basket",
+          "score": 7,
+          "reasons": [],
+          "cls": "dock-tab"
+        }
+      ]
+    },
+    {
+      "flow": "buy-delivery",
+      "from": 4,
+      "to": 9,
+      "direct": false,
+      "choice": "Open product buying",
+      "score": 11,
+      "top": [
+        {
+          "label": "Open product buying",
+          "score": 11,
+          "reasons": [
+            "buy"
+          ],
+          "cls": "root-action-button  near-active"
+        },
+        {
+          "label": "Open product buying",
+          "score": 11,
+          "reasons": [
+            "buy"
+          ],
+          "cls": "root-action-button  near-active"
+        },
+        {
+          "label": "Open product buying",
+          "score": 11,
+          "reasons": [
+            "buy"
+          ],
+          "cls": "root-action-button  near-active"
+        },
+        {
+          "label": "Open Mool actions",
+          "score": 6,
+          "reasons": [],
+          "cls": "mool-trigger"
+        },
+        {
+          "label": "Open social",
+          "score": 6,
+          "reasons": [],
+          "cls": "root-action-button active "
+        }
+      ]
+    },
+    {
+      "flow": "buy-delivery",
+      "from": 9,
+      "to": 10,
+      "direct": false,
+      "choice": "Buy Here",
+      "score": 13,
+      "top": [
+        {
+          "label": "Buy Here",
+          "score": 13,
+          "reasons": [
+            "buy"
+          ],
+          "cls": "shop-action primary active"
+        },
+        {
+          "label": "Open shop buying",
+          "score": 11,
+          "reasons": [
+            "buy"
+          ],
+          "cls": "dock-tab active"
+        },
+        {
+          "label": "Open Mool",
+          "score": 7,
+          "reasons": [],
+          "cls": "mool-button"
+        },
+        {
+          "label": "View cart 4 items · Rs 256",
+          "score": 6,
+          "reasons": [],
+          "cls": "cart-float"
+        },
+        {
+          "label": "Open basket",
+          "score": 6,
+          "reasons": [],
+          "cls": "dock-tab"
+        }
+      ]
+    },
+    {
+      "flow": "buy-delivery",
+      "from": 10,
+      "to": 11,
+      "direct": false,
+      "choice": "Open Mool",
+      "score": 7,
+      "top": [
+        {
+          "label": "Open Mool",
+          "score": 7,
+          "reasons": [],
+          "cls": "mool-button"
+        },
+        {
+          "label": "Open grocery",
+          "score": 7,
+          "reasons": [],
+          "cls": "dock-tab active"
+        },
+        {
+          "label": "Open medicines",
+          "score": 7,
+          "reasons": [],
+          "cls": "dock-tab"
+        },
+        {
+          "label": "Open basket",
+          "score": 7,
+          "reasons": [],
+          "cls": "dock-tab"
+        },
+        {
+          "label": "Open chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "chat-button"
+        }
+      ]
+    },
+    {
+      "flow": "buy-delivery",
+      "from": 11,
+      "to": 12,
+      "direct": false,
+      "choice": "Open basket",
+      "score": 12,
+      "top": [
+        {
+          "label": "Open basket",
+          "score": 12,
+          "reasons": [
+            "basket"
+          ],
+          "cls": "dock-tab"
+        },
+        {
+          "label": "Open basket",
+          "score": 11,
+          "reasons": [
+            "basket"
+          ],
+          "cls": "circle-btn"
+        },
+        {
+          "label": "Open Mool",
+          "score": 7,
+          "reasons": [],
+          "cls": "mool-button"
+        },
+        {
+          "label": "Open shop",
+          "score": 7,
+          "reasons": [],
+          "cls": "dock-tab active"
+        },
+        {
+          "label": "Open medicines",
+          "score": 7,
+          "reasons": [],
+          "cls": "dock-tab"
+        }
+      ]
+    },
+    {
+      "flow": "buy-delivery",
+      "from": 12,
+      "to": 13,
+      "direct": false,
+      "choice": "Confirm Stock First",
+      "score": 11,
+      "top": [
+        {
+          "label": "Confirm Stock First",
+          "score": 11,
+          "reasons": [
+            "stock"
+          ],
+          "cls": "checkout-btn"
+        },
+        {
+          "label": "Open Mool",
+          "score": 7,
+          "reasons": [],
+          "cls": "mool-button"
+        },
+        {
+          "label": "Open shop",
+          "score": 7,
+          "reasons": [],
+          "cls": "dock-tab"
+        },
+        {
+          "label": "Open basket",
+          "score": 7,
+          "reasons": [],
+          "cls": "dock-tab active"
+        },
+        {
+          "label": "Open offers",
+          "score": 7,
+          "reasons": [],
+          "cls": "dock-tab"
+        }
+      ]
+    },
+    {
+      "flow": "buy-delivery",
+      "from": 13,
+      "to": 14,
+      "direct": false,
+      "choice": "Confirm All unlock customer payment",
+      "score": 24,
+      "top": [
+        {
+          "label": "Confirm All unlock customer payment",
+          "score": 24,
+          "reasons": [
+            "customer",
+            "payment"
+          ],
+          "cls": "action-btn primary"
+        },
+        {
+          "label": "Open orders",
+          "score": 12,
+          "reasons": [
+            "order"
+          ],
+          "cls": "dock-tab active"
+        },
+        {
+          "label": "Open Mool",
+          "score": 7,
+          "reasons": [],
+          "cls": "mool-button"
+        },
+        {
+          "label": "Open stock",
+          "score": 7,
+          "reasons": [],
+          "cls": "dock-tab"
+        },
+        {
+          "label": "Open payouts",
+          "score": 7,
+          "reasons": [],
+          "cls": "dock-tab"
+        }
+      ]
+    },
+    {
+      "flow": "buy-delivery",
+      "from": 14,
+      "to": 17,
+      "direct": false,
+      "choice": "Open Mool",
+      "score": 7,
+      "top": [
+        {
+          "label": "Open Mool",
+          "score": 7,
+          "reasons": [],
+          "cls": "mool-button"
+        },
+        {
+          "label": "Open shop",
+          "score": 7,
+          "reasons": [],
+          "cls": "dock-tab"
+        },
+        {
+          "label": "Open basket",
+          "score": 7,
+          "reasons": [],
+          "cls": "dock-tab"
+        },
+        {
+          "label": "Open payment",
+          "score": 7,
+          "reasons": [],
+          "cls": "dock-tab active"
+        },
+        {
+          "label": "Open orders",
+          "score": 7,
+          "reasons": [],
+          "cls": "dock-tab"
+        }
+      ]
+    },
+    {
+      "flow": "buy-delivery",
+      "from": 17,
+      "to": 18,
+      "direct": false,
+      "choice": "Open delivery",
+      "score": 12,
+      "top": [
+        {
+          "label": "Open delivery",
+          "score": 12,
+          "reasons": [
+            "delivery"
+          ],
+          "cls": "dock-tab active"
+        },
+        {
+          "label": "Refresh",
+          "score": 8,
+          "reasons": [],
+          "cls": "action-tile primary"
+        },
+        {
+          "label": "Refresh status",
+          "score": 8,
+          "reasons": [],
+          "cls": "primary-btn"
+        },
+        {
+          "label": "Open Mool",
+          "score": 7,
+          "reasons": [],
+          "cls": "mool-button"
+        },
+        {
+          "label": "Open shop",
+          "score": 7,
+          "reasons": [],
+          "cls": "dock-tab"
+        }
+      ]
+    },
+    {
+      "flow": "buy-issue",
+      "from": 18,
+      "to": 19,
+      "direct": false,
+      "choice": "Rate Order shop and delivery",
+      "score": 13,
+      "top": [
+        {
+          "label": "Rate Order shop and delivery",
+          "score": 13,
+          "reasons": [
+            "order"
+          ],
+          "cls": "next-action-card primary"
+        },
+        {
+          "label": "Open orders",
+          "score": 12,
+          "reasons": [
+            "order"
+          ],
+          "cls": "dock-tab"
+        },
+        {
+          "label": "Submit",
+          "score": 11,
+          "reasons": [
+            "submit"
+          ],
+          "cls": "submit-btn"
+        },
+        {
+          "label": "Repeat basket same shop, same items",
+          "score": 9,
+          "reasons": [],
+          "cls": "repeat-card primary"
+        },
+        {
+          "label": "Download bill",
+          "score": 8,
+          "reasons": [],
+          "cls": "bill-action-btn primary"
+        }
+      ]
+    },
+    {
+      "flow": "buy-issue",
+      "from": 19,
+      "to": 20,
+      "direct": false,
+      "choice": "Submit",
+      "score": 14,
+      "top": [
+        {
+          "label": "Submit",
+          "score": 14,
+          "reasons": [],
+          "cls": "primary-btn"
+        },
+        {
+          "label": "Open issue",
+          "score": 12,
+          "reasons": [
+            "issue"
+          ],
+          "cls": "dock-tab active"
+        },
+        {
+          "label": "Open chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "circle-btn"
+        },
+        {
+          "label": "Open Mool",
+          "score": 7,
+          "reasons": [],
+          "cls": "mool-button"
+        },
+        {
+          "label": "Open bill",
+          "score": 7,
+          "reasons": [],
+          "cls": "dock-tab"
+        }
+      ]
+    },
+    {
+      "flow": "buy-issue",
+      "from": 20,
+      "to": 21,
+      "direct": false,
+      "choice": "Refresh",
+      "score": 8,
+      "top": [
+        {
+          "label": "Refresh",
+          "score": 8,
+          "reasons": [],
+          "cls": "primary-btn"
+        },
+        {
+          "label": "Open chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "circle-btn"
+        },
+        {
+          "label": "Open Mool",
+          "score": 7,
+          "reasons": [],
+          "cls": "mool-button"
+        },
+        {
+          "label": "Open bill",
+          "score": 7,
+          "reasons": [],
+          "cls": "dock-tab"
+        },
+        {
+          "label": "Open evidence",
+          "score": 7,
+          "reasons": [],
+          "cls": "dock-tab"
+        }
+      ]
+    },
+    {
+      "flow": "buy-issue",
+      "from": 21,
+      "to": 22,
+      "direct": false,
+      "choice": "View bill final receipt",
+      "score": 15,
+      "top": [
+        {
+          "label": "View bill final receipt",
+          "score": 15,
+          "reasons": [],
+          "cls": "small-action primary"
+        },
+        {
+          "label": "Done",
+          "score": 14,
+          "reasons": [],
+          "cls": "primary-btn done"
+        },
+        {
+          "label": "Open chat",
+          "score": 12,
+          "reasons": [
+            "chat"
+          ],
+          "cls": "circle-btn"
+        },
+        {
+          "label": "Open chat",
+          "score": 12,
+          "reasons": [
+            "chat"
+          ],
+          "cls": "chat-button"
+        },
+        {
+          "label": "Chat case support",
+          "score": 11,
+          "reasons": [
+            "chat",
+            "support"
+          ],
+          "cls": "small-action"
+        }
+      ]
+    },
+    {
+      "flow": "chat",
+      "from": 23,
+      "to": 24,
+      "direct": false,
+      "choice": "New chat",
+      "score": 14,
+      "top": [
+        {
+          "label": "New chat",
+          "score": 14,
+          "reasons": [
+            "chat"
+          ],
+          "cls": "circle-btn primary"
+        },
+        {
+          "label": "Delivery chat live Rider can call, send photo proof or confirm doorstep issue. 2 unread Order linked",
+          "score": 12,
+          "reasons": [
+            "chat"
+          ],
+          "cls": "priority-card"
+        },
+        {
+          "label": "Open chat",
+          "score": 12,
+          "reasons": [
+            "chat"
+          ],
+          "cls": "chat-button"
+        },
+        {
+          "label": "Open Mool",
+          "score": 7,
+          "reasons": [],
+          "cls": "circle-btn"
+        },
+        {
+          "label": "Open Mool",
+          "score": 7,
+          "reasons": [],
+          "cls": "mool-button"
+        }
+      ]
+    },
+    {
+      "flow": "chat",
+      "from": 24,
+      "to": 25,
+      "direct": false,
+      "choice": "Confirm quote",
+      "score": 15,
+      "top": [
+        {
+          "label": "Confirm quote",
+          "score": 15,
+          "reasons": [],
+          "cls": "primary"
+        },
+        {
+          "label": "Pay after confirm",
+          "score": 7,
+          "reasons": [],
+          "cls": "context-chip"
+        },
+        {
+          "label": "Send photo",
+          "score": 7,
+          "reasons": [],
+          "cls": ""
+        },
+        {
+          "label": "Send PDF",
+          "score": 7,
+          "reasons": [],
+          "cls": ""
+        },
+        {
+          "label": "Send final bill",
+          "score": 7,
+          "reasons": [],
+          "cls": ""
+        }
+      ]
+    },
+    {
+      "flow": "eat-order",
+      "from": 26,
+      "to": 27,
+      "direct": false,
+      "choice": "Book Table seat confirmed",
+      "score": 12,
+      "top": [
+        {
+          "label": "Book Table seat confirmed",
+          "score": 12,
+          "reasons": [
+            "eat"
+          ],
+          "cls": "route-card"
+        },
+        {
+          "label": "SD Spice Darbar North Indian · 1.1 km Open Order · Table · Pickup · 10% reward",
+          "score": 11,
+          "reasons": [
+            "order"
+          ],
+          "cls": "restaurant-choice active"
+        },
+        {
+          "label": "Order Food delivery or pickup",
+          "score": 11,
+          "reasons": [
+            "order",
+            "food"
+          ],
+          "cls": "route-card active"
+        },
+        {
+          "label": "Open chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "icon-circle"
+        },
+        {
+          "label": "Open chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "chat-button"
+        }
+      ]
+    },
+    {
+      "flow": "eat-table",
+      "from": 26,
+      "to": 28,
+      "direct": false,
+      "choice": "Book Table seat confirmed",
+      "score": 22,
+      "top": [
+        {
+          "label": "Book Table seat confirmed",
+          "score": 22,
+          "reasons": [
+            "eat",
+            "book",
+            "table"
+          ],
+          "cls": "route-card"
+        },
+        {
+          "label": "SD Spice Darbar North Indian · 1.1 km Open Order · Table · Pickup · 10% reward",
+          "score": 11,
+          "reasons": [
+            "table"
+          ],
+          "cls": "restaurant-choice active"
+        },
+        {
+          "label": "BL Blue Lime Cafe Cafe · 700 m Seat Table · Pickup · Free dessert reward",
+          "score": 10,
+          "reasons": [
+            "eat",
+            "table"
+          ],
+          "cls": "restaurant-choice"
+        },
+        {
+          "label": "Open chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "icon-circle"
+        },
+        {
+          "label": "Open chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "chat-button"
+        }
+      ]
+    },
+    {
+      "flow": "eat-tiffin",
+      "from": 26,
+      "to": 29,
+      "direct": false,
+      "choice": "Book Table seat confirmed",
+      "score": 12,
+      "top": [
+        {
+          "label": "Book Table seat confirmed",
+          "score": 12,
+          "reasons": [
+            "eat"
+          ],
+          "cls": "route-card"
+        },
+        {
+          "label": "Tiffin trial or plan",
+          "score": 11,
+          "reasons": [
+            "tiffin",
+            "plan"
+          ],
+          "cls": "route-card"
+        },
+        {
+          "label": "MT Maa Tiffin Home kitchen · 2.0 km Plan Trial · Monthly plan · Pause allowed",
+          "score": 10,
+          "reasons": [
+            "tiffin",
+            "plan"
+          ],
+          "cls": "restaurant-choice"
+        },
+        {
+          "label": "Open chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "icon-circle"
+        },
+        {
+          "label": "Open chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "chat-button"
+        }
+      ]
+    },
+    {
+      "flow": "ride",
+      "from": 4,
+      "to": 30,
+      "direct": false,
+      "choice": "Open ride",
+      "score": 11,
+      "top": [
+        {
+          "label": "Open ride",
+          "score": 11,
+          "reasons": [
+            "ride"
+          ],
+          "cls": "root-action-button  "
+        },
+        {
+          "label": "Open booking",
+          "score": 11,
+          "reasons": [
+            "book"
+          ],
+          "cls": "root-action-button  "
+        },
+        {
+          "label": "Open ride",
+          "score": 11,
+          "reasons": [
+            "ride"
+          ],
+          "cls": "root-action-button  "
+        },
+        {
+          "label": "Open booking",
+          "score": 11,
+          "reasons": [
+            "book"
+          ],
+          "cls": "root-action-button  "
+        },
+        {
+          "label": "Open ride",
+          "score": 11,
+          "reasons": [
+            "ride"
+          ],
+          "cls": "root-action-button  "
+        }
+      ]
+    },
+    {
+      "flow": "ride",
+      "from": 30,
+      "to": 31,
+      "direct": false,
+      "choice": "Open chat",
+      "score": 7,
+      "top": [
+        {
+          "label": "Open chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "chat-button"
+        },
+        {
+          "label": "Bike from Rs 59 solo · quick city ride",
+          "score": 5,
+          "reasons": [
+            "ride"
+          ],
+          "cls": "ride-option"
+        },
+        {
+          "label": "Bike",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-tab"
+        },
+        {
+          "label": "Auto",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-tab"
+        },
+        {
+          "label": "Cab",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-tab"
+        }
+      ]
+    },
+    {
+      "flow": "ride",
+      "from": 31,
+      "to": 32,
+      "direct": false,
+      "choice": "Call",
+      "score": 9,
+      "top": [
+        {
+          "label": "Call",
+          "score": 9,
+          "reasons": [],
+          "cls": "compact-action primary"
+        },
+        {
+          "label": "Open chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "chat-button"
+        },
+        {
+          "label": "Open map",
+          "score": 6,
+          "reasons": [],
+          "cls": "search-action"
+        },
+        {
+          "label": "Trip",
+          "score": 6,
+          "reasons": [
+            "trip"
+          ],
+          "cls": "dock-tab active"
+        },
+        {
+          "label": "Map",
+          "score": 1,
+          "reasons": [],
+          "cls": "route-tag"
+        }
+      ]
+    },
+    {
+      "flow": "ride",
+      "from": 32,
+      "to": 33,
+      "direct": false,
+      "choice": "Call",
+      "score": 9,
+      "top": [
+        {
+          "label": "Call",
+          "score": 9,
+          "reasons": [],
+          "cls": "compact-action primary"
+        },
+        {
+          "label": "Open chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "chat-button"
+        },
+        {
+          "label": "Open map",
+          "score": 6,
+          "reasons": [],
+          "cls": "search-action"
+        },
+        {
+          "label": "Map",
+          "score": 1,
+          "reasons": [],
+          "cls": "route-tag"
+        },
+        {
+          "label": "Safety",
+          "score": 1,
+          "reasons": [],
+          "cls": "compact-action"
+        }
+      ]
+    },
+    {
+      "flow": "ride",
+      "from": 33,
+      "to": 34,
+      "direct": false,
+      "choice": "Receipt",
+      "score": 12,
+      "top": [
+        {
+          "label": "Receipt",
+          "score": 12,
+          "reasons": [
+            "receipt"
+          ],
+          "cls": "mini-control"
+        },
+        {
+          "label": "Receipt",
+          "score": 12,
+          "reasons": [
+            "receipt"
+          ],
+          "cls": "dock-tab"
+        },
+        {
+          "label": "Receipt",
+          "score": 11,
+          "reasons": [
+            "receipt"
+          ],
+          "cls": "search-action"
+        },
+        {
+          "label": "Approve Rs 112",
+          "score": 7,
+          "reasons": [],
+          "cls": "approve-cta"
+        },
+        {
+          "label": "Pay",
+          "score": 7,
+          "reasons": [],
+          "cls": "dock-tab active"
+        }
+      ]
+    },
+    {
+      "flow": "ride",
+      "from": 34,
+      "to": 35,
+      "direct": false,
+      "choice": "Submit rating",
+      "score": 7,
+      "top": [
+        {
+          "label": "Submit rating",
+          "score": 7,
+          "reasons": [],
+          "cls": "approve-cta"
+        },
+        {
+          "label": "Receipt",
+          "score": 7,
+          "reasons": [],
+          "cls": "dock-tab active"
+        },
+        {
+          "label": "Open chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "chat-button"
+        },
+        {
+          "label": "Download receipt",
+          "score": 6,
+          "reasons": [],
+          "cls": "search-action"
+        },
+        {
+          "label": "Share receipt",
+          "score": 6,
+          "reasons": [],
+          "cls": "search-action"
+        }
+      ]
+    },
+    {
+      "flow": "doctor-booking",
+      "from": 36,
+      "to": 37,
+      "direct": false,
+      "choice": "Doctor slot + fee clinic, video, OPD",
+      "score": 10,
+      "top": [
+        {
+          "label": "Doctor slot + fee clinic, video, OPD",
+          "score": 10,
+          "reasons": [
+            "doctor",
+            "slot"
+          ],
+          "cls": "ride-option"
+        },
+        {
+          "label": "Get Done",
+          "score": 7,
+          "reasons": [],
+          "cls": "dock-tab"
+        },
+        {
+          "label": "Open chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "chat-button"
+        },
+        {
+          "label": "Get It Done from Rs 99 remote/local task",
+          "score": 6,
+          "reasons": [],
+          "cls": "ride-option"
+        },
+        {
+          "label": "Doctor",
+          "score": 6,
+          "reasons": [
+            "doctor"
+          ],
+          "cls": "dock-tab"
+        }
+      ]
+    },
+    {
+      "flow": "doctor-booking",
+      "from": 37,
+      "to": 38,
+      "direct": true,
+      "choice": "Book doctor",
+      "score": 99,
+      "top": [
+        "Book doctor"
+      ]
+    },
+    {
+      "flow": "doctor-invite",
+      "from": 39,
+      "to": 40,
+      "direct": false,
+      "choice": "Show patient QR",
+      "score": 14,
+      "top": [
+        {
+          "label": "Show patient QR",
+          "score": 14,
+          "reasons": [
+            "patient"
+          ],
+          "cls": "primary-cta"
+        },
+        {
+          "label": "Ask patient to allow follow-up Patient signs in and approves clinic link before sharing data.",
+          "score": 10,
+          "reasons": [
+            "patient",
+            "clinic"
+          ],
+          "cls": "consent-toggle active"
+        },
+        {
+          "label": "Open chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "chat-button"
+        },
+        {
+          "label": "Send voice instruction",
+          "score": 6,
+          "reasons": [],
+          "cls": "search-action"
+        },
+        {
+          "label": "Send link SMS/WhatsApp",
+          "score": 6,
+          "reasons": [],
+          "cls": "patient-option"
+        }
+      ]
+    },
+    {
+      "flow": "doctor-invite",
+      "from": 40,
+      "to": 41,
+      "direct": false,
+      "choice": "Open invite",
+      "score": 11,
+      "top": [
+        {
+          "label": "Open invite",
+          "score": 11,
+          "reasons": [
+            "invite"
+          ],
+          "cls": "search-action"
+        },
+        {
+          "label": "Join visit doctor link",
+          "score": 11,
+          "reasons": [
+            "doctor"
+          ],
+          "cls": "patient-option active"
+        },
+        {
+          "label": "Book follow-up slot/video",
+          "score": 11,
+          "reasons": [
+            "follow"
+          ],
+          "cls": "patient-option"
+        },
+        {
+          "label": "Sign in & link visit",
+          "score": 9,
+          "reasons": [],
+          "cls": "primary-cta"
+        },
+        {
+          "label": "Join",
+          "score": 7,
+          "reasons": [],
+          "cls": "dock-tab active"
+        }
+      ]
+    },
+    {
+      "flow": "salon",
+      "from": 36,
+      "to": 42,
+      "direct": false,
+      "choice": "Salon slot ready salon visit or home",
+      "score": 10,
+      "top": [
+        {
+          "label": "Salon slot ready salon visit or home",
+          "score": 10,
+          "reasons": [
+            "salon",
+            "slot"
+          ],
+          "cls": "ride-option"
+        },
+        {
+          "label": "Get Done",
+          "score": 7,
+          "reasons": [],
+          "cls": "dock-tab"
+        },
+        {
+          "label": "Open chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "chat-button"
+        },
+        {
+          "label": "Get It Done from Rs 99 remote/local task",
+          "score": 6,
+          "reasons": [],
+          "cls": "ride-option"
+        },
+        {
+          "label": "Services",
+          "score": 6,
+          "reasons": [
+            "service"
+          ],
+          "cls": "dock-tab"
+        }
+      ]
+    },
+    {
+      "flow": "salon",
+      "from": 42,
+      "to": 43,
+      "direct": true,
+      "choice": "Book salon slot",
+      "score": 99,
+      "top": [
+        "Book salon slot"
+      ]
+    },
+    {
+      "flow": "salon",
+      "from": 43,
+      "to": 44,
+      "direct": true,
+      "choice": "Confirm slot",
+      "score": 99,
+      "top": [
+        "Confirm slot"
+      ]
+    },
+    {
+      "flow": "salon",
+      "from": 44,
+      "to": 45,
+      "direct": false,
+      "choice": "Pay via MoolSocial",
+      "score": 15,
+      "top": [
+        {
+          "label": "Pay via MoolSocial",
+          "score": 15,
+          "reasons": [],
+          "cls": "primary-cta"
+        },
+        {
+          "label": "Open booking chat",
+          "score": 15,
+          "reasons": [],
+          "cls": "primary-cta"
+        },
+        {
+          "label": "D Directions Royal Touch Salon · 800 m from current area Open map, call or share route from chat. 800 m nearby",
+          "score": 12,
+          "reasons": [
+            "salon"
+          ],
+          "cls": "doctor-option active"
+        },
+        {
+          "label": "Open directions",
+          "score": 7,
+          "reasons": [],
+          "cls": "search-action"
+        },
+        {
+          "label": "Pay",
+          "score": 7,
+          "reasons": [],
+          "cls": "dock-tab"
+        }
+      ]
+    },
+    {
+      "flow": "salon",
+      "from": 45,
+      "to": 46,
+      "direct": true,
+      "choice": "Service done",
+      "score": 99,
+      "top": [
+        "Service done"
+      ]
+    },
+    {
+      "flow": "salon",
+      "from": 46,
+      "to": 47,
+      "direct": true,
+      "choice": "Salon support",
+      "score": 99,
+      "top": [
+        "Salon support",
+        "Need help?",
+        "Support"
+      ]
+    },
+    {
+      "flow": "get-it-done",
+      "from": 36,
+      "to": 48,
+      "direct": false,
+      "choice": "Get It Done from Rs 99 remote/local task",
+      "score": 21,
+      "top": [
+        {
+          "label": "Get It Done from Rs 99 remote/local task",
+          "score": 21,
+          "reasons": [
+            "get",
+            "done",
+            "task"
+          ],
+          "cls": "ride-option"
+        },
+        {
+          "label": "Get Done",
+          "score": 17,
+          "reasons": [
+            "get",
+            "done"
+          ],
+          "cls": "dock-tab"
+        },
+        {
+          "label": "Open chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "chat-button"
+        },
+        {
+          "label": "Services",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-tab"
+        },
+        {
+          "label": "Doctor",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-tab"
+        }
+      ]
+    },
+    {
+      "flow": "get-it-done",
+      "from": 48,
+      "to": 49,
+      "direct": true,
+      "choice": "Review task",
+      "score": 99,
+      "top": [
+        "Review task"
+      ]
+    },
+    {
+      "flow": "get-it-done",
+      "from": 49,
+      "to": 50,
+      "direct": true,
+      "choice": "Confirm task",
+      "score": 99,
+      "top": [
+        "Confirm task"
+      ]
+    },
+    {
+      "flow": "get-it-done",
+      "from": 50,
+      "to": 51,
+      "direct": true,
+      "choice": "Proof",
+      "score": 99,
+      "top": [
+        "Proof",
+        "Proof"
+      ]
+    },
+    {
+      "flow": "get-it-done",
+      "from": 51,
+      "to": 52,
+      "direct": true,
+      "choice": "Release Rs 519 task done, proof accepted Release",
+      "score": 99,
+      "top": [
+        "Release Rs 519 task done, proof accepted Release",
+        "Release payment",
+        "Release"
+      ]
+    },
+    {
+      "flow": "get-it-done",
+      "from": 52,
+      "to": 53,
+      "direct": true,
+      "choice": "Support post-task issue",
+      "score": 99,
+      "top": [
+        "Support post-task issue",
+        "Help"
+      ]
+    },
+    {
+      "flow": "get-it-done",
+      "from": 53,
+      "to": 54,
+      "direct": true,
+      "choice": "Submit issue support reviews before any release Send",
+      "score": 99,
+      "top": [
+        "Submit issue support reviews before any release Send",
+        "Submit issue"
+      ]
+    },
+    {
+      "flow": "get-it-done",
+      "from": 54,
+      "to": 55,
+      "direct": false,
+      "choice": "Open support case",
+      "score": 15,
+      "top": [
+        {
+          "label": "Open support case",
+          "score": 15,
+          "reasons": [],
+          "cls": "primary-cta"
+        },
+        {
+          "label": "Done",
+          "score": 12,
+          "reasons": [
+            "done"
+          ],
+          "cls": "dock-tab"
+        },
+        {
+          "label": "Case ETA Expected review in 5-15 minutes. 5-15 min",
+          "score": 9,
+          "reasons": [],
+          "cls": "resolution-line primary"
+        },
+        {
+          "label": "Open task chat chat with support while waiting Chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "resolution-line"
+        },
+        {
+          "label": "Open chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "chat-button"
+        }
+      ]
+    },
+    {
+      "flow": "get-it-done",
+      "from": 55,
+      "to": 56,
+      "direct": true,
+      "choice": "Accept refund returns to original payment method Refund",
+      "score": 99,
+      "top": [
+        "Accept refund returns to original payment method Refund",
+        "Accept refund"
+      ]
+    },
+    {
+      "flow": "pay-recharge",
+      "from": 57,
+      "to": 58,
+      "direct": true,
+      "choice": "Recharge mobile",
+      "score": 99,
+      "top": [
+        "Recharge mobile"
+      ]
+    },
+    {
+      "flow": "pay-recharge",
+      "from": 58,
+      "to": 63,
+      "direct": false,
+      "choice": "Continue Rs 299",
+      "score": 15,
+      "top": [
+        {
+          "label": "Continue Rs 299",
+          "score": 15,
+          "reasons": [],
+          "cls": "primary-cta"
+        },
+        {
+          "label": "Receipt",
+          "score": 11,
+          "reasons": [
+            "receipt"
+          ],
+          "cls": "time-chip"
+        },
+        {
+          "label": "Open chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "chat-button"
+        },
+        {
+          "label": "Receipts",
+          "score": 6,
+          "reasons": [
+            "receipt"
+          ],
+          "cls": "secondary-cta"
+        },
+        {
+          "label": "Mobile",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-tab active"
+        }
+      ]
+    },
+    {
+      "flow": "pay-recharge",
+      "from": 63,
+      "to": 64,
+      "direct": false,
+      "choice": "Download receipt",
+      "score": 20,
+      "top": [
+        {
+          "label": "Download receipt",
+          "score": 20,
+          "reasons": [
+            "receipt"
+          ],
+          "cls": "primary-cta"
+        },
+        {
+          "label": "Receipt",
+          "score": 12,
+          "reasons": [
+            "receipt"
+          ],
+          "cls": "dock-tab active"
+        },
+        {
+          "label": "Share receipt",
+          "score": 11,
+          "reasons": [
+            "receipt"
+          ],
+          "cls": "circle-btn"
+        },
+        {
+          "label": "Receipt PDF ready tax details · share or download",
+          "score": 11,
+          "reasons": [
+            "receipt"
+          ],
+          "cls": "package-option"
+        },
+        {
+          "label": "Open chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "chat-button"
+        }
+      ]
+    },
+    {
+      "flow": "pay-bills",
+      "from": 57,
+      "to": 59,
+      "direct": false,
+      "choice": "Bills",
+      "score": 11,
+      "top": [
+        {
+          "label": "Bills",
+          "score": 11,
+          "reasons": [
+            "bills",
+            "bill"
+          ],
+          "cls": "dock-tab"
+        },
+        {
+          "label": "Recharge mobile",
+          "score": 9,
+          "reasons": [],
+          "cls": "primary-cta"
+        },
+        {
+          "label": "Open chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "chat-button"
+        },
+        {
+          "label": "Receipt",
+          "score": 6,
+          "reasons": [],
+          "cls": "time-chip"
+        },
+        {
+          "label": "Data pack pack based instant · plan confirm",
+          "score": 6,
+          "reasons": [],
+          "cls": "package-option"
+        }
+      ]
+    },
+    {
+      "flow": "pay-bills",
+      "from": 59,
+      "to": 63,
+      "direct": false,
+      "choice": "Pay Rs 1,240",
+      "score": 20,
+      "top": [
+        {
+          "label": "Pay Rs 1,240",
+          "score": 20,
+          "reasons": [
+            "pay"
+          ],
+          "cls": "primary-cta"
+        },
+        {
+          "label": "Receipt",
+          "score": 11,
+          "reasons": [
+            "receipt"
+          ],
+          "cls": "time-chip"
+        },
+        {
+          "label": "Open chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "chat-button"
+        },
+        {
+          "label": "Receipts",
+          "score": 6,
+          "reasons": [
+            "receipt"
+          ],
+          "cls": "secondary-cta"
+        },
+        {
+          "label": "Autopay",
+          "score": 5,
+          "reasons": [
+            "pay"
+          ],
+          "cls": "time-chip"
+        }
+      ]
+    },
+    {
+      "flow": "pay-bills",
+      "from": 63,
+      "to": 64,
+      "direct": false,
+      "choice": "Download receipt",
+      "score": 20,
+      "top": [
+        {
+          "label": "Download receipt",
+          "score": 20,
+          "reasons": [
+            "receipt"
+          ],
+          "cls": "primary-cta"
+        },
+        {
+          "label": "Receipt",
+          "score": 12,
+          "reasons": [
+            "receipt"
+          ],
+          "cls": "dock-tab active"
+        },
+        {
+          "label": "Share receipt",
+          "score": 11,
+          "reasons": [
+            "receipt"
+          ],
+          "cls": "circle-btn"
+        },
+        {
+          "label": "Receipt PDF ready tax details · share or download",
+          "score": 11,
+          "reasons": [
+            "receipt"
+          ],
+          "cls": "package-option"
+        },
+        {
+          "label": "Open chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "chat-button"
+        }
+      ]
+    },
+    {
+      "flow": "pay-scan",
+      "from": 57,
+      "to": 60,
+      "direct": false,
+      "choice": "Data pack pack based instant · plan confirm",
+      "score": 11,
+      "top": [
+        {
+          "label": "Data pack pack based instant · plan confirm",
+          "score": 11,
+          "reasons": [
+            "confirm"
+          ],
+          "cls": "package-option"
+        },
+        {
+          "label": "Recharge mobile",
+          "score": 9,
+          "reasons": [],
+          "cls": "primary-cta"
+        },
+        {
+          "label": "Open chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "chat-button"
+        },
+        {
+          "label": "Receipt",
+          "score": 6,
+          "reasons": [],
+          "cls": "time-chip"
+        },
+        {
+          "label": "Scan",
+          "score": 6,
+          "reasons": [
+            "scan"
+          ],
+          "cls": "dock-tab"
+        }
+      ]
+    },
+    {
+      "flow": "pay-scan",
+      "from": 60,
+      "to": 63,
+      "direct": false,
+      "choice": "Scan shop QR",
+      "score": 14,
+      "top": [
+        {
+          "label": "Scan shop QR",
+          "score": 14,
+          "reasons": [
+            "scan"
+          ],
+          "cls": "primary-cta"
+        },
+        {
+          "label": "Receipt",
+          "score": 11,
+          "reasons": [
+            "receipt"
+          ],
+          "cls": "time-chip"
+        },
+        {
+          "label": "Counter payment Enter amount instant · merchant QR verified",
+          "score": 10,
+          "reasons": [
+            "pay",
+            "payment"
+          ],
+          "cls": "package-option active"
+        },
+        {
+          "label": "Open chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "chat-button"
+        },
+        {
+          "label": "Receipts",
+          "score": 6,
+          "reasons": [
+            "receipt"
+          ],
+          "cls": "secondary-cta"
+        }
+      ]
+    },
+    {
+      "flow": "pay-scan",
+      "from": 63,
+      "to": 64,
+      "direct": false,
+      "choice": "Download receipt",
+      "score": 20,
+      "top": [
+        {
+          "label": "Download receipt",
+          "score": 20,
+          "reasons": [
+            "receipt"
+          ],
+          "cls": "primary-cta"
+        },
+        {
+          "label": "Receipt",
+          "score": 12,
+          "reasons": [
+            "receipt"
+          ],
+          "cls": "dock-tab active"
+        },
+        {
+          "label": "Share receipt",
+          "score": 11,
+          "reasons": [
+            "receipt"
+          ],
+          "cls": "circle-btn"
+        },
+        {
+          "label": "Receipt PDF ready tax details · share or download",
+          "score": 11,
+          "reasons": [
+            "receipt"
+          ],
+          "cls": "package-option"
+        },
+        {
+          "label": "Open chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "chat-button"
+        }
+      ]
+    },
+    {
+      "flow": "pay-request",
+      "from": 57,
+      "to": 61,
+      "direct": false,
+      "choice": "Requests",
+      "score": 11,
+      "top": [
+        {
+          "label": "Requests",
+          "score": 11,
+          "reasons": [
+            "requests",
+            "request"
+          ],
+          "cls": "dock-tab"
+        },
+        {
+          "label": "Recharge mobile",
+          "score": 9,
+          "reasons": [],
+          "cls": "primary-cta"
+        },
+        {
+          "label": "Open chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "chat-button"
+        },
+        {
+          "label": "Receipt",
+          "score": 6,
+          "reasons": [],
+          "cls": "time-chip"
+        },
+        {
+          "label": "Data pack pack based instant · plan confirm",
+          "score": 6,
+          "reasons": [],
+          "cls": "package-option"
+        }
+      ]
+    },
+    {
+      "flow": "pay-request",
+      "from": 61,
+      "to": 62,
+      "direct": true,
+      "choice": "Review to pay",
+      "score": 99,
+      "top": [
+        "Review to pay"
+      ]
+    },
+    {
+      "flow": "pay-request",
+      "from": 62,
+      "to": 63,
+      "direct": true,
+      "choice": "Pay Rs 645",
+      "score": 99,
+      "top": [
+        "Pay Rs 645"
+      ]
+    },
+    {
+      "flow": "pay-request",
+      "from": 63,
+      "to": 64,
+      "direct": false,
+      "choice": "Download receipt",
+      "score": 20,
+      "top": [
+        {
+          "label": "Download receipt",
+          "score": 20,
+          "reasons": [
+            "receipt"
+          ],
+          "cls": "primary-cta"
+        },
+        {
+          "label": "Receipt",
+          "score": 12,
+          "reasons": [
+            "receipt"
+          ],
+          "cls": "dock-tab active"
+        },
+        {
+          "label": "Share receipt",
+          "score": 11,
+          "reasons": [
+            "receipt"
+          ],
+          "cls": "circle-btn"
+        },
+        {
+          "label": "Receipt PDF ready tax details · share or download",
+          "score": 11,
+          "reasons": [
+            "receipt"
+          ],
+          "cls": "package-option"
+        },
+        {
+          "label": "Open chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "chat-button"
+        }
+      ]
+    },
+    {
+      "flow": "pay-refund",
+      "from": 57,
+      "to": 61,
+      "direct": false,
+      "choice": "Requests",
+      "score": 11,
+      "top": [
+        {
+          "label": "Requests",
+          "score": 11,
+          "reasons": [
+            "requests",
+            "request"
+          ],
+          "cls": "dock-tab"
+        },
+        {
+          "label": "Recharge mobile",
+          "score": 9,
+          "reasons": [],
+          "cls": "primary-cta"
+        },
+        {
+          "label": "Open chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "chat-button"
+        },
+        {
+          "label": "Receipt",
+          "score": 6,
+          "reasons": [],
+          "cls": "time-chip"
+        },
+        {
+          "label": "Data pack pack based instant · plan confirm",
+          "score": 6,
+          "reasons": [],
+          "cls": "package-option"
+        }
+      ]
+    },
+    {
+      "flow": "pay-refund",
+      "from": 61,
+      "to": 62,
+      "direct": true,
+      "choice": "Review to pay",
+      "score": 99,
+      "top": [
+        "Review to pay"
+      ]
+    },
+    {
+      "flow": "pay-refund",
+      "from": 62,
+      "to": 63,
+      "direct": true,
+      "choice": "Pay Rs 645",
+      "score": 99,
+      "top": [
+        "Pay Rs 645"
+      ]
+    },
+    {
+      "flow": "pay-refund",
+      "from": 63,
+      "to": 65,
+      "direct": false,
+      "choice": "Download receipt",
+      "score": 15,
+      "top": [
+        {
+          "label": "Download receipt",
+          "score": 15,
+          "reasons": [],
+          "cls": "primary-cta"
+        },
+        {
+          "label": "Receipt",
+          "score": 7,
+          "reasons": [],
+          "cls": "dock-tab active"
+        },
+        {
+          "label": "Open chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "chat-button"
+        },
+        {
+          "label": "Share receipt",
+          "score": 6,
+          "reasons": [],
+          "cls": "circle-btn"
+        },
+        {
+          "label": "Receipt PDF ready tax details · share or download",
+          "score": 6,
+          "reasons": [],
+          "cls": "package-option"
+        }
+      ]
+    },
+    {
+      "flow": "pay-failure",
+      "from": 57,
+      "to": 61,
+      "direct": false,
+      "choice": "Requests",
+      "score": 11,
+      "top": [
+        {
+          "label": "Requests",
+          "score": 11,
+          "reasons": [
+            "requests",
+            "request"
+          ],
+          "cls": "dock-tab"
+        },
+        {
+          "label": "Recharge mobile",
+          "score": 9,
+          "reasons": [],
+          "cls": "primary-cta"
+        },
+        {
+          "label": "Open chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "chat-button"
+        },
+        {
+          "label": "Receipt",
+          "score": 6,
+          "reasons": [],
+          "cls": "time-chip"
+        },
+        {
+          "label": "Data pack pack based instant · plan confirm",
+          "score": 6,
+          "reasons": [],
+          "cls": "package-option"
+        }
+      ]
+    },
+    {
+      "flow": "pay-failure",
+      "from": 61,
+      "to": 62,
+      "direct": true,
+      "choice": "Review to pay",
+      "score": 99,
+      "top": [
+        "Review to pay"
+      ]
+    },
+    {
+      "flow": "pay-failure",
+      "from": 62,
+      "to": 66,
+      "direct": false,
+      "choice": "Pay Rs 645",
+      "score": 20,
+      "top": [
+        {
+          "label": "Pay Rs 645",
+          "score": 20,
+          "reasons": [
+            "pay"
+          ],
+          "cls": "primary-cta"
+        },
+        {
+          "label": "Payment safety",
+          "score": 15,
+          "reasons": [
+            "pay",
+            "safe",
+            "payment"
+          ],
+          "cls": "circle-btn"
+        },
+        {
+          "label": "Pay With",
+          "score": 12,
+          "reasons": [
+            "pay"
+          ],
+          "cls": "dock-tab"
+        },
+        {
+          "label": "Open chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "chat-button"
+        },
+        {
+          "label": "Total debit Rs 645 no hidden fee · receipt after success",
+          "score": 6,
+          "reasons": [],
+          "cls": "package-option"
+        }
+      ]
+    },
+    {
+      "flow": "earn-workspace",
+      "from": 4,
+      "to": 67,
+      "direct": false,
+      "choice": "Open work",
+      "score": 11,
+      "top": [
+        {
+          "label": "Open work",
+          "score": 11,
+          "reasons": [
+            "work"
+          ],
+          "cls": "root-action-button  near-active"
+        },
+        {
+          "label": "Open work",
+          "score": 11,
+          "reasons": [
+            "work"
+          ],
+          "cls": "root-action-button  near-active"
+        },
+        {
+          "label": "Open work",
+          "score": 11,
+          "reasons": [
+            "work"
+          ],
+          "cls": "root-action-button  near-active"
+        },
+        {
+          "label": "Open Mool actions",
+          "score": 6,
+          "reasons": [],
+          "cls": "mool-trigger"
+        },
+        {
+          "label": "Open social",
+          "score": 6,
+          "reasons": [],
+          "cls": "root-action-button active "
+        }
+      ]
+    },
+    {
+      "flow": "earn-workspace",
+      "from": 67,
+      "to": 68,
+      "direct": false,
+      "choice": "Open chat",
+      "score": 7,
+      "top": [
+        {
+          "label": "Open chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "chat-button"
+        },
+        {
+          "label": "MF PROMOTE · MAHADEV FRESH MART VERIFIED Bring completed grocery orders Jodhpur · 4 km 20 orders 01:55:16 ₹20 per delivered order ⌄",
+          "score": 6,
+          "reasons": [],
+          "cls": "opportunity-scan"
+        },
+        {
+          "label": "₹ Earn",
+          "score": 6,
+          "reasons": [
+            "earn"
+          ],
+          "cls": "dock-tab active"
+        },
+        {
+          "label": "My Work",
+          "score": 6,
+          "reasons": [
+            "work"
+          ],
+          "cls": "dock-tab"
+        },
+        {
+          "label": "Work location",
+          "score": 5,
+          "reasons": [
+            "work"
+          ],
+          "cls": "circle-btn"
+        }
+      ]
+    },
+    {
+      "flow": "earn-workspace",
+      "from": 68,
+      "to": 69,
+      "direct": false,
+      "choice": "Apply now Freelancer setup opens next",
+      "score": 11,
+      "top": [
+        {
+          "label": "Apply now Freelancer setup opens next",
+          "score": 11,
+          "reasons": [
+            "setup"
+          ],
+          "cls": "apply-dock-button"
+        },
+        {
+          "label": "Open chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "chat-button"
+        },
+        {
+          "label": "Save opportunity",
+          "score": 0,
+          "reasons": [],
+          "cls": "circle-btn"
+        },
+        {
+          "label": "Payment and payout +",
+          "score": 0,
+          "reasons": [],
+          "cls": "term-button"
+        },
+        {
+          "label": "What the publisher provides +",
+          "score": 0,
+          "reasons": [],
+          "cls": "term-button"
+        }
+      ]
+    },
+    {
+      "flow": "earn-workspace",
+      "from": 69,
+      "to": 70,
+      "direct": true,
+      "choice": "Start My Work",
+      "score": 99,
+      "top": [
+        "Start My Work"
+      ]
+    },
+    {
+      "flow": "earn-workspace",
+      "from": 70,
+      "to": 71,
+      "direct": false,
+      "choice": "Create & Work Creator, freelancer or Get It Done",
+      "score": 11,
+      "top": [
+        {
+          "label": "Create & Work Creator, freelancer or Get It Done",
+          "score": 11,
+          "reasons": [
+            "work"
+          ],
+          "cls": "choice-card"
+        },
+        {
+          "label": "Open chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "chat-button"
+        },
+        {
+          "label": "₹ Earn",
+          "score": 6,
+          "reasons": [
+            "earn"
+          ],
+          "cls": "dock-tab"
+        },
+        {
+          "label": "My Work",
+          "score": 6,
+          "reasons": [
+            "work"
+          ],
+          "cls": "dock-tab active"
+        },
+        {
+          "label": "Help choosing work",
+          "score": 5,
+          "reasons": [
+            "work"
+          ],
+          "cls": "head-button"
+        }
+      ]
+    },
+    {
+      "flow": "earn-workspace",
+      "from": 71,
+      "to": 72,
+      "direct": false,
+      "choice": "Continue to proof",
+      "score": 14,
+      "top": [
+        {
+          "label": "Continue to proof",
+          "score": 14,
+          "reasons": [],
+          "cls": "primary-action"
+        },
+        {
+          "label": "Open chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "chat-button"
+        },
+        {
+          "label": "₹ Earn",
+          "score": 6,
+          "reasons": [
+            "earn"
+          ],
+          "cls": "dock-tab"
+        },
+        {
+          "label": "My Work",
+          "score": 6,
+          "reasons": [
+            "work"
+          ],
+          "cls": "dock-tab active"
+        },
+        {
+          "label": "Verification help",
+          "score": 5,
+          "reasons": [
+            "verification"
+          ],
+          "cls": "icon-button"
+        }
+      ]
+    },
+    {
+      "flow": "earn-workspace",
+      "from": 72,
+      "to": 73,
+      "direct": false,
+      "choice": "Open My Work",
+      "score": 15,
+      "top": [
+        {
+          "label": "Open My Work",
+          "score": 15,
+          "reasons": [],
+          "cls": "primary-action"
+        },
+        {
+          "label": "Add GST",
+          "score": 8,
+          "reasons": [],
+          "cls": "primary-action"
+        },
+        {
+          "label": "Open review support chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "icon-button"
+        },
+        {
+          "label": "Open Chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "secondary-action"
+        },
+        {
+          "label": "Open chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "chat-button"
+        }
+      ]
+    },
+    {
+      "flow": "retailer-onboarding",
+      "from": 70,
+      "to": 71,
+      "direct": false,
+      "choice": "Create & Work Creator, freelancer or Get It Done",
+      "score": 11,
+      "top": [
+        {
+          "label": "Create & Work Creator, freelancer or Get It Done",
+          "score": 11,
+          "reasons": [
+            "work"
+          ],
+          "cls": "choice-card"
+        },
+        {
+          "label": "Open chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "chat-button"
+        },
+        {
+          "label": "My Work",
+          "score": 6,
+          "reasons": [
+            "work"
+          ],
+          "cls": "dock-tab active"
+        },
+        {
+          "label": "Help choosing work",
+          "score": 5,
+          "reasons": [
+            "work"
+          ],
+          "cls": "head-button"
+        },
+        {
+          "label": "All work",
+          "score": 5,
+          "reasons": [
+            "work"
+          ],
+          "cls": "crumb"
+        }
+      ]
+    },
+    {
+      "flow": "retailer-onboarding",
+      "from": 71,
+      "to": 72,
+      "direct": false,
+      "choice": "Continue to proof",
+      "score": 14,
+      "top": [
+        {
+          "label": "Continue to proof",
+          "score": 14,
+          "reasons": [],
+          "cls": "primary-action"
+        },
+        {
+          "label": "Open chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "chat-button"
+        },
+        {
+          "label": "My Work",
+          "score": 6,
+          "reasons": [
+            "work"
+          ],
+          "cls": "dock-tab active"
+        },
+        {
+          "label": "Verification help",
+          "score": 5,
+          "reasons": [
+            "verification"
+          ],
+          "cls": "icon-button"
+        },
+        {
+          "label": "₹ Earn",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-tab"
+        }
+      ]
+    },
+    {
+      "flow": "retailer-onboarding",
+      "from": 72,
+      "to": 73,
+      "direct": false,
+      "choice": "Open My Work",
+      "score": 15,
+      "top": [
+        {
+          "label": "Open My Work",
+          "score": 15,
+          "reasons": [],
+          "cls": "primary-action"
+        },
+        {
+          "label": "Add GST",
+          "score": 8,
+          "reasons": [],
+          "cls": "primary-action"
+        },
+        {
+          "label": "Open review support chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "icon-button"
+        },
+        {
+          "label": "Open Chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "secondary-action"
+        },
+        {
+          "label": "Open chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "chat-button"
+        }
+      ]
+    },
+    {
+      "flow": "retailer-onboarding",
+      "from": 73,
+      "to": 74,
+      "direct": true,
+      "choice": "Set up my shop",
+      "score": 99,
+      "top": [
+        "Set up my shop"
+      ]
+    },
+    {
+      "flow": "retailer-orders",
+      "from": 74,
+      "to": 75,
+      "direct": false,
+      "choice": "Order + delivery",
+      "score": 13,
+      "top": [
+        {
+          "label": "Order + delivery",
+          "score": 13,
+          "reasons": [
+            "order"
+          ],
+          "cls": "primary-action"
+        },
+        {
+          "label": "Orders on",
+          "score": 10,
+          "reasons": [
+            "order",
+            "orders"
+          ],
+          "cls": "availability"
+        },
+        {
+          "label": "Orders",
+          "score": 10,
+          "reasons": [
+            "order",
+            "orders"
+          ],
+          "cls": "dock-tab"
+        },
+        {
+          "label": "MOOLSOCIAL BUSINESS SERVICES Delivery, sales, tax, books, offers and ads Separate professional plans for your shop View ›",
+          "score": 7,
+          "reasons": [],
+          "cls": "services-access"
+        },
+        {
+          "label": "Open retailer chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "chat-button"
+        }
+      ]
+    },
+    {
+      "flow": "retailer-orders",
+      "from": 75,
+      "to": 76,
+      "direct": false,
+      "choice": "Accept order",
+      "score": 8,
+      "top": [
+        {
+          "label": "Accept order",
+          "score": 8,
+          "reasons": [],
+          "cls": "primary"
+        },
+        {
+          "label": "Open Business Book",
+          "score": 7,
+          "reasons": [],
+          "cls": "head-action"
+        },
+        {
+          "label": "Open retailer chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "chat-button"
+        },
+        {
+          "label": "Open order alerts",
+          "score": 6,
+          "reasons": [],
+          "cls": "head-action"
+        },
+        {
+          "label": "Retailer orders",
+          "score": 6,
+          "reasons": [
+            "orders"
+          ],
+          "cls": "dock-tab active"
+        }
+      ]
+    },
+    {
+      "flow": "retailer-orders",
+      "from": 76,
+      "to": 77,
+      "direct": false,
+      "choice": "Open delivery alerts",
+      "score": 11,
+      "top": [
+        {
+          "label": "Open delivery alerts",
+          "score": 11,
+          "reasons": [
+            "delivery"
+          ],
+          "cls": "head-action"
+        },
+        {
+          "label": "Parcel ready",
+          "score": 8,
+          "reasons": [],
+          "cls": "primary"
+        },
+        {
+          "label": "Open Business Book",
+          "score": 7,
+          "reasons": [],
+          "cls": "head-action"
+        },
+        {
+          "label": "Open retailer chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "chat-button"
+        },
+        {
+          "label": "Retailer orders",
+          "score": 6,
+          "reasons": [
+            "orders"
+          ],
+          "cls": "dock-tab active"
+        }
+      ]
+    },
+    {
+      "flow": "retailer-pos",
+      "from": 74,
+      "to": 78,
+      "direct": false,
+      "choice": "Order + delivery",
+      "score": 13,
+      "top": [
+        {
+          "label": "Order + delivery",
+          "score": 13,
+          "reasons": [
+            "order"
+          ],
+          "cls": "primary-action"
+        },
+        {
+          "label": "MOOLSOCIAL BUSINESS SERVICES Delivery, sales, tax, books, offers and ads Separate professional plans for your shop View ›",
+          "score": 7,
+          "reasons": [],
+          "cls": "services-access"
+        },
+        {
+          "label": "Open retailer chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "chat-button"
+        },
+        {
+          "label": "Open retailer business home",
+          "score": 6,
+          "reasons": [],
+          "cls": "shop-home"
+        },
+        {
+          "label": "Open Business Book",
+          "score": 6,
+          "reasons": [],
+          "cls": "head-action"
+        }
+      ]
+    },
+    {
+      "flow": "retailer-pos",
+      "from": 78,
+      "to": 79,
+      "direct": false,
+      "choice": "Open Business Book",
+      "score": 7,
+      "top": [
+        {
+          "label": "Open Business Book",
+          "score": 7,
+          "reasons": [],
+          "cls": "head-action"
+        },
+        {
+          "label": "Open retailer chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "chat-button"
+        },
+        {
+          "label": "Open order alerts",
+          "score": 6,
+          "reasons": [],
+          "cls": "head-action"
+        },
+        {
+          "label": "Pay request Send securely",
+          "score": 6,
+          "reasons": [],
+          "cls": "choice selected"
+        },
+        {
+          "label": "Counter Walk-in",
+          "score": 5,
+          "reasons": [
+            "counter"
+          ],
+          "cls": "source-button "
+        }
+      ]
+    },
+    {
+      "flow": "retailer-pos",
+      "from": 79,
+      "to": 80,
+      "direct": false,
+      "choice": "Open Business Book",
+      "score": 7,
+      "top": [
+        {
+          "label": "Open Business Book",
+          "score": 7,
+          "reasons": [],
+          "cls": "head-action"
+        },
+        {
+          "label": "Open retailer chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "chat-button"
+        },
+        {
+          "label": "Start order",
+          "score": 6,
+          "reasons": [],
+          "cls": "start-order "
+        },
+        {
+          "label": "Wholesale Buy",
+          "score": 6,
+          "reasons": [
+            "sale"
+          ],
+          "cls": "dock-tab"
+        },
+        {
+          "label": "Show counter needing attention",
+          "score": 5,
+          "reasons": [
+            "counter"
+          ],
+          "cls": "head-action"
+        }
+      ]
+    },
+    {
+      "flow": "retailer-pos",
+      "from": 80,
+      "to": 90,
+      "direct": false,
+      "choice": "Open Business Book",
+      "score": 12,
+      "top": [
+        {
+          "label": "Open Business Book",
+          "score": 12,
+          "reasons": [
+            "book"
+          ],
+          "cls": "head-action"
+        },
+        {
+          "label": "Open retailer chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "chat-button"
+        },
+        {
+          "label": "Open sale alert",
+          "score": 6,
+          "reasons": [],
+          "cls": "head-action"
+        },
+        {
+          "label": "3 items in this sale Oil, atta and salt View",
+          "score": 6,
+          "reasons": [],
+          "cls": "items-toggle"
+        },
+        {
+          "label": "Complete UPI sale",
+          "score": 6,
+          "reasons": [],
+          "cls": "complete-button"
+        }
+      ]
+    },
+    {
+      "flow": "retailer-wholesale",
+      "from": 74,
+      "to": 81,
+      "direct": false,
+      "choice": "Wholesale Buy",
+      "score": 10,
+      "top": [
+        {
+          "label": "Wholesale Buy",
+          "score": 10,
+          "reasons": [
+            "wholesale",
+            "buy"
+          ],
+          "cls": "dock-tab"
+        },
+        {
+          "label": "Order + delivery",
+          "score": 8,
+          "reasons": [],
+          "cls": "primary-action"
+        },
+        {
+          "label": "MOOLSOCIAL BUSINESS SERVICES Delivery, sales, tax, books, offers and ads Separate professional plans for your shop View ›",
+          "score": 7,
+          "reasons": [],
+          "cls": "services-access"
+        },
+        {
+          "label": "Open retailer chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "chat-button"
+        },
+        {
+          "label": "Open retailer business home",
+          "score": 6,
+          "reasons": [],
+          "cls": "shop-home"
+        }
+      ]
+    },
+    {
+      "flow": "retailer-wholesale",
+      "from": 81,
+      "to": 82,
+      "direct": false,
+      "choice": "Open wholesale alerts",
+      "score": 11,
+      "top": [
+        {
+          "label": "Open wholesale alerts",
+          "score": 11,
+          "reasons": [
+            "wholesale"
+          ],
+          "cls": "head-action"
+        },
+        {
+          "label": "Open Business Book",
+          "score": 7,
+          "reasons": [],
+          "cls": "head-action"
+        },
+        {
+          "label": "Open retailer chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "chat-button"
+        },
+        {
+          "label": "View Sunflower Oil 1 L buying terms",
+          "score": 6,
+          "reasons": [],
+          "cls": "details"
+        },
+        {
+          "label": "View Whole Wheat Atta 5 kg buying terms",
+          "score": 6,
+          "reasons": [],
+          "cls": "details"
+        }
+      ]
+    },
+    {
+      "flow": "retailer-wholesale",
+      "from": 82,
+      "to": 83,
+      "direct": false,
+      "choice": "Open retailer chat",
+      "score": 7,
+      "top": [
+        {
+          "label": "Open retailer chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "chat-button"
+        },
+        {
+          "label": "Retailer orders",
+          "score": 6,
+          "reasons": [
+            "order"
+          ],
+          "cls": "dock-tab"
+        },
+        {
+          "label": "Wholesale Buy",
+          "score": 6,
+          "reasons": [
+            "wholesale"
+          ],
+          "cls": "dock-tab active"
+        },
+        {
+          "label": "Save wholesale cart",
+          "score": 5,
+          "reasons": [
+            "wholesale"
+          ],
+          "cls": "head-action"
+        },
+        {
+          "label": "Review Order",
+          "score": 5,
+          "reasons": [
+            "order"
+          ],
+          "cls": "review-order"
+        }
+      ]
+    },
+    {
+      "flow": "retailer-wholesale",
+      "from": 83,
+      "to": 84,
+      "direct": false,
+      "choice": "Open retailer chat",
+      "score": 7,
+      "top": [
+        {
+          "label": "Open retailer chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "chat-button"
+        },
+        {
+          "label": "View PO",
+          "score": 6,
+          "reasons": [],
+          "cls": ""
+        },
+        {
+          "label": "Track Order",
+          "score": 6,
+          "reasons": [],
+          "cls": "track"
+        },
+        {
+          "label": "View PO",
+          "score": 6,
+          "reasons": [],
+          "cls": ""
+        },
+        {
+          "label": "Track Order",
+          "score": 6,
+          "reasons": [],
+          "cls": "track"
+        }
+      ]
+    },
+    {
+      "flow": "retailer-wholesale",
+      "from": 84,
+      "to": 85,
+      "direct": false,
+      "choice": "Report delay",
+      "score": 8,
+      "top": [
+        {
+          "label": "Report delay",
+          "score": 8,
+          "reasons": [],
+          "cls": "primary"
+        },
+        {
+          "label": "Open retailer chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "chat-button"
+        },
+        {
+          "label": "Wholesale Buy",
+          "score": 6,
+          "reasons": [
+            "wholesale"
+          ],
+          "cls": "dock-tab active"
+        },
+        {
+          "label": "Switch to personal MoolSocial",
+          "score": 1,
+          "reasons": [],
+          "cls": "mool-button"
+        },
+        {
+          "label": "Retailer orders",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-tab"
+        }
+      ]
+    },
+    {
+      "flow": "retailer-wholesale",
+      "from": 85,
+      "to": 86,
+      "direct": false,
+      "choice": "Goods receipt help",
+      "score": 11,
+      "top": [
+        {
+          "label": "Goods receipt help",
+          "score": 11,
+          "reasons": [
+            "receipt"
+          ],
+          "cls": "head-action"
+        },
+        {
+          "label": "Confirm Receipt",
+          "score": 11,
+          "reasons": [
+            "receipt"
+          ],
+          "cls": "confirm-receipt"
+        },
+        {
+          "label": "Open retailer chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "chat-button"
+        },
+        {
+          "label": "Wholesale Buy",
+          "score": 6,
+          "reasons": [
+            "wholesale"
+          ],
+          "cls": "dock-tab active"
+        },
+        {
+          "label": "Switch to personal MoolSocial",
+          "score": 1,
+          "reasons": [],
+          "cls": "mool-button"
+        }
+      ]
+    },
+    {
+      "flow": "retailer-wholesale",
+      "from": 86,
+      "to": 87,
+      "direct": false,
+      "choice": "Purchase value Posted to Purchase Book ₹2,856.00 POSTED",
+      "score": 16,
+      "top": [
+        {
+          "label": "Purchase value Posted to Purchase Book ₹2,856.00 POSTED",
+          "score": 16,
+          "reasons": [
+            "purchase",
+            "book"
+          ],
+          "cls": "money-row"
+        },
+        {
+          "label": "View Stock",
+          "score": 7,
+          "reasons": [],
+          "cls": "view-stock"
+        },
+        {
+          "label": "Open retailer chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "chat-button"
+        },
+        {
+          "label": "Receipt result help",
+          "score": 6,
+          "reasons": [],
+          "cls": "head-action"
+        },
+        {
+          "label": "Protected advance Payment partner release initiated ₹856.80 PROCESSING",
+          "score": 6,
+          "reasons": [],
+          "cls": "money-row"
+        }
+      ]
+    },
+    {
+      "flow": "retailer-wholesale",
+      "from": 87,
+      "to": 88,
+      "direct": false,
+      "choice": "Add supplier bill",
+      "score": 10,
+      "top": [
+        {
+          "label": "Add supplier bill",
+          "score": 10,
+          "reasons": [
+            "supplier",
+            "bill"
+          ],
+          "cls": "add-bill"
+        },
+        {
+          "label": "MF Mandore Fresh Supplier Vegetables and fruit · 14 lines Direct bill · MFS-118 · Stock posted ₹3,920 PAID",
+          "score": 10,
+          "reasons": [
+            "supplier",
+            "bill"
+          ],
+          "cls": "purchase-entry"
+        },
+        {
+          "label": "Open retailer chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "chat-button"
+        },
+        {
+          "label": "Purchase Book tools",
+          "score": 6,
+          "reasons": [],
+          "cls": "head-action"
+        },
+        {
+          "label": "View",
+          "score": 6,
+          "reasons": [],
+          "cls": "attention-action"
+        }
+      ]
+    },
+    {
+      "flow": "retailer-wholesale",
+      "from": 88,
+      "to": 89,
+      "direct": false,
+      "choice": "Open retailer chat",
+      "score": 7,
+      "top": [
+        {
+          "label": "Open retailer chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "chat-button"
+        },
+        {
+          "label": "Wholesale Buy",
+          "score": 6,
+          "reasons": [
+            "wholesale"
+          ],
+          "cls": "dock-tab active"
+        },
+        {
+          "label": "Supplier bill tools",
+          "score": 5,
+          "reasons": [
+            "supplier"
+          ],
+          "cls": "head-action"
+        },
+        {
+          "label": "Review Payment",
+          "score": 5,
+          "reasons": [
+            "payment"
+          ],
+          "cls": "review-payment"
+        },
+        {
+          "label": "Switch to personal MoolSocial",
+          "score": 1,
+          "reasons": [],
+          "cls": "mool-button"
+        }
+      ]
+    },
+    {
+      "flow": "retailer-wholesale",
+      "from": 89,
+      "to": 91,
+      "direct": false,
+      "choice": "Open retailer chat",
+      "score": 7,
+      "top": [
+        {
+          "label": "Open retailer chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "chat-button"
+        },
+        {
+          "label": "View Bill",
+          "score": 6,
+          "reasons": [],
+          "cls": ""
+        },
+        {
+          "label": "Retailer stock",
+          "score": 6,
+          "reasons": [
+            "stock"
+          ],
+          "cls": "dock-tab"
+        },
+        {
+          "label": "Wholesale Buy",
+          "score": 6,
+          "reasons": [
+            "wholesale"
+          ],
+          "cls": "dock-tab active"
+        },
+        {
+          "label": "Switch to personal MoolSocial",
+          "score": 1,
+          "reasons": [],
+          "cls": "mool-button"
+        }
+      ]
+    },
+    {
+      "flow": "retailer-wholesale",
+      "from": 91,
+      "to": 92,
+      "direct": false,
+      "choice": "Open retailer chat",
+      "score": 7,
+      "top": [
+        {
+          "label": "Open retailer chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "chat-button"
+        },
+        {
+          "label": "Wholesale Buy",
+          "score": 6,
+          "reasons": [
+            "wholesale"
+          ],
+          "cls": "dock-tab"
+        },
+        {
+          "label": "+ Aashirvaad Atta 5 kg Wholesale goods received GRN-MS-2941 · 11:08 AM +12 packs Balance 28",
+          "score": 5,
+          "reasons": [
+            "wholesale"
+          ],
+          "cls": "movement-row"
+        },
+        {
+          "label": "Switch to personal MoolSocial",
+          "score": 1,
+          "reasons": [],
+          "cls": "mool-button"
+        },
+        {
+          "label": "Retailer orders",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-tab"
+        }
+      ]
+    },
+    {
+      "flow": "retailer-books",
+      "from": 74,
+      "to": 90,
+      "direct": false,
+      "choice": "MOOLSOCIAL BUSINESS SERVICES Delivery, sales, tax, books, offers and ads Separate professional plans for your shop View ›",
+      "score": 22,
+      "top": [
+        {
+          "label": "MOOLSOCIAL BUSINESS SERVICES Delivery, sales, tax, books, offers and ads Separate professional plans for your shop View ›",
+          "score": 22,
+          "reasons": [
+            "sales",
+            "book",
+            "books"
+          ],
+          "cls": "services-access"
+        },
+        {
+          "label": "Open Business Book",
+          "score": 11,
+          "reasons": [
+            "book"
+          ],
+          "cls": "head-action"
+        },
+        {
+          "label": "Open Business Book",
+          "score": 11,
+          "reasons": [
+            "book"
+          ],
+          "cls": "book-strip"
+        },
+        {
+          "label": "Order + delivery",
+          "score": 8,
+          "reasons": [],
+          "cls": "primary-action"
+        },
+        {
+          "label": "Open retailer chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "chat-button"
+        }
+      ]
+    },
+    {
+      "flow": "retailer-books",
+      "from": 90,
+      "to": 91,
+      "direct": false,
+      "choice": "Open retailer chat",
+      "score": 7,
+      "top": [
+        {
+          "label": "Open retailer chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "chat-button"
+        },
+        {
+          "label": "Export sales book",
+          "score": 6,
+          "reasons": [],
+          "cls": "head-action"
+        },
+        {
+          "label": "Retailer stock",
+          "score": 6,
+          "reasons": [
+            "stock"
+          ],
+          "cls": "dock-tab"
+        },
+        {
+          "label": "Switch to personal MoolSocial",
+          "score": 1,
+          "reasons": [],
+          "cls": "mool-button"
+        },
+        {
+          "label": "Retailer orders",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-tab active"
+        }
+      ]
+    },
+    {
+      "flow": "retailer-books",
+      "from": 91,
+      "to": 92,
+      "direct": false,
+      "choice": "Open retailer chat",
+      "score": 7,
+      "top": [
+        {
+          "label": "Open retailer chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "chat-button"
+        },
+        {
+          "label": "Switch to personal MoolSocial",
+          "score": 1,
+          "reasons": [],
+          "cls": "mool-button"
+        },
+        {
+          "label": "Retailer orders",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-tab"
+        },
+        {
+          "label": "Retailer stock",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-tab active"
+        },
+        {
+          "label": "Wholesale Buy",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-tab"
+        }
+      ]
+    },
+    {
+      "flow": "retailer-books",
+      "from": 92,
+      "to": 106,
+      "direct": false,
+      "choice": "S Sales Book App, counter, phone and Chat sales ₹4,82,900 42 today",
+      "score": 7,
+      "top": [
+        {
+          "label": "S Sales Book App, counter, phone and Chat sales ₹4,82,900 42 today",
+          "score": 7,
+          "reasons": [],
+          "cls": "book-row"
+        },
+        {
+          "label": "P Purchase Book Supplier bills, payments and returns ₹3,31,400 2 due",
+          "score": 7,
+          "reasons": [],
+          "cls": "book-row"
+        },
+        {
+          "label": "Open retailer chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "chat-button"
+        },
+        {
+          "label": "ST Stock Statement Value, movements, checks and incoming stock ₹3,84,620 24 low",
+          "score": 1,
+          "reasons": [],
+          "cls": "book-row"
+        },
+        {
+          "label": "Switch to personal MoolSocial",
+          "score": 1,
+          "reasons": [],
+          "cls": "mool-button"
+        }
+      ]
+    },
+    {
+      "flow": "retailer-services",
+      "from": 74,
+      "to": 93,
+      "direct": true,
+      "choice": "MOOLSOCIAL BUSINESS SERVICES Delivery, sales, tax, books, offers and ads Separate professional plans for your shop View ›",
+      "score": 99,
+      "top": [
+        "MOOLSOCIAL BUSINESS SERVICES Delivery, sales, tax, books, offers and ads Separate professional plans for your shop View ›"
+      ]
+    },
+    {
+      "flow": "retailer-services",
+      "from": 93,
+      "to": 94,
+      "direct": false,
+      "choice": "Business Services help",
+      "score": 15,
+      "top": [
+        {
+          "label": "Business Services help",
+          "score": 15,
+          "reasons": [
+            "business",
+            "service",
+            "services"
+          ],
+          "cls": "head-action"
+        },
+        {
+          "label": "Delivery Support Nearby Customer orders delivered from your shop Partner assignment · live tracking · proof + charge only for completed delivery FROM ₹299 /month View plan",
+          "score": 11,
+          "reasons": [
+            "plan"
+          ],
+          "cls": "service-row"
+        },
+        {
+          "label": "Grow Sales Verified Expand sales beyond your immediate area Sales team · field partners · creator campaigns + fee only on verified attributed sales FROM ₹499 /month View plan",
+          "score": 11,
+          "reasons": [
+            "plan"
+          ],
+          "cls": "service-row"
+        },
+        {
+          "label": "Tax & Books Professional GST, ITR, accounts and bookkeeping Qualified professionals · records · reminders + agreed filing or completion fee FROM ₹499 /month View plan",
+          "score": 11,
+          "reasons": [
+            "plan"
+          ],
+          "cls": "service-row"
+        },
+        {
+          "label": "Offers & Ads Campaigns Create promotions and run campaigns Offers · creatives · advertising · reports + approved ad spend and agreed result fee FROM ₹299 /month View plan",
+          "score": 11,
+          "reasons": [
+            "plan"
+          ],
+          "cls": "service-row"
+        }
+      ]
+    },
+    {
+      "flow": "retailer-services",
+      "from": 94,
+      "to": 95,
+      "direct": false,
+      "choice": "Review activation",
+      "score": 10,
+      "top": [
+        {
+          "label": "Review activation",
+          "score": 10,
+          "reasons": [
+            "activation",
+            "review"
+          ],
+          "cls": ""
+        },
+        {
+          "label": "Open retailer chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "chat-button"
+        },
+        {
+          "label": "Starter Start ₹299 /month 10 deliveries included ₹35 per completed delivery after 10",
+          "score": 6,
+          "reasons": [],
+          "cls": "plan selected"
+        },
+        {
+          "label": "Switch to personal MoolSocial",
+          "score": 1,
+          "reasons": [],
+          "cls": "mool-button"
+        },
+        {
+          "label": "Retailer orders",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-tab"
+        }
+      ]
+    },
+    {
+      "flow": "retailer-services",
+      "from": 95,
+      "to": 96,
+      "direct": false,
+      "choice": "1× Pay manually each month Service pauses if renewal is not paid",
+      "score": 11,
+      "top": [
+        {
+          "label": "1× Pay manually each month Service pauses if renewal is not paid",
+          "score": 11,
+          "reasons": [
+            "service"
+          ],
+          "cls": "payment"
+        },
+        {
+          "label": "Open retailer chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "chat-button"
+        },
+        {
+          "label": "service terms",
+          "score": 6,
+          "reasons": [
+            "service"
+          ],
+          "cls": ""
+        },
+        {
+          "label": "Pay & activate",
+          "score": 6,
+          "reasons": [],
+          "cls": ""
+        },
+        {
+          "label": "Switch to personal MoolSocial",
+          "score": 1,
+          "reasons": [],
+          "cls": "mool-button"
+        }
+      ]
+    },
+    {
+      "flow": "retailer-growth",
+      "from": 74,
+      "to": 97,
+      "direct": true,
+      "choice": "1,284 Customers",
+      "score": 99,
+      "top": [
+        "1,284 Customers"
+      ]
+    },
+    {
+      "flow": "retailer-growth",
+      "from": 97,
+      "to": 98,
+      "direct": true,
+      "choice": "SF Sharma Family 18 orders · last buy 4 days ago · home delivery Monthly staples basket ready ₹645 Offers allowed",
+      "score": 99,
+      "top": [
+        "SF Sharma Family 18 orders · last buy 4 days ago · home delivery Monthly staples basket ready ₹645 Offers allowed",
+        "RD Rukmani Devi 11 orders · counter pickup · invoice only Credit due ₹1,240 ₹1,240 Marketing off",
+        "AS Arjun Singh 7 orders · last buy 12 days ago · pickup Back-in-stock allowed ₹392 Mool Chat"
+      ]
+    },
+    {
+      "flow": "retailer-growth",
+      "from": 98,
+      "to": 99,
+      "direct": false,
+      "choice": "Create order",
+      "score": 9,
+      "top": [
+        {
+          "label": "Create order",
+          "score": 9,
+          "reasons": [],
+          "cls": "small-action primary"
+        },
+        {
+          "label": "INV Invoice MS-2840 ₹645 · UPI · home delivery Completed 4 days ago View PDF",
+          "score": 7,
+          "reasons": [],
+          "cls": "row"
+        },
+        {
+          "label": "INV Invoice MS-2712 ₹428 · counter pickup Completed 32 days ago View Receipt",
+          "score": 7,
+          "reasons": [],
+          "cls": "row"
+        },
+        {
+          "label": "Send reminder",
+          "score": 6,
+          "reasons": [],
+          "cls": ""
+        },
+        {
+          "label": "Customer chat",
+          "score": 1,
+          "reasons": [],
+          "cls": "head-action"
+        }
+      ]
+    },
+    {
+      "flow": "retailer-growth",
+      "from": 99,
+      "to": 100,
+      "direct": true,
+      "choice": "+ Create",
+      "score": 99,
+      "top": [
+        "+ Create",
+        "Use again",
+        "View details"
+      ]
+    },
+    {
+      "flow": "retailer-controls",
+      "from": 74,
+      "to": 91,
+      "direct": false,
+      "choice": "Order + delivery",
+      "score": 8,
+      "top": [
+        {
+          "label": "Order + delivery",
+          "score": 8,
+          "reasons": [],
+          "cls": "primary-action"
+        },
+        {
+          "label": "MOOLSOCIAL BUSINESS SERVICES Delivery, sales, tax, books, offers and ads Separate professional plans for your shop View ›",
+          "score": 7,
+          "reasons": [],
+          "cls": "services-access"
+        },
+        {
+          "label": "Open retailer chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "chat-button"
+        },
+        {
+          "label": "Open retailer business home",
+          "score": 6,
+          "reasons": [],
+          "cls": "shop-home"
+        },
+        {
+          "label": "Open Business Book",
+          "score": 6,
+          "reasons": [],
+          "cls": "head-action"
+        }
+      ]
+    },
+    {
+      "flow": "retailer-controls",
+      "from": 91,
+      "to": 101,
+      "direct": false,
+      "choice": "Open retailer chat",
+      "score": 7,
+      "top": [
+        {
+          "label": "Open retailer chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "chat-button"
+        },
+        {
+          "label": "Retailer stock",
+          "score": 6,
+          "reasons": [
+            "stock"
+          ],
+          "cls": "dock-tab active"
+        },
+        {
+          "label": "Export stock statement",
+          "score": 5,
+          "reasons": [
+            "stock"
+          ],
+          "cls": "head-action"
+        },
+        {
+          "label": "Stock Checks 12",
+          "score": 5,
+          "reasons": [
+            "stock"
+          ],
+          "cls": "statement-tab"
+        },
+        {
+          "label": "Record stock change",
+          "score": 5,
+          "reasons": [
+            "stock"
+          ],
+          "cls": "adjust-button"
+        }
+      ]
+    },
+    {
+      "flow": "retailer-controls",
+      "from": 101,
+      "to": 102,
+      "direct": false,
+      "choice": "Review & publish",
+      "score": 6,
+      "top": [
+        {
+          "label": "Review & publish",
+          "score": 6,
+          "reasons": [],
+          "cls": ""
+        },
+        {
+          "label": "Stock statement",
+          "score": 1,
+          "reasons": [],
+          "cls": "head-action"
+        },
+        {
+          "label": "Orders",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-tab"
+        },
+        {
+          "label": "Stock",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-tab"
+        },
+        {
+          "label": "Wholesale Buy",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-tab"
+        }
+      ]
+    },
+    {
+      "flow": "retailer-controls",
+      "from": 102,
+      "to": 103,
+      "direct": false,
+      "choice": "Review purchase",
+      "score": 9,
+      "top": [
+        {
+          "label": "Review purchase",
+          "score": 9,
+          "reasons": [],
+          "cls": "small-action primary"
+        },
+        {
+          "label": "Review offer",
+          "score": 9,
+          "reasons": [],
+          "cls": "small-action primary"
+        },
+        {
+          "label": "AI Why is profit lower this week? Oil margin fell 1.8%; delivery cost rose ₹1,240 Based on locked sales and purchase books View",
+          "score": 6,
+          "reasons": [],
+          "cls": "row"
+        },
+        {
+          "label": "AI Which customers may reorder? 86 eligible from permitted repeat-basket history No message sent View",
+          "score": 6,
+          "reasons": [],
+          "cls": "row"
+        },
+        {
+          "label": "Orders",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-tab"
+        }
+      ]
+    },
+    {
+      "flow": "retailer-controls",
+      "from": 103,
+      "to": 104,
+      "direct": false,
+      "choice": "LOG Permission history Every grant, revoke and limit change View",
+      "score": 6,
+      "top": [
+        {
+          "label": "LOG Permission history Every grant, revoke and limit change View",
+          "score": 6,
+          "reasons": [],
+          "cls": "row"
+        },
+        {
+          "label": "Orders",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-tab"
+        },
+        {
+          "label": "Stock",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-tab"
+        },
+        {
+          "label": "Wholesale Buy",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-tab"
+        },
+        {
+          "label": "Add staff",
+          "score": 0,
+          "reasons": [],
+          "cls": "head-action"
+        }
+      ]
+    },
+    {
+      "flow": "retailer-controls",
+      "from": 104,
+      "to": 105,
+      "direct": false,
+      "choice": "MS MoolSocial Business Services Delivery, growth, tax, books, offers and ads View",
+      "score": 7,
+      "top": [
+        {
+          "label": "MS MoolSocial Business Services Delivery, growth, tax, books, offers and ads View",
+          "score": 7,
+          "reasons": [],
+          "cls": "row setting"
+        },
+        {
+          "label": "View",
+          "score": 6,
+          "reasons": [],
+          "cls": ""
+        },
+        {
+          "label": "Fix 1",
+          "score": 1,
+          "reasons": [],
+          "cls": "small-action"
+        },
+        {
+          "label": "Orders",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-tab"
+        },
+        {
+          "label": "Stock",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-tab"
+        }
+      ]
+    },
+    {
+      "flow": "retailer-controls",
+      "from": 105,
+      "to": 106,
+      "direct": false,
+      "choice": "Confirm resolution",
+      "score": 6,
+      "top": [
+        {
+          "label": "Confirm resolution",
+          "score": 6,
+          "reasons": [],
+          "cls": ""
+        },
+        {
+          "label": "Issue support chat",
+          "score": 1,
+          "reasons": [],
+          "cls": "head-action"
+        },
+        {
+          "label": "Orders",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-tab"
+        },
+        {
+          "label": "Stock",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-tab"
+        },
+        {
+          "label": "Wholesale Buy",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-tab"
+        }
+      ]
+    },
+    {
+      "flow": "manufacturer-sales",
+      "from": 107,
+      "to": 109,
+      "direct": false,
+      "choice": "Confirm quantity",
+      "score": 14,
+      "top": [
+        {
+          "label": "Confirm quantity",
+          "score": 14,
+          "reasons": [],
+          "cls": "primary-action"
+        },
+        {
+          "label": "MS MOOLSOCIAL BUSINESS SERVICES Transport, sales, GST, books and campaigns Separate professional plans for your business View ›",
+          "score": 12,
+          "reasons": [
+            "sales"
+          ],
+          "cls": "services-access"
+        },
+        {
+          "label": "Review",
+          "score": 8,
+          "reasons": [],
+          "cls": "row-button primary"
+        },
+        {
+          "label": "Open manufacturer chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "chat-button"
+        },
+        {
+          "label": "Open Business Book",
+          "score": 6,
+          "reasons": [],
+          "cls": "head-action"
+        }
+      ]
+    },
+    {
+      "flow": "manufacturer-sales",
+      "from": 109,
+      "to": 110,
+      "direct": false,
+      "choice": "Orders",
+      "score": 6,
+      "top": [
+        {
+          "label": "Orders",
+          "score": 6,
+          "reasons": [
+            "order"
+          ],
+          "cls": "dock-tab"
+        },
+        {
+          "label": "Review",
+          "score": 5,
+          "reasons": [
+            "review"
+          ],
+          "cls": ""
+        },
+        {
+          "label": "Review",
+          "score": 5,
+          "reasons": [
+            "review"
+          ],
+          "cls": ""
+        },
+        {
+          "label": "Wholesale Buy",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-tab"
+        },
+        {
+          "label": "Product catalogue options",
+          "score": 0,
+          "reasons": [],
+          "cls": "head-action"
+        }
+      ]
+    },
+    {
+      "flow": "manufacturer-sales",
+      "from": 110,
+      "to": 112,
+      "direct": false,
+      "choice": "Confirm Full",
+      "score": 14,
+      "top": [
+        {
+          "label": "Confirm Full",
+          "score": 14,
+          "reasons": [],
+          "cls": "primary"
+        },
+        {
+          "label": "Delivered",
+          "score": 6,
+          "reasons": [],
+          "cls": "stage "
+        },
+        {
+          "label": "View",
+          "score": 6,
+          "reasons": [],
+          "cls": ""
+        },
+        {
+          "label": "Confirm Partial",
+          "score": 6,
+          "reasons": [],
+          "cls": ""
+        },
+        {
+          "label": "Sales order options",
+          "score": 5,
+          "reasons": [
+            "sales"
+          ],
+          "cls": "head-action"
+        }
+      ]
+    },
+    {
+      "flow": "manufacturer-procurement",
+      "from": 107,
+      "to": 111,
+      "direct": false,
+      "choice": "Confirm quantity",
+      "score": 14,
+      "top": [
+        {
+          "label": "Confirm quantity",
+          "score": 14,
+          "reasons": [],
+          "cls": "primary-action"
+        },
+        {
+          "label": "Review",
+          "score": 8,
+          "reasons": [],
+          "cls": "row-button primary"
+        },
+        {
+          "label": "MS MOOLSOCIAL BUSINESS SERVICES Transport, sales, GST, books and campaigns Separate professional plans for your business View ›",
+          "score": 7,
+          "reasons": [],
+          "cls": "services-access"
+        },
+        {
+          "label": "Open manufacturer chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "chat-button"
+        },
+        {
+          "label": "Open Business Book",
+          "score": 6,
+          "reasons": [],
+          "cls": "head-action"
+        }
+      ]
+    },
+    {
+      "flow": "manufacturer-procurement",
+      "from": 111,
+      "to": 108,
+      "direct": false,
+      "choice": "Orders",
+      "score": 1,
+      "top": [
+        {
+          "label": "Orders",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-tab"
+        },
+        {
+          "label": "Stock",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-tab"
+        },
+        {
+          "label": "Wholesale buy options",
+          "score": 0,
+          "reasons": [],
+          "cls": "head-action"
+        },
+        {
+          "label": "Matched Inputs",
+          "score": 0,
+          "reasons": [],
+          "cls": "tab active"
+        },
+        {
+          "label": "PO Cart",
+          "score": 0,
+          "reasons": [],
+          "cls": "tab "
+        }
+      ]
+    },
+    {
+      "flow": "manufacturer-growth",
+      "from": 107,
+      "to": 113,
+      "direct": false,
+      "choice": "Confirm quantity",
+      "score": 14,
+      "top": [
+        {
+          "label": "Confirm quantity",
+          "score": 14,
+          "reasons": [],
+          "cls": "primary-action"
+        },
+        {
+          "label": "MS MOOLSOCIAL BUSINESS SERVICES Transport, sales, GST, books and campaigns Separate professional plans for your business View ›",
+          "score": 12,
+          "reasons": [
+            "campaigns"
+          ],
+          "cls": "services-access"
+        },
+        {
+          "label": "Review",
+          "score": 8,
+          "reasons": [],
+          "cls": "row-button primary"
+        },
+        {
+          "label": "Open manufacturer chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "chat-button"
+        },
+        {
+          "label": "Open Business Book",
+          "score": 6,
+          "reasons": [],
+          "cls": "head-action"
+        }
+      ]
+    },
+    {
+      "flow": "manufacturer-growth",
+      "from": 113,
+      "to": 115,
+      "direct": false,
+      "choice": "Set terms and reserve",
+      "score": 9,
+      "top": [
+        {
+          "label": "Set terms and reserve",
+          "score": 9,
+          "reasons": [],
+          "cls": "ce-button primary"
+        },
+        {
+          "label": "Preview creator view",
+          "score": 7,
+          "reasons": [],
+          "cls": "ce-button"
+        },
+        {
+          "label": "Open",
+          "score": 6,
+          "reasons": [],
+          "cls": ""
+        },
+        {
+          "label": "Open",
+          "score": 6,
+          "reasons": [],
+          "cls": ""
+        },
+        {
+          "label": "Campaign",
+          "score": 1,
+          "reasons": [],
+          "cls": "ce-chip active"
+        }
+      ]
+    },
+    {
+      "flow": "manufacturer-control",
+      "from": 107,
+      "to": 114,
+      "direct": false,
+      "choice": "Confirm quantity",
+      "score": 14,
+      "top": [
+        {
+          "label": "Confirm quantity",
+          "score": 14,
+          "reasons": [],
+          "cls": "primary-action"
+        },
+        {
+          "label": "Review",
+          "score": 8,
+          "reasons": [],
+          "cls": "row-button primary"
+        },
+        {
+          "label": "MS MOOLSOCIAL BUSINESS SERVICES Transport, sales, GST, books and campaigns Separate professional plans for your business View ›",
+          "score": 7,
+          "reasons": [],
+          "cls": "services-access"
+        },
+        {
+          "label": "Open manufacturer chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "chat-button"
+        },
+        {
+          "label": "Open Business Book",
+          "score": 6,
+          "reasons": [],
+          "cls": "head-action"
+        }
+      ]
+    },
+    {
+      "flow": "manufacturer-control",
+      "from": 114,
+      "to": 108,
+      "direct": false,
+      "choice": "Add team member or control",
+      "score": 5,
+      "top": [
+        {
+          "label": "Add team member or control",
+          "score": 5,
+          "reasons": [
+            "control"
+          ],
+          "cls": "action"
+        },
+        {
+          "label": "Orders",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock"
+        },
+        {
+          "label": "Stock",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock"
+        },
+        {
+          "label": "Wholesale Buy",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock"
+        },
+        {
+          "label": "Claims",
+          "score": 0,
+          "reasons": [],
+          "cls": "tab active"
+        }
+      ]
+    },
+    {
+      "flow": "captain-workspace",
+      "from": 116,
+      "to": 117,
+      "direct": true,
+      "choice": "R Requests",
+      "score": 99,
+      "top": [
+        "R Requests"
+      ]
+    },
+    {
+      "flow": "captain-workspace",
+      "from": 117,
+      "to": 118,
+      "direct": true,
+      "choice": "T Trips",
+      "score": 99,
+      "top": [
+        "T Trips"
+      ]
+    },
+    {
+      "flow": "captain-workspace",
+      "from": 118,
+      "to": 119,
+      "direct": false,
+      "choice": "I Have Arrived",
+      "score": 8,
+      "top": [
+        {
+          "label": "I Have Arrived",
+          "score": 8,
+          "reasons": [],
+          "cls": "primary"
+        },
+        {
+          "label": "T Trips",
+          "score": 6,
+          "reasons": [
+            "trip"
+          ],
+          "cls": "dock-link active"
+        },
+        {
+          "label": "R Requests",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-link"
+        },
+        {
+          "label": "₹ Earnings",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-link"
+        },
+        {
+          "label": "!",
+          "score": 0,
+          "reasons": [],
+          "cls": "icon-btn"
+        }
+      ]
+    },
+    {
+      "flow": "captain-workspace",
+      "from": 119,
+      "to": 120,
+      "direct": false,
+      "choice": "Arrived at Destination",
+      "score": 8,
+      "top": [
+        {
+          "label": "Arrived at Destination",
+          "score": 8,
+          "reasons": [],
+          "cls": "primary"
+        },
+        {
+          "label": "R Requests",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-link"
+        },
+        {
+          "label": "T Trips",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-link active"
+        },
+        {
+          "label": "₹ Earnings",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-link"
+        },
+        {
+          "label": "•••",
+          "score": 0,
+          "reasons": [],
+          "cls": "icon-btn"
+        }
+      ]
+    },
+    {
+      "flow": "captain-workspace",
+      "from": 120,
+      "to": 121,
+      "direct": true,
+      "choice": "₹ Earnings",
+      "score": 99,
+      "top": [
+        "₹ Earnings"
+      ]
+    },
+    {
+      "flow": "captain-workspace",
+      "from": 121,
+      "to": 122,
+      "direct": false,
+      "choice": "R Requests",
+      "score": 1,
+      "top": [
+        {
+          "label": "R Requests",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-link"
+        },
+        {
+          "label": "T Trips",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-link"
+        },
+        {
+          "label": "₹ Earnings",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-link active"
+        },
+        {
+          "label": "Today",
+          "score": 0,
+          "reasons": [],
+          "cls": "tab active"
+        },
+        {
+          "label": "This Week",
+          "score": 0,
+          "reasons": [],
+          "cls": "tab"
+        }
+      ]
+    },
+    {
+      "flow": "captain-workspace",
+      "from": 122,
+      "to": 123,
+      "direct": false,
+      "choice": "PER Permit / Service Authorization Resolved by vehicle class and operating use Review complete Ready",
+      "score": 6,
+      "top": [
+        {
+          "label": "PER Permit / Service Authorization Resolved by vehicle class and operating use Review complete Ready",
+          "score": 6,
+          "reasons": [],
+          "cls": "work-row doc"
+        },
+        {
+          "label": "R Requests",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-link"
+        },
+        {
+          "label": "T Trips",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-link"
+        },
+        {
+          "label": "₹ Earnings",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-link"
+        },
+        {
+          "label": "DL Driving Licence Verified · face and identity matched Valid to 12 Mar 2029 Valid",
+          "score": 0,
+          "reasons": [],
+          "cls": "work-row doc"
+        }
+      ]
+    },
+    {
+      "flow": "creator-workspace",
+      "from": 124,
+      "to": 125,
+      "direct": true,
+      "choice": "+ Create",
+      "score": 99,
+      "top": [
+        "+ Create"
+      ]
+    },
+    {
+      "flow": "creator-workspace",
+      "from": 125,
+      "to": 126,
+      "direct": false,
+      "choice": "Review & Publish",
+      "score": 14,
+      "top": [
+        {
+          "label": "Review & Publish",
+          "score": 14,
+          "reasons": [],
+          "cls": "primary"
+        },
+        {
+          "label": "+ Create",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-link active"
+        },
+        {
+          "label": "S Studio",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-link"
+        },
+        {
+          "label": "₹ Earnings",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-link"
+        },
+        {
+          "label": "D",
+          "score": 0,
+          "reasons": [],
+          "cls": "icon-btn"
+        }
+      ]
+    },
+    {
+      "flow": "creator-workspace",
+      "from": 126,
+      "to": 127,
+      "direct": false,
+      "choice": "+ Create",
+      "score": 1,
+      "top": [
+        {
+          "label": "+ Create",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-link"
+        },
+        {
+          "label": "S Studio",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-link active"
+        },
+        {
+          "label": "₹ Earnings",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-link"
+        },
+        {
+          "label": "Filter",
+          "score": 0,
+          "reasons": [],
+          "cls": "secondary"
+        },
+        {
+          "label": "Published",
+          "score": 0,
+          "reasons": [],
+          "cls": "tab active"
+        }
+      ]
+    },
+    {
+      "flow": "creator-workspace",
+      "from": 127,
+      "to": 128,
+      "direct": false,
+      "choice": "+ Create",
+      "score": 1,
+      "top": [
+        {
+          "label": "+ Create",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-link"
+        },
+        {
+          "label": "S Studio",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-link active"
+        },
+        {
+          "label": "₹ Earnings",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-link"
+        },
+        {
+          "label": "7 days",
+          "score": 0,
+          "reasons": [],
+          "cls": "chip active"
+        },
+        {
+          "label": "28 days",
+          "score": 0,
+          "reasons": [],
+          "cls": "chip"
+        }
+      ]
+    },
+    {
+      "flow": "creator-workspace",
+      "from": 128,
+      "to": 129,
+      "direct": false,
+      "choice": "C 326 comments need attention Helpful, questions and held-for-review Open community replies ›",
+      "score": 6,
+      "top": [
+        {
+          "label": "C 326 comments need attention Helpful, questions and held-for-review Open community replies ›",
+          "score": 6,
+          "reasons": [],
+          "cls": "studio-row"
+        },
+        {
+          "label": "+ Create",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-link"
+        },
+        {
+          "label": "S Studio",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-link active"
+        },
+        {
+          "label": "₹ Earnings",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-link"
+        },
+        {
+          "label": "Q Ask your audience Create a post, poll or demand question Build a verified demand signal ›",
+          "score": 0,
+          "reasons": [],
+          "cls": "studio-row"
+        }
+      ]
+    },
+    {
+      "flow": "creator-workspace",
+      "from": 129,
+      "to": 130,
+      "direct": true,
+      "choice": "See earning record",
+      "score": 99,
+      "top": [
+        "See earning record",
+        "₹ Earnings"
+      ]
+    },
+    {
+      "flow": "creator-workspace",
+      "from": 130,
+      "to": 131,
+      "direct": false,
+      "choice": "Open source proof",
+      "score": 15,
+      "top": [
+        {
+          "label": "Open source proof",
+          "score": 15,
+          "reasons": [],
+          "cls": "ce-button primary"
+        },
+        {
+          "label": "CAMPAIGN ₹8,540 Selected",
+          "score": 1,
+          "reasons": [],
+          "cls": "ce-source"
+        },
+        {
+          "label": "COMMERCE ₹5,040 Trace source",
+          "score": 1,
+          "reasons": [],
+          "cls": "ce-source"
+        },
+        {
+          "label": "MEMBERS ₹22,680 Trace source",
+          "score": 1,
+          "reasons": [],
+          "cls": "ce-source"
+        },
+        {
+          "label": "CONTENT POOL ₹1,860 Trace source",
+          "score": 1,
+          "reasons": [],
+          "cls": "ce-source"
+        }
+      ]
+    },
+    {
+      "flow": "creator-workspace",
+      "from": 131,
+      "to": 132,
+      "direct": false,
+      "choice": "Review request",
+      "score": 9,
+      "top": [
+        {
+          "label": "Review request",
+          "score": 9,
+          "reasons": [],
+          "cls": "ce-button primary"
+        },
+        {
+          "label": "See held fee",
+          "score": 1,
+          "reasons": [],
+          "cls": "ce-button"
+        },
+        {
+          "label": "+ Create",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-link"
+        },
+        {
+          "label": "S Studio",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-link active"
+        },
+        {
+          "label": "₹ Earnings",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-link"
+        }
+      ]
+    },
+    {
+      "flow": "creator-funded-campaign",
+      "from": 100,
+      "to": 152,
+      "direct": false,
+      "choice": "Set terms and reserve",
+      "score": 9,
+      "top": [
+        {
+          "label": "Set terms and reserve",
+          "score": 9,
+          "reasons": [],
+          "cls": "ce-button primary"
+        },
+        {
+          "label": "Preview creator view",
+          "score": 7,
+          "reasons": [],
+          "cls": "ce-button"
+        },
+        {
+          "label": "Campaign",
+          "score": 6,
+          "reasons": [
+            "campaign"
+          ],
+          "cls": "ce-chip active"
+        },
+        {
+          "label": "Continue",
+          "score": 6,
+          "reasons": [],
+          "cls": ""
+        },
+        {
+          "label": "Commerce",
+          "score": 1,
+          "reasons": [],
+          "cls": "ce-chip "
+        }
+      ]
+    },
+    {
+      "flow": "creator-funded-campaign",
+      "from": 152,
+      "to": 129,
+      "direct": false,
+      "choice": "Open engine controls",
+      "score": 19,
+      "top": [
+        {
+          "label": "Open engine controls",
+          "score": 19,
+          "reasons": [
+            "engine"
+          ],
+          "cls": "primary"
+        },
+        {
+          "label": "CREATOR ECONOMICS - CE-2401 Eight funded creator earning engines Business funding - creator delivery - consumer outcome - ledger release Governed Live controls",
+          "score": 16,
+          "reasons": [
+            "engine",
+            "funded"
+          ],
+          "cls": "queue-item active"
+        },
+        {
+          "label": "NEW CAMPAIGN - CP-2208 Onboard 1,000 verified retailers Manufacturer funded - Rajasthan - ₹450 approved outcome Approve terms 42 min",
+          "score": 16,
+          "reasons": [
+            "funded",
+            "campaign"
+          ],
+          "cls": "queue-item "
+        },
+        {
+          "label": "CC Command Centre",
+          "score": 1,
+          "reasons": [],
+          "cls": "nav-link "
+        },
+        {
+          "label": "ID Verification",
+          "score": 1,
+          "reasons": [],
+          "cls": "nav-link "
+        }
+      ]
+    },
+    {
+      "flow": "creator-funded-campaign",
+      "from": 129,
+      "to": 125,
+      "direct": false,
+      "choice": "Review and continue",
+      "score": 15,
+      "top": [
+        {
+          "label": "Review and continue",
+          "score": 15,
+          "reasons": [],
+          "cls": "ce-button primary"
+        },
+        {
+          "label": "Open Deliverable",
+          "score": 14,
+          "reasons": [],
+          "cls": "primary"
+        },
+        {
+          "label": "Campaign",
+          "score": 11,
+          "reasons": [
+            "campaign",
+            "cam"
+          ],
+          "cls": "ce-chip active"
+        },
+        {
+          "label": "Review Terms",
+          "score": 8,
+          "reasons": [],
+          "cls": "primary"
+        },
+        {
+          "label": "Review Terms",
+          "score": 8,
+          "reasons": [],
+          "cls": "primary"
+        }
+      ]
+    },
+    {
+      "flow": "creator-funded-campaign",
+      "from": 125,
+      "to": 5,
+      "direct": false,
+      "choice": "Review & Publish",
+      "score": 14,
+      "top": [
+        {
+          "label": "Review & Publish",
+          "score": 14,
+          "reasons": [],
+          "cls": "primary"
+        },
+        {
+          "label": "₹ Earnings",
+          "score": 6,
+          "reasons": [
+            "earning"
+          ],
+          "cls": "dock-link"
+        },
+        {
+          "label": "Camera",
+          "score": 5,
+          "reasons": [
+            "cam"
+          ],
+          "cls": ""
+        },
+        {
+          "label": "+ Create",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-link active"
+        },
+        {
+          "label": "S Studio",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-link"
+        }
+      ]
+    },
+    {
+      "flow": "creator-funded-campaign",
+      "from": 5,
+      "to": 127,
+      "direct": false,
+      "choice": "Open Videos",
+      "score": 7,
+      "top": [
+        {
+          "label": "Open Videos",
+          "score": 7,
+          "reasons": [],
+          "cls": "social-tab"
+        },
+        {
+          "label": "Open Feed",
+          "score": 7,
+          "reasons": [],
+          "cls": "social-tab"
+        },
+        {
+          "label": "Open Create",
+          "score": 7,
+          "reasons": [],
+          "cls": "social-tab"
+        },
+        {
+          "label": "Open Mool actions",
+          "score": 6,
+          "reasons": [],
+          "cls": "mool-button"
+        },
+        {
+          "label": "Open chats, 2 unread messages",
+          "score": 6,
+          "reasons": [],
+          "cls": "chat-button"
+        }
+      ]
+    },
+    {
+      "flow": "creator-funded-campaign",
+      "from": 127,
+      "to": 154,
+      "direct": false,
+      "choice": "Campaign",
+      "score": 5,
+      "top": [
+        {
+          "label": "Campaign",
+          "score": 5,
+          "reasons": [
+            "campaign"
+          ],
+          "cls": "chip"
+        },
+        {
+          "label": "+ Create",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-link"
+        },
+        {
+          "label": "S Studio",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-link active"
+        },
+        {
+          "label": "₹ Earnings",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-link"
+        },
+        {
+          "label": "7 days",
+          "score": 0,
+          "reasons": [],
+          "cls": "chip active"
+        }
+      ]
+    },
+    {
+      "flow": "creator-funded-campaign",
+      "from": 154,
+      "to": 130,
+      "direct": false,
+      "choice": "REFUND BATCH 42 approved customer refunds ready All source decisions and amounts verified Approve 31 min",
+      "score": 11,
+      "top": [
+        {
+          "label": "REFUND BATCH 42 approved customer refunds ready All source decisions and amounts verified Approve 31 min",
+          "score": 11,
+          "reasons": [
+            "source"
+          ],
+          "cls": "queue-item "
+        },
+        {
+          "label": "Reconcile exceptions",
+          "score": 8,
+          "reasons": [],
+          "cls": "primary"
+        },
+        {
+          "label": "ADVANCE HOLD - PO-5821 Supplier requests 30% advance release Goods not delivered - escrow protection active Keep held 2 h",
+          "score": 6,
+          "reasons": [],
+          "cls": "queue-item "
+        },
+        {
+          "label": "Hold affected payouts",
+          "score": 5,
+          "reasons": [
+            "payouts"
+          ],
+          "cls": "secondary"
+        },
+        {
+          "label": "CC Command Centre",
+          "score": 1,
+          "reasons": [],
+          "cls": "nav-link "
+        }
+      ]
+    },
+    {
+      "flow": "creator-commerce-share",
+      "from": 99,
+      "to": 129,
+      "direct": false,
+      "choice": "View details",
+      "score": 15,
+      "top": [
+        {
+          "label": "View details",
+          "score": 15,
+          "reasons": [],
+          "cls": "small-action primary"
+        },
+        {
+          "label": "Continue",
+          "score": 15,
+          "reasons": [],
+          "cls": "small-action primary"
+        },
+        {
+          "label": "Set terms and reserve",
+          "score": 9,
+          "reasons": [],
+          "cls": "ce-button primary"
+        },
+        {
+          "label": "Preview creator view",
+          "score": 7,
+          "reasons": [],
+          "cls": "ce-button"
+        },
+        {
+          "label": "Commerce",
+          "score": 6,
+          "reasons": [
+            "commerce"
+          ],
+          "cls": "ce-chip "
+        }
+      ]
+    },
+    {
+      "flow": "creator-commerce-share",
+      "from": 129,
+      "to": 125,
+      "direct": false,
+      "choice": "Review and continue",
+      "score": 15,
+      "top": [
+        {
+          "label": "Review and continue",
+          "score": 15,
+          "reasons": [],
+          "cls": "ce-button primary"
+        },
+        {
+          "label": "Open Deliverable",
+          "score": 14,
+          "reasons": [],
+          "cls": "primary"
+        },
+        {
+          "label": "Review Terms",
+          "score": 8,
+          "reasons": [],
+          "cls": "primary"
+        },
+        {
+          "label": "Review Terms",
+          "score": 8,
+          "reasons": [],
+          "cls": "primary"
+        },
+        {
+          "label": "Commerce",
+          "score": 6,
+          "reasons": [
+            "commerce"
+          ],
+          "cls": "ce-chip "
+        }
+      ]
+    },
+    {
+      "flow": "creator-commerce-share",
+      "from": 125,
+      "to": 5,
+      "direct": false,
+      "choice": "Review & Publish",
+      "score": 14,
+      "top": [
+        {
+          "label": "Review & Publish",
+          "score": 14,
+          "reasons": [],
+          "cls": "primary"
+        },
+        {
+          "label": "₹ Earnings",
+          "score": 6,
+          "reasons": [
+            "earning"
+          ],
+          "cls": "dock-link"
+        },
+        {
+          "label": "+ Create",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-link active"
+        },
+        {
+          "label": "S Studio",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-link"
+        },
+        {
+          "label": "D",
+          "score": 0,
+          "reasons": [],
+          "cls": "icon-btn"
+        }
+      ]
+    },
+    {
+      "flow": "creator-commerce-share",
+      "from": 5,
+      "to": 9,
+      "direct": false,
+      "choice": "Open Videos",
+      "score": 7,
+      "top": [
+        {
+          "label": "Open Videos",
+          "score": 7,
+          "reasons": [],
+          "cls": "social-tab"
+        },
+        {
+          "label": "Open Feed",
+          "score": 7,
+          "reasons": [],
+          "cls": "social-tab"
+        },
+        {
+          "label": "Open Create",
+          "score": 7,
+          "reasons": [],
+          "cls": "social-tab"
+        },
+        {
+          "label": "Open Mool actions",
+          "score": 6,
+          "reasons": [],
+          "cls": "mool-button"
+        },
+        {
+          "label": "Open chats, 2 unread messages",
+          "score": 6,
+          "reasons": [],
+          "cls": "chat-button"
+        }
+      ]
+    },
+    {
+      "flow": "creator-commerce-share",
+      "from": 9,
+      "to": 14,
+      "direct": false,
+      "choice": "Open basket",
+      "score": 11,
+      "top": [
+        {
+          "label": "Open basket",
+          "score": 11,
+          "reasons": [
+            "basket"
+          ],
+          "cls": "dock-tab"
+        },
+        {
+          "label": "Buy Here",
+          "score": 8,
+          "reasons": [],
+          "cls": "shop-action primary active"
+        },
+        {
+          "label": "Open Mool",
+          "score": 7,
+          "reasons": [],
+          "cls": "mool-button"
+        },
+        {
+          "label": "View cart 4 items · Rs 256",
+          "score": 6,
+          "reasons": [],
+          "cls": "cart-float"
+        },
+        {
+          "label": "Open shop buying",
+          "score": 6,
+          "reasons": [],
+          "cls": "dock-tab active"
+        }
+      ]
+    },
+    {
+      "flow": "creator-commerce-share",
+      "from": 14,
+      "to": 18,
+      "direct": false,
+      "choice": "Open basket",
+      "score": 12,
+      "top": [
+        {
+          "label": "Open basket",
+          "score": 12,
+          "reasons": [
+            "basket"
+          ],
+          "cls": "dock-tab"
+        },
+        {
+          "label": "Open Mool",
+          "score": 7,
+          "reasons": [],
+          "cls": "mool-button"
+        },
+        {
+          "label": "Open shop",
+          "score": 7,
+          "reasons": [],
+          "cls": "dock-tab"
+        },
+        {
+          "label": "Open payment",
+          "score": 7,
+          "reasons": [],
+          "cls": "dock-tab active"
+        },
+        {
+          "label": "Open orders",
+          "score": 7,
+          "reasons": [],
+          "cls": "dock-tab"
+        }
+      ]
+    },
+    {
+      "flow": "creator-commerce-share",
+      "from": 18,
+      "to": 127,
+      "direct": false,
+      "choice": "Repeat basket same shop, same items",
+      "score": 9,
+      "top": [
+        {
+          "label": "Repeat basket same shop, same items",
+          "score": 9,
+          "reasons": [],
+          "cls": "repeat-card primary"
+        },
+        {
+          "label": "Rate Order shop and delivery",
+          "score": 8,
+          "reasons": [],
+          "cls": "next-action-card primary"
+        },
+        {
+          "label": "Download bill",
+          "score": 8,
+          "reasons": [],
+          "cls": "bill-action-btn primary"
+        },
+        {
+          "label": "Open Mool",
+          "score": 7,
+          "reasons": [],
+          "cls": "mool-button"
+        },
+        {
+          "label": "Open shop",
+          "score": 7,
+          "reasons": [],
+          "cls": "dock-tab"
+        }
+      ]
+    },
+    {
+      "flow": "creator-commerce-share",
+      "from": 127,
+      "to": 154,
+      "direct": false,
+      "choice": "+ Create",
+      "score": 1,
+      "top": [
+        {
+          "label": "+ Create",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-link"
+        },
+        {
+          "label": "S Studio",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-link active"
+        },
+        {
+          "label": "₹ Earnings",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-link"
+        },
+        {
+          "label": "7 days",
+          "score": 0,
+          "reasons": [],
+          "cls": "chip active"
+        },
+        {
+          "label": "28 days",
+          "score": 0,
+          "reasons": [],
+          "cls": "chip"
+        }
+      ]
+    },
+    {
+      "flow": "creator-commerce-share",
+      "from": 154,
+      "to": 130,
+      "direct": false,
+      "choice": "REFUND BATCH 42 approved customer refunds ready All source decisions and amounts verified Approve 31 min",
+      "score": 11,
+      "top": [
+        {
+          "label": "REFUND BATCH 42 approved customer refunds ready All source decisions and amounts verified Approve 31 min",
+          "score": 11,
+          "reasons": [
+            "source"
+          ],
+          "cls": "queue-item "
+        },
+        {
+          "label": "Reconcile exceptions",
+          "score": 8,
+          "reasons": [],
+          "cls": "primary"
+        },
+        {
+          "label": "CO Commerce",
+          "score": 6,
+          "reasons": [
+            "commerce"
+          ],
+          "cls": "nav-link "
+        },
+        {
+          "label": "ADVANCE HOLD - PO-5821 Supplier requests 30% advance release Goods not delivered - escrow protection active Keep held 2 h",
+          "score": 6,
+          "reasons": [],
+          "cls": "queue-item "
+        },
+        {
+          "label": "Hold affected payouts",
+          "score": 5,
+          "reasons": [
+            "payouts"
+          ],
+          "cls": "secondary"
+        }
+      ]
+    },
+    {
+      "flow": "creator-membership",
+      "from": 132,
+      "to": 7,
+      "direct": false,
+      "choice": "Create Membership Plan",
+      "score": 13,
+      "top": [
+        {
+          "label": "Create Membership Plan",
+          "score": 13,
+          "reasons": [
+            "membership"
+          ],
+          "cls": "primary"
+        },
+        {
+          "label": "Trace payout",
+          "score": 9,
+          "reasons": [],
+          "cls": "ce-button primary"
+        },
+        {
+          "label": "Preview member view",
+          "score": 7,
+          "reasons": [],
+          "cls": "ce-button"
+        },
+        {
+          "label": "₹ Earnings",
+          "score": 6,
+          "reasons": [
+            "earning"
+          ],
+          "cls": "dock-link"
+        },
+        {
+          "label": "+ Create",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-link"
+        }
+      ]
+    },
+    {
+      "flow": "creator-membership",
+      "from": 7,
+      "to": 62,
+      "direct": false,
+      "choice": "Open Shorts",
+      "score": 7,
+      "top": [
+        {
+          "label": "Open Shorts",
+          "score": 7,
+          "reasons": [],
+          "cls": "feed-tab"
+        },
+        {
+          "label": "Open Videos",
+          "score": 7,
+          "reasons": [],
+          "cls": "feed-tab"
+        },
+        {
+          "label": "Open Create",
+          "score": 7,
+          "reasons": [],
+          "cls": "feed-tab"
+        },
+        {
+          "label": "Open basket proof",
+          "score": 6,
+          "reasons": [],
+          "cls": "compact-action"
+        },
+        {
+          "label": "Open food proof",
+          "score": 6,
+          "reasons": [],
+          "cls": "compact-action"
+        }
+      ]
+    },
+    {
+      "flow": "creator-membership",
+      "from": 62,
+      "to": 63,
+      "direct": false,
+      "choice": "Pay Rs 645",
+      "score": 20,
+      "top": [
+        {
+          "label": "Pay Rs 645",
+          "score": 20,
+          "reasons": [
+            "pay"
+          ],
+          "cls": "primary-cta"
+        },
+        {
+          "label": "Total debit Rs 645 no hidden fee · receipt after success",
+          "score": 16,
+          "reasons": [
+            "receipt",
+            "success"
+          ],
+          "cls": "package-option"
+        },
+        {
+          "label": "Pay With",
+          "score": 12,
+          "reasons": [
+            "pay"
+          ],
+          "cls": "dock-tab"
+        },
+        {
+          "label": "Payment safety",
+          "score": 10,
+          "reasons": [
+            "pay",
+            "payment"
+          ],
+          "cls": "circle-btn"
+        },
+        {
+          "label": "Open chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "chat-button"
+        }
+      ]
+    },
+    {
+      "flow": "creator-membership",
+      "from": 63,
+      "to": 130,
+      "direct": false,
+      "choice": "Download receipt",
+      "score": 15,
+      "top": [
+        {
+          "label": "Download receipt",
+          "score": 15,
+          "reasons": [],
+          "cls": "primary-cta"
+        },
+        {
+          "label": "Receipt",
+          "score": 7,
+          "reasons": [],
+          "cls": "dock-tab active"
+        },
+        {
+          "label": "Open chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "chat-button"
+        },
+        {
+          "label": "Share receipt",
+          "score": 6,
+          "reasons": [],
+          "cls": "circle-btn"
+        },
+        {
+          "label": "Receipt PDF ready tax details · share or download",
+          "score": 6,
+          "reasons": [],
+          "cls": "package-option"
+        }
+      ]
+    },
+    {
+      "flow": "creator-content-pool",
+      "from": 6,
+      "to": 127,
+      "direct": false,
+      "choice": "Work QR proof task open for verified payout",
+      "score": 7,
+      "top": [
+        {
+          "label": "Work QR proof task open for verified payout",
+          "score": 7,
+          "reasons": [],
+          "cls": "short-tile"
+        },
+        {
+          "label": "Open Shorts",
+          "score": 7,
+          "reasons": [],
+          "cls": "video-tab"
+        },
+        {
+          "label": "Open Feed",
+          "score": 7,
+          "reasons": [],
+          "cls": "video-tab"
+        },
+        {
+          "label": "Open Create",
+          "score": 7,
+          "reasons": [],
+          "cls": "video-tab"
+        },
+        {
+          "label": "8:20 Paid task GO How QR proof tasks are checked before payout Ground Ops - 18K views - 2 hours ago Funded Geo proof Payout rule Watch Apply Proof ⋮",
+          "score": 6,
+          "reasons": [],
+          "cls": "feed-video-card"
+        }
+      ]
+    },
+    {
+      "flow": "creator-content-pool",
+      "from": 127,
+      "to": 154,
+      "direct": false,
+      "choice": "Content",
+      "score": 5,
+      "top": [
+        {
+          "label": "Content",
+          "score": 5,
+          "reasons": [
+            "content"
+          ],
+          "cls": "chip"
+        },
+        {
+          "label": "+ Create",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-link"
+        },
+        {
+          "label": "S Studio",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-link active"
+        },
+        {
+          "label": "₹ Earnings",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-link"
+        },
+        {
+          "label": "7 days",
+          "score": 0,
+          "reasons": [],
+          "cls": "chip active"
+        }
+      ]
+    },
+    {
+      "flow": "creator-content-pool",
+      "from": 154,
+      "to": 130,
+      "direct": false,
+      "choice": "REFUND BATCH 42 approved customer refunds ready All source decisions and amounts verified Approve 31 min",
+      "score": 11,
+      "top": [
+        {
+          "label": "REFUND BATCH 42 approved customer refunds ready All source decisions and amounts verified Approve 31 min",
+          "score": 11,
+          "reasons": [
+            "source"
+          ],
+          "cls": "queue-item "
+        },
+        {
+          "label": "Reconcile exceptions",
+          "score": 8,
+          "reasons": [],
+          "cls": "primary"
+        },
+        {
+          "label": "ADVANCE HOLD - PO-5821 Supplier requests 30% advance release Goods not delivered - escrow protection active Keep held 2 h",
+          "score": 6,
+          "reasons": [],
+          "cls": "queue-item "
+        },
+        {
+          "label": "Hold affected payouts",
+          "score": 5,
+          "reasons": [
+            "payouts"
+          ],
+          "cls": "secondary"
+        },
+        {
+          "label": "CC Command Centre",
+          "score": 1,
+          "reasons": [],
+          "cls": "nav-link "
+        }
+      ]
+    },
+    {
+      "flow": "creator-local-production",
+      "from": 100,
+      "to": 129,
+      "direct": false,
+      "choice": "Set terms and reserve",
+      "score": 9,
+      "top": [
+        {
+          "label": "Set terms and reserve",
+          "score": 9,
+          "reasons": [],
+          "cls": "ce-button primary"
+        },
+        {
+          "label": "Preview creator view",
+          "score": 7,
+          "reasons": [],
+          "cls": "ce-button"
+        },
+        {
+          "label": "Local brief",
+          "score": 6,
+          "reasons": [
+            "local"
+          ],
+          "cls": "ce-chip "
+        },
+        {
+          "label": "Continue",
+          "score": 6,
+          "reasons": [],
+          "cls": ""
+        },
+        {
+          "label": "Campaign",
+          "score": 1,
+          "reasons": [],
+          "cls": "ce-chip active"
+        }
+      ]
+    },
+    {
+      "flow": "creator-local-production",
+      "from": 129,
+      "to": 125,
+      "direct": false,
+      "choice": "Review and continue",
+      "score": 15,
+      "top": [
+        {
+          "label": "Review and continue",
+          "score": 15,
+          "reasons": [],
+          "cls": "ce-button primary"
+        },
+        {
+          "label": "Open Deliverable",
+          "score": 14,
+          "reasons": [],
+          "cls": "primary"
+        },
+        {
+          "label": "Local brief",
+          "score": 11,
+          "reasons": [
+            "local",
+            "brief"
+          ],
+          "cls": "ce-chip "
+        },
+        {
+          "label": "Review Terms",
+          "score": 8,
+          "reasons": [],
+          "cls": "primary"
+        },
+        {
+          "label": "Review Terms",
+          "score": 8,
+          "reasons": [],
+          "cls": "primary"
+        }
+      ]
+    },
+    {
+      "flow": "creator-local-production",
+      "from": 125,
+      "to": 152,
+      "direct": false,
+      "choice": "Review & Publish",
+      "score": 14,
+      "top": [
+        {
+          "label": "Review & Publish",
+          "score": 14,
+          "reasons": [],
+          "cls": "primary"
+        },
+        {
+          "label": "+ Create",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-link active"
+        },
+        {
+          "label": "S Studio",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-link"
+        },
+        {
+          "label": "₹ Earnings",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-link"
+        },
+        {
+          "label": "D",
+          "score": 0,
+          "reasons": [],
+          "cls": "icon-btn"
+        }
+      ]
+    },
+    {
+      "flow": "creator-local-production",
+      "from": 152,
+      "to": 154,
+      "direct": false,
+      "choice": "Open engine controls",
+      "score": 19,
+      "top": [
+        {
+          "label": "Open engine controls",
+          "score": 19,
+          "reasons": [
+            "engine"
+          ],
+          "cls": "primary"
+        },
+        {
+          "label": "CREATOR ECONOMICS - CE-2401 Eight funded creator earning engines Business funding - creator delivery - consumer outcome - ledger release Governed Live controls",
+          "score": 11,
+          "reasons": [
+            "engine"
+          ],
+          "cls": "queue-item active"
+        },
+        {
+          "label": "₹ Finance",
+          "score": 6,
+          "reasons": [
+            "finance"
+          ],
+          "cls": "nav-link "
+        },
+        {
+          "label": "NEW CAMPAIGN - CP-2208 Onboard 1,000 verified retailers Manufacturer funded - Rajasthan - ₹450 approved outcome Approve terms 42 min",
+          "score": 6,
+          "reasons": [],
+          "cls": "queue-item "
+        },
+        {
+          "label": "CC Command Centre",
+          "score": 1,
+          "reasons": [],
+          "cls": "nav-link "
+        }
+      ]
+    },
+    {
+      "flow": "creator-local-production",
+      "from": 154,
+      "to": 130,
+      "direct": false,
+      "choice": "REFUND BATCH 42 approved customer refunds ready All source decisions and amounts verified Approve 31 min",
+      "score": 11,
+      "top": [
+        {
+          "label": "REFUND BATCH 42 approved customer refunds ready All source decisions and amounts verified Approve 31 min",
+          "score": 11,
+          "reasons": [
+            "source"
+          ],
+          "cls": "queue-item "
+        },
+        {
+          "label": "Reconcile exceptions",
+          "score": 8,
+          "reasons": [],
+          "cls": "primary"
+        },
+        {
+          "label": "ADVANCE HOLD - PO-5821 Supplier requests 30% advance release Goods not delivered - escrow protection active Keep held 2 h",
+          "score": 6,
+          "reasons": [],
+          "cls": "queue-item "
+        },
+        {
+          "label": "Hold affected payouts",
+          "score": 5,
+          "reasons": [
+            "payouts"
+          ],
+          "cls": "secondary"
+        },
+        {
+          "label": "CC Command Centre",
+          "score": 1,
+          "reasons": [],
+          "cls": "nav-link "
+        }
+      ]
+    },
+    {
+      "flow": "creator-onboarding",
+      "from": 152,
+      "to": 133,
+      "direct": false,
+      "choice": "Open engine controls",
+      "score": 19,
+      "top": [
+        {
+          "label": "Open engine controls",
+          "score": 19,
+          "reasons": [
+            "engine"
+          ],
+          "cls": "primary"
+        },
+        {
+          "label": "CREATOR ECONOMICS - CE-2401 Eight funded creator earning engines Business funding - creator delivery - consumer outcome - ledger release Governed Live controls",
+          "score": 16,
+          "reasons": [
+            "earn",
+            "engine"
+          ],
+          "cls": "queue-item active"
+        },
+        {
+          "label": "NEW CAMPAIGN - CP-2208 Onboard 1,000 verified retailers Manufacturer funded - Rajasthan - ₹450 approved outcome Approve terms 42 min",
+          "score": 11,
+          "reasons": [
+            "verified"
+          ],
+          "cls": "queue-item "
+        },
+        {
+          "label": "PROOF REVIEW - WK-88201 Retailer onboarding outcome submitted GPS, KYC consent and activation event match Review 18 min",
+          "score": 5,
+          "reasons": [
+            "onboarding"
+          ],
+          "cls": "queue-item "
+        },
+        {
+          "label": "CC Command Centre",
+          "score": 1,
+          "reasons": [],
+          "cls": "nav-link "
+        }
+      ]
+    },
+    {
+      "flow": "creator-onboarding",
+      "from": 133,
+      "to": 134,
+      "direct": false,
+      "choice": "Check eligibility",
+      "score": 14,
+      "top": [
+        {
+          "label": "Check eligibility",
+          "score": 14,
+          "reasons": [
+            "eligibility"
+          ],
+          "cls": "ce-button primary"
+        },
+        {
+          "label": "Review & Apply",
+          "score": 14,
+          "reasons": [],
+          "cls": "primary"
+        },
+        {
+          "label": "Review & Apply",
+          "score": 14,
+          "reasons": [],
+          "cls": "primary"
+        },
+        {
+          "label": "Review & Apply",
+          "score": 14,
+          "reasons": [],
+          "cls": "primary"
+        },
+        {
+          "label": "Onboarding",
+          "score": 10,
+          "reasons": [
+            "onboarding",
+            "onb"
+          ],
+          "cls": "chip"
+        }
+      ]
+    },
+    {
+      "flow": "creator-onboarding",
+      "from": 134,
+      "to": 135,
+      "direct": false,
+      "choice": "Open Assignment",
+      "score": 14,
+      "top": [
+        {
+          "label": "Open Assignment",
+          "score": 14,
+          "reasons": [],
+          "cls": "primary"
+        },
+        {
+          "label": "View Status",
+          "score": 6,
+          "reasons": [],
+          "cls": "secondary"
+        },
+        {
+          "label": "W My Work",
+          "score": 6,
+          "reasons": [
+            "work"
+          ],
+          "cls": "dock-link active"
+        },
+        {
+          "label": "₹ Earnings",
+          "score": 6,
+          "reasons": [
+            "earn"
+          ],
+          "cls": "dock-link"
+        },
+        {
+          "label": "₹ Opportunities",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-link"
+        }
+      ]
+    },
+    {
+      "flow": "creator-onboarding",
+      "from": 135,
+      "to": 136,
+      "direct": false,
+      "choice": "Continue Proof",
+      "score": 19,
+      "top": [
+        {
+          "label": "Continue Proof",
+          "score": 19,
+          "reasons": [
+            "proof"
+          ],
+          "cls": "primary"
+        },
+        {
+          "label": "W My Work",
+          "score": 6,
+          "reasons": [
+            "work"
+          ],
+          "cls": "dock-link active"
+        },
+        {
+          "label": "₹ Earnings",
+          "score": 6,
+          "reasons": [
+            "earn"
+          ],
+          "cls": "dock-link"
+        },
+        {
+          "label": "₹ Opportunities",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-link"
+        },
+        {
+          "label": "?",
+          "score": 0,
+          "reasons": [],
+          "cls": "icon-btn"
+        }
+      ]
+    },
+    {
+      "flow": "creator-onboarding",
+      "from": 136,
+      "to": 137,
+      "direct": false,
+      "choice": "Submit for Verification",
+      "score": 14,
+      "top": [
+        {
+          "label": "Submit for Verification",
+          "score": 14,
+          "reasons": [],
+          "cls": "primary"
+        },
+        {
+          "label": "₹ Earnings",
+          "score": 11,
+          "reasons": [
+            "earn",
+            "earnings"
+          ],
+          "cls": "dock-link"
+        },
+        {
+          "label": "W My Work",
+          "score": 6,
+          "reasons": [
+            "work"
+          ],
+          "cls": "dock-link active"
+        },
+        {
+          "label": "₹ Opportunities",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-link"
+        },
+        {
+          "label": "?",
+          "score": 0,
+          "reasons": [],
+          "cls": "icon-btn"
+        }
+      ]
+    },
+    {
+      "flow": "creator-onboarding",
+      "from": 137,
+      "to": 130,
+      "direct": false,
+      "choice": "₹ Earnings",
+      "score": 6,
+      "top": [
+        {
+          "label": "₹ Earnings",
+          "score": 6,
+          "reasons": [
+            "earnings"
+          ],
+          "cls": "dock-link active"
+        },
+        {
+          "label": "₹ Opportunities",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-link"
+        },
+        {
+          "label": "W My Work",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-link"
+        },
+        {
+          "label": "Chat",
+          "score": -6,
+          "reasons": [],
+          "cls": "chat"
+        },
+        {
+          "label": "‹",
+          "score": -11,
+          "reasons": [],
+          "cls": "icon-btn"
+        }
+      ]
+    },
+    {
+      "flow": "creator-live-event",
+      "from": 113,
+      "to": 156,
+      "direct": false,
+      "choice": "Live event",
+      "score": 11,
+      "top": [
+        {
+          "label": "Live event",
+          "score": 11,
+          "reasons": [
+            "live",
+            "event"
+          ],
+          "cls": "ce-chip "
+        },
+        {
+          "label": "Set terms and reserve",
+          "score": 9,
+          "reasons": [],
+          "cls": "ce-button primary"
+        },
+        {
+          "label": "Preview creator view",
+          "score": 7,
+          "reasons": [],
+          "cls": "ce-button"
+        },
+        {
+          "label": "Open",
+          "score": 6,
+          "reasons": [],
+          "cls": ""
+        },
+        {
+          "label": "Open",
+          "score": 6,
+          "reasons": [],
+          "cls": ""
+        }
+      ]
+    },
+    {
+      "flow": "creator-live-event",
+      "from": 156,
+      "to": 129,
+      "direct": false,
+      "choice": "Approve controlled launch",
+      "score": 14,
+      "top": [
+        {
+          "label": "Approve controlled launch",
+          "score": 14,
+          "reasons": [],
+          "cls": "primary"
+        },
+        {
+          "label": "LIVE CREATOR EVENT - LIVE-72 Jodhpur local launch with verified creators Host fee funded - outcome pool capped - disclosure required Approval 18 Jul 18:00",
+          "score": 10,
+          "reasons": [
+            "live",
+            "event"
+          ],
+          "cls": "queue-item active"
+        },
+        {
+          "label": "REQUIRED NOTICE - RN-662 Pharmacy licence renewal action 42 pharmacy owners - required workspace action Ready Send now",
+          "score": 6,
+          "reasons": [],
+          "cls": "queue-item "
+        },
+        {
+          "label": "Live",
+          "score": 5,
+          "reasons": [
+            "live"
+          ],
+          "cls": "filter "
+        },
+        {
+          "label": "CC Command Centre",
+          "score": 1,
+          "reasons": [],
+          "cls": "nav-link "
+        }
+      ]
+    },
+    {
+      "flow": "creator-live-event",
+      "from": 129,
+      "to": 125,
+      "direct": false,
+      "choice": "Open Deliverable",
+      "score": 19,
+      "top": [
+        {
+          "label": "Open Deliverable",
+          "score": 19,
+          "reasons": [
+            "live"
+          ],
+          "cls": "primary"
+        },
+        {
+          "label": "Review and continue",
+          "score": 15,
+          "reasons": [],
+          "cls": "ce-button primary"
+        },
+        {
+          "label": "Live event",
+          "score": 11,
+          "reasons": [
+            "live",
+            "event"
+          ],
+          "cls": "ce-chip "
+        },
+        {
+          "label": "Review Terms",
+          "score": 8,
+          "reasons": [],
+          "cls": "primary"
+        },
+        {
+          "label": "Review Terms",
+          "score": 8,
+          "reasons": [],
+          "cls": "primary"
+        }
+      ]
+    },
+    {
+      "flow": "creator-live-event",
+      "from": 125,
+      "to": 7,
+      "direct": false,
+      "choice": "Review & Publish",
+      "score": 14,
+      "top": [
+        {
+          "label": "Review & Publish",
+          "score": 14,
+          "reasons": [],
+          "cls": "primary"
+        },
+        {
+          "label": "₹ Earnings",
+          "score": 6,
+          "reasons": [
+            "earning"
+          ],
+          "cls": "dock-link"
+        },
+        {
+          "label": "Post",
+          "score": 5,
+          "reasons": [
+            "post"
+          ],
+          "cls": ""
+        },
+        {
+          "label": "+ Create",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-link active"
+        },
+        {
+          "label": "S Studio",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-link"
+        }
+      ]
+    },
+    {
+      "flow": "creator-live-event",
+      "from": 7,
+      "to": 62,
+      "direct": false,
+      "choice": "Open Shorts",
+      "score": 7,
+      "top": [
+        {
+          "label": "Open Shorts",
+          "score": 7,
+          "reasons": [],
+          "cls": "feed-tab"
+        },
+        {
+          "label": "Open Videos",
+          "score": 7,
+          "reasons": [],
+          "cls": "feed-tab"
+        },
+        {
+          "label": "Open Create",
+          "score": 7,
+          "reasons": [],
+          "cls": "feed-tab"
+        },
+        {
+          "label": "Open basket proof",
+          "score": 6,
+          "reasons": [],
+          "cls": "compact-action"
+        },
+        {
+          "label": "Open food proof",
+          "score": 6,
+          "reasons": [],
+          "cls": "compact-action"
+        }
+      ]
+    },
+    {
+      "flow": "creator-live-event",
+      "from": 62,
+      "to": 63,
+      "direct": false,
+      "choice": "Pay Rs 645",
+      "score": 20,
+      "top": [
+        {
+          "label": "Pay Rs 645",
+          "score": 20,
+          "reasons": [
+            "pay"
+          ],
+          "cls": "primary-cta"
+        },
+        {
+          "label": "Total debit Rs 645 no hidden fee · receipt after success",
+          "score": 16,
+          "reasons": [
+            "receipt",
+            "success"
+          ],
+          "cls": "package-option"
+        },
+        {
+          "label": "Pay With",
+          "score": 12,
+          "reasons": [
+            "pay"
+          ],
+          "cls": "dock-tab"
+        },
+        {
+          "label": "Payment safety",
+          "score": 10,
+          "reasons": [
+            "pay",
+            "payment"
+          ],
+          "cls": "circle-btn"
+        },
+        {
+          "label": "Open chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "chat-button"
+        }
+      ]
+    },
+    {
+      "flow": "creator-live-event",
+      "from": 63,
+      "to": 127,
+      "direct": false,
+      "choice": "Download receipt",
+      "score": 15,
+      "top": [
+        {
+          "label": "Download receipt",
+          "score": 15,
+          "reasons": [],
+          "cls": "primary-cta"
+        },
+        {
+          "label": "Receipt",
+          "score": 7,
+          "reasons": [],
+          "cls": "dock-tab active"
+        },
+        {
+          "label": "Open chat",
+          "score": 7,
+          "reasons": [],
+          "cls": "chat-button"
+        },
+        {
+          "label": "Share receipt",
+          "score": 6,
+          "reasons": [],
+          "cls": "circle-btn"
+        },
+        {
+          "label": "Receipt PDF ready tax details · share or download",
+          "score": 6,
+          "reasons": [],
+          "cls": "package-option"
+        }
+      ]
+    },
+    {
+      "flow": "creator-live-event",
+      "from": 127,
+      "to": 130,
+      "direct": false,
+      "choice": "₹ Earnings",
+      "score": 6,
+      "top": [
+        {
+          "label": "₹ Earnings",
+          "score": 6,
+          "reasons": [
+            "earnings"
+          ],
+          "cls": "dock-link"
+        },
+        {
+          "label": "+ Create",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-link"
+        },
+        {
+          "label": "S Studio",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-link active"
+        },
+        {
+          "label": "7 days",
+          "score": 0,
+          "reasons": [],
+          "cls": "chip active"
+        },
+        {
+          "label": "28 days",
+          "score": 0,
+          "reasons": [],
+          "cls": "chip"
+        }
+      ]
+    },
+    {
+      "flow": "creator-licence",
+      "from": 99,
+      "to": 131,
+      "direct": false,
+      "choice": "View details",
+      "score": 15,
+      "top": [
+        {
+          "label": "View details",
+          "score": 15,
+          "reasons": [],
+          "cls": "small-action primary"
+        },
+        {
+          "label": "Continue",
+          "score": 15,
+          "reasons": [],
+          "cls": "small-action primary"
+        },
+        {
+          "label": "Preview creator view",
+          "score": 12,
+          "reasons": [
+            "review"
+          ],
+          "cls": "ce-button"
+        },
+        {
+          "label": "Set terms and reserve",
+          "score": 9,
+          "reasons": [],
+          "cls": "ce-button primary"
+        },
+        {
+          "label": "Licence",
+          "score": 6,
+          "reasons": [
+            "licence"
+          ],
+          "cls": "ce-chip "
+        }
+      ]
+    },
+    {
+      "flow": "creator-licence",
+      "from": 131,
+      "to": 154,
+      "direct": false,
+      "choice": "Review request",
+      "score": 9,
+      "top": [
+        {
+          "label": "Review request",
+          "score": 9,
+          "reasons": [],
+          "cls": "ce-button primary"
+        },
+        {
+          "label": "See held fee",
+          "score": 1,
+          "reasons": [],
+          "cls": "ce-button"
+        },
+        {
+          "label": "+ Create",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-link"
+        },
+        {
+          "label": "S Studio",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-link active"
+        },
+        {
+          "label": "₹ Earnings",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-link"
+        }
+      ]
+    },
+    {
+      "flow": "creator-licence",
+      "from": 154,
+      "to": 130,
+      "direct": false,
+      "choice": "REFUND BATCH 42 approved customer refunds ready All source decisions and amounts verified Approve 31 min",
+      "score": 11,
+      "top": [
+        {
+          "label": "REFUND BATCH 42 approved customer refunds ready All source decisions and amounts verified Approve 31 min",
+          "score": 11,
+          "reasons": [
+            "source"
+          ],
+          "cls": "queue-item "
+        },
+        {
+          "label": "Reconcile exceptions",
+          "score": 8,
+          "reasons": [],
+          "cls": "primary"
+        },
+        {
+          "label": "ADVANCE HOLD - PO-5821 Supplier requests 30% advance release Goods not delivered - escrow protection active Keep held 2 h",
+          "score": 6,
+          "reasons": [],
+          "cls": "queue-item "
+        },
+        {
+          "label": "Hold affected payouts",
+          "score": 5,
+          "reasons": [
+            "payouts"
+          ],
+          "cls": "secondary"
+        },
+        {
+          "label": "CC Command Centre",
+          "score": 1,
+          "reasons": [],
+          "cls": "nav-link "
+        }
+      ]
+    },
+    {
+      "flow": "earn-operations",
+      "from": 133,
+      "to": 134,
+      "direct": true,
+      "choice": "Check eligibility",
+      "score": 99,
+      "top": [
+        "Check eligibility"
+      ]
+    },
+    {
+      "flow": "earn-operations",
+      "from": 134,
+      "to": 135,
+      "direct": false,
+      "choice": "Open Assignment",
+      "score": 14,
+      "top": [
+        {
+          "label": "Open Assignment",
+          "score": 14,
+          "reasons": [],
+          "cls": "primary"
+        },
+        {
+          "label": "View Status",
+          "score": 6,
+          "reasons": [],
+          "cls": "secondary"
+        },
+        {
+          "label": "W My Work",
+          "score": 6,
+          "reasons": [
+            "work"
+          ],
+          "cls": "dock-link active"
+        },
+        {
+          "label": "₹ Earnings",
+          "score": 6,
+          "reasons": [
+            "earn"
+          ],
+          "cls": "dock-link"
+        },
+        {
+          "label": "₹ Opportunities",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-link"
+        }
+      ]
+    },
+    {
+      "flow": "earn-operations",
+      "from": 135,
+      "to": 136,
+      "direct": false,
+      "choice": "Continue Proof",
+      "score": 19,
+      "top": [
+        {
+          "label": "Continue Proof",
+          "score": 19,
+          "reasons": [
+            "proof"
+          ],
+          "cls": "primary"
+        },
+        {
+          "label": "₹ Earnings",
+          "score": 6,
+          "reasons": [
+            "earn"
+          ],
+          "cls": "dock-link"
+        },
+        {
+          "label": "₹ Opportunities",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-link"
+        },
+        {
+          "label": "W My Work",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-link active"
+        },
+        {
+          "label": "?",
+          "score": 0,
+          "reasons": [],
+          "cls": "icon-btn"
+        }
+      ]
+    },
+    {
+      "flow": "earn-operations",
+      "from": 136,
+      "to": 137,
+      "direct": true,
+      "choice": "₹ Earnings",
+      "score": 99,
+      "top": [
+        "₹ Earnings"
+      ]
+    },
+    {
+      "flow": "earn-operations",
+      "from": 137,
+      "to": 138,
+      "direct": false,
+      "choice": "₹ Earnings",
+      "score": 6,
+      "top": [
+        {
+          "label": "₹ Earnings",
+          "score": 6,
+          "reasons": [
+            "earn"
+          ],
+          "cls": "dock-link active"
+        },
+        {
+          "label": "₹ Opportunities",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-link"
+        },
+        {
+          "label": "W My Work",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-link"
+        },
+        {
+          "label": "Chat",
+          "score": -6,
+          "reasons": [],
+          "cls": "chat"
+        },
+        {
+          "label": "‹",
+          "score": -11,
+          "reasons": [],
+          "cls": "icon-btn"
+        }
+      ]
+    },
+    {
+      "flow": "provider-workspace",
+      "from": 139,
+      "to": 140,
+      "direct": true,
+      "choice": "KEEP CURRENT Services 8 consumer-ready",
+      "score": 99,
+      "top": [
+        "KEEP CURRENT Services 8 consumer-ready",
+        "C Services"
+      ]
+    },
+    {
+      "flow": "provider-workspace",
+      "from": 140,
+      "to": 141,
+      "direct": false,
+      "choice": "Preview",
+      "score": 8,
+      "top": [
+        {
+          "label": "Preview",
+          "score": 8,
+          "reasons": [],
+          "cls": "primary"
+        },
+        {
+          "label": "Preview",
+          "score": 8,
+          "reasons": [],
+          "cls": "primary"
+        },
+        {
+          "label": "O Requests",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-link"
+        },
+        {
+          "label": "C Services",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-link active"
+        },
+        {
+          "label": "₹ Money",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-link"
+        }
+      ]
+    },
+    {
+      "flow": "provider-workspace",
+      "from": 141,
+      "to": 142,
+      "direct": true,
+      "choice": "O Requests",
+      "score": 99,
+      "top": [
+        "O Requests"
+      ]
+    },
+    {
+      "flow": "provider-workspace",
+      "from": 142,
+      "to": 143,
+      "direct": false,
+      "choice": "Accept",
+      "score": 8,
+      "top": [
+        {
+          "label": "Accept",
+          "score": 8,
+          "reasons": [],
+          "cls": "primary accept"
+        },
+        {
+          "label": "Accept",
+          "score": 8,
+          "reasons": [],
+          "cls": "primary accept"
+        },
+        {
+          "label": "O Requests",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-link active"
+        },
+        {
+          "label": "C Services",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-link"
+        },
+        {
+          "label": "₹ Money",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-link"
+        }
+      ]
+    },
+    {
+      "flow": "provider-workspace",
+      "from": 143,
+      "to": 144,
+      "direct": true,
+      "choice": "₹ Money",
+      "score": 99,
+      "top": [
+        "₹ Money"
+      ]
+    },
+    {
+      "flow": "provider-workspace",
+      "from": 144,
+      "to": 145,
+      "direct": false,
+      "choice": "INV Receipt MS-2941 Tax and provider details recorded Download ›",
+      "score": 6,
+      "top": [
+        {
+          "label": "INV Receipt MS-2941 Tax and provider details recorded Download ›",
+          "score": 6,
+          "reasons": [],
+          "cls": "priority-card"
+        },
+        {
+          "label": "REPEAT 18 due Send reminder",
+          "score": 6,
+          "reasons": [],
+          "cls": "provider-tile"
+        },
+        {
+          "label": "O Requests",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-link"
+        },
+        {
+          "label": "C Services",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-link"
+        },
+        {
+          "label": "₹ Money",
+          "score": 1,
+          "reasons": [],
+          "cls": "dock-link active"
+        }
+      ]
+    },
+    {
+      "flow": "provider-workspace",
+      "from": 145,
+      "to": 146,
+      "direct": false,
+      "choice": "Set terms and reserve",
+      "score": 9,
+      "top": [
+        {
+          "label": "Set terms and reserve",
+          "score": 9,
+          "reasons": [],
+          "cls": "ce-button primary"
+        },
+        {
+          "label": "Review terms",
+          "score": 8,
+          "reasons": [],
+          "cls": "primary apply"
+        },
+        {
+          "label": "Review terms",
+          "score": 8,
+          "reasons": [],
+          "cls": "primary apply"
+        },
+        {
+          "label": "Preview creator view",
+          "score": 7,
+          "reasons": [],
+          "cls": "ce-button"
+        },
+        {
+          "label": "Campaign",
+          "score": 1,
+          "reasons": [],
+          "cls": "ce-chip active"
+        }
+      ]
+    },
+    {
+      "flow": "admin-operations",
+      "from": 147,
+      "to": 148,
+      "direct": true,
+      "choice": "ID Verification",
+      "score": 99,
+      "top": [
+        "ID Verification"
+      ]
+    },
+    {
+      "flow": "admin-operations",
+      "from": 148,
+      "to": 149,
+      "direct": true,
+      "choice": "SKU Catalogue",
+      "score": 99,
+      "top": [
+        "SKU Catalogue"
+      ]
+    },
+    {
+      "flow": "admin-operations",
+      "from": 149,
+      "to": 150,
+      "direct": true,
+      "choice": "CO Commerce",
+      "score": 99,
+      "top": [
+        "CO Commerce"
+      ]
+    },
+    {
+      "flow": "admin-operations",
+      "from": 150,
+      "to": 151,
+      "direct": true,
+      "choice": "RD Ride Ops",
+      "score": 99,
+      "top": [
+        "RD Ride Ops"
+      ]
+    },
+    {
+      "flow": "admin-operations",
+      "from": 151,
+      "to": 152,
+      "direct": true,
+      "choice": "WK Work Ops",
+      "score": 99,
+      "top": [
+        "WK Work Ops"
+      ]
+    },
+    {
+      "flow": "admin-operations",
+      "from": 152,
+      "to": 153,
+      "direct": true,
+      "choice": "TS Trust & Safety",
+      "score": 99,
+      "top": [
+        "TS Trust & Safety"
+      ]
+    },
+    {
+      "flow": "admin-operations",
+      "from": 153,
+      "to": 154,
+      "direct": true,
+      "choice": "₹ Finance",
+      "score": 99,
+      "top": [
+        "₹ Finance"
+      ]
+    },
+    {
+      "flow": "admin-operations",
+      "from": 154,
+      "to": 155,
+      "direct": true,
+      "choice": "SP Support",
+      "score": 99,
+      "top": [
+        "SP Support"
+      ]
+    },
+    {
+      "flow": "admin-operations",
+      "from": 155,
+      "to": 156,
+      "direct": true,
+      "choice": "LC Launch & Config",
+      "score": 99,
+      "top": [
+        "LC Launch & Config"
+      ]
+    },
+    {
+      "flow": "admin-operations",
+      "from": 156,
+      "to": 163,
+      "direct": true,
+      "choice": "AH Activity & Health",
+      "score": 99,
+      "top": [
+        "AH Activity & Health"
+      ]
+    },
+    {
+      "flow": "admin-operations",
+      "from": 163,
+      "to": 164,
+      "direct": true,
+      "choice": "SG Signals & Privacy",
+      "score": 99,
+      "top": [
+        "SG Signals & Privacy"
+      ]
+    },
+    {
+      "flow": "shared-controls",
+      "from": 157,
+      "to": 158,
+      "direct": false,
+      "choice": "₹ Paid captain onboarding is open WORK ₹600 for each approved taxi captain. Funding and capacity are live. Matched to your Freelancer workspace · Jodhpur 12 min ›",
+      "score": 6,
+      "top": [
+        {
+          "label": "₹ Paid captain onboarding is open WORK ₹600 for each approved taxi captain. Funding and capacity are live. Matched to your Freelancer workspace · Jodhpur 12 min ›",
+          "score": 6,
+          "reasons": [],
+          "cls": "row"
+        },
+        {
+          "label": "◉ Mool",
+          "score": 1,
+          "reasons": [],
+          "cls": ""
+        },
+        {
+          "label": "◫ Activity",
+          "score": 1,
+          "reasons": [],
+          "cls": "active"
+        },
+        {
+          "label": "▣ Workspaces",
+          "score": 1,
+          "reasons": [],
+          "cls": ""
+        },
+        {
+          "label": "□ Chat",
+          "score": 1,
+          "reasons": [],
+          "cls": ""
+        }
+      ]
+    },
+    {
+      "flow": "shared-controls",
+      "from": 158,
+      "to": 159,
+      "direct": false,
+      "choice": "◉ Mool",
+      "score": 1,
+      "top": [
+        {
+          "label": "◉ Mool",
+          "score": 1,
+          "reasons": [],
+          "cls": ""
+        },
+        {
+          "label": "◫ Activity",
+          "score": 1,
+          "reasons": [],
+          "cls": ""
+        },
+        {
+          "label": "▣ Workspaces",
+          "score": 1,
+          "reasons": [],
+          "cls": ""
+        },
+        {
+          "label": "□ Chat",
+          "score": 1,
+          "reasons": [],
+          "cls": ""
+        },
+        {
+          "label": "All",
+          "score": 0,
+          "reasons": [],
+          "cls": "filter active"
+        }
+      ]
+    },
+    {
+      "flow": "shared-controls",
+      "from": 159,
+      "to": 160,
+      "direct": false,
+      "choice": "Book",
+      "score": 6,
+      "top": [
+        {
+          "label": "Book",
+          "score": 6,
+          "reasons": [],
+          "cls": "filter "
+        },
+        {
+          "label": "◉ Mool",
+          "score": 1,
+          "reasons": [],
+          "cls": ""
+        },
+        {
+          "label": "◫ Activity",
+          "score": 1,
+          "reasons": [],
+          "cls": ""
+        },
+        {
+          "label": "▣ Workspaces",
+          "score": 1,
+          "reasons": [],
+          "cls": ""
+        },
+        {
+          "label": "□ Chat",
+          "score": 1,
+          "reasons": [],
+          "cls": ""
+        }
+      ]
+    },
+    {
+      "flow": "shared-controls",
+      "from": 160,
+      "to": 161,
+      "direct": false,
+      "choice": "◉ Mool",
+      "score": 1,
+      "top": [
+        {
+          "label": "◉ Mool",
+          "score": 1,
+          "reasons": [],
+          "cls": ""
+        },
+        {
+          "label": "◫ Activity",
+          "score": 1,
+          "reasons": [],
+          "cls": ""
+        },
+        {
+          "label": "▣ Workspaces",
+          "score": 1,
+          "reasons": [],
+          "cls": ""
+        },
+        {
+          "label": "□ Chat",
+          "score": 1,
+          "reasons": [],
+          "cls": ""
+        },
+        {
+          "label": "Add",
+          "score": 0,
+          "reasons": [],
+          "cls": "topAction"
+        }
+      ]
+    },
+    {
+      "flow": "shared-controls",
+      "from": 161,
+      "to": 162,
+      "direct": true,
+      "choice": "▣ Workspaces",
+      "score": 99,
+      "top": [
+        "▣ Workspaces"
+      ]
+    },
+    {
+      "flow": "shared-controls",
+      "from": 162,
+      "to": 165,
+      "direct": false,
+      "choice": "P Personal & Social PERSONAL Social, Buy, Eat, Ride, Book, Pay, Work and Chat. Always active · default opens Social ›",
+      "score": 6,
+      "top": [
+        {
+          "label": "P Personal & Social PERSONAL Social, Buy, Eat, Ride, Book, Pay, Work and Chat. Always active · default opens Social ›",
+          "score": 6,
+          "reasons": [],
+          "cls": "row"
+        },
+        {
+          "label": "• Global preferences SETTINGS Language, area, notifications, accessibility and data controls. Applied across personal and eligible workspaces ›",
+          "score": 5,
+          "reasons": [
+            "controls"
+          ],
+          "cls": "row"
+        },
+        {
+          "label": "◉ Mool",
+          "score": 1,
+          "reasons": [],
+          "cls": ""
+        },
+        {
+          "label": "◫ Activity",
+          "score": 1,
+          "reasons": [],
+          "cls": ""
+        },
+        {
+          "label": "▣ Workspaces",
+          "score": 1,
+          "reasons": [],
+          "cls": "active"
+        }
+      ]
+    }
+  ]
+}

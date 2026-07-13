@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>MoolSocial Strict Interaction Audit</title>
+  <style>
+    body { margin: 0; padding: 18px; background: #f3f5fb; color: #0b146f; font: 14px/1.45 system-ui, sans-serif; }
+    h1 { margin: 0 0 8px; font-size: 22px; }
+    p { margin: 4px 0 14px; }
+    progress { width: 100%; height: 16px; }
+    .summary { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; margin: 12px 0; }
+    .summary div { padding: 10px; border-radius: 7px; background: #fff; border: 1px solid #dbe0f3; }
+    .summary b { display: block; font-size: 20px; }
+    #status { min-height: 42px; padding: 10px; border-radius: 7px; background: #08108f; color: #fff; }
+    #failures { white-space: pre-wrap; font: 12px/1.4 ui-monospace, monospace; }
+    iframe { position: fixed; left: -10000px; top: 0; width: 390px; height: 844px; border: 0; }
+  </style>
+  <script src="../shared/prototype-interaction-contracts.js"></script>
+  <script src="../shared/prototype-screen-files.js"></script>
+</head>
+<body>
+  <h1>Strict Interaction Audit</h1>
+  <p>Every visible button, link and form control is exercised from a clean mobile screen state.</p>
+  <progress id="progress" max="1" value="0"></progress>
+  <div class="summary">
+    <div><b id="tested">0</b>tested</div>
+    <div><b id="passed">0</b>passed</div>
+    <div><b id="failed">0</b>failed</div>
+    <div><b id="skipped">0</b>skipped</div>
+  </div>
+  <div id="status" role="status">Preparing screen inventory...</div>
+  <pre id="failures"></pre>
+  <script id="reportJson" type="application/json"></script>
+  <iframe id="subject" title="Audit subject"></iframe>
+  <script>
+    (function () {
+      'use strict';
+
+      var subject = document.getElementById('subject');
+      var progress = document.getElementById('progress');
+      var status = document.getElementById('status');
+      var tested = document.getElementById('tested');
+      var passed = document.getElementById('passed');
+      var failed = document.getElementById('failed');
+      var skipped = document.getElementById('skipped');
+      var failures = document.getElementById('failures');
+      var reportJson = document.getElementById('reportJson');
+      var auditFast = new URLSearchParams(location.search).get('fast') === '1';
+      var report = { startedAt: new Date().toISOString(), complete: false, summary: { tested: 0, passed: 0, failed: 0, skipped: 0, screens: 0 }, screens: [], issues: [] };
+      var controlSelector = 'button, a[href], input, select, textarea, [role="button"], [role="tab"], [role="switch"]';
+
+      function normalize(value) { return String(value || '').replace(/\s+/g, ' ').trim(); }
+      function labelOf(element) {
+        return normalize(element.getAttribute('aria-label') || element.getAttribute('title') || element.getAttribute('placeholder') || element.innerText || element.textContent || element.value || element.name);
+      }
+      function isVisible(element) {
+        var style = element.ownerDocument.defaultView.getComputedStyle(element);
+        var rect = element.getBoundingClientRect();
+        return style.display !== 'none' && style.visibility !== 'hidden' && Number(style.opacity || 1) > 0 && rect.width > 0 && rect.height > 0;
+      }
+      function hash(value) {
+        var result = 2166136261;
+        for (var i = 0; i < value.length; i += 1) { result ^= value.charCodeAt(i); result = Math.imul(result, 16777619); }
+        return (result >>> 0).toString(16);
+      }
+      function sleep(ms) { return new Promise(function (resolve) { setTimeout(resolve, ms); }); }
+      function load(url) {
+        return new Promise(function (resolve, reject) {
+          var timer = setTimeout(function () { reject(new Error('load-timeout')); }, 5000);
+          subject.onload = function () { clearTimeout(timer); setTimeout(resolve, auditFast ? 20 : 80); };
+          subject.src = url + (url.includes('?') ? '&' : '?') + 'audit=' + Date.now();
+        });
+      }
+      function visibleControls(doc) {
+        return Array.from(doc.querySelectorAll(controlSelector)).filter(function (element) {
+          return isVisible(element) && !element.disabled && !element.closest('[hidden]');
+        });
+      }
+      function cleanControls(doc) {
+        return visibleControls(doc).map(function (element, index) {
+          var label = labelOf(element) || '[unlabelled ' + element.tagName.toLowerCase() + ']';
+          var prior = visibleControls(doc).slice(0, index).filter(function (candidate) { return labelOf(candidate) === labelOf(element) && candidate.tagName === element.tagName; }).length;
+          return { label: label, occurrence: prior, tag: element.tagName, visibleIndex: index };
+        });
+      }
+      function findControl(doc, descriptor) {
+        var controls = visibleControls(doc);
+        if (controls[descriptor.visibleIndex]) return controls[descriptor.visibleIndex];
+        var expectedRawLabel = descriptor.label.indexOf('[unlabelled ') === 0 ? '' : descriptor.label;
+        return controls.filter(function (element) {
+          return element.tagName === descriptor.tag && labelOf(element) === expectedRawLabel;
+        })[descriptor.occurrence];
+      }
+      function selected(element) {
+        return element.matches('[aria-pressed="true"],[aria-selected="true"],[aria-current],[checked],.active,.selected,.current,.mool-contract-selected');
+      }
+      function formState(doc) {
+        return Array.from(doc.querySelectorAll('input,select,textarea')).map(function (element) {
+          return [element.type || element.tagName, element.value || '', element.checked ? '1' : '0', element.selectedIndex == null ? '' : element.selectedIndex].join(':');
+        }).join('|');
+      }
+      function update() {
+        tested.textContent = report.summary.tested;
+        passed.textContent = report.summary.passed;
+        failed.textContent = report.summary.failed;
+        skipped.textContent = report.summary.skipped;
+        progress.value = report.summary.tested;
+        failures.textContent = report.issues.map(function (issue) { return 'Screen ' + issue.screen + ' · ' + issue.label + ' · ' + issue.error; }).join('\n');
+      }
+      function screenFile(screen) {
+        var padded = String(screen).padStart(2, '0');
+        var names = window.__MOOL_SCREEN_FILES__ || {};
+        return names[String(screen)] || padded + '-missing.html';
+      }
+      async function exercise(screen, file, descriptor) {
+        var url = '../screens/' + file;
+        try {
+          await load(url);
+          var win = subject.contentWindow;
+          var doc = subject.contentDocument;
+          win.alert = function (message) { doc.documentElement.dataset.auditDialog = String(message || 'alert'); };
+          win.confirm = function (message) { doc.documentElement.dataset.auditDialog = String(message || 'confirm'); return false; };
+          win.prompt = function (message) { doc.documentElement.dataset.auditDialog = String(message || 'prompt'); return ''; };
+          win.open = function () { doc.documentElement.dataset.auditWindow = 'opened'; return null; };
+          var element = findControl(doc, descriptor);
+          if (!element) throw new Error('control-not-found-after-clean-load');
+          var beforeUrl = win.location.href;
+          var beforeHash = hash(doc.body.innerHTML);
+          var beforeSelected = selected(element);
+          var beforeValue = 'value' in element ? String(element.value) : '';
+          var beforeFormState = formState(doc);
+          var contract = (window.MoolPrototypeInteractionContracts.screens[String(screen)] || {})[descriptor.label];
+
+          if (element.matches('input:not([type]),input[type="text"],input[type="email"],input[type="tel"],input[type="search"],input[type="number"],input[type="date"],input[type="time"],input[type="url"],textarea')) {
+            element.value = beforeValue + (beforeValue ? ' ' : '') + 'test';
+            element.dispatchEvent(new Event('input', { bubbles: true }));
+          } else if (element.matches('select') && element.options.length > 1) {
+            element.selectedIndex = element.selectedIndex === 0 ? 1 : 0;
+            element.dispatchEvent(new Event('change', { bubbles: true }));
+          } else {
+            element.click();
+          }
+          await sleep(auditFast ? 55 : 220);
+
+          var currentDoc = subject.contentDocument;
+          var currentWin = subject.contentWindow;
+          var afterUrl = currentWin.location.href;
+          var afterHash = currentDoc && currentDoc.body ? hash(currentDoc.body.innerHTML) : '';
+          var currentElement = currentDoc === doc ? findControl(currentDoc, descriptor) : null;
+          var afterSelected = currentElement ? selected(currentElement) : false;
+          var afterValue = currentElement && 'value' in currentElement ? String(currentElement.value) : '';
+          var afterFormState = currentDoc && currentDoc.body ? formState(currentDoc) : '';
+          var observable = beforeSelected || beforeUrl !== afterUrl || beforeHash !== afterHash || beforeSelected !== afterSelected || beforeValue !== afterValue || beforeFormState !== afterFormState || !!doc.documentElement.dataset.auditDialog || !!doc.documentElement.dataset.auditWindow;
+          var expectedRoute = contract && contract.type === 'route' ? new URL(contract.route, beforeUrl) : null;
+          var routeCorrect = !expectedRoute || new URL(afterUrl).pathname.endsWith(expectedRoute.pathname.split('/').pop());
+          return { pass: observable && routeCorrect, error: !observable ? 'no-visible-state-or-navigation' : (!routeCorrect ? 'wrong-route' : ''), route: beforeUrl !== afterUrl ? afterUrl : '', contract: contract ? contract.type : 'native-existing' };
+        } catch (error) {
+          return { pass: false, error: error.message || String(error), route: '', contract: '' };
+        }
+      }
+
+      async function run() {
+        var registry = window.MoolPrototypeInteractionContracts.screens;
+        var screenNumbers = Object.keys(window.__MOOL_SCREEN_FILES__).map(Number).sort(function (a, b) { return a - b; });
+        report.summary.screens = screenNumbers.length;
+        var inventory = [];
+        for (var s = 0; s < screenNumbers.length; s += 1) {
+          var screen = screenNumbers[s];
+          var file = screenFile(screen);
+          status.textContent = 'Inventory: Screen ' + String(screen).padStart(2, '0') + ' of ' + screenNumbers[screenNumbers.length - 1];
+          try {
+            await load('../screens/' + file);
+            inventory.push({ screen: screen, file: file, controls: cleanControls(subject.contentDocument) });
+          } catch (error) {
+            inventory.push({ screen: screen, file: file, controls: [], loadError: error.message });
+          }
+        }
+        progress.max = inventory.reduce(function (sum, item) { return sum + item.controls.length; }, 0);
+
+        for (var i = 0; i < inventory.length; i += 1) {
+          var item = inventory[i];
+          var screenResult = { screen: item.screen, file: item.file, controls: item.controls.length, passed: 0, failed: 0, skipped: 0, issues: [] };
+          if (item.loadError) {
+            screenResult.failed = 1;
+            screenResult.issues.push({ label: '[screen load]', error: item.loadError });
+            report.summary.failed += 1;
+            report.summary.tested += 1;
+          }
+          for (var c = 0; c < item.controls.length; c += 1) {
+            var descriptor = item.controls[c];
+            status.textContent = 'Testing Screen ' + String(item.screen).padStart(2, '0') + ' · ' + (c + 1) + '/' + item.controls.length + ' · ' + descriptor.label.slice(0, 70);
+            var result = await exercise(item.screen, item.file, descriptor);
+            report.summary.tested += 1;
+            if (result.pass) {
+              report.summary.passed += 1;
+              screenResult.passed += 1;
+            } else {
+              report.summary.failed += 1;
+              screenResult.failed += 1;
+              var issue = { screen: item.screen, file: item.file, label: descriptor.label, occurrence: descriptor.occurrence, tag: descriptor.tag, error: result.error, contract: result.contract };
+              report.issues.push(issue);
+              screenResult.issues.push(issue);
+            }
+            update();
+          }
+          report.screens.push(screenResult);
+        }
+        report.complete = true;
+        report.completedAt = new Date().toISOString();
+        status.textContent = report.summary.failed === 0 ? 'Complete: every visible interaction passed.' : 'Complete with ' + report.summary.failed + ' unresolved interactions.';
+        window.__MOOL_STRICT_AUDIT_REPORT__ = report;
+        reportJson.textContent = JSON.stringify(report);
+        document.documentElement.dataset.auditComplete = 'true';
+        update();
+      }
+
+      window.__MOOL_STRICT_AUDIT_REPORT__ = report;
+      run();
+    }());
+  </script>
+</body>
+</html>

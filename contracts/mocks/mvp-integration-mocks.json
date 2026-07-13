@@ -1,0 +1,87 @@
+{
+  "contractVersion": "mvp-integration-mocks-v1-2026-07-14",
+  "status": "frozen-for-production-planning",
+  "rule": "mocks emulate provider uncertainty and authoritative reconciliation; they never return instant success for every request",
+  "scenarios": {
+    "ready": {
+      "httpStatus": 200,
+      "delayMs": 120,
+      "body": { "state": "ready", "version": "v3", "trace_id": "tr_ready_001" }
+    },
+    "empty": {
+      "httpStatus": 200,
+      "delayMs": 100,
+      "body": { "state": "ready", "items": [], "next_cursor": null, "trace_id": "tr_empty_001" }
+    },
+    "partial": {
+      "httpStatus": 206,
+      "delayMs": 180,
+      "body": { "state": "partial", "missing": ["delivery_estimate"], "trace_id": "tr_partial_001" }
+    },
+    "offline": {
+      "network": "disconnect",
+      "afterMs": 80,
+      "expectedClientState": "offline with preserved input"
+    },
+    "timeout": {
+      "network": "no response",
+      "afterMs": 12000,
+      "expectedClientState": "timeout with retry and preserved input"
+    },
+    "problem": {
+      "httpStatus": 422,
+      "delayMs": 100,
+      "body": {
+        "type": "/problems/validation",
+        "title": "Check the highlighted information",
+        "status": 422,
+        "code": "VALIDATION_FAILED",
+        "trace_id": "tr_problem_001",
+        "retryable": false,
+        "field_errors": [{ "field": "quantity", "code": "OUT_OF_RANGE", "message": "Choose an available quantity" }]
+      }
+    },
+    "stale": {
+      "httpStatus": 409,
+      "delayMs": 90,
+      "body": {
+        "type": "/problems/stale-decision",
+        "title": "Price or availability changed",
+        "status": 409,
+        "code": "STALE_DECISION_DATA",
+        "trace_id": "tr_stale_001",
+        "retryable": true,
+        "current_version": "offer-v12"
+      }
+    },
+    "duplicate": {
+      "httpStatus": 200,
+      "delayMs": 60,
+      "headers": { "Idempotency-Replayed": "true" },
+      "body": { "state": "succeeded", "id": "original-result-001", "trace_id": "tr_duplicate_001" }
+    }
+  },
+  "paymentProvider": {
+    "authorize": ["authorized", "requires_action", "declined", "timeout"],
+    "settle": ["processing", "succeeded", "failed", "reversed"],
+    "webhookOrder": ["out_of_order", "duplicate", "late", "normal"],
+    "reconciliationRule": "webhook and provider query converge on one payment record"
+  },
+  "locationProvider": {
+    "responses": ["fresh_precise", "fresh_approximate", "permission_denied", "unavailable", "stale"],
+    "fallback": "saved area or manual map and search"
+  },
+  "identityProvider": {
+    "responses": ["verified", "pending", "user_cancelled", "mismatch", "provider_unavailable"],
+    "rule": "return only verification outcome and reference; protected source data is not copied into prototype logs"
+  },
+  "notificationProvider": {
+    "channels": ["push", "sms", "email", "whatsapp"],
+    "responses": ["accepted", "delivered", "failed", "consent_missing", "provider_unavailable"],
+    "rule": "transactional and promotional purpose remain separate in the mock response"
+  },
+  "mediaProvider": {
+    "responses": ["uploading", "processing", "ready", "rejected", "expired"],
+    "rule": "client polls or consumes an event; upload completion is not publication success"
+  }
+}

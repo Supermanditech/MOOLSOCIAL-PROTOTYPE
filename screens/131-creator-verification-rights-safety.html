@@ -1,1 +1,314 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Screen 131 · Creator Control</title><link rel="stylesheet" href="../shared/creator-workspace.css"><link rel="stylesheet" href="../shared/creator-workspace-web.css"><style>.channel{display:grid;grid-template-columns:52px minmax(0,1fr) auto;gap:9px;align-items:center}.channel i{width:50px;height:50px;display:grid;place-items:center;border-radius:50%;background:var(--navy);color:#fff;font-style:normal;font-weight:900}.channel span{display:grid;gap:2px}.channel b{font-size:13px}.channel small{color:var(--muted);font-size:9px}.verified{color:var(--green);font-size:9px;font-weight:900}.control-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.control{display:grid;gap:4px;border:1px solid var(--line);border-radius:8px;background:#fff;padding:10px;text-align:left;color:var(--ink)}.control small{color:var(--green);font-size:7px;font-weight:900}.control b{font-size:11px}.control span{color:var(--muted);font-size:8px;line-height:1.3}@media(min-width:851px){.control-grid{grid-template-columns:repeat(3,1fr)}}</style></head><body><main class="stage"><section class="phone"><header class="status"><span>9:49</span><span>Channel protected</span></header><div class="appbar"><a class="icon-btn" href="124-creator-studio-home.html">‹</a><span class="app-title"><b>Channel & Safety</b><span>Verification, rights, team and appeals</span></span><button class="icon-btn" id="support">?</button></div><div class="content"><section class="band channel"><i>JD</i><span><b>@JodhpurDaily</b><small>Multi-format creator · India</small></span><em class="verified">Verified</em></section><section class="band"><div class="band-title"><b>Monetisation readiness</b><span>92%</span></div><div class="progress"><i style="width:92%"></i></div><div class="notice warn" style="margin-top:9px"><i>!</i><span><b>One audio-rights review</b><span>Content remains published; monetisation is held only for that item.</span></span></div></section><div class="control-grid"><button class="control" data-control="identity"><small>VERIFIED</small><b>Identity & Payout</b><span>KYC, bank, tax details and account holder</span></button><button class="control" data-control="channel"><small>PUBLIC PROFILE</small><b>Channel Settings</b><span>Name, category, language, links and visibility</span></button><button class="control" data-control="rights"><small>1 REVIEW</small><b>Content Rights</b><span>Audio, video, image, people and brand permissions</span></button><button class="control" data-control="disclosure"><small>COMMERCIAL</small><b>Paid Disclosure</b><span>Partnership labels and regulated-category rules</span></button><button class="control" data-control="team"><small>2 MEMBERS</small><b>Team & Access</b><span>Editor, analyst and campaign roles</span></button><button class="control" data-control="safety"><small>POLICY</small><b>Safety & Moderation</b><span>Strikes, limits, removals and appeal history</span></button></div><div class="section-title" style="margin-top:10px"><b>Important decisions</b><span>appealable</span></div><div class="row-list"><button class="studio-row" data-control="appeal"><i class="mark orange">R</i><span class="row-copy"><b>Audio rights review · CR-2041</b><span>Monetisation held for one Short</span><em>Evidence due in 6 days</em></span><span class="row-next">›</span></button><button class="studio-row" data-control="security"><i class="mark green">SEC</i><span class="row-copy"><b>Account security</b><span>MFA on · 2 trusted devices</span><em>No unusual access</em></span><span class="row-next">›</span></button></div></div><nav class="dock"><a class="mool" href="04-universal-focus-shell.html">Mool</a><div class="dock-rail"><a class="dock-link" href="125-creator-create-publish.html"><i>+</i><span>Create</span></a><a class="dock-link active" href="124-creator-studio-home.html"><i>S</i><span>Studio</span></a><a class="dock-link" href="130-creator-earnings-payouts.html"><i>₹</i><span>Earnings</span></a></div><a class="chat" href="23-chat-inbox-home.html">Chat</a></nav><div class="layer" id="layer" hidden><section class="sheet"><div class="sheet-head"><span><h2 id="sheetTitle">Creator control</h2><p id="sheetText">Changes are role-controlled, versioned and auditable.</p></span><button class="sheet-close" id="close">X</button></div><div class="sheet-grid"><span class="cell"><small>Workspace</small><b>Verified</b></span><span class="cell"><small>MFA</small><b>Enabled</b></span><span class="cell"><small>Rights records</small><b>24</b></span><span class="cell"><small>Appeals</small><b>1 open</b></span><span class="cell"><small>Team</small><b>2 active</b></span><span class="cell"><small>Audit</small><b>On</b></span></div><div class="sheet-note">Important moderation, demonetisation and campaign decisions include reason, evidence, policy version and appeal route.</div><button class="primary" style="width:100%">Continue</button></section></div></section><aside class="notes"><small>SCREEN 131 · REVIEW DRAFT</small><h1>Verification, Rights and Safety</h1><p>Creator trust, commercial disclosure, content rights, team permissions, moderation and appeals share one controlled route.</p><section class="contract"><div><b>Posting</b>Ordinary posting remains open; verification controls monetisation and commercial participation.</div><div><b>Rights</b>Every media and campaign record can carry ownership, permission and disclosure evidence.</div><div><b>Appeal</b>Important automated or human decisions expose a traceable review path.</div></section></aside></main><script type="module">const layer=document.getElementById('layer');document.querySelectorAll('[data-control]').forEach(x=>x.addEventListener('click',()=>{document.getElementById('sheetTitle').textContent=x.querySelector('b')?.textContent||'Creator control';layer.hidden=false}));document.getElementById('support').addEventListener('click',()=>{document.getElementById('sheetTitle').textContent='Creator Support';layer.hidden=false});document.getElementById('close').addEventListener('click',()=>layer.hidden=true)</script><script type="application/json" id="screen131ProductionContract">{"screen":131,"states":["verification","channel","rights","disclosure","team","moderation","appeal","security"],"decisionRule":"reason_evidence_policy_version_and_appeal_for_important_actions"}</script><script type="application/json" id="prototypeApprovalContract">{"prototypeScreen":131,"status":"approved-and-frozen","authoritative":true,"approvedAt":"2026-07-13"}</script><script type="application/json" id="productionRouteContract">{"contractVersion":"mvp-route-machine-flex-2026-07-12","prototypeScreen":131,"prototypeName":"Creator Verification Rights and Safety","productionModule":"creator","budgetBucket":"creator","routeId":"creator.control","routePath":"/creator/control","routeState":"verification","implementation":"route-shell","launchScope":"mvp-core","separateProductionRoute":true,"painSolved":"Creator monetisation requires controlled identity payout channel rights disclosure team security moderation and appeal states while ordinary posting remains open.","capabilityKeys":["verification-safety"],"featureOutcomes":["Manage verified channel and payout readiness","Record content rights and paid disclosures","Review moderation decisions and appeals with reason evidence and policy version"],"budgetExtension":false,"budgetExtensionReason":null,"productionNote":"Own production route /creator/control and keep all progressive states inside it.","canonicalMap":"architecture/MVP-120-ROUTE-MACHINE.md"}</script></body></html>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Screen 131 · Creator Control</title>
+    <script
+      defer
+      src="../shared/creator-economics-ui.js"
+      data-surface="creator-rights"
+    ></script>
+    <script type="application/json" id="creatorEconomicsBinding">
+      {
+        "engines": ["licensed_reuse", "funded_campaign", "local_production"],
+        "contract": "shared/creator-economics-flow-contract.json",
+        "role": "creator_rights_and_licence"
+      }
+    </script>
+    <link rel="stylesheet" href="../shared/creator-workspace.css" />
+    <link rel="stylesheet" href="../shared/creator-workspace-web.css" />
+    <style>
+      .channel {
+        display: grid;
+        grid-template-columns: 52px minmax(0, 1fr) auto;
+        gap: 9px;
+        align-items: center;
+      }
+      .channel i {
+        width: 50px;
+        height: 50px;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        background: var(--navy);
+        color: #fff;
+        font-style: normal;
+        font-weight: 900;
+      }
+      .channel span {
+        display: grid;
+        gap: 2px;
+      }
+      .channel b {
+        font-size: 13px;
+      }
+      .channel small {
+        color: var(--muted);
+        font-size: 9px;
+      }
+      .verified {
+        color: var(--green);
+        font-size: 9px;
+        font-weight: 900;
+      }
+      .control-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+      }
+      .control {
+        display: grid;
+        gap: 4px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        padding: 10px;
+        text-align: left;
+        color: var(--ink);
+      }
+      .control small {
+        color: var(--green);
+        font-size: 7px;
+        font-weight: 900;
+      }
+      .control b {
+        font-size: 11px;
+      }
+      .control span {
+        color: var(--muted);
+        font-size: 8px;
+        line-height: 1.3;
+      }
+      @media (min-width: 851px) {
+        .control-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="stage">
+      <section class="phone">
+        <header class="status">
+          <span>9:49</span><span>Channel protected</span>
+        </header>
+        <div class="appbar">
+          <a class="icon-btn" href="124-creator-studio-home.html">‹</a
+          ><span class="app-title"
+            ><b>Channel & Safety</b
+            ><span>Verification, rights, team and appeals</span></span
+          ><button class="icon-btn" id="support">?</button>
+        </div>
+        <div class="content">
+          <section class="band channel">
+            <i>JD</i
+            ><span
+              ><b>@JodhpurDaily</b
+              ><small>Multi-format creator · India</small></span
+            ><em class="verified">Verified</em>
+          </section>
+          <section class="band">
+            <div class="band-title">
+              <b>Monetisation readiness</b><span>92%</span>
+            </div>
+            <div class="progress"><i style="width: 92%"></i></div>
+            <div class="notice warn" style="margin-top: 9px">
+              <i>!</i
+              ><span
+                ><b>One audio-rights review</b
+                ><span
+                  >Content remains published; monetisation is held only for that
+                  item.</span
+                ></span
+              >
+            </div>
+          </section>
+          <div class="control-grid">
+            <button class="control" data-control="identity">
+              <small>VERIFIED</small><b>Identity & Payout</b
+              ><span>KYC, bank, tax details and account holder</span></button
+            ><button class="control" data-control="channel">
+              <small>PUBLIC PROFILE</small><b>Channel Settings</b
+              ><span
+                >Name, category, language, links and visibility</span
+              ></button
+            ><button class="control" data-control="rights">
+              <small>1 REVIEW</small><b>Content Rights</b
+              ><span
+                >Audio, video, image, people and brand permissions</span
+              ></button
+            ><button class="control" data-control="disclosure">
+              <small>COMMERCIAL</small><b>Paid Disclosure</b
+              ><span
+                >Partnership labels and regulated-category rules</span
+              ></button
+            ><button class="control" data-control="team">
+              <small>2 MEMBERS</small><b>Team & Access</b
+              ><span>Editor, analyst and campaign roles</span></button
+            ><button class="control" data-control="safety">
+              <small>POLICY</small><b>Safety & Moderation</b
+              ><span>Strikes, limits, removals and appeal history</span>
+            </button>
+          </div>
+          <div class="section-title" style="margin-top: 10px">
+            <b>Important decisions</b><span>appealable</span>
+          </div>
+          <div class="row-list">
+            <button class="studio-row" data-control="appeal">
+              <i class="mark orange">R</i
+              ><span class="row-copy"
+                ><b>Audio rights review · CR-2041</b
+                ><span>Monetisation held for one Short</span
+                ><em>Evidence due in 6 days</em></span
+              ><span class="row-next">›</span></button
+            ><button class="studio-row" data-control="security">
+              <i class="mark green">SEC</i
+              ><span class="row-copy"
+                ><b>Account security</b><span>MFA on · 2 trusted devices</span
+                ><em>No unusual access</em></span
+              ><span class="row-next">›</span>
+            </button>
+          </div>
+        </div>
+        <nav class="dock">
+          <a class="mool" href="04-universal-focus-shell.html">Mool</a>
+          <div class="dock-rail">
+            <a class="dock-link" href="125-creator-create-publish.html"
+              ><i>+</i><span>Create</span></a
+            ><a class="dock-link active" href="124-creator-studio-home.html"
+              ><i>S</i><span>Studio</span></a
+            ><a class="dock-link" href="130-creator-earnings-payouts.html"
+              ><i>₹</i><span>Earnings</span></a
+            >
+          </div>
+          <a class="chat" href="23-chat-inbox-home.html">Chat</a>
+        </nav>
+        <div class="layer" id="layer" hidden>
+          <section class="sheet">
+            <div class="sheet-head">
+              <span
+                ><h2 id="sheetTitle">Creator control</h2>
+                <p id="sheetText">
+                  Changes are role-controlled, versioned and auditable.
+                </p></span
+              ><button class="sheet-close" id="close">X</button>
+            </div>
+            <div class="sheet-grid">
+              <span class="cell"><small>Workspace</small><b>Verified</b></span
+              ><span class="cell"><small>MFA</small><b>Enabled</b></span
+              ><span class="cell"><small>Rights records</small><b>24</b></span
+              ><span class="cell"><small>Appeals</small><b>1 open</b></span
+              ><span class="cell"><small>Team</small><b>2 active</b></span
+              ><span class="cell"><small>Audit</small><b>On</b></span>
+            </div>
+            <div class="sheet-note">
+              Important moderation, demonetisation and campaign decisions
+              include reason, evidence, policy version and appeal route.
+            </div>
+            <button class="primary" style="width: 100%">Continue</button>
+          </section>
+        </div>
+      </section>
+      <aside class="notes">
+        <small>SCREEN 131 · REVIEW DRAFT</small>
+        <h1>Verification, Rights and Safety</h1>
+        <p>
+          Creator trust, commercial disclosure, content rights, team
+          permissions, moderation and appeals share one controlled route.
+        </p>
+        <section class="contract">
+          <div>
+            <b>Posting</b>Ordinary posting remains open; verification controls
+            monetisation and commercial participation.
+          </div>
+          <div>
+            <b>Rights</b>Every media and campaign record can carry ownership,
+            permission and disclosure evidence.
+          </div>
+          <div>
+            <b>Appeal</b>Important automated or human decisions expose a
+            traceable review path.
+          </div>
+        </section>
+      </aside>
+    </main>
+    <script type="module">
+      const layer = document.getElementById("layer");
+      document.querySelectorAll("[data-control]").forEach((x) =>
+        x.addEventListener("click", () => {
+          document.getElementById("sheetTitle").textContent =
+            x.querySelector("b")?.textContent || "Creator control";
+          layer.hidden = false;
+        }),
+      );
+      document.getElementById("support").addEventListener("click", () => {
+        document.getElementById("sheetTitle").textContent = "Creator Support";
+        layer.hidden = false;
+      });
+      document
+        .getElementById("close")
+        .addEventListener("click", () => (layer.hidden = true));
+      if (new URLSearchParams(location.search).get("state") === "review") {
+        const reviewLink = [...document.querySelectorAll("a")].find(
+          (link) => link.textContent.trim() === "Review request",
+        );
+        if (reviewLink) {
+          reviewLink.textContent = "Approve licence";
+          reviewLink.href =
+            "154-admin-finance-reconciliation.html?engine=licensed_reuse&state=approved";
+        }
+      }
+    </script>
+    <script type="application/json" id="screen131ProductionContract">
+      {
+        "screen": 131,
+        "states": [
+          "verification",
+          "channel",
+          "rights",
+          "disclosure",
+          "team",
+          "moderation",
+          "appeal",
+          "security"
+        ],
+        "decisionRule": "reason_evidence_policy_version_and_appeal_for_important_actions"
+      }
+    </script>
+    <script type="application/json" id="prototypeApprovalContract">
+      {
+        "prototypeScreen": 131,
+        "status": "approved-and-frozen",
+        "authoritative": true,
+        "approvedAt": "2026-07-13"
+      }
+    </script>
+    <script type="application/json" id="productionRouteContract">
+      {
+        "contractVersion": "mvp-route-machine-flex-2026-07-12",
+        "prototypeScreen": 131,
+        "prototypeName": "Creator Verification Rights and Safety",
+        "productionModule": "creator",
+        "budgetBucket": "creator",
+        "routeId": "creator.control",
+        "routePath": "/creator/control",
+        "routeState": "verification",
+        "implementation": "route-shell",
+        "launchScope": "mvp-core",
+        "separateProductionRoute": true,
+        "painSolved": "Creator monetisation requires controlled identity payout channel rights disclosure team security moderation and appeal states while ordinary posting remains open.",
+        "capabilityKeys": ["verification-safety"],
+        "featureOutcomes": [
+          "Manage verified channel and payout readiness",
+          "Record content rights and paid disclosures",
+          "Review moderation decisions and appeals with reason evidence and policy version"
+        ],
+        "budgetExtension": false,
+        "budgetExtensionReason": null,
+        "productionNote": "Own production route /creator/control and keep all progressive states inside it.",
+        "canonicalMap": "architecture/MVP-120-ROUTE-MACHINE.md"
+      }
+    </script>
+  </body>
+</html>

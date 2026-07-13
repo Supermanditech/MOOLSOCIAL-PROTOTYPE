@@ -1,0 +1,214 @@
+{
+  "contractVersion": "creator-economics-e2e-v1-2026-07-13",
+  "architectureLock": "architecture/CREATOR-EARNING-END-TO-END-LOCK.md",
+  "appliesTo": [
+    "social",
+    "creator",
+    "retailer",
+    "manufacturer_supplier",
+    "provider",
+    "earn",
+    "pay",
+    "moolsocial_admin"
+  ],
+  "coreRule": "A creator earning is payable only when reserved funding and a verified qualifying event meet the versioned terms.",
+  "moneyStates": [
+    "draft",
+    "funding_reserved",
+    "published",
+    "accepted",
+    "in_progress",
+    "submitted",
+    "outcome_pending",
+    "qualified",
+    "release_pending",
+    "available",
+    "paid",
+    "rejected",
+    "expired",
+    "disputed",
+    "reversed",
+    "clawed_back"
+  ],
+  "engines": [
+    {
+      "id": "funded_campaign",
+      "label": "Funded campaign",
+      "funders": ["retailer", "manufacturer_supplier", "provider", "moolsocial_admin"],
+      "creatorEntry": "screens/129-creator-campaigns.html?engine=funded_campaign",
+      "businessEntries": [
+        "screens/100-retailer-offer-campaign-builder.html?mode=creator&engine=funded_campaign",
+        "screens/113-manufacturer-buyers-demand-campaigns.html?mode=creator&engine=funded_campaign",
+        "screens/145-provider-growth.html?mode=creator&engine=funded_campaign"
+      ],
+      "consumerEntry": "screens/05-social-shorts.html?earning=funded_campaign&campaign=CAM-2401",
+      "adminEntry": "screens/152-admin-work-campaign-governance.html?engine=funded_campaign",
+      "ledgerEntry": "screens/130-creator-earnings-payouts.html?source=funded_campaign",
+      "funding": "fixed fee plus capped outcome pool reserved before publication",
+      "qualification": ["deliverable_approved", "declared_outcome_verified"],
+      "release": "fixed fee after creative approval; bonus after attribution and refund window"
+    },
+    {
+      "id": "attributed_commerce",
+      "label": "Commerce share",
+      "funders": ["retailer", "manufacturer_supplier", "provider"],
+      "creatorEntry": "screens/129-creator-campaigns.html?engine=attributed_commerce",
+      "businessEntries": [
+        "screens/99-retailer-offers-campaigns.html?mode=creator&engine=attributed_commerce",
+        "screens/113-manufacturer-buyers-demand-campaigns.html?mode=creator&engine=attributed_commerce",
+        "screens/145-provider-growth.html?mode=creator&engine=attributed_commerce"
+      ],
+      "consumerEntry": "screens/05-social-shorts.html?earning=attributed_commerce&content=CT-884&sku=BASKET-399",
+      "adminEntry": "screens/154-admin-finance-reconciliation.html?engine=attributed_commerce",
+      "ledgerEntry": "screens/130-creator-earnings-payouts.html?source=attributed_commerce",
+      "funding": "flat or percentage share reserved or accrued from the completed transaction",
+      "qualification": ["eligible_content_touch", "paid_order_or_booking", "completion", "refund_window_closed"],
+      "release": "after completion, fraud checks and refund window"
+    },
+    {
+      "id": "membership",
+      "label": "Memberships",
+      "funders": ["consumer_member"],
+      "creatorEntry": "screens/132-creator-memberships.html?engine=membership",
+      "businessEntries": [],
+      "consumerEntry": "screens/07-social-feed.html?earning=membership&creator=JodhpurDaily",
+      "adminEntry": "screens/154-admin-finance-reconciliation.html?engine=membership",
+      "ledgerEntry": "screens/130-creator-earnings-payouts.html?source=membership",
+      "funding": "successful monthly or annual member payment",
+      "qualification": ["membership_payment_succeeded", "refund_or_cooling_window_closed"],
+      "release": "scheduled payout after deductions and applicable hold"
+    },
+    {
+      "id": "content_pool",
+      "label": "Content pool",
+      "funders": ["moolsocial_admin"],
+      "creatorEntry": "screens/127-creator-content-performance.html?engine=content_pool",
+      "businessEntries": [],
+      "consumerEntry": "screens/06-social-videos.html?earning=content_pool&content=CT-991",
+      "adminEntry": "screens/154-admin-finance-reconciliation.html?engine=content_pool",
+      "ledgerEntry": "screens/130-creator-earnings-payouts.html?source=content_pool",
+      "funding": "dated platform revenue pool reserved before allocation",
+      "qualification": ["eligible_original_content", "valid_performance", "rights_clear", "monthly_close"],
+      "release": "monthly allocation after invalid-traffic and rights checks"
+    },
+    {
+      "id": "local_production",
+      "label": "Local content work",
+      "funders": ["retailer", "manufacturer_supplier", "provider"],
+      "creatorEntry": "screens/129-creator-campaigns.html?engine=local_production",
+      "businessEntries": [
+        "screens/100-retailer-offer-campaign-builder.html?mode=creator&engine=local_production",
+        "screens/113-manufacturer-buyers-demand-campaigns.html?mode=creator&engine=local_production",
+        "screens/145-provider-growth.html?mode=creator&engine=local_production"
+      ],
+      "consumerEntry": null,
+      "adminEntry": "screens/152-admin-work-campaign-governance.html?engine=local_production",
+      "ledgerEntry": "screens/130-creator-earnings-payouts.html?source=local_production",
+      "funding": "fixed production fee reserved with bounded revisions and usage scope",
+      "qualification": ["asset_submitted", "brief_compliance", "buyer_approval_or_governed_review"],
+      "release": "after approval; wider reuse requires a separate licence"
+    },
+    {
+      "id": "verified_onboarding",
+      "label": "Verified onboarding",
+      "funders": ["moolsocial_admin", "retailer", "manufacturer_supplier", "provider"],
+      "creatorEntry": "screens/133-earn-opportunities.html?engine=verified_onboarding",
+      "businessEntries": ["screens/152-admin-work-campaign-governance.html?engine=verified_onboarding"],
+      "consumerEntry": "screens/70-my-work-choose-activity.html?source=creator_onboarding",
+      "adminEntry": "screens/152-admin-work-campaign-governance.html?engine=verified_onboarding",
+      "ledgerEntry": "screens/130-creator-earnings-payouts.html?source=verified_onboarding",
+      "funding": "per verified activation capacity reserved before publication",
+      "qualification": ["identity_or_workspace_verified", "declared_meaningful_activation", "retention_rule_if_declared"],
+      "release": "after duplicate, fraud and eligibility checks; install-only and OTP-only are prohibited"
+    },
+    {
+      "id": "live_event",
+      "label": "Live events",
+      "funders": ["retailer", "manufacturer_supplier", "provider", "moolsocial_admin"],
+      "creatorEntry": "screens/129-creator-campaigns.html?engine=live_event",
+      "businessEntries": [
+        "screens/100-retailer-offer-campaign-builder.html?mode=creator&engine=live_event",
+        "screens/113-manufacturer-buyers-demand-campaigns.html?mode=creator&engine=live_event"
+      ],
+      "consumerEntry": "screens/07-social-feed.html?earning=live_event&event=LIVE-72",
+      "adminEntry": "screens/156-admin-audience-launch-configuration.html?engine=live_event",
+      "ledgerEntry": "screens/130-creator-earnings-payouts.html?source=live_event",
+      "funding": "reserved host fee plus capped qualified-outcome pool",
+      "qualification": ["event_delivered", "valid_attendance", "qualified_engagement_or_completed_commerce"],
+      "release": "host fee after event; outcome share after attribution and refund window"
+    },
+    {
+      "id": "licensed_reuse",
+      "label": "Content licence",
+      "funders": ["retailer", "manufacturer_supplier", "provider", "moolsocial_admin"],
+      "creatorEntry": "screens/131-creator-verification-rights-safety.html?engine=licensed_reuse",
+      "businessEntries": [
+        "screens/99-retailer-offers-campaigns.html?mode=creator&engine=licensed_reuse",
+        "screens/113-manufacturer-buyers-demand-campaigns.html?mode=creator&engine=licensed_reuse",
+        "screens/145-provider-growth.html?mode=creator&engine=licensed_reuse"
+      ],
+      "consumerEntry": null,
+      "adminEntry": "screens/154-admin-finance-reconciliation.html?engine=licensed_reuse",
+      "ledgerEntry": "screens/130-creator-earnings-payouts.html?source=licensed_reuse",
+      "funding": "licence fee held before creator approval",
+      "qualification": ["rights_owner_verified", "scope_approved", "licence_receipt_issued"],
+      "release": "after creator approval and receipt issuance; usage remains bounded by media, territory and term"
+    }
+  ],
+  "authoritativeServices": [
+    "economics_brief_service",
+    "funding_reservation_service",
+    "content_and_rights_service",
+    "attribution_service",
+    "order_booking_membership_event_bus",
+    "creator_ledger_service",
+    "payout_service",
+    "fraud_risk_service",
+    "admin_governance_service"
+  ],
+  "requiredEvents": [
+    "economics.funding_reserved",
+    "economics.opportunity_published",
+    "economics.opportunity_accepted",
+    "creator.deliverable_submitted",
+    "creator.deliverable_decided",
+    "commerce.order_completed",
+    "commerce.order_refunded",
+    "membership.payment_succeeded",
+    "membership.payment_refunded",
+    "content.performance_closed",
+    "workspace.activation_verified",
+    "live.event_completed",
+    "rights.licence_issued",
+    "ledger.earning_qualified",
+    "ledger.earning_available",
+    "payout.completed"
+  ],
+  "apiContracts": [
+    "POST /v1/economics/briefs",
+    "POST /v1/economics/briefs/{id}/reserve",
+    "POST /v1/economics/briefs/{id}/publish",
+    "POST /v1/economics/opportunities/{id}/accept",
+    "POST /v1/economics/deliverables/{id}/submit",
+    "POST /v1/economics/outcomes/{id}/decision",
+    "GET /v1/economics/creator/sources",
+    "GET /v1/economics/ledger",
+    "POST /v1/economics/licences/{id}/decision",
+    "POST /v1/economics/disputes"
+  ],
+  "clientRules": [
+    "No client declares an earning qualified or paid.",
+    "No client hard-codes a fee, share, capacity, attribution window or release time.",
+    "Every commercial content surface displays required disclosure.",
+    "Creator analytics are aggregated and do not reveal private consumer identities.",
+    "Every money-changing write carries idempotency key, actor, workspace, policy version and audit correlation ID."
+  ],
+  "testMatrix": [
+    "success",
+    "rejection_or_dispute",
+    "duplicate_event",
+    "insufficient_funding",
+    "refund_or_reversal",
+    "unauthorized_actor"
+  ]
+}

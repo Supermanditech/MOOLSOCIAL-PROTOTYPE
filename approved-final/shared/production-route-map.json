@@ -28,6 +28,12 @@
       "path": "shared/workspace-economics-contract.json",
       "appliesTo": "all earning, monetization, campaign, referral, commerce and workspace revenue states",
       "required": true
+    },
+    {
+      "contractId": "creator-economics-end-to-end",
+      "path": "shared/creator-economics-flow-contract.json",
+      "appliesTo": "creator, social, business funding, qualifying commerce, admin governance, ledger and payout states",
+      "required": true
     }
   ],
   "routes": [

@@ -1,0 +1,177 @@
+{
+  "contractVersion": "production-component-registry-v1-2026-07-14",
+  "status": "frozen-for-production-planning",
+  "rule": "approved screens are composed route states; production must not create one bespoke component per prototype HTML file",
+  "components": {
+    "AppShell": {
+      "purpose": "personal consumer shell and focused route host",
+      "requiredProps": ["route", "account", "area", "language", "connectivity"],
+      "states": ["loading", "ready", "offline", "error"],
+      "accessibility": "exposes skip target, page title and ordered landmark regions"
+    },
+    "WorkspaceShell": {
+      "purpose": "verified workspace operating shell without removing personal access",
+      "requiredProps": ["workspace", "capabilities", "priority", "unread"],
+      "states": ["ready", "restricted", "suspended", "offline"],
+      "accessibility": "announces active workspace and pending priority count"
+    },
+    "MoolRoot": {
+      "purpose": "one-tap return to universal action resolver",
+      "requiredProps": ["returnContext"],
+      "states": ["idle", "pressed", "unread-priority"],
+      "accessibility": "stable name Mool; never labelled root or home in visible UI"
+    },
+    "ChatShortcut": {
+      "purpose": "one-tap chat access with unread state",
+      "requiredProps": ["unreadCount", "context"],
+      "states": ["idle", "unread", "offline"],
+      "accessibility": "announces unread count without repeating on every render"
+    },
+    "ActionDock": {
+      "purpose": "stable mobile access to Mool, current route actions and Chat",
+      "requiredProps": ["items", "selectedId", "safeArea"],
+      "states": ["ready", "scrollable", "disabled-item"],
+      "accessibility": "selected state and horizontal scroll region are announced"
+    },
+    "FocusRail": {
+      "purpose": "compact swipeable main or sub-action selection",
+      "requiredProps": ["items", "selectedId"],
+      "states": ["ready", "loading", "empty"],
+      "accessibility": "keyboard arrows, selected state and full readable labels"
+    },
+    "SearchAskScanVoice": {
+      "purpose": "universal typed, conversational, camera and voice entry",
+      "requiredProps": ["scope", "permissions", "suggestions"],
+      "states": ["idle", "focused", "listening", "scanning", "permission-denied", "error"],
+      "accessibility": "separate named buttons and live status for listening or scanning"
+    },
+    "DecisionCard": {
+      "purpose": "product, service, booking, ride or work decision before commitment",
+      "requiredProps": ["title", "price", "fulfilment", "trust", "terms", "nextAction"],
+      "states": ["ready", "stale", "unavailable", "selected"],
+      "accessibility": "reading order presents decision data before action"
+    },
+    "ProductDecisionRow": {
+      "purpose": "dense product and supplier comparison",
+      "requiredProps": ["product", "pack", "price", "quantity", "availability", "fulfilment"],
+      "states": ["ready", "in-cart", "unavailable", "stale"],
+      "accessibility": "quantity changes announce new quantity and total"
+    },
+    "DenseCatalogue": {
+      "purpose": "virtualized discovery across large SKU or service sets",
+      "requiredProps": ["query", "filters", "sort", "cursor", "items"],
+      "states": ["loading", "ready", "empty", "partial", "offline", "error"],
+      "accessibility": "result count, applied filters and load-more progress are announced"
+    },
+    "OpportunityRow": {
+      "purpose": "fast scan of funded work",
+      "requiredProps": ["work", "where", "gross", "net", "proof", "capacity", "expiresAt"],
+      "states": ["collapsed", "expanded", "saved", "applied", "expired"],
+      "accessibility": "expanding one row collapses the previous row and retains focus"
+    },
+    "MoneySummary": {
+      "purpose": "gross, deductions, net, held, available and timing disclosure",
+      "requiredProps": ["currency", "gross", "deductions", "net", "state", "expectedAt"],
+      "states": ["estimated", "held", "payable", "processing", "paid", "adjusted", "disputed"],
+      "accessibility": "does not communicate money state by colour alone"
+    },
+    "StatusTimeline": {
+      "purpose": "order, payment, ride, work, support and verification progress",
+      "requiredProps": ["events", "currentState"],
+      "states": ["active", "delayed", "completed", "cancelled", "issue"],
+      "accessibility": "ordered list with current step and timestamps"
+    },
+    "Receipt": {
+      "purpose": "authoritative consumer, supplier, ride, payout or service record",
+      "requiredProps": ["reference", "parties", "lines", "money", "tax", "status"],
+      "states": ["final", "pending", "adjusted", "refunded"],
+      "accessibility": "semantic table or description list and downloadable text alternative"
+    },
+    "ChatThread": {
+      "purpose": "people, business, order and support communication",
+      "requiredProps": ["thread", "messages", "permissions", "context"],
+      "states": ["loading", "ready", "sending", "offline-queued", "failed", "restricted"],
+      "accessibility": "message chronology, sender, delivery state and attachment labels are announced"
+    },
+    "MediaViewer": {
+      "purpose": "full-screen shorts, video, image and document viewing",
+      "requiredProps": ["media", "controls", "captions"],
+      "states": ["loading", "playing", "paused", "buffering", "error"],
+      "accessibility": "captions, playback controls, focus-safe overlays and reduced-motion behavior"
+    },
+    "EvidenceUploader": {
+      "purpose": "task, delivery, issue, verification and goods-receipt evidence",
+      "requiredProps": ["requirements", "limits", "existing"],
+      "states": ["empty", "selected", "uploading", "uploaded", "failed", "expired"],
+      "accessibility": "file type, progress, validation and removal are announced"
+    },
+    "AvailabilityControl": {
+      "purpose": "manual, scheduled and capacity-driven public availability",
+      "requiredProps": ["current", "schedule", "capacity", "override"],
+      "states": ["open", "closed", "scheduled", "paused", "capacity-full"],
+      "accessibility": "switch state and next automatic change are explicit"
+    },
+    "ConsentControl": {
+      "purpose": "channel, personalization and data-use choice",
+      "requiredProps": ["purpose", "scope", "current", "consequence"],
+      "states": ["on", "off", "required", "expired"],
+      "accessibility": "purpose and consequence are associated with the control"
+    },
+    "AgentApproval": {
+      "purpose": "review of prepared or bounded agent action",
+      "requiredProps": ["action", "reason", "limits", "changes", "expiresAt"],
+      "states": ["prepared", "approval-required", "approved", "rejected", "expired", "executed"],
+      "accessibility": "changed values and irreversible consequence are read before approval"
+    },
+    "DataTable": {
+      "purpose": "desktop business and admin records with responsive mobile rows",
+      "requiredProps": ["columns", "rows", "sort", "filters", "cursor"],
+      "states": ["loading", "ready", "empty", "partial", "error"],
+      "accessibility": "caption, headers, sort state and row actions are semantic"
+    },
+    "LoadingSkeleton": {
+      "purpose": "stable route-shape loading state",
+      "requiredProps": ["variant"],
+      "states": ["active", "reduced-motion"],
+      "accessibility": "single polite loading announcement; decorative skeleton is hidden"
+    },
+    "EmptyState": {
+      "purpose": "explain absence and offer one best next action",
+      "requiredProps": ["title", "reason", "action"],
+      "states": ["first-use", "filtered", "completed", "unavailable"],
+      "accessibility": "focus remains on heading; action has a direct name"
+    },
+    "OfflineBanner": {
+      "purpose": "connectivity, cached-data and queued-write disclosure",
+      "requiredProps": ["lastUpdated", "queuedCount", "retry"],
+      "states": ["offline", "reconnecting", "online"],
+      "accessibility": "connectivity changes use a restrained live region"
+    },
+    "ErrorRecovery": {
+      "purpose": "plain-language failure and recovery",
+      "requiredProps": ["category", "referenceId", "retry", "support"],
+      "states": ["recoverable", "blocked", "repeated"],
+      "accessibility": "focus moves to error heading only after a submitted action fails"
+    },
+    "RestrictedState": {
+      "purpose": "verification, serviceability, policy or permission restriction",
+      "requiredProps": ["reason", "allowedNextAction"],
+      "states": ["verification", "serviceability", "permission", "suspended"],
+      "accessibility": "does not expose internal risk rules or protected data"
+    },
+    "SheetModalToast": {
+      "purpose": "progressive detail, confirmation and transient feedback",
+      "requiredProps": ["kind", "title", "content"],
+      "states": ["open", "closing", "closed"],
+      "accessibility": "focus trap only for modal, return focus on close, toast never owns a required action"
+    }
+  },
+  "compositionRules": [
+    "never nest cards inside cards",
+    "one primary action owns the current step",
+    "Mool and Chat are shell controls and are not repeated inside content",
+    "route states share components and APIs instead of creating screen-specific copies",
+    "all components implement loading empty partial offline error restricted stale and duplicate behavior when applicable",
+    "responsive variants preserve action order and wording"
+  ]
+}

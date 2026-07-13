@@ -1,0 +1,190 @@
+asyncapi: 3.0.0
+info:
+  title: MoolSocial MVP Events
+  version: 1.0.0-2026-07-14
+  description: Authoritative cross-capability event catalogue for production integration and regression tests.
+defaultContentType: application/json
+channels:
+  accountReady:
+    address: account.ready
+    messages:
+      accountReady:
+        $ref: '#/components/messages/AccountReady'
+  workspaceStatusChanged:
+    address: workspace.status.changed
+    messages:
+      workspaceStatusChanged:
+        $ref: '#/components/messages/WorkspaceStatusChanged'
+  catalogueOfferChanged:
+    address: catalogue.offer.changed
+    messages:
+      catalogueOfferChanged:
+        $ref: '#/components/messages/CatalogueOfferChanged'
+  stockConfirmationRequested:
+    address: stock.confirmation.requested
+    messages:
+      stockConfirmationRequested:
+        $ref: '#/components/messages/StockConfirmationRequested'
+  orderStatusChanged:
+    address: order.status.changed
+    messages:
+      orderStatusChanged:
+        $ref: '#/components/messages/OrderStatusChanged'
+  paymentStatusChanged:
+    address: payment.status.changed
+    messages:
+      paymentStatusChanged:
+        $ref: '#/components/messages/PaymentStatusChanged'
+  refundStatusChanged:
+    address: refund.status.changed
+    messages:
+      refundStatusChanged:
+        $ref: '#/components/messages/RefundStatusChanged'
+  rideStatusChanged:
+    address: ride.status.changed
+    messages:
+      rideStatusChanged:
+        $ref: '#/components/messages/RideStatusChanged'
+  workAssignmentChanged:
+    address: work.assignment.changed
+    messages:
+      workAssignmentChanged:
+        $ref: '#/components/messages/WorkAssignmentChanged'
+  earningLedgerPosted:
+    address: earning.ledger.posted
+    messages:
+      earningLedgerPosted:
+        $ref: '#/components/messages/EarningLedgerPosted'
+  payoutStatusChanged:
+    address: payout.status.changed
+    messages:
+      payoutStatusChanged:
+        $ref: '#/components/messages/PayoutStatusChanged'
+  messageCreated:
+    address: message.created
+    messages:
+      messageCreated:
+        $ref: '#/components/messages/MessageCreated'
+  agentApprovalRequested:
+    address: agent.approval.requested
+    messages:
+      agentApprovalRequested:
+        $ref: '#/components/messages/AgentApprovalRequested'
+  adminInterventionRecorded:
+    address: admin.intervention.recorded
+    messages:
+      adminInterventionRecorded:
+        $ref: '#/components/messages/AdminInterventionRecorded'
+operations:
+  consumeAccountReady:
+    action: receive
+    channel: { $ref: '#/channels/accountReady' }
+  consumeWorkspaceStatusChanged:
+    action: receive
+    channel: { $ref: '#/channels/workspaceStatusChanged' }
+  consumeCatalogueOfferChanged:
+    action: receive
+    channel: { $ref: '#/channels/catalogueOfferChanged' }
+  consumeStockConfirmationRequested:
+    action: receive
+    channel: { $ref: '#/channels/stockConfirmationRequested' }
+  consumeOrderStatusChanged:
+    action: receive
+    channel: { $ref: '#/channels/orderStatusChanged' }
+  consumePaymentStatusChanged:
+    action: receive
+    channel: { $ref: '#/channels/paymentStatusChanged' }
+  consumeRefundStatusChanged:
+    action: receive
+    channel: { $ref: '#/channels/refundStatusChanged' }
+  consumeRideStatusChanged:
+    action: receive
+    channel: { $ref: '#/channels/rideStatusChanged' }
+  consumeWorkAssignmentChanged:
+    action: receive
+    channel: { $ref: '#/channels/workAssignmentChanged' }
+  consumeEarningLedgerPosted:
+    action: receive
+    channel: { $ref: '#/channels/earningLedgerPosted' }
+  consumePayoutStatusChanged:
+    action: receive
+    channel: { $ref: '#/channels/payoutStatusChanged' }
+  consumeMessageCreated:
+    action: receive
+    channel: { $ref: '#/channels/messageCreated' }
+  consumeAgentApprovalRequested:
+    action: receive
+    channel: { $ref: '#/channels/agentApprovalRequested' }
+  consumeAdminInterventionRecorded:
+    action: receive
+    channel: { $ref: '#/channels/adminInterventionRecorded' }
+components:
+  schemas:
+    EventEnvelope:
+      type: object
+      required: [event_id, event_type, occurred_at, aggregate_type, aggregate_id, aggregate_version, trace_id, policy_version, data]
+      properties:
+        event_id: { type: string }
+        event_type: { type: string }
+        occurred_at: { type: string, format: date-time }
+        aggregate_type: { type: string }
+        aggregate_id: { type: string }
+        aggregate_version: { type: string }
+        account_id: { type: string }
+        workspace_id: { type: string }
+        actor_id: { type: string }
+        trace_id: { type: string }
+        causation_id: { type: string }
+        correlation_id: { type: string }
+        policy_version: { type: string }
+        data: { type: object, additionalProperties: true }
+  messages:
+    AccountReady:
+      name: account.ready
+      payload: { $ref: '#/components/schemas/EventEnvelope' }
+    WorkspaceStatusChanged:
+      name: workspace.status.changed
+      payload: { $ref: '#/components/schemas/EventEnvelope' }
+    CatalogueOfferChanged:
+      name: catalogue.offer.changed
+      payload: { $ref: '#/components/schemas/EventEnvelope' }
+    StockConfirmationRequested:
+      name: stock.confirmation.requested
+      payload: { $ref: '#/components/schemas/EventEnvelope' }
+    OrderStatusChanged:
+      name: order.status.changed
+      payload: { $ref: '#/components/schemas/EventEnvelope' }
+    PaymentStatusChanged:
+      name: payment.status.changed
+      payload: { $ref: '#/components/schemas/EventEnvelope' }
+    RefundStatusChanged:
+      name: refund.status.changed
+      payload: { $ref: '#/components/schemas/EventEnvelope' }
+    RideStatusChanged:
+      name: ride.status.changed
+      payload: { $ref: '#/components/schemas/EventEnvelope' }
+    WorkAssignmentChanged:
+      name: work.assignment.changed
+      payload: { $ref: '#/components/schemas/EventEnvelope' }
+    EarningLedgerPosted:
+      name: earning.ledger.posted
+      payload: { $ref: '#/components/schemas/EventEnvelope' }
+    PayoutStatusChanged:
+      name: payout.status.changed
+      payload: { $ref: '#/components/schemas/EventEnvelope' }
+    MessageCreated:
+      name: message.created
+      payload: { $ref: '#/components/schemas/EventEnvelope' }
+    AgentApprovalRequested:
+      name: agent.approval.requested
+      payload: { $ref: '#/components/schemas/EventEnvelope' }
+    AdminInterventionRecorded:
+      name: admin.intervention.recorded
+      payload: { $ref: '#/components/schemas/EventEnvelope' }
+x-consumer-rules:
+  idempotency: event_id
+  ordering: aggregate_id then aggregate_version
+  duplicate_behavior: acknowledge without applying a second mutation
+  stale_behavior: reject or park an event older than the stored aggregate version
+  replay: consumers must rebuild projections from retained events without side effects
+  observability: retain trace_id correlation_id and causation_id

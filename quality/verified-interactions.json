@@ -1,0 +1,3752 @@
+{
+  "version": "verified-interactions-final-2026-07-13",
+  "generatedAt": "2026-07-13T18:46:25.0843826+05:30",
+  "audit": "quality/generated/flow-browser-tap-final.json",
+  "rule": "An interaction is verified only because its exact screen-and-label control passed the final clean browser audit.",
+  "interactions": [
+    {
+      "screen": 0,
+      "label": "Install",
+      "status": "verified",
+      "evidence": "Install link opened Screen 01, which automatically handed off to Screen 02 with source=play-store and languageSource=device."
+    },
+    {
+      "screen": 2,
+      "label": "Use current location Best when you are at the place now",
+      "status": "verified",
+      "evidence": "Tap showed the request state and opened Screen 03 with area=current, areaSource=device and permission=requested."
+    },
+    {
+      "screen": 2,
+      "label": "Set manually Search area, pin code, address or choose on map",
+      "status": "verified",
+      "evidence": "Tap opened the manual area form; input update, Back and Use Pune were tested, preserving area=Pune and areaSource=manual."
+    },
+    {
+      "screen": 2,
+      "label": "Skip now Continue to login and set area after signup",
+      "status": "verified",
+      "evidence": "Tap opened Screen 03 with area=unset and areaSource=skipped."
+    },
+    {
+      "screen": 3,
+      "label": "Continue with Google",
+      "status": "verified",
+      "evidence": "Tap opened Screen 04 with auth=google, authState=verified and retained area context."
+    },
+    {
+      "screen": 3,
+      "label": "Continue with Apple",
+      "status": "verified",
+      "evidence": "Tap opened Screen 04 with auth=apple, authState=verified and retained area context."
+    },
+    {
+      "screen": 3,
+      "label": "Continue with X",
+      "status": "verified",
+      "evidence": "Tap opened Screen 04 with auth=x, authState=verified and retained area context."
+    },
+    {
+      "screen": 3,
+      "label": "Continue with Instagram",
+      "status": "verified",
+      "evidence": "Tap opened Screen 04 with auth=instagram, authState=verified and retained area context."
+    },
+    {
+      "screen": 3,
+      "label": "Continue with Facebook",
+      "status": "verified",
+      "evidence": "Tap opened Screen 04 with auth=facebook, authState=verified and retained area context."
+    },
+    {
+      "screen": 3,
+      "label": "Email OTP Use any email address",
+      "status": "verified",
+      "evidence": "Tap selected Email OTP; Verify opened Screen 04 with auth=email_otp, authState=verified and otp=autofilled."
+    },
+    {
+      "screen": 3,
+      "label": "Mobile OTP Use mobile number",
+      "status": "verified",
+      "evidence": "Tap selected Mobile OTP; Verify opened Screen 04 with auth=mobile_otp, authState=verified and otp=autofilled."
+    },
+    {
+      "screen": 4,
+      "label": "Search",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-004-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 4,
+      "label": "Scan",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-004-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 4,
+      "label": "Voice",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-004-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 4,
+      "label": "Shorts",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-004-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 4,
+      "label": "Like",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-004-05); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 4,
+      "label": "Chat",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-004-06); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 4,
+      "label": "Share",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-004-07); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 4,
+      "label": "Remix",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-004-08); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 4,
+      "label": "Open Mool actions",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-004-09); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 4,
+      "label": "Open social",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-004-10); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 4,
+      "label": "Open product buying",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-004-11); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 4,
+      "label": "Open food",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-004-12); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 4,
+      "label": "Open ride",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-004-13); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 4,
+      "label": "Open booking",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-004-14); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 4,
+      "label": "Open payments",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-004-15); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 4,
+      "label": "Open work",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-004-20); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 5,
+      "label": "Back to social",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-005-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 5,
+      "label": "Search shorts",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-005-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 5,
+      "label": "RK Rasoi Kitchen Verified restaurant · Lunch live",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-005-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 5,
+      "label": "Details",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-005-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 5,
+      "label": "GO Ground Ops Verified work · Paid task",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-005-05); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 5,
+      "label": "Save",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-005-07); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 5,
+      "label": "Open Mool actions",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-005-08); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 5,
+      "label": "Shorts",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-005-09); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 5,
+      "label": "Open chats, 2 unread messages",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-005-10); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 6,
+      "label": "Cast video",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-006-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 6,
+      "label": "Search videos",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-006-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 6,
+      "label": "Account",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-006-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 6,
+      "label": "Explore",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-006-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 6,
+      "label": "All",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-006-05); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 6,
+      "label": "Live",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-006-06); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 6,
+      "label": "News",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-006-07); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 6,
+      "label": "Forensic Science",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-006-08); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 6,
+      "label": "Music",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-006-09); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 6,
+      "label": "Podcasts",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-006-10); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 6,
+      "label": "Live television",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-006-11); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 6,
+      "label": "Electric vehicles",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-006-12); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 6,
+      "label": "Products",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-006-13); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 6,
+      "label": "Consumer Electronics",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-006-14); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 6,
+      "label": "Indian Music",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-006-15); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 6,
+      "label": "Recently uploaded",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-006-16); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 6,
+      "label": "New to you",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-006-17); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 6,
+      "label": "Open Mool actions",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-006-18); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 6,
+      "label": "Videos",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-006-19); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 6,
+      "label": "Open chat",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-006-20); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 7,
+      "label": "Search feed",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-007-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 7,
+      "label": "Notifications",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-007-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 7,
+      "label": "Account",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-007-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 7,
+      "label": "For you",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-007-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 7,
+      "label": "Following",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-007-05); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 7,
+      "label": "Near you",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-007-06); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 7,
+      "label": "Creators",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-007-07); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 7,
+      "label": "Business",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-007-08); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 7,
+      "label": "Work",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-007-09); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 7,
+      "label": "Post",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-007-10); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 7,
+      "label": "Photo",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-007-11); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 7,
+      "label": "Poll",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-007-12); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 7,
+      "label": "More",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-007-13); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 7,
+      "label": "Open Mool actions",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-007-16); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 7,
+      "label": "Feed",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-007-17); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 7,
+      "label": "Open chat",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-007-18); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 8,
+      "label": "Text",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-008-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 8,
+      "label": "Open Mool",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-008-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 8,
+      "label": "Create",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-008-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 8,
+      "label": "Open chat",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-008-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 9,
+      "label": "Saved baskets",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-009-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 9,
+      "label": "Profile",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-009-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 9,
+      "label": "Search",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-009-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 9,
+      "label": "Scan",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-009-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 9,
+      "label": "Voice",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-009-05); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 9,
+      "label": "Open chat",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-009-06); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 10,
+      "label": "Go back to Buy",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-010-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 10,
+      "label": "Open basket",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-010-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 10,
+      "label": "Search",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-010-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 10,
+      "label": "Scan item",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-010-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 10,
+      "label": "Voice search",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-010-05); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 10,
+      "label": "Buy Retail shop price",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-010-06); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 10,
+      "label": "All",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-010-07); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 10,
+      "label": "Retail Rs 37 11 min",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-010-08); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 10,
+      "label": "Pack Rs 34 2 kg",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-010-09); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 10,
+      "label": "MOQ Rs 31 target",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-010-10); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 10,
+      "label": "Retail Rs 495 today",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-010-11); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 10,
+      "label": "Pack Rs 475 2 bags",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-010-12); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 10,
+      "label": "MOQ Rs 455 target",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-010-13); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 10,
+      "label": "Retail Rs 155 60 min",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-010-14); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 10,
+      "label": "Pack Rs 145 3 qty",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-010-15); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 10,
+      "label": "MOQ Rs 132 target",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-010-16); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 10,
+      "label": "Close basket",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-010-17); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 10,
+      "label": "Continue",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-010-18); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 11,
+      "label": "Open basket",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-011-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 11,
+      "label": "Retail Rs 37 500 g now",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-011-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 11,
+      "label": "500 g Rs 37 single buy",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-011-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 11,
+      "label": "-",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-011-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 11,
+      "label": "Pickup 8 min pay in app, collect from counter",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-011-05); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 12,
+      "label": "Apply coupon",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-012-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 12,
+      "label": "Approve Replace show substitute first",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-012-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 13,
+      "label": "Open alerts",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-013-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 14,
+      "label": "Open receipt",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-014-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 14,
+      "label": "UPI recommended for fastest confirmation",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-014-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 15,
+      "label": "Share receipt",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-015-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 15,
+      "label": "Ask counter",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-015-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 15,
+      "label": "Refresh",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-015-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 16,
+      "label": "Share bill",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-016-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 16,
+      "label": "Call shop",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-016-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 16,
+      "label": "View bill",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-016-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 16,
+      "label": "Raise issue",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-016-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 17,
+      "label": "Delivery help",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-017-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 18,
+      "label": "Call shop",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-018-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 23,
+      "label": "Search chats",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-023-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 24,
+      "label": "Attach item or bill",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-024-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 24,
+      "label": "Open camera",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-024-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 24,
+      "label": "Voice message",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-024-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 25,
+      "label": "Voice message",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-025-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 26,
+      "label": "Search food",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-026-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 26,
+      "label": "Scan restaurant QR",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-026-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 26,
+      "label": "Voice food search",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-026-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 26,
+      "label": "SD Spice Darbar North Indian · 1.1 km Open Order · Table · Pickup · 10% reward",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-026-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 27,
+      "label": "Search",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-027-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 27,
+      "label": "Scan restaurant QR",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-027-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 27,
+      "label": "Voice search",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-027-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 27,
+      "label": "Add pack",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-027-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 28,
+      "label": "Saved restaurants",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-028-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 28,
+      "label": "Search",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-028-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 28,
+      "label": "Scan restaurant QR",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-028-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 28,
+      "label": "Voice search",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-028-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 29,
+      "label": "Search",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-029-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 29,
+      "label": "Scan kitchen QR",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-029-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 29,
+      "label": "Voice search",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-029-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 29,
+      "label": "Lunch",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-029-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 29,
+      "label": "Start month Rs 2,850 26 meals · skip allowed",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-029-05); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 30,
+      "label": "Saved places",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-030-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 30,
+      "label": "Search",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-030-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 30,
+      "label": "Use current location",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-030-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 30,
+      "label": "Voice search",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-030-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 30,
+      "label": "Now",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-030-05); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 30,
+      "label": "After 15 min",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-030-06); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 30,
+      "label": "Schedule",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-030-07); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 31,
+      "label": "Safety",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-031-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 31,
+      "label": "Open map",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-031-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 31,
+      "label": "Call captain",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-031-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 31,
+      "label": "Chat with captain",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-031-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 32,
+      "label": "Safety",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-032-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 32,
+      "label": "Open map",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-032-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 32,
+      "label": "Call captain",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-032-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 32,
+      "label": "Chat with captain",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-032-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 33,
+      "label": "Safety",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-033-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 33,
+      "label": "Receipt",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-033-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 33,
+      "label": "Call captain",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-033-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 33,
+      "label": "Chat with captain",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-033-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 33,
+      "label": "Card approve",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-033-05); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 34,
+      "label": "Safety",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-034-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 34,
+      "label": "Download receipt",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-034-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 34,
+      "label": "Share receipt",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-034-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 34,
+      "label": "Support chat",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-034-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 34,
+      "label": "★",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-034-05); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 35,
+      "label": "Safety",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-035-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 35,
+      "label": "Receipt proof",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-035-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 35,
+      "label": "Call support",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-035-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 35,
+      "label": "Support chat",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-035-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 35,
+      "label": "Item missing unwanted incident",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-035-05); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 35,
+      "label": "Wallet",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-035-06); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 35,
+      "label": "Bag",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-035-07); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 36,
+      "label": "Saved places",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-036-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 36,
+      "label": "Search",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-036-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 36,
+      "label": "Use current location",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-036-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 36,
+      "label": "Voice search",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-036-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 36,
+      "label": "Now",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-036-05); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 36,
+      "label": "Today evening",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-036-06); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 36,
+      "label": "Tomorrow",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-036-07); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 36,
+      "label": "Schedule",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-036-08); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 37,
+      "label": "Saved patients",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-037-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 37,
+      "label": "Search",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-037-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 37,
+      "label": "Use current area",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-037-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 37,
+      "label": "Voice search",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-037-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 37,
+      "label": "Clinic doctor slot individual doctor",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-037-05); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 37,
+      "label": "Fever",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-037-06); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 37,
+      "label": "Dental",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-037-07); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 37,
+      "label": "Reports",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-037-08); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 37,
+      "label": "KS Dr. Kavita Sharma General physician · 1.1 km Today 6:20 PM · reg no + clinic Rs 300 12 min",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-037-09); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 38,
+      "label": "Family profiles",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-038-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 38,
+      "label": "Search",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-038-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 38,
+      "label": "Scan report",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-038-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 38,
+      "label": "Voice note",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-038-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 38,
+      "label": "Self 28 yrs",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-038-05); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 38,
+      "label": "Fever",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-038-06); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 39,
+      "label": "Doctor workspace",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-039-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 39,
+      "label": "Search",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-039-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 39,
+      "label": "Show patient QR",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-039-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 39,
+      "label": "Send voice instruction",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-039-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 39,
+      "label": "Show QR counter scan",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-039-05); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 39,
+      "label": "7-day",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-039-06); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 40,
+      "label": "Patient account",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-040-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 40,
+      "label": "Search",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-040-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 40,
+      "label": "Open invite",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-040-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 40,
+      "label": "Voice help",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-040-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 40,
+      "label": "Join visit doctor link",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-040-05); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 40,
+      "label": "7-day",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-040-06); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 41,
+      "label": "Patient account",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-041-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 41,
+      "label": "Search",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-041-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 41,
+      "label": "Open follow-up",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-041-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 41,
+      "label": "Voice help",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-041-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 41,
+      "label": "Upload report lab/photo",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-041-05); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 41,
+      "label": "Reports",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-041-06); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 41,
+      "label": "Reminders medicine",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-041-07); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 41,
+      "label": "Rebook same doctor",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-041-08); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 41,
+      "label": "Share with this clinic Dr. Kavita clinic can see only this follow-up case and files you choose.",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-041-09); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 42,
+      "label": "Saved salons",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-042-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 42,
+      "label": "Search",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-042-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 42,
+      "label": "Use current area",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-042-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 42,
+      "label": "Voice search",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-042-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 42,
+      "label": "Haircut",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-042-05); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 42,
+      "label": "Salon nearby slot visit salon",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-042-06); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 43,
+      "label": "Saved salons",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-043-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 43,
+      "label": "Set reminder",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-043-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 43,
+      "label": "Pay at salon no prepay pay after service",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-043-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 43,
+      "label": "No add-on",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-043-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 43,
+      "label": "Beard +80",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-043-05); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 43,
+      "label": "Wash +120",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-043-06); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 43,
+      "label": "Cleanup +350",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-043-07); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 43,
+      "label": "P Price includes selected service Haircut, basic styling and GST included. Salon rating + shop photo",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-043-08); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 44,
+      "label": "Saved salons",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-044-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 44,
+      "label": "Reminder enabled",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-044-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 44,
+      "label": "Arrive 5:30 PM 10 min early",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-044-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 44,
+      "label": "Reminder 30 min before slot",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-044-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 44,
+      "label": "Counter show app no code needed",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-044-05); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 45,
+      "label": "Saved salons",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-045-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 45,
+      "label": "Call salon",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-045-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 45,
+      "label": "Checked in Done arrival noted",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-045-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 45,
+      "label": "Queue 2 ahead approx 5 min",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-045-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 45,
+      "label": "Service Ready chair 3",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-045-05); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 46,
+      "label": "Saved salons",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-046-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 46,
+      "label": "Call salon",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-046-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 46,
+      "label": "Service Done confirmed",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-046-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 46,
+      "label": "Bill Rs 199 ready",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-046-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 46,
+      "label": "Rate Good tap to change",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-046-05); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 47,
+      "label": "Saved salons",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-047-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 47,
+      "label": "Call salon",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-047-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 48,
+      "label": "Saved tasks",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-048-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 48,
+      "label": "Search",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-048-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 48,
+      "label": "Scan proof",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-048-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 48,
+      "label": "Voice task",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-048-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 48,
+      "label": "Jodhpur",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-048-05); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 48,
+      "label": "Pickup Pickup work shop, counter, parcel",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-048-06); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 48,
+      "label": "CP Counter partner Jodhpur · shop pickup · faster proof counter receipt linked Rs 129 60 min",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-048-07); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 48,
+      "label": "Pickup place Shop, counter, office or address Map pin or typed address Add needed",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-048-08); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 48,
+      "label": "Pickup instruction What to collect and from whom Text, voice or photo works Add needed",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-048-09); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 48,
+      "label": "Confirm before collect Ask before paying, collecting or closing User controls final release Set safe",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-048-10); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 48,
+      "label": "Photo",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-048-11); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 48,
+      "label": "Bill",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-048-12); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 48,
+      "label": "Status",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-048-13); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 49,
+      "label": "Saved task",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-049-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 49,
+      "label": "Task proof",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-049-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 49,
+      "label": "Voice help",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-049-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 49,
+      "label": "UPI hold fast",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-049-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 50,
+      "label": "Save task",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-050-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 50,
+      "label": "Task proof",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-050-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 50,
+      "label": "Voice help",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-050-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 51,
+      "label": "Save proof",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-051-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 51,
+      "label": "Zoom proof",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-051-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 51,
+      "label": "Voice help",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-051-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 52,
+      "label": "Save receipt",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-052-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 52,
+      "label": "Search receipt",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-052-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 52,
+      "label": "Voice help",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-052-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 53,
+      "label": "Saved support",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-053-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 53,
+      "label": "Add proof",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-053-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 53,
+      "label": "Voice support",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-053-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 54,
+      "label": "Saved support",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-054-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 54,
+      "label": "Add proof",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-054-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 54,
+      "label": "Voice support",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-054-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 54,
+      "label": "Report filed Case created from Screen 53",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-054-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 54,
+      "label": "Evidence synced Proof and bill attached",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-054-05); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 54,
+      "label": "Verification Support validates with helper",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-054-06); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 54,
+      "label": "Decision Refund / rework / keep hold",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-054-07); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 55,
+      "label": "Saved support",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-055-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 55,
+      "label": "Add proof",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-055-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 55,
+      "label": "Voice support",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-055-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 55,
+      "label": "Refund return protected amount",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-055-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 56,
+      "label": "Saved support",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-056-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 56,
+      "label": "Add proof",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-056-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 56,
+      "label": "Voice support",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-056-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 56,
+      "label": "Money action refund initiated",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-056-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 57,
+      "label": "Saved places",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-057-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 57,
+      "label": "Search",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-057-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 57,
+      "label": "Use current location",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-057-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 57,
+      "label": "Voice search",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-057-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 57,
+      "label": "UPI",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-057-05); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 57,
+      "label": "Mobile recharge plan based instant · number + operator",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-057-06); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 58,
+      "label": "Saved places",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-058-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 58,
+      "label": "Search",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-058-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 58,
+      "label": "Use current location",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-058-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 58,
+      "label": "Voice search",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-058-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 58,
+      "label": "UPI",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-058-05); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 58,
+      "label": "Popular plan Rs 299 28 days · unlimited calls",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-058-06); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 59,
+      "label": "Saved places",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-059-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 59,
+      "label": "Search",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-059-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 59,
+      "label": "Use current location",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-059-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 59,
+      "label": "Voice search",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-059-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 59,
+      "label": "UPI",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-059-05); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 59,
+      "label": "Home electricity Rs 1,240 due 18 Jul · no late fee today",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-059-06); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 60,
+      "label": "Saved places",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-060-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 60,
+      "label": "Search",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-060-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 60,
+      "label": "Use current location",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-060-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 60,
+      "label": "Voice search",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-060-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 60,
+      "label": "UPI",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-060-05); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 60,
+      "label": "Counter payment Enter amount instant · merchant QR verified",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-060-06); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 61,
+      "label": "Request alerts",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-061-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 61,
+      "label": "Search",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-061-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 61,
+      "label": "Filter requests",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-061-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 61,
+      "label": "Voice search",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-061-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 61,
+      "label": "Pending",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-061-05); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 61,
+      "label": "Mahadev Fresh Mart Rs 645 expires in 28 min · Order #MS2401 · grocery bill",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-061-06); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 62,
+      "label": "Payment safety",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-062-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 62,
+      "label": "UPI •••• 4821",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-062-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 62,
+      "label": "Order total Rs 620 12 items · grocery order #MS2401",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-062-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 63,
+      "label": "Share receipt",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-063-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 63,
+      "label": "MoolSocial ref MSP240710812 saved · immutable reference",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-063-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 64,
+      "label": "Filter payment history",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-064-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 64,
+      "label": "Search receipts",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-064-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 64,
+      "label": "Choose month",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-064-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 64,
+      "label": "Mahadev Fresh Mart 10 Jul · 8:12 AM · Order #MS2401 · UPI Rs 645 Success",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-064-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 65,
+      "label": "Refresh payment status",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-065-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 65,
+      "label": "Payment sent Card •••• 6068 · request accepted Done 7:40 AM",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-065-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 65,
+      "label": "Bank confirmation provider poll active · callback awaited Checking Now",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-065-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 65,
+      "label": "Final status success or failed · one final result By 8:00 Expected",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-065-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 66,
+      "label": "Payment attempt Card •••• 6068 · request declined Failed 8:04 AM",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-066-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 66,
+      "label": "Bank result Bank declined this attempt · provider verified Declined Final",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-066-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 66,
+      "label": "Debit check no bank debit · retry token ready Rs 0 Confirmed",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-066-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 67,
+      "label": "Work location",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-067-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 67,
+      "label": "Search work",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-067-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 67,
+      "label": "Use current location",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-067-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 67,
+      "label": "Voice search",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-067-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 67,
+      "label": "How monthly potential is calculated",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-067-05); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 67,
+      "label": "MD DELIVER · MOOLSOCIAL VERIFIED Complete an evening grocery route Jodhpur central 10 routes Closed ",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-067-06); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 67,
+      "label": "MOOL JOB · MOOLSOCIAL VERIFIED City operations coordinator Jodhpur · on-site 2 roles 7d 03:48:07 ₹25",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-067-07); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 68,
+      "label": "What the publisher provides +",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-068-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 68,
+      "label": "Review, correction and rejection +",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-068-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 68,
+      "label": "Content use and rights +",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-068-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 68,
+      "label": "Apply now Freelancer setup opens next",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-068-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 69,
+      "label": "My Work notifications",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-069-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 69,
+      "label": "My Work settings",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-069-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 70,
+      "label": "Help choosing work",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-070-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 70,
+      "label": "All work",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-070-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 71,
+      "label": "Verification help",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-071-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 71,
+      "label": "Continue to proof",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-071-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 74,
+      "label": "Open retailer business home",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-074-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 78,
+      "label": "Phone Call active",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-078-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 78,
+      "label": "Mool delivery Verified captain",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-078-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 78,
+      "label": "Pay request Send securely",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-078-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 78,
+      "label": "On delivery Cash / UPI",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-078-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 78,
+      "label": "Customer due If enabled",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-078-05); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 79,
+      "label": "1 Main Billing Meena",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-079-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 80,
+      "label": "UPI Matched",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-080-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 81,
+      "label": "All",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-081-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 81,
+      "label": "Deals",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-081-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 81,
+      "label": "Offers",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-081-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 81,
+      "label": "Fast Delivery",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-081-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 81,
+      "label": "Credit",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-081-05); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 81,
+      "label": "Brands",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-081-06); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 84,
+      "label": "PO-MS-8202 In transit · MoolSocial Transport",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-084-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 87,
+      "label": "Purchases",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-087-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 87,
+      "label": "All 18",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-087-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 89,
+      "label": "View Bill",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-089-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 89,
+      "label": "Acknowledgement",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-089-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 90,
+      "label": "Sales",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-090-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 90,
+      "label": "All",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-090-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 91,
+      "label": "Movements",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-091-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 91,
+      "label": "All",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-091-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 94,
+      "label": "Plan help",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-094-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 94,
+      "label": "Starter Start ₹299 /month 10 deliveries included ₹35 per completed delivery after 10",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-094-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 94,
+      "label": "₹3,000",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-094-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 95,
+      "label": "Activation help",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-095-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 95,
+      "label": "UPI UPI AutoPay · ending 4321 Monthly plan and verified charges within your limit",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-095-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 95,
+      "label": "CARD Visa · ending 6068 Saved card mandate",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-095-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 95,
+      "label": "1× Pay manually each month Service pauses if renewal is not paid",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-095-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 96,
+      "label": "Service settings",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-096-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 97,
+      "label": "All",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-097-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 98,
+      "label": "Mool Chat",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-098-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 99,
+      "label": "All",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-099-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 100,
+      "label": "Increase sales",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-100-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 100,
+      "label": "Bring customers back",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-100-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 100,
+      "label": "Clear slow stock",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-100-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 100,
+      "label": "Reach a new area",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-100-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 101,
+      "label": "D Surf Excel 1 kg · 24 units No sale 38 days · buy ₹112 · sell ₹128 Suggested floor ₹116 · recover ₹",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-101-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 101,
+      "label": "B Premium Biscuits · 36 packs Slow 27 days · best before 92 days Suggested bundle · protect 8% margi",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-101-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 101,
+      "label": "J Mango Juice 1 L · 18 units Sell-by priority · 41 days remaining Customer offer recommended 18 Prio",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-101-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 101,
+      "label": "Customer offer Nearby verified demand",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-101-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 101,
+      "label": "",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-101-05); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 102,
+      "label": "Assistant history",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-102-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 102,
+      "label": "AI Why is profit lower this week? Oil margin fell 1.8%; delivery cost rose ₹1,240 Based on locked sa",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-102-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 102,
+      "label": "AI Which customers may reorder? 86 eligible from permitted repeat-basket history No message sent Vie",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-102-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 103,
+      "label": "DEV Active devices 6 devices · last sign-in and branch Review",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-103-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 103,
+      "label": "LOG Permission history Every grant, revoke and limit change View",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-103-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 104,
+      "label": "Save settings",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-104-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 104,
+      "label": "Accept app orders",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-104-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 104,
+      "label": "Counter pickup",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-104-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 104,
+      "label": "Home delivery",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-104-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 105,
+      "label": "All",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-105-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 105,
+      "label": "Review now",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-105-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 105,
+      "label": "Replace",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-105-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 106,
+      "label": "EXP Recorded shop expenses Electricity, salary, delivery, repair and supplies 42 records · bills att",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-106-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 107,
+      "label": "SF Shakti Foods Manufacturing FMCG · Edible oil & staples · Jodhpur",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-107-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 109,
+      "label": "My Stock",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-109-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 109,
+      "label": "All 42",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-109-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 109,
+      "label": "Live 39",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-109-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 109,
+      "label": "Low 6",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-109-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 109,
+      "label": "Paused 3",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-109-05); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 109,
+      "label": "Batch",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-109-06); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 109,
+      "label": "Stock",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-109-07); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 111,
+      "label": "Matched Inputs",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-111-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 111,
+      "label": "Matched",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-111-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 111,
+      "label": "Raw Material",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-111-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 111,
+      "label": "Packaging",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-111-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 111,
+      "label": "Credit",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-111-05); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 111,
+      "label": "Browse All",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-111-06); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 111,
+      "label": "Wholesale Buy",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-111-07); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 112,
+      "label": "Ready 3",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-112-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 113,
+      "label": "Buyers",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-113-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 114,
+      "label": "Claims",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-114-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 115,
+      "label": "All Services",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-115-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 115,
+      "label": "All",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-115-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 115,
+      "label": "Sales",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-115-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 115,
+      "label": "Logistics",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-115-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 115,
+      "label": "Campaign",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-115-05); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 115,
+      "label": "Tax & Audit",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-115-06); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 115,
+      "label": "Sourcing",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-115-07); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 121,
+      "label": "Today",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-121-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 121,
+      "label": "This Week",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-121-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 121,
+      "label": "Payouts",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-121-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 121,
+      "label": "₹ MS-R4821 · Airport Gross ₹278 · platform ₹28 Net ₹250 · paid ›",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-121-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 121,
+      "label": "₹ MS-R4817 · Railway Station Gross ₹196 · platform ₹20 Net ₹176 · paid ›",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-121-05); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 123,
+      "label": "Support",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-123-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 125,
+      "label": "Short",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-125-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 125,
+      "label": "Gallery",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-125-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 125,
+      "label": "Files",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-125-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 125,
+      "label": "Public",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-125-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 125,
+      "label": "Followers",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-125-05); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 125,
+      "label": "Schedule",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-125-06); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 125,
+      "label": "Location",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-125-07); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 126,
+      "label": "Filter",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-126-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 126,
+      "label": "Published",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-126-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 127,
+      "label": "7 days",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-127-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 127,
+      "label": "28 days",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-127-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 127,
+      "label": "90 days",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-127-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 127,
+      "label": "Content",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-127-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 127,
+      "label": "Campaign",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-127-05); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 127,
+      "label": "How local baskets save time 48.2K views · 126 orders ₹2,840 payable ›",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-127-06); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 129,
+      "label": "Best Fit",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-129-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 129,
+      "label": "Local",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-129-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 129,
+      "label": "Awareness",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-129-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 129,
+      "label": "Conversion",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-129-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 129,
+      "label": "Saved",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-129-05); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 133,
+      "label": "Best Match",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-133-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 133,
+      "label": "Onboarding",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-133-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 133,
+      "label": "Campaign",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-133-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 133,
+      "label": "Verification",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-133-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 133,
+      "label": "Delivery",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-133-05); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 134,
+      "label": "Applied",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-134-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 136,
+      "label": "✓ Owner OTP Matched 10:06",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-136-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 136,
+      "label": "✓ Shop Photo GPS + time saved",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-136-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 136,
+      "label": "✓ QR Scan Test Activation event",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-136-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 136,
+      "label": "✓ Owner Confirmed App access active",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-136-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 138,
+      "label": "History",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-138-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 140,
+      "label": "Live",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-140-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 140,
+      "label": "Draft",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-140-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 140,
+      "label": "Paused",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-140-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 140,
+      "label": "Needs update",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-140-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 140,
+      "label": "Preview",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-140-05); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 141,
+      "label": "",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-141-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 141,
+      "label": "MON 4 slots open 9 AM - 7 PM Accepting ›",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-141-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 141,
+      "label": "TUE 2 slots open 10 AM - 5 PM Limited ›",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-141-05); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 141,
+      "label": "WED Closed Personal day Edit ›",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-141-06); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 141,
+      "label": "Save availability",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-141-07); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 142,
+      "label": "New 2",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-142-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 142,
+      "label": "Accepted 4",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-142-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 142,
+      "label": "Completed",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-142-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 143,
+      "label": "Message customer",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-143-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 144,
+      "label": "Payments",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-144-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 144,
+      "label": "Customers",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-144-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 144,
+      "label": "Receipts",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-144-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 144,
+      "label": "Refunds",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-144-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 144,
+      "label": "₹ ₹850 - Priya Sharma RQ-2401 - completed Available ›",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-144-05); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 144,
+      "label": "INV Receipt MS-2941 Tax and provider details recorded Download ›",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-144-06); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 144,
+      "label": "H ₹1,250 - Aarav Mehta Active request - terms locked Expected ›",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-144-07); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 144,
+      "label": "REPEAT 18 due Send reminder",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-144-08); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 144,
+      "label": "LOYAL 32 active Review benefit",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-144-09); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 145,
+      "label": "Best match",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-145-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 145,
+      "label": "Earn",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-145-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 145,
+      "label": "Promote",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-145-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 145,
+      "label": "Nearby",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-145-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 146,
+      "label": "?",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-146-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 146,
+      "label": "ID Identity verified Primary contact and payout identity match Complete ›",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-146-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 146,
+      "label": "DOC Identity and service readiness One profile-specific item needs review Action needed ›",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-146-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 146,
+      "label": "PAY Payment account ready Settlement name verified Complete ›",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-146-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 146,
+      "label": "OWN Owner All workspace controls 1 person ›",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-146-05); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 146,
+      "label": "OPS Operations staff Requests and fulfilment only 2 people ›",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-146-06); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 146,
+      "label": "ACC Accounts Payments and receipts, no private records 1 person ›",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-146-07); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 146,
+      "label": "",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-146-08); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 146,
+      "label": "Open support case",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-146-11); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 146,
+      "label": "Save controls",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-146-12); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 147,
+      "label": "S",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-147-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 147,
+      "label": "!",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-147-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 147,
+      "label": "Priority",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-147-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 147,
+      "label": "Commerce",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-147-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 147,
+      "label": "Ride",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-147-05); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 147,
+      "label": "Work",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-147-06); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 147,
+      "label": "Social",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-147-07); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 147,
+      "label": "Finance",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-147-08); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 147,
+      "label": "P1 - PAYMENT SAFETY UPI callback delay affecting 184 payments Finance Operations - started 8 minutes",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-147-09); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 148,
+      "label": "S",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-148-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 148,
+      "label": "!",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-148-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 148,
+      "label": "Due now",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-148-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 148,
+      "label": "Retail",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-148-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 148,
+      "label": "Manufacturer",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-148-05); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 148,
+      "label": "Captain",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-148-06); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 148,
+      "label": "Provider",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-148-07); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 148,
+      "label": "Professional",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-148-08); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 148,
+      "label": "GROCERY RETAILER - WP-256619 Mahadev Fresh Mart Jodhpur - identity verified - GST pending Review 23 ",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-148-09); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 149,
+      "label": "S",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-149-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 149,
+      "label": "!",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-149-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 149,
+      "label": "Needs match",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-149-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 149,
+      "label": "Duplicate",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-149-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 149,
+      "label": "Price anomaly",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-149-05); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 149,
+      "label": "Regulated",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-149-06); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 149,
+      "label": "Missing proof",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-149-07); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 149,
+      "label": "SKU MATCH - 98.7% Fortune Sunflower Oil 1 L Manufacturer GTIN matches canonical pack Confirm 12 min",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-149-08); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 150,
+      "label": "S",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-150-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 150,
+      "label": "!",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-150-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 150,
+      "label": "At risk",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-150-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 150,
+      "label": "Stock mismatch",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-150-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 150,
+      "label": "Late",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-150-05); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 150,
+      "label": "Reroute",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-150-06); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 150,
+      "label": "Refund",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-150-07); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 150,
+      "label": "STOCK MISMATCH - OR-84291 Retailer cannot fulfil 2 of 6 items Customer paid - home delivery - 3 back",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-150-08); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 151,
+      "label": "S",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-151-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 151,
+      "label": "!",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-151-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 151,
+      "label": "Safety",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-151-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 151,
+      "label": "Pickup delay",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-151-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 151,
+      "label": "No movement",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-151-05); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 151,
+      "label": "Fare",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-151-06); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 151,
+      "label": "Documents",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-151-07); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 151,
+      "label": "SOS - RD-90218 Captain safety alert Jodhpur - customer and captain connected Critical 00:42",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-151-08); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 152,
+      "label": "S",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-152-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 152,
+      "label": "!",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-152-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 152,
+      "label": "Funding",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-152-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 152,
+      "label": "Eligibility",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-152-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 152,
+      "label": "Proof",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-152-05); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 152,
+      "label": "Payout",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-152-06); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 152,
+      "label": "Appeal",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-152-07); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 152,
+      "label": "CREATOR ECONOMICS - CE-2401 Eight funded creator earning engines Business funding - creator delivery",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-152-08); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 153,
+      "label": "S",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-153-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 153,
+      "label": "!",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-153-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 153,
+      "label": "High harm",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-153-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 153,
+      "label": "Rights",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-153-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 153,
+      "label": "Paid content",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-153-05); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 153,
+      "label": "Spam",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-153-06); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 153,
+      "label": "Appeals",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-153-07); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 153,
+      "label": "HIGH HARM REPORT Short contains dangerous medical claim 48K views - health specialist required Speci",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-153-08); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 154,
+      "label": "S",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-154-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 154,
+      "label": "!",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-154-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 154,
+      "label": "Unmatched",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-154-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 154,
+      "label": "Pending",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-154-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 154,
+      "label": "Refund",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-154-05); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 154,
+      "label": "Escrow",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-154-06); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 154,
+      "label": "Payout",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-154-07); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 154,
+      "label": "CREATOR LEDGER - CL-8820 Creator earnings source reconciliation Reserved - qualified - held - availa",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-154-08); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 155,
+      "label": "S",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-155-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 155,
+      "label": "!",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-155-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 155,
+      "label": "At risk",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-155-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 155,
+      "label": "Commerce",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-155-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 155,
+      "label": "Ride",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-155-05); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 155,
+      "label": "Work",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-155-06); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 155,
+      "label": "Payment",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-155-07); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 155,
+      "label": "Appeal",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-155-08); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 155,
+      "label": "COMMERCE CASE - CS-8421 Customer reports damaged grocery items Photos, delivery proof and retailer r",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-155-09); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 156,
+      "label": "S",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-156-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 156,
+      "label": "!",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-156-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 156,
+      "label": "Drafts",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-156-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 156,
+      "label": "Approval",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-156-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 156,
+      "label": "Scheduled",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-156-05); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 156,
+      "label": "Live",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-156-06); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 156,
+      "label": "Completed",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-156-07); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 156,
+      "label": "Stopped",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-156-08); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 156,
+      "label": "LIVE CREATOR EVENT - LIVE-72 Jodhpur local launch with verified creators Host fee funded - outcome p",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-156-09); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 156,
+      "label": "In-app",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-156-10); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 156,
+      "label": "Push",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-156-11); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 156,
+      "label": "Chat",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-156-12); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 156,
+      "label": "Email",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-156-13); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 156,
+      "label": "SMS",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-156-14); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 157,
+      "label": "All",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-157-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 158,
+      "label": "All",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-158-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 159,
+      "label": "Recent",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-159-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 160,
+      "label": "All",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-160-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 161,
+      "label": "All",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-161-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 162,
+      "label": "All",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-162-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 163,
+      "label": "S",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-163-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 163,
+      "label": "!",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-163-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 163,
+      "label": "Overview",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-163-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 163,
+      "label": "Journey failures",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-163-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 163,
+      "label": "User timeline",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-163-05); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 163,
+      "label": "APIs",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-163-06); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 163,
+      "label": "Releases",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-163-07); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 163,
+      "label": "Workspaces",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-163-08); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 163,
+      "label": "BUY JOURNEY - ANDROID 6.4.1 Checkout confirmation failing after UPI return 184 users · Screen 14 · p",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-163-09); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 164,
+      "label": "S",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-164-01); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 164,
+      "label": "!",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-164-02); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 164,
+      "label": "Intent signals",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-164-03); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 164,
+      "label": "Segments",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-164-04); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 164,
+      "label": "Consent",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-164-05); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 164,
+      "label": "Event rules",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-164-06); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 164,
+      "label": "Retention",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-164-07); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 164,
+      "label": "Kill switches",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-164-08); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 164,
+      "label": "INTENT SEGMENT - SG-219 Weekly grocery planning Structured buy actions · recency 14 days · promotion",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-164-09); observable route, state, form change or system handoff was confirmed."
+    },
+    {
+      "screen": 165,
+      "label": "All",
+      "status": "verified",
+      "evidence": "Exact control passed the final clean mobile interaction audit (ticket INT-165-01); observable route, state, form change or system handoff was confirmed."
+    }
+  ]
+}

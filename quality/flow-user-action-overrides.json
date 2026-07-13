@@ -1,0 +1,1456 @@
+{
+  "version": "mobile-user-flow-actions-2026-07-13",
+  "pairDefaults": {
+    "1>2": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "BR Back to Screenbook"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 1 to Screen 2 after this exact user action."
+    },
+    "2>3": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Skip now Continue to login and set area after signup"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 2 to Screen 3 after this exact user action."
+    },
+    "3>4": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Verify"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 3 to Screen 4 after this exact user action."
+    },
+    "4>5": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Open social"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 4 to Screen 5 after this exact user action."
+    },
+    "4>9": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Open product buying"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 4 to Screen 9 after this exact user action."
+    },
+    "9>10": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Buy Here"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 9 to Screen 10 after this exact user action."
+    },
+    "10>11": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Counter Pickup pay and collect"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 10 to Screen 11 after this exact user action."
+    },
+    "11>12": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Open basket"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 11 to Screen 12 after this exact user action."
+    },
+    "12>13": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Confirm Stock First"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 12 to Screen 13 after this exact user action."
+    },
+    "13>14": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Confirm All unlock customer payment"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 13 to Screen 14 after this exact user action."
+    },
+    "14>15": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Open receipt"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 14 to Screen 15 after this exact user action."
+    },
+    "15>16": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Open orders"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 15 to Screen 16 after this exact user action."
+    },
+    "14>17": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Open Mool"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 14 to Screen 17 after this exact user action."
+    },
+    "17>18": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Open delivery"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 17 to Screen 18 after this exact user action."
+    },
+    "18>19": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Rate Order shop and delivery"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 18 to Screen 19 after this exact user action."
+    },
+    "19>20": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Submit"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 19 to Screen 20 after this exact user action."
+    },
+    "20>21": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Refresh"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 20 to Screen 21 after this exact user action."
+    },
+    "21>22": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "View bill final receipt"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 21 to Screen 22 after this exact user action."
+    },
+    "23>24": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "New chat"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 23 to Screen 24 after this exact user action."
+    },
+    "24>25": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Confirm quote"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 24 to Screen 25 after this exact user action."
+    },
+    "26>27": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Book Table seat confirmed"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 26 to Screen 27 after this exact user action."
+    },
+    "26>28": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Book Table seat confirmed"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 26 to Screen 28 after this exact user action."
+    },
+    "26>29": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Book Table seat confirmed"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 26 to Screen 29 after this exact user action."
+    },
+    "4>30": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Open ride"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 4 to Screen 30 after this exact user action."
+    },
+    "30>31": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Open chat"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 30 to Screen 31 after this exact user action."
+    },
+    "31>32": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Call"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 31 to Screen 32 after this exact user action."
+    },
+    "32>33": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Call"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 32 to Screen 33 after this exact user action."
+    },
+    "33>34": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Receipt"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 33 to Screen 34 after this exact user action."
+    },
+    "34>35": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Submit rating"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 34 to Screen 35 after this exact user action."
+    },
+    "36>37": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Doctor slot + fee clinic, video, OPD"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 36 to Screen 37 after this exact user action."
+    },
+    "39>40": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Show patient QR"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 39 to Screen 40 after this exact user action."
+    },
+    "40>41": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Open invite"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 40 to Screen 41 after this exact user action."
+    },
+    "36>42": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Salon slot ready salon visit or home"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 36 to Screen 42 after this exact user action."
+    },
+    "44>45": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Pay via MoolSocial"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 44 to Screen 45 after this exact user action."
+    },
+    "36>48": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Get It Done from Rs 99 remote/local task"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 36 to Screen 48 after this exact user action."
+    },
+    "54>55": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Open support case"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 54 to Screen 55 after this exact user action."
+    },
+    "58>63": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Continue Rs 299"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 58 to Screen 63 after this exact user action."
+    },
+    "63>64": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Download receipt"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 63 to Screen 64 after this exact user action."
+    },
+    "57>59": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Bills"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 57 to Screen 59 after this exact user action."
+    },
+    "59>63": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Pay Rs 1,240"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 59 to Screen 63 after this exact user action."
+    },
+    "57>60": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Data pack pack based instant · plan confirm"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 57 to Screen 60 after this exact user action."
+    },
+    "60>63": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Scan shop QR"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 60 to Screen 63 after this exact user action."
+    },
+    "57>61": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Requests"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 57 to Screen 61 after this exact user action."
+    },
+    "63>65": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Download receipt"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 63 to Screen 65 after this exact user action."
+    },
+    "62>66": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Pay Rs 645"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 62 to Screen 66 after this exact user action."
+    },
+    "4>67": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Open work"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 4 to Screen 67 after this exact user action."
+    },
+    "67>68": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Open chat"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 67 to Screen 68 after this exact user action."
+    },
+    "68>69": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Apply now Freelancer setup opens next"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 68 to Screen 69 after this exact user action."
+    },
+    "70>71": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Create & Work Creator, freelancer or Get It Done"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 70 to Screen 71 after this exact user action."
+    },
+    "71>72": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Continue to proof"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 71 to Screen 72 after this exact user action."
+    },
+    "72>73": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Open My Work"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 72 to Screen 73 after this exact user action."
+    },
+    "74>75": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Order + delivery"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 74 to Screen 75 after this exact user action."
+    },
+    "75>76": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Accept order"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 75 to Screen 76 after this exact user action."
+    },
+    "76>77": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Open delivery alerts"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 76 to Screen 77 after this exact user action."
+    },
+    "74>78": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Order + delivery"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 74 to Screen 78 after this exact user action."
+    },
+    "78>79": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Open Business Book"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 78 to Screen 79 after this exact user action."
+    },
+    "79>80": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Open Business Book"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 79 to Screen 80 after this exact user action."
+    },
+    "80>90": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Open Business Book"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 80 to Screen 90 after this exact user action."
+    },
+    "74>81": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Wholesale Buy"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 74 to Screen 81 after this exact user action."
+    },
+    "81>82": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Open wholesale alerts"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 81 to Screen 82 after this exact user action."
+    },
+    "82>83": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Open retailer chat"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 82 to Screen 83 after this exact user action."
+    },
+    "83>84": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Open retailer chat"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 83 to Screen 84 after this exact user action."
+    },
+    "84>85": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Report delay"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 84 to Screen 85 after this exact user action."
+    },
+    "85>86": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Goods receipt help"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 85 to Screen 86 after this exact user action."
+    },
+    "86>87": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Purchase value Posted to Purchase Book ₹2,856.00 POSTED"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 86 to Screen 87 after this exact user action."
+    },
+    "87>88": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Add supplier bill"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 87 to Screen 88 after this exact user action."
+    },
+    "88>89": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Open retailer chat"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 88 to Screen 89 after this exact user action."
+    },
+    "89>91": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Open retailer chat"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 89 to Screen 91 after this exact user action."
+    },
+    "91>92": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Open retailer chat"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 91 to Screen 92 after this exact user action."
+    },
+    "74>90": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "MOOLSOCIAL BUSINESS SERVICES Delivery, sales, tax, books, offers and ads Separate professional plans for your shop View ›"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 74 to Screen 90 after this exact user action."
+    },
+    "90>91": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Open retailer chat"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 90 to Screen 91 after this exact user action."
+    },
+    "92>106": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "S Sales Book App, counter, phone and Chat sales ₹4,82,900 42 today"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 92 to Screen 106 after this exact user action."
+    },
+    "93>94": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Business Services help"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 93 to Screen 94 after this exact user action."
+    },
+    "94>95": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Review activation"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 94 to Screen 95 after this exact user action."
+    },
+    "95>96": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "1× Pay manually each month Service pauses if renewal is not paid"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 95 to Screen 96 after this exact user action."
+    },
+    "98>99": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Create order"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 98 to Screen 99 after this exact user action."
+    },
+    "74>91": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Order + delivery"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 74 to Screen 91 after this exact user action."
+    },
+    "91>101": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Open retailer chat"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 91 to Screen 101 after this exact user action."
+    },
+    "101>102": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Review & publish"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 101 to Screen 102 after this exact user action."
+    },
+    "102>103": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Review purchase"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 102 to Screen 103 after this exact user action."
+    },
+    "103>104": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "LOG Permission history Every grant, revoke and limit change View"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 103 to Screen 104 after this exact user action."
+    },
+    "104>105": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "MS MoolSocial Business Services Delivery, growth, tax, books, offers and ads View"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 104 to Screen 105 after this exact user action."
+    },
+    "105>106": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Confirm resolution"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 105 to Screen 106 after this exact user action."
+    },
+    "107>109": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Confirm quantity"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 107 to Screen 109 after this exact user action."
+    },
+    "109>110": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Orders"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 109 to Screen 110 after this exact user action."
+    },
+    "110>112": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Confirm Full"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 110 to Screen 112 after this exact user action."
+    },
+    "107>111": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Confirm quantity"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 107 to Screen 111 after this exact user action."
+    },
+    "111>108": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Orders"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 111 to Screen 108 after this exact user action."
+    },
+    "107>113": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Confirm quantity"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 107 to Screen 113 after this exact user action."
+    },
+    "113>115": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Set terms and reserve"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 113 to Screen 115 after this exact user action."
+    },
+    "107>114": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Confirm quantity"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 107 to Screen 114 after this exact user action."
+    },
+    "114>108": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Add team member or control"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 114 to Screen 108 after this exact user action."
+    },
+    "118>119": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "I Have Arrived"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 118 to Screen 119 after this exact user action."
+    },
+    "119>120": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Arrived at Destination"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 119 to Screen 120 after this exact user action."
+    },
+    "121>122": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "R Requests"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 121 to Screen 122 after this exact user action."
+    },
+    "122>123": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "PER Permit / Service Authorization Resolved by vehicle class and operating use Review complete Ready"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 122 to Screen 123 after this exact user action."
+    },
+    "125>126": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Review & Publish"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 125 to Screen 126 after this exact user action."
+    },
+    "126>127": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "+ Create"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 126 to Screen 127 after this exact user action."
+    },
+    "127>128": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "+ Create"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 127 to Screen 128 after this exact user action."
+    },
+    "128>129": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "C 326 comments need attention Helpful, questions and held-for-review Open community replies ›"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 128 to Screen 129 after this exact user action."
+    },
+    "130>131": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Open source proof"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 130 to Screen 131 after this exact user action."
+    },
+    "131>132": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Review request"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 131 to Screen 132 after this exact user action."
+    },
+    "100>152": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Set terms and reserve"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 100 to Screen 152 after this exact user action."
+    },
+    "152>129": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Open engine controls"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 152 to Screen 129 after this exact user action."
+    },
+    "129>125": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Review and continue"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 129 to Screen 125 after this exact user action."
+    },
+    "125>5": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Review & Publish"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 125 to Screen 5 after this exact user action."
+    },
+    "5>127": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Open Videos"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 5 to Screen 127 after this exact user action."
+    },
+    "127>154": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Campaign"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 127 to Screen 154 after this exact user action."
+    },
+    "154>130": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "REFUND BATCH 42 approved customer refunds ready All source decisions and amounts verified Approve 31 min"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 154 to Screen 130 after this exact user action."
+    },
+    "99>129": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "View details"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 99 to Screen 129 after this exact user action."
+    },
+    "5>9": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Open Videos"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 5 to Screen 9 after this exact user action."
+    },
+    "9>14": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Open basket"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 9 to Screen 14 after this exact user action."
+    },
+    "14>18": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Open basket"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 14 to Screen 18 after this exact user action."
+    },
+    "18>127": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Repeat basket same shop, same items"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 18 to Screen 127 after this exact user action."
+    },
+    "132>7": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Create Membership Plan"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 132 to Screen 7 after this exact user action."
+    },
+    "7>62": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Open Shorts"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 7 to Screen 62 after this exact user action."
+    },
+    "62>63": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Pay Rs 645"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 62 to Screen 63 after this exact user action."
+    },
+    "63>130": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Download receipt"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 63 to Screen 130 after this exact user action."
+    },
+    "6>127": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Work QR proof task open for verified payout"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 6 to Screen 127 after this exact user action."
+    },
+    "100>129": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Set terms and reserve"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 100 to Screen 129 after this exact user action."
+    },
+    "125>152": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Review & Publish"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 125 to Screen 152 after this exact user action."
+    },
+    "152>154": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Open engine controls"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 152 to Screen 154 after this exact user action."
+    },
+    "152>133": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Open engine controls"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 152 to Screen 133 after this exact user action."
+    },
+    "133>134": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Check eligibility"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 133 to Screen 134 after this exact user action."
+    },
+    "134>135": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Open Assignment"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 134 to Screen 135 after this exact user action."
+    },
+    "135>136": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Continue Proof"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 135 to Screen 136 after this exact user action."
+    },
+    "136>137": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Submit for Verification"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 136 to Screen 137 after this exact user action."
+    },
+    "137>130": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "₹ Earnings"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 137 to Screen 130 after this exact user action."
+    },
+    "113>156": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Live event"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 113 to Screen 156 after this exact user action."
+    },
+    "156>129": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Approve controlled launch"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 156 to Screen 129 after this exact user action."
+    },
+    "125>7": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Review & Publish"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 125 to Screen 7 after this exact user action."
+    },
+    "63>127": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Download receipt"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 63 to Screen 127 after this exact user action."
+    },
+    "127>130": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "₹ Earnings"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 127 to Screen 130 after this exact user action."
+    },
+    "99>131": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "View details"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 99 to Screen 131 after this exact user action."
+    },
+    "131>154": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Review request"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 131 to Screen 154 after this exact user action."
+    },
+    "137>138": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "₹ Earnings"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 137 to Screen 138 after this exact user action."
+    },
+    "140>141": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Preview"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 140 to Screen 141 after this exact user action."
+    },
+    "142>143": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Accept"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 142 to Screen 143 after this exact user action."
+    },
+    "144>145": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "INV Receipt MS-2941 Tax and provider details recorded Download ›"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 144 to Screen 145 after this exact user action."
+    },
+    "145>146": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Set terms and reserve"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 145 to Screen 146 after this exact user action."
+    },
+    "157>158": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "₹ Paid captain onboarding is open WORK ₹600 for each approved taxi captain. Funding and capacity are live. Matched to your Freelancer workspace · Jodhpur 12 min ›"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 157 to Screen 158 after this exact user action."
+    },
+    "158>159": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "◉ Mool"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 158 to Screen 159 after this exact user action."
+    },
+    "159>160": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "Book"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 159 to Screen 160 after this exact user action."
+    },
+    "160>161": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "◉ Mool"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 160 to Screen 161 after this exact user action."
+    },
+    "162>165": {
+      "actions": [
+        {
+          "kind": "tap",
+          "label": "P Personal & Social PERSONAL Social, Buy, Eat, Ride, Book, Pay, Work and Chat. Always active · default opens Social ›"
+        }
+      ],
+      "transition": "system-handoff",
+      "note": "Advance from Screen 162 to Screen 165 after this exact user action."
+    }
+  },
+  "flowOverrides": {}
+}

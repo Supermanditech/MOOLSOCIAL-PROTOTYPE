@@ -1,0 +1,1849 @@
+{
+  "complete": true,
+  "completed": 47,
+  "results": [
+    {
+      "flow": "onboarding",
+      "pass": true,
+      "counter": "5 / 5",
+      "steps": 4,
+      "trace": [
+        {
+          "counter": "1 / 5",
+          "instruction": "Tap: Install and open MoolSocial"
+        },
+        {
+          "counter": "3 / 5",
+          "instruction": "Tap: Skip now"
+        },
+        {
+          "counter": "4 / 5",
+          "instruction": "Tap: Continue with Google"
+        },
+        {
+          "counter": "5 / 5",
+          "instruction": "Opening next verified state..."
+        }
+      ],
+      "multiTargets": 0
+    },
+    {
+      "flow": "social",
+      "pass": true,
+      "counter": "5 / 5",
+      "steps": 6,
+      "trace": [
+        {
+          "counter": "1 / 5",
+          "instruction": "Loading first state..."
+        },
+        {
+          "counter": "1 / 5",
+          "instruction": "Tap: Open social"
+        },
+        {
+          "counter": "2 / 5",
+          "instruction": "Tap: Open Videos"
+        },
+        {
+          "counter": "3 / 5",
+          "instruction": "Tap: Open Feed"
+        },
+        {
+          "counter": "4 / 5",
+          "instruction": "Tap: Open Create"
+        },
+        {
+          "counter": "5 / 5",
+          "instruction": "Opening next verified state..."
+        }
+      ],
+      "multiTargets": 0
+    },
+    {
+      "flow": "buy-counter",
+      "pass": true,
+      "counter": "9 / 9",
+      "steps": 11,
+      "trace": [
+        {
+          "counter": "1 / 9",
+          "instruction": "Loading first state..."
+        },
+        {
+          "counter": "1 / 9",
+          "instruction": "Tap: Open product buying"
+        },
+        {
+          "counter": "2 / 9",
+          "instruction": "Tap: Buy Here"
+        },
+        {
+          "counter": "3 / 9",
+          "instruction": "Tap: Counter Pickup"
+        },
+        {
+          "counter": "4 / 9",
+          "instruction": "Tap: Add Basket"
+        },
+        {
+          "counter": "4 / 9",
+          "instruction": "Tap: Open basket"
+        },
+        {
+          "counter": "5 / 9",
+          "instruction": "Tap: Confirm Stock First"
+        },
+        {
+          "counter": "6 / 9",
+          "instruction": "Tap: Confirm All"
+        },
+        {
+          "counter": "7 / 9",
+          "instruction": "Tap: Pay Rs 645"
+        },
+        {
+          "counter": "8 / 9",
+          "instruction": "Tap: Refresh"
+        },
+        {
+          "counter": "9 / 9",
+          "instruction": "Opening next verified state..."
+        }
+      ],
+      "multiTargets": 2
+    },
+    {
+      "flow": "buy-delivery",
+      "pass": true,
+      "counter": "9 / 9",
+      "steps": 11,
+      "trace": [
+        {
+          "counter": "1 / 9",
+          "instruction": "Loading first state..."
+        },
+        {
+          "counter": "1 / 9",
+          "instruction": "Tap: Open product buying"
+        },
+        {
+          "counter": "2 / 9",
+          "instruction": "Tap: Buy Here"
+        },
+        {
+          "counter": "3 / 9",
+          "instruction": "Tap: Home Delivery"
+        },
+        {
+          "counter": "4 / 9",
+          "instruction": "Tap: Add Basket"
+        },
+        {
+          "counter": "4 / 9",
+          "instruction": "Tap: Open basket"
+        },
+        {
+          "counter": "5 / 9",
+          "instruction": "Tap: Confirm Stock First"
+        },
+        {
+          "counter": "6 / 9",
+          "instruction": "Tap: Confirm All"
+        },
+        {
+          "counter": "7 / 9",
+          "instruction": "Tap: Pay Rs 645"
+        },
+        {
+          "counter": "8 / 9",
+          "instruction": "Tap: Refresh status"
+        },
+        {
+          "counter": "9 / 9",
+          "instruction": "Opening next verified state..."
+        }
+      ],
+      "multiTargets": 0
+    },
+    {
+      "flow": "buy-issue",
+      "pass": true,
+      "counter": "5 / 5",
+      "steps": 6,
+      "trace": [
+        {
+          "counter": "1 / 5",
+          "instruction": "Loading first state..."
+        },
+        {
+          "counter": "1 / 5",
+          "instruction": "Tap: Report Problem"
+        },
+        {
+          "counter": "2 / 5",
+          "instruction": "Tap: Submit"
+        },
+        {
+          "counter": "3 / 5",
+          "instruction": "Tap: Refresh"
+        },
+        {
+          "counter": "4 / 5",
+          "instruction": "Tap: Chat case support"
+        },
+        {
+          "counter": "5 / 5",
+          "instruction": "Opening next verified state..."
+        }
+      ],
+      "multiTargets": 0
+    },
+    {
+      "flow": "chat",
+      "pass": true,
+      "counter": "4 / 4",
+      "steps": 7,
+      "trace": [
+        {
+          "counter": "1 / 4",
+          "instruction": "Loading first state..."
+        },
+        {
+          "counter": "1 / 4",
+          "instruction": "Tap: Business"
+        },
+        {
+          "counter": "1 / 4",
+          "instruction": "Tap: Jodhpur Wholesale Supplier"
+        },
+        {
+          "counter": "2 / 4",
+          "instruction": "Tap: Back to chat inbox"
+        },
+        {
+          "counter": "3 / 4",
+          "instruction": "Tap: People"
+        },
+        {
+          "counter": "3 / 4",
+          "instruction": "Tap: Amit Vyas"
+        },
+        {
+          "counter": "4 / 4",
+          "instruction": "Opening next verified state..."
+        }
+      ],
+      "multiTargets": 0
+    },
+    {
+      "flow": "eat-order",
+      "pass": true,
+      "counter": "2 / 2",
+      "steps": 3,
+      "trace": [
+        {
+          "counter": "1 / 2",
+          "instruction": "Loading first state..."
+        },
+        {
+          "counter": "1 / 2",
+          "instruction": "Tap: Order Food"
+        },
+        {
+          "counter": "2 / 2",
+          "instruction": "Opening next verified state..."
+        }
+      ],
+      "multiTargets": 0
+    },
+    {
+      "flow": "eat-table",
+      "pass": true,
+      "counter": "2 / 2",
+      "steps": 3,
+      "trace": [
+        {
+          "counter": "1 / 2",
+          "instruction": "Loading first state..."
+        },
+        {
+          "counter": "1 / 2",
+          "instruction": "Tap: Book Table"
+        },
+        {
+          "counter": "2 / 2",
+          "instruction": "Opening next verified state..."
+        }
+      ],
+      "multiTargets": 0
+    },
+    {
+      "flow": "eat-tiffin",
+      "pass": true,
+      "counter": "2 / 2",
+      "steps": 3,
+      "trace": [
+        {
+          "counter": "1 / 2",
+          "instruction": "Loading first state..."
+        },
+        {
+          "counter": "1 / 2",
+          "instruction": "Tap: Tiffin trial or plan"
+        },
+        {
+          "counter": "2 / 2",
+          "instruction": "Opening next verified state..."
+        }
+      ],
+      "multiTargets": 0
+    },
+    {
+      "flow": "ride",
+      "pass": true,
+      "counter": "7 / 7",
+      "steps": 7,
+      "trace": [
+        {
+          "counter": "1 / 7",
+          "instruction": "Loading first state..."
+        },
+        {
+          "counter": "1 / 7",
+          "instruction": "Tap: Open ride"
+        },
+        {
+          "counter": "1 / 7",
+          "instruction": "Tap: Bike"
+        },
+        {
+          "counter": "2 / 7",
+          "instruction": "Tap: Auto from Rs 112"
+        },
+        {
+          "counter": "5 / 7",
+          "instruction": "Tap: Approve Rs 112"
+        },
+        {
+          "counter": "6 / 7",
+          "instruction": "Tap: Support"
+        },
+        {
+          "counter": "7 / 7",
+          "instruction": "Opening next verified state..."
+        }
+      ],
+      "multiTargets": 0
+    },
+    {
+      "flow": "doctor-booking",
+      "pass": true,
+      "counter": "3 / 3",
+      "steps": 4,
+      "trace": [
+        {
+          "counter": "1 / 3",
+          "instruction": "Loading first state..."
+        },
+        {
+          "counter": "1 / 3",
+          "instruction": "Tap: Doctor slot + fee"
+        },
+        {
+          "counter": "2 / 3",
+          "instruction": "Tap: Book doctor"
+        },
+        {
+          "counter": "3 / 3",
+          "instruction": "Opening next verified state..."
+        }
+      ],
+      "multiTargets": 0
+    },
+    {
+      "flow": "doctor-invite",
+      "pass": true,
+      "counter": "4 / 4",
+      "steps": 5,
+      "trace": [
+        {
+          "counter": "1 / 4",
+          "instruction": "Loading first state..."
+        },
+        {
+          "counter": "1 / 4",
+          "instruction": "Tap: Show patient QR"
+        },
+        {
+          "counter": "2 / 4",
+          "instruction": "Tap: Sign in & link visit"
+        },
+        {
+          "counter": "3 / 4",
+          "instruction": "Tap: Continue with Google"
+        },
+        {
+          "counter": "4 / 4",
+          "instruction": "Opening next verified state..."
+        }
+      ],
+      "multiTargets": 0
+    },
+    {
+      "flow": "salon",
+      "pass": true,
+      "counter": "7 / 7",
+      "steps": 7,
+      "trace": [
+        {
+          "counter": "1 / 7",
+          "instruction": "Loading first state..."
+        },
+        {
+          "counter": "1 / 7",
+          "instruction": "Tap: Salon slot ready"
+        },
+        {
+          "counter": "2 / 7",
+          "instruction": "Tap: Book salon slot"
+        },
+        {
+          "counter": "3 / 7",
+          "instruction": "Tap: Confirm slot"
+        },
+        {
+          "counter": "5 / 7",
+          "instruction": "Tap: Service done"
+        },
+        {
+          "counter": "6 / 7",
+          "instruction": "Tap: Salon support"
+        },
+        {
+          "counter": "7 / 7",
+          "instruction": "Opening next verified state..."
+        }
+      ],
+      "multiTargets": 3
+    },
+    {
+      "flow": "get-it-done",
+      "pass": true,
+      "counter": "10 / 10",
+      "steps": 11,
+      "trace": [
+        {
+          "counter": "1 / 10",
+          "instruction": "Loading first state..."
+        },
+        {
+          "counter": "1 / 10",
+          "instruction": "Tap: Get It Done from Rs 99"
+        },
+        {
+          "counter": "2 / 10",
+          "instruction": "Tap: Review task"
+        },
+        {
+          "counter": "3 / 10",
+          "instruction": "Tap: Confirm task"
+        },
+        {
+          "counter": "4 / 10",
+          "instruction": "Tap: Proof"
+        },
+        {
+          "counter": "5 / 10",
+          "instruction": "Tap: Release Rs 519\ntask done, proof accepted\nRelease"
+        },
+        {
+          "counter": "6 / 10",
+          "instruction": "Tap: Support\npost-task issue"
+        },
+        {
+          "counter": "7 / 10",
+          "instruction": "Tap: Submit issue\nsupport reviews before any release\nSend"
+        },
+        {
+          "counter": "8 / 10",
+          "instruction": "Tap: View decision"
+        },
+        {
+          "counter": "9 / 10",
+          "instruction": "Tap: Accept refund\nreturns to original payment method\nRefund"
+        },
+        {
+          "counter": "10 / 10",
+          "instruction": "Opening next verified state..."
+        }
+      ],
+      "multiTargets": 11
+    },
+    {
+      "flow": "pay-recharge",
+      "pass": true,
+      "counter": "4 / 4",
+      "steps": 5,
+      "trace": [
+        {
+          "counter": "1 / 4",
+          "instruction": "Loading first state..."
+        },
+        {
+          "counter": "1 / 4",
+          "instruction": "Tap: Recharge mobile"
+        },
+        {
+          "counter": "2 / 4",
+          "instruction": "Tap: Continue Rs 299"
+        },
+        {
+          "counter": "3 / 4",
+          "instruction": "Tap: Receipt"
+        },
+        {
+          "counter": "4 / 4",
+          "instruction": "Opening next verified state..."
+        }
+      ],
+      "multiTargets": 2
+    },
+    {
+      "flow": "pay-bills",
+      "pass": true,
+      "counter": "4 / 4",
+      "steps": 5,
+      "trace": [
+        {
+          "counter": "1 / 4",
+          "instruction": "Loading first state..."
+        },
+        {
+          "counter": "1 / 4",
+          "instruction": "Tap: Bills"
+        },
+        {
+          "counter": "2 / 4",
+          "instruction": "Tap: Pay Rs 1,240"
+        },
+        {
+          "counter": "3 / 4",
+          "instruction": "Tap: Receipt"
+        },
+        {
+          "counter": "4 / 4",
+          "instruction": "Opening next verified state..."
+        }
+      ],
+      "multiTargets": 2
+    },
+    {
+      "flow": "pay-scan",
+      "pass": true,
+      "counter": "4 / 4",
+      "steps": 5,
+      "trace": [
+        {
+          "counter": "1 / 4",
+          "instruction": "Loading first state..."
+        },
+        {
+          "counter": "1 / 4",
+          "instruction": "Tap: Scan"
+        },
+        {
+          "counter": "2 / 4",
+          "instruction": "Tap: Scan shop QR"
+        },
+        {
+          "counter": "3 / 4",
+          "instruction": "Tap: Receipt"
+        },
+        {
+          "counter": "4 / 4",
+          "instruction": "Opening next verified state..."
+        }
+      ],
+      "multiTargets": 2
+    },
+    {
+      "flow": "pay-request",
+      "pass": true,
+      "counter": "5 / 5",
+      "steps": 6,
+      "trace": [
+        {
+          "counter": "1 / 5",
+          "instruction": "Loading first state..."
+        },
+        {
+          "counter": "1 / 5",
+          "instruction": "Tap: Requests"
+        },
+        {
+          "counter": "2 / 5",
+          "instruction": "Tap: Review to pay"
+        },
+        {
+          "counter": "3 / 5",
+          "instruction": "Tap: Pay Rs 645"
+        },
+        {
+          "counter": "4 / 5",
+          "instruction": "Tap: Receipt"
+        },
+        {
+          "counter": "5 / 5",
+          "instruction": "Opening next verified state..."
+        }
+      ],
+      "multiTargets": 2
+    },
+    {
+      "flow": "pay-refund",
+      "pass": true,
+      "counter": "5 / 5",
+      "steps": 5,
+      "trace": [
+        {
+          "counter": "1 / 5",
+          "instruction": "Loading first state..."
+        },
+        {
+          "counter": "1 / 5",
+          "instruction": "Tap: Requests"
+        },
+        {
+          "counter": "2 / 5",
+          "instruction": "Tap: Review to pay"
+        },
+        {
+          "counter": "3 / 5",
+          "instruction": "Tap: Pay Rs 645"
+        },
+        {
+          "counter": "5 / 5",
+          "instruction": "Automatic: Provider confirmation remains pending"
+        }
+      ],
+      "multiTargets": 0
+    },
+    {
+      "flow": "pay-failure",
+      "pass": true,
+      "counter": "5 / 5",
+      "steps": 5,
+      "trace": [
+        {
+          "counter": "1 / 5",
+          "instruction": "Loading first state..."
+        },
+        {
+          "counter": "1 / 5",
+          "instruction": "Tap: Requests"
+        },
+        {
+          "counter": "2 / 5",
+          "instruction": "Tap: Review to pay"
+        },
+        {
+          "counter": "3 / 5",
+          "instruction": "Tap: Pay Rs 645"
+        },
+        {
+          "counter": "5 / 5",
+          "instruction": "Automatic: Bank declined the payment and reversal protection started"
+        }
+      ],
+      "multiTargets": 0
+    },
+    {
+      "flow": "earn-workspace",
+      "pass": true,
+      "counter": "8 / 8",
+      "steps": 8,
+      "trace": [
+        {
+          "counter": "1 / 8",
+          "instruction": "Loading first state..."
+        },
+        {
+          "counter": "1 / 8",
+          "instruction": "Tap: Open work"
+        },
+        {
+          "counter": "2 / 8",
+          "instruction": "Tap: Make one MoolSocial explainer video"
+        },
+        {
+          "counter": "3 / 8",
+          "instruction": "Tap: Apply now"
+        },
+        {
+          "counter": "4 / 8",
+          "instruction": "Tap: Start My Work"
+        },
+        {
+          "counter": "5 / 8",
+          "instruction": "Tap: Create & Work"
+        },
+        {
+          "counter": "6 / 8",
+          "instruction": "Tap: Continue to proof"
+        },
+        {
+          "counter": "8 / 8",
+          "instruction": "Automatic: Verification approved and the workspace became ready"
+        }
+      ],
+      "multiTargets": 3
+    },
+    {
+      "flow": "retailer-onboarding",
+      "pass": true,
+      "counter": "5 / 5",
+      "steps": 5,
+      "trace": [
+        {
+          "counter": "1 / 5",
+          "instruction": "Loading first state..."
+        },
+        {
+          "counter": "1 / 5",
+          "instruction": "Tap: Products & Trade"
+        },
+        {
+          "counter": "2 / 5",
+          "instruction": "Tap: Continue to proof"
+        },
+        {
+          "counter": "4 / 5",
+          "instruction": "Tap: Set up my shop"
+        },
+        {
+          "counter": "5 / 5",
+          "instruction": "Opening next verified state..."
+        }
+      ],
+      "multiTargets": 0
+    },
+    {
+      "flow": "retailer-orders",
+      "pass": true,
+      "counter": "4 / 4",
+      "steps": 5,
+      "trace": [
+        {
+          "counter": "1 / 4",
+          "instruction": "Loading first state..."
+        },
+        {
+          "counter": "1 / 4",
+          "instruction": "Tap: Orders"
+        },
+        {
+          "counter": "2 / 4",
+          "instruction": "Tap: Accept order"
+        },
+        {
+          "counter": "3 / 4",
+          "instruction": "Tap: Parcel ready"
+        },
+        {
+          "counter": "4 / 4",
+          "instruction": "Opening next verified state..."
+        }
+      ],
+      "multiTargets": 2
+    },
+    {
+      "flow": "retailer-pos",
+      "pass": true,
+      "counter": "6 / 6",
+      "steps": 8,
+      "trace": [
+        {
+          "counter": "1 / 6",
+          "instruction": "Loading first state..."
+        },
+        {
+          "counter": "1 / 6",
+          "instruction": "Tap: New Order"
+        },
+        {
+          "counter": "2 / 6",
+          "instruction": "Tap: Counter Walk-in"
+        },
+        {
+          "counter": "3 / 6",
+          "instruction": "Tap: Start order"
+        },
+        {
+          "counter": "4 / 6",
+          "instruction": "Tap: Create order"
+        },
+        {
+          "counter": "4 / 6",
+          "instruction": "Tap: Complete sale"
+        },
+        {
+          "counter": "5 / 6",
+          "instruction": "Tap: Complete UPI sale"
+        },
+        {
+          "counter": "6 / 6",
+          "instruction": "Opening next verified state..."
+        }
+      ],
+      "multiTargets": 0
+    },
+    {
+      "flow": "retailer-wholesale",
+      "pass": true,
+      "counter": "11 / 11",
+      "steps": 12,
+      "trace": [
+        {
+          "counter": "1 / 11",
+          "instruction": "Loading first state..."
+        },
+        {
+          "counter": "1 / 11",
+          "instruction": "Tap: Wholesale Buy"
+        },
+        {
+          "counter": "2 / 11",
+          "instruction": "Tap: Add to cart"
+        },
+        {
+          "counter": "3 / 11",
+          "instruction": "Tap: Review Order"
+        },
+        {
+          "counter": "4 / 11",
+          "instruction": "Tap: Track Orders"
+        },
+        {
+          "counter": "6 / 11",
+          "instruction": "Tap: All Received"
+        },
+        {
+          "counter": "6 / 11",
+          "instruction": "Tap: Confirm Receipt"
+        },
+        {
+          "counter": "7 / 11",
+          "instruction": "Tap: Purchase value Posted to Purchase Book"
+        },
+        {
+          "counter": "8 / 11",
+          "instruction": "Tap: Add supplier bill"
+        },
+        {
+          "counter": "9 / 11",
+          "instruction": "Tap: Review Payment"
+        },
+        {
+          "counter": "10 / 11",
+          "instruction": "Tap: Refresh"
+        },
+        {
+          "counter": "11 / 11",
+          "instruction": "Opening next verified state..."
+        }
+      ],
+      "multiTargets": 2
+    },
+    {
+      "flow": "retailer-books",
+      "pass": true,
+      "counter": "8 / 8",
+      "steps": 9,
+      "trace": [
+        {
+          "counter": "1 / 8",
+          "instruction": "Loading first state..."
+        },
+        {
+          "counter": "1 / 8",
+          "instruction": "Tap: S\nSales Book\nApp, counter, phone and Chat sales\n₹4,82,900\n42 today"
+        },
+        {
+          "counter": "2 / 8",
+          "instruction": "Tap: Back to Business Book"
+        },
+        {
+          "counter": "3 / 8",
+          "instruction": "Tap: P\nPurchase Book\nSupplier bills, payments and returns\n₹3,31,400\n2 due"
+        },
+        {
+          "counter": "4 / 8",
+          "instruction": "Tap: Back to Business Book"
+        },
+        {
+          "counter": "5 / 8",
+          "instruction": "Tap: ST\nStock Statement\nValue, movements, checks and incoming stock\n₹3,84,620\n24 low"
+        },
+        {
+          "counter": "6 / 8",
+          "instruction": "Tap: Back to Business Book"
+        },
+        {
+          "counter": "7 / 8",
+          "instruction": "Tap: Business reports and export"
+        },
+        {
+          "counter": "8 / 8",
+          "instruction": "Opening next verified state..."
+        }
+      ],
+      "multiTargets": 0
+    },
+    {
+      "flow": "retailer-services",
+      "pass": true,
+      "counter": "5 / 5",
+      "steps": 7,
+      "trace": [
+        {
+          "counter": "1 / 5",
+          "instruction": "Loading first state..."
+        },
+        {
+          "counter": "1 / 5",
+          "instruction": "Tap: MOOLSOCIAL BUSINESS SERVICES\nDelivery, sales, tax, books, offers and ads\nSeparate professional plans for your shop\nView ›"
+        },
+        {
+          "counter": "2 / 5",
+          "instruction": "Tap: Delivery Support Nearby"
+        },
+        {
+          "counter": "3 / 5",
+          "instruction": "Tap: Review activation"
+        },
+        {
+          "counter": "4 / 5",
+          "instruction": "Tap: Approve service terms"
+        },
+        {
+          "counter": "4 / 5",
+          "instruction": "Tap: Pay & activate"
+        },
+        {
+          "counter": "5 / 5",
+          "instruction": "Opening next verified state..."
+        }
+      ],
+      "multiTargets": 0
+    },
+    {
+      "flow": "retailer-growth",
+      "pass": true,
+      "counter": "7 / 7",
+      "steps": 8,
+      "trace": [
+        {
+          "counter": "1 / 7",
+          "instruction": "Loading first state..."
+        },
+        {
+          "counter": "1 / 7",
+          "instruction": "Tap: 1,284\nCustomers"
+        },
+        {
+          "counter": "2 / 7",
+          "instruction": "Tap: SF\nSharma Family\n18 orders · last buy 4 days ago · home delivery\nMonthly staples basket ready\n₹645\nOffers allowed"
+        },
+        {
+          "counter": "3 / 7",
+          "instruction": "Tap: Back to customers"
+        },
+        {
+          "counter": "4 / 7",
+          "instruction": "Tap: Back to retailer home"
+        },
+        {
+          "counter": "5 / 7",
+          "instruction": "Tap: 3\nOffers"
+        },
+        {
+          "counter": "6 / 7",
+          "instruction": "Tap: + Create"
+        },
+        {
+          "counter": "7 / 7",
+          "instruction": "Opening next verified state..."
+        }
+      ],
+      "multiTargets": 15
+    },
+    {
+      "flow": "retailer-controls",
+      "pass": true,
+      "counter": "12 / 12",
+      "steps": 15,
+      "trace": [
+        {
+          "counter": "1 / 12",
+          "instruction": "Loading first state..."
+        },
+        {
+          "counter": "1 / 12",
+          "instruction": "Tap: 18\nSlow Stock"
+        },
+        {
+          "counter": "2 / 12",
+          "instruction": "Tap: Back to stock"
+        },
+        {
+          "counter": "3 / 12",
+          "instruction": "Tap: Open retailer business home"
+        },
+        {
+          "counter": "3 / 12",
+          "instruction": "Tap: AI Assistant"
+        },
+        {
+          "counter": "4 / 12",
+          "instruction": "Tap: Back to retailer home"
+        },
+        {
+          "counter": "5 / 12",
+          "instruction": "Tap: 8\nStaff"
+        },
+        {
+          "counter": "6 / 12",
+          "instruction": "Tap: Back to retailer home"
+        },
+        {
+          "counter": "7 / 12",
+          "instruction": "Tap: 92%\nSettings"
+        },
+        {
+          "counter": "8 / 12",
+          "instruction": "Tap: Back to retailer home"
+        },
+        {
+          "counter": "9 / 12",
+          "instruction": "Tap: 3\nIssues"
+        },
+        {
+          "counter": "10 / 12",
+          "instruction": "Tap: Back to retailer orders"
+        },
+        {
+          "counter": "11 / 12",
+          "instruction": "Tap: Open retailer business home"
+        },
+        {
+          "counter": "11 / 12",
+          "instruction": "Tap: 96% Money"
+        },
+        {
+          "counter": "12 / 12",
+          "instruction": "Opening next verified state..."
+        }
+      ],
+      "multiTargets": 15
+    },
+    {
+      "flow": "manufacturer-sales",
+      "pass": true,
+      "counter": "5 / 5",
+      "steps": 6,
+      "trace": [
+        {
+          "counter": "1 / 5",
+          "instruction": "Loading first state..."
+        },
+        {
+          "counter": "1 / 5",
+          "instruction": "Tap: Stock"
+        },
+        {
+          "counter": "2 / 5",
+          "instruction": "Tap: Orders"
+        },
+        {
+          "counter": "3 / 5",
+          "instruction": "Tap: Review"
+        },
+        {
+          "counter": "4 / 5",
+          "instruction": "Tap: Confirm Full"
+        },
+        {
+          "counter": "5 / 5",
+          "instruction": "Opening next verified state..."
+        }
+      ],
+      "multiTargets": 2
+    },
+    {
+      "flow": "manufacturer-procurement",
+      "pass": true,
+      "counter": "3 / 3",
+      "steps": 5,
+      "trace": [
+        {
+          "counter": "1 / 3",
+          "instruction": "Loading first state..."
+        },
+        {
+          "counter": "1 / 3",
+          "instruction": "Tap: Wholesale Buy"
+        },
+        {
+          "counter": "2 / 3",
+          "instruction": "Tap: Back to manufacturer Wholesale Buy"
+        },
+        {
+          "counter": "2 / 3",
+          "instruction": "Tap: Open Business Book"
+        },
+        {
+          "counter": "3 / 3",
+          "instruction": "Opening next verified state..."
+        }
+      ],
+      "multiTargets": 4
+    },
+    {
+      "flow": "manufacturer-growth",
+      "pass": true,
+      "counter": "4 / 4",
+      "steps": 6,
+      "trace": [
+        {
+          "counter": "1 / 4",
+          "instruction": "Loading first state..."
+        },
+        {
+          "counter": "1 / 4",
+          "instruction": "Tap: Review retailer demand pool"
+        },
+        {
+          "counter": "2 / 4",
+          "instruction": "Tap: Back to manufacturer workspace"
+        },
+        {
+          "counter": "3 / 4",
+          "instruction": "Tap: MOOLSOCIAL BUSINESS SERVICES"
+        },
+        {
+          "counter": "3 / 4",
+          "instruction": "Tap: View services"
+        },
+        {
+          "counter": "4 / 4",
+          "instruction": "Opening next verified state..."
+        }
+      ],
+      "multiTargets": 2
+    },
+    {
+      "flow": "manufacturer-control",
+      "pass": true,
+      "counter": "4 / 4",
+      "steps": 6,
+      "trace": [
+        {
+          "counter": "1 / 4",
+          "instruction": "Loading first state..."
+        },
+        {
+          "counter": "1 / 4",
+          "instruction": "Tap: Open alerts"
+        },
+        {
+          "counter": "1 / 4",
+          "instruction": "Tap: Review alerts"
+        },
+        {
+          "counter": "2 / 4",
+          "instruction": "Tap: Back to manufacturer workspace"
+        },
+        {
+          "counter": "3 / 4",
+          "instruction": "Tap: Open Business Book"
+        },
+        {
+          "counter": "4 / 4",
+          "instruction": "Opening next verified state..."
+        }
+      ],
+      "multiTargets": 6
+    },
+    {
+      "flow": "captain-workspace",
+      "pass": true,
+      "counter": "10 / 10",
+      "steps": 12,
+      "trace": [
+        {
+          "counter": "1 / 10",
+          "instruction": "Loading first state..."
+        },
+        {
+          "counter": "1 / 10",
+          "instruction": "Tap: R\nRequests"
+        },
+        {
+          "counter": "2 / 10",
+          "instruction": "Tap: T\nTrips"
+        },
+        {
+          "counter": "3 / 10",
+          "instruction": "Tap: I Have Arrived"
+        },
+        {
+          "counter": "4 / 10",
+          "instruction": "Tap: Arrived at Destination"
+        },
+        {
+          "counter": "5 / 10",
+          "instruction": "Tap: ₹\nEarnings"
+        },
+        {
+          "counter": "6 / 10",
+          "instruction": "Tap: ‹"
+        },
+        {
+          "counter": "7 / 10",
+          "instruction": "Tap: Insurance expires in 18 days"
+        },
+        {
+          "counter": "8 / 10",
+          "instruction": "Tap: ‹"
+        },
+        {
+          "counter": "9 / 10",
+          "instruction": "Tap: Open captain controls"
+        },
+        {
+          "counter": "9 / 10",
+          "instruction": "Tap: Support"
+        },
+        {
+          "counter": "10 / 10",
+          "instruction": "Opening next verified state..."
+        }
+      ],
+      "multiTargets": 0
+    },
+    {
+      "flow": "creator-workspace",
+      "pass": true,
+      "counter": "15 / 15",
+      "steps": 18,
+      "trace": [
+        {
+          "counter": "1 / 15",
+          "instruction": "Loading first state..."
+        },
+        {
+          "counter": "1 / 15",
+          "instruction": "Tap: +\nCreate"
+        },
+        {
+          "counter": "2 / 15",
+          "instruction": "Tap: ‹"
+        },
+        {
+          "counter": "3 / 15",
+          "instruction": "Tap: Content library"
+        },
+        {
+          "counter": "4 / 15",
+          "instruction": "Tap: How local baskets save time"
+        },
+        {
+          "counter": "4 / 15",
+          "instruction": "Tap: Open Performance"
+        },
+        {
+          "counter": "5 / 15",
+          "instruction": "Tap: ‹"
+        },
+        {
+          "counter": "6 / 15",
+          "instruction": "Tap: Audience"
+        },
+        {
+          "counter": "7 / 15",
+          "instruction": "Tap: ‹"
+        },
+        {
+          "counter": "8 / 15",
+          "instruction": "Tap: CAMPAIGN\n₹3,500 fixed + ₹40/order\nOpen"
+        },
+        {
+          "counter": "9 / 15",
+          "instruction": "Tap: ‹"
+        },
+        {
+          "counter": "10 / 15",
+          "instruction": "Tap: ₹\nEarnings"
+        },
+        {
+          "counter": "11 / 15",
+          "instruction": "Tap: ‹"
+        },
+        {
+          "counter": "12 / 15",
+          "instruction": "Tap: Studio controls"
+        },
+        {
+          "counter": "12 / 15",
+          "instruction": "Tap: Open Controls"
+        },
+        {
+          "counter": "13 / 15",
+          "instruction": "Tap: ‹"
+        },
+        {
+          "counter": "14 / 15",
+          "instruction": "Tap: MEMBERS\n₹99/month or ₹999/year\nOpen"
+        },
+        {
+          "counter": "15 / 15",
+          "instruction": "Opening next verified state..."
+        }
+      ],
+      "multiTargets": 16
+    },
+    {
+      "flow": "creator-funded-campaign",
+      "pass": true,
+      "counter": "8 / 8",
+      "steps": 8,
+      "trace": [
+        {
+          "counter": "1 / 8",
+          "instruction": "Loading first state..."
+        },
+        {
+          "counter": "1 / 8",
+          "instruction": "Tap: Continue"
+        },
+        {
+          "counter": "1 / 8",
+          "instruction": "Tap: Publish campaign"
+        },
+        {
+          "counter": "2 / 8",
+          "instruction": "Tap: Open engine controls"
+        },
+        {
+          "counter": "3 / 8",
+          "instruction": "Tap: Open Deliverable"
+        },
+        {
+          "counter": "4 / 8",
+          "instruction": "Tap: Review & Publish"
+        },
+        {
+          "counter": "7 / 8",
+          "instruction": "Tap: Reconcile exceptions"
+        },
+        {
+          "counter": "8 / 8",
+          "instruction": "Opening next verified state..."
+        }
+      ],
+      "multiTargets": 0
+    },
+    {
+      "flow": "creator-commerce-share",
+      "pass": true,
+      "counter": "10 / 10",
+      "steps": 9,
+      "trace": [
+        {
+          "counter": "1 / 10",
+          "instruction": "Loading first state..."
+        },
+        {
+          "counter": "1 / 10",
+          "instruction": "Tap: Preview creator view"
+        },
+        {
+          "counter": "2 / 10",
+          "instruction": "Tap: Review and continue"
+        },
+        {
+          "counter": "3 / 10",
+          "instruction": "Tap: Review & Publish"
+        },
+        {
+          "counter": "4 / 10",
+          "instruction": "Tap: Details"
+        },
+        {
+          "counter": "5 / 10",
+          "instruction": "Tap: Open basket"
+        },
+        {
+          "counter": "6 / 10",
+          "instruction": "Tap: Pay Rs 645"
+        },
+        {
+          "counter": "9 / 10",
+          "instruction": "Tap: Reconcile exceptions"
+        },
+        {
+          "counter": "10 / 10",
+          "instruction": "Opening next verified state..."
+        }
+      ],
+      "multiTargets": 0
+    },
+    {
+      "flow": "creator-membership",
+      "pass": true,
+      "counter": "5 / 5",
+      "steps": 5,
+      "trace": [
+        {
+          "counter": "1 / 5",
+          "instruction": "Loading first state..."
+        },
+        {
+          "counter": "1 / 5",
+          "instruction": "Tap: Create Membership Plan"
+        },
+        {
+          "counter": "2 / 5",
+          "instruction": "Tap: Join membership"
+        },
+        {
+          "counter": "3 / 5",
+          "instruction": "Tap: Pay Rs 645"
+        },
+        {
+          "counter": "5 / 5",
+          "instruction": "Automatic: Membership earning posted to creator ledger"
+        }
+      ],
+      "multiTargets": 0
+    },
+    {
+      "flow": "creator-content-pool",
+      "pass": true,
+      "counter": "4 / 4",
+      "steps": 4,
+      "trace": [
+        {
+          "counter": "1 / 4",
+          "instruction": "Loading first state..."
+        },
+        {
+          "counter": "2 / 4",
+          "instruction": "Automatic: Attributed outcomes reached finance reconciliation"
+        },
+        {
+          "counter": "3 / 4",
+          "instruction": "Tap: Reconcile exceptions"
+        },
+        {
+          "counter": "4 / 4",
+          "instruction": "Opening next verified state..."
+        }
+      ],
+      "multiTargets": 0
+    },
+    {
+      "flow": "creator-local-production",
+      "pass": true,
+      "counter": "6 / 6",
+      "steps": 7,
+      "trace": [
+        {
+          "counter": "1 / 6",
+          "instruction": "Loading first state..."
+        },
+        {
+          "counter": "1 / 6",
+          "instruction": "Tap: Preview creator view"
+        },
+        {
+          "counter": "2 / 6",
+          "instruction": "Tap: Open Deliverable"
+        },
+        {
+          "counter": "3 / 6",
+          "instruction": "Tap: Review & Publish"
+        },
+        {
+          "counter": "4 / 6",
+          "instruction": "Tap: Open engine controls"
+        },
+        {
+          "counter": "5 / 6",
+          "instruction": "Tap: Reconcile exceptions"
+        },
+        {
+          "counter": "6 / 6",
+          "instruction": "Opening next verified state..."
+        }
+      ],
+      "multiTargets": 0
+    },
+    {
+      "flow": "creator-onboarding",
+      "pass": true,
+      "counter": "7 / 7",
+      "steps": 7,
+      "trace": [
+        {
+          "counter": "1 / 7",
+          "instruction": "Loading first state..."
+        },
+        {
+          "counter": "1 / 7",
+          "instruction": "Tap: Open engine controls"
+        },
+        {
+          "counter": "2 / 7",
+          "instruction": "Tap: Check eligibility"
+        },
+        {
+          "counter": "3 / 7",
+          "instruction": "Tap: Open Assignment"
+        },
+        {
+          "counter": "4 / 7",
+          "instruction": "Tap: Continue Proof"
+        },
+        {
+          "counter": "5 / 7",
+          "instruction": "Tap: Submit for Verification"
+        },
+        {
+          "counter": "7 / 7",
+          "instruction": "Automatic: Approved work earning posted to creator ledger"
+        }
+      ],
+      "multiTargets": 0
+    },
+    {
+      "flow": "creator-live-event",
+      "pass": true,
+      "counter": "9 / 9",
+      "steps": 8,
+      "trace": [
+        {
+          "counter": "1 / 9",
+          "instruction": "Loading first state..."
+        },
+        {
+          "counter": "1 / 9",
+          "instruction": "Tap: Set terms and reserve"
+        },
+        {
+          "counter": "2 / 9",
+          "instruction": "Tap: Approve controlled launch"
+        },
+        {
+          "counter": "3 / 9",
+          "instruction": "Tap: Open Deliverable"
+        },
+        {
+          "counter": "4 / 9",
+          "instruction": "Tap: Review & Publish"
+        },
+        {
+          "counter": "5 / 9",
+          "instruction": "Tap: Join live event"
+        },
+        {
+          "counter": "6 / 9",
+          "instruction": "Tap: Pay Rs 645"
+        },
+        {
+          "counter": "9 / 9",
+          "instruction": "Automatic: Verified creator result became payable"
+        }
+      ],
+      "multiTargets": 0
+    },
+    {
+      "flow": "creator-licence",
+      "pass": true,
+      "counter": "4 / 4",
+      "steps": 6,
+      "trace": [
+        {
+          "counter": "1 / 4",
+          "instruction": "Loading first state..."
+        },
+        {
+          "counter": "1 / 4",
+          "instruction": "Tap: Set terms and reserve"
+        },
+        {
+          "counter": "2 / 4",
+          "instruction": "Tap: Review request"
+        },
+        {
+          "counter": "2 / 4",
+          "instruction": "Tap: Approve licence"
+        },
+        {
+          "counter": "3 / 4",
+          "instruction": "Tap: Reconcile exceptions"
+        },
+        {
+          "counter": "4 / 4",
+          "instruction": "Opening next verified state..."
+        }
+      ],
+      "multiTargets": 0
+    },
+    {
+      "flow": "earn-operations",
+      "pass": true,
+      "counter": "6 / 6",
+      "steps": 8,
+      "trace": [
+        {
+          "counter": "1 / 6",
+          "instruction": "Loading first state..."
+        },
+        {
+          "counter": "1 / 6",
+          "instruction": "Tap: Check eligibility"
+        },
+        {
+          "counter": "2 / 6",
+          "instruction": "Tap: Open Assignment"
+        },
+        {
+          "counter": "3 / 6",
+          "instruction": "Tap: Continue Proof"
+        },
+        {
+          "counter": "4 / 6",
+          "instruction": "Tap: Submit for Verification"
+        },
+        {
+          "counter": "5 / 6",
+          "instruction": "Tap: Earnings statement"
+        },
+        {
+          "counter": "5 / 6",
+          "instruction": "Tap: Issues & History"
+        },
+        {
+          "counter": "6 / 6",
+          "instruction": "Opening next verified state..."
+        }
+      ],
+      "multiTargets": 0
+    },
+    {
+      "flow": "provider-workspace",
+      "pass": true,
+      "counter": "12 / 12",
+      "steps": 13,
+      "trace": [
+        {
+          "counter": "1 / 12",
+          "instruction": "Loading first state..."
+        },
+        {
+          "counter": "1 / 12",
+          "instruction": "Tap: KEEP CURRENT\nServices\n8 consumer-ready"
+        },
+        {
+          "counter": "2 / 12",
+          "instruction": "Tap: ‹"
+        },
+        {
+          "counter": "3 / 12",
+          "instruction": "Tap: CONTROL\nAvailability and area\nOpen until 7 PM"
+        },
+        {
+          "counter": "4 / 12",
+          "instruction": "Tap: ‹"
+        },
+        {
+          "counter": "5 / 12",
+          "instruction": "Tap: ACT NOW\nOpen Requests\n2 need response"
+        },
+        {
+          "counter": "6 / 12",
+          "instruction": "Tap: Accept"
+        },
+        {
+          "counter": "7 / 12",
+          "instruction": "Tap: ₹\nMoney"
+        },
+        {
+          "counter": "8 / 12",
+          "instruction": "Tap: ‹"
+        },
+        {
+          "counter": "9 / 12",
+          "instruction": "Tap: FUNDED NEARBY\nEarn and campaign opportunities\n12 open\nPOTENTIAL\n₹18K/month\nAREA\nJodhpur\nFIT\nVerified"
+        },
+        {
+          "counter": "10 / 12",
+          "instruction": "Tap: ‹"
+        },
+        {
+          "counter": "11 / 12",
+          "instruction": "Tap: ?"
+        },
+        {
+          "counter": "12 / 12",
+          "instruction": "Opening next verified state..."
+        }
+      ],
+      "multiTargets": 12
+    },
+    {
+      "flow": "admin-operations",
+      "pass": true,
+      "counter": "12 / 12",
+      "steps": 13,
+      "trace": [
+        {
+          "counter": "1 / 12",
+          "instruction": "Loading first state..."
+        },
+        {
+          "counter": "1 / 12",
+          "instruction": "Tap: ID\nVerification"
+        },
+        {
+          "counter": "2 / 12",
+          "instruction": "Tap: SKU\nCatalogue"
+        },
+        {
+          "counter": "3 / 12",
+          "instruction": "Tap: CO\nCommerce"
+        },
+        {
+          "counter": "4 / 12",
+          "instruction": "Tap: RD\nRide Ops"
+        },
+        {
+          "counter": "5 / 12",
+          "instruction": "Tap: WK\nWork Ops"
+        },
+        {
+          "counter": "6 / 12",
+          "instruction": "Tap: TS\nTrust & Safety"
+        },
+        {
+          "counter": "7 / 12",
+          "instruction": "Tap: ₹\nFinance"
+        },
+        {
+          "counter": "8 / 12",
+          "instruction": "Tap: SP\nSupport"
+        },
+        {
+          "counter": "9 / 12",
+          "instruction": "Tap: LC\nLaunch & Config"
+        },
+        {
+          "counter": "10 / 12",
+          "instruction": "Tap: AH\nActivity & Health"
+        },
+        {
+          "counter": "11 / 12",
+          "instruction": "Tap: SG\nSignals & Privacy"
+        },
+        {
+          "counter": "12 / 12",
+          "instruction": "Opening next verified state..."
+        }
+      ],
+      "multiTargets": 0
+    },
+    {
+      "flow": "shared-controls",
+      "pass": true,
+      "counter": "12 / 12",
+      "steps": 18,
+      "trace": [
+        {
+          "counter": "1 / 12",
+          "instruction": "Loading first state..."
+        },
+        {
+          "counter": "1 / 12",
+          "instruction": "Tap: ◫\nActivity"
+        },
+        {
+          "counter": "2 / 12",
+          "instruction": "Tap: ▣\nWorkspaces"
+        },
+        {
+          "counter": "3 / 12",
+          "instruction": "Tap: Identity and consent"
+        },
+        {
+          "counter": "3 / 12",
+          "instruction": "Tap: Open identity"
+        },
+        {
+          "counter": "4 / 12",
+          "instruction": "Tap: ▣\nWorkspaces"
+        },
+        {
+          "counter": "5 / 12",
+          "instruction": "Tap: Ask, scan and voice"
+        },
+        {
+          "counter": "5 / 12",
+          "instruction": "Tap: Open universal input"
+        },
+        {
+          "counter": "6 / 12",
+          "instruction": "Tap: ▣\nWorkspaces"
+        },
+        {
+          "counter": "7 / 12",
+          "instruction": "Tap: Files and evidence"
+        },
+        {
+          "counter": "7 / 12",
+          "instruction": "Tap: Open files"
+        },
+        {
+          "counter": "8 / 12",
+          "instruction": "Tap: ▣\nWorkspaces"
+        },
+        {
+          "counter": "9 / 12",
+          "instruction": "Tap: Security and support"
+        },
+        {
+          "counter": "9 / 12",
+          "instruction": "Tap: Open security"
+        },
+        {
+          "counter": "10 / 12",
+          "instruction": "Tap: ▣\nWorkspaces"
+        },
+        {
+          "counter": "11 / 12",
+          "instruction": "Tap: Global preferences"
+        },
+        {
+          "counter": "11 / 12",
+          "instruction": "Tap: Manage preferences"
+        },
+        {
+          "counter": "12 / 12",
+          "instruction": "Opening next verified state..."
+        }
+      ],
+      "multiTargets": 0
+    }
+  ]
+}

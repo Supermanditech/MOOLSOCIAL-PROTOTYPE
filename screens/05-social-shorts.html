@@ -3,7 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>05 Social Shorts - MoolSocial Screenbook</title>
+
+<title>05 Social Shorts - MoolSocial Screenbook</title>
+<script defer src="../shared/creator-economics-ui.js" data-surface="consumer-social"></script><script type="application/json" id="creatorEconomicsBinding">{"surfaces":["funded_campaign","attributed_commerce"],"contract":"shared/creator-economics-flow-contract.json","role":"consumer_qualifying_action"}</script>
   <link rel="stylesheet" href="../shared/moolsocial-ui-foundation.css" />
   <style>
     .screen-shell {
@@ -1589,6 +1591,18 @@
           ["Captions", "Auto"],
           ["Quality", "Data"]
         ]
+      },
+      search: {
+        title: "Search Shorts",
+        note: "Search creators, topics, places and verified local offers. Closing search returns to the same short.",
+        items: [
+          ["Creators", "People"],
+          ["Topics", "Discover"],
+          ["Nearby", "Local"],
+          ["Offers", "Verified"],
+          ["Voice", "Ask"],
+          ["History", "Recent"]
+        ]
       }
     };
 
@@ -1686,7 +1700,10 @@
     document.querySelector("[data-close-sheet]")?.addEventListener("click", closeSheet);
 
     shortDetailButtons.forEach((button) => {
-      button.addEventListener("click", () => openShortDetails(button));
+      button.addEventListener("click", () => {
+        setShort(Number(button.closest("[data-short]")?.dataset.short || 0));
+        openShortDetails(button);
+      });
     });
 
     contextCards.forEach((card) => {
@@ -1752,6 +1769,35 @@
       likeButton.classList.toggle("active", liked);
       if (likeCount) likeCount.textContent = liked ? "12.1K" : "12K";
     });
+
+    document.querySelector("[aria-label='Back to social']")?.addEventListener("click", () => {
+      window.location.href = "04-universal-focus-shell.html?world=social";
+    });
+    document.querySelector("[aria-label='Search shorts']")?.addEventListener("click", () => openSheet("search"));
+    document.querySelector("[aria-label='Create short']")?.addEventListener("click", (event) => {
+      event.stopImmediatePropagation();
+      window.location.href = "08-social-create.html?mode=short";
+    });
+    document.querySelectorAll(".creator-line").forEach((button) => {
+      button.addEventListener("click", () => setShort(Number(button.closest("[data-short]")?.dataset.short || 0)));
+    });
+    document.querySelector("[aria-label='Save']")?.addEventListener("click", (event) => {
+      const button = event.currentTarget;
+      button.classList.toggle("active");
+      const label = button.querySelector("small");
+      if (label) label.textContent = button.classList.contains("active") ? "Saved" : "Save";
+    });
+    document.querySelector(".mool-button")?.addEventListener("click", () => {
+      window.location.href = "04-universal-focus-shell.html?world=social";
+    });
+    document.querySelector(".social-tab.active")?.addEventListener("click", () => {
+      openShortDetails(shortCards[currentShortIndex]?.querySelector("[data-open-short-details]"));
+    });
+    document.querySelector(".chat-button")?.addEventListener("click", () => {
+      window.location.href = "23-chat-inbox-home.html?from=shorts";
+    });
   </script>
+<script type="application/json" id="productionRouteContract">{"contractVersion":"mvp-route-lock-2026-07-12","prototypeScreen":5,"productionModule":"social","routeId":"social.shorts","routePath":"/social/shorts","routeState":"viewer","implementation":"route-shell","launchScope":"mvp-core","separateProductionRoute":true,"productionNote":"Own production route /social/shorts. Implement viewer as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.","canonicalMap":"architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"}</script><script type="application/json" id="prototypeApprovalContract">{"prototypeScreen":5,"status":"approved-and-frozen","authoritative":true,"approvedAt":"2026-07-13"}</script>  <script src="../shared/prototype-interaction-contracts.js"></script>
+  <script src="../shared/prototype-interaction-runtime.js"></script>
 </body>
 </html>

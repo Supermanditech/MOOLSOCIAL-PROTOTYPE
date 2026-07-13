@@ -657,7 +657,64 @@
       background: rgba(255, 255, 255, .08);
       font-family: var(--ms-font);
       text-align: left;
-      cursor: default;
+      cursor: pointer;
+    }
+
+    .manual-area-sheet {
+      display: none;
+      gap: 8px;
+      border: 1px solid rgba(255, 255, 255, .68);
+      border-radius: var(--ms-radius);
+      padding: 10px;
+      background: rgba(255, 255, 255, .1);
+    }
+
+    .manual-area-sheet.active {
+      display: grid;
+    }
+
+    .manual-area-sheet label {
+      color: var(--ms-white);
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .manual-area-sheet input {
+      min-width: 0;
+      border: 1px solid rgba(255, 255, 255, .8);
+      border-radius: 8px;
+      padding: 10px;
+      color: var(--ms-navy);
+      background: var(--ms-white);
+      font: inherit;
+    }
+
+    .manual-area-actions {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 8px;
+    }
+
+    .manual-area-actions button,
+    .manual-area-actions a {
+      min-height: 38px;
+      border: 1px solid var(--ms-white);
+      border-radius: 8px;
+      padding: 8px 10px;
+      color: var(--ms-white);
+      background: transparent;
+      font: inherit;
+      font-size: 11px;
+      font-weight: 900;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .manual-area-actions a {
+      display: grid;
+      place-items: center;
+      color: var(--ms-navy);
+      background: var(--ms-white);
     }
 
     .choice-icon {
@@ -1051,25 +1108,33 @@
                       <span>Use your current place if you are there now, or set your home/default area if you are travelling.</span>
                     </div>
                     <div class="location-choice-list">
-                      <button class="location-choice" type="button">
+                      <button class="location-choice" type="button" data-area-action="current">
                         <span class="choice-icon" aria-hidden="true">
                           <svg viewBox="0 0 48 48"><defs><linearGradient id="locPinA" x1="14" y1="6" x2="34" y2="42" gradientUnits="userSpaceOnUse"><stop stop-color="#FF6A3D"/><stop offset=".55" stop-color="#E42D2D"/><stop offset="1" stop-color="#B4132D"/></linearGradient><radialGradient id="locGlowA" cx="0" cy="0" r="1" gradientTransform="matrix(14 0 0 7 24 40)" gradientUnits="userSpaceOnUse"><stop stop-color="#1FB6FF" stop-opacity=".34"/><stop offset="1" stop-color="#1FB6FF" stop-opacity="0"/></radialGradient></defs><ellipse cx="24" cy="40" rx="14" ry="7" fill="url(#locGlowA)"/><path fill="url(#locPinA)" d="M24 4.5c-7.3 0-13.2 5.8-13.2 13 0 9.9 13.2 25.8 13.2 25.8s13.2-15.9 13.2-25.8c0-7.2-5.9-13-13.2-13Z"/><path fill="#FFB199" d="M17.2 11.7c2.2-2.6 5.8-3.8 9.2-3.1-4.6.7-8.2 4.5-8.8 9.1-.3 2.2-3 2-3.1-.2-.1-2 .9-4 2.7-5.8Z" opacity=".72"/><circle cx="24" cy="17.7" r="7.7" fill="#fff"/><circle cx="24" cy="17.7" r="4.1" fill="#0B57D0"/></svg>
                         </span>
                         <span><b>Use current location</b><span>Best when you are at the place now</span></span>
                       </button>
-                      <button class="location-choice" type="button">
+                      <button class="location-choice" type="button" data-area-action="manual">
                         <span class="choice-icon" aria-hidden="true">
                           <svg viewBox="0 0 48 48"><defs><linearGradient id="mapPanelA" x1="7" y1="8" x2="41" y2="40" gradientUnits="userSpaceOnUse"><stop stop-color="#FFF1B8"/><stop offset=".45" stop-color="#B6E7C9"/><stop offset="1" stop-color="#9BD1FF"/></linearGradient><linearGradient id="mapPinA" x1="27" y1="9" x2="39" y2="31" gradientUnits="userSpaceOnUse"><stop stop-color="#FF6A3D"/><stop offset="1" stop-color="#D7193F"/></linearGradient></defs><path fill="url(#mapPanelA)" d="m6.5 13.2 11.4-5 12.2 4.8 11.4-5.2v28l-11.4 5.4-12.2-4.9-11.4 5.1V13.2Z"/><path fill="#F4C542" d="M6.5 13.2 17.9 8v28.3L6.5 41.4V13.2Z" opacity=".95"/><path fill="#31A853" d="m17.9 8 12.2 4.9v28.3l-12.2-4.9V8Z" opacity=".94"/><path fill="#4A90E2" d="m30.1 12.9 11.4-5.1v28l-11.4 5.4V12.9Z" opacity=".95"/><path fill="none" stroke="#fff" stroke-linecap="round" stroke-width="2.2" d="M11 26c4.7-3 8.3-3.2 11.7-.6 4.1 3.1 8.1 2.8 12.8-1.2"/><path fill="url(#mapPinA)" d="M33.6 8.2c-4.9 0-8.8 3.8-8.8 8.5 0 6.7 8.8 15 8.8 15s8.8-8.3 8.8-15c0-4.7-3.9-8.5-8.8-8.5Z"/><circle cx="33.6" cy="16.8" r="3.7" fill="#fff"/></svg>
                         </span>
                         <span><b>Set manually</b><span>Search area, pin code, address or choose on map</span></span>
                       </button>
-                      <button class="location-choice" type="button">
+                      <button class="location-choice" type="button" data-area-action="skip">
                         <span class="choice-icon" aria-hidden="true">
                           <svg viewBox="0 0 48 48"><defs><linearGradient id="skipDiscA" x1="9" y1="7" x2="39" y2="41" gradientUnits="userSpaceOnUse"><stop stop-color="#36D399"/><stop offset=".5" stop-color="#13A86B"/><stop offset="1" stop-color="#00796B"/></linearGradient><linearGradient id="skipArrowA" x1="16" y1="16" x2="36" y2="31" gradientUnits="userSpaceOnUse"><stop stop-color="#FFF7C2"/><stop offset="1" stop-color="#FFB300"/></linearGradient></defs><circle cx="24" cy="24" r="18.5" fill="url(#skipDiscA)"/><path fill="#fff" d="M14 14.5h4.2v19H14v-19Z" opacity=".96"/><path fill="url(#skipArrowA)" d="M22.2 15.4 36.5 24 22.2 32.6v-5.7h-5.1v-5.8h5.1v-5.7Z"/><path fill="#fff" d="M16.1 10.7a17.5 17.5 0 0 1 13.5-2.4c-8.5.6-14.8 6.7-16 14.3-.4-3.8.5-8.1 2.5-11.9Z" opacity=".22"/></svg>
                         </span>
                         <span><b>Skip now</b><span>Continue to login and set area after signup</span></span>
                       </button>
                     </div>
+                    <form class="manual-area-sheet" data-manual-area novalidate>
+                      <label for="manualAreaInput">Search area, pin code or address</label>
+                      <input id="manualAreaInput" name="area" value="Jodhpur" autocomplete="street-address" />
+                      <div class="manual-area-actions">
+                        <button type="button" data-area-back>Back</button>
+                        <a href="03-login-account-handoff.html?area=Jodhpur&amp;areaSource=manual" data-area-continue>Use Jodhpur</a>
+                      </div>
+                    </form>
                   </div>
                 </div>
               </div>
@@ -1602,5 +1667,43 @@
       </div>
     </section>
   </main>
-<script type="application/json" id="productionRouteContract">{"contractVersion":"mvp-route-lock-2026-07-12","prototypeScreen":2,"productionModule":"onboarding","routeId":"onboarding.setup","routePath":"/onboarding/setup","routeState":"language-location","implementation":"route-shell","launchScope":"mvp-core","separateProductionRoute":true,"productionNote":"Own production route /onboarding/setup. Implement language-location as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.","canonicalMap":"architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"}</script><script type="application/json" id="prototypeApprovalContract">{"prototypeScreen":2,"status":"approved-and-frozen","authoritative":true,"approvedAt":"2026-07-12","approvalScope":"prototype-ui-ux-and-production-contract"}</script></body>
+<script>
+  (() => {
+    const choices = document.querySelector('.location-choice-list');
+    const manualSheet = document.querySelector('[data-manual-area]');
+    const manualInput = document.querySelector('#manualAreaInput');
+    const continueLink = document.querySelector('[data-area-continue]');
+
+    document.addEventListener('click', (event) => {
+      const actionButton = event.target.closest('[data-area-action]');
+      const action = actionButton?.dataset.areaAction;
+      if (action === 'current') {
+        actionButton.setAttribute('aria-busy', 'true');
+        actionButton.querySelector('b').textContent = 'Checking current location';
+        window.setTimeout(() => {
+          window.location.href = '03-login-account-handoff.html?area=current&areaSource=device&permission=requested';
+        }, 180);
+      }
+      if (action === 'manual') {
+        choices.hidden = true;
+        manualSheet.classList.add('active');
+        manualInput.focus();
+      }
+      if (action === 'skip') {
+        window.location.href = '03-login-account-handoff.html?area=unset&areaSource=skipped';
+      }
+      if (event.target.closest('[data-area-back]')) {
+        manualSheet.classList.remove('active');
+        choices.hidden = false;
+      }
+    });
+
+    manualInput?.addEventListener('input', () => {
+      const area = manualInput.value.trim() || 'Jodhpur';
+      continueLink.href = `03-login-account-handoff.html?area=${encodeURIComponent(area)}&areaSource=manual`;
+      continueLink.textContent = `Use ${area}`;
+    });
+  })();
+</script>
+<script type="application/json" id="productionRouteContract">{"contractVersion":"mvp-route-lock-2026-07-12","prototypeScreen":2,"productionModule":"onboarding","routeId":"onboarding.setup","routePath":"/onboarding/setup","routeState":"language-location","implementation":"route-shell","launchScope":"mvp-core","separateProductionRoute":true,"productionNote":"Own production route /onboarding/setup. Implement language-location as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.","canonicalMap":"architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"}</script><script type="application/json" id="prototypeApprovalContract">{"prototypeScreen":2,"status":"approved-and-frozen","authoritative":true,"approvedAt":"2026-07-13"}</script></body>
 </html>

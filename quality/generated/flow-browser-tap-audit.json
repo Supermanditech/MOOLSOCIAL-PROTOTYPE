@@ -1,0 +1,5197 @@
+{
+  "generatedAt": "2026-07-13T08:47:40.124Z",
+  "method": "mobile visible buttons and inputs clicked from clean initial state; local links verified by static target audit; economics cross-workspace links additionally clicked in browser",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "screens": [
+    {
+      "screen": 0,
+      "file": "00-install-app.html",
+      "controls": 1,
+      "passed": 0,
+      "failed": 1,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Install",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 2,
+      "linksStaticallyChecked": 1
+    },
+    {
+      "screen": 1,
+      "file": "01-app-splash-first-open.html",
+      "controls": 0,
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "issues": [],
+      "visibleControls": 1,
+      "linksStaticallyChecked": 1
+    },
+    {
+      "screen": 2,
+      "file": "02-first-setup-language-location.html",
+      "controls": 3,
+      "passed": 0,
+      "failed": 3,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Use current location Best when you are at the place now",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Set manually Search area, pin code, address or choose on map",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Skip now Continue to login and set area after signup",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 4,
+      "linksStaticallyChecked": 1
+    },
+    {
+      "screen": 3,
+      "file": "03-login-account-handoff.html",
+      "controls": 7,
+      "passed": 0,
+      "failed": 7,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Continue with Google",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Continue with Apple",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Continue with X",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Continue with Instagram",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Continue with Facebook",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Email OTP Use any email address",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Mobile OTP Use mobile number",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 8,
+      "linksStaticallyChecked": 1
+    },
+    {
+      "screen": 4,
+      "file": "04-universal-focus-shell.html",
+      "controls": 34,
+      "passed": 7,
+      "failed": 27,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Search",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Scan",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Voice",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Shorts",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Like",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Chat",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Share",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Remix",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Open Mool actions",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Open social",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Open product buying",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Open food",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Open ride",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Open booking",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Open payments",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Open social",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Open ride",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Open booking",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Open payments",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Open work",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Open social",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Open product buying",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Open food",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Open ride",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Open booking",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Open payments",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Open work",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 34,
+      "linksStaticallyChecked": 0
+    },
+    {
+      "screen": 5,
+      "file": "05-social-shorts.html",
+      "controls": 20,
+      "passed": 10,
+      "failed": 10,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Back to social",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Search shorts",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "RK Rasoi Kitchen Verified restaurant · Lunch live",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Details",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "GO Ground Ops Verified work · Paid task",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Details",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Save",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Open Mool actions",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Shorts",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Open chats, 2 unread messages",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 23,
+      "linksStaticallyChecked": 3
+    },
+    {
+      "screen": 6,
+      "file": "06-social-videos.html",
+      "controls": 22,
+      "passed": 2,
+      "failed": 20,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Cast video",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Search videos",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Account",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Explore",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "All",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Live",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "News",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Forensic Science",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Music",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Podcasts",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Live television",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Electric vehicles",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Products",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Consumer Electronics",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Indian Music",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Recently uploaded",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "New to you",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Open Mool actions",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Videos",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Open chat",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 29,
+      "linksStaticallyChecked": 7
+    },
+    {
+      "screen": 7,
+      "file": "07-social-feed.html",
+      "controls": 36,
+      "passed": 18,
+      "failed": 18,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Search feed",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Notifications",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Account",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "For you",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Following",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Near you",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Creators",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Business",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Work",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Post",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Photo",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Poll",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "More",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "More",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "More",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Open Mool actions",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Feed",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Open chat",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 39,
+      "linksStaticallyChecked": 3
+    },
+    {
+      "screen": 8,
+      "file": "08-social-create.html",
+      "controls": 29,
+      "passed": 25,
+      "failed": 4,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Text",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Open Mool",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Create",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Open chat",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 34,
+      "linksStaticallyChecked": 5
+    },
+    {
+      "screen": 9,
+      "file": "09-buy.html",
+      "controls": 29,
+      "passed": 23,
+      "failed": 6,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Saved baskets",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Profile",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Search",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Scan",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Voice",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Open chat",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 30,
+      "linksStaticallyChecked": 1
+    },
+    {
+      "screen": 10,
+      "file": "10-buy-grocery-decision.html",
+      "controls": 30,
+      "passed": 12,
+      "failed": 18,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Go back to Buy",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Open basket",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Search",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Scan item",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Voice search",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Buy Retail shop price",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "All",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Retail Rs 37 11 min",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Pack Rs 34 2 kg",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "MOQ Rs 31 target",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Retail Rs 495 today",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Pack Rs 475 2 bags",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "MOQ Rs 455 target",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Retail Rs 155 60 min",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Pack Rs 145 3 qty",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "MOQ Rs 132 target",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Close basket",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Continue",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 36,
+      "linksStaticallyChecked": 6
+    },
+    {
+      "screen": 11,
+      "file": "11-buy-product-detail.html",
+      "controls": 14,
+      "passed": 9,
+      "failed": 5,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Open basket",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Retail Rs 37 500 g now",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "500 g Rs 37 single buy",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "-",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Pickup 8 min pay in app, collect from counter",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 21,
+      "linksStaticallyChecked": 7
+    },
+    {
+      "screen": 12,
+      "file": "12-buy-basket-checkout.html",
+      "controls": 14,
+      "passed": 12,
+      "failed": 2,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Apply coupon",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Approve Replace show substitute first",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 21,
+      "linksStaticallyChecked": 7
+    },
+    {
+      "screen": 13,
+      "file": "13-retailer-stock-confirmation.html",
+      "controls": 11,
+      "passed": 10,
+      "failed": 1,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Open alerts",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 18,
+      "linksStaticallyChecked": 7
+    },
+    {
+      "screen": 14,
+      "file": "14-customer-payment-order-confirmation.html",
+      "controls": 6,
+      "passed": 4,
+      "failed": 2,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Open receipt",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "UPI recommended for fastest confirmation",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 13,
+      "linksStaticallyChecked": 7
+    },
+    {
+      "screen": 15,
+      "file": "15-counter-ready-receipt.html",
+      "controls": 5,
+      "passed": 2,
+      "failed": 3,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Share receipt",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Ask counter",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Refresh",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 13,
+      "linksStaticallyChecked": 8
+    },
+    {
+      "screen": 16,
+      "file": "16-order-completed-bill-rating.html",
+      "controls": 19,
+      "passed": 15,
+      "failed": 4,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Share bill",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Call shop",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "View bill",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Raise issue",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 29,
+      "linksStaticallyChecked": 10
+    },
+    {
+      "screen": 17,
+      "file": "17-home-delivery-tracking.html",
+      "controls": 10,
+      "passed": 9,
+      "failed": 1,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Delivery help",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 18,
+      "linksStaticallyChecked": 8
+    },
+    {
+      "screen": 18,
+      "file": "18-home-delivery-completed-bill-rating.html",
+      "controls": 27,
+      "passed": 26,
+      "failed": 1,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Call shop",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 37,
+      "linksStaticallyChecked": 10
+    },
+    {
+      "screen": 19,
+      "file": "19-order-issue-refund-evidence.html",
+      "controls": 17,
+      "passed": 17,
+      "failed": 0,
+      "skipped": 0,
+      "issues": [],
+      "visibleControls": 25,
+      "linksStaticallyChecked": 8
+    },
+    {
+      "screen": 20,
+      "file": "20-issue-review-status-retailer-response.html",
+      "controls": 3,
+      "passed": 3,
+      "failed": 0,
+      "skipped": 0,
+      "issues": [],
+      "visibleControls": 12,
+      "linksStaticallyChecked": 9
+    },
+    {
+      "screen": 21,
+      "file": "21-issue-result-refund-replacement.html",
+      "controls": 1,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0,
+      "issues": [],
+      "visibleControls": 11,
+      "linksStaticallyChecked": 10
+    },
+    {
+      "screen": 22,
+      "file": "22-chat-order-support-thread.html",
+      "controls": 7,
+      "passed": 7,
+      "failed": 0,
+      "skipped": 0,
+      "issues": [],
+      "visibleControls": 32,
+      "linksStaticallyChecked": 25
+    },
+    {
+      "screen": 23,
+      "file": "23-chat-inbox-home.html",
+      "controls": 2,
+      "passed": 1,
+      "failed": 1,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Search chats",
+          "tag": "DIV",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 23,
+      "linksStaticallyChecked": 21
+    },
+    {
+      "screen": 24,
+      "file": "24-chat-business-thread.html",
+      "controls": 3,
+      "passed": 0,
+      "failed": 3,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Attach item or bill",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Open camera",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Voice message",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 26,
+      "linksStaticallyChecked": 23
+    },
+    {
+      "screen": 25,
+      "file": "25-chat-people-thread.html",
+      "controls": 4,
+      "passed": 3,
+      "failed": 1,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Voice message",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 24,
+      "linksStaticallyChecked": 20
+    },
+    {
+      "screen": 26,
+      "file": "26-eat.html",
+      "controls": 10,
+      "passed": 6,
+      "failed": 4,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Search food",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Scan restaurant QR",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Voice food search",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "SD Spice Darbar North Indian · 1.1 km Open Order · Table · Pickup · 10% reward",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 25,
+      "linksStaticallyChecked": 15
+    },
+    {
+      "screen": 27,
+      "file": "27-eat-order-food.html",
+      "controls": 16,
+      "passed": 12,
+      "failed": 4,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Search",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Scan restaurant QR",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Voice search",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Add pack",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 28,
+      "linksStaticallyChecked": 12
+    },
+    {
+      "screen": 28,
+      "file": "28-eat-book-table.html",
+      "controls": 24,
+      "passed": 20,
+      "failed": 4,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Saved restaurants",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Search",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Scan restaurant QR",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Voice search",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 32,
+      "linksStaticallyChecked": 8
+    },
+    {
+      "screen": 29,
+      "file": "29-eat-tiffin.html",
+      "controls": 22,
+      "passed": 17,
+      "failed": 5,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Search",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Scan kitchen QR",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Voice search",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Lunch",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Start month Rs 2,850 26 meals · skip allowed",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 31,
+      "linksStaticallyChecked": 9
+    },
+    {
+      "screen": 30,
+      "file": "30-ride.html",
+      "controls": 10,
+      "passed": 3,
+      "failed": 7,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Saved places",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Search",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Use current location",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Voice search",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Now",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "After 15 min",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Schedule",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 16,
+      "linksStaticallyChecked": 6
+    },
+    {
+      "screen": 31,
+      "file": "31-ride-accepted-captain-arriving.html",
+      "controls": 4,
+      "passed": 0,
+      "failed": 4,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Safety",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Open map",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Call captain",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Chat with captain",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 17,
+      "linksStaticallyChecked": 13
+    },
+    {
+      "screen": 32,
+      "file": "32-ride-live-trip.html",
+      "controls": 7,
+      "passed": 3,
+      "failed": 4,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Safety",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Open map",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Call captain",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Chat with captain",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 20,
+      "linksStaticallyChecked": 13
+    },
+    {
+      "screen": 33,
+      "file": "33-ride-payment-approval.html",
+      "controls": 7,
+      "passed": 2,
+      "failed": 5,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Safety",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Receipt",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Call captain",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Chat with captain",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Card approve",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 16,
+      "linksStaticallyChecked": 9
+    },
+    {
+      "screen": 34,
+      "file": "34-ride-receipt-rating.html",
+      "controls": 13,
+      "passed": 8,
+      "failed": 5,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Safety",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Download receipt",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Share receipt",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Support chat",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "★",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 24,
+      "linksStaticallyChecked": 11
+    },
+    {
+      "screen": 35,
+      "file": "35-ride-post-trip-support.html",
+      "controls": 12,
+      "passed": 5,
+      "failed": 7,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Safety",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Receipt proof",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Call support",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Support chat",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Item missing unwanted incident",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Wallet",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Bag",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 22,
+      "linksStaticallyChecked": 10
+    },
+    {
+      "screen": 36,
+      "file": "36-book.html",
+      "controls": 12,
+      "passed": 4,
+      "failed": 8,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Saved places",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Search",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Use current location",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Voice search",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Now",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Today evening",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Tomorrow",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Schedule",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 19,
+      "linksStaticallyChecked": 7
+    },
+    {
+      "screen": 37,
+      "file": "37-book-doctor-appointment.html",
+      "controls": 16,
+      "passed": 7,
+      "failed": 9,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Saved patients",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Search",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Use current area",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Voice search",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Clinic doctor slot individual doctor",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Fever",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Dental",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Reports",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "KS Dr. Kavita Sharma General physician · 1.1 km Today 6:20 PM · reg no + clinic Rs 300 12 min",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 25,
+      "linksStaticallyChecked": 9
+    },
+    {
+      "screen": 38,
+      "file": "38-book-patient-details-reports.html",
+      "controls": 19,
+      "passed": 13,
+      "failed": 6,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Family profiles",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Search",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Scan report",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Voice note",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Self 28 yrs",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Fever",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 28,
+      "linksStaticallyChecked": 9
+    },
+    {
+      "screen": 39,
+      "file": "39-doctor-patient-invite-followup.html",
+      "controls": 19,
+      "passed": 13,
+      "failed": 6,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Doctor workspace",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Search",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Show patient QR",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Send voice instruction",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Show QR counter scan",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "7-day",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 28,
+      "linksStaticallyChecked": 9
+    },
+    {
+      "screen": 40,
+      "file": "40-patient-clinic-invite-join.html",
+      "controls": 19,
+      "passed": 13,
+      "failed": 6,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Patient account",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Search",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Open invite",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Voice help",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Join visit doctor link",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "7-day",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 28,
+      "linksStaticallyChecked": 9
+    },
+    {
+      "screen": 41,
+      "file": "41-patient-followup-workspace.html",
+      "controls": 19,
+      "passed": 10,
+      "failed": 9,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Patient account",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Search",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Open follow-up",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Voice help",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Upload report lab/photo",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Reports",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Reminders medicine",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Rebook same doctor",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Share with this clinic Dr. Kavita clinic can see only this follow-up case and files you choose.",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 28,
+      "linksStaticallyChecked": 9
+    },
+    {
+      "screen": 42,
+      "file": "42-book-salon-appointment.html",
+      "controls": 16,
+      "passed": 10,
+      "failed": 6,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Saved salons",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Search",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Use current area",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Voice search",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Haircut",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Salon nearby slot visit salon",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 25,
+      "linksStaticallyChecked": 9
+    },
+    {
+      "screen": 43,
+      "file": "43-salon-booking-confirm.html",
+      "controls": 11,
+      "passed": 3,
+      "failed": 8,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Saved salons",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Set reminder",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Pay at salon no prepay pay after service",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "No add-on",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Beard +80",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Wash +120",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Cleanup +350",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "P Price includes selected service Haircut, basic styling and GST included. Salon rating + shop photo",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 21,
+      "linksStaticallyChecked": 10
+    },
+    {
+      "screen": 44,
+      "file": "44-salon-booking-confirmed.html",
+      "controls": 5,
+      "passed": 0,
+      "failed": 5,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Saved salons",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Reminder enabled",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Arrive 5:30 PM 10 min early",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Reminder 30 min before slot",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Counter show app no code needed",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 19,
+      "linksStaticallyChecked": 14
+    },
+    {
+      "screen": 45,
+      "file": "45-salon-visit-check-in.html",
+      "controls": 5,
+      "passed": 0,
+      "failed": 5,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Saved salons",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Call salon",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Checked in Done arrival noted",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Queue 2 ahead approx 5 min",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Service Ready chair 3",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 19,
+      "linksStaticallyChecked": 14
+    },
+    {
+      "screen": 46,
+      "file": "46-salon-service-payment-rating.html",
+      "controls": 5,
+      "passed": 0,
+      "failed": 5,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Saved salons",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Call salon",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Service Done confirmed",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Bill Rs 199 ready",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Rate Good tap to change",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 19,
+      "linksStaticallyChecked": 14
+    },
+    {
+      "screen": 47,
+      "file": "47-salon-post-visit-support.html",
+      "controls": 5,
+      "passed": 3,
+      "failed": 2,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Saved salons",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Call salon",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 19,
+      "linksStaticallyChecked": 14
+    },
+    {
+      "screen": 48,
+      "file": "48-book-get-it-done.html",
+      "controls": 21,
+      "passed": 8,
+      "failed": 13,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Saved tasks",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Search",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Scan proof",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Voice task",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Jodhpur",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Pickup Pickup work shop, counter, parcel",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "CP Counter partner Jodhpur · shop pickup · faster proof counter receipt linked Rs 129 60 min",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Pickup place Shop, counter, office or address Map pin or typed address Add needed",
+          "tag": "BUTTON",
+          "error": "Error: Unable to translate Input.dispatchMouseEvent in the in-app browser: No element found at point 253.40000915527344,781.6750373840332\nwaiting on click for selector .phone >> a,button,input,select,textarea,[role=\"button\"] >> nth=16"
+        },
+        {
+          "label": "Pickup instruction What to collect and from whom Text, voice or photo works Add needed",
+          "tag": "BUTTON",
+          "error": "Error: Unable to translate Input.dispatchMouseEvent in the in-app browser: No element found at point 253.40000915527344,849.0750007629395\nwaiting on click for selector .phone >> a,button,input,select,textarea,[role=\"button\"] >> nth=17"
+        },
+        {
+          "label": "Confirm before collect Ask before paying, collecting or closing User controls final release Set safe",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Photo",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Bill",
+          "tag": "BUTTON",
+          "error": "Error: Unable to translate Input.dispatchMouseEvent in the in-app browser: No element found at point 253.39999771118164,1029.875\nwaiting on click for selector .phone >> a,button,input,select,textarea,[role=\"button\"] >> nth=20"
+        },
+        {
+          "label": "Status",
+          "tag": "BUTTON",
+          "error": "Error: Unable to translate Input.dispatchMouseEvent in the in-app browser: No element found at point 358.8000068664551,1029.875\nwaiting on click for selector .phone >> a,button,input,select,textarea,[role=\"button\"] >> nth=21"
+        }
+      ],
+      "visibleControls": 30,
+      "linksStaticallyChecked": 9
+    },
+    {
+      "screen": 49,
+      "file": "49-get-it-done-review-payment.html",
+      "controls": 6,
+      "passed": 2,
+      "failed": 4,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Saved task",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Task proof",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Voice help",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "UPI hold fast",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 15,
+      "linksStaticallyChecked": 9
+    },
+    {
+      "screen": 50,
+      "file": "50-get-it-done-helper-accepted.html",
+      "controls": 3,
+      "passed": 0,
+      "failed": 3,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Save task",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Task proof",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Voice help",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 15,
+      "linksStaticallyChecked": 12
+    },
+    {
+      "screen": 51,
+      "file": "51-get-it-done-proof-release.html",
+      "controls": 3,
+      "passed": 0,
+      "failed": 3,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Save proof",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Zoom proof",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Voice help",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 15,
+      "linksStaticallyChecked": 12
+    },
+    {
+      "screen": 52,
+      "file": "52-get-it-done-completed-rating.html",
+      "controls": 8,
+      "passed": 5,
+      "failed": 3,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Save receipt",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Search receipt",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Voice help",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 21,
+      "linksStaticallyChecked": 13
+    },
+    {
+      "screen": 53,
+      "file": "53-get-it-done-issue-support.html",
+      "controls": 7,
+      "passed": 4,
+      "failed": 3,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Saved support",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Add proof",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Voice support",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 18,
+      "linksStaticallyChecked": 11
+    },
+    {
+      "screen": 54,
+      "file": "54-get-it-done-issue-case-status.html",
+      "controls": 7,
+      "passed": 0,
+      "failed": 7,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Saved support",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Add proof",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Voice support",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Report filed Case created from Screen 53",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Evidence synced Proof and bill attached",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Verification Support validates with helper",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Decision Refund / rework / keep hold",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 18,
+      "linksStaticallyChecked": 11
+    },
+    {
+      "screen": 55,
+      "file": "55-get-it-done-issue-resolution.html",
+      "controls": 7,
+      "passed": 3,
+      "failed": 4,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Saved support",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Add proof",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Voice support",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Refund return protected amount",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 18,
+      "linksStaticallyChecked": 11
+    },
+    {
+      "screen": 56,
+      "file": "56-get-it-done-resolution-complete.html",
+      "controls": 7,
+      "passed": 3,
+      "failed": 4,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Saved support",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Add proof",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Voice support",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Money action refund initiated",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 18,
+      "linksStaticallyChecked": 11
+    },
+    {
+      "screen": 57,
+      "file": "57-pay.html",
+      "controls": 11,
+      "passed": 5,
+      "failed": 6,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Saved places",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Search",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Use current location",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Voice search",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "UPI",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Mobile recharge plan based instant · number + operator",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 20,
+      "linksStaticallyChecked": 9
+    },
+    {
+      "screen": 58,
+      "file": "58-pay-recharge.html",
+      "controls": 11,
+      "passed": 5,
+      "failed": 6,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Saved places",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Search",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Use current location",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Voice search",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "UPI",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Popular plan Rs 299 28 days · unlimited calls",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 20,
+      "linksStaticallyChecked": 9
+    },
+    {
+      "screen": 59,
+      "file": "59-pay-bills.html",
+      "controls": 11,
+      "passed": 5,
+      "failed": 6,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Saved places",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Search",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Use current location",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Voice search",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "UPI",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Home electricity Rs 1,240 due 18 Jul · no late fee today",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 20,
+      "linksStaticallyChecked": 9
+    },
+    {
+      "screen": 60,
+      "file": "60-pay-scan.html",
+      "controls": 11,
+      "passed": 5,
+      "failed": 6,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Saved places",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Search",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Use current location",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Voice search",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "UPI",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Counter payment Enter amount instant · merchant QR verified",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 20,
+      "linksStaticallyChecked": 9
+    },
+    {
+      "screen": 61,
+      "file": "61-pay-requests.html",
+      "controls": 10,
+      "passed": 4,
+      "failed": 6,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Request alerts",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Search",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Filter requests",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Voice search",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Pending",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Mahadev Fresh Mart Rs 645 expires in 28 min · Order #MS2401 · grocery bill",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 19,
+      "linksStaticallyChecked": 9
+    },
+    {
+      "screen": 62,
+      "file": "62-pay-request-confirmation.html",
+      "controls": 8,
+      "passed": 5,
+      "failed": 3,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Payment safety",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "UPI •••• 4821",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Order total Rs 620 12 items · grocery order #MS2401",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 16,
+      "linksStaticallyChecked": 8
+    },
+    {
+      "screen": 63,
+      "file": "63-pay-processing-receipt.html",
+      "controls": 4,
+      "passed": 2,
+      "failed": 2,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Share receipt",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "MoolSocial ref MSP240710812 saved · immutable reference",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 12,
+      "linksStaticallyChecked": 8
+    },
+    {
+      "screen": 64,
+      "file": "64-pay-receipts-history.html",
+      "controls": 6,
+      "passed": 2,
+      "failed": 4,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Filter payment history",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Search receipts",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Choose month",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Mahadev Fresh Mart 10 Jul · 8:12 AM · Order #MS2401 · UPI Rs 645 Success",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 14,
+      "linksStaticallyChecked": 8
+    },
+    {
+      "screen": 65,
+      "file": "65-pay-pending-refund-status.html",
+      "controls": 4,
+      "passed": 0,
+      "failed": 4,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Refresh payment status",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Payment sent Card •••• 6068 · request accepted Done 7:40 AM",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Bank confirmation provider poll active · callback awaited Checking Now",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Final status success or failed · one final result By 8:00 Expected",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 12,
+      "linksStaticallyChecked": 8
+    },
+    {
+      "screen": 66,
+      "file": "66-pay-failed-reversal-safe-retry.html",
+      "controls": 4,
+      "passed": 1,
+      "failed": 3,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Payment attempt Card •••• 6068 · request declined Failed 8:04 AM",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Bank result Bank declined this attempt · provider verified Declined Final",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Debit check no bank debit · retry token ready Rs 0 Confirmed",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 12,
+      "linksStaticallyChecked": 8
+    },
+    {
+      "screen": 67,
+      "file": "67-work.html",
+      "controls": 13,
+      "passed": 6,
+      "failed": 7,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Work location",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Search work",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Use current location",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Voice search",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "How monthly potential is calculated",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "MD DELIVER · MOOLSOCIAL VERIFIED Complete an evening grocery route Jodhpur central 10 routes Closed ",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "MOOL JOB · MOOLSOCIAL VERIFIED City operations coordinator Jodhpur · on-site 2 roles 7d 03:48:07 ₹25",
+          "tag": "BUTTON",
+          "error": "Error: Unable to translate Input.dispatchMouseEvent in the in-app browser: No element found at point 253.4000015258789,972.2000122070312\nwaiting on click for selector .phone >> a,button,input,select,textarea,[role=\"button\"] >> nth=19"
+        }
+      ],
+      "visibleControls": 18,
+      "linksStaticallyChecked": 5
+    },
+    {
+      "screen": 68,
+      "file": "68-work-opportunity-terms-apply.html",
+      "controls": 6,
+      "passed": 2,
+      "failed": 4,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "What the publisher provides +",
+          "tag": "BUTTON",
+          "error": "Error: Unable to translate Input.dispatchMouseEvent in the in-app browser: No element found at point 253.4000015258789,755.6625366210938\nwaiting on click for selector .phone >> a,button,input,select,textarea,[role=\"button\"] >> nth=3"
+        },
+        {
+          "label": "Review, correction and rejection +",
+          "tag": "BUTTON",
+          "error": "Error: Unable to translate Input.dispatchMouseEvent in the in-app browser: No element found at point 253.4000015258789,805.2625122070312\nwaiting on click for selector .phone >> a,button,input,select,textarea,[role=\"button\"] >> nth=4"
+        },
+        {
+          "label": "Content use and rights +",
+          "tag": "BUTTON",
+          "error": "Error: Unable to translate Input.dispatchMouseEvent in the in-app browser: No element found at point 253.4000015258789,854.8624877929688\nwaiting on click for selector .phone >> a,button,input,select,textarea,[role=\"button\"] >> nth=5"
+        },
+        {
+          "label": "Apply now Freelancer setup opens next",
+          "tag": "BUTTON",
+          "error": "Error: Unable to translate Input.dispatchMouseEvent in the in-app browser: No element found at point 253.4000015258789,816.6000366210938\nwaiting on click for selector .phone >> a,button,input,select,textarea,[role=\"button\"] >> nth=26"
+        }
+      ],
+      "visibleControls": 9,
+      "linksStaticallyChecked": 3
+    },
+    {
+      "screen": 69,
+      "file": "69-my-work-setup.html",
+      "controls": 2,
+      "passed": 0,
+      "failed": 2,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "My Work notifications",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "My Work settings",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 8,
+      "linksStaticallyChecked": 6
+    },
+    {
+      "screen": 70,
+      "file": "70-my-work-choose-activity.html",
+      "controls": 10,
+      "passed": 8,
+      "failed": 2,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Help choosing work",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "All work",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 14,
+      "linksStaticallyChecked": 4
+    },
+    {
+      "screen": 71,
+      "file": "71-work-profile-proof.html",
+      "controls": 6,
+      "passed": 4,
+      "failed": 2,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Verification help",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Continue to proof",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 10,
+      "linksStaticallyChecked": 4
+    },
+    {
+      "screen": 72,
+      "file": "72-my-work-verification-status.html",
+      "controls": 2,
+      "passed": 2,
+      "failed": 0,
+      "skipped": 0,
+      "issues": [],
+      "visibleControls": 10,
+      "linksStaticallyChecked": 8
+    },
+    {
+      "screen": 73,
+      "file": "73-workspace-ready-handoff.html",
+      "controls": 0,
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "issues": [],
+      "visibleControls": 7,
+      "linksStaticallyChecked": 7
+    },
+    {
+      "screen": 74,
+      "file": "74-retail-products-stock-setup.html",
+      "controls": 18,
+      "passed": 17,
+      "failed": 1,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Open retailer business home",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 29,
+      "linksStaticallyChecked": 11
+    },
+    {
+      "screen": 75,
+      "file": "75-retailer-order-review-fulfilment.html",
+      "controls": 6,
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0,
+      "issues": [],
+      "visibleControls": 13,
+      "linksStaticallyChecked": 7
+    },
+    {
+      "screen": 76,
+      "file": "76-retailer-delivery-assignment-handover.html",
+      "controls": 5,
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "issues": [],
+      "visibleControls": 12,
+      "linksStaticallyChecked": 7
+    },
+    {
+      "screen": 77,
+      "file": "77-retailer-delivery-tracking-completion.html",
+      "controls": 5,
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "issues": [],
+      "visibleControls": 12,
+      "linksStaticallyChecked": 7
+    },
+    {
+      "screen": 78,
+      "file": "78-retailer-create-order.html",
+      "controls": 22,
+      "passed": 17,
+      "failed": 5,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Phone Call active",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Mool delivery Verified captain",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Pay request Send securely",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "On delivery Cash / UPI",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Customer due If enabled",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 29,
+      "linksStaticallyChecked": 7
+    },
+    {
+      "screen": 79,
+      "file": "79-retailer-counter-management.html",
+      "controls": 8,
+      "passed": 7,
+      "failed": 1,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "1 Main Billing Meena",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 15,
+      "linksStaticallyChecked": 7
+    },
+    {
+      "screen": 80,
+      "file": "80-retailer-counter-sale-invoice.html",
+      "controls": 7,
+      "passed": 6,
+      "failed": 1,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "UPI Matched",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 14,
+      "linksStaticallyChecked": 7
+    },
+    {
+      "screen": 81,
+      "file": "81-retailer-wholesale-buy-catalog.html",
+      "controls": 19,
+      "passed": 13,
+      "failed": 6,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "All",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Deals",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Offers",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Fast Delivery",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Credit",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Brands",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 26,
+      "linksStaticallyChecked": 7
+    },
+    {
+      "screen": 82,
+      "file": "82-retailer-wholesale-cart-purchase-order.html",
+      "controls": 10,
+      "passed": 10,
+      "failed": 0,
+      "skipped": 0,
+      "issues": [],
+      "visibleControls": 16,
+      "linksStaticallyChecked": 6
+    },
+    {
+      "screen": 83,
+      "file": "83-retailer-wholesale-order-confirmed.html",
+      "controls": 6,
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0,
+      "issues": [],
+      "visibleControls": 12,
+      "linksStaticallyChecked": 6
+    },
+    {
+      "screen": 84,
+      "file": "84-retailer-wholesale-delivery-tracking.html",
+      "controls": 7,
+      "passed": 6,
+      "failed": 1,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "PO-MS-8202 In transit · MoolSocial Transport",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 13,
+      "linksStaticallyChecked": 6
+    },
+    {
+      "screen": 85,
+      "file": "85-retailer-wholesale-goods-receipt.html",
+      "controls": 5,
+      "passed": 5,
+      "failed": 0,
+      "skipped": 1,
+      "issues": [],
+      "visibleControls": 11,
+      "linksStaticallyChecked": 6
+    },
+    {
+      "screen": 86,
+      "file": "86-retailer-wholesale-receipt-result.html",
+      "controls": 7,
+      "passed": 7,
+      "failed": 0,
+      "skipped": 0,
+      "issues": [],
+      "visibleControls": 14,
+      "linksStaticallyChecked": 7
+    },
+    {
+      "screen": 87,
+      "file": "87-retailer-purchase-book.html",
+      "controls": 16,
+      "passed": 14,
+      "failed": 2,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Purchases",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "All 18",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 22,
+      "linksStaticallyChecked": 6
+    },
+    {
+      "screen": 88,
+      "file": "88-retailer-supplier-bill-payment.html",
+      "controls": 8,
+      "passed": 8,
+      "failed": 0,
+      "skipped": 0,
+      "issues": [],
+      "visibleControls": 14,
+      "linksStaticallyChecked": 6
+    },
+    {
+      "screen": 89,
+      "file": "89-retailer-supplier-payment-status.html",
+      "controls": 4,
+      "passed": 2,
+      "failed": 2,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "View Bill",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Acknowledgement",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 10,
+      "linksStaticallyChecked": 6
+    },
+    {
+      "screen": 90,
+      "file": "90-retailer-sales-book.html",
+      "controls": 18,
+      "passed": 16,
+      "failed": 2,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Sales",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "All",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 24,
+      "linksStaticallyChecked": 6
+    },
+    {
+      "screen": 91,
+      "file": "91-retailer-stock-statement.html",
+      "controls": 20,
+      "passed": 18,
+      "failed": 2,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Movements",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "All",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 26,
+      "linksStaticallyChecked": 6
+    },
+    {
+      "screen": 92,
+      "file": "92-retailer-business-book-home.html",
+      "controls": 6,
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0,
+      "issues": [],
+      "visibleControls": 15,
+      "linksStaticallyChecked": 9
+    },
+    {
+      "screen": 93,
+      "file": "93-retailer-business-services.html",
+      "controls": 5,
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "issues": [],
+      "visibleControls": 11,
+      "linksStaticallyChecked": 6
+    },
+    {
+      "screen": 94,
+      "file": "94-retailer-business-service-plan.html",
+      "controls": 7,
+      "passed": 4,
+      "failed": 3,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Plan help",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Starter Start ₹299 /month 10 deliveries included ₹35 per completed delivery after 10",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "₹3,000",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 13,
+      "linksStaticallyChecked": 6
+    },
+    {
+      "screen": 95,
+      "file": "95-retailer-business-service-activation.html",
+      "controls": 6,
+      "passed": 2,
+      "failed": 4,
+      "skipped": 1,
+      "issues": [
+        {
+          "label": "Activation help",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "UPI UPI AutoPay · ending 4321 Monthly plan and verified charges within your limit",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "CARD Visa · ending 6068 Saved card mandate",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "1× Pay manually each month Service pauses if renewal is not paid",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 13,
+      "linksStaticallyChecked": 7
+    },
+    {
+      "screen": 96,
+      "file": "96-retailer-business-service-active.html",
+      "controls": 6,
+      "passed": 5,
+      "failed": 1,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Service settings",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 13,
+      "linksStaticallyChecked": 7
+    },
+    {
+      "screen": 97,
+      "file": "97-retailer-customers-loyalty.html",
+      "controls": 9,
+      "passed": 8,
+      "failed": 1,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "All",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 22,
+      "linksStaticallyChecked": 13
+    },
+    {
+      "screen": 98,
+      "file": "98-retailer-customer-detail-retention.html",
+      "controls": 5,
+      "passed": 4,
+      "failed": 1,
+      "skipped": 1,
+      "issues": [
+        {
+          "label": "Mool Chat",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 17,
+      "linksStaticallyChecked": 12
+    },
+    {
+      "screen": 99,
+      "file": "99-retailer-offers-campaigns.html",
+      "controls": 7,
+      "passed": 6,
+      "failed": 1,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "All",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 25,
+      "linksStaticallyChecked": 18
+    },
+    {
+      "screen": 100,
+      "file": "100-retailer-offer-campaign-builder.html",
+      "controls": 7,
+      "passed": 3,
+      "failed": 4,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Increase sales",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Bring customers back",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Clear slow stock",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Reach a new area",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 20,
+      "linksStaticallyChecked": 13
+    },
+    {
+      "screen": 101,
+      "file": "101-retailer-slow-stock-liquidation.html",
+      "controls": 11,
+      "passed": 5,
+      "failed": 6,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "D Surf Excel 1 kg · 24 units No sale 38 days · buy ₹112 · sell ₹128 Suggested floor ₹116 · recover ₹",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "B Premium Biscuits · 36 packs Slow 27 days · best before 92 days Suggested bundle · protect 8% margi",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "J Mango Juice 1 L · 18 units Sell-by priority · 41 days remaining Customer offer recommended 18 Prio",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Customer offer Nearby verified demand",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "",
+          "tag": "INPUT",
+          "error": "Error: Playwright selector deadline exceeded\nlocator.fill failed for selector .device >> a,button,input,select,textarea,[role=\"button\"] >> nth=9"
+        },
+        {
+          "label": "",
+          "tag": "INPUT",
+          "error": "Error: Playwright selector deadline exceeded\nlocator.fill failed for selector .device >> a,button,input,select,textarea,[role=\"button\"] >> nth=10"
+        }
+      ],
+      "visibleControls": 18,
+      "linksStaticallyChecked": 7
+    },
+    {
+      "screen": 102,
+      "file": "102-retailer-ai-operating-assistant.html",
+      "controls": 12,
+      "passed": 9,
+      "failed": 3,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Assistant history",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "AI Why is profit lower this week? Oil margin fell 1.8%; delivery cost rose ₹1,240 Based on locked sa",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "AI Which customers may reorder? 86 eligible from permitted repeat-basket history No message sent Vie",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 20,
+      "linksStaticallyChecked": 8
+    },
+    {
+      "screen": 103,
+      "file": "103-retailer-staff-permissions.html",
+      "controls": 6,
+      "passed": 4,
+      "failed": 2,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "DEV Active devices 6 devices · last sign-in and branch Review",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "LOG Permission history Every grant, revoke and limit change View",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 12,
+      "linksStaticallyChecked": 6
+    },
+    {
+      "screen": 104,
+      "file": "104-retailer-store-settings-readiness.html",
+      "controls": 10,
+      "passed": 6,
+      "failed": 4,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Save settings",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Accept app orders",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Counter pickup",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Home delivery",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 18,
+      "linksStaticallyChecked": 8
+    },
+    {
+      "screen": 105,
+      "file": "105-retailer-returns-customer-issues.html",
+      "controls": 15,
+      "passed": 12,
+      "failed": 3,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "All",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Review now",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Replace",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 22,
+      "linksStaticallyChecked": 7
+    },
+    {
+      "screen": 106,
+      "file": "106-retailer-cash-bank-expenses-reconciliation.html",
+      "controls": 5,
+      "passed": 4,
+      "failed": 1,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "EXP Recorded shop expenses Electricity, salary, delivery, repair and supplies 42 records · bills att",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 18,
+      "linksStaticallyChecked": 13
+    },
+    {
+      "screen": 107,
+      "file": "107-manufacturer-supplier-workspace-home.html",
+      "controls": 21,
+      "passed": 20,
+      "failed": 1,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "SF Shakti Foods Manufacturing FMCG · Edible oil & staples · Jodhpur",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 24,
+      "linksStaticallyChecked": 3
+    },
+    {
+      "screen": 108,
+      "file": "108-manufacturer-business-book.html",
+      "controls": 16,
+      "passed": 16,
+      "failed": 0,
+      "skipped": 0,
+      "issues": [],
+      "visibleControls": 22,
+      "linksStaticallyChecked": 6
+    },
+    {
+      "screen": 109,
+      "file": "109-manufacturer-product-catalogue-stock.html",
+      "controls": 19,
+      "passed": 12,
+      "failed": 7,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "My Stock",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "All 42",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Live 39",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Low 6",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Paused 3",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Batch",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Stock",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 24,
+      "linksStaticallyChecked": 5
+    },
+    {
+      "screen": 110,
+      "file": "110-manufacturer-order-review-fulfilment.html",
+      "controls": 10,
+      "passed": 10,
+      "failed": 0,
+      "skipped": 0,
+      "issues": [],
+      "visibleControls": 16,
+      "linksStaticallyChecked": 6
+    },
+    {
+      "screen": 111,
+      "file": "111-manufacturer-input-procurement.html",
+      "controls": 16,
+      "passed": 9,
+      "failed": 7,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Matched Inputs",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Matched",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Raw Material",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Packaging",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Credit",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Browse All",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Wholesale Buy",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 21,
+      "linksStaticallyChecked": 5
+    },
+    {
+      "screen": 112,
+      "file": "112-manufacturer-dispatch-delivery.html",
+      "controls": 8,
+      "passed": 7,
+      "failed": 1,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Ready 3",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 14,
+      "linksStaticallyChecked": 6
+    },
+    {
+      "screen": 113,
+      "file": "113-manufacturer-buyers-demand-campaigns.html",
+      "controls": 8,
+      "passed": 7,
+      "failed": 1,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Buyers",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 21,
+      "linksStaticallyChecked": 13
+    },
+    {
+      "screen": 114,
+      "file": "114-manufacturer-claims-team-control.html",
+      "controls": 8,
+      "passed": 7,
+      "failed": 1,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Claims",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 14,
+      "linksStaticallyChecked": 6
+    },
+    {
+      "screen": 115,
+      "file": "115-manufacturer-business-services.html",
+      "controls": 15,
+      "passed": 8,
+      "failed": 7,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "All Services",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "All",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Sales",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Logistics",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Campaign",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Tax & Audit",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Sourcing",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 21,
+      "linksStaticallyChecked": 6
+    },
+    {
+      "screen": 116,
+      "file": "116-captain-home-availability.html",
+      "controls": 5,
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "issues": [],
+      "visibleControls": 10,
+      "linksStaticallyChecked": 5
+    },
+    {
+      "screen": 117,
+      "file": "117-captain-ride-request.html",
+      "controls": 3,
+      "passed": 3,
+      "failed": 0,
+      "skipped": 0,
+      "issues": [],
+      "visibleControls": 9,
+      "linksStaticallyChecked": 6
+    },
+    {
+      "screen": 118,
+      "file": "118-captain-pickup-navigation.html",
+      "controls": 4,
+      "passed": 4,
+      "failed": 0,
+      "skipped": 0,
+      "issues": [],
+      "visibleControls": 10,
+      "linksStaticallyChecked": 6
+    },
+    {
+      "screen": 119,
+      "file": "119-captain-live-trip-safety.html",
+      "controls": 5,
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "issues": [],
+      "visibleControls": 10,
+      "linksStaticallyChecked": 5
+    },
+    {
+      "screen": 120,
+      "file": "120-captain-fare-completion.html",
+      "controls": 2,
+      "passed": 2,
+      "failed": 0,
+      "skipped": 0,
+      "issues": [],
+      "visibleControls": 7,
+      "linksStaticallyChecked": 5
+    },
+    {
+      "screen": 121,
+      "file": "121-captain-earnings-payouts.html",
+      "controls": 7,
+      "passed": 2,
+      "failed": 5,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Today",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "This Week",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Payouts",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "₹ MS-R4821 · Airport Gross ₹278 · platform ₹28 Net ₹250 · paid ›",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "₹ MS-R4817 · Railway Station Gross ₹196 · platform ₹20 Net ₹176 · paid ›",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 13,
+      "linksStaticallyChecked": 6
+    },
+    {
+      "screen": 122,
+      "file": "122-captain-vehicle-compliance.html",
+      "controls": 6,
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0,
+      "issues": [],
+      "visibleControls": 12,
+      "linksStaticallyChecked": 6
+    },
+    {
+      "screen": 123,
+      "file": "123-captain-support-paid-work.html",
+      "controls": 8,
+      "passed": 7,
+      "failed": 1,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Support",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 14,
+      "linksStaticallyChecked": 6
+    },
+    {
+      "screen": 124,
+      "file": "124-creator-studio-home.html",
+      "controls": 8,
+      "passed": 8,
+      "failed": 0,
+      "skipped": 0,
+      "issues": [],
+      "visibleControls": 21,
+      "linksStaticallyChecked": 13
+    },
+    {
+      "screen": 125,
+      "file": "125-creator-create-publish.html",
+      "controls": 14,
+      "passed": 7,
+      "failed": 7,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Short",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Gallery",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Files",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Public",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Followers",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Schedule",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Location",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 20,
+      "linksStaticallyChecked": 6
+    },
+    {
+      "screen": 126,
+      "file": "126-creator-content-library.html",
+      "controls": 9,
+      "passed": 7,
+      "failed": 2,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Filter",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Published",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 15,
+      "linksStaticallyChecked": 6
+    },
+    {
+      "screen": 127,
+      "file": "127-creator-content-performance.html",
+      "controls": 7,
+      "passed": 1,
+      "failed": 6,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "7 days",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "28 days",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "90 days",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Content",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Campaign",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "How local baskets save time 48.2K views · 126 orders ₹2,840 payable ›",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 13,
+      "linksStaticallyChecked": 6
+    },
+    {
+      "screen": 128,
+      "file": "128-creator-audience-community.html",
+      "controls": 4,
+      "passed": 4,
+      "failed": 0,
+      "skipped": 0,
+      "issues": [],
+      "visibleControls": 10,
+      "linksStaticallyChecked": 6
+    },
+    {
+      "screen": 129,
+      "file": "129-creator-campaigns.html",
+      "controls": 9,
+      "passed": 4,
+      "failed": 5,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Best Fit",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Local",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Awareness",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Conversion",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Saved",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 25,
+      "linksStaticallyChecked": 16
+    },
+    {
+      "screen": 130,
+      "file": "130-creator-earnings-payouts.html",
+      "controls": 1,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0,
+      "issues": [],
+      "visibleControls": 17,
+      "linksStaticallyChecked": 16
+    },
+    {
+      "screen": 131,
+      "file": "131-creator-verification-rights-safety.html",
+      "controls": 9,
+      "passed": 9,
+      "failed": 0,
+      "skipped": 0,
+      "issues": [],
+      "visibleControls": 17,
+      "linksStaticallyChecked": 8
+    },
+    {
+      "screen": 132,
+      "file": "132-creator-memberships.html",
+      "controls": 4,
+      "passed": 4,
+      "failed": 0,
+      "skipped": 0,
+      "issues": [],
+      "visibleControls": 12,
+      "linksStaticallyChecked": 8
+    },
+    {
+      "screen": 133,
+      "file": "133-earn-opportunities.html",
+      "controls": 9,
+      "passed": 4,
+      "failed": 5,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Best Match",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Onboarding",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Campaign",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Verification",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Delivery",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 16,
+      "linksStaticallyChecked": 7
+    },
+    {
+      "screen": 134,
+      "file": "134-earn-applications-eligibility.html",
+      "controls": 6,
+      "passed": 5,
+      "failed": 1,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Applied",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 12,
+      "linksStaticallyChecked": 6
+    },
+    {
+      "screen": 135,
+      "file": "135-earn-active-work.html",
+      "controls": 2,
+      "passed": 2,
+      "failed": 0,
+      "skipped": 0,
+      "issues": [],
+      "visibleControls": 8,
+      "linksStaticallyChecked": 6
+    },
+    {
+      "screen": 136,
+      "file": "136-earn-proof-outcome.html",
+      "controls": 6,
+      "passed": 2,
+      "failed": 4,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "✓ Owner OTP Matched 10:06",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "✓ Shop Photo GPS + time saved",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "✓ QR Scan Test Activation event",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "✓ Owner Confirmed App access active",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 12,
+      "linksStaticallyChecked": 6
+    },
+    {
+      "screen": 137,
+      "file": "137-earn-earnings-payout.html",
+      "controls": 1,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0,
+      "issues": [],
+      "visibleControls": 7,
+      "linksStaticallyChecked": 6
+    },
+    {
+      "screen": 138,
+      "file": "138-earn-issues-ratings-history.html",
+      "controls": 6,
+      "passed": 5,
+      "failed": 1,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "History",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 12,
+      "linksStaticallyChecked": 6
+    },
+    {
+      "screen": 139,
+      "file": "139-provider-home-readiness.html",
+      "controls": 0,
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "issues": [],
+      "visibleControls": 14,
+      "linksStaticallyChecked": 14
+    },
+    {
+      "screen": 140,
+      "file": "140-provider-catalogue.html",
+      "controls": 9,
+      "passed": 3,
+      "failed": 6,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Live",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Draft",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Paused",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Needs update",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Preview",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Preview",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 15,
+      "linksStaticallyChecked": 6
+    },
+    {
+      "screen": 141,
+      "file": "141-provider-availability.html",
+      "controls": 9,
+      "passed": 2,
+      "failed": 7,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "",
+          "tag": "INPUT",
+          "error": "Error: Timed out after 3000ms waiting for selector .phone >> a,button,input,select,textarea,[role=\"button\"] >> nth=2: Browser Use encountered an error interacting with this webpage: Error: Malformed value\nlocator.fill failed for selector .phone >> a,button,input,select,textarea,[role=\"button\"] >> nth=2"
+        },
+        {
+          "label": "",
+          "tag": "INPUT",
+          "error": "Error: Playwright selector deadline exceeded\nlocator.fill failed for selector .phone >> a,button,input,select,textarea,[role=\"button\"] >> nth=3"
+        },
+        {
+          "label": "",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "MON 4 slots open 9 AM - 7 PM Accepting ›",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "TUE 2 slots open 10 AM - 5 PM Limited ›",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "WED Closed Personal day Edit ›",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Save availability",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 15,
+      "linksStaticallyChecked": 6
+    },
+    {
+      "screen": 142,
+      "file": "142-provider-requests.html",
+      "controls": 8,
+      "passed": 5,
+      "failed": 3,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "New 2",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Accepted 4",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Completed",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 14,
+      "linksStaticallyChecked": 6
+    },
+    {
+      "screen": 143,
+      "file": "143-provider-fulfilment.html",
+      "controls": 2,
+      "passed": 1,
+      "failed": 1,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Message customer",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 9,
+      "linksStaticallyChecked": 7
+    },
+    {
+      "screen": 144,
+      "file": "144-provider-business.html",
+      "controls": 10,
+      "passed": 1,
+      "failed": 9,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Payments",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Customers",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Receipts",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Refunds",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "₹ ₹850 - Priya Sharma RQ-2401 - completed Available ›",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "INV Receipt MS-2941 Tax and provider details recorded Download ›",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "H ₹1,250 - Aarav Mehta Active request - terms locked Expected ›",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "REPEAT 18 due Send reminder",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "LOYAL 32 active Review benefit",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 16,
+      "linksStaticallyChecked": 6
+    },
+    {
+      "screen": 145,
+      "file": "145-provider-growth.html",
+      "controls": 7,
+      "passed": 3,
+      "failed": 4,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Best match",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Earn",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Promote",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Nearby",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 20,
+      "linksStaticallyChecked": 13
+    },
+    {
+      "screen": 146,
+      "file": "146-provider-control.html",
+      "controls": 12,
+      "passed": 0,
+      "failed": 12,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "?",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "ID Identity verified Primary contact and payout identity match Complete ›",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "DOC Identity and service readiness One profile-specific item needs review Action needed ›",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "PAY Payment account ready Settlement name verified Complete ›",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "OWN Owner All workspace controls 1 person ›",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "OPS Operations staff Requests and fulfilment only 2 people ›",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "ACC Accounts Payments and receipts, no private records 1 person ›",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Open support case",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Save controls",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 18,
+      "linksStaticallyChecked": 6
+    },
+    {
+      "screen": 147,
+      "file": "147-admin-command-centre.html",
+      "controls": 14,
+      "passed": 5,
+      "failed": 9,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "S",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "!",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Priority",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Commerce",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Ride",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Work",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Social",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Finance",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "P1 - PAYMENT SAFETY UPI callback delay affecting 184 payments Finance Operations - started 8 minutes",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 26,
+      "linksStaticallyChecked": 12
+    },
+    {
+      "screen": 148,
+      "file": "148-admin-workspace-verification.html",
+      "controls": 14,
+      "passed": 5,
+      "failed": 9,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "S",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "!",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Due now",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Retail",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Manufacturer",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Captain",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Provider",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Professional",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "GROCERY RETAILER - WP-256619 Mahadev Fresh Mart Jodhpur - identity verified - GST pending Review 23 ",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 26,
+      "linksStaticallyChecked": 12
+    },
+    {
+      "screen": 149,
+      "file": "149-admin-catalogue-governance.html",
+      "controls": 13,
+      "passed": 5,
+      "failed": 8,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "S",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "!",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Needs match",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Duplicate",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Price anomaly",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Regulated",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Missing proof",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "SKU MATCH - 98.7% Fortune Sunflower Oil 1 L Manufacturer GTIN matches canonical pack Confirm 12 min",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 25,
+      "linksStaticallyChecked": 12
+    },
+    {
+      "screen": 150,
+      "file": "150-admin-commerce-exceptions.html",
+      "controls": 13,
+      "passed": 5,
+      "failed": 8,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "S",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "!",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "At risk",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Stock mismatch",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Late",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Reroute",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Refund",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "STOCK MISMATCH - OR-84291 Retailer cannot fulfil 2 of 6 items Customer paid - home delivery - 3 back",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 25,
+      "linksStaticallyChecked": 12
+    },
+    {
+      "screen": 151,
+      "file": "151-admin-ride-operations.html",
+      "controls": 13,
+      "passed": 5,
+      "failed": 8,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "S",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "!",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Safety",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Pickup delay",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "No movement",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Fare",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Documents",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "SOS - RD-90218 Captain safety alert Jodhpur - customer and captain connected Critical 00:42",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 25,
+      "linksStaticallyChecked": 12
+    },
+    {
+      "screen": 152,
+      "file": "152-admin-work-campaign-governance.html",
+      "controls": 14,
+      "passed": 6,
+      "failed": 8,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "S",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "!",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Funding",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Eligibility",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Proof",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Payout",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Appeal",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "CREATOR ECONOMICS - CE-2401 Eight funded creator earning engines Business funding - creator delivery",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 26,
+      "linksStaticallyChecked": 12
+    },
+    {
+      "screen": 153,
+      "file": "153-admin-content-trust-safety.html",
+      "controls": 13,
+      "passed": 5,
+      "failed": 8,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "S",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "!",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "High harm",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Rights",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Paid content",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Spam",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Appeals",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "HIGH HARM REPORT Short contains dangerous medical claim 48K views - health specialist required Speci",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 25,
+      "linksStaticallyChecked": 12
+    },
+    {
+      "screen": 154,
+      "file": "154-admin-finance-reconciliation.html",
+      "controls": 14,
+      "passed": 6,
+      "failed": 8,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "S",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "!",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Unmatched",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Pending",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Refund",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Escrow",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Payout",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "CREATOR LEDGER - CL-8820 Creator earnings source reconciliation Reserved - qualified - held - availa",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 26,
+      "linksStaticallyChecked": 12
+    },
+    {
+      "screen": 155,
+      "file": "155-admin-support-disputes.html",
+      "controls": 14,
+      "passed": 5,
+      "failed": 9,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "S",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "!",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "At risk",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Commerce",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Ride",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Work",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Payment",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Appeal",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "COMMERCE CASE - CS-8421 Customer reports damaged grocery items Photos, delivery proof and retailer r",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 26,
+      "linksStaticallyChecked": 12
+    },
+    {
+      "screen": 156,
+      "file": "156-admin-audience-launch-configuration.html",
+      "controls": 24,
+      "passed": 10,
+      "failed": 14,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "S",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "!",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Drafts",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Approval",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Scheduled",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Live",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Completed",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Stopped",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "LIVE CREATOR EVENT - LIVE-72 Jodhpur local launch with verified creators Host fee funded - outcome p",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "In-app",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Push",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Chat",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Email",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "SMS",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 36,
+      "linksStaticallyChecked": 12
+    },
+    {
+      "screen": 157,
+      "file": "157-shared-priority-inbox.html",
+      "controls": 12,
+      "passed": 11,
+      "failed": 1,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "All",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 16,
+      "linksStaticallyChecked": 4
+    },
+    {
+      "screen": 158,
+      "file": "158-shared-identity-documents-consent.html",
+      "controls": 9,
+      "passed": 8,
+      "failed": 1,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "All",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 13,
+      "linksStaticallyChecked": 4
+    },
+    {
+      "screen": 159,
+      "file": "159-shared-universal-input.html",
+      "controls": 7,
+      "passed": 6,
+      "failed": 1,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "Recent",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 11,
+      "linksStaticallyChecked": 4
+    },
+    {
+      "screen": 160,
+      "file": "160-shared-files-evidence-media.html",
+      "controls": 11,
+      "passed": 10,
+      "failed": 1,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "All",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 15,
+      "linksStaticallyChecked": 4
+    },
+    {
+      "screen": 161,
+      "file": "161-shared-security-support.html",
+      "controls": 9,
+      "passed": 8,
+      "failed": 1,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "All",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 13,
+      "linksStaticallyChecked": 4
+    },
+    {
+      "screen": 162,
+      "file": "162-shared-workspaces-settings-analytics.html",
+      "controls": 12,
+      "passed": 11,
+      "failed": 1,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "All",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 16,
+      "linksStaticallyChecked": 4
+    },
+    {
+      "screen": 163,
+      "file": "163-admin-user-activity-product-health.html",
+      "controls": 16,
+      "passed": 7,
+      "failed": 9,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "S",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "!",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Overview",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Journey failures",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "User timeline",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "APIs",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Releases",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Workspaces",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "BUY JOURNEY - ANDROID 6.4.1 Checkout confirmation failing after UPI return 184 users · Screen 14 · p",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 28,
+      "linksStaticallyChecked": 12
+    },
+    {
+      "screen": 164,
+      "file": "164-admin-signals-consent-personalization.html",
+      "controls": 16,
+      "passed": 7,
+      "failed": 9,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "S",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "!",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Intent signals",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Segments",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Consent",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Event rules",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Retention",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "Kill switches",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        },
+        {
+          "label": "INTENT SEGMENT - SG-219 Weekly grocery planning Structured buy actions · recency 14 days · promotion",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 28,
+      "linksStaticallyChecked": 12
+    },
+    {
+      "screen": 165,
+      "file": "165-shared-personalized-controls.html",
+      "controls": 17,
+      "passed": 16,
+      "failed": 1,
+      "skipped": 0,
+      "issues": [
+        {
+          "label": "All",
+          "tag": "BUTTON",
+          "error": "no-visible-state-or-navigation"
+        }
+      ],
+      "visibleControls": 21,
+      "linksStaticallyChecked": 4
+    }
+  ],
+  "summary": {
+    "screens": 166,
+    "buttonsAndInputsTested": 1694,
+    "passed": 1050,
+    "failed": 644,
+    "skipped": 3,
+    "screensWithFailures": 133
+  }
+}

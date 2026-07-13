@@ -1,0 +1,52 @@
+{
+  "contractVersion": "moolsocial-webhooks-v1-2026-07-14",
+  "status": "frozen-for-production-planning",
+  "delivery": {
+    "method": "POST",
+    "contentType": "application/json",
+    "success": "any 2xx response within 10 seconds",
+    "eventIdHeader": "MoolSocial-Event-Id",
+    "eventTypeHeader": "MoolSocial-Event-Type",
+    "timestampHeader": "MoolSocial-Event-Timestamp",
+    "signatureHeader": "MoolSocial-Signature",
+    "signatureFormat": "v1=<hex digest over timestamp dot raw body using endpoint secret>",
+    "retryScheduleSeconds": [30, 120, 600, 3600, 21600, 86400],
+    "maximumAttempts": 7,
+    "disableRule": "pause endpoint after repeated terminal delivery failure and alert owner"
+  },
+  "payload": {
+    "required": ["event_id", "event_type", "occurred_at", "api_version", "data"],
+    "properties": {
+      "event_id": "globally unique and stable across retries",
+      "event_type": "versioned event catalogue name",
+      "occurred_at": "RFC3339 timestamp",
+      "api_version": "v1",
+      "attempt": "one-based delivery attempt",
+      "data": "event-specific object",
+      "previous_attributes": "changed fields when applicable"
+    }
+  },
+  "consumerRules": [
+    "verify timestamp and signature against the unmodified request body",
+    "reject timestamps outside the configured replay tolerance",
+    "persist event_id before applying side effects",
+    "return 2xx for a previously processed event_id",
+    "process aggregate versions in order or park gaps for recovery",
+    "do not create a second payment order task earning or payout on retry",
+    "retain delivery result and correlation reference for support"
+  ],
+  "eventFamilies": [
+    "workspace.status.changed",
+    "catalogue.offer.changed",
+    "stock.confirmation.requested",
+    "order.status.changed",
+    "payment.status.changed",
+    "refund.status.changed",
+    "ride.status.changed",
+    "work.assignment.changed",
+    "earning.ledger.posted",
+    "payout.status.changed",
+    "message.created",
+    "agent.approval.requested"
+  ]
+}

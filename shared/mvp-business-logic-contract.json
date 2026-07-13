@@ -1,0 +1,216 @@
+{
+  "contractVersion": "mvp-business-logic-v1-2026-07-14",
+  "status": "frozen-for-production-planning",
+  "scope": {
+    "prototypeScreens": 166,
+    "operationalFlows": 47,
+    "principle": "clients request actions; authoritative services decide and persist outcomes"
+  },
+  "globalInvariants": [
+    "every account remains a personal consumer account even after one or more workspaces are activated",
+    "a workspace grants only its verified capabilities and never changes the personal identity",
+    "money, stock, capacity, eligibility, proof and fulfilment states are server owned",
+    "every state-changing command requires an idempotency key and returns the original result when repeated",
+    "price, quantity, tax, fulfilment, cancellation, refund, earning and payout terms are versioned at commitment time",
+    "a client may not declare payment, delivery, verification, proof approval, earning or payout success",
+    "expired price, stock, location, capacity or funded-work data cannot be used for an irreversible commitment",
+    "failures preserve the user's input and expose an exact recovery action"
+  ],
+  "consumerCommerce": {
+    "states": [
+      "draft",
+      "stock_confirmation_requested",
+      "stock_locked",
+      "payment_authorized",
+      "preparing",
+      "ready_for_counter",
+      "out_for_delivery",
+      "collected",
+      "delivered",
+      "completed",
+      "cancelled",
+      "issue_open",
+      "refund_or_replacement_pending",
+      "resolved"
+    ],
+    "commitRule": "order commitment requires fresh product price, selected quantity, fulfilment mode and retailer stock confirmation",
+    "retailerTimeoutRule": "if the selected retailer declines or misses its confirmation SLA, offer or automatically request the nearest eligible retailer with fresh stock and reliable acceptance history according to the user's saved fulfilment choice",
+    "rerouteDisclosure": "show the new retailer, price, fulfilment time and any changed term before money is captured or the order is committed",
+    "counterRule": "counter pickup uses paid order and receipt identity without a mandatory pickup code; store staff confirm handover",
+    "deliveryRule": "home delivery adds assignment, live status, proof and delivery issue states",
+    "stockFailureRule": "a retailer stock failure is recorded against availability reliability and cannot be hidden through client substitutions",
+    "substitutionRule": "no substitution without the customer's explicit approval for the exact replacement and price difference"
+  },
+  "wholesaleCommerce": {
+    "states": [
+      "cart",
+      "purchase_order_review",
+      "purchase_order_placed",
+      "supplier_accepted",
+      "advance_held",
+      "preparing_dispatch",
+      "dispatched",
+      "in_transit",
+      "delivered_pending_receipt",
+      "goods_received",
+      "issue_open",
+      "payment_release_eligible",
+      "settled",
+      "cancelled",
+      "resolved"
+    ],
+    "decisionData": [
+      "product and brand",
+      "pack and unit",
+      "MOQ and ordered quantity",
+      "unit and order price",
+      "tax invoice terms",
+      "supplier identity and authorization",
+      "delivery time and service area",
+      "payment terms",
+      "supplier fleet or MoolSocial transport",
+      "return and shortage rule"
+    ],
+    "advanceRule": "an advance required by the supplier is held under the disclosed protected-payment rule and is not released merely because the purchase order was placed",
+    "releaseRule": "release eligibility follows authoritative delivery and buyer goods-receipt state, subject to an open shortage, damage, invoice or quality case",
+    "manufacturerRecommendationRule": "input recommendations are generated only from the manufacturer's verified finished-product catalogue and production activity",
+    "traderRule": "a trader or wholesaler is not treated as a manufacturer and does not receive manufacturing-input recommendations"
+  },
+  "appointmentsAndServices": {
+    "states": [
+      "decision_ready",
+      "slot_held",
+      "booked",
+      "provider_confirmed",
+      "checked_in",
+      "in_service",
+      "completed",
+      "cancelled",
+      "issue_open",
+      "resolved"
+    ],
+    "capacityRule": "a confirmed booking reserves exact provider capacity and prevents overbooking",
+    "providerRule": "doctor, hospital, salon, restaurant, tiffin, transporter and other providers use profile-specific fields and fulfilment rules",
+    "followupRule": "clinical follow-up eligibility remains tied to the originating appointment and provider-defined follow-up terms",
+    "medicineRule": "medicine publication and fulfilment remain unavailable until the licensed-pharmacy workflow is active at launch"
+  },
+  "ride": {
+    "states": [
+      "quote_requested",
+      "quote_ready",
+      "ride_requested",
+      "captain_matching",
+      "captain_assigned",
+      "captain_arriving",
+      "pickup_verified",
+      "in_trip",
+      "fare_review",
+      "payment_pending",
+      "completed",
+      "cancelled",
+      "safety_or_support_case"
+    ],
+    "acceptanceRule": "captain acceptance commits one assignment through an idempotent command",
+    "fareRule": "the quoted basis and all approved additions are retained for final fare review",
+    "paymentRule": "cash, UPI and card are supported after trip completion; a card may be authorized or held earlier but final debit follows the approved final fare",
+    "reassignmentRule": "a cancelled, unavailable or timed-out captain returns the ride to matching without creating a second ride"
+  },
+  "pay": {
+    "allowedEntryUseCases": [
+      "mobile DTH or data recharge",
+      "utility or service bill",
+      "verified QR or scan payment",
+      "verified payment request"
+    ],
+    "rule": "Pay is used when payment is the user's first intended action; commerce, ride, booking and work payments stay inside their owning journey",
+    "states": [
+      "review",
+      "authorization_pending",
+      "processing",
+      "succeeded",
+      "failed",
+      "reversal_pending",
+      "reversed",
+      "refund_pending",
+      "refunded"
+    ],
+    "duplicateRule": "the same idempotency key cannot create a second debit",
+    "truthRule": "a provider callback alone does not finalize payment until reconciled to the authoritative payment record"
+  },
+  "workAndEarning": {
+    "states": [
+      "funding_reserved",
+      "published",
+      "applied",
+      "eligible",
+      "assigned",
+      "in_progress",
+      "proof_submitted",
+      "under_review",
+      "rework_requested",
+      "approved",
+      "payable",
+      "processing",
+      "paid",
+      "rejected",
+      "disputed",
+      "reversed",
+      "expired"
+    ],
+    "publicRule": "all consumers may browse funded opportunities; accepting requires an eligible verified workspace or the shortest applicable workspace creation path",
+    "assignmentRule": "acceptance reserves only live funded capacity and never promises an unconditional income",
+    "proofRule": "proof requirements are opportunity specific and versioned before acceptance",
+    "payoutRule": "payable is created only from a verified outcome and the disclosed review or dispute rule",
+    "monthlyPotentialRule": "monthly potential uses live funded capacity, eligible throughput and current geography; it is a range, not a guarantee"
+  },
+  "creatorAttribution": {
+    "sources": [
+      "funded_campaign",
+      "attributed_commerce",
+      "membership",
+      "content_performance_pool",
+      "local_content_production",
+      "verified_onboarding",
+      "live_campaign_or_event",
+      "licensed_content_reuse"
+    ],
+    "rule": "each earning retains funder, content or work ID, qualifying event, attribution-policy version, gross amount, deductions, net amount, dispute state and payout state",
+    "rightsRule": "licensed reuse requires explicit scope, term, geography and consideration separate from ordinary publication rights"
+  },
+  "workspaceActivation": {
+    "states": [
+      "activity_selected",
+      "identity_pending",
+      "profile_proof_pending",
+      "under_review",
+      "changes_requested",
+      "approved",
+      "ready",
+      "suspended"
+    ],
+    "multiWorkspaceRule": "one account may operate multiple separately verified workspaces",
+    "resolverRule": "workspace type is chosen through the approved category-card tree and verified against profile-specific evidence",
+    "gstRule": "personal identity is required; an applicable business may continue with GST pending while reminders and capability restrictions remain visible",
+    "consumerAccessRule": "pending, rejected or suspended workspace status never removes personal consumer and social access"
+  },
+  "availabilityAndCapacity": {
+    "rule": "public availability is computed from owner schedule, temporary override, fresh stock or capacity, serviceability and active restrictions",
+    "autoStopRule": "new commitments stop at confirmed capacity without cancelling already accepted work",
+    "staleRule": "stale stock, slot, fleet or service-area data cannot be presented as confirmed availability"
+  },
+  "agent": {
+    "consentTiers": {
+      "observe": "may summarize and recommend without changing state",
+      "prepare": "may prepare drafts, carts, replies or schedules for owner review",
+      "bounded_execute": "may execute only saved low-risk actions inside exact amount, quantity, audience and time limits",
+      "always_confirm": "money movement, publication, legal filing, health action, pricing exception, refund, payout or irreversible action requires explicit approval"
+    },
+    "rule": "every agent action carries owner, workspace, policy version, reason, limit, idempotency key and resulting audit reference"
+  },
+  "supportAndDisputes": {
+    "rule": "every issue remains linked to its order, booking, trip, task, payment or workspace record",
+    "evidenceRule": "evidence is append-only; later decisions do not overwrite original submissions",
+    "moneyRule": "refunds, reversals and clawbacks create compensating ledger entries",
+    "resolutionRule": "both parties receive the decision, amount or action, reason, effective time and appeal or support path"
+  }
+}

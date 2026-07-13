@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MoolSocial My Work And Provider Workspace Architecture</title>
+  <style>
+    :root {
+      --navy: #000080;
+      --saffron: #ff9933;
+      --green: #138808;
+      --white: #ffffff;
+      --soft: #f0f4f8;
+      --ink: #161650;
+      --muted: #5d6484;
+      --line: #cfd5e3;
+      --danger: #9f1d25;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--white);
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    a { color: inherit; }
+
+    .page {
+      width: min(1360px, 100%);
+      margin: 0 auto;
+      padding: 22px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      border-bottom: 4px solid var(--navy);
+      padding-bottom: 14px;
+    }
+
+    .brand {
+      display: grid;
+      gap: 5px;
+    }
+
+    .brand h1 {
+      margin: 0;
+      color: var(--navy);
+      font-size: clamp(26px, 4vw, 48px);
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .brand p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .brand-line {
+      width: 190px;
+      height: 5px;
+      display: grid;
+      grid-template-columns: 1fr .6fr 1fr;
+      overflow: hidden;
+      border-radius: 999px;
+    }
+
+    .brand-line i:nth-child(1) { background: var(--saffron); }
+    .brand-line i:nth-child(2) { background: var(--white); border: 1px solid var(--line); }
+    .brand-line i:nth-child(3) { background: var(--green); }
+
+    .status {
+      border: 2px solid var(--green);
+      border-radius: 999px;
+      padding: 9px 14px;
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .band {
+      margin-top: 22px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .band-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 11px 14px;
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .band-head h2 {
+      margin: 0;
+      font-size: 16px;
+      letter-spacing: 0;
+    }
+
+    .band-head span {
+      color: #b8efb2;
+      font-size: 11px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .band-body { padding: 16px; }
+
+    .flow {
+      display: grid;
+      grid-template-columns: 1fr 38px 1fr 38px 1.35fr 38px 1.2fr 38px 1fr;
+      gap: 8px;
+      align-items: stretch;
+    }
+
+    .flow-node {
+      min-height: 142px;
+      display: grid;
+      align-content: start;
+      gap: 7px;
+      border: 1px solid var(--line);
+      border-top: 5px solid var(--navy);
+      border-radius: 8px;
+      padding: 12px;
+      background: var(--white);
+    }
+
+    .flow-node.green { border-top-color: var(--green); }
+    .flow-node.orange { border-top-color: var(--saffron); }
+
+    .flow-node small {
+      color: var(--green);
+      font-size: 10px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .flow-node b {
+      color: var(--navy);
+      font-size: 16px;
+      line-height: 1.1;
+    }
+
+    .flow-node p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    .arrow {
+      display: grid;
+      place-items: center;
+      color: var(--navy);
+      font-size: 25px;
+      font-weight: 900;
+    }
+
+    .rule-strip {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .rule {
+      border-left: 4px solid var(--green);
+      padding: 9px 10px;
+      background: var(--soft);
+      color: var(--navy);
+      font-size: 12px;
+      line-height: 1.35;
+      font-weight: 900;
+    }
+
+    .doors {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .door {
+      min-height: 210px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px;
+      background: var(--white);
+    }
+
+    .door h3 {
+      margin: 0 0 9px;
+      color: var(--navy);
+      font-size: 15px;
+    }
+
+    .door ul,
+    .lock-list,
+    .screen-list {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.55;
+    }
+
+    .two-sided {
+      display: grid;
+      grid-template-columns: 1fr 70px 1fr;
+      gap: 12px;
+      align-items: stretch;
+    }
+
+    .side {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 14px;
+      background: var(--soft);
+    }
+
+    .side h3 {
+      margin: 0 0 8px;
+      color: var(--navy);
+      font-size: 18px;
+    }
+
+    .side p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .engine {
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      background: var(--navy);
+      color: var(--white);
+      font-size: 11px;
+      line-height: 1.3;
+      font-weight: 900;
+      text-align: center;
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+    }
+
+    .matrix-wrap { overflow-x: auto; }
+
+    table {
+      width: 100%;
+      min-width: 1040px;
+      border-collapse: collapse;
+      font-size: 12px;
+    }
+
+    th,
+    td {
+      border: 1px solid var(--line);
+      padding: 9px;
+      text-align: left;
+      vertical-align: top;
+      line-height: 1.4;
+    }
+
+    th {
+      background: var(--navy);
+      color: var(--white);
+      font-size: 11px;
+      text-transform: uppercase;
+    }
+
+    td:first-child {
+      color: var(--navy);
+      font-weight: 900;
+    }
+
+    .gates {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .gate {
+      min-height: 76px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 8px;
+      background: var(--white);
+      color: var(--navy);
+      font-size: 11px;
+      line-height: 1.3;
+      font-weight: 900;
+      text-align: center;
+    }
+
+    .gate.ready { border-color: var(--green); color: var(--green); }
+
+    .publish-rule {
+      margin-top: 12px;
+      border: 2px solid var(--green);
+      border-radius: 8px;
+      padding: 13px;
+      background: #f4fbf3;
+      color: var(--green);
+      font-size: 14px;
+      line-height: 1.4;
+      font-weight: 900;
+      text-align: center;
+    }
+
+    .screen-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .screen-block {
+      border-left: 5px solid var(--saffron);
+      padding: 2px 0 2px 13px;
+    }
+
+    .screen-block h3 {
+      margin: 0 0 7px;
+      color: var(--navy);
+      font-size: 16px;
+    }
+
+    .warning {
+      border: 2px solid var(--danger);
+      border-radius: 8px;
+      padding: 13px;
+      background: #fff7f7;
+    }
+
+    .warning h3 {
+      margin: 0 0 8px;
+      color: var(--danger);
+      font-size: 15px;
+    }
+
+    .footer {
+      margin-top: 22px;
+      border-top: 1px solid var(--line);
+      padding: 14px 0 4px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 1080px) {
+      .flow { grid-template-columns: 1fr; }
+      .arrow { min-height: 28px; transform: rotate(90deg); }
+      .rule-strip,
+      .doors { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .gates { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 700px) {
+      .page { padding: 12px; }
+      .topbar { align-items: flex-start; }
+      .rule-strip,
+      .doors,
+      .screen-grid,
+      .two-sided { grid-template-columns: 1fr; }
+      .engine { min-height: 48px; writing-mode: horizontal-tb; transform: none; }
+      .gates { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="topbar">
+      <div class="brand">
+        <h1>MoolSocial My Work Architecture</h1>
+        <div class="brand-line" aria-hidden="true"><i></i><i></i><i></i></div>
+        <p>Consumer-first identity, provider onboarding, workspace operations and value-chain publication</p>
+      </div>
+      <span class="status">Locked from Screen 69</span>
+    </header>
+
+    <section class="band">
+      <div class="band-head"><h2>Universal Flow</h2><span>one account, many operations</span></div>
+      <div class="band-body">
+        <div class="flow">
+          <div class="flow-node"><small>Always active</small><b>Personal Account</b><p>Consumer, household, social, chat, payments and daily super-app access.</p></div>
+          <div class="arrow">&gt;</div>
+          <div class="flow-node green"><small>Screen 69</small><b>My Work Gateway</b><p>Create, open, switch or add verified operating workspaces.</p></div>
+          <div class="arrow">&gt;</div>
+          <div class="flow-node orange"><small>Controlled onboarding</small><b>User-Type Workspace</b><p>Retail, supply, manufacturing, food, health, service, mobility, creator, worker or organization.</p></div>
+          <div class="arrow">&gt;</div>
+          <div class="flow-node"><small>Two-sided operations</small><b>Sell / Serve + Procure</b><p>Operate customer demand and the inputs required to fulfil that demand.</p></div>
+          <div class="arrow">&gt;</div>
+          <div class="flow-node green"><small>After readiness gates</small><b>Outcome Cards</b><p>Consumers see only serviceable, priced, trusted and actionable outcomes.</p></div>
+        </div>
+        <div class="rule-strip">
+          <div class="rule">Every user remains a consumer first.</div>
+          <div class="rule">My Work owns provider identity and operations.</div>
+          <div class="rule">Earn owns funded opportunities.</div>
+          <div class="rule">One active workspace at a time.</div>
+          <div class="rule">Personal access is never removed.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="band-head"><h2>Progressive My Work Entry</h2><span>do not show every subtype at once</span></div>
+      <div class="band-body doors">
+        <article class="door"><h3>Sell Products</h3><ul><li>Retail shop / supermarket</li><li>Small seller</li><li>Supplier / distributor</li><li>Brand / source partner</li><li>Manufacturer / producer</li><li>Compliant pharmacy</li></ul></article>
+        <article class="door"><h3>Serve Customers</h3><ul><li>Restaurant / food / tiffin</li><li>Salon / beauty / gym</li><li>Repair / home service</li><li>Doctor / clinic / hospital</li><li>Diagnostic / professional</li><li>Get It Done provider</li></ul></article>
+        <article class="door"><h3>Move And Deliver</h3><ul><li>Bike captain</li><li>Auto captain</li><li>Cab / car captain</li><li>Fleet operator</li><li>Food delivery</li><li>Grocery / shop delivery</li></ul></article>
+        <article class="door"><h3>Create And Earn</h3><ul><li>Creator / media</li><li>Freelancer / field partner</li><li>Campaign executor</li><li>Business onboarding</li><li>Catalog / QR setup</li><li>Customer activation</li></ul></article>
+        <article class="door"><h3>Manage Organization</h3><ul><li>Society</li><li>Company</li><li>School / coaching</li><li>Institution</li><li>NGO / trust</li><li>Approved public body</li></ul></article>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="band-head"><h2>Every Workspace Is Two-Sided</h2><span>aggregation operating model</span></div>
+      <div class="band-body two-sided">
+        <div class="side"><h3>Sell Or Serve</h3><p>Products, services, menus, appointments, rides, delivery capacity, content, campaigns, orders, bookings, customers and repeat demand.</p></div>
+        <div class="engine">SUPPLY INTELLIGENCE</div>
+        <div class="side"><h3>Buy Or Procure</h3><p>Inventory, raw material, supplies, tools, packaging, equipment, staffing, delivery, professional services, software, compliance and operational support.</p></div>
+      </div>
+      <div class="band-body" style="padding-top:0">
+        <div class="publish-rule">Sell-side activity predicts buy-side need. Aggregated procurement creates source-price power, savings and platform margin.</div>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="band-head"><h2>Workspace Operating Matrix</h2><span>role-specific, not one generic dashboard</span></div>
+      <div class="band-body matrix-wrap">
+        <table>
+          <thead><tr><th>Workspace</th><th>Sell / Service Side</th><th>Buy / Procurement Side</th><th>Daily Operating Areas</th></tr></thead>
+          <tbody>
+            <tr><td>Retailer / Shop</td><td>Products, customers, orders, walk-ins, delivery, offers</td><td>Inventory, wholesale packs, sources, packaging, staff</td><td>Orders, Customers, Catalog, Stock, Procure, Delivery, QR, Money</td></tr>
+            <tr><td>Supplier / Distributor</td><td>Inventory, price slabs, MOQ, B2B orders, dispatch</td><td>Manufacturer/source stock, warehousing, transport</td><td>Buyer Pools, Inventory, MOQ, Orders, Procure, Dispatch, Quality</td></tr>
+            <tr><td>Manufacturer / Producer</td><td>Finished goods, bulk buyers, production, stock movement</td><td>Raw material, packaging, machinery, labour, logistics</td><td>Ready Buyers, Orders, Materials, Procure, Production, Dispatch, Revenue</td></tr>
+            <tr><td>Restaurant / Tiffin</td><td>Menu, food orders, tables, tiffin, catering, guests</td><td>Food inputs, packaging, cleaning, staff, delivery</td><td>Orders, Menu, Tables, Tiffin, Supplies, Procure, Delivery, Customers</td></tr>
+            <tr><td>Salon / Service Provider</td><td>Services, bookings, slots, packages, repeat customers</td><td>Tools, consumables, products, equipment, training</td><td>Bookings, Services, Slots, Packages, Customers, Buy Supplies, Reviews</td></tr>
+            <tr><td>Healthcare</td><td>Appointments, consultations, diagnostics, follow-ups</td><td>Medical supplies, equipment, staff, software, sanitation</td><td>Appointments, Patients, Slots, Follow-Up, Tests, Supplies, Compliance</td></tr>
+            <tr><td>Mobility / Delivery</td><td>Rides, deliveries, routes, pickup and drop capacity</td><td>Fuel, maintenance, insurance, equipment, route tools</td><td>Go Online, Map, Requests, Pickup, Drop, Proof, Earnings, Vehicle</td></tr>
+            <tr><td>Creator / Media</td><td>Content, audience, promotion, attributed conversion</td><td>Production, editing, campaigns, attribution and growth tools</td><td>Create, Audience, Campaigns, Impact, Channels, Earnings, Insights</td></tr>
+            <tr><td>Freelancer / Field Partner</td><td>Skills, onboarding, verification, QR, campaign execution</td><td>Training, tools, mobility, proof and payout support</td><td>Open Work, Accepted, Proof, Training, Rank, Payout, Support</td></tr>
+            <tr><td>Organization</td><td>Members, courses, events, benefits or institutional services</td><td>Collective procurement, food, health, vendors, maintenance</td><td>Members, Benefits, Group Buy, Vendors, Events, Reports, Payments</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="band-head"><h2>Activation And Consumer Publication Gates</h2><span>registration is never a live listing</span></div>
+      <div class="band-body">
+        <div class="gates">
+          <div class="gate">Owner / Operator Identity</div>
+          <div class="gate">Workspace Type And Subtype</div>
+          <div class="gate">Licence And Compliance</div>
+          <div class="gate">Catalog / Menu / Services</div>
+          <div class="gate">Price And Availability</div>
+          <div class="gate">Geo Serviceability</div>
+          <div class="gate">Payment And Invoice</div>
+          <div class="gate">Fulfilment / Delivery / Slots</div>
+          <div class="gate">Refund / Cancellation / Rework</div>
+          <div class="gate">Support And Backup</div>
+          <div class="gate">Risk And Settlement</div>
+          <div class="gate ready">Eligible For Outcome Cards</div>
+        </div>
+        <div class="publish-rule">Providers operate in the backend. Consumers receive only a few decision-ready cards with price, time, trust, availability, payment rule and next action.</div>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="band-head"><h2>Screen Architecture From 69</h2><span>shared trunk, then role branches</span></div>
+      <div class="band-body screen-grid">
+        <div class="screen-block"><h3>Shared Onboarding Trunk</h3><ol class="screen-list"><li>69 My Work Home / Workspace Gateway</li><li>70 Choose What You Operate</li><li>71 Controlled Type And Subtype</li><li>72 Owner / Operator And Common Details</li><li>73 Role-Specific Verification</li><li>74 Operating Readiness Checklist</li><li>75 Workspace Created / Pending / Active</li></ol></div>
+        <div class="screen-block"><h3>Every Role Branch</h3><ol class="screen-list"><li>Onboarding and verification</li><li>Sell or service setup</li><li>Buy and procurement setup</li><li>Daily operations</li><li>Money and settlement</li><li>Customer and supplier chat</li><li>Social and growth</li></ol></div>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="band-head"><h2>Immediate Correction</h2><span>do not approve invalid draft</span></div>
+      <div class="band-body">
+        <div class="warning"><h3>Current Screen 69 must be replaced</h3><ul class="lock-list"><li>Screen 69 is My Work Home / Workspace Gateway.</li><li>It is not Freelancer Work setup.</li><li>It is not opportunity-specific Creator or Delivery setup.</li><li>Do not copy the current Screen 69 draft into approved-final.</li><li>Re-check Screen 68 Apply routing only after Screen 69 states are approved.</li></ul></div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      Detailed source: <a href="MY-WORK-AND-PROVIDER-WORKSPACE-ARCHITECTURE-LOCK.md">MY-WORK-AND-PROVIDER-WORKSPACE-ARCHITECTURE-LOCK.md</a><br>
+      This visual is an architecture reference, not a production user screen.
+    </footer>
+  </main>
+</body>
+</html>

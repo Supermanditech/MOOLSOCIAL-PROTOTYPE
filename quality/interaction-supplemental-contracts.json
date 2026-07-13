@@ -1,0 +1,48 @@
+{
+  "version": "prototype-interaction-supplemental-2026-07-13",
+  "entries": [
+    { "screen": 26, "label": "Order Food delivery or pickup", "type": "route", "route": "27-eat-order-food.html", "priority": "P0", "note": "Open restaurants for delivery or pickup." },
+
+    { "screen": 31, "label": "Map", "type": "handoff", "priority": "P1", "note": "Live pickup navigation opened. Return keeps the accepted ride active." },
+    { "screen": 31, "label": "Call", "type": "handoff", "priority": "P1", "note": "Call the captain through a masked number. Ending the call returns to this ride." },
+    { "screen": 31, "label": "Share", "type": "handoff", "priority": "P1", "note": "Share live ride status with a trusted contact." },
+    { "screen": 31, "label": "Edit", "type": "detail", "priority": "P1", "note": "Review pickup instructions before saving them to the active ride." },
+    { "screen": 31, "label": "Cancel", "type": "progress", "priority": "P0", "note": "Review cancellation reason, fee and captain impact before confirming." },
+
+    { "screen": 32, "label": "Map", "type": "handoff", "priority": "P1", "note": "Live trip map opened. Return keeps trip tracking active." },
+    { "screen": 32, "label": "Call", "type": "handoff", "priority": "P1", "note": "Call the captain through a masked number." },
+    { "screen": 32, "label": "Share", "type": "handoff", "priority": "P1", "note": "Share this live trip with a trusted contact." },
+    { "screen": 32, "label": "Add stop", "type": "detail", "priority": "P0", "note": "Add one stop and review the revised fare and arrival time before confirming." },
+    { "screen": 32, "label": "Help", "type": "detail", "priority": "P1", "note": "Ride help opened with safety, route and fare options." },
+
+    { "screen": 33, "label": "Approve Rs 112", "type": "route", "route": "34-ride-receipt-rating.html?fare=112&payment=approved", "priority": "P0", "note": "Approve the final fare and continue to the receipt." },
+    { "screen": 33, "label": "Issue", "type": "route", "route": "35-ride-post-trip-support.html?from=payment&fare=112", "priority": "P0", "note": "Open fare support without approving a disputed amount." },
+    { "screen": 33, "label": "Pay", "type": "select", "priority": "P2", "note": "Payment approval is the current step." },
+
+    { "screen": 34, "label": "Submit rating", "type": "route", "route": "35-ride-post-trip-support.html?rating=submitted", "priority": "P0", "note": "Submit the ride rating and keep support available." },
+    { "screen": 34, "label": "Support", "type": "route", "route": "35-ride-post-trip-support.html", "priority": "P1", "note": "Open post-trip support." },
+    { "screen": 34, "label": "Share", "type": "handoff", "priority": "P1", "note": "Share the trip receipt through an approved app or link." },
+    { "screen": 34, "label": "Receipt", "type": "detail", "priority": "P1", "note": "Receipt details opened with fare, payment method and trip reference." },
+    { "screen": 34, "label": "Rate", "type": "select", "priority": "P2", "note": "Rating is the current step." },
+    { "screen": 34, "label": "Help", "type": "route", "route": "35-ride-post-trip-support.html", "priority": "P1", "note": "Open ride help." },
+
+    { "screen": 35, "label": "Alert", "type": "detail", "priority": "P1", "note": "Safety reminder opened. Report an issue only when something unwanted happened." },
+    { "screen": 35, "label": "Report missing item", "type": "detail", "priority": "P0", "note": "Start a missing-item report with trip, captain and item details." },
+    { "screen": 35, "label": "Track", "type": "detail", "priority": "P1", "note": "Review the active support case and its latest status." },
+    { "screen": 35, "label": "Call", "type": "handoff", "priority": "P1", "note": "Call support through the protected ride contact channel." },
+    { "screen": 35, "label": "Help", "type": "detail", "priority": "P1", "note": "Post-trip help options opened." },
+
+    { "screen": 42, "label": "RT Royal Touch Salon Haircut · 800 m · rated 4.7 Today 5:40 PM · rating + shop photos Rs 199 35 min", "type": "route", "route": "43-salon-booking-confirm.html?salon=royal-touch&service=haircut", "priority": "P0", "note": "Open Royal Touch Salon booking review." },
+    { "screen": 43, "label": "P Price includes selected service Haircut, basic styling and GST included. Salon rating + shop photos verified Rs 199 locked", "type": "detail", "priority": "P2", "note": "Price includes the selected service and shown taxes." },
+    { "screen": 43, "label": "C Cancellation Free cancellation till 30 min before slot. Late/no-show rule shown before final booking. Free 30 min", "type": "detail", "priority": "P2", "note": "Cancellation terms opened before final booking." },
+
+    { "screen": 68, "label": "Save opportunity", "type": "select", "priority": "P2", "note": "Opportunity saved to My Work." },
+
+    { "screen": 102, "label": "AI Why is profit lower this week? Oil margin fell 1.8%; delivery cost rose ₹1,240 Based on locked sales and purchase books View", "type": "detail", "priority": "P2", "note": "Open the evidence behind this profit explanation." },
+    { "screen": 102, "label": "AI Which customers may reorder? 86 eligible from permitted repeat-basket history No message sent View", "type": "detail", "priority": "P2", "note": "Open the consent-safe repeat-basket explanation. No message is sent." },
+
+    { "screen": 106, "label": "EXP Recorded shop expenses Electricity, salary, delivery, repair and supplies 42 records · bills attached 36 ₹31,400 View", "type": "detail", "priority": "P1", "note": "Open the recorded shop expense register with attached bills and monthly total." },
+
+    { "screen": 125, "label": "Camera", "type": "handoff", "priority": "P1", "note": "Camera permission is requested only now. Cancel returns to this draft." }
+  ]
+}

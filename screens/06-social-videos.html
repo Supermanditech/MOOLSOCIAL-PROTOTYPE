@@ -3,7 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>06 Social Videos - MoolSocial Screenbook</title>
+
+<title>06 Social Videos - MoolSocial Screenbook</title>
+<script defer src="../shared/creator-economics-ui.js" data-surface="consumer-social"></script><script type="application/json" id="creatorEconomicsBinding">{"surfaces":["content_pool","attributed_commerce"],"contract":"shared/creator-economics-flow-contract.json","role":"consumer_qualifying_action"}</script>
   <link rel="stylesheet" href="../shared/moolsocial-ui-foundation.css" />
   <style>
     .screen-shell {
@@ -205,6 +207,14 @@
 
     .topic-rail::-webkit-scrollbar {
       display: none;
+    }
+
+    .topic-result {
+      min-height: 20px;
+      padding: 0 14px 6px;
+      color: #b8b8c8;
+      font-size: 11px;
+      font-weight: 700;
     }
 
     .topic-chip {
@@ -1331,6 +1341,7 @@
                 <button class="topic-chip" type="button">Recently uploaded</button>
                 <button class="topic-chip" type="button">New to you</button>
               </div>
+              <div class="topic-result" data-topic-result aria-live="polite">Showing all videos</div>
 
               <div class="feed-stack">
                 <article class="sponsored-card">
@@ -1698,6 +1709,7 @@
     const likeButton = document.querySelector("[data-like]");
     const saveButton = document.querySelector("[data-save]");
     const followButton = document.querySelector("[data-follow]");
+    const topicResult = document.querySelector("[data-topic-result]");
 
     const sheetContent = {
       details: {
@@ -1759,6 +1771,26 @@
           ["Captions", "Auto"],
           ["Quality", "Data"]
         ]
+      },
+      cast: {
+        title: "Watch on another screen",
+        note: "Choose a nearby device. Cancelling keeps this video on the phone.",
+        items: [["This phone", "Playing"], ["Nearby TV", "Find"], ["Speaker", "Audio"], ["Cancel", "Return"]]
+      },
+      search: {
+        title: "Search Videos",
+        note: "Search videos, creators and topics without losing the current feed position.",
+        items: [["Videos", "Search"], ["Creators", "People"], ["Topics", "Explore"], ["Voice", "Ask"]]
+      },
+      account: {
+        title: "Your Social Account",
+        note: "Open viewing history, saved videos, creator tools and account controls.",
+        items: [["History", "Open"], ["Saved", "Open"], ["Creator", "Studio"], ["Settings", "Open"]]
+      },
+      explore: {
+        title: "Explore Topics",
+        note: "Topics adapt to language, location, follows and viewing choices.",
+        items: [["Trending", "Now"], ["Nearby", "Local"], ["Learning", "Topics"], ["Business", "Videos"]]
       }
     };
 
@@ -1800,9 +1832,14 @@
     backFeedButton?.addEventListener("click", openFeed);
     topicChips.forEach((chip) => {
       chip.addEventListener("click", () => {
-        if (chip.classList.contains("icon")) return;
+        if (chip.classList.contains("icon")) {
+          openSheet("explore");
+          return;
+        }
         topicChips.forEach((other) => other.classList.remove("active"));
         chip.classList.add("active");
+        topicChips.forEach((other) => other.setAttribute("aria-pressed", String(other === chip)));
+        if (topicResult) topicResult.textContent = `Showing ${chip.textContent.trim().toLowerCase()} videos`;
       });
     });
 
@@ -1811,6 +1848,21 @@
     followButton?.addEventListener("click", () => {
       followButton.textContent = followButton.textContent.trim() === "Follow" ? "Following" : "Follow";
     });
+
+    document.querySelector("[aria-label='Cast video']")?.addEventListener("click", () => openSheet("cast"));
+    document.querySelector("[aria-label='Search videos']")?.addEventListener("click", () => openSheet("search"));
+    document.querySelector("[aria-label='Account']")?.addEventListener("click", () => openSheet("account"));
+    document.querySelector(".mool-button")?.addEventListener("click", () => {
+      window.location.href = "04-universal-focus-shell.html?world=social";
+    });
+    document.querySelector(".video-tab.active")?.addEventListener("click", () => {
+      if (topicResult) topicResult.textContent = "Videos is already open";
+    });
+    document.querySelector(".chat-button")?.addEventListener("click", () => {
+      window.location.href = "23-chat-inbox-home.html?from=videos";
+    });
   </script>
+<script type="application/json" id="productionRouteContract">{"contractVersion":"mvp-route-lock-2026-07-12","prototypeScreen":6,"productionModule":"social","routeId":"social.videos","routePath":"/social/videos","routeState":"catalog-player","implementation":"route-shell","launchScope":"mvp-core","separateProductionRoute":true,"productionNote":"Own production route /social/videos. Implement catalog-player as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.","canonicalMap":"architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"}</script><script type="application/json" id="prototypeApprovalContract">{"prototypeScreen":6,"status":"approved-and-frozen","authoritative":true,"approvedAt":"2026-07-13"}</script>  <script src="../shared/prototype-interaction-contracts.js"></script>
+  <script src="../shared/prototype-interaction-runtime.js"></script>
 </body>
 </html>

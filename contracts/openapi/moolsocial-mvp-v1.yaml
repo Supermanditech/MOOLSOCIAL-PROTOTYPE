@@ -1,0 +1,1266 @@
+openapi: 3.1.0
+info:
+  title: MoolSocial MVP API
+  version: 1.0.0-2026-07-14
+  description: >-
+    Production contract for the approved consumer, social, commerce, ride, pay,
+    work, workspace, chat, agent and admin flows. Clients request transitions;
+    authoritative services return the resulting state.
+servers:
+  - url: https://api.moolsocial.in
+    description: Production placeholder
+  - url: https://staging-api.moolsocial.in
+    description: Staging placeholder
+security:
+  - bearerAuth: []
+tags:
+  - name: Bootstrap
+    description: Personal app bootstrap and active context.
+  - name: Social
+    description: Shorts, videos, feed and social discovery.
+  - name: Catalogue
+    description: Decision-ready product and service discovery.
+  - name: Basket
+    description: Versioned basket and line decisions.
+  - name: Orders
+    description: Consumer and wholesale order lifecycles.
+  - name: Payments
+    description: Payment, reversal and refund lifecycles.
+  - name: Work
+    description: Funded opportunities, assignments and proof.
+  - name: Workspaces
+    description: Verified work profile activation and operation.
+  - name: Rides
+    description: Ride quote, assignment, trip and fare lifecycle.
+  - name: Chat
+    description: People, business, order and support communication.
+  - name: Agent
+    description: Prepared, approved and bounded agent actions.
+  - name: Admin
+    description: Governed configuration and intervention commands.
+  - name: Economics
+    description: Authoritative earnings and payout records.
+paths:
+  /v1/app/bootstrap:
+    get:
+      tags: [Bootstrap]
+      operationId: getAppBootstrap
+      summary: Load the personal app bootstrap
+      parameters:
+        - $ref: '#/components/parameters/AreaId'
+        - $ref: '#/components/parameters/IfNoneMatch'
+      responses:
+        '200':
+          description: Personal account, consented context, root actions and workspace summaries.
+          headers:
+            ETag:
+              schema: { type: string }
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppBootstrap'
+        '304': { description: Bootstrap has not changed. }
+        default:
+          $ref: '#/components/responses/Problem'
+  /v1/social/feed:
+    get:
+      tags: [Social]
+      operationId: getSocialFeed
+      summary: Read a social feed page
+      parameters:
+        - $ref: '#/components/parameters/Cursor'
+        - $ref: '#/components/parameters/PageSize'
+        - name: format
+          in: query
+          schema: { type: string, enum: [shorts, videos, feed] }
+        - name: area_id
+          in: query
+          schema: { type: string }
+      responses:
+        '200':
+          description: Personalized social feed page.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SocialFeedPage'
+        default:
+          $ref: '#/components/responses/Problem'
+  /v1/catalogue/decisions:
+    get:
+      tags: [Catalogue]
+      operationId: searchDecisionCatalogue
+      summary: Search decision-ready catalogue results
+      parameters:
+        - name: query
+          in: query
+          schema: { type: string, maxLength: 160 }
+        - name: scope
+          in: query
+          required: true
+          schema:
+            type: string
+            enum: [consumer_buy, wholesale_buy, service, booking, food, medicine]
+        - $ref: '#/components/parameters/AreaId'
+        - $ref: '#/components/parameters/Cursor'
+        - $ref: '#/components/parameters/PageSize'
+      responses:
+        '200':
+          description: Decision-ready catalogue page.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DecisionPage'
+        default:
+          $ref: '#/components/responses/Problem'
+  /v1/baskets/{basketId}:
+    get:
+      tags: [Basket]
+      operationId: getBasket
+      summary: Read a basket and current totals
+      parameters:
+        - $ref: '#/components/parameters/BasketId'
+      responses:
+        '200':
+          description: Current basket with authoritative totals and stale-line warnings.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Basket'
+        default:
+          $ref: '#/components/responses/Problem'
+  /v1/baskets/{basketId}/items:
+    post:
+      tags: [Basket]
+      operationId: putBasketItem
+      summary: Add or update a basket item
+      parameters:
+        - $ref: '#/components/parameters/BasketId'
+        - $ref: '#/components/parameters/IdempotencyKey'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [offer_id, quantity]
+              properties:
+                offer_id: { type: string }
+                quantity: { type: number, exclusiveMinimum: 0 }
+                expected_offer_version: { type: string }
+      responses:
+        '200':
+          description: Basket after the idempotent line update.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Basket'
+        '409':
+          $ref: '#/components/responses/Conflict'
+        default:
+          $ref: '#/components/responses/Problem'
+  /v1/orders:
+    post:
+      tags: [Orders]
+      operationId: createOrder
+      summary: Create an order from a fresh basket
+      parameters:
+        - $ref: '#/components/parameters/IdempotencyKey'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [basket_id, fulfilment_mode, expected_basket_version]
+              properties:
+                basket_id: { type: string }
+                fulfilment_mode: { type: string, enum: [counter, delivery, dine_in, service_visit] }
+                address_id: { type: string }
+                expected_basket_version: { type: string }
+                substitution_policy: { type: string, enum: [none, explicit_approval] }
+      responses:
+        '201':
+          description: Order created in its authoritative initial state.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+        '409':
+          $ref: '#/components/responses/Conflict'
+        default:
+          $ref: '#/components/responses/Problem'
+  /v1/orders/{orderId}:
+    get:
+      tags: [Orders]
+      operationId: getOrder
+      summary: Read an order and valid next actions
+      parameters:
+        - $ref: '#/components/parameters/OrderId'
+      responses:
+        '200':
+          description: Order and current transition options.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+        default:
+          $ref: '#/components/responses/Problem'
+  /v1/orders/{orderId}/stock-confirmations:
+    post:
+      tags: [Orders]
+      operationId: confirmOrderStock
+      summary: Confirm retailer stock for an order
+      parameters:
+        - $ref: '#/components/parameters/OrderId'
+        - $ref: '#/components/parameters/IdempotencyKey'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [decision, expected_order_version]
+              properties:
+                decision: { type: string, enum: [confirm_full, confirm_partial, cannot_fulfil] }
+                confirmed_lines:
+                  type: array
+                  items:
+                    type: object
+                    required: [line_id, quantity]
+                    properties:
+                      line_id: { type: string }
+                      quantity: { type: number, minimum: 0 }
+                expected_order_version: { type: string }
+      responses:
+        '200':
+          description: Updated order or safe retailer reroute state.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+        '409':
+          $ref: '#/components/responses/Conflict'
+        default:
+          $ref: '#/components/responses/Problem'
+  /v1/orders/{orderId}/fulfilment-events:
+    post:
+      tags: [Orders]
+      operationId: appendOrderFulfilmentEvent
+      summary: Advance order fulfilment
+      parameters:
+        - $ref: '#/components/parameters/OrderId'
+        - $ref: '#/components/parameters/IdempotencyKey'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [event_type, expected_order_version]
+              properties:
+                event_type:
+                  type: string
+                  enum: [start_preparing, ready_for_counter, assign_delivery, dispatch, deliver, collect, complete, open_issue]
+                proof_ids:
+                  type: array
+                  items: { type: string }
+                expected_order_version: { type: string }
+      responses:
+        '200':
+          description: Order after the accepted event.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+        '409':
+          $ref: '#/components/responses/Conflict'
+        default:
+          $ref: '#/components/responses/Problem'
+  /v1/payments/intents:
+    post:
+      tags: [Payments]
+      operationId: createPaymentIntent
+      summary: Create a purpose-bound payment intent
+      parameters:
+        - $ref: '#/components/parameters/IdempotencyKey'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [purpose, source_id, amount, method]
+              properties:
+                purpose: { type: string, enum: [order, wholesale_order, ride, booking, recharge, bill, scan, payment_request] }
+                source_id: { type: string }
+                amount: { $ref: '#/components/schemas/Money' }
+                method: { type: string, enum: [upi, card, cash, bank, credit_terms] }
+      responses:
+        '201':
+          description: Payment intent requiring the returned next action.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Payment'
+        default:
+          $ref: '#/components/responses/Problem'
+  /v1/payments/{paymentId}/confirm:
+    post:
+      tags: [Payments]
+      operationId: confirmPayment
+      summary: Reconcile a payment confirmation
+      parameters:
+        - $ref: '#/components/parameters/PaymentId'
+        - $ref: '#/components/parameters/IdempotencyKey'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [provider_reference, expected_payment_version]
+              properties:
+                provider_reference: { type: string }
+                expected_payment_version: { type: string }
+      responses:
+        '200':
+          description: Reconciled payment state; processing may remain non-final.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Payment'
+        '409':
+          $ref: '#/components/responses/Conflict'
+        default:
+          $ref: '#/components/responses/Problem'
+  /v1/refunds:
+    post:
+      tags: [Payments]
+      operationId: requestRefund
+      summary: Request a payment refund
+      parameters:
+        - $ref: '#/components/parameters/IdempotencyKey'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [payment_id, amount, reason_code]
+              properties:
+                payment_id: { type: string }
+                amount: { $ref: '#/components/schemas/Money' }
+                reason_code: { type: string }
+                case_id: { type: string }
+      responses:
+        '202':
+          description: Refund accepted into its authoritative lifecycle.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Payment'
+        default:
+          $ref: '#/components/responses/Problem'
+  /v1/work/opportunities:
+    get:
+      tags: [Work]
+      operationId: getWorkOpportunities
+      summary: Browse live funded opportunities
+      parameters:
+        - $ref: '#/components/parameters/AreaId'
+        - $ref: '#/components/parameters/Cursor'
+        - $ref: '#/components/parameters/PageSize'
+        - name: kind
+          in: query
+          schema: { type: string, enum: [all, job, freelance, campaign, nearby] }
+      responses:
+        '200':
+          description: Compact funded opportunities and live capacity.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkOpportunityPage'
+        default:
+          $ref: '#/components/responses/Problem'
+  /v1/work/opportunities/{opportunityId}/applications:
+    post:
+      tags: [Work]
+      operationId: applyForOpportunity
+      summary: Apply for a funded opportunity
+      parameters:
+        - $ref: '#/components/parameters/OpportunityId'
+        - $ref: '#/components/parameters/IdempotencyKey'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [terms_version]
+              properties:
+                workspace_id: { type: string }
+                terms_version: { type: string }
+      responses:
+        '201':
+          description: Application, assignment, or exact workspace setup handoff.
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [state]
+                properties:
+                  state: { type: string, enum: [applied, assigned, workspace_required, ineligible, capacity_closed] }
+                  assignment_id: { type: string }
+                  required_workspace_profile: { type: string }
+                  next_action: { $ref: '#/components/schemas/NextAction' }
+        '409':
+          $ref: '#/components/responses/Conflict'
+        default:
+          $ref: '#/components/responses/Problem'
+  /v1/work/assignments/{assignmentId}/proof:
+    post:
+      tags: [Work]
+      operationId: submitWorkProof
+      summary: Submit proof for a work assignment
+      parameters:
+        - name: assignmentId
+          in: path
+          required: true
+          schema: { type: string }
+        - $ref: '#/components/parameters/IdempotencyKey'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [proof_ids, expected_assignment_version]
+              properties:
+                proof_ids:
+                  type: array
+                  minItems: 1
+                  items: { type: string }
+                note: { type: string, maxLength: 1000 }
+                expected_assignment_version: { type: string }
+      responses:
+        '202':
+          description: Proof accepted for authoritative review.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkAssignment'
+        default:
+          $ref: '#/components/responses/Problem'
+  /v1/workspaces:
+    post:
+      tags: [Workspaces]
+      operationId: createWorkspaceApplication
+      summary: Create a verified workspace application
+      parameters:
+        - $ref: '#/components/parameters/IdempotencyKey'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [profile_code, activity_path_version, primary_contact_id]
+              properties:
+                profile_code: { type: string }
+                activity_path_version: { type: string }
+                primary_contact_id: { type: string }
+                alternate_contact_id: { type: string }
+                area_id: { type: string }
+                proof_ids:
+                  type: array
+                  items: { type: string }
+      responses:
+        '201':
+          description: Workspace application and its current review state.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Workspace'
+        default:
+          $ref: '#/components/responses/Problem'
+  /v1/workspaces/{workspaceId}/home:
+    get:
+      tags: [Workspaces]
+      operationId: getWorkspaceHome
+      summary: Load capability-driven workspace priorities
+      parameters:
+        - $ref: '#/components/parameters/WorkspaceId'
+      responses:
+        '200':
+          description: Capability-driven workspace priorities and one-tap actions.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkspaceHome'
+        default:
+          $ref: '#/components/responses/Problem'
+  /v1/rides/quotes:
+    post:
+      tags: [Rides]
+      operationId: createRideQuote
+      summary: Create a time-limited ride quote
+      parameters:
+        - $ref: '#/components/parameters/IdempotencyKey'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [pickup, destination, vehicle_type]
+              properties:
+                pickup: { $ref: '#/components/schemas/GeoPoint' }
+                destination: { $ref: '#/components/schemas/GeoPoint' }
+                vehicle_type: { type: string, enum: [bike, auto, cab] }
+                package_id: { type: string }
+      responses:
+        '201':
+          description: Time-limited fare and serviceability quote.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RideQuote'
+        default:
+          $ref: '#/components/responses/Problem'
+  /v1/rides:
+    post:
+      tags: [Rides]
+      operationId: requestRide
+      summary: Request a ride from a fresh quote
+      parameters:
+        - $ref: '#/components/parameters/IdempotencyKey'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [quote_id, payment_method]
+              properties:
+                quote_id: { type: string }
+                payment_method: { type: string, enum: [cash, upi, card] }
+      responses:
+        '201':
+          description: Ride request in matching state.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ride'
+        '409':
+          $ref: '#/components/responses/Conflict'
+        default:
+          $ref: '#/components/responses/Problem'
+  /v1/rides/{rideId}/events:
+    post:
+      tags: [Rides]
+      operationId: appendRideEvent
+      summary: Advance a ride lifecycle
+      parameters:
+        - $ref: '#/components/parameters/RideId'
+        - $ref: '#/components/parameters/IdempotencyKey'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [event_type, expected_ride_version]
+              properties:
+                event_type:
+                  type: string
+                  enum: [captain_accept, captain_arrive, verify_pickup, start_trip, end_trip, approve_fare, cancel, open_support]
+                expected_ride_version: { type: string }
+                location: { $ref: '#/components/schemas/GeoPoint' }
+      responses:
+        '200':
+          description: Ride after the accepted transition.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ride'
+        '409':
+          $ref: '#/components/responses/Conflict'
+        default:
+          $ref: '#/components/responses/Problem'
+  /v1/chats:
+    get:
+      tags: [Chat]
+      operationId: getChatInbox
+      summary: Read the chat inbox
+      parameters:
+        - $ref: '#/components/parameters/Cursor'
+        - $ref: '#/components/parameters/PageSize'
+        - name: context
+          in: query
+          schema: { type: string, enum: [all, people, business, orders, support] }
+      responses:
+        '200':
+          description: Chat thread page.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatThreadPage'
+        default:
+          $ref: '#/components/responses/Problem'
+  /v1/chats/{threadId}/messages:
+    post:
+      tags: [Chat]
+      operationId: sendChatMessage
+      summary: Send an idempotent chat message
+      parameters:
+        - name: threadId
+          in: path
+          required: true
+          schema: { type: string }
+        - $ref: '#/components/parameters/IdempotencyKey'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [client_message_id, kind]
+              properties:
+                client_message_id: { type: string }
+                kind: { type: string, enum: [text, image, video, file, location, voice, system_action] }
+                text: { type: string, maxLength: 5000 }
+                asset_ids:
+                  type: array
+                  items: { type: string }
+      responses:
+        '201':
+          description: Message accepted or original duplicate result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Message'
+        default:
+          $ref: '#/components/responses/Problem'
+  /v1/agent/jobs:
+    post:
+      tags: [Agent]
+      operationId: createAgentJob
+      summary: Prepare or schedule an agent job
+      parameters:
+        - $ref: '#/components/parameters/IdempotencyKey'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [workspace_id, action_type, consent_tier, limits]
+              properties:
+                workspace_id: { type: string }
+                action_type: { type: string }
+                consent_tier: { type: string, enum: [observe, prepare, bounded_execute, always_confirm] }
+                limits: { type: object, additionalProperties: true }
+                schedule: { type: string }
+      responses:
+        '201':
+          description: Agent job in prepared, approval-required or scheduled state.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AgentJob'
+        default:
+          $ref: '#/components/responses/Problem'
+  /v1/agent/jobs/{jobId}/approve:
+    post:
+      tags: [Agent]
+      operationId: approveAgentJob
+      summary: Approve or reject an agent job
+      parameters:
+        - name: jobId
+          in: path
+          required: true
+          schema: { type: string }
+        - $ref: '#/components/parameters/IdempotencyKey'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [decision, expected_job_version]
+              properties:
+                decision: { type: string, enum: [approve, reject] }
+                expected_job_version: { type: string }
+      responses:
+        '200':
+          description: Agent job after owner decision.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AgentJob'
+        default:
+          $ref: '#/components/responses/Problem'
+  /v1/admin/configurations:
+    post:
+      tags: [Admin]
+      operationId: publishAdminConfiguration
+      summary: Publish a governed configuration
+      parameters:
+        - $ref: '#/components/parameters/IdempotencyKey'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [configuration_type, scope, version, payload]
+              properties:
+                configuration_type: { type: string }
+                scope: { type: object, additionalProperties: true }
+                version: { type: string }
+                payload: { type: object, additionalProperties: true }
+                effective_at: { type: string, format: date-time }
+      responses:
+        '202':
+          description: Configuration accepted for governed publication.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AdminResult'
+        default:
+          $ref: '#/components/responses/Problem'
+  /v1/admin/interventions:
+    post:
+      tags: [Admin]
+      operationId: createAdminIntervention
+      summary: Record a governed admin intervention
+      parameters:
+        - $ref: '#/components/parameters/IdempotencyKey'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [target_type, target_id, action, reason_code, expected_version]
+              properties:
+                target_type: { type: string }
+                target_id: { type: string }
+                action: { type: string }
+                reason_code: { type: string }
+                expected_version: { type: string }
+                expires_at: { type: string, format: date-time }
+      responses:
+        '202':
+          description: Intervention accepted with audit reference.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AdminResult'
+        default:
+          $ref: '#/components/responses/Problem'
+  /v1/economics/ledger:
+    get:
+      tags: [Economics]
+      operationId: getEconomicsLedger
+      summary: Read authoritative earning records
+      parameters:
+        - name: workspace_id
+          in: query
+          schema: { type: string }
+        - name: source
+          in: query
+          schema: { type: string }
+        - $ref: '#/components/parameters/Cursor'
+        - $ref: '#/components/parameters/PageSize'
+      responses:
+        '200':
+          description: Authoritative earning, deduction, hold and payout records.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EarningsLedgerPage'
+        default:
+          $ref: '#/components/responses/Problem'
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  parameters:
+    IdempotencyKey:
+      name: Idempotency-Key
+      in: header
+      required: true
+      schema: { type: string, minLength: 16, maxLength: 128 }
+      description: Stable key for one logical state-changing command.
+    Cursor:
+      name: cursor
+      in: query
+      schema: { type: string }
+    PageSize:
+      name: limit
+      in: query
+      schema: { type: integer, minimum: 1, maximum: 100, default: 20 }
+    AreaId:
+      name: area_id
+      in: query
+      schema: { type: string }
+    IfNoneMatch:
+      name: If-None-Match
+      in: header
+      schema: { type: string }
+    BasketId:
+      name: basketId
+      in: path
+      required: true
+      schema: { type: string }
+    OrderId:
+      name: orderId
+      in: path
+      required: true
+      schema: { type: string }
+    PaymentId:
+      name: paymentId
+      in: path
+      required: true
+      schema: { type: string }
+    OpportunityId:
+      name: opportunityId
+      in: path
+      required: true
+      schema: { type: string }
+    WorkspaceId:
+      name: workspaceId
+      in: path
+      required: true
+      schema: { type: string }
+    RideId:
+      name: rideId
+      in: path
+      required: true
+      schema: { type: string }
+  responses:
+    Problem:
+      description: Request failed with a stable machine code and recovery metadata.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+    Conflict:
+      description: Expected version, live capacity, stale decision data or current state conflict.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+  schemas:
+    Money:
+      type: object
+      required: [currency, minor_units]
+      properties:
+        currency: { type: string, const: INR }
+        minor_units: { type: integer, format: int64 }
+    VersionedState:
+      type: object
+      required: [state, version, updated_at]
+      properties:
+        state: { type: string }
+        version: { type: string }
+        updated_at: { type: string, format: date-time }
+        stale_after: { type: string, format: date-time }
+    NextAction:
+      type: object
+      required: [id, label, kind]
+      properties:
+        id: { type: string }
+        label: { type: string }
+        kind: { type: string, enum: [route, command, external, none] }
+        target: { type: string }
+        requires_confirmation: { type: boolean, default: false }
+    Problem:
+      type: object
+      required: [type, title, status, code, trace_id]
+      properties:
+        type: { type: string, format: uri-reference }
+        title: { type: string }
+        status: { type: integer }
+        detail: { type: string }
+        code: { type: string }
+        trace_id: { type: string }
+        retryable: { type: boolean }
+        field_errors:
+          type: array
+          items:
+            type: object
+            required: [field, code]
+            properties:
+              field: { type: string }
+              code: { type: string }
+              message: { type: string }
+        current_version: { type: string }
+        next_action: { $ref: '#/components/schemas/NextAction' }
+    AppBootstrap:
+      type: object
+      required: [account_id, language, root_actions, workspaces, feature_version]
+      properties:
+        account_id: { type: string }
+        language: { type: string }
+        area_id: { type: string }
+        root_actions:
+          type: array
+          items: { $ref: '#/components/schemas/NextAction' }
+        unread_chat_count: { type: integer, minimum: 0 }
+        workspaces:
+          type: array
+          items: { $ref: '#/components/schemas/WorkspaceSummary' }
+        pending_priorities:
+          type: array
+          items: { $ref: '#/components/schemas/NextAction' }
+        feature_version: { type: string }
+    SocialItem:
+      type: object
+      required: [id, format, creator, created_at]
+      properties:
+        id: { type: string }
+        format: { type: string, enum: [short, video, post, image, live] }
+        creator: { type: string }
+        caption: { type: string }
+        media_id: { type: string }
+        decision_card: { $ref: '#/components/schemas/DecisionCard' }
+        created_at: { type: string, format: date-time }
+    SocialFeedPage:
+      type: object
+      required: [items]
+      properties:
+        items:
+          type: array
+          items: { $ref: '#/components/schemas/SocialItem' }
+        next_cursor: { type: string }
+    DecisionCard:
+      type: object
+      required: [id, title, price, fulfilment, trust, terms, offer_version, next_action]
+      properties:
+        id: { type: string }
+        title: { type: string }
+        subtitle: { type: string }
+        image_url: { type: string, format: uri }
+        price: { $ref: '#/components/schemas/Money' }
+        comparison_price: { $ref: '#/components/schemas/Money' }
+        pack: { type: string }
+        moq: { type: string }
+        fulfilment: { type: string }
+        trust: { type: string }
+        payment_terms: { type: string }
+        terms: { type: string }
+        availability: { type: string, enum: [available, limited, unavailable, stale] }
+        offer_version: { type: string }
+        stale_after: { type: string, format: date-time }
+        next_action: { $ref: '#/components/schemas/NextAction' }
+    DecisionPage:
+      type: object
+      required: [items]
+      properties:
+        items:
+          type: array
+          items: { $ref: '#/components/schemas/DecisionCard' }
+        next_cursor: { type: string }
+        applied_filters:
+          type: array
+          items: { type: string }
+    BasketLine:
+      type: object
+      required: [line_id, offer_id, title, quantity, unit_price, line_total, offer_version]
+      properties:
+        line_id: { type: string }
+        offer_id: { type: string }
+        title: { type: string }
+        quantity: { type: number }
+        unit_price: { $ref: '#/components/schemas/Money' }
+        line_total: { $ref: '#/components/schemas/Money' }
+        offer_version: { type: string }
+        stale: { type: boolean }
+    Basket:
+      type: object
+      required: [id, version, lines, total]
+      properties:
+        id: { type: string }
+        version: { type: string }
+        lines:
+          type: array
+          items: { $ref: '#/components/schemas/BasketLine' }
+        subtotal: { $ref: '#/components/schemas/Money' }
+        charges:
+          type: array
+          items:
+            type: object
+            required: [label, amount]
+            properties:
+              label: { type: string }
+              amount: { $ref: '#/components/schemas/Money' }
+        total: { $ref: '#/components/schemas/Money' }
+        stale_line_ids:
+          type: array
+          items: { type: string }
+    Order:
+      allOf:
+        - $ref: '#/components/schemas/VersionedState'
+        - type: object
+          required: [id, fulfilment_mode, lines, total, next_actions]
+          properties:
+            id: { type: string }
+            retailer_workspace_id: { type: string }
+            supplier_workspace_id: { type: string }
+            fulfilment_mode: { type: string }
+            lines:
+              type: array
+              items: { $ref: '#/components/schemas/BasketLine' }
+            total: { $ref: '#/components/schemas/Money' }
+            payment_id: { type: string }
+            reroute:
+              type: object
+              properties:
+                previous_workspace_id: { type: string }
+                reason: { type: string }
+                disclosure_required: { type: boolean }
+            next_actions:
+              type: array
+              items: { $ref: '#/components/schemas/NextAction' }
+    Payment:
+      allOf:
+        - $ref: '#/components/schemas/VersionedState'
+        - type: object
+          required: [id, purpose, source_id, amount, method]
+          properties:
+            id: { type: string }
+            purpose: { type: string }
+            source_id: { type: string }
+            amount: { $ref: '#/components/schemas/Money' }
+            method: { type: string }
+            provider_reference: { type: string }
+            next_action: { $ref: '#/components/schemas/NextAction' }
+            receipt_reference: { type: string }
+    EarningsBreakdown:
+      type: object
+      required: [gross, deductions, net, state]
+      properties:
+        funder: { type: string }
+        gross: { $ref: '#/components/schemas/Money' }
+        deductions:
+          type: array
+          items:
+            type: object
+            required: [label, amount]
+            properties:
+              label: { type: string }
+              amount: { $ref: '#/components/schemas/Money' }
+        net: { $ref: '#/components/schemas/Money' }
+        state: { type: string }
+        expected_at: { type: string, format: date-time }
+        policy_version: { type: string }
+    WorkOpportunity:
+      type: object
+      required: [id, title, work, location_rule, earnings, proof, live_capacity, terms_version]
+      properties:
+        id: { type: string }
+        title: { type: string }
+        work: { type: string }
+        location_rule: { type: string }
+        earnings: { $ref: '#/components/schemas/EarningsBreakdown' }
+        proof: { type: string }
+        live_capacity: { type: integer, minimum: 0 }
+        expires_at: { type: string, format: date-time }
+        eligible_workspace_profiles:
+          type: array
+          items: { type: string }
+        terms_version: { type: string }
+    WorkOpportunityPage:
+      type: object
+      required: [items, monthly_potential]
+      properties:
+        items:
+          type: array
+          items: { $ref: '#/components/schemas/WorkOpportunity' }
+        monthly_potential:
+          type: object
+          required: [minimum, maximum, basis]
+          properties:
+            minimum: { $ref: '#/components/schemas/Money' }
+            maximum: { $ref: '#/components/schemas/Money' }
+            basis: { type: string }
+            not_guaranteed: { type: boolean, const: true }
+        next_cursor: { type: string }
+    WorkAssignment:
+      allOf:
+        - $ref: '#/components/schemas/VersionedState'
+        - type: object
+          required: [id, opportunity_id, proof_requirements, earnings]
+          properties:
+            id: { type: string }
+            opportunity_id: { type: string }
+            workspace_id: { type: string }
+            proof_requirements:
+              type: array
+              items: { type: string }
+            earnings: { $ref: '#/components/schemas/EarningsBreakdown' }
+            next_actions:
+              type: array
+              items: { $ref: '#/components/schemas/NextAction' }
+    WorkspaceSummary:
+      type: object
+      required: [id, profile_code, name, state]
+      properties:
+        id: { type: string }
+        profile_code: { type: string }
+        name: { type: string }
+        state: { type: string }
+        unread_priority_count: { type: integer, minimum: 0 }
+    Workspace:
+      allOf:
+        - $ref: '#/components/schemas/VersionedState'
+        - type: object
+          required: [id, profile_code, account_id, capabilities]
+          properties:
+            id: { type: string }
+            profile_code: { type: string }
+            account_id: { type: string }
+            capabilities:
+              type: array
+              items: { type: string }
+            missing_requirements:
+              type: array
+              items: { type: string }
+            next_actions:
+              type: array
+              items: { $ref: '#/components/schemas/NextAction' }
+    WorkspaceHome:
+      type: object
+      required: [workspace, priorities, actions]
+      properties:
+        workspace: { $ref: '#/components/schemas/WorkspaceSummary' }
+        priorities:
+          type: array
+          items:
+            type: object
+            required: [id, title, urgency, next_action]
+            properties:
+              id: { type: string }
+              title: { type: string }
+              urgency: { type: string, enum: [now, today, soon, information] }
+              next_action: { $ref: '#/components/schemas/NextAction' }
+        actions:
+          type: array
+          items: { $ref: '#/components/schemas/NextAction' }
+    GeoPoint:
+      type: object
+      required: [latitude, longitude]
+      properties:
+        latitude: { type: number, minimum: -90, maximum: 90 }
+        longitude: { type: number, minimum: -180, maximum: 180 }
+        label: { type: string }
+    RideQuote:
+      type: object
+      required: [id, vehicle_type, fare, pickup_eta_minutes, expires_at]
+      properties:
+        id: { type: string }
+        vehicle_type: { type: string }
+        fare: { $ref: '#/components/schemas/Money' }
+        pickup_eta_minutes: { type: integer, minimum: 0 }
+        duration_minutes: { type: integer, minimum: 0 }
+        distance_meters: { type: integer, minimum: 0 }
+        expires_at: { type: string, format: date-time }
+    Ride:
+      allOf:
+        - $ref: '#/components/schemas/VersionedState'
+        - type: object
+          required: [id, pickup, destination, quoted_fare, payment_method]
+          properties:
+            id: { type: string }
+            pickup: { $ref: '#/components/schemas/GeoPoint' }
+            destination: { $ref: '#/components/schemas/GeoPoint' }
+            captain_workspace_id: { type: string }
+            vehicle_number: { type: string }
+            quoted_fare: { $ref: '#/components/schemas/Money' }
+            final_fare: { $ref: '#/components/schemas/Money' }
+            payment_method: { type: string }
+            next_actions:
+              type: array
+              items: { $ref: '#/components/schemas/NextAction' }
+    ChatThread:
+      type: object
+      required: [id, title, kind, unread_count, updated_at]
+      properties:
+        id: { type: string }
+        title: { type: string }
+        kind: { type: string, enum: [people, business, order, support] }
+        source_id: { type: string }
+        unread_count: { type: integer, minimum: 0 }
+        last_message: { type: string }
+        updated_at: { type: string, format: date-time }
+    ChatThreadPage:
+      type: object
+      required: [items]
+      properties:
+        items:
+          type: array
+          items: { $ref: '#/components/schemas/ChatThread' }
+        next_cursor: { type: string }
+    Message:
+      type: object
+      required: [id, client_message_id, thread_id, sender_id, kind, state, created_at]
+      properties:
+        id: { type: string }
+        client_message_id: { type: string }
+        thread_id: { type: string }
+        sender_id: { type: string }
+        kind: { type: string }
+        text: { type: string }
+        asset_ids:
+          type: array
+          items: { type: string }
+        state: { type: string, enum: [queued, sent, delivered, read, failed, restricted] }
+        created_at: { type: string, format: date-time }
+    AgentJob:
+      allOf:
+        - $ref: '#/components/schemas/VersionedState'
+        - type: object
+          required: [id, workspace_id, action_type, consent_tier, limits]
+          properties:
+            id: { type: string }
+            workspace_id: { type: string }
+            action_type: { type: string }
+            consent_tier: { type: string }
+            limits: { type: object, additionalProperties: true }
+            reason: { type: string }
+            expires_at: { type: string, format: date-time }
+            next_actions:
+              type: array
+              items: { $ref: '#/components/schemas/NextAction' }
+    AdminResult:
+      type: object
+      required: [id, state, audit_reference]
+      properties:
+        id: { type: string }
+        state: { type: string }
+        audit_reference: { type: string }
+        effective_at: { type: string, format: date-time }
+    LedgerEntry:
+      type: object
+      required: [id, source, source_id, qualifying_event_id, earnings, created_at]
+      properties:
+        id: { type: string }
+        source: { type: string }
+        source_id: { type: string }
+        qualifying_event_id: { type: string }
+        earnings: { $ref: '#/components/schemas/EarningsBreakdown' }
+        dispute_state: { type: string }
+        payout_state: { type: string }
+        created_at: { type: string, format: date-time }
+    EarningsLedgerPage:
+      type: object
+      required: [items]
+      properties:
+        items:
+          type: array
+          items: { $ref: '#/components/schemas/LedgerEntry' }
+        next_cursor: { type: string }

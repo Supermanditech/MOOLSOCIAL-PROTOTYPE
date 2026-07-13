@@ -193,3 +193,18 @@ MoolSocial Admin controls:
 - pause and kill switch.
 
 Users always see the applicable terms before accepting work, publishing a campaign or enabling monetisation.
+
+## 14. Creator economics implementation contract
+
+The eight creator earning sources are implemented as cross-workspace journeys, not creator-only cards. The authoritative flow contract is `shared/creator-economics-flow-contract.json` and the detailed lock is `architecture/CREATOR-EARNING-END-TO-END-LOCK.md`.
+
+Each journey must contain all applicable actors:
+
+1. a verified retailer, manufacturer/supplier, provider, consumer member or MoolSocial funding source;
+2. funding reservation or successful payment before an earning is promised;
+3. creator discovery, terms, acceptance, delivery or publishing;
+4. the qualifying consumer, commerce, membership, content, onboarding, live-event or rights event;
+5. admin governance, fraud, attribution and finance controls;
+6. a source-specific creator ledger entry and payout state.
+
+The approved flow runner contains eight dedicated operational reviews: funded campaign, commerce share, membership, content pool, local content production, verified onboarding, live event and licensed reuse. Production tickets may not collapse these into a generic advertising balance.

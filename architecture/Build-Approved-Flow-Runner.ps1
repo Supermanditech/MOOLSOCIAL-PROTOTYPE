@@ -16,13 +16,13 @@ social|Social Consumer and Creator Entry|Move between Shorts, Videos, Feed and C
 buy-counter|Buy and Counter Pickup|Discover a shop, choose products, checkout, confirm stock, pay, collect and rate.|4,9,10,11,12,13,14,15,16
 buy-delivery|Buy and Home Delivery|Discover, choose, checkout, confirm, pay, track home delivery and rate.|4,9,10,11,12,13,14,17,18
 buy-issue|Order Issue and Resolution|Submit evidence, follow review, receive refund or replacement and use order support chat.|18,19,20,21,22
-chat|Chat Inbox and Threads|Move from the inbox into business and people conversations.|23,24,25
+chat|Chat Inbox and Threads|Move from the inbox into a business conversation, return to the inbox and open a people conversation.|23,24,23,25
 eat-order|Eat - Order Food|Open Eat, choose restaurant food and place an order.|26,27
 eat-table|Eat - Book Table|Open Eat and reserve a restaurant table.|26,28
 eat-tiffin|Eat - Tiffin|Open Eat and choose a menu-led tiffin plan.|26,29
 ride|Ride Consumer Journey|Quote a ride, meet the captain, complete the trip, approve payment, rate and get support.|4,30,31,32,33,34,35
 doctor-booking|Doctor Appointment|Discover care, select a doctor and provide appointment details or reports.|36,37,38
-doctor-invite|Doctor Invite and Follow-up|Invite a walk-in patient, let the patient join and manage the follow-up workspace.|39,40,41
+doctor-invite|Doctor Invite and Follow-up|Invite a walk-in patient, sign in without losing the clinic context and continue follow-up.|39,40,3,41
 salon|Salon Booking and Visit|Choose a salon, confirm the booking, check in, pay, rate and get support.|36,42,43,44,45,46,47
 get-it-done|Get It Done|Describe a task, protect payment, match a helper, verify proof, complete or resolve an issue.|36,48,49,50,51,52,53,54,55,56
 pay-recharge|Pay - Recharge|Choose Recharge, pay and retain the receipt.|57,58,63,64
@@ -30,27 +30,91 @@ pay-bills|Pay - Bills|Choose Bills, pay and retain the receipt.|57,59,63,64
 pay-scan|Pay - Scan|Scan, confirm payment and retain the receipt.|57,60,63,64
 pay-request|Pay Request - Success|Review a request, confirm payment, process it and see the receipt history.|57,61,62,63,64
 pay-refund|Pay Request - Pending Refund|Review and pay a request, then follow a protected pending refund.|57,61,62,63,65
-pay-failure|Pay Request - Failure and Reversal|Review a request and safely handle failure, reversal or retry.|57,61,62,66
+pay-failure|Pay Request - Failure and Reversal|Review a request, pass through payment processing and safely handle failure, reversal or retry.|57,61,62,63,66
 earn-workspace|Earn and Create Work Profile|Discover work, review terms, enter My Work, choose activity, submit proof and activate a workspace.|4,67,68,69,70,71,72,73
 retailer-onboarding|Retailer Workspace Entry|Choose retailer activity, verify it, activate the workspace and enter retailer operations.|70,71,72,73,74
 retailer-orders|Retailer Customer Order|Review an order, fulfil it, assign delivery and complete the handoff.|74,75,76,77
-retailer-pos|Retailer Counter and POS|Create an assisted order, manage counters, complete a POS sale and see the Sales Book.|74,78,79,80,90
-retailer-wholesale|Retailer Wholesale Procurement|Browse wholesale supply, place a purchase order, track and receive goods, post the bill and pay the supplier.|74,81,82,83,84,85,86,87,88,89,91,92
-retailer-books|Retailer Books and Reconciliation|Review sales, stock, business position and cash or bank reconciliation.|74,90,91,92,106
+retailer-pos|Retailer Counter and POS|Create an assisted order, manage counters, return to the order builder, complete a POS sale and see the Sales Book.|74,78,79,78,80,90
+retailer-wholesale|Retailer Wholesale Procurement|Browse wholesale supply, place a purchase order, track and receive goods, post the bill, pay the supplier and return to the Business Book.|74,81,82,83,84,85,86,87,88,89,92
+retailer-books|Retailer Books and Reconciliation|Use the Business Book as the hub for sales, purchases, stock position and cash or bank reconciliation.|92,90,92,87,92,91,92,106
 retailer-services|Retailer Business Services|Choose a professional service, review its plan, activate it and operate the active entitlement.|74,93,94,95,96
-retailer-growth|Retailer Customers and Campaigns|Review customers, inspect a customer, manage campaigns and build an offer.|74,97,98,99,100
-retailer-controls|Retailer Stock and Controls|Review stock, liquidate slow stock, use approval-gated AI, manage staff, settings, issues and money.|74,91,101,102,103,104,105,106
-manufacturer-sales|Manufacturer Sales and Fulfilment|Operate the manufacturer workspace, publish finished products, accept wholesale demand and dispatch goods.|107,109,110,112
+retailer-growth|Retailer Customers and Campaigns|Review a customer, return to the retailer home, then manage campaigns and build a measurable offer.|74,97,98,97,74,99,100
+retailer-controls|Retailer Stock and Controls|Use the retailer workspace as the hub for slow stock, approval-gated AI, staff, settings, issues and money.|74,101,74,102,74,103,74,104,74,105,74,106
+manufacturer-sales|Manufacturer Sales and Fulfilment|Operate the manufacturer workspace, publish finished products, return to live sales orders, accept wholesale demand and dispatch goods.|107,109,107,110,112
 manufacturer-procurement|Manufacturer Input Procurement|Use the manufacturer workspace to buy eligible raw material and review the business book.|107,111,108
-manufacturer-growth|Manufacturer Demand and Services|Build buyer demand, run campaigns and activate manufacturer-specific paid business services.|107,113,115
-manufacturer-control|Manufacturer Claims and Team Control|Resolve claims, control staff and review the manufacturer business position.|107,114,108
-captain-workspace|Captain Ride and Earnings|Go online, accept a ride, navigate, complete it, receive payout, maintain compliance and access support or paid work.|116,117,118,119,120,121,122,123
-creator-workspace|Creator Studio and Earnings|Create, publish, manage content, understand performance, grow community, run campaigns, earn and manage memberships.|124,125,126,127,128,129,130,131,132
+manufacturer-growth|Manufacturer Demand and Services|Use the manufacturer workspace as the hub for buyer demand, campaigns and manufacturer-specific paid business services.|107,113,107,115
+manufacturer-control|Manufacturer Claims and Team Control|Use the manufacturer workspace as the hub for claims, staff control and the manufacturer business position.|107,114,107,108
+captain-workspace|Captain Ride and Earnings|Go online, accept a ride, navigate, complete it and receive payout, then use captain home for compliance and support.|116,117,118,119,120,121,116,122,116,123
+creator-workspace|Creator Studio and Earnings|Use Creator Studio as the hub for create, content, performance, audience, campaigns, earnings, rights and memberships.|124,125,124,126,127,124,128,124,129,124,130,124,131,124,132
+creator-funded-campaign|Creator Earning - Funded Campaign|A retailer reserves campaign money, admin governs it, a creator accepts and delivers, consumers act, attribution closes and the ledger releases payment.|100,152,129,125,5,127,154,130
+creator-commerce-share|Creator Earning - Commerce Share|A business declares an eligible share, the creator publishes linked content, the consumer completes commerce and the verified share reaches the creator ledger.|99,129,125,5,9,14,18,127,154,130
+creator-membership|Creator Earning - Membership|A creator publishes monthly or annual membership, a consumer joins and pays, and the protected recurring amount reaches the creator ledger.|132,7,62,63,130
+creator-content-pool|Creator Earning - Content Pool|Eligible original content receives a versioned performance allocation from a reserved MoolSocial pool and reaches the creator ledger after monthly close.|6,127,154,130
+creator-local-production|Creator Earning - Local Content Work|A local business funds a bounded content brief, the creator delivers it, governance closes approval and the fee reaches the creator ledger.|100,129,125,152,154,130
+creator-onboarding|Creator Earning - Verified Onboarding|MoolSocial reserves verified activation work, the worker accepts, completes proof and receives the qualified payout in the creator ledger.|152,133,134,135,136,137,130
+creator-live-event|Creator Earning - Live Event|A manufacturer funds a live launch, admin approves the audience, a creator hosts it, consumers join and qualified outcomes reach the creator ledger.|113,156,129,125,7,62,63,127,130
+creator-licence|Creator Earning - Licensed Reuse|A business funds a reuse request, the creator approves bounded rights, admin reconciles the licence receipt and the fee reaches the creator ledger.|99,131,154,130
 earn-operations|Freelancer Earn Operations|Discover funded opportunities, prove eligibility, perform work, submit outcome, receive payout and resolve issues.|133,134,135,136,137,138
-provider-workspace|Service Provider Operations|Manage readiness, catalogue, availability, requests, fulfilment, books, growth and control.|139,140,141,142,143,144,145,146
+provider-workspace|Service Provider Operations|Use provider home as the hub for catalogue, availability, requests, fulfilment, business, growth and controls.|139,140,139,141,139,142,143,144,139,145,139,146
 admin-operations|MoolSocial Admin Operations|Govern verification, catalogue, commerce, rides, work, content, finance, support, audience and product health.|147,148,149,150,151,152,153,154,155,156,163,164
-shared-controls|Shared Account and Workspace Controls|Use the priority inbox, identity, universal input, evidence, security, workspaces, settings, analytics and Mool Agent controls.|157,158,159,160,161,162,165
+shared-controls|Shared Account and Workspace Controls|Use Workspaces as the hub for priority activity, identity, universal input, evidence, security, settings, analytics and Mool Agent controls.|162,157,162,158,162,159,162,160,162,161,162,165
 '@ | ConvertFrom-Csv -Delimiter '|'
+
+$flowQueryOverrides = @{
+  'creator-funded-campaign:100' = '?mode=creator&engine=funded_campaign'
+  'creator-funded-campaign:152' = '?engine=funded_campaign'
+  'creator-funded-campaign:129' = '?engine=funded_campaign'
+  'creator-funded-campaign:125' = '?earning=funded_campaign&campaign=CAM-2401'
+  'creator-funded-campaign:5' = '?earning=funded_campaign&campaign=CAM-2401'
+  'creator-funded-campaign:127' = '?engine=funded_campaign&campaign=CAM-2401'
+  'creator-funded-campaign:154' = '?engine=funded_campaign'
+  'creator-funded-campaign:130' = '?source=funded_campaign'
+  'creator-commerce-share:99' = '?mode=creator&engine=attributed_commerce'
+  'creator-commerce-share:129' = '?engine=attributed_commerce'
+  'creator-commerce-share:125' = '?earning=attributed_commerce&sku=BASKET-399'
+  'creator-commerce-share:5' = '?earning=attributed_commerce&content=CT-884&sku=BASKET-399'
+  'creator-commerce-share:9' = '?content=CT-884&sku=BASKET-399'
+  'creator-commerce-share:14' = '?content=CT-884&sku=BASKET-399&attribution=ATTR-884'
+  'creator-commerce-share:18' = '?content=CT-884&sku=BASKET-399&attribution=ATTR-884'
+  'creator-commerce-share:127' = '?engine=attributed_commerce'
+  'creator-commerce-share:154' = '?engine=attributed_commerce'
+  'creator-commerce-share:130' = '?source=attributed_commerce'
+  'creator-membership:132' = '?engine=membership'
+  'creator-membership:7' = '?earning=membership&creator=JodhpurDaily'
+  'creator-membership:62' = '?purpose=membership&amount=99&creator=JodhpurDaily'
+  'creator-membership:63' = '?purpose=membership&amount=99'
+  'creator-membership:130' = '?source=membership'
+  'creator-content-pool:6' = '?earning=content_pool&content=CT-991'
+  'creator-content-pool:127' = '?engine=content_pool'
+  'creator-content-pool:154' = '?engine=content_pool'
+  'creator-content-pool:130' = '?source=content_pool'
+  'creator-local-production:100' = '?mode=creator&engine=local_production'
+  'creator-local-production:129' = '?engine=local_production'
+  'creator-local-production:125' = '?earning=local_production&brief=BR-771'
+  'creator-local-production:152' = '?engine=local_production'
+  'creator-local-production:154' = '?engine=local_production'
+  'creator-local-production:130' = '?source=local_production'
+  'creator-onboarding:152' = '?engine=verified_onboarding'
+  'creator-onboarding:133' = '?engine=verified_onboarding'
+  'creator-onboarding:134' = '?engine=verified_onboarding&opportunity=ONB-118'
+  'creator-onboarding:135' = '?engine=verified_onboarding&work=ONB-118'
+  'creator-onboarding:136' = '?engine=verified_onboarding&work=ONB-118'
+  'creator-onboarding:137' = '?engine=verified_onboarding&work=ONB-118'
+  'creator-onboarding:130' = '?source=verified_onboarding'
+  'creator-live-event:113' = '?mode=creator&engine=live_event'
+  'creator-live-event:156' = '?engine=live_event'
+  'creator-live-event:129' = '?engine=live_event'
+  'creator-live-event:125' = '?earning=live_event&event=LIVE-72'
+  'creator-live-event:7' = '?earning=live_event&event=LIVE-72'
+  'creator-live-event:62' = '?purpose=live_event&event=LIVE-72&amount=0'
+  'creator-live-event:63' = '?purpose=live_event&event=LIVE-72&amount=0'
+  'creator-live-event:127' = '?engine=live_event&event=LIVE-72'
+  'creator-live-event:130' = '?source=live_event'
+  'creator-licence:99' = '?mode=creator&engine=licensed_reuse'
+  'creator-licence:131' = '?engine=licensed_reuse&state=review'
+  'creator-licence:154' = '?engine=licensed_reuse'
+  'creator-licence:130' = '?source=licensed_reuse'
+}
 
 $screenFiles = @{}
 $screenContracts = @{}
@@ -89,7 +153,7 @@ $flows = foreach ($flow in $flowRows) {
     [pscustomobject][ordered]@{
       index = $index
       screen = $screen
-      file = $base.file
+      file = $base.file + $(if ($flowQueryOverrides.ContainsKey("$($flow.id):$screen")) { $flowQueryOverrides["$($flow.id):$screen"] } else { '' })
       title = $base.title
       approval = $base.approval
       previousScreen = if ($index -gt 0) { $screenNumbers[$index - 1] } else { $null }

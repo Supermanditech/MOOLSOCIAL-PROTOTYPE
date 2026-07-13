@@ -873,5 +873,14 @@
       </div>
     </section>
   </main>
-<script type="application/json" id="productionRouteContract">{"contractVersion":"mvp-route-lock-2026-07-12","prototypeScreen":1,"productionModule":"launch","routeId":"app.launch","routePath":"/launch","routeState":"splash","implementation":"route-state","launchScope":"mvp-core","separateProductionRoute":false,"productionNote":"Do not create a separate production route. Implement splash inside /launch and reuse the owning route API, authorization, analytics and regression suite.","canonicalMap":"architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"}</script><script type="application/json" id="prototypeApprovalContract">{"prototypeScreen":1,"status":"approved-and-frozen","authoritative":true,"approvedAt":"2026-07-12","approvalScope":"prototype-ui-ux-and-production-contract"}</script></body>
+<script>
+  (() => {
+    const params = new URLSearchParams(window.location.search);
+    const source = params.get('source') || 'app-open';
+    window.setTimeout(() => {
+      window.location.href = `02-first-setup-language-location.html?source=${encodeURIComponent(source)}&languageSource=device`;
+    }, 1200);
+  })();
+</script>
+<script type="application/json" id="productionRouteContract">{"contractVersion":"mvp-route-lock-2026-07-12","prototypeScreen":1,"productionModule":"launch","routeId":"app.launch","routePath":"/launch","routeState":"splash","implementation":"route-state","launchScope":"mvp-core","separateProductionRoute":false,"productionNote":"Do not create a separate production route. Implement splash inside /launch and reuse the owning route API, authorization, analytics and regression suite.","canonicalMap":"architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"}</script><script type="application/json" id="prototypeApprovalContract">{"prototypeScreen":1,"status":"approved-and-frozen","authoritative":true,"approvedAt":"2026-07-13"}</script></body>
 </html>

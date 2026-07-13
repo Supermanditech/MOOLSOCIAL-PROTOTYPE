@@ -1497,7 +1497,8 @@
     function setMode(mode) {
       const copy = modeCopy[mode] || modeCopy.Text;
       modeButtons.forEach((button) => button.classList.toggle("active", button.dataset.mode === mode));
-      subtitle.textContent = copy.subtitle;
+      modeButtons.forEach((button) => button.setAttribute("aria-pressed", String(button.dataset.mode === mode)));
+      subtitle.textContent = `${mode} selected · ${copy.subtitle}`;
       label.textContent = copy.label;
       textarea.placeholder = copy.placeholder;
       uploadTitle.textContent = copy.title;
@@ -1535,6 +1536,24 @@
         saveDraft.innerHTML = original;
       }, 1200);
     });
+
+    const requestedMode = new URLSearchParams(window.location.search).get("mode");
+    if (requestedMode) {
+      const normalizedMode = requestedMode.charAt(0).toUpperCase() + requestedMode.slice(1).toLowerCase();
+      if (modeCopy[normalizedMode]) setMode(normalizedMode);
+    }
+
+    document.querySelector(".mool-button")?.addEventListener("click", () => {
+      window.location.href = "04-universal-focus-shell.html?world=social";
+    });
+    document.querySelector(".dock-tab.active")?.addEventListener("click", () => {
+      label.textContent = `${label.textContent.replace(" · Create is open", "")} · Create is open`;
+    });
+    document.querySelector(".chat-button")?.addEventListener("click", () => {
+      window.location.href = "23-chat-inbox-home.html?from=create";
+    });
   </script>
+<script type="application/json" id="productionRouteContract">{"contractVersion":"mvp-route-lock-2026-07-12","prototypeScreen":8,"productionModule":"social","routeId":"social.create","routePath":"/social/create","routeState":"composer","implementation":"route-shell","launchScope":"mvp-core","separateProductionRoute":true,"productionNote":"Own production route /social/create. Implement composer as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.","canonicalMap":"architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"}</script><script type="application/json" id="prototypeApprovalContract">{"prototypeScreen":8,"status":"approved-and-frozen","authoritative":true,"approvedAt":"2026-07-12","approvalScope":"prototype-ui-ux-and-production-contract"}</script>  <script src="../shared/prototype-interaction-contracts.js"></script>
+  <script src="../shared/prototype-interaction-runtime.js"></script>
 </body>
 </html>

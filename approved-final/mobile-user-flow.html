@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#000080">
+  <title>MoolSocial Mobile User Flow Test</title>
+  <style>
+    :root{font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#000080;background:#eaf0f8}
+    *{box-sizing:border-box}
+    html,body{margin:0;min-height:100%;background:#eaf0f8}
+    body{display:grid;place-items:start center}
+    button,select{font:inherit}
+    .runner{width:min(100%,440px);min-height:100dvh;background:#fff;display:grid;grid-template-rows:auto 1fr;box-shadow:0 0 34px rgba(0,0,128,.16)}
+    .runner-head{position:relative;z-index:20;background:#000080;color:#fff;padding:calc(7px + env(safe-area-inset-top)) 10px 8px;display:grid;gap:6px}
+    .head-row{display:grid;grid-template-columns:36px minmax(0,1fr) 36px;align-items:center;gap:7px}
+    .icon{width:36px;height:36px;border:1px solid rgba(255,255,255,.46);border-radius:50%;background:transparent;color:#fff;font-size:20px;font-weight:800;display:grid;place-items:center}
+    .flow-select{width:100%;height:36px;border:1px solid rgba(255,255,255,.46);border-radius:8px;background:#fff;color:#000080;padding:0 30px 0 10px;font-weight:800;font-size:13px}
+    .progress-row{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:10px}
+    .progress{height:3px;border-radius:99px;background:rgba(255,255,255,.28);overflow:hidden}
+    .progress i{display:block;height:100%;width:0;background:#ff9933;transition:width .25s ease}
+    .counter{font-size:10px;font-weight:800;white-space:nowrap}
+    .instruction{min-height:16px;font-size:11px;font-weight:700;line-height:1.25;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#fff}
+    .viewer{position:relative;min-height:0;background:#fff;overflow:hidden}
+    iframe{display:block;width:100%;height:100%;min-height:calc(100dvh - 96px);border:0;background:#fff}
+    .event{position:absolute;z-index:10;left:50%;top:16px;transform:translate(-50%,-12px);width:min(90%,360px);padding:10px 12px;border-radius:8px;background:#fff;color:#000080;border:1px solid #aeb8d9;box-shadow:0 10px 30px rgba(0,0,40,.22);font-size:11px;font-weight:800;text-align:center;opacity:0;pointer-events:none;transition:.2s}
+    .event.show{opacity:1;transform:translate(-50%,0)}
+    .finish{position:absolute;z-index:12;inset:0;background:rgba(0,0,40,.64);display:grid;place-items:center;padding:24px}
+    .finish[hidden]{display:none}
+    .finish-card{width:100%;background:#fff;border-radius:8px;padding:22px;display:grid;gap:12px;text-align:center;box-shadow:0 20px 50px rgba(0,0,40,.28)}
+    .finish-card b{font-size:20px}.finish-card p{margin:0;color:#505b72;font-size:13px;line-height:1.45}
+    .finish-card button{height:44px;border:0;border-radius:7px;background:#000080;color:#fff;font-weight:900}
+    .finish-card button.secondary{background:#f2f4fa;color:#000080;border:1px solid #cdd4e8}
+    .error{position:absolute;z-index:15;inset:auto 10px 10px;padding:12px;border-radius:8px;background:#fff1f1;border:1px solid #d82c2c;color:#8b1111;font-size:11px;font-weight:800;display:none}
+    .error.show{display:block}
+    @media(min-width:600px){body{padding:18px}.runner{min-height:calc(100dvh - 36px);border-radius:18px;overflow:hidden}.runner-head{padding-top:9px}iframe{min-height:calc(100dvh - 132px)}}
+  </style>
+</head>
+<body>
+  <main class="runner">
+    <header class="runner-head">
+      <div class="head-row">
+        <button class="icon" id="flowMenu" aria-label="Choose operational flow">☰</button>
+        <select class="flow-select" id="flowSelect" aria-label="Operational flow"></select>
+        <button class="icon" id="restart" aria-label="Restart this flow">↻</button>
+      </div>
+      <div class="progress-row"><span class="progress"><i id="progressBar"></i></span><span class="counter" id="counter">0 / 0</span></div>
+      <div class="instruction" id="instruction">Loading verified flows...</div>
+    </header>
+    <section class="viewer">
+      <iframe id="appFrame" title="MoolSocial mobile prototype"></iframe>
+      <div class="event" id="event"></div>
+      <div class="error" id="error"></div>
+      <section class="finish" id="finish" hidden>
+        <div class="finish-card">
+          <b>Flow completed</b>
+          <p id="finishText"></p>
+          <button id="restartFinish">Test this flow again</button>
+          <button class="secondary" id="nextFlow">Open next flow</button>
+        </div>
+      </section>
+    </section>
+  </main>
+  <script>
+    const auditMode=new URLSearchParams(location.search).get('audit')==='1';
+    const flowRunToken=Date.now().toString(36);
+    const wait=(normal,fast=45)=>auditMode?fast:normal;
+    const state={manifest:null,actions:null,flow:null,nodeIndex:0,actionIndex:0,timer:null,frameReady:false,bindingGeneration:0};
+    const frame=document.getElementById('appFrame');
+    const select=document.getElementById('flowSelect');
+    const instruction=document.getElementById('instruction');
+    const counter=document.getElementById('counter');
+    const progressBar=document.getElementById('progressBar');
+    const eventBox=document.getElementById('event');
+    const errorBox=document.getElementById('error');
+    const finish=document.getElementById('finish');
+
+    const normalize=value=>String(value||'').replace(/\s+/g,' ').trim().toLowerCase();
+    const screenNumber=url=>{const match=String(url||'').match(/\/(\d{2,3})-/);return match?Number(match[1]):null};
+    const nodeUrl=node=>{
+      const url=new URL(node.file,location.href);
+      url.searchParams.set('flowRun',flowRunToken);
+      if(state.flow?.id)url.searchParams.set('flowId',state.flow.id);
+      return url.href;
+    };
+    const controlLabel=el=>normalize(el.getAttribute('aria-label')||el.getAttribute('title')||el.innerText||el.textContent);
+    const controls=doc=>[...doc.querySelectorAll('a,button,[role="button"],input[type="checkbox"],input[type="radio"]')].filter(el=>!el.disabled&&el.getAttribute('aria-disabled')!=='true');
+    const currentContract=()=>{
+      const next=state.flow?.nodes[state.nodeIndex+1];
+      if(!next)return null;
+      const pair=`${state.flow.nodes[state.nodeIndex].screen}>${next.screen}`;
+      return state.actions.flowOverrides[`${state.flow.id}:${pair}`]||state.actions.pairDefaults[pair]||null;
+    };
+
+    function showEvent(message,duration=1250){
+      eventBox.textContent=message;eventBox.classList.add('show');
+      setTimeout(()=>eventBox.classList.remove('show'),duration);
+    }
+    function showError(message){errorBox.textContent=message;errorBox.classList.add('show')}
+    function clearError(){errorBox.classList.remove('show');errorBox.textContent=''}
+    function setProgress(){
+      const total=state.flow.nodes.length;
+      counter.textContent=`${Math.min(state.nodeIndex+1,total)} / ${total}`;
+      progressBar.style.width=`${((state.nodeIndex+1)/total)*100}%`;
+    }
+    function setInstruction(text){instruction.textContent=text}
+    function clearTimer(){if(state.timer){clearTimeout(state.timer);state.timer=null}}
+    function clearHighlights(doc){
+      doc.querySelectorAll('[data-mool-flow-target]').forEach(el=>{el.style.removeProperty('outline');el.style.removeProperty('outline-offset');el.removeAttribute('data-mool-flow-target')});
+      doc.querySelectorAll('[data-mool-flow-rail]').forEach(el=>{el.style.removeProperty('scroll-snap-type');el.style.removeProperty('scroll-behavior');el.removeAttribute('data-mool-flow-rail')});
+    }
+    function highlight(elements){
+      elements.forEach(el=>{el.dataset.moolFlowTarget='true';el.style.setProperty('outline','3px solid #ff9933','important');el.style.setProperty('outline-offset','2px','important')});
+      const first=elements[0];
+      first?.scrollIntoView({block:'center',inline:'center',behavior:auditMode?'auto':'smooth'});
+      const rootRail=first?.closest('[data-context-dock]');
+      if(rootRail&&first?.dataset.rootCycle){
+        rootRail.dataset.moolFlowRail='true';
+        rootRail.onscroll=null;
+        rootRail.style.setProperty('scroll-snap-type','none','important');
+        rootRail.style.setProperty('scroll-behavior','auto','important');
+        const centreRootAction=()=>{
+          const railBox=rootRail.getBoundingClientRect();
+          const targetBox=first.getBoundingClientRect();
+          rootRail.scrollLeft+=(targetBox.left+targetBox.width/2)-(railBox.left+railBox.width/2);
+        };
+        centreRootAction();
+        [wait(90,35),wait(260,90),wait(560,180),wait(900,650)].forEach(delay=>setTimeout(centreRootAction,delay));
+      }
+    }
+    function findAction(doc,action){
+      const needle=normalize(action);
+      const matches=controls(doc).filter(el=>controlLabel(el).includes(needle));
+      const rendered=matches.filter(el=>{
+        const r=el.getBoundingClientRect();
+        const style=frame.contentWindow.getComputedStyle(el);
+        return r.width>0&&r.height>0&&style.display!=='none'&&style.visibility!=='hidden'&&style.pointerEvents!=='none'&&Number.parseFloat(style.opacity||'1')>.05;
+      });
+      const rootCopies=rendered.filter(el=>el.dataset.rootCycle);
+      if(rootCopies.length){
+        const centreCopy=rootCopies.find(el=>el.dataset.rootCycle==='1');
+        if(centreCopy)return [centreCopy];
+        const viewportCentre=(frame.contentWindow.innerWidth||0)/2;
+        return [rootCopies.sort((a,b)=>Math.abs((a.getBoundingClientRect().left+a.getBoundingClientRect().width/2)-viewportCentre)-Math.abs((b.getBoundingClientRect().left+b.getBoundingClientRect().width/2)-viewportCentre))[0]];
+      }
+      const visible=rendered.filter(el=>{const r=el.getBoundingClientRect();return r.bottom>0&&r.right>0&&r.top<frame.contentWindow.innerHeight&&r.left<frame.contentWindow.innerWidth});
+      return visible.length?visible:(rendered.length?rendered:matches);
+    }
+    function findDirect(doc,target){
+      const targetFile=new URL(nodeUrl(target)).pathname.split('/').pop();
+      return controls(doc).filter(el=>{
+        if(el.tagName!=='A'||!el.href)return false;
+        try{return new URL(el.href,frame.contentWindow.location.href).pathname.split('/').pop()===targetFile}catch{return false}
+      });
+    }
+    function navigateTarget(target){frame.src=nodeUrl(target)}
+    function markComplete(){
+      clearTimer();
+      const done=JSON.parse(localStorage.getItem('mool-flow-complete')||'{}');done[state.flow.id]=true;localStorage.setItem('mool-flow-complete',JSON.stringify(done));
+      finish.hidden=false;document.getElementById('finishText').textContent=`${state.flow.title} passed through ${state.flow.nodes.length} verified states without a reviewer-only Next button.`;
+      populateFlows();
+    }
+    function advance(){
+      clearTimer();state.actionIndex=0;state.nodeIndex++;
+      setProgress();
+      if(state.nodeIndex>=state.flow.nodes.length-1){markComplete();return}
+      setTimeout(prepareStep,wait(160,60));
+    }
+    function actionDone(contract,target,sourceIndex){
+      if(contract.mode==='direct'){
+        state.timer=setTimeout(()=>{
+          if(state.nodeIndex!==sourceIndex)return;
+          const now=screenNumber(frame.contentWindow.location.href);
+          if(now===target.screen){advance();return}
+          showError(`The selected action did not open Screen ${target.screen}.`);
+          setInstruction('Blocked transition');
+        },wait(520,90));
+        return;
+      }
+      state.actionIndex++;
+      if(state.actionIndex<(contract.actions||[]).length){
+        setTimeout(prepareStep,wait(280,260));return;
+      }
+      const now=screenNumber(frame.contentWindow.location.href);
+      if(now===target.screen){advance();return}
+      if(contract.event)showEvent(contract.event);
+      state.timer=setTimeout(()=>navigateTarget(target),wait(contract.mode.includes('handoff')?700:360,180));
+    }
+    function bindExpected(doc,elements,contract,target,bindingGeneration){
+      let handled=false;
+      const handler=()=>{
+        if(handled||bindingGeneration!==state.bindingGeneration)return;handled=true;
+        const sourceIndex=state.nodeIndex;
+        clearHighlights(doc);
+        setInstruction('Opening next verified state...');
+        setTimeout(()=>actionDone(contract,target,sourceIndex),wait(80,20));
+      };
+      const documentHandler=event=>{
+        const target=event.composedPath().find(node=>node?.dataset?.moolFlowTarget==='true');
+        if(target)handler();
+      };
+      doc.addEventListener('click',documentHandler,true);
+    }
+    function prepareStep(){
+      clearTimer();clearError();finish.hidden=true;
+      const bindingGeneration=++state.bindingGeneration;
+      const current=state.flow.nodes[state.nodeIndex];
+      const target=state.flow.nodes[state.nodeIndex+1];
+      if(!target){markComplete();return}
+      let doc;
+      try{doc=frame.contentDocument}catch{showError('This flow must run from the same hosted MoolSocial prototype.');return}
+      if(!doc)return;
+      clearHighlights(doc);
+      const contract=currentContract();
+      if(contract?.mode==='automatic'){
+        setInstruction(`Automatic: ${contract.event}`);showEvent(contract.event,1450);
+        state.timer=setTimeout(()=>navigateTarget(target),wait(1250));return;
+      }
+      if(contract){
+        const action=contract.actions?.[state.actionIndex];
+        if(!action){
+          showError('Flow contract exhausted its actions before this transition completed.');
+          setInstruction('Blocked transition');return;
+        }
+        const matches=findAction(doc,action);
+        if(!matches.length){
+          showError(`Flow contract could not find “${action}” on this state.`);
+          setInstruction(`Blocked: ${action}`);return;
+        }
+        const targetFile=new URL(nodeUrl(target)).pathname.split('/').pop();
+        const directMatches=matches.filter(element=>element.tagName==='A'&&new URL(element.href,frame.contentWindow.location.href).pathname.split('/').pop()===targetFile);
+        const nativeDirect=directMatches.length>0;
+        const actionableMatches=nativeDirect?directMatches:matches;
+        const effectiveContract=nativeDirect?{...contract,mode:'direct'}:contract;
+        setInstruction(`Tap: ${action}`);highlight(actionableMatches);bindExpected(doc,actionableMatches,effectiveContract,target,bindingGeneration);return;
+      }
+      const direct=findDirect(doc,target);
+      if(!direct.length){
+        showError(`No verified user action connects Screen ${current.screen} to Screen ${target.screen}.`);
+        setInstruction('Blocked transition');return;
+      }
+      const label=(direct[0].getAttribute('aria-label')||direct[0].innerText||'continue').trim();
+      const directContract={mode:'direct',actions:[label]};
+      setInstruction(`Tap: ${label}`);highlight(direct);bindExpected(doc,direct,directContract,target,bindingGeneration);
+    }
+    function onFrameLoad(){
+      const loadedUrl=new URL(frame.contentWindow.location.href);
+      if(loadedUrl.searchParams.get('flowRun')!==flowRunToken){
+        loadedUrl.searchParams.set('flowRun',flowRunToken);
+        if(state.flow?.id)loadedUrl.searchParams.set('flowId',state.flow.id);
+        frame.contentWindow.location.replace(loadedUrl.href);
+        return;
+      }
+      clearTimer();
+      const actual=screenNumber(frame.contentWindow.location.href);
+      const expected=state.flow?.nodes[state.nodeIndex]?.screen;
+      const next=state.flow?.nodes[state.nodeIndex+1]?.screen;
+      if(actual===next){
+        advance();
+        return
+      }
+      if(actual!==expected&&state.actionIndex===0){
+        showError(`Unexpected route opened: Screen ${actual??'unknown'}; expected Screen ${expected}.`);return
+      }
+      if(state.actionIndex>0){
+        setTimeout(prepareStep,wait(180,90));
+        return
+      }
+      setTimeout(()=>{
+        if(screenNumber(frame.contentWindow.location.href)===state.flow?.nodes[state.nodeIndex]?.screen)prepareStep();
+      },wait(180,90));
+    }
+    function startFlow(id){
+      const flow=state.manifest.flows.find(item=>item.id===id)||state.manifest.flows.find(item=>item.id===state.manifest.defaultFlow);
+      state.flow=flow;state.nodeIndex=0;state.actionIndex=0;clearTimer();clearError();finish.hidden=true;
+      select.value=flow.id;history.replaceState(null,'',`?flow=${encodeURIComponent(flow.id)}`);
+      setProgress();setInstruction('Loading first state...');frame.src=nodeUrl(flow.nodes[0]);
+    }
+    function populateFlows(){
+      const completed=JSON.parse(localStorage.getItem('mool-flow-complete')||'{}');
+      const current=select.value;
+      select.innerHTML=state.manifest.flows.filter(flow=>flow.id!=='all-approved').map(flow=>`<option value="${flow.id}">${completed[flow.id]?'✓ ':''}${flow.title}</option>`).join('');
+      if(current)select.value=current;
+    }
+    function openNextFlow(){
+      const flows=state.manifest.flows.filter(flow=>flow.id!=='all-approved');
+      const index=flows.findIndex(flow=>flow.id===state.flow.id);startFlow(flows[(index+1)%flows.length].id);
+    }
+    async function boot(){
+      try{
+        const [manifest,actions]=await Promise.all([fetch('flows/approved-flows.json',{cache:'no-store'}).then(r=>r.json()),fetch('quality/mobile-user-flow-actions.json',{cache:'no-store'}).then(r=>r.json())]);
+        state.manifest=manifest;state.actions=actions;populateFlows();
+        const requested=new URLSearchParams(location.search).get('flow')||manifest.defaultFlow;startFlow(requested);
+      }catch(error){showError(`Could not load verified flow contracts: ${error.message}`)}
+    }
+    frame.addEventListener('load',onFrameLoad);
+    select.addEventListener('change',()=>startFlow(select.value));
+    document.getElementById('restart').addEventListener('click',()=>startFlow(state.flow.id));
+    document.getElementById('restartFinish').addEventListener('click',()=>startFlow(state.flow.id));
+    document.getElementById('nextFlow').addEventListener('click',openNextFlow);
+    document.getElementById('flowMenu').addEventListener('click',()=>select.focus());
+    boot();
+  </script>
+</body>
+</html>
