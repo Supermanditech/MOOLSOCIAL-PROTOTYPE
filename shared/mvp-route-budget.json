@@ -50,7 +50,7 @@
       "routeAllowance": 10,
       "workspaceTypes": ["MoolSocial operations", "verification", "commerce operations", "ride operations", "content trust and safety", "finance operations"],
       "capabilityKeys": ["command-centre", "verification", "catalogue-governance", "order-exceptions", "ride-exceptions", "work-governance", "content-moderation", "finance-reconciliation", "support-sla", "configuration-analytics"],
-      "mustSolve": ["operations command centre", "workspace verification", "catalogue and SKU governance", "order and fulfilment exceptions", "ride and captain exceptions", "work and campaign governance", "content moderation", "payments refunds and reconciliation", "support disputes and SLA", "configuration audit and analytics"]
+      "mustSolve": ["operations command centre", "workspace verification", "catalogue and SKU governance", "order and fulfilment exceptions", "ride and captain exceptions", "work and campaign governance", "content moderation", "payments refunds and reconciliation", "support disputes and SLA", "audience communications offers feature launches configuration audit and analytics"]
     },
     {
       "budgetBucket": "shared_cross_workspace",
