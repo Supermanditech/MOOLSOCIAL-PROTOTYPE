@@ -1,9 +1,9 @@
 {
-  "version": "prototype-approval-lock-2026-07-12",
+  "version": "prototype-approval-lock-2026-07-13",
   "authoritative": true,
-  "approvedThroughScreen": 106,
-  "approvedPrototypeCount": 107,
-  "note": "Screens 00 through 106 are approved and frozen. Production route implementation remains controlled by productionRouteContract.",
+  "approvedThroughScreen": 165,
+  "approvedPrototypeCount": 166,
+  "note": "Screens 00 through 165 are user-approved prototype references. Production readiness still requires route, contract, regression, security and launch gates.",
   "approvals": [
     {
       "prototypeScreen": 0,
@@ -542,6 +542,12 @@
       "approvedAt": "2026-07-12"
     },
     {
+      "prototypeScreen": 107,
+      "status": "approved-and-frozen",
+      "authoritative": true,
+      "approvedAt": "2026-07-12"
+    },
+    {
       "prototypeScreen": 108,
       "status": "approved-and-frozen",
       "authoritative": true,
@@ -560,10 +566,34 @@
       "approvedAt": "2026-07-12"
     },
     {
-      "prototypeScreen": 107,
+      "prototypeScreen": 111,
       "status": "approved-and-frozen",
       "authoritative": true,
-      "approvedAt": "2026-07-12"
+      "approvedAt": "2026-07-13"
+    },
+    {
+      "prototypeScreen": 112,
+      "status": "approved-and-frozen",
+      "authoritative": true,
+      "approvedAt": "2026-07-13"
+    },
+    {
+      "prototypeScreen": 113,
+      "status": "approved-and-frozen",
+      "authoritative": true,
+      "approvedAt": "2026-07-13"
+    },
+    {
+      "prototypeScreen": 114,
+      "status": "approved-and-frozen",
+      "authoritative": true,
+      "approvedAt": "2026-07-13"
+    },
+    {
+      "prototypeScreen": 115,
+      "status": "approved-and-frozen",
+      "authoritative": true,
+      "approvedAt": "2026-07-13"
     },
     {
       "prototypeScreen": 116,
@@ -747,6 +777,120 @@
     },
     {
       "prototypeScreen": 146,
+      "status": "approved-and-frozen",
+      "authoritative": true,
+      "approvedAt": "2026-07-13"
+    },
+    {
+      "prototypeScreen": 147,
+      "status": "approved-and-frozen",
+      "authoritative": true,
+      "approvedAt": "2026-07-13"
+    },
+    {
+      "prototypeScreen": 148,
+      "status": "approved-and-frozen",
+      "authoritative": true,
+      "approvedAt": "2026-07-13"
+    },
+    {
+      "prototypeScreen": 149,
+      "status": "approved-and-frozen",
+      "authoritative": true,
+      "approvedAt": "2026-07-13"
+    },
+    {
+      "prototypeScreen": 150,
+      "status": "approved-and-frozen",
+      "authoritative": true,
+      "approvedAt": "2026-07-13"
+    },
+    {
+      "prototypeScreen": 151,
+      "status": "approved-and-frozen",
+      "authoritative": true,
+      "approvedAt": "2026-07-13"
+    },
+    {
+      "prototypeScreen": 152,
+      "status": "approved-and-frozen",
+      "authoritative": true,
+      "approvedAt": "2026-07-13"
+    },
+    {
+      "prototypeScreen": 153,
+      "status": "approved-and-frozen",
+      "authoritative": true,
+      "approvedAt": "2026-07-13"
+    },
+    {
+      "prototypeScreen": 154,
+      "status": "approved-and-frozen",
+      "authoritative": true,
+      "approvedAt": "2026-07-13"
+    },
+    {
+      "prototypeScreen": 155,
+      "status": "approved-and-frozen",
+      "authoritative": true,
+      "approvedAt": "2026-07-13"
+    },
+    {
+      "prototypeScreen": 156,
+      "status": "approved-and-frozen",
+      "authoritative": true,
+      "approvedAt": "2026-07-13"
+    },
+    {
+      "prototypeScreen": 157,
+      "status": "approved-and-frozen",
+      "authoritative": true,
+      "approvedAt": "2026-07-13"
+    },
+    {
+      "prototypeScreen": 158,
+      "status": "approved-and-frozen",
+      "authoritative": true,
+      "approvedAt": "2026-07-13"
+    },
+    {
+      "prototypeScreen": 159,
+      "status": "approved-and-frozen",
+      "authoritative": true,
+      "approvedAt": "2026-07-13"
+    },
+    {
+      "prototypeScreen": 160,
+      "status": "approved-and-frozen",
+      "authoritative": true,
+      "approvedAt": "2026-07-13"
+    },
+    {
+      "prototypeScreen": 161,
+      "status": "approved-and-frozen",
+      "authoritative": true,
+      "approvedAt": "2026-07-13"
+    },
+    {
+      "prototypeScreen": 162,
+      "status": "approved-and-frozen",
+      "authoritative": true,
+      "approvedAt": "2026-07-13"
+    },
+    {
+      "prototypeScreen": 163,
+      "status": "approved-and-frozen",
+      "authoritative": true,
+      "approvedAt": "2026-07-13"
+    },
+    {
+      "prototypeScreen": 164,
+      "status": "approved-and-frozen",
+      "authoritative": true,
+      "approvedAt": "2026-07-13"
+    },
+    {
+      "prototypeScreen": 165,
       "status": "approved-and-frozen",
       "authoritative": true,
       "approvedAt": "2026-07-13"

@@ -22,6 +22,12 @@
       "path": "shared/agentic-work-manager-contract.json",
       "appliesTo": "personal accounts and every verified workspace type with an active agent entitlement",
       "required": true
+    },
+    {
+      "contractId": "workspace-earning-and-revenue-engine",
+      "path": "shared/workspace-economics-contract.json",
+      "appliesTo": "all earning, monetization, campaign, referral, commerce and workspace revenue states",
+      "required": true
     }
   ],
   "routes": [

@@ -1,0 +1,72 @@
+{
+  "contractVersion": "workspace-economics-v1-2026-07-13",
+  "architectureLock": "architecture/WORKSPACE-EARNING-AND-REVENUE-ENGINE-LOCK.md",
+  "appliesTo": "all earning, monetization, campaign, referral, commerce and workspace revenue states",
+  "coreRule": "no earning opportunity or incentive may be published without a reserved funding source and verified release outcome",
+  "earningDisclosure": [
+    "funder",
+    "eligible user and workspace",
+    "required verified outcome",
+    "gross funded amount",
+    "platform fee and deductions",
+    "net user earning",
+    "funded capacity",
+    "release time",
+    "rejection and dispute rule",
+    "daily monthly and campaign cap"
+  ],
+  "workspaceEngines": {
+    "consumer": ["retained referral", "demand aggregation reward", "consented local task", "workspace conversion"],
+    "creator": ["campaign fee", "attributed commerce", "membership", "content pool", "local studio", "verified onboarding", "event", "content licence"],
+    "freelancer": ["onboarding", "catalogue digitisation", "content", "verification", "sales activation", "delivery", "customer success", "qualified professional work"],
+    "retailer": ["consumer sales", "procurement savings", "own delivery", "manufacturer incentive", "onboarding", "slow stock liquidation", "retention uplift"],
+    "manufacturer_supplier": ["wholesale sales", "aggregated demand", "campaign conversion", "exclusive contract", "buyer activation", "logistics", "input savings"],
+    "captain_transporter": ["ride", "delivery", "scheduled trip", "field task", "onboarding", "campaign", "business transport"],
+    "food_salon_provider": ["order", "subscription", "booking", "delivery", "creator demand", "campaign", "off peak capacity"],
+    "doctor_professional": ["appointment", "follow up", "qualified service", "administration", "workspace subscription"]
+  },
+  "moolSocialRevenue": [
+    "B2B procurement margin or commission",
+    "B2C transaction fee",
+    "ride delivery and transport orchestration fee",
+    "workspace SaaS subscription",
+    "Mool Agent monthly subscription",
+    "advertisement and sponsored campaign fee",
+    "creator campaign membership and commerce platform fee",
+    "business services and success fee",
+    "exclusive sales sourcing and territory contract",
+    "advanced analytics and integration"
+  ],
+  "requiredMetrics": [
+    "verified activation",
+    "day 1 retention",
+    "day 7 retention",
+    "first meaningful action",
+    "first transaction",
+    "gross user earning",
+    "net user earning",
+    "MoolSocial contribution",
+    "cost per retained user",
+    "fraud loss",
+    "payout latency"
+  ],
+  "adminControls": [
+    "workspace and geography eligibility",
+    "reserved funding balance",
+    "payout formula and cap",
+    "platform fee and tax treatment",
+    "live capacity and expiry",
+    "evidence and quality rule",
+    "fraud duplicate and clawback rule",
+    "attribution window",
+    "pause and kill switch"
+  ],
+  "productionRules": [
+    "savings cashback and earnings are separate values",
+    "monthly potential uses live funded capacity and user eligibility",
+    "install only and OTP only incentives are prohibited",
+    "no client hard codes payout or fee terms",
+    "professional and healthcare monetization requires applicable legal review",
+    "no hidden customer surcharge or personal data sale"
+  ]
+}

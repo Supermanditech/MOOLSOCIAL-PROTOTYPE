@@ -253,7 +253,11 @@ if ($Action -eq 'Approve') {
   Copy-Item -LiteralPath $source.FullName -Destination (Join-Path (Join-Path $Root 'approved-final\screens') $source.Name) -Force
 
   $approvalRegistry = if (Test-Path $approvalRegistryPath) { Read-Json $approvalRegistryPath } else { [pscustomobject]@{ version='1'; approvals=@() } }
-  $approvalRegistry.approvals = @($approvalRegistry.approvals | Where-Object { [int]$_.prototypeScreen -ne $Screen }) + $approval
+  $approvalRegistry.approvals = @(@($approvalRegistry.approvals | Where-Object { [int]$_.prototypeScreen -ne $Screen }) + $approval | Sort-Object { [int]$_.prototypeScreen })
+  $approvalRegistry.version = 'prototype-approval-lock-2026-07-13'
+  $approvalRegistry.approvedPrototypeCount = @($approvalRegistry.approvals).Count
+  $approvalRegistry.approvedThroughScreen = [int](@($approvalRegistry.approvals | Measure-Object -Property prototypeScreen -Maximum).Maximum)
+  $approvalRegistry.note = "Screens 00 through $($approvalRegistry.approvedThroughScreen) are user-approved prototype references. Production readiness still requires route, contract, regression, security and launch gates."
   Write-Json $approvalRegistryPath $approvalRegistry
   Write-Json (Join-Path $Root 'approved-final\shared\prototype-approval-registry.json') $approvalRegistry
   Copy-Item -LiteralPath $routeMapPath -Destination $approvedRouteMapPath -Force
