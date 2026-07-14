@@ -1516,7 +1516,7 @@
                                         "index":  100,
                                         "screen":  100,
                                         "file":  "screens/100-retailer-offer-campaign-builder.html",
-                                        "title":  "100 Retailer Offer and Campaign Builder - MoolSocial Screenbook",
+                                        "title":  "\n      100 Retailer Offer and Campaign Builder - MoolSocial Screenbook\n    ",
                                         "approval":  "approved-and-frozen",
                                         "previousScreen":  99,
                                         "nextScreen":  101,
@@ -1711,7 +1711,7 @@
                                         "index":  113,
                                         "screen":  113,
                                         "file":  "screens/113-manufacturer-buyers-demand-campaigns.html",
-                                        "title":  "113 Manufacturer Buyers Demand and Campaigns - MoolSocial Screenbook",
+                                        "title":  "\n      113 Manufacturer Buyers Demand and Campaigns - MoolSocial Screenbook\n    ",
                                         "approval":  "approved-and-frozen",
                                         "previousScreen":  112,
                                         "nextScreen":  114,
@@ -2590,7 +2590,7 @@
                   {
                       "id":  "social",
                       "title":  "Social Consumer and Creator Entry",
-                      "description":  "Move between Shorts, Videos, Feed and Create without leaving the universal app.",
+                      "description":  "Open a full-screen Short from the universal social surface, then move between Videos, Feed and Create.",
                       "nodeCount":  5,
                       "nodes":  [
                                     {
@@ -3042,16 +3042,31 @@
                   {
                       "id":  "chat",
                       "title":  "Chat Inbox and Threads",
-                      "description":  "Move from the inbox into a business conversation, return to the inbox and open a people conversation.",
-                      "nodeCount":  4,
+                      "description":  "Open global Chat from the universal surface, enter a business conversation, return to the inbox and open a people conversation.",
+                      "nodeCount":  5,
                       "nodes":  [
                                     {
                                         "index":  0,
+                                        "screen":  4,
+                                        "file":  "screens/04-universal-focus-shell.html",
+                                        "title":  "04 Universal Focus Shell - MoolSocial Screenbook",
+                                        "approval":  "approved-and-frozen",
+                                        "previousScreen":  null,
+                                        "nextScreen":  23,
+                                        "productionModule":  "universal",
+                                        "routeId":  "universal.app",
+                                        "routePath":  "/app",
+                                        "routeState":  "social-default-focus-shell",
+                                        "implementation":  "route-shell",
+                                        "launchScope":  "mvp-core"
+                                    },
+                                    {
+                                        "index":  1,
                                         "screen":  23,
                                         "file":  "screens/23-chat-inbox-home.html",
                                         "title":  "23 Chat Inbox Home - MoolSocial Screenbook",
                                         "approval":  "approved-and-frozen",
-                                        "previousScreen":  null,
+                                        "previousScreen":  4,
                                         "nextScreen":  24,
                                         "productionModule":  "chat",
                                         "routeId":  "chat.inbox",
@@ -3061,7 +3076,7 @@
                                         "launchScope":  "mvp-core"
                                     },
                                     {
-                                        "index":  1,
+                                        "index":  2,
                                         "screen":  24,
                                         "file":  "screens/24-chat-business-thread.html",
                                         "title":  "24 Chat Business Thread - MoolSocial Screenbook",
@@ -3076,7 +3091,7 @@
                                         "launchScope":  "mvp-core"
                                     },
                                     {
-                                        "index":  2,
+                                        "index":  3,
                                         "screen":  23,
                                         "file":  "screens/23-chat-inbox-home.html",
                                         "title":  "23 Chat Inbox Home - MoolSocial Screenbook",
@@ -3091,7 +3106,7 @@
                                         "launchScope":  "mvp-core"
                                     },
                                     {
-                                        "index":  3,
+                                        "index":  4,
                                         "screen":  25,
                                         "file":  "screens/25-chat-people-thread.html",
                                         "title":  "25 Chat People Thread - MoolSocial Screenbook",
@@ -3110,16 +3125,31 @@
                   {
                       "id":  "eat-order",
                       "title":  "Eat - Order Food",
-                      "description":  "Open Eat, choose restaurant food and place an order.",
-                      "nodeCount":  2,
+                      "description":  "Open Eat from the universal surface, choose restaurant food and place an order.",
+                      "nodeCount":  3,
                       "nodes":  [
                                     {
                                         "index":  0,
+                                        "screen":  4,
+                                        "file":  "screens/04-universal-focus-shell.html",
+                                        "title":  "04 Universal Focus Shell - MoolSocial Screenbook",
+                                        "approval":  "approved-and-frozen",
+                                        "previousScreen":  null,
+                                        "nextScreen":  26,
+                                        "productionModule":  "universal",
+                                        "routeId":  "universal.app",
+                                        "routePath":  "/app",
+                                        "routeState":  "social-default-focus-shell",
+                                        "implementation":  "route-shell",
+                                        "launchScope":  "mvp-core"
+                                    },
+                                    {
+                                        "index":  1,
                                         "screen":  26,
                                         "file":  "screens/26-eat.html",
                                         "title":  "26 Eat - MoolSocial Screenbook",
                                         "approval":  "approved-and-frozen",
-                                        "previousScreen":  null,
+                                        "previousScreen":  4,
                                         "nextScreen":  27,
                                         "productionModule":  "eat",
                                         "routeId":  "eat.home",
@@ -3129,7 +3159,7 @@
                                         "launchScope":  "post-mvp"
                                     },
                                     {
-                                        "index":  1,
+                                        "index":  2,
                                         "screen":  27,
                                         "file":  "screens/27-eat-order-food.html",
                                         "title":  "27 Eat \u003e Order Food - MoolSocial Screenbook",
@@ -3148,16 +3178,31 @@
                   {
                       "id":  "eat-table",
                       "title":  "Eat - Book Table",
-                      "description":  "Open Eat and reserve a restaurant table.",
-                      "nodeCount":  2,
+                      "description":  "Open Eat from the universal surface and reserve a restaurant table.",
+                      "nodeCount":  3,
                       "nodes":  [
                                     {
                                         "index":  0,
+                                        "screen":  4,
+                                        "file":  "screens/04-universal-focus-shell.html",
+                                        "title":  "04 Universal Focus Shell - MoolSocial Screenbook",
+                                        "approval":  "approved-and-frozen",
+                                        "previousScreen":  null,
+                                        "nextScreen":  26,
+                                        "productionModule":  "universal",
+                                        "routeId":  "universal.app",
+                                        "routePath":  "/app",
+                                        "routeState":  "social-default-focus-shell",
+                                        "implementation":  "route-shell",
+                                        "launchScope":  "mvp-core"
+                                    },
+                                    {
+                                        "index":  1,
                                         "screen":  26,
                                         "file":  "screens/26-eat.html",
                                         "title":  "26 Eat - MoolSocial Screenbook",
                                         "approval":  "approved-and-frozen",
-                                        "previousScreen":  null,
+                                        "previousScreen":  4,
                                         "nextScreen":  28,
                                         "productionModule":  "eat",
                                         "routeId":  "eat.home",
@@ -3167,7 +3212,7 @@
                                         "launchScope":  "post-mvp"
                                     },
                                     {
-                                        "index":  1,
+                                        "index":  2,
                                         "screen":  28,
                                         "file":  "screens/28-eat-book-table.html",
                                         "title":  "28 Eat \u003e Book Table - MoolSocial Screenbook",
@@ -3186,16 +3231,31 @@
                   {
                       "id":  "eat-tiffin",
                       "title":  "Eat - Tiffin",
-                      "description":  "Open Eat and choose a menu-led tiffin plan.",
-                      "nodeCount":  2,
+                      "description":  "Open Eat from the universal surface and choose a menu-led tiffin plan.",
+                      "nodeCount":  3,
                       "nodes":  [
                                     {
                                         "index":  0,
+                                        "screen":  4,
+                                        "file":  "screens/04-universal-focus-shell.html",
+                                        "title":  "04 Universal Focus Shell - MoolSocial Screenbook",
+                                        "approval":  "approved-and-frozen",
+                                        "previousScreen":  null,
+                                        "nextScreen":  26,
+                                        "productionModule":  "universal",
+                                        "routeId":  "universal.app",
+                                        "routePath":  "/app",
+                                        "routeState":  "social-default-focus-shell",
+                                        "implementation":  "route-shell",
+                                        "launchScope":  "mvp-core"
+                                    },
+                                    {
+                                        "index":  1,
                                         "screen":  26,
                                         "file":  "screens/26-eat.html",
                                         "title":  "26 Eat - MoolSocial Screenbook",
                                         "approval":  "approved-and-frozen",
-                                        "previousScreen":  null,
+                                        "previousScreen":  4,
                                         "nextScreen":  29,
                                         "productionModule":  "eat",
                                         "routeId":  "eat.home",
@@ -3205,7 +3265,7 @@
                                         "launchScope":  "post-mvp"
                                     },
                                     {
-                                        "index":  1,
+                                        "index":  2,
                                         "screen":  29,
                                         "file":  "screens/29-eat-tiffin.html",
                                         "title":  "29 Eat \u003e Tiffin - MoolSocial Screenbook",
@@ -3337,16 +3397,31 @@
                   {
                       "id":  "doctor-booking",
                       "title":  "Doctor Appointment",
-                      "description":  "Discover care, select a doctor and provide appointment details or reports.",
-                      "nodeCount":  3,
+                      "description":  "Open Book from the universal surface, discover care, select a doctor and provide appointment details or reports.",
+                      "nodeCount":  4,
                       "nodes":  [
                                     {
                                         "index":  0,
+                                        "screen":  4,
+                                        "file":  "screens/04-universal-focus-shell.html",
+                                        "title":  "04 Universal Focus Shell - MoolSocial Screenbook",
+                                        "approval":  "approved-and-frozen",
+                                        "previousScreen":  null,
+                                        "nextScreen":  36,
+                                        "productionModule":  "universal",
+                                        "routeId":  "universal.app",
+                                        "routePath":  "/app",
+                                        "routeState":  "social-default-focus-shell",
+                                        "implementation":  "route-shell",
+                                        "launchScope":  "mvp-core"
+                                    },
+                                    {
+                                        "index":  1,
                                         "screen":  36,
                                         "file":  "screens/36-book.html",
                                         "title":  "36 Book - MoolSocial Screenbook",
                                         "approval":  "approved-and-frozen",
-                                        "previousScreen":  null,
+                                        "previousScreen":  4,
                                         "nextScreen":  37,
                                         "productionModule":  "booking",
                                         "routeId":  "booking.home",
@@ -3356,7 +3431,7 @@
                                         "launchScope":  "post-mvp"
                                     },
                                     {
-                                        "index":  1,
+                                        "index":  2,
                                         "screen":  37,
                                         "file":  "screens/37-book-doctor-appointment.html",
                                         "title":  "37 Book Doctor Appointment - MoolSocial Screenbook",
@@ -3371,7 +3446,7 @@
                                         "launchScope":  "post-mvp"
                                     },
                                     {
-                                        "index":  2,
+                                        "index":  3,
                                         "screen":  38,
                                         "file":  "screens/38-book-patient-details-reports.html",
                                         "title":  "38 Patient Details and Reports - MoolSocial Screenbook",
@@ -3458,16 +3533,31 @@
                   {
                       "id":  "salon",
                       "title":  "Salon Booking and Visit",
-                      "description":  "Choose a salon, confirm the booking, check in, pay, rate and get support.",
-                      "nodeCount":  7,
+                      "description":  "Open Book from the universal surface, choose a salon, confirm the booking, check in, pay, rate and get support.",
+                      "nodeCount":  8,
                       "nodes":  [
                                     {
                                         "index":  0,
+                                        "screen":  4,
+                                        "file":  "screens/04-universal-focus-shell.html",
+                                        "title":  "04 Universal Focus Shell - MoolSocial Screenbook",
+                                        "approval":  "approved-and-frozen",
+                                        "previousScreen":  null,
+                                        "nextScreen":  36,
+                                        "productionModule":  "universal",
+                                        "routeId":  "universal.app",
+                                        "routePath":  "/app",
+                                        "routeState":  "social-default-focus-shell",
+                                        "implementation":  "route-shell",
+                                        "launchScope":  "mvp-core"
+                                    },
+                                    {
+                                        "index":  1,
                                         "screen":  36,
                                         "file":  "screens/36-book.html",
                                         "title":  "36 Book - MoolSocial Screenbook",
                                         "approval":  "approved-and-frozen",
-                                        "previousScreen":  null,
+                                        "previousScreen":  4,
                                         "nextScreen":  42,
                                         "productionModule":  "booking",
                                         "routeId":  "booking.home",
@@ -3477,7 +3567,7 @@
                                         "launchScope":  "post-mvp"
                                     },
                                     {
-                                        "index":  1,
+                                        "index":  2,
                                         "screen":  42,
                                         "file":  "screens/42-book-salon-appointment.html",
                                         "title":  "42 Book Salon Appointment - MoolSocial Screenbook",
@@ -3492,7 +3582,7 @@
                                         "launchScope":  "post-mvp"
                                     },
                                     {
-                                        "index":  2,
+                                        "index":  3,
                                         "screen":  43,
                                         "file":  "screens/43-salon-booking-confirm.html",
                                         "title":  "43 Salon Booking Confirmation - MoolSocial Screenbook",
@@ -3507,7 +3597,7 @@
                                         "launchScope":  "post-mvp"
                                     },
                                     {
-                                        "index":  3,
+                                        "index":  4,
                                         "screen":  44,
                                         "file":  "screens/44-salon-booking-confirmed.html",
                                         "title":  "44 Salon Booking Confirmed - MoolSocial Screenbook",
@@ -3522,7 +3612,7 @@
                                         "launchScope":  "post-mvp"
                                     },
                                     {
-                                        "index":  4,
+                                        "index":  5,
                                         "screen":  45,
                                         "file":  "screens/45-salon-visit-check-in.html",
                                         "title":  "45 Salon Visit Check-In - MoolSocial Screenbook",
@@ -3537,7 +3627,7 @@
                                         "launchScope":  "post-mvp"
                                     },
                                     {
-                                        "index":  5,
+                                        "index":  6,
                                         "screen":  46,
                                         "file":  "screens/46-salon-service-payment-rating.html",
                                         "title":  "46 Salon Service Payment Rating - MoolSocial Screenbook",
@@ -3552,7 +3642,7 @@
                                         "launchScope":  "post-mvp"
                                     },
                                     {
-                                        "index":  6,
+                                        "index":  7,
                                         "screen":  47,
                                         "file":  "screens/47-salon-post-visit-support.html",
                                         "title":  "47 Salon Post-Visit Support - MoolSocial Screenbook",
@@ -3571,16 +3661,31 @@
                   {
                       "id":  "get-it-done",
                       "title":  "Get It Done",
-                      "description":  "Describe a task, protect payment, match a helper, verify proof, complete or resolve an issue.",
-                      "nodeCount":  10,
+                      "description":  "Open Book from the universal surface, describe a task, protect payment, match a helper, verify proof, complete or resolve an issue.",
+                      "nodeCount":  11,
                       "nodes":  [
                                     {
                                         "index":  0,
+                                        "screen":  4,
+                                        "file":  "screens/04-universal-focus-shell.html",
+                                        "title":  "04 Universal Focus Shell - MoolSocial Screenbook",
+                                        "approval":  "approved-and-frozen",
+                                        "previousScreen":  null,
+                                        "nextScreen":  36,
+                                        "productionModule":  "universal",
+                                        "routeId":  "universal.app",
+                                        "routePath":  "/app",
+                                        "routeState":  "social-default-focus-shell",
+                                        "implementation":  "route-shell",
+                                        "launchScope":  "mvp-core"
+                                    },
+                                    {
+                                        "index":  1,
                                         "screen":  36,
                                         "file":  "screens/36-book.html",
                                         "title":  "36 Book - MoolSocial Screenbook",
                                         "approval":  "approved-and-frozen",
-                                        "previousScreen":  null,
+                                        "previousScreen":  4,
                                         "nextScreen":  48,
                                         "productionModule":  "booking",
                                         "routeId":  "booking.home",
@@ -3590,7 +3695,7 @@
                                         "launchScope":  "post-mvp"
                                     },
                                     {
-                                        "index":  1,
+                                        "index":  2,
                                         "screen":  48,
                                         "file":  "screens/48-book-get-it-done.html",
                                         "title":  "48 Book Get It Done - MoolSocial Screenbook",
@@ -3605,7 +3710,7 @@
                                         "launchScope":  "post-mvp"
                                     },
                                     {
-                                        "index":  2,
+                                        "index":  3,
                                         "screen":  49,
                                         "file":  "screens/49-get-it-done-review-payment.html",
                                         "title":  "49 Get It Done Review Payment - MoolSocial Screenbook",
@@ -3620,7 +3725,7 @@
                                         "launchScope":  "post-mvp"
                                     },
                                     {
-                                        "index":  3,
+                                        "index":  4,
                                         "screen":  50,
                                         "file":  "screens/50-get-it-done-helper-accepted.html",
                                         "title":  "50 Get It Done Helper Accepted - MoolSocial Screenbook",
@@ -3635,7 +3740,7 @@
                                         "launchScope":  "post-mvp"
                                     },
                                     {
-                                        "index":  4,
+                                        "index":  5,
                                         "screen":  51,
                                         "file":  "screens/51-get-it-done-proof-release.html",
                                         "title":  "51 Get It Done Proof Release - MoolSocial Screenbook",
@@ -3650,7 +3755,7 @@
                                         "launchScope":  "post-mvp"
                                     },
                                     {
-                                        "index":  5,
+                                        "index":  6,
                                         "screen":  52,
                                         "file":  "screens/52-get-it-done-completed-rating.html",
                                         "title":  "52 Get It Done Completed Rating - MoolSocial Screenbook",
@@ -3665,7 +3770,7 @@
                                         "launchScope":  "post-mvp"
                                     },
                                     {
-                                        "index":  6,
+                                        "index":  7,
                                         "screen":  53,
                                         "file":  "screens/53-get-it-done-issue-support.html",
                                         "title":  "53 Get It Done Issue Support - MoolSocial Screenbook",
@@ -3680,7 +3785,7 @@
                                         "launchScope":  "post-mvp"
                                     },
                                     {
-                                        "index":  7,
+                                        "index":  8,
                                         "screen":  54,
                                         "file":  "screens/54-get-it-done-issue-case-status.html",
                                         "title":  "54 Get It Done Issue Case Status - MoolSocial Screenbook",
@@ -3695,7 +3800,7 @@
                                         "launchScope":  "post-mvp"
                                     },
                                     {
-                                        "index":  8,
+                                        "index":  9,
                                         "screen":  55,
                                         "file":  "screens/55-get-it-done-issue-resolution.html",
                                         "title":  "55 Get It Done Issue Resolution - MoolSocial Screenbook",
@@ -3710,7 +3815,7 @@
                                         "launchScope":  "post-mvp"
                                     },
                                     {
-                                        "index":  9,
+                                        "index":  10,
                                         "screen":  56,
                                         "file":  "screens/56-get-it-done-resolution-complete.html",
                                         "title":  "56 Get It Done Resolution Complete - MoolSocial Screenbook",
@@ -3729,16 +3834,31 @@
                   {
                       "id":  "pay-recharge",
                       "title":  "Pay - Recharge",
-                      "description":  "Choose Recharge, pay and retain the receipt.",
-                      "nodeCount":  4,
+                      "description":  "Open Pay from the universal surface, choose Recharge, pay and retain the receipt.",
+                      "nodeCount":  5,
                       "nodes":  [
                                     {
                                         "index":  0,
+                                        "screen":  4,
+                                        "file":  "screens/04-universal-focus-shell.html",
+                                        "title":  "04 Universal Focus Shell - MoolSocial Screenbook",
+                                        "approval":  "approved-and-frozen",
+                                        "previousScreen":  null,
+                                        "nextScreen":  57,
+                                        "productionModule":  "universal",
+                                        "routeId":  "universal.app",
+                                        "routePath":  "/app",
+                                        "routeState":  "social-default-focus-shell",
+                                        "implementation":  "route-shell",
+                                        "launchScope":  "mvp-core"
+                                    },
+                                    {
+                                        "index":  1,
                                         "screen":  57,
                                         "file":  "screens/57-pay.html",
                                         "title":  "57 Pay - MoolSocial Screenbook",
                                         "approval":  "approved-and-frozen",
-                                        "previousScreen":  null,
+                                        "previousScreen":  4,
                                         "nextScreen":  58,
                                         "productionModule":  "pay",
                                         "routeId":  "pay.home",
@@ -3748,7 +3868,7 @@
                                         "launchScope":  "mvp-core"
                                     },
                                     {
-                                        "index":  1,
+                                        "index":  2,
                                         "screen":  58,
                                         "file":  "screens/58-pay-recharge.html",
                                         "title":  "58 Pay Recharge - MoolSocial Screenbook",
@@ -3763,7 +3883,7 @@
                                         "launchScope":  "mvp-core"
                                     },
                                     {
-                                        "index":  2,
+                                        "index":  3,
                                         "screen":  63,
                                         "file":  "screens/63-pay-processing-receipt.html",
                                         "title":  "63 Payment Success and Receipt - MoolSocial Screenbook",
@@ -3778,7 +3898,7 @@
                                         "launchScope":  "mvp-core"
                                     },
                                     {
-                                        "index":  3,
+                                        "index":  4,
                                         "screen":  64,
                                         "file":  "screens/64-pay-receipts-history.html",
                                         "title":  "64 Pay Receipts and History - MoolSocial Screenbook",
@@ -3797,16 +3917,31 @@
                   {
                       "id":  "pay-bills",
                       "title":  "Pay - Bills",
-                      "description":  "Choose Bills, pay and retain the receipt.",
-                      "nodeCount":  4,
+                      "description":  "Open Pay from the universal surface, choose Bills, pay and retain the receipt.",
+                      "nodeCount":  5,
                       "nodes":  [
                                     {
                                         "index":  0,
+                                        "screen":  4,
+                                        "file":  "screens/04-universal-focus-shell.html",
+                                        "title":  "04 Universal Focus Shell - MoolSocial Screenbook",
+                                        "approval":  "approved-and-frozen",
+                                        "previousScreen":  null,
+                                        "nextScreen":  57,
+                                        "productionModule":  "universal",
+                                        "routeId":  "universal.app",
+                                        "routePath":  "/app",
+                                        "routeState":  "social-default-focus-shell",
+                                        "implementation":  "route-shell",
+                                        "launchScope":  "mvp-core"
+                                    },
+                                    {
+                                        "index":  1,
                                         "screen":  57,
                                         "file":  "screens/57-pay.html",
                                         "title":  "57 Pay - MoolSocial Screenbook",
                                         "approval":  "approved-and-frozen",
-                                        "previousScreen":  null,
+                                        "previousScreen":  4,
                                         "nextScreen":  59,
                                         "productionModule":  "pay",
                                         "routeId":  "pay.home",
@@ -3816,7 +3951,7 @@
                                         "launchScope":  "mvp-core"
                                     },
                                     {
-                                        "index":  1,
+                                        "index":  2,
                                         "screen":  59,
                                         "file":  "screens/59-pay-bills.html",
                                         "title":  "59 Pay Bills - MoolSocial Screenbook",
@@ -3831,7 +3966,7 @@
                                         "launchScope":  "mvp-core"
                                     },
                                     {
-                                        "index":  2,
+                                        "index":  3,
                                         "screen":  63,
                                         "file":  "screens/63-pay-processing-receipt.html",
                                         "title":  "63 Payment Success and Receipt - MoolSocial Screenbook",
@@ -3846,7 +3981,7 @@
                                         "launchScope":  "mvp-core"
                                     },
                                     {
-                                        "index":  3,
+                                        "index":  4,
                                         "screen":  64,
                                         "file":  "screens/64-pay-receipts-history.html",
                                         "title":  "64 Pay Receipts and History - MoolSocial Screenbook",
@@ -3865,16 +4000,31 @@
                   {
                       "id":  "pay-scan",
                       "title":  "Pay - Scan",
-                      "description":  "Scan, confirm payment and retain the receipt.",
-                      "nodeCount":  4,
+                      "description":  "Open Pay from the universal surface, scan, confirm payment and retain the receipt.",
+                      "nodeCount":  5,
                       "nodes":  [
                                     {
                                         "index":  0,
+                                        "screen":  4,
+                                        "file":  "screens/04-universal-focus-shell.html",
+                                        "title":  "04 Universal Focus Shell - MoolSocial Screenbook",
+                                        "approval":  "approved-and-frozen",
+                                        "previousScreen":  null,
+                                        "nextScreen":  57,
+                                        "productionModule":  "universal",
+                                        "routeId":  "universal.app",
+                                        "routePath":  "/app",
+                                        "routeState":  "social-default-focus-shell",
+                                        "implementation":  "route-shell",
+                                        "launchScope":  "mvp-core"
+                                    },
+                                    {
+                                        "index":  1,
                                         "screen":  57,
                                         "file":  "screens/57-pay.html",
                                         "title":  "57 Pay - MoolSocial Screenbook",
                                         "approval":  "approved-and-frozen",
-                                        "previousScreen":  null,
+                                        "previousScreen":  4,
                                         "nextScreen":  60,
                                         "productionModule":  "pay",
                                         "routeId":  "pay.home",
@@ -3884,7 +4034,7 @@
                                         "launchScope":  "mvp-core"
                                     },
                                     {
-                                        "index":  1,
+                                        "index":  2,
                                         "screen":  60,
                                         "file":  "screens/60-pay-scan.html",
                                         "title":  "60 Pay Scan - MoolSocial Screenbook",
@@ -3899,7 +4049,7 @@
                                         "launchScope":  "mvp-core"
                                     },
                                     {
-                                        "index":  2,
+                                        "index":  3,
                                         "screen":  63,
                                         "file":  "screens/63-pay-processing-receipt.html",
                                         "title":  "63 Payment Success and Receipt - MoolSocial Screenbook",
@@ -3914,7 +4064,7 @@
                                         "launchScope":  "mvp-core"
                                     },
                                     {
-                                        "index":  3,
+                                        "index":  4,
                                         "screen":  64,
                                         "file":  "screens/64-pay-receipts-history.html",
                                         "title":  "64 Pay Receipts and History - MoolSocial Screenbook",
@@ -3933,16 +4083,31 @@
                   {
                       "id":  "pay-request",
                       "title":  "Pay Request - Success",
-                      "description":  "Review a request, confirm payment, process it and see the receipt history.",
-                      "nodeCount":  5,
+                      "description":  "Open Pay from the universal surface, review a request, confirm payment, process it and see the receipt history.",
+                      "nodeCount":  6,
                       "nodes":  [
                                     {
                                         "index":  0,
+                                        "screen":  4,
+                                        "file":  "screens/04-universal-focus-shell.html",
+                                        "title":  "04 Universal Focus Shell - MoolSocial Screenbook",
+                                        "approval":  "approved-and-frozen",
+                                        "previousScreen":  null,
+                                        "nextScreen":  57,
+                                        "productionModule":  "universal",
+                                        "routeId":  "universal.app",
+                                        "routePath":  "/app",
+                                        "routeState":  "social-default-focus-shell",
+                                        "implementation":  "route-shell",
+                                        "launchScope":  "mvp-core"
+                                    },
+                                    {
+                                        "index":  1,
                                         "screen":  57,
                                         "file":  "screens/57-pay.html",
                                         "title":  "57 Pay - MoolSocial Screenbook",
                                         "approval":  "approved-and-frozen",
-                                        "previousScreen":  null,
+                                        "previousScreen":  4,
                                         "nextScreen":  61,
                                         "productionModule":  "pay",
                                         "routeId":  "pay.home",
@@ -3952,7 +4117,7 @@
                                         "launchScope":  "mvp-core"
                                     },
                                     {
-                                        "index":  1,
+                                        "index":  2,
                                         "screen":  61,
                                         "file":  "screens/61-pay-requests.html",
                                         "title":  "61 Pay Requests - MoolSocial Screenbook",
@@ -3967,7 +4132,7 @@
                                         "launchScope":  "mvp-core"
                                     },
                                     {
-                                        "index":  2,
+                                        "index":  3,
                                         "screen":  62,
                                         "file":  "screens/62-pay-request-confirmation.html",
                                         "title":  "62 Pay Request Confirmation - MoolSocial Screenbook",
@@ -3982,7 +4147,7 @@
                                         "launchScope":  "mvp-core"
                                     },
                                     {
-                                        "index":  3,
+                                        "index":  4,
                                         "screen":  63,
                                         "file":  "screens/63-pay-processing-receipt.html",
                                         "title":  "63 Payment Success and Receipt - MoolSocial Screenbook",
@@ -3997,7 +4162,7 @@
                                         "launchScope":  "mvp-core"
                                     },
                                     {
-                                        "index":  4,
+                                        "index":  5,
                                         "screen":  64,
                                         "file":  "screens/64-pay-receipts-history.html",
                                         "title":  "64 Pay Receipts and History - MoolSocial Screenbook",
@@ -4016,16 +4181,31 @@
                   {
                       "id":  "pay-refund",
                       "title":  "Pay Request - Pending Refund",
-                      "description":  "Review and pay a request, then follow a protected pending refund.",
-                      "nodeCount":  5,
+                      "description":  "Open Pay from the universal surface, review and pay a request, then follow a protected pending refund.",
+                      "nodeCount":  6,
                       "nodes":  [
                                     {
                                         "index":  0,
+                                        "screen":  4,
+                                        "file":  "screens/04-universal-focus-shell.html",
+                                        "title":  "04 Universal Focus Shell - MoolSocial Screenbook",
+                                        "approval":  "approved-and-frozen",
+                                        "previousScreen":  null,
+                                        "nextScreen":  57,
+                                        "productionModule":  "universal",
+                                        "routeId":  "universal.app",
+                                        "routePath":  "/app",
+                                        "routeState":  "social-default-focus-shell",
+                                        "implementation":  "route-shell",
+                                        "launchScope":  "mvp-core"
+                                    },
+                                    {
+                                        "index":  1,
                                         "screen":  57,
                                         "file":  "screens/57-pay.html",
                                         "title":  "57 Pay - MoolSocial Screenbook",
                                         "approval":  "approved-and-frozen",
-                                        "previousScreen":  null,
+                                        "previousScreen":  4,
                                         "nextScreen":  61,
                                         "productionModule":  "pay",
                                         "routeId":  "pay.home",
@@ -4035,7 +4215,7 @@
                                         "launchScope":  "mvp-core"
                                     },
                                     {
-                                        "index":  1,
+                                        "index":  2,
                                         "screen":  61,
                                         "file":  "screens/61-pay-requests.html",
                                         "title":  "61 Pay Requests - MoolSocial Screenbook",
@@ -4050,7 +4230,7 @@
                                         "launchScope":  "mvp-core"
                                     },
                                     {
-                                        "index":  2,
+                                        "index":  3,
                                         "screen":  62,
                                         "file":  "screens/62-pay-request-confirmation.html",
                                         "title":  "62 Pay Request Confirmation - MoolSocial Screenbook",
@@ -4065,7 +4245,7 @@
                                         "launchScope":  "mvp-core"
                                     },
                                     {
-                                        "index":  3,
+                                        "index":  4,
                                         "screen":  63,
                                         "file":  "screens/63-pay-processing-receipt.html",
                                         "title":  "63 Payment Success and Receipt - MoolSocial Screenbook",
@@ -4080,7 +4260,7 @@
                                         "launchScope":  "mvp-core"
                                     },
                                     {
-                                        "index":  4,
+                                        "index":  5,
                                         "screen":  65,
                                         "file":  "screens/65-pay-pending-refund-status.html",
                                         "title":  "65 Pending Payment and Refund Status - MoolSocial Screenbook",
@@ -4099,16 +4279,31 @@
                   {
                       "id":  "pay-failure",
                       "title":  "Pay Request - Failure and Reversal",
-                      "description":  "Review a request, pass through payment processing and safely handle failure, reversal or retry.",
-                      "nodeCount":  5,
+                      "description":  "Open Pay from the universal surface, review a request, pass through payment processing and safely handle failure, reversal or retry.",
+                      "nodeCount":  6,
                       "nodes":  [
                                     {
                                         "index":  0,
+                                        "screen":  4,
+                                        "file":  "screens/04-universal-focus-shell.html",
+                                        "title":  "04 Universal Focus Shell - MoolSocial Screenbook",
+                                        "approval":  "approved-and-frozen",
+                                        "previousScreen":  null,
+                                        "nextScreen":  57,
+                                        "productionModule":  "universal",
+                                        "routeId":  "universal.app",
+                                        "routePath":  "/app",
+                                        "routeState":  "social-default-focus-shell",
+                                        "implementation":  "route-shell",
+                                        "launchScope":  "mvp-core"
+                                    },
+                                    {
+                                        "index":  1,
                                         "screen":  57,
                                         "file":  "screens/57-pay.html",
                                         "title":  "57 Pay - MoolSocial Screenbook",
                                         "approval":  "approved-and-frozen",
-                                        "previousScreen":  null,
+                                        "previousScreen":  4,
                                         "nextScreen":  61,
                                         "productionModule":  "pay",
                                         "routeId":  "pay.home",
@@ -4118,7 +4313,7 @@
                                         "launchScope":  "mvp-core"
                                     },
                                     {
-                                        "index":  1,
+                                        "index":  2,
                                         "screen":  61,
                                         "file":  "screens/61-pay-requests.html",
                                         "title":  "61 Pay Requests - MoolSocial Screenbook",
@@ -4133,7 +4328,7 @@
                                         "launchScope":  "mvp-core"
                                     },
                                     {
-                                        "index":  2,
+                                        "index":  3,
                                         "screen":  62,
                                         "file":  "screens/62-pay-request-confirmation.html",
                                         "title":  "62 Pay Request Confirmation - MoolSocial Screenbook",
@@ -4148,7 +4343,7 @@
                                         "launchScope":  "mvp-core"
                                     },
                                     {
-                                        "index":  3,
+                                        "index":  4,
                                         "screen":  63,
                                         "file":  "screens/63-pay-processing-receipt.html",
                                         "title":  "63 Payment Success and Receipt - MoolSocial Screenbook",
@@ -4163,7 +4358,7 @@
                                         "launchScope":  "mvp-core"
                                     },
                                     {
-                                        "index":  4,
+                                        "index":  5,
                                         "screen":  66,
                                         "file":  "screens/66-pay-failed-reversal-safe-retry.html",
                                         "title":  "66 Failed Payment, Reversal and Safe Retry - MoolSocial Screenbook",
@@ -5040,7 +5235,7 @@
                                         "index":  6,
                                         "screen":  100,
                                         "file":  "screens/100-retailer-offer-campaign-builder.html",
-                                        "title":  "100 Retailer Offer and Campaign Builder - MoolSocial Screenbook",
+                                        "title":  "\n      100 Retailer Offer and Campaign Builder - MoolSocial Screenbook\n    ",
                                         "approval":  "approved-and-frozen",
                                         "previousScreen":  99,
                                         "nextScreen":  null,
@@ -5402,7 +5597,7 @@
                                         "index":  1,
                                         "screen":  113,
                                         "file":  "screens/113-manufacturer-buyers-demand-campaigns.html",
-                                        "title":  "113 Manufacturer Buyers Demand and Campaigns - MoolSocial Screenbook",
+                                        "title":  "\n      113 Manufacturer Buyers Demand and Campaigns - MoolSocial Screenbook\n    ",
                                         "approval":  "approved-and-frozen",
                                         "previousScreen":  107,
                                         "nextScreen":  107,
@@ -5914,7 +6109,7 @@
                                         "index":  0,
                                         "screen":  100,
                                         "file":  "screens/100-retailer-offer-campaign-builder.html?mode=creator\u0026engine=funded_campaign",
-                                        "title":  "100 Retailer Offer and Campaign Builder - MoolSocial Screenbook",
+                                        "title":  "\n      100 Retailer Offer and Campaign Builder - MoolSocial Screenbook\n    ",
                                         "approval":  "approved-and-frozen",
                                         "previousScreen":  null,
                                         "nextScreen":  152,
@@ -6035,8 +6230,8 @@
                   {
                       "id":  "creator-commerce-share",
                       "title":  "Creator Earning - Commerce Share",
-                      "description":  "A business declares an eligible share, the creator publishes linked content, the consumer completes commerce and the verified share reaches the creator ledger.",
-                      "nodeCount":  10,
+                      "description":  "A business declares an eligible share, the creator publishes linked content, the consumer completes basket review and stock confirmation before payment, and the verified share reaches the creator ledger.",
+                      "nodeCount":  12,
                       "nodes":  [
                                     {
                                         "index":  0,
@@ -6105,7 +6300,7 @@
                                         "title":  "09 Buy - MoolSocial Screenbook",
                                         "approval":  "approved-and-frozen",
                                         "previousScreen":  5,
-                                        "nextScreen":  14,
+                                        "nextScreen":  12,
                                         "productionModule":  "commerce",
                                         "routeId":  "commerce.buy",
                                         "routePath":  "/buy",
@@ -6115,11 +6310,41 @@
                                     },
                                     {
                                         "index":  5,
+                                        "screen":  12,
+                                        "file":  "screens/12-buy-basket-checkout.html",
+                                        "title":  "12 Buy \u003e Basket Checkout - MoolSocial Screenbook",
+                                        "approval":  "approved-and-frozen",
+                                        "previousScreen":  9,
+                                        "nextScreen":  13,
+                                        "productionModule":  "commerce",
+                                        "routeId":  "commerce.cart",
+                                        "routePath":  "/buy/cart",
+                                        "routeState":  "basket-checkout",
+                                        "implementation":  "route-shell",
+                                        "launchScope":  "mvp-core"
+                                    },
+                                    {
+                                        "index":  6,
+                                        "screen":  13,
+                                        "file":  "screens/13-retailer-stock-confirmation.html",
+                                        "title":  "13 Retailer Stock Confirmation - MoolSocial Screenbook",
+                                        "approval":  "approved-and-frozen",
+                                        "previousScreen":  12,
+                                        "nextScreen":  14,
+                                        "productionModule":  "retailer",
+                                        "routeId":  "retailer.order",
+                                        "routePath":  "/retailer/orders/:orderId",
+                                        "routeState":  "stock-confirmation",
+                                        "implementation":  "route-state",
+                                        "launchScope":  "mvp-core"
+                                    },
+                                    {
+                                        "index":  7,
                                         "screen":  14,
                                         "file":  "screens/14-customer-payment-order-confirmation.html?content=CT-884\u0026sku=BASKET-399\u0026attribution=ATTR-884",
                                         "title":  "14 Customer Payment Order Confirmation - MoolSocial Screenbook",
                                         "approval":  "approved-and-frozen",
-                                        "previousScreen":  9,
+                                        "previousScreen":  13,
                                         "nextScreen":  18,
                                         "productionModule":  "orders",
                                         "routeId":  "orders.payment",
@@ -6129,7 +6354,7 @@
                                         "launchScope":  "mvp-core"
                                     },
                                     {
-                                        "index":  6,
+                                        "index":  8,
                                         "screen":  18,
                                         "file":  "screens/18-home-delivery-completed-bill-rating.html?content=CT-884\u0026sku=BASKET-399\u0026attribution=ATTR-884",
                                         "title":  "18 Home Delivery Completed Bill Rating - MoolSocial Screenbook",
@@ -6144,7 +6369,7 @@
                                         "launchScope":  "mvp-core"
                                     },
                                     {
-                                        "index":  7,
+                                        "index":  9,
                                         "screen":  127,
                                         "file":  "screens/127-creator-content-performance.html?engine=attributed_commerce",
                                         "title":  "Screen 127 Â· Creator Performance",
@@ -6159,7 +6384,7 @@
                                         "launchScope":  "mvp-core"
                                     },
                                     {
-                                        "index":  8,
+                                        "index":  10,
                                         "screen":  154,
                                         "file":  "screens/154-admin-finance-reconciliation.html?engine=attributed_commerce",
                                         "title":  "Screen 154 - Finance Reconciliation",
@@ -6174,7 +6399,7 @@
                                         "launchScope":  "mvp-core"
                                     },
                                     {
-                                        "index":  9,
+                                        "index":  11,
                                         "screen":  130,
                                         "file":  "screens/130-creator-earnings-payouts.html?source=attributed_commerce",
                                         "title":  "Screen 130 Â· Creator Earnings",
@@ -6351,7 +6576,7 @@
                                         "index":  0,
                                         "screen":  100,
                                         "file":  "screens/100-retailer-offer-campaign-builder.html?mode=creator\u0026engine=local_production",
-                                        "title":  "100 Retailer Offer and Campaign Builder - MoolSocial Screenbook",
+                                        "title":  "\n      100 Retailer Offer and Campaign Builder - MoolSocial Screenbook\n    ",
                                         "approval":  "approved-and-frozen",
                                         "previousScreen":  null,
                                         "nextScreen":  129,
@@ -6562,7 +6787,7 @@
                                         "index":  0,
                                         "screen":  113,
                                         "file":  "screens/113-manufacturer-buyers-demand-campaigns.html?mode=creator\u0026engine=live_event",
-                                        "title":  "113 Manufacturer Buyers Demand and Campaigns - MoolSocial Screenbook",
+                                        "title":  "\n      113 Manufacturer Buyers Demand and Campaigns - MoolSocial Screenbook\n    ",
                                         "approval":  "approved-and-frozen",
                                         "previousScreen":  null,
                                         "nextScreen":  156,

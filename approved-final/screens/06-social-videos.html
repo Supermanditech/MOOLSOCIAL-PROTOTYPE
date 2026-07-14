@@ -1795,6 +1795,13 @@
     };
 
     function openSheet(type) {
+      if (type === "comments") {
+        openWatch();
+        requestAnimationFrame(() => {
+          document.querySelector(".comments-card")?.scrollIntoView({ block: "center", behavior: "smooth" });
+        });
+        return;
+      }
       const content = sheetContent[type];
       if (!sheet || !content) return;
       if (sheetTitle) sheetTitle.textContent = content.title;
@@ -1861,6 +1868,16 @@
     document.querySelector(".chat-button")?.addEventListener("click", () => {
       window.location.href = "23-chat-inbox-home.html?from=videos";
     });
+
+    const entryParams = new URLSearchParams(window.location.search);
+    if (entryParams.get("watch") === "1" || entryParams.get("comments") === "open") {
+      openWatch();
+    }
+    if (entryParams.get("comments") === "open") {
+      requestAnimationFrame(() => {
+        document.querySelector(".comments-card")?.scrollIntoView({ block: "center" });
+      });
+    }
   </script>
 <script type="application/json" id="productionRouteContract">{"contractVersion":"mvp-route-lock-2026-07-12","prototypeScreen":6,"productionModule":"social","routeId":"social.videos","routePath":"/social/videos","routeState":"catalog-player","implementation":"route-shell","launchScope":"mvp-core","separateProductionRoute":true,"productionNote":"Own production route /social/videos. Implement catalog-player as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.","canonicalMap":"architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"}</script><script type="application/json" id="prototypeApprovalContract">{"prototypeScreen":6,"status":"approved-and-frozen","authoritative":true,"approvedAt":"2026-07-13"}</script>  <script src="../shared/prototype-interaction-contracts.js"></script>
   <script src="../shared/prototype-interaction-runtime.js"></script>

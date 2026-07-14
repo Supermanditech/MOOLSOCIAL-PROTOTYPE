@@ -1,0 +1,58 @@
+{
+  "version": "semantic-user-actions-2026-07-14",
+  "purpose": "Validate user intent and destination, not only observable click response.",
+  "rules": {
+    "contentAction": "Like, comment, reply, share, remix and save remain attached to the selected content.",
+    "globalChat": "Only a pinned or explicitly named global Chat control opens Screen 23.",
+    "domainEntry": "A universal main action opens the real domain product in one tap.",
+    "subAction": "A product sub-action opens its complete product state, not an explanatory placeholder.",
+    "unsupported": "An unimplemented MVP product is hidden instead of being made artificially clickable."
+  },
+  "screen04": {
+    "content": [
+      { "label": "Open current Short", "type": "route", "target": "05-social-shorts.html?short=0" },
+      { "label": "Comments", "type": "route-state", "target": "05-social-shorts.html?short=0&comments=open" }
+    ],
+    "socialSubActions": [
+      { "label": "Shorts", "target": "05-social-shorts.html" },
+      { "label": "Videos", "target": "06-social-videos.html" },
+      { "label": "Feed", "target": "07-social-feed.html" },
+      { "label": "Create", "target": "08-social-create.html" }
+    ],
+    "mainActions": [
+      { "label": "Buy", "target": "09-buy.html" },
+      { "label": "Eat", "target": "26-eat.html" },
+      { "label": "Ride", "target": "30-ride.html" },
+      { "label": "Book", "target": "36-book.html" },
+      { "label": "Pay", "target": "57-pay.html" },
+      { "label": "Work", "target": "67-work.html" },
+      { "label": "Chat", "target": "23-chat-inbox-home.html" }
+    ]
+  },
+  "social": {
+    "shorts": {
+      "screen": 5,
+      "comments": "in-context-thread",
+      "globalChat": "23-chat-inbox-home.html?from=shorts"
+    },
+    "videos": {
+      "screen": 6,
+      "contentTap": "player",
+      "comments": "in-context-thread",
+      "globalChat": "23-chat-inbox-home.html?from=videos"
+    },
+    "feed": {
+      "screen": 7,
+      "contentTap": "post-detail",
+      "comments": "in-context-replies",
+      "globalChat": "23-chat-inbox-home.html?from=feed"
+    }
+  },
+  "buy": {
+    "screen": 9,
+    "categoryTap": "screen10-or-filtered-category",
+    "productTap": "product-detail",
+    "cartTap": "12-buy-basket-checkout.html",
+    "views": ["grocery", "categories", "medicine", "basket", "fresh", "monthly", "nearby"]
+  }
+}

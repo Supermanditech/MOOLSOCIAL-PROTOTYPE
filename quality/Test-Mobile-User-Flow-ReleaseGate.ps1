@@ -10,6 +10,7 @@ $paths = [ordered]@{
   interactionBacklog = Join-Path $Root 'quality\generated\flow-interaction-backlog.json'
   finalTapAudit = Join-Path $Root 'quality\generated\flow-browser-tap-final.json'
   finalMobileAudit = Join-Path $Root 'quality\generated\mobile-user-flow-final.json'
+  semanticMobileAudit = Join-Path $Root 'quality\generated\semantic-mobile-user-flow-final.json'
 }
 
 $blockers = [System.Collections.Generic.List[string]]::new()
@@ -32,6 +33,7 @@ $flows = Read-RequiredJson 'flow validation' $paths.flowValidation
 $backlog = Read-RequiredJson 'interaction backlog' $paths.interactionBacklog
 $tap = Read-RequiredJson 'final strict tap audit' $paths.finalTapAudit
 $mobile = Read-RequiredJson 'final mobile user-flow audit' $paths.finalMobileAudit
+$semantic = Read-RequiredJson 'semantic mobile user-flow audit' $paths.semanticMobileAudit
 
 if ($static -and $static.status -ne 'passed') {
   $blockers.Add('Static route, asset or contract audit has not passed.')
@@ -81,12 +83,28 @@ if ($mobile) {
   }
 }
 
+if ($semantic) {
+  if ($semantic.status -ne 'passed') {
+    $blockers.Add('Semantic mobile user-flow audit has not passed.')
+  }
+  if ([int]$semantic.summary.operationalFlowsTested -ne [int]$flows.operationalFlowCount) {
+    $blockers.Add('Semantic mobile audit does not cover every operational flow.')
+  }
+  if ([int]$semantic.summary.passed -ne [int]$flows.operationalFlowCount -or [int]$semantic.summary.failed -ne 0) {
+    $blockers.Add('Semantic mobile audit contains failed or incomplete flows.')
+  }
+  if ([int]$semantic.summary.consoleErrors -ne 0) {
+    $blockers.Add('Semantic mobile audit contains browser console errors.')
+  }
+}
+
 $result = [ordered]@{
   generatedAt = (Get-Date).ToString('o')
   status = if ($blockers.Count -eq 0) { 'ready' } else { 'blocked' }
   finalMobileTestingLinkMayBeShared = ($blockers.Count -eq 0)
   approvedScreens = if ($flows) { [int]$flows.approvedScreenCount } else { 0 }
   operationalFlows = if ($flows) { [int]$flows.operationalFlowCount } else { 0 }
+  semanticFlows = if ($semantic) { [int]$semantic.summary.passed } else { 0 }
   openInteractions = if ($backlog) { [int]$backlog.summary.total } else { -1 }
   blockers = @($blockers)
   rule = 'Do not give the user a final mobile app testing link until this gate returns ready.'

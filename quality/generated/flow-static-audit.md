@@ -3,10 +3,10 @@
 - Status: **passed**
 - Screens: **166** source / **166** approved
 - Operational flows: **47**
-- Flow nodes checked: **469**
-- Local navigation targets checked: **1053**
+- Flow nodes checked: **484**
+- Local navigation targets checked: **1057**
 - Local assets checked: **474**
-- Buttons indexed for browser testing: **1877**
+- Buttons indexed for browser testing: **1881**
 - Static button candidates requiring tap confirmation: **108**
 - Missing navigation targets: **0**
 - Missing assets: **0**

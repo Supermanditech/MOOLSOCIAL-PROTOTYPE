@@ -3143,7 +3143,13 @@
     }
 
     tabButtons.forEach((button) => {
-      button.addEventListener("click", () => setBuyTab(button.dataset.buyTab));
+      button.addEventListener("click", () => {
+        if (button.dataset.buyTab === "basket") {
+          window.location.href = "12-buy-basket-checkout.html?from=screen09";
+          return;
+        }
+        setBuyTab(button.dataset.buyTab);
+      });
     });
 
     document.querySelectorAll("[data-open-category]").forEach((button) => {
@@ -3204,13 +3210,29 @@
 
     document.querySelector("[data-buy-home]")?.addEventListener("click", () => showBuyState("home"));
     document.querySelector("[data-back-category]")?.addEventListener("click", () => showBuyState("category"));
-    document.querySelector("[data-cart-float]")?.addEventListener("click", () => openSheet("basket"));
+    document.querySelector("[data-cart-float]")?.addEventListener("click", () => {
+      window.location.href = "12-buy-basket-checkout.html?from=screen09";
+    });
 
     document.querySelectorAll("[data-open-sheet]").forEach((button) => {
       button.addEventListener("click", () => openSheet(button.dataset.openSheet));
     });
 
     document.querySelector("[data-close-sheet]")?.addEventListener("click", closeSheet);
+
+    const entryParams = new URLSearchParams(window.location.search);
+    const entryView = entryParams.get("view");
+    if (entryView === "basket") {
+      window.location.replace("12-buy-basket-checkout.html?from=screen09&entry=basket");
+    } else if (["grocery", "categories", "medicine"].includes(entryView)) {
+      setBuyTab(entryView);
+    } else if (entryView === "fresh") {
+      openCategory("vegetables");
+    } else if (entryView === "monthly") {
+      setPurchaseMode("basket");
+    } else if (entryView === "nearby") {
+      setShopAction("buy");
+    }
   </script>
 <script type="application/json" id="productionRouteContract">{"contractVersion":"mvp-route-lock-2026-07-12","prototypeScreen":9,"productionModule":"commerce","routeId":"commerce.buy","routePath":"/buy","routeState":"discovery","implementation":"route-shell","launchScope":"mvp-core","separateProductionRoute":true,"productionNote":"Own production route /buy. Implement discovery as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.","canonicalMap":"architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"}</script><script type="application/json" id="prototypeApprovalContract">{"prototypeScreen":9,"status":"approved-and-frozen","authoritative":true,"approvedAt":"2026-07-12","approvalScope":"prototype-ui-ux-and-production-contract"}</script>  <script src="../shared/prototype-interaction-contracts.js"></script>
   <script src="../shared/prototype-interaction-runtime.js"></script>

@@ -960,6 +960,131 @@
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
+    .action-sheet.comments-sheet {
+      max-height: 66%;
+      overflow: hidden;
+      border-radius: 22px 22px 14px 14px;
+    }
+
+    .action-sheet.comments-sheet .sheet-grid {
+      display: block;
+      min-height: 0;
+      overflow-y: auto;
+    }
+
+    .comments-toolbar {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      margin-bottom: 8px;
+    }
+
+    .comments-toolbar button {
+      min-height: 30px;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: var(--ms-pill);
+      padding: 0 10px;
+      background: #f3f5ff;
+      color: var(--ms-navy);
+      font-family: var(--ms-font);
+      font-size: 9px;
+      font-weight: 900;
+    }
+
+    .comments-toolbar button.active {
+      border-color: var(--ms-navy);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+    }
+
+    .short-comment-list {
+      display: grid;
+      gap: 9px;
+    }
+
+    .short-comment {
+      display: grid;
+      grid-template-columns: 32px minmax(0, 1fr);
+      gap: 8px;
+      align-items: start;
+    }
+
+    .comment-avatar {
+      width: 32px;
+      height: 32px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-size: 9px;
+      font-weight: 950;
+    }
+
+    .comment-copy {
+      display: grid;
+      gap: 3px;
+      color: var(--ms-navy);
+      font-size: 10px;
+      line-height: 1.3;
+    }
+
+    .comment-copy b {
+      font-size: 10px;
+    }
+
+    .comment-copy p {
+      margin: 0;
+    }
+
+    .comment-actions {
+      display: flex;
+      gap: 12px;
+      color: rgba(0, 0, 128, .62);
+      font-size: 8px;
+      font-weight: 900;
+    }
+
+    .creator-reply {
+      margin-top: 5px;
+      border-left: 2px solid var(--ms-green);
+      padding-left: 7px;
+      color: var(--ms-green);
+      font-weight: 850;
+    }
+
+    .comment-composer {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 8px;
+      margin-top: 10px;
+      border-top: 1px solid rgba(0, 0, 128, .12);
+      padding-top: 10px;
+    }
+
+    .comment-composer input {
+      min-width: 0;
+      min-height: 38px;
+      border: 1px solid rgba(0, 0, 128, .16);
+      border-radius: var(--ms-pill);
+      padding: 0 12px;
+      color: var(--ms-navy);
+      font-family: var(--ms-font);
+      font-size: 10px;
+    }
+
+    .comment-composer button {
+      min-width: 58px;
+      min-height: 38px;
+      border: 0;
+      border-radius: var(--ms-pill);
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font-family: var(--ms-font);
+      font-size: 9px;
+      font-weight: 950;
+    }
+
     .sheet-head {
       display: flex;
       align-items: center;
@@ -1400,7 +1525,7 @@
         </div>
         <div class="state-row">
           <div class="state-cell"><b>Right Rail</b>Content actions only.</div>
-          <div class="state-cell">Follow creator, like, comments/chat, share, remix, save and more/report. Counts update optimistically, then reconcile with server state.</div>
+          <div class="state-cell">Follow creator, like, comments, share, remix, save and more/report. Global Chat remains a separate pinned app action. Counts update optimistically, then reconcile with server state.</div>
           <div class="state-cell">Right rail must not be used for root navigation because video actions need this space.</div>
         </div>
         <div class="state-row">
@@ -1545,16 +1670,9 @@
         ]
       },
       comments: {
-        title: "Comments and replies",
-        note: "Production needs pinned comments, creator replies, filters, abuse control and translation where available.",
-        items: [
-          ["Top", "294"],
-          ["Creator", "Reply"],
-          ["Mention", "Tag"],
-          ["Filter", "Safe"],
-          ["Translate", "Lang"],
-          ["Report", "Abuse"]
-        ]
+        title: "294 comments",
+        note: "Be respectful. Long-press a comment for translation, reporting or moderation options.",
+        items: []
       },
       share: {
         title: "Share short",
@@ -1640,12 +1758,60 @@
       if (!sheet || !content) return;
       sheet.classList.toggle("creator-sheet", type === "creator");
       sheet.classList.toggle("detail-sheet", type === "details");
+      sheet.classList.toggle("comments-sheet", type === "comments");
       if (sheetTitle) sheetTitle.textContent = content.title;
       if (sheetNote) sheetNote.textContent = content.note;
       if (sheetGrid) {
-        sheetGrid.innerHTML = content.items.map(([label, value]) => `
-          <span class="sheet-chip"><strong>${value}</strong>${label}</span>
-        `).join("");
+        if (type === "comments") {
+          sheetGrid.innerHTML = `
+            <div class="comments-toolbar" aria-label="Comment sorting">
+              <button class="active" type="button">Top</button>
+              <button type="button">Newest</button>
+              <button type="button">Creator replies</button>
+            </div>
+            <div class="short-comment-list" data-comment-list>
+              <article class="short-comment">
+                <span class="comment-avatar">RV</span>
+                <div class="comment-copy"><b>Ritu Vyas · 8 min</b><p>Fresh items and the delivery time are both clearly shown. This helps before ordering.</p><span class="comment-actions">Like 24 · Reply · Translate</span></div>
+              </article>
+              <article class="short-comment">
+                <span class="comment-avatar">AK</span>
+                <div class="comment-copy"><b>Arun Kumar · 14 min</b><p>Is counter pickup available this morning?</p><span class="creator-reply">Mahadev Fresh Mart: Yes, pickup is ready in about 20 minutes.</span><span class="comment-actions">Like 11 · Reply · Translate</span></div>
+              </article>
+              <article class="short-comment">
+                <span class="comment-avatar">NS</span>
+                <div class="comment-copy"><b>Neha Saini · 21 min</b><p>Please show tomorrow's family basket too.</p><span class="comment-actions">Like 7 · Reply · Translate</span></div>
+              </article>
+            </div>
+            <div class="comment-composer">
+              <input type="text" data-comment-input aria-label="Write a comment" placeholder="Add a comment..." />
+              <button type="button" data-comment-submit>Post</button>
+            </div>
+          `;
+          const sortButtons = Array.from(sheetGrid.querySelectorAll(".comments-toolbar button"));
+          sortButtons.forEach((button) => button.addEventListener("click", () => {
+            sortButtons.forEach((item) => item.classList.toggle("active", item === button));
+          }));
+          sheetGrid.querySelector("[data-comment-submit]")?.addEventListener("click", () => {
+            const input = sheetGrid.querySelector("[data-comment-input]");
+            const value = input?.value.trim();
+            if (!value) {
+              input?.focus();
+              return;
+            }
+            const row = document.createElement("article");
+            row.className = "short-comment";
+            row.innerHTML = `<span class="comment-avatar">You</span><div class="comment-copy"><b>You · now</b><p></p><span class="comment-actions">Like · Reply</span></div>`;
+            row.querySelector("p").textContent = value;
+            sheetGrid.querySelector("[data-comment-list]")?.prepend(row);
+            input.value = "";
+            sheetTitle.textContent = "295 comments";
+          });
+        } else {
+          sheetGrid.innerHTML = content.items.map(([label, value]) => `
+            <span class="sheet-chip"><strong>${value}</strong>${label}</span>
+          `).join("");
+        }
       }
       sheet.classList.add("open");
       wakeChrome();
@@ -1683,6 +1849,7 @@
       sheet?.classList.remove("open");
       sheet?.classList.remove("creator-sheet");
       sheet?.classList.remove("detail-sheet");
+      sheet?.classList.remove("comments-sheet");
     }
 
     function wakeChrome() {
@@ -1796,6 +1963,15 @@
     document.querySelector(".chat-button")?.addEventListener("click", () => {
       window.location.href = "23-chat-inbox-home.html?from=shorts";
     });
+
+    const entryParams = new URLSearchParams(window.location.search);
+    const requestedShort = Number(entryParams.get("short"));
+    if (Number.isFinite(requestedShort) && requestedShort >= 0 && requestedShort < shortCards.length) {
+      setShort(requestedShort);
+    }
+    if (entryParams.get("comments") === "open") {
+      openSheet("comments");
+    }
   </script>
 <script type="application/json" id="productionRouteContract">{"contractVersion":"mvp-route-lock-2026-07-12","prototypeScreen":5,"productionModule":"social","routeId":"social.shorts","routePath":"/social/shorts","routeState":"viewer","implementation":"route-shell","launchScope":"mvp-core","separateProductionRoute":true,"productionNote":"Own production route /social/shorts. Implement viewer as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.","canonicalMap":"architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"}</script><script type="application/json" id="prototypeApprovalContract">{"prototypeScreen":5,"status":"approved-and-frozen","authoritative":true,"approvedAt":"2026-07-13"}</script>  <script src="../shared/prototype-interaction-contracts.js"></script>
   <script src="../shared/prototype-interaction-runtime.js"></script>

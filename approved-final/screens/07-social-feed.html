@@ -1673,6 +1673,11 @@
     document.querySelector(".chat-button")?.addEventListener("click", () => {
       window.location.href = "23-chat-inbox-home.html?from=feed";
     });
+
+    const entryParams = new URLSearchParams(window.location.search);
+    if (entryParams.get("post") !== null || entryParams.get("replies") === "open") {
+      openPostDetail(entryParams.get("replies") === "open");
+    }
   </script>
 <script type="application/json" id="productionRouteContract">{"contractVersion":"mvp-route-lock-2026-07-12","prototypeScreen":7,"productionModule":"social","routeId":"social.feed","routePath":"/social/feed","routeState":"timeline-post-replies","implementation":"route-shell","launchScope":"mvp-core","separateProductionRoute":true,"productionNote":"Own production route /social/feed. Implement timeline-post-replies as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.","canonicalMap":"architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"}</script><script type="application/json" id="prototypeApprovalContract">{"prototypeScreen":7,"status":"approved-and-frozen","authoritative":true,"approvedAt":"2026-07-13"}</script>  <script src="../shared/prototype-interaction-contracts.js"></script>
   <script src="../shared/prototype-interaction-runtime.js"></script>

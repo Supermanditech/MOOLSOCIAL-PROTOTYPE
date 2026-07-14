@@ -333,6 +333,16 @@
         linear-gradient(140deg, #1c2a80, #11764f 60%, #04104e);
     }
 
+    .video-card-link {
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .video-card-link:focus-visible {
+      outline: 3px solid var(--ms-saffron);
+      outline-offset: 3px;
+    }
+
     .video-top {
       display: flex;
       align-items: flex-start;
@@ -1129,7 +1139,7 @@
               <div class="sub-action-strip" data-subaction-strip aria-label="Focused action choices"></div>
               <section class="world active" data-world="social">
                 <div class="tab-panel active" data-tab-panel="shorts">
-                  <article class="video-card">
+                  <a class="video-card video-card-link" href="05-social-shorts.html?short=0" aria-label="Open current Short full screen">
                     <div class="video-top">
                       <span class="live-tag">Shorts</span>
                       <span class="live-tag">Swipe</span>
@@ -1141,7 +1151,7 @@
                       <b>Short videos start instantly</b>
                       <span>Local shorts, reels, creators, offers and daily moments. User scrolls vertically without commerce clutter.</span>
                     </div>
-                  </article>
+                  </a>
                   <article class="decision-card">
                     <span class="card-icon"><svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></span>
                     <span class="decision-copy">
@@ -1153,7 +1163,7 @@
                 </div>
 
                 <div class="tab-panel" data-tab-panel="video">
-                  <article class="video-card">
+                  <a class="video-card video-card-link" href="06-social-videos.html?watch=1" aria-label="Open current Video full screen">
                     <div class="video-top">
                       <span class="live-tag">Video</span>
                       <span class="live-tag">12:48</span>
@@ -1165,7 +1175,7 @@
                       <b>Watch long videos without distraction</b>
                       <span>Creator channels, education, product explainers, local stories and live commerce videos can play in one dedicated view.</span>
                     </div>
-                  </article>
+                  </a>
                   <article class="decision-card">
                     <span class="card-icon"><svg viewBox="0 0 24 24"><path d="M4 7h16v10H4Z"/><path d="m10 10 5 3-5 3Z"/></svg></span>
                     <span class="decision-copy">
@@ -1761,13 +1771,13 @@
     const actionConfig = {
       shorts: [
         { id: "like", label: "Like" },
-        { id: "comment", label: "Chat" },
+        { id: "comment", label: "Comments" },
         { id: "share", label: "Share" },
         { id: "remix", label: "Remix" }
       ],
       video: [
         { id: "like", label: "Like" },
-        { id: "comment", label: "Chat" },
+        { id: "comment", label: "Comments" },
         { id: "share", label: "Share" },
         { id: "save", label: "Save" }
       ],
@@ -1965,11 +1975,10 @@
         ]
       },
       book: {
-        command: "Search get it done, services, doctor or salon",
+        command: "Search get it done, doctor or salon",
         defaultTab: "get-done",
         tabs: [
           { id: "get-done", label: "Get It Done" },
-          { id: "services", label: "Services" },
           { id: "doctor", label: "Doctor" },
           { id: "salon", label: "Salon" }
         ]
@@ -2039,6 +2048,15 @@
       { id: "work", label: "Work", icon: "work", aria: "Open work" }
     ];
 
+    const rootEntryRoutes = {
+      buy: "09-buy.html",
+      eat: "26-eat.html",
+      ride: "30-ride.html",
+      book: "36-book.html",
+      pay: "57-pay.html",
+      work: "67-work.html"
+    };
+
     let activeWorldName = "social";
     let rootLoopGuard = false;
 
@@ -2069,7 +2087,12 @@
         button.addEventListener("click", (event) => {
           event.preventDefault();
           event.stopPropagation();
-          setWorld(button.dataset.rootAction, { resetToDefault: true });
+          const action = button.dataset.rootAction;
+          if (rootEntryRoutes[action]) {
+            continueTo(rootEntryRoutes[action]);
+            return;
+          }
+          setWorld(action, { resetToDefault: true });
         });
       });
       dock.onscroll = () => {
@@ -2102,7 +2125,15 @@
         </button>
       `).join("");
       strip.querySelectorAll("[data-sub-action]").forEach((button) => {
-        button.addEventListener("click", () => setTab(world, button.dataset.subAction));
+        button.addEventListener("click", () => {
+          const tab = button.dataset.subAction;
+          const route = universalRoutes[tab];
+          if (route) {
+            continueTo(route);
+            return;
+          }
+          setTab(world, tab);
+        });
       });
     }
 
@@ -2261,8 +2292,17 @@
         showUniversalToast(`${button.getAttribute("aria-label")} ${button.classList.contains("active") ? "saved" : "removed"}.`);
         return;
       }
-      if (["comment", "chat"].includes(action)) {
-        continueTo(activeWorldName === "social" ? "23-chat-inbox-home.html?from=social" : "23-chat-inbox-home.html?from=universal");
+      if (action === "comment") {
+        const discussionRoutes = {
+          shorts: "05-social-shorts.html?short=0&comments=open",
+          video: "06-social-videos.html?watch=1&comments=open",
+          feed: "07-social-feed.html?post=0&replies=open"
+        };
+        continueTo(discussionRoutes[tab] || universalRoutes[tab]);
+        return;
+      }
+      if (action === "chat") {
+        continueTo("23-chat-inbox-home.html?from=universal");
         return;
       }
       const primaryRoute = universalRoutes[tab] || "";

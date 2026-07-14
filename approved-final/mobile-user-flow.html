@@ -177,6 +177,7 @@
         },wait(520,90));
         return;
       }
+      if(state.nodeIndex!==sourceIndex)return;
       state.actionIndex++;
       if(state.actionIndex<(contract.actions||[]).length){
         setTimeout(prepareStep,wait(280,260));return;
