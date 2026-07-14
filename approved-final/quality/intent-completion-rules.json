@@ -1,0 +1,15 @@
+{
+  "version": "intent-completion-audit-2026-07-14",
+  "rule": "Every visible high-intent action must declare a progressive route, observable local state, governed system handoff, or terminal outcome. Generic fallback feedback is not completion.",
+  "highIntentPattern": "install|continue|sign[ -]?in|login|otp|record|caption|post|publish|create|upload|pay|confirm|place order|checkout|apply|accept|submit|release|refund|complete|buy|book|start|end trip|add|save|send|join|activate|verify|schedule|cancel|report|resolve|rate|collect|deliver|approve|reject|withdraw|assign|go online|subscribe|renew|claim|order|request",
+  "utilityHandoffPattern": "search|scan|voice|camera|call|location|map|share|download|zoom|open directions|choose file|pick file",
+  "nonJourneyPattern": "back to screenbook|back to feed|back to social|open mool|open chat|close|more actions|profile|account|help|filter|sort|previous|next",
+  "allowedResolutionTypes": [
+    "route",
+    "state",
+    "handoff",
+    "terminal",
+    "toggle",
+    "input"
+  ]
+}

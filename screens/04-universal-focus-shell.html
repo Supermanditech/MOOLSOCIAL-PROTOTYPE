@@ -483,7 +483,8 @@
       gap: 5px;
     }
 
-    .proof-row i {
+    .proof-row i,
+    .proof-row a {
       min-height: 22px;
       display: inline-flex;
       align-items: center;
@@ -494,7 +495,21 @@
       font-size: 9px;
       font-style: normal;
       font-weight: 900;
+      text-decoration: none;
       white-space: nowrap;
+    }
+
+    .proof-row.proof-actions a {
+      border-color: rgba(0, 0, 128, .24);
+      background: #fff;
+      color: var(--ms-navy);
+      cursor: pointer;
+    }
+
+    .proof-row.proof-actions a:focus-visible,
+    .proof-row.proof-actions a:hover {
+      border-color: var(--ms-navy);
+      box-shadow: 0 4px 10px rgba(0, 0, 128, .12);
     }
 
     .need-grid {
@@ -1157,7 +1172,11 @@
                     <span class="decision-copy">
                       <b>Create short</b>
                       <span>Record, upload, trim, caption and post. Creator monetisation unlocks only after verification.</span>
-                      <span class="proof-row"><i>Record</i><i>Caption</i><i>Post</i></span>
+                      <span class="proof-row proof-actions" aria-label="Create Short steps">
+                        <a href="08-social-create.html?mode=short&step=record">Record</a>
+                        <a href="08-social-create.html?mode=short&step=caption">Caption</a>
+                        <a href="08-social-create.html?mode=short&step=publish">Post</a>
+                      </span>
                     </span>
                   </article>
                 </div>
@@ -2324,7 +2343,7 @@
 
     setWorld("social");
   </script>
-<script type="application/json" id="productionRouteContract">{"contractVersion":"mvp-route-lock-2026-07-12","prototypeScreen":4,"productionModule":"universal","routeId":"universal.app","routePath":"/app","routeState":"social-default-focus-shell","implementation":"route-shell","launchScope":"mvp-core","separateProductionRoute":true,"productionNote":"Own production route /app. Implement social-default-focus-shell as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.","canonicalMap":"architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"}</script><script type="application/json" id="prototypeApprovalContract">{"prototypeScreen":4,"status":"approved-and-frozen","authoritative":true,"approvedAt":"2026-07-12","approvalScope":"prototype-ui-ux-and-production-contract"}</script>  <script src="../shared/prototype-interaction-contracts.js"></script>
-  <script src="../shared/prototype-interaction-runtime.js"></script>
+<script type="application/json" id="productionRouteContract">{"contractVersion":"mvp-route-lock-2026-07-12","prototypeScreen":4,"productionModule":"universal","routeId":"universal.app","routePath":"/app","routeState":"social-default-focus-shell","implementation":"route-shell","launchScope":"mvp-core","separateProductionRoute":true,"productionNote":"Own production route /app. Implement social-default-focus-shell as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.","canonicalMap":"architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"}</script><script type="application/json" id="prototypeApprovalContract">{"prototypeScreen":4,"status":"approved-and-frozen","authoritative":true,"approvedAt":"2026-07-12","approvalScope":"prototype-ui-ux-and-production-contract"}</script>  <script src="../shared/prototype-interaction-contracts.js?v=intent-completion-20260714b"></script>
+  <script src="../shared/prototype-interaction-runtime.js?v=intent-completion-20260714c"></script>
 </body>
 </html>

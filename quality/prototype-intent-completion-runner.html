@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>MoolSocial Intent Completion Replay</title>
+  <style>
+    body{margin:0;padding:18px;background:#f3f5fb;color:#0b146f;font:14px/1.45 system-ui,sans-serif}
+    h1{margin:0 0 8px;font-size:22px} progress{width:100%;height:16px}
+    #status{margin-top:12px;padding:10px;border-radius:7px;background:#08108f;color:#fff}
+    iframe{position:fixed;left:-10000px;top:0;width:390px;height:844px;border:0}
+  </style>
+  <script src="../shared/prototype-interaction-contracts.js"></script>
+</head>
+<body>
+  <h1>Intent Completion Replay</h1>
+  <p>Replays unresolved high-intent controls and records route, native state or generic fallback.</p>
+  <progress id="progress" max="1" value="0"></progress>
+  <div id="status" role="status">Preparing unresolved actions...</div>
+  <script id="reportJson" type="application/json"></script>
+  <iframe id="subject" title="Intent audit subject"></iframe>
+  <script>
+    (function(){
+      'use strict';
+      var subject=document.getElementById('subject');
+      var progress=document.getElementById('progress');
+      var status=document.getElementById('status');
+      var reportJson=document.getElementById('reportJson');
+      var selector='button,a[href],[role="button"],[role="tab"],[role="switch"]';
+      function normalize(v){return String(v||'').replace(/\s+/g,' ').trim()}
+      function labelOf(el){return normalize(el.getAttribute('aria-label')||el.getAttribute('title')||el.innerText||el.textContent||el.value||el.name)}
+      function visible(el){var s=el.ownerDocument.defaultView.getComputedStyle(el),r=el.getBoundingClientRect();return s.display!=='none'&&s.visibility!=='hidden'&&Number(s.opacity||1)>0&&r.width>0&&r.height>0&&!el.closest('[hidden]')}
+      function controls(doc){return Array.from(doc.querySelectorAll(selector)).filter(function(el){return visible(el)&&!el.disabled})}
+      function sleep(ms){return new Promise(function(resolve){setTimeout(resolve,ms)})}
+      function load(url){return new Promise(function(resolve,reject){var timer=setTimeout(function(){reject(new Error('load-timeout'))},5000);subject.onload=function(){clearTimeout(timer);setTimeout(resolve,80)};subject.src=url+(url.includes('?')?'&':'?')+'intentReplay='+Date.now()})}
+      function find(doc,finding){
+        var matches=controls(doc).filter(function(el){
+          var candidate=labelOf(el);
+          return el.tagName===finding.tag&&(candidate===finding.label||(finding.label.length>=110&&candidate.indexOf(finding.label.trim())===0));
+        });
+        return matches[finding.occurrence||0]||null;
+      }
+      function signal(doc){
+        var nodes=Array.from(doc.querySelectorAll('[role="status"],[role="alert"],[role="dialog"],[aria-live],.toast,.sheet,.modal,.result,.success,.confirmation'));
+        return normalize(nodes.filter(visible).map(function(node){return node.innerText||node.textContent}).join(' | ')).slice(0,900);
+      }
+      function hash(value){var out=2166136261;for(var i=0;i<value.length;i+=1){out^=value.charCodeAt(i);out=Math.imul(out,16777619)}return(out>>>0).toString(16)}
+      async function exercise(finding){
+        try{
+          await load('../screens/'+finding.file);
+          var win=subject.contentWindow,doc=subject.contentDocument,el=find(doc,finding);
+          if(!el)throw new Error('control-not-found');
+          win.alert=function(message){doc.documentElement.dataset.intentDialog=String(message||'alert')};
+          win.confirm=function(message){doc.documentElement.dataset.intentDialog=String(message||'confirm');return false};
+          win.prompt=function(message){doc.documentElement.dataset.intentDialog=String(message||'prompt');return''};
+          win.open=function(){doc.documentElement.dataset.intentWindow='opened';return null};
+          var beforeUrl=win.location.href,beforeHash=hash(doc.body.innerHTML),beforeSignal=signal(doc);
+          el.click();
+          await sleep(260);
+          var afterWin=subject.contentWindow,afterDoc=subject.contentDocument,afterUrl=afterWin.location.href;
+          var fallback=!!afterDoc.querySelector('.mool-contract-backdrop:not(.mool-intent-outcome),.mool-contract-toast:not([data-intent-resolved])');
+          var afterSignal=signal(afterDoc);
+          var dialog=doc.documentElement.dataset.intentDialog||doc.documentElement.dataset.intentWindow||'';
+          var changed=beforeHash!==hash(afterDoc.body.innerHTML)||beforeUrl!==afterUrl||beforeSignal!==afterSignal||!!dialog;
+          return{
+            ticket:finding.ticket,screen:finding.screen,file:finding.file,label:finding.label,occurrence:finding.occurrence||0,
+            currentContractType:finding.currentContractType||'',
+            outcome: fallback?'generic-fallback':(beforeUrl!==afterUrl?'route':(changed?'native-state':'dead')),
+            route:beforeUrl!==afterUrl?afterUrl:'',signal:afterSignal||dialog||'',pass:changed&&!fallback
+          };
+        }catch(error){return{ticket:finding.ticket,screen:finding.screen,file:finding.file,label:finding.label,occurrence:finding.occurrence||0,outcome:'error',route:'',signal:'',pass:false,error:error.message||String(error)}}
+      }
+      async function run(){
+        var resolvedMode=new URLSearchParams(location.search).get('resolved')==='1';
+        var source=await fetch('generated/intent-completion-audit.json?ts='+Date.now()).then(function(r){return r.json()});
+        var findings=source.findings.filter(function(item){return item.tag!=='VISUAL-PSEUDO-ACTION'});
+        if(resolvedMode){
+          var resolvedData=await Promise.all([
+            fetch('intent-completion-overrides.json?ts='+Date.now()).then(function(r){return r.json()}),
+            fetch('generated/rendered-control-inventory.json?ts='+Date.now()).then(function(r){return r.json()})
+          ]);
+          var inventoryByScreen={};
+          resolvedData[1].screens.forEach(function(item){inventoryByScreen[String(item.screen)]=item});
+          findings=resolvedData[0].entries.filter(function(item){return !!item.runtimeType}).map(function(item,index){
+            var screenInventory=inventoryByScreen[String(item.screen)]||{file:'',controls:[]};
+            var occurrence=item.occurrence||0;
+            var matches=screenInventory.controls.filter(function(control){return control.label===item.label});
+            var control=matches[occurrence]||matches[0]||{tag:'BUTTON'};
+            return{ticket:'ICR-'+String(index+1).padStart(4,'0'),screen:item.screen,file:screenInventory.file,label:item.label,occurrence:occurrence,tag:control.tag,currentContractType:item.runtimeType};
+          });
+        }
+        var report={generatedAt:new Date().toISOString(),complete:false,summary:{tested:0,passed:0,failed:0,routes:0,nativeStates:0,genericFallbacks:0,dead:0,errors:0},results:[]};
+        progress.max=findings.length;
+        for(var i=0;i<findings.length;i+=1){
+          status.textContent='Testing '+(i+1)+'/'+findings.length+' · Screen '+String(findings[i].screen).padStart(2,'0')+' · '+findings[i].label.slice(0,70);
+          var result=await exercise(findings[i]);report.results.push(result);report.summary.tested++;progress.value=report.summary.tested;
+          if(result.pass)report.summary.passed++;else report.summary.failed++;
+          if(result.outcome==='route')report.summary.routes++;
+          else if(result.outcome==='native-state')report.summary.nativeStates++;
+          else if(result.outcome==='generic-fallback')report.summary.genericFallbacks++;
+          else if(result.outcome==='dead')report.summary.dead++;
+          else if(result.outcome==='error')report.summary.errors++;
+        }
+        report.complete=true;report.completedAt=new Date().toISOString();
+        status.textContent='Complete · '+report.summary.passed+' real outcomes · '+report.summary.genericFallbacks+' generic fallbacks · '+report.summary.dead+' dead';
+        reportJson.textContent=JSON.stringify(report);window.__MOOL_INTENT_REPLAY__=report;document.documentElement.dataset.intentReplayComplete='true';
+      }
+      run();
+    }());
+  </script>
+</body>
+</html>

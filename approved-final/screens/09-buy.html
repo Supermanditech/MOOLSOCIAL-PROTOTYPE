@@ -598,10 +598,14 @@
     }
 
     .price-choice {
+      appearance: none;
       border: 1px solid rgba(0, 0, 128, .12);
       border-radius: 15px;
       padding: 9px;
       background: #fbfcff;
+      font-family: var(--ms-font);
+      text-align: left;
+      cursor: pointer;
     }
 
     .price-choice.active {
@@ -629,7 +633,7 @@
     }
 
     .buy-method-row {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 6px;
     }
 
@@ -1307,10 +1311,9 @@
     }
 
     .mode-strip {
-      display: flex;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 5px;
-      overflow-x: auto;
-      scrollbar-width: none;
       border: 1px solid rgba(0, 0, 128, .12);
       border-radius: var(--ms-pill);
       padding: 4px;
@@ -1324,9 +1327,10 @@
 
     .mode-option {
       appearance: none;
-      flex: 0 0 auto;
-      min-height: 28px;
+      min-width: 0;
+      min-height: 34px;
       display: inline-flex;
+      justify-content: center;
       align-items: center;
       gap: 5px;
       border: 1px solid rgba(0, 0, 128, .1);
@@ -1387,9 +1391,50 @@
     }
 
     .buy-ladder {
-      display: grid;
+      display: none;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 4px;
+    }
+
+    .mode-decision {
+      min-height: 38px;
+      display: grid;
+      gap: 3px;
+      border: 1px solid rgba(0, 0, 128, .1);
+      border-radius: 12px;
+      padding: 6px 8px;
+      background: #f8f9ff;
+      color: var(--ms-navy);
+    }
+
+    .mode-decision strong {
+      font-size: 10px;
+      line-height: 1.15;
+    }
+
+    .mode-decision span {
+      color: rgba(0, 0, 128, .66);
+      font-size: 8px;
+      font-weight: 820;
+      line-height: 1.2;
+    }
+
+    .wholesale-decision {
+      display: none;
+      border-color: rgba(255, 153, 51, .42);
+      background: rgba(255, 153, 51, .08);
+    }
+
+    .phone[data-purchase-mode="wholesale"] .retail-decision {
+      display: none;
+    }
+
+    .phone[data-purchase-mode="wholesale"] .wholesale-decision {
+      display: grid;
+    }
+
+    .phone[data-purchase-mode="retail"] .lock-meter {
+      display: none;
     }
 
     .buy-choice {
@@ -2022,7 +2067,7 @@
     <section class="ms-panel">
       <div class="ms-section-head">Production-Facing Approved <span>Shop QR, Browse, Meds, Basket</span></div>
       <div class="buy-preview">
-        <section class="phone" aria-label="Screen 09 mobile preview">
+        <section class="phone" aria-label="Screen 09 mobile preview" data-purchase-mode="retail">
           <div class="buy-app">
             <div class="status-row">
               <span>9:41</span>
@@ -2111,22 +2156,14 @@
                     </div>
                   </article>
 
-                  <div class="mode-strip" aria-label="Price mode">
-                    <button class="mode-option active" type="button" data-price-mode="retail">
-                      <b>Buy Retail</b>
-                      <span>shop price now</span>
+                  <div class="mode-strip" aria-label="Choose buying mode">
+                    <button class="mode-option active" type="button" data-price-mode="retail" data-native-interaction>
+                      <b>Retail Buy</b>
+                      <span>single and family packs</span>
                     </button>
-                    <button class="mode-option" type="button" data-price-mode="pack">
-                      <b>Family Pack</b>
-                      <span>more qty save</span>
-                    </button>
-                    <button class="mode-option" type="button" data-price-mode="wholesale">
-                      <b>Wholesale Rate</b>
-                      <span>MOQ based</span>
-                    </button>
-                    <button class="mode-option" type="button" data-price-mode="basket">
-                      <b>Shop Offer</b>
-                      <span>discounts</span>
+                    <button class="mode-option" type="button" data-price-mode="wholesale" data-native-interaction>
+                      <b>Wholesale Buy</b>
+                      <span>MOQ and bulk rates</span>
                     </button>
                   </div>
 
@@ -2456,13 +2493,12 @@
                     <div class="section-title">
                       <span>
                         <b>Choose how to buy</b>
-                        <span>Retail, pack saving and wholesale basket price are shown before add.</span>
+                        <span>Switch once between retail packs and wholesale MOQ buying.</span>
                       </span>
                     </div>
                     <div class="price-choice-row buy-method-row">
-                      <span class="price-choice active" data-choice="retail"><b>Retail Buy</b><span>Rs 37 · shop price · 11 min · 500 g</span></span>
-                      <span class="price-choice" data-choice="pack"><b>Family Pack</b><span>Rs 34 each · 2 kg · evening</span></span>
-                      <span class="price-choice" data-choice="wholesale"><b>Wholesale MOQ</b><span>Rs 31 each · area MOQ target</span></span>
+                      <button class="price-choice active" type="button" data-choice="retail"><b>Retail Buy</b><span>Choose 500 g or family pack · 11 min</span></button>
+                      <button class="price-choice" type="button" data-choice="wholesale"><b>Wholesale Buy</b><span>Rs 31 each · area MOQ target</span></button>
                     </div>
                     <div class="lock-meter" style="--lock: 64%">
                       <div class="lock-copy">
@@ -2919,6 +2955,7 @@
 
   <script>
     const tabButtons = Array.from(document.querySelectorAll("[data-buy-tab]"));
+    const phone = document.querySelector(".phone");
     const panels = Array.from(document.querySelectorAll("[data-panel]"));
     const scrollArea = document.querySelector(".buy-scroll");
     const command = document.querySelector("[data-command-text]");
@@ -2974,7 +3011,7 @@
     };
 
     const commandCopy = {
-      grocery: "Buy: retail, pack, wholesale basket or offer...",
+      grocery: "Buy: choose Retail or Wholesale, then compare product decisions...",
       categories: "Buy: choose category, compare price and delivery...",
       medicine: "Medicine: upload Rx, search refill, ask pharmacy...",
       basket: "Basket: build monthly order, compare wholesale and offers..."
@@ -3080,10 +3117,8 @@
     }
 
     const modeText = {
-      retail: "Buy Retail: shop price now with counter pickup or delivery",
-      pack: "Family Pack: larger pack size with better per-item price",
-      wholesale: "Wholesale MOQ: area quantity target with fallback retail price",
-      basket: "Shop Offer: combine discounts, free delivery and scheduled basket"
+      retail: "Retail Buy: choose a single or family pack, then add",
+      wholesale: "Wholesale Buy: compare unit rate, MOQ, delivery and payment terms"
     };
 
     const shopActionText = {
@@ -3106,30 +3141,63 @@
       }
     }
 
+    function hydrateProductModes() {
+      document.querySelectorAll(".product-card").forEach((card) => {
+        const retailChoice = card.querySelector('[data-choice="retail"]');
+        const wholesaleChoice = card.querySelector('[data-choice="wholesale"]');
+        const price = card.querySelector(".product-price b");
+        const priceNote = card.querySelector(".product-price span");
+        if (!retailChoice || !wholesaleChoice || !price) return;
+
+        const retailPrice = retailChoice.querySelector("strong")?.textContent.trim() || price.textContent.trim();
+        const wholesalePrice = wholesaleChoice.querySelector("strong")?.textContent.trim() || retailPrice;
+        const wholesaleMoq = wholesaleChoice.querySelector("span")?.textContent.trim() || "MOQ shown";
+        const delivery = card.querySelector(".product-meta")?.textContent.trim() || "Delivery shown";
+        card.dataset.retailPrice = retailPrice;
+        card.dataset.wholesalePrice = wholesalePrice;
+        card.dataset.retailNote = priceNote?.textContent.trim() || "Retail pack";
+
+        const decisions = document.createElement("div");
+        decisions.className = "product-mode-decisions";
+        decisions.innerHTML = `
+          <div class="mode-decision retail-decision">
+            <strong>${retailPrice} · selected retail pack</strong>
+            <span>${delivery} · MRP visible · more pack sizes in Details</span>
+          </div>
+          <div class="mode-decision wholesale-decision">
+            <strong>${wholesalePrice}/unit · ${wholesaleMoq}</strong>
+            <span>${delivery} · delivery and payment terms before order</span>
+          </div>`;
+        retailChoice.closest(".buy-ladder")?.insertAdjacentElement("afterend", decisions);
+      });
+    }
+
     function setPurchaseMode(mode, shouldScroll = false) {
+      if (!['retail', 'wholesale'].includes(mode)) mode = 'retail';
+      if (phone) phone.dataset.purchaseMode = mode;
       modeOptions.forEach((option) => {
         option.classList.toggle("active", option.dataset.priceMode === mode);
       });
 
-      if (mode !== "basket") {
-        document.querySelectorAll(".buy-ladder").forEach((ladder) => {
-          let activeChoice = null;
-          ladder.querySelectorAll("[data-choice]").forEach((choice) => {
-            const isActive = choice.dataset.choice === mode;
-            choice.classList.toggle("active", isActive);
-            if (isActive) activeChoice = choice;
-          });
-          pulseElement(activeChoice);
+      document.querySelectorAll(".buy-ladder").forEach((ladder) => {
+        ladder.querySelectorAll("[data-choice]").forEach((choice) => {
+          choice.classList.toggle("active", choice.dataset.choice === mode);
         });
+      });
 
-        document.querySelectorAll(".buy-method-row [data-choice]").forEach((choice) => {
-          const isActive = choice.dataset.choice === mode;
-          choice.classList.toggle("active", isActive);
-          if (isActive) pulseElement(choice);
-        });
-      }
+      document.querySelectorAll(".buy-method-row [data-choice]").forEach((choice) => {
+        choice.classList.toggle("active", choice.dataset.choice === mode);
+      });
 
-      if (mode === "basket") openSheet("basket");
+      document.querySelectorAll(".product-card").forEach((card) => {
+        const price = card.querySelector(".product-price b");
+        const priceNote = card.querySelector(".product-price span");
+        const add = card.querySelector("[data-add-item]");
+        if (price) price.textContent = mode === 'wholesale' ? card.dataset.wholesalePrice : card.dataset.retailPrice;
+        if (priceNote) priceNote.textContent = mode === 'wholesale' ? 'MOQ rate' : card.dataset.retailNote;
+        if (add) add.textContent = mode === 'wholesale' ? 'Add MOQ' : 'ADD';
+      });
+
       if (command) command.textContent = modeText[mode] || commandCopy.grocery;
       if (shouldScroll) document.querySelector(".product-grid")?.scrollIntoView({ block: "nearest", behavior: "smooth" });
     }
@@ -3220,7 +3288,10 @@
 
     document.querySelector("[data-close-sheet]")?.addEventListener("click", closeSheet);
 
+    hydrateProductModes();
+
     const entryParams = new URLSearchParams(window.location.search);
+    setPurchaseMode(entryParams.get("mode") || "retail");
     const entryView = entryParams.get("view");
     if (entryView === "basket") {
       window.location.replace("12-buy-basket-checkout.html?from=screen09&entry=basket");
@@ -3229,12 +3300,12 @@
     } else if (entryView === "fresh") {
       openCategory("vegetables");
     } else if (entryView === "monthly") {
-      setPurchaseMode("basket");
+      window.location.replace("12-buy-basket-checkout.html?from=screen09&entry=monthly");
     } else if (entryView === "nearby") {
       setShopAction("buy");
     }
   </script>
-<script type="application/json" id="productionRouteContract">{"contractVersion":"mvp-route-lock-2026-07-12","prototypeScreen":9,"productionModule":"commerce","routeId":"commerce.buy","routePath":"/buy","routeState":"discovery","implementation":"route-shell","launchScope":"mvp-core","separateProductionRoute":true,"productionNote":"Own production route /buy. Implement discovery as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.","canonicalMap":"architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"}</script><script type="application/json" id="prototypeApprovalContract">{"prototypeScreen":9,"status":"approved-and-frozen","authoritative":true,"approvedAt":"2026-07-12","approvalScope":"prototype-ui-ux-and-production-contract"}</script>  <script src="../shared/prototype-interaction-contracts.js"></script>
-  <script src="../shared/prototype-interaction-runtime.js"></script>
+<script type="application/json" id="productionRouteContract">{"contractVersion":"mvp-route-lock-2026-07-12","prototypeScreen":9,"productionModule":"commerce","routeId":"commerce.buy","routePath":"/buy","routeState":"discovery","implementation":"route-shell","launchScope":"mvp-core","separateProductionRoute":true,"productionNote":"Own production route /buy. Implement discovery as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.","canonicalMap":"architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"}</script><script type="application/json" id="prototypeApprovalContract">{"prototypeScreen":9,"status":"approved-and-frozen","authoritative":true,"approvedAt":"2026-07-12","approvalScope":"prototype-ui-ux-and-production-contract"}</script>  <script src="../shared/prototype-interaction-contracts.js?v=intent-completion-20260714b"></script>
+  <script src="../shared/prototype-interaction-runtime.js?v=intent-completion-20260714c"></script>
 </body>
 </html>

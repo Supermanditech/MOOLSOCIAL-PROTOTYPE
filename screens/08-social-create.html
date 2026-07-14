@@ -765,13 +765,37 @@
     }
 
     .sheet-item {
+      appearance: none;
       min-height: 58px;
       display: grid;
       align-content: center;
       gap: 3px;
+      border: 1px solid rgba(0, 0, 128, .1);
       border-radius: 16px;
       padding: 9px;
       background: #f6f7ff;
+      color: var(--ms-navy);
+      font-family: var(--ms-font);
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .sheet-item:hover,
+    .sheet-item:focus-visible {
+      border-color: var(--ms-navy);
+      background: #fff;
+      box-shadow: 0 7px 16px rgba(0, 0, 128, .12);
+    }
+
+    .sheet-item.primary {
+      border-color: var(--ms-navy);
+      background: var(--ms-navy);
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .sheet-item.primary span {
+      color: rgba(255, 255, 255, .76);
     }
 
     .sheet-item b {
@@ -1493,9 +1517,12 @@
     const sheetTitle = document.querySelector("[data-sheet-title]");
     const sheetGrid = document.querySelector("[data-sheet-grid]");
     const saveDraft = document.querySelector("[data-save-draft]");
+    let activeMode = "Text";
+    let activeSheetType = "";
 
     function setMode(mode) {
       const copy = modeCopy[mode] || modeCopy.Text;
+      activeMode = modeCopy[mode] ? mode : "Text";
       modeButtons.forEach((button) => button.classList.toggle("active", button.dataset.mode === mode));
       modeButtons.forEach((button) => button.setAttribute("aria-pressed", String(button.dataset.mode === mode)));
       subtitle.textContent = `${mode} selected · ${copy.subtitle}`;
@@ -1507,11 +1534,74 @@
 
     function openSheet(type) {
       const content = sheetContent[type] || sheetContent.media;
+      activeSheetType = type;
       sheetTitle.textContent = content.title;
       sheetGrid.innerHTML = content.items
-        .map(([title, note]) => `<span class="sheet-item"><b>${title}</b><span>${note}</span></span>`)
+        .map(([title, note]) => `<button class="sheet-item" type="button" data-sheet-choice data-choice-title="${title}" data-choice-note="${note}"><b>${title}</b><span>${note}</span></button>`)
         .join("");
       sheet.classList.add("open");
+    }
+
+    function showCompletion(title, note, route = "") {
+      sheetTitle.textContent = title;
+      sheetGrid.innerHTML = "";
+      const outcome = document.createElement(route ? "a" : "button");
+      outcome.className = "sheet-item primary";
+      if (route) outcome.href = route;
+      else {
+        outcome.type = "button";
+        outcome.dataset.closeCompletion = "true";
+      }
+      const heading = document.createElement("b");
+      const message = document.createElement("span");
+      heading.textContent = title;
+      message.textContent = note;
+      outcome.append(heading, message);
+      sheetGrid.appendChild(outcome);
+      sheet.classList.add("open");
+    }
+
+    function completeSheetChoice(title, note) {
+      if (activeSheetType === "publish") {
+        if (title === "Post now") {
+          const destination = activeMode === "Short"
+            ? "05-social-shorts.html?created=1"
+            : activeMode === "Video"
+              ? "06-social-videos.html?created=1"
+              : "07-social-feed.html?created=1";
+          showCompletion(`${activeMode} posted`, "Published successfully. Open it now.", destination);
+          return;
+        }
+        if (title === "Schedule") {
+          showCompletion("Post scheduled", "The scheduled time is saved and can be changed from Drafts.");
+          return;
+        }
+        if (title === "Save draft") {
+          showCompletion("Draft saved", "Your media, caption and settings are preserved.");
+          return;
+        }
+        if (title === "Preview") {
+          showCompletion("Preview ready", "Your post is shown exactly as followers will see it.");
+          return;
+        }
+      }
+
+      if (activeSheetType === "camera" && title === "Short") {
+        setMode("Short");
+        uploadTitle.textContent = "Short recorded and ready";
+        uploadNote.textContent = "Trim the clip, add a caption and post when ready.";
+        showCompletion("Short recorded", "Continue with caption or publishing.");
+        return;
+      }
+
+      if (activeSheetType === "captions") {
+        uploadTitle.textContent = `${title} ready`;
+        uploadNote.textContent = `${note}. Review caption text before publishing.`;
+        showCompletion("Caption prepared", "Caption settings are applied to this draft.");
+        return;
+      }
+
+      showCompletion(`${title} selected`, `${note}. Your draft has been updated.`);
     }
 
     modeButtons.forEach((button) => {
@@ -1529,6 +1619,15 @@
       sheet.classList.remove("open");
     });
 
+    sheetGrid.addEventListener("click", (event) => {
+      const choice = event.target.closest("[data-sheet-choice]");
+      if (choice) {
+        completeSheetChoice(choice.dataset.choiceTitle, choice.dataset.choiceNote);
+        return;
+      }
+      if (event.target.closest("[data-close-completion]")) sheet.classList.remove("open");
+    });
+
     saveDraft.addEventListener("click", () => {
       const original = saveDraft.innerHTML;
       saveDraft.textContent = "Saved";
@@ -1537,11 +1636,17 @@
       }, 1200);
     });
 
-    const requestedMode = new URLSearchParams(window.location.search).get("mode");
+    const createParams = new URLSearchParams(window.location.search);
+    const requestedMode = createParams.get("mode");
     if (requestedMode) {
       const normalizedMode = requestedMode.charAt(0).toUpperCase() + requestedMode.slice(1).toLowerCase();
       if (modeCopy[normalizedMode]) setMode(normalizedMode);
     }
+
+    const requestedStep = createParams.get("step");
+    if (requestedStep === "record") openSheet("camera");
+    if (requestedStep === "caption") openSheet("captions");
+    if (requestedStep === "publish") openSheet("publish");
 
     document.querySelector(".mool-button")?.addEventListener("click", () => {
       window.location.href = "04-universal-focus-shell.html?world=social";
@@ -1553,7 +1658,7 @@
       window.location.href = "23-chat-inbox-home.html?from=create";
     });
   </script>
-<script type="application/json" id="productionRouteContract">{"contractVersion":"mvp-route-lock-2026-07-12","prototypeScreen":8,"productionModule":"social","routeId":"social.create","routePath":"/social/create","routeState":"composer","implementation":"route-shell","launchScope":"mvp-core","separateProductionRoute":true,"productionNote":"Own production route /social/create. Implement composer as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.","canonicalMap":"architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"}</script><script type="application/json" id="prototypeApprovalContract">{"prototypeScreen":8,"status":"approved-and-frozen","authoritative":true,"approvedAt":"2026-07-12","approvalScope":"prototype-ui-ux-and-production-contract"}</script>  <script src="../shared/prototype-interaction-contracts.js"></script>
-  <script src="../shared/prototype-interaction-runtime.js"></script>
+<script type="application/json" id="productionRouteContract">{"contractVersion":"mvp-route-lock-2026-07-12","prototypeScreen":8,"productionModule":"social","routeId":"social.create","routePath":"/social/create","routeState":"composer","implementation":"route-shell","launchScope":"mvp-core","separateProductionRoute":true,"productionNote":"Own production route /social/create. Implement composer as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.","canonicalMap":"architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"}</script><script type="application/json" id="prototypeApprovalContract">{"prototypeScreen":8,"status":"approved-and-frozen","authoritative":true,"approvedAt":"2026-07-12","approvalScope":"prototype-ui-ux-and-production-contract"}</script>  <script src="../shared/prototype-interaction-contracts.js?v=intent-completion-20260714b"></script>
+  <script src="../shared/prototype-interaction-runtime.js?v=intent-completion-20260714c"></script>
 </body>
 </html>

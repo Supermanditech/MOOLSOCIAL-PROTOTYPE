@@ -99,9 +99,42 @@ Rule: a primary user action passes only when it opens the correct product state 
 - Priority: P0
 - Status: completed
 
+## PRT-013 - High-Intent Controls Must Reach a Declared Outcome
+
+- Scope: all 166 screens and every visible install, create, post, buy, book, pay, apply, confirm, save, submit, refund, schedule and related control.
+- Problem: a mechanically responsive control could pass the old audit even when it only displayed generic fallback feedback.
+- Required result: every high-intent control declares and demonstrates a route, meaningful native state, governed handoff or terminal result.
+- Priority: P0
+- Status: completed
+
+## PRT-014 - Social Create Steps Are Progressive
+
+- Screens: 04 and 08.
+- Problem: `Record`, `Caption` and `Post` looked actionable but did not enter or complete the corresponding creation step.
+- Required result: each step opens Screen 08 in the requested Short mode; recording, captioning, draft, schedule and publish actions produce visible, specific outcomes and publishing links to the created Short.
+- Priority: P0
+- Status: completed
+
+## PRT-015 - Choose Retail or Wholesale Once
+
+- Screen: 09.
+- Problem: every product repeated Retail, Pack and Wholesale ladders, making the purchase decision dense and repetitive.
+- Required result: a single persistent `Retail Buy | Wholesale Buy` switch changes every product card. Pack size stays inside product details; wholesale mode shows unit rate, MOQ, delivery and payment terms.
+- Priority: P0
+- Status: completed
+
+## PRT-016 - Replace Generic Fallbacks and Dead Cards
+
+- Scope: 63 curated outcomes across commerce, food, ride, booking, Get It Done, Pay, Work, retailer, manufacturer, creator, provider and admin screens.
+- Problem: 56 high-intent controls opened generic sheets, seven controls were dead, and three live-countdown cards had unstable accessible labels.
+- Required result: all curated controls produce screen-specific routes or states; live labels remain native and are verified by the clean browser replay.
+- Priority: P0
+- Status: completed
+
 ## Verification Evidence
 
 - Semantic mobile flows: `quality/generated/semantic-mobile-user-flow-final.json`
 - Result: 47/47 operational flows passed at 390 x 844 with zero browser console errors.
 - Static graph: 166 source and approved screens, 484 flow nodes, 1,057 local navigation targets and 474 assets passed.
 - Source/approved parity and full interaction gates passed. Public GitHub Pages verification is the final publication check before the mobile URL is shared.
+- Intent completion: 483/483 high-intent controls declared, 63/63 curated outcomes replayed, zero generic fallbacks and zero dead controls.

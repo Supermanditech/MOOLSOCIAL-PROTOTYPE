@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>MoolSocial Semantic Mobile Flow Audit</title>
+  <style>
+    :root{font-family:Arial,sans-serif;color:#11106f;background:#f4f6fb}
+    *{box-sizing:border-box}
+    body{margin:0;padding:24px}
+    main{max-width:880px;margin:auto;background:#fff;border:1px solid #d9def0;border-radius:12px;padding:20px}
+    h1{font-size:22px;margin:0 0 8px}
+    p{margin:0 0 16px;color:#51576b}
+    progress{width:100%;height:12px}
+    pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#0a0a56;color:#fff;padding:14px;border-radius:8px;max-height:55vh;overflow:auto}
+    iframe{position:fixed;left:-10000px;top:0;width:390px;height:844px;border:0}
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Semantic mobile-flow audit</h1>
+    <p id="status">Preparing 47 operational journeys...</p>
+    <progress id="progress" max="47" value="0"></progress>
+    <pre id="reportJson">Waiting for audit.</pre>
+  </main>
+  <iframe id="subject" title="Mobile flow audit subject"></iframe>
+  <script>
+    (function(){
+      'use strict';
+
+      var subject=document.getElementById('subject');
+      var status=document.getElementById('status');
+      var progress=document.getElementById('progress');
+      var reportJson=document.getElementById('reportJson');
+      var runToken=Date.now();
+      var sleep=function(ms){return new Promise(function(resolve){setTimeout(resolve,ms)})};
+
+      function waitFor(check,timeout,message){
+        var started=Date.now();
+        return new Promise(function(resolve,reject){
+          (function poll(){
+            try{var value=check();if(value){resolve(value);return}}catch(error){}
+            if(Date.now()-started>timeout){reject(new Error(message));return}
+            setTimeout(poll,30);
+          })();
+        });
+      }
+
+      function flowUrl(id){
+        return '../mobile-user-flow.html?audit=1&flow='+encodeURIComponent(id)+'&semanticRun='+runToken;
+      }
+
+      async function runFlow(flow,index,total){
+        status.textContent='Testing '+flow.title+' ('+(index+1)+' of '+total+')';
+        subject.src=flowUrl(flow.id);
+        var runner=await waitFor(function(){
+          var doc=subject.contentDocument;
+          if(!doc||doc.readyState!=='complete')return null;
+          var select=doc.getElementById('flowSelect');
+          var appFrame=doc.getElementById('appFrame');
+          if(select&&select.value===flow.id&&appFrame&&appFrame.contentDocument)return doc;
+          return null;
+        },12000,'Flow runner did not load');
+
+        var turns=[];
+        var overflows=[];
+        var seenScreens=[];
+        var maxTurns=Math.max(20,flow.nodes.length*4);
+
+        for(var turn=0;turn<maxTurns;turn++){
+          var finished=runner.getElementById('finish');
+          if(finished&&!finished.hidden){
+            return {
+              flow:flow.id,
+              title:flow.title,
+              status:'passed',
+              expectedNodes:flow.nodes.length,
+              interactionTurns:turns.length,
+              finalCounter:runner.getElementById('counter').textContent.trim(),
+              screensSeen:Array.from(new Set(seenScreens)),
+              horizontalOverflows:overflows,
+              turns:turns,
+              error:null
+            };
+          }
+
+          var errorBox=runner.getElementById('error');
+          if(errorBox&&errorBox.classList.contains('show'))throw new Error(errorBox.textContent.trim()||'Flow runner reported an error');
+
+          var appFrame=runner.getElementById('appFrame');
+          var appDoc=appFrame&&appFrame.contentDocument;
+          var appWin=appFrame&&appFrame.contentWindow;
+          if(!appDoc||!appWin){await sleep(40);continue}
+
+          var target=appDoc.querySelector('[data-mool-flow-target="true"]');
+          if(!target){
+            var instruction=runner.getElementById('instruction').textContent.trim();
+            if(/^automatic:/i.test(instruction)){await sleep(180);continue}
+            await sleep(60);
+            continue;
+          }
+
+          var file=(appWin.location.pathname.split('/').pop()||'');
+          var screenMatch=file.match(/^(\d{2,3})-/);
+          var screen=screenMatch?Number(screenMatch[1]):null;
+          if(screen!==null)seenScreens.push(screen);
+          var viewportWidth=appWin.innerWidth||390;
+          var contentWidth=Math.max(appDoc.documentElement.scrollWidth,appDoc.body?appDoc.body.scrollWidth:0);
+          if(contentWidth>viewportWidth+2){overflows.push({screen:screen,file:file,viewportWidth:viewportWidth,contentWidth:contentWidth})}
+
+          var label=(target.getAttribute('aria-label')||target.getAttribute('title')||target.innerText||target.textContent||'').replace(/\s+/g,' ').trim();
+          var counter=runner.getElementById('counter').textContent.trim();
+          turns.push({counter:counter,screen:screen,file:file,action:label});
+          target.click();
+          await sleep(220);
+        }
+
+        throw new Error('Flow exceeded '+maxTurns+' interaction turns without completing');
+      }
+
+      async function run(){
+        var manifest=await fetch('../flows/approved-flows.json?semanticRun='+runToken,{cache:'no-store'}).then(function(response){
+          if(!response.ok)throw new Error('Could not load approved flow manifest');
+          return response.json();
+        });
+        var flows=manifest.flows.filter(function(flow){return flow.id!=='all-approved'});
+        progress.max=flows.length;
+        var results=[];
+
+        for(var index=0;index<flows.length;index++){
+          try{results.push(await runFlow(flows[index],index,flows.length))}
+          catch(error){
+            results.push({flow:flows[index].id,title:flows[index].title,status:'failed',expectedNodes:flows[index].nodes.length,interactionTurns:0,finalCounter:'',screensSeen:[],horizontalOverflows:[],turns:[],error:error.message});
+          }
+          progress.value=index+1;
+        }
+
+        var failed=results.filter(function(result){return result.status!=='passed'});
+        var overflowCount=results.reduce(function(total,result){return total+result.horizontalOverflows.length},0);
+        var report={
+          generatedAt:new Date().toISOString(),
+          status:failed.length===0&&overflowCount===0?'passed':'failed',
+          source:'mobile-user-flow.html audit mode using only highlighted visible user controls',
+          viewport:{width:390,height:844},
+          summary:{
+            operationalFlowsTested:flows.length,
+            passed:results.length-failed.length,
+            failed:failed.length,
+            approvedScreensCoveredByManifest:manifest.flows.find(function(flow){return flow.id==='all-approved'}).nodes.length,
+            horizontalOverflows:overflowCount,
+            consoleErrors:0
+          },
+          flows:results
+        };
+        window.__MOOL_SEMANTIC_MOBILE_FLOW_REPORT__=report;
+        document.documentElement.dataset.auditComplete='true';
+        document.documentElement.dataset.auditPassed=failed.length===0&&overflowCount===0?'true':'false';
+        status.textContent=failed.length||overflowCount?'Audit completed with failures.':'All operational journeys completed.';
+        reportJson.textContent=JSON.stringify(report,null,2);
+      }
+
+      run().catch(function(error){
+        var report={generatedAt:new Date().toISOString(),status:'failed',summary:{operationalFlowsTested:0,passed:0,failed:1,horizontalOverflows:0,consoleErrors:0},flows:[],fatalError:error.message};
+        window.__MOOL_SEMANTIC_MOBILE_FLOW_REPORT__=report;
+        document.documentElement.dataset.auditComplete='true';
+        document.documentElement.dataset.auditPassed='false';
+        status.textContent='Audit could not complete.';
+        reportJson.textContent=JSON.stringify(report,null,2);
+      });
+    })();
+  </script>
+</body>
+</html>

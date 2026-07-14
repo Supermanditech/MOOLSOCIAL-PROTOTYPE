@@ -2042,6 +2042,8 @@
     const opportunityCount = document.getElementById("opportunityCount");
     const emptyFilter = document.getElementById("emptyFilter");
     const filterButton = document.getElementById("filterButton");
+    const workParams = new URLSearchParams(location.search);
+    const flowWalkthrough = workParams.has("flowRun");
     const filterLayer = document.getElementById("filterLayer");
     const filterClose = document.getElementById("filterClose");
     const potentialLabel = document.getElementById("potentialLabel");
@@ -2187,7 +2189,7 @@
         const countdown = card.querySelector(".opportunity-countdown");
         const deadline = Date.parse(card.dataset.deadline || "");
         if (!countdown || Number.isNaN(deadline)) return;
-        const remaining = deadline - now;
+        const remaining = flowWalkthrough ? 72 * 60 * 60 * 1000 : deadline - now;
         const expired = remaining <= 0;
         const urgent = remaining > 0 && remaining <= 24 * 60 * 60 * 1000;
         countdown.textContent = formatOpportunityTime(remaining);
@@ -2272,7 +2274,14 @@
       resetPhoneScroll();
     });
 
-    opportunityToggles.forEach((toggle) => {
+    opportunityToggles.forEach((toggle, index) => {
+      const title = toggle.querySelector(".scan-title")?.textContent?.trim() || "work opportunity";
+      const titleElement = toggle.querySelector(".scan-title");
+      if (titleElement) {
+        titleElement.id = `opportunity-title-${index + 1}`;
+        toggle.setAttribute("aria-describedby", titleElement.id);
+      }
+      toggle.setAttribute("aria-label", index === 0 ? "View featured opportunity details" : "View opportunity details");
       toggle.addEventListener("click", () => toggleOpportunity(toggle.closest(".opportunity-card")));
     });
 
@@ -2282,13 +2291,13 @@
       });
     });
 
-    const initialView = new URLSearchParams(location.search).get("view") === "my-work" ? "my-work" : "earn";
+    const initialView = workParams.get("view") === "my-work" ? "my-work" : "earn";
     updateOpportunityCountdowns();
     setInterval(updateOpportunityCountdowns, 1000);
     filterOpportunities("All");
     showView(initialView, false);
   </script>
-<script type="application/json" id="productionRouteContract">{"contractVersion":"mvp-route-lock-2026-07-12","prototypeScreen":67,"productionModule":"work","routeId":"earn.home","routePath":"/earn","routeState":"opportunity-feed","implementation":"route-shell","launchScope":"mvp-core","separateProductionRoute":true,"productionNote":"Own production route /earn. Implement opportunity-feed as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.","canonicalMap":"architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"}</script><script type="application/json" id="prototypeApprovalContract">{"prototypeScreen":67,"status":"approved-and-frozen","authoritative":true,"approvedAt":"2026-07-12","approvalScope":"prototype-ui-ux-and-production-contract"}</script>  <script src="../shared/prototype-interaction-contracts.js"></script>
-  <script src="../shared/prototype-interaction-runtime.js"></script>
+<script type="application/json" id="productionRouteContract">{"contractVersion":"mvp-route-lock-2026-07-12","prototypeScreen":67,"productionModule":"work","routeId":"earn.home","routePath":"/earn","routeState":"opportunity-feed","implementation":"route-shell","launchScope":"mvp-core","separateProductionRoute":true,"productionNote":"Own production route /earn. Implement opportunity-feed as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.","canonicalMap":"architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"}</script><script type="application/json" id="prototypeApprovalContract">{"prototypeScreen":67,"status":"approved-and-frozen","authoritative":true,"approvedAt":"2026-07-12","approvalScope":"prototype-ui-ux-and-production-contract"}</script>  <script src="../shared/prototype-interaction-contracts.js?v=intent-completion-20260714b"></script>
+  <script src="../shared/prototype-interaction-runtime.js?v=intent-completion-20260714c"></script>
 </body>
 </html>

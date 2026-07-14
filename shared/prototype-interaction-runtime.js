@@ -86,11 +86,12 @@
     document.head.appendChild(style);
   }
 
-  function announce(message) {
+  function announce(message, intentType) {
     var existing = document.querySelector('.mool-contract-toast');
     if (existing) existing.remove();
     var toast = document.createElement('div');
     toast.className = 'mool-contract-toast';
+    if (intentType) toast.dataset.intentResolved = intentType;
     toast.setAttribute('role', 'status');
     toast.textContent = message;
     document.body.appendChild(toast);
@@ -109,7 +110,7 @@
     }
     element.classList.add('mool-contract-selected');
     element.setAttribute('aria-pressed', 'true');
-    announce(contract.note || (label + ' selected.'));
+    announce(contract.note || (label + ' selected.'), contract.intentOutcome ? contract.type : '');
   }
 
   function openSheet(contract, label) {
@@ -117,20 +118,32 @@
     if (existing) existing.remove();
     var backdrop = document.createElement('div');
     backdrop.className = 'mool-contract-backdrop';
+    if (contract.intentOutcome) {
+      backdrop.classList.add('mool-intent-outcome');
+      backdrop.dataset.intentResolved = contract.type;
+    }
     backdrop.setAttribute('role', 'presentation');
     var reference = 'MS-' + screen.padStart(3, '0') + '-' + String(Date.now()).slice(-6);
     backdrop.innerHTML = '<section class="mool-contract-sheet" role="dialog" aria-modal="true" aria-labelledby="mool-contract-title">' +
       '<div class="mool-contract-sheet__head"><h2 class="mool-contract-sheet__title" id="mool-contract-title"></h2><button class="mool-contract-sheet__close" type="button" aria-label="Close">×</button></div>' +
       '<div class="mool-contract-sheet__body"><p class="mool-contract-sheet__note"></p>' +
       '<div class="mool-contract-sheet__meta"><span>Screen ' + screen.padStart(2, '0') + '</span><span>Reference ' + reference + '</span></div>' +
-      '<div class="mool-contract-sheet__actions"><button type="button" data-contract-retry>Try again</button><button type="button" data-contract-return>Return</button></div></div></section>';
+      '<div class="mool-contract-sheet__actions"><button type="button" data-contract-retry></button><button type="button" data-contract-return></button></div></div></section>';
     backdrop.querySelector('#mool-contract-title').textContent = label;
     backdrop.querySelector('.mool-contract-sheet__note').textContent = contract.note || (label + ' is ready.');
+    var retryButton = backdrop.querySelector('[data-contract-retry]');
+    var returnButton = backdrop.querySelector('[data-contract-return]');
+    retryButton.textContent = contract.intentOutcome ? 'Back' : 'Try again';
+    returnButton.textContent = contract.primaryLabel || (contract.intentOutcome ? 'Done' : 'Return');
     function close() { backdrop.remove(); }
     backdrop.querySelector('.mool-contract-sheet__close').addEventListener('click', close);
-    backdrop.querySelector('[data-contract-return]').addEventListener('click', close);
-    backdrop.querySelector('[data-contract-retry]').addEventListener('click', function () {
-      backdrop.querySelector('.mool-contract-sheet__note').textContent = 'Ready to try again. Your current screen and entered information are unchanged.';
+    returnButton.addEventListener('click', function () {
+      if (contract.route) window.location.href = preserveQuery(contract.route);
+      else close();
+    });
+    retryButton.addEventListener('click', function () {
+      if (contract.intentOutcome) close();
+      else backdrop.querySelector('.mool-contract-sheet__note').textContent = 'Ready to try again. Your current screen and entered information are unchanged.';
     });
     backdrop.addEventListener('click', function (event) { if (event.target === backdrop) close(); });
     document.body.appendChild(backdrop);
@@ -138,6 +151,7 @@
   }
 
   function runContract(event, element, label, contract) {
+    if (element.hasAttribute('data-native-interaction')) return;
     if (contract.type === 'native') return;
     if (contract.type === 'route') {
       event.preventDefault();
@@ -156,6 +170,18 @@
     }
     if (contract.type === 'select') {
       selectControl(element, contract, label);
+      return;
+    }
+    if (contract.type === 'state' || contract.type === 'toggle') {
+      event.preventDefault();
+      event.stopPropagation();
+      selectControl(element, contract, label);
+      return;
+    }
+    if (contract.type === 'terminal' || contract.type === 'detail' || contract.type === 'handoff') {
+      event.preventDefault();
+      event.stopPropagation();
+      openSheet(contract, label);
       return;
     }
     if (contract.type === 'progress') {

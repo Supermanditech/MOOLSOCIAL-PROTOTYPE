@@ -1,0 +1,2415 @@
+{
+  "version": "intent-completion-overrides-2026-07-14",
+  "generatedFrom": "quality/generated/intent-completion-replay.json",
+  "rule": "Each entry is backed by clean browser evidence or a curated screen-specific prototype outcome.",
+  "entries": [
+    {
+      "screen": 2,
+      "label": "Skip now Continue to login and set area after signup",
+      "occurrence": 0,
+      "resolutionType": "route",
+      "evidence": "Clean mobile replay navigated to http://127.0.0.1:8787/screens/03-login-account-handoff.html?area=unset&areaSource=skipped"
+    },
+    {
+      "screen": 3,
+      "label": "Continue with Google",
+      "occurrence": 0,
+      "resolutionType": "route",
+      "evidence": "Clean mobile replay navigated to http://127.0.0.1:8787/screens/04-universal-focus-shell.html?auth=google&authState=verified&area=unset"
+    },
+    {
+      "screen": 3,
+      "label": "Continue with Apple",
+      "occurrence": 0,
+      "resolutionType": "route",
+      "evidence": "Clean mobile replay navigated to http://127.0.0.1:8787/screens/04-universal-focus-shell.html?auth=apple&authState=verified&area=unset"
+    },
+    {
+      "screen": 3,
+      "label": "Continue with X",
+      "occurrence": 0,
+      "resolutionType": "route",
+      "evidence": "Clean mobile replay navigated to http://127.0.0.1:8787/screens/04-universal-focus-shell.html?auth=x&authState=verified&area=unset"
+    },
+    {
+      "screen": 3,
+      "label": "Continue with Instagram",
+      "occurrence": 0,
+      "resolutionType": "route",
+      "evidence": "Clean mobile replay navigated to http://127.0.0.1:8787/screens/04-universal-focus-shell.html?auth=instagram&authState=verified&area=unset"
+    },
+    {
+      "screen": 3,
+      "label": "Continue with Facebook",
+      "occurrence": 0,
+      "resolutionType": "route",
+      "evidence": "Clean mobile replay navigated to http://127.0.0.1:8787/screens/04-universal-focus-shell.html?auth=facebook&authState=verified&area=unset"
+    },
+    {
+      "screen": 3,
+      "label": "Email OTP Use any email address",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 3,
+      "label": "Mobile OTP Use mobile number",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 3,
+      "label": "Verify",
+      "occurrence": 0,
+      "resolutionType": "route",
+      "evidence": "Clean mobile replay navigated to http://127.0.0.1:8787/screens/04-universal-focus-shell.html?auth=mobile_otp&authState=verified&area=unset&otp=autofilled"
+    },
+    {
+      "screen": 4,
+      "label": "Create",
+      "occurrence": 0,
+      "resolutionType": "route",
+      "evidence": "Clean mobile replay navigated to http://127.0.0.1:8787/screens/08-social-create.html"
+    },
+    {
+      "screen": 4,
+      "label": "Buy",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 4,
+      "label": "Book",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 4,
+      "label": "Pay",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 5,
+      "label": "Create short",
+      "occurrence": 0,
+      "resolutionType": "route",
+      "evidence": "Clean mobile replay navigated to http://127.0.0.1:8787/screens/08-social-create.html?mode=short"
+    },
+    {
+      "screen": 5,
+      "label": "Save",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 6,
+      "label": "Off CC 12:48 Order ready MS How this Jodhpur shop packs a fresh morning basket Mahadev Fresh Mart - 82K views - today Rs 399 45 min Refund rule Watch Get basket Save ⋮",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 6,
+      "label": "8:20 Paid task GO How QR proof tasks are checked before payout Ground Ops - 18K views - 2 hours ago Funded Geo proof Payout rule Watch Apply Proof ⋮",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 7,
+      "label": "Post",
+      "occurrence": 0,
+      "resolutionType": "route",
+      "evidence": "Clean mobile replay navigated to http://127.0.0.1:8787/screens/08-social-create.html?mode=post"
+    },
+    {
+      "screen": 7,
+      "label": "Save",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: Showing posts for you"
+    },
+    {
+      "screen": 7,
+      "label": "Save",
+      "occurrence": 1,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: Showing posts for you"
+    },
+    {
+      "screen": 7,
+      "label": "Save",
+      "occurrence": 2,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: Showing posts for you"
+    },
+    {
+      "screen": 8,
+      "label": "Upload",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: Video upload Short Up to short format Long video Creator/web ready Thumbnail Choose cover Captions Add subtitles"
+    },
+    {
+      "screen": 8,
+      "label": "Schedule",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: Schedule Post now Immediate Tonight Suggested Pick time Calendar Draft queue Later"
+    },
+    {
+      "screen": 8,
+      "label": "Post",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: Post Post now Public Schedule Later Save draft Continue later Preview Check first"
+    },
+    {
+      "screen": 8,
+      "label": "Create",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 9,
+      "label": "Buy Here",
+      "occurrence": 0,
+      "resolutionType": "route",
+      "evidence": "Clean mobile replay navigated to http://127.0.0.1:8787/screens/10-buy-grocery-decision.html?shop=mahadev-fresh-mart&from=screen09&entry=shop&intent=buy"
+    },
+    {
+      "screen": 9,
+      "label": "Retail Buy single and family packs",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "runtimeType": "state",
+      "note": "Retail buying is already selected. Product cards now show shop price, available pack sizes and delivery time.",
+      "evidence": "Specific prototype outcome replaces dead."
+    },
+    {
+      "screen": 9,
+      "label": "Wholesale Buy MOQ and bulk rates",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 9,
+      "label": "ADD",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 9,
+      "label": "ADD",
+      "occurrence": 1,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 9,
+      "label": "ADD",
+      "occurrence": 2,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 9,
+      "label": "ADD",
+      "occurrence": 3,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 9,
+      "label": "Order medicines",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 10,
+      "label": "Buy Retail shop price",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "runtimeType": "state",
+      "note": "Retail shop pricing selected. Choose a product or open its details to continue.",
+      "evidence": "Specific prototype outcome replaces generic-fallback."
+    },
+    {
+      "screen": 10,
+      "label": "Add",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: Basket ready x Today delivery Mahadev Fresh Mart, stock checked. Rs 37 Wholesale progress If area basket reaches target, lower price applies automatically. live Rule Refund missing item, substitute only after approval. safe Continue"
+    },
+    {
+      "screen": 10,
+      "label": "Add",
+      "occurrence": 1,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: Basket ready x Today delivery Mahadev Fresh Mart, stock checked. Rs 495 Wholesale progress If area basket reaches target, lower price applies automatically. live Rule Refund missing item, substitute only after approval. safe Continue"
+    },
+    {
+      "screen": 10,
+      "label": "Add",
+      "occurrence": 2,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: Basket ready x Today delivery Mahadev Fresh Mart, stock checked. Rs 155 Wholesale progress If area basket reaches target, lower price applies automatically. live Rule Refund missing item, substitute only after approval. safe Continue"
+    },
+    {
+      "screen": 10,
+      "label": "Wholesale MOQ min quantity rate",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: Basket ready x Today delivery Mahadev Fresh Mart, stock checked. Rs 0 Rule Refund missing item, substitute only after approval. safe Continue"
+    },
+    {
+      "screen": 10,
+      "label": "Counter Pickup pay and collect",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: Basket ready x Today delivery Mahadev Fresh Mart, stock checked. Rs 0 Wholesale progress If area basket reaches target, lower price applies automatically. live Rule Refund missing item, substitute only after approval. safe Continue"
+    },
+    {
+      "screen": 11,
+      "label": "500 g Rs 37 single buy",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "runtimeType": "state",
+      "note": "500 g retail pack selected at Rs 37.",
+      "evidence": "Specific prototype outcome replaces generic-fallback."
+    },
+    {
+      "screen": 11,
+      "label": "2 kg Rs 136 pack save",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 11,
+      "label": "Pickup 8 min pay in app, collect from counter",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "runtimeType": "state",
+      "note": "Counter pickup selected. The basket will use the current shop and pickup estimate.",
+      "evidence": "Specific prototype outcome replaces generic-fallback."
+    },
+    {
+      "screen": 11,
+      "label": "Deliver 22 min local delivery from this shop",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 11,
+      "label": "Schedule evening evening or tomorrow slot",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 11,
+      "label": "Add Basket",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 11,
+      "label": "Wholesale MOQ min quantity rate",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 11,
+      "label": "Counter Pickup pay and collect",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 12,
+      "label": "Apply coupon",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "runtimeType": "state",
+      "note": "Best eligible offer applied to this basket.",
+      "evidence": "Specific prototype outcome replaces generic-fallback."
+    },
+    {
+      "screen": 12,
+      "label": "Deliver 22 min local delivery available",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 12,
+      "label": "Schedule evening or tomorrow slot",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 12,
+      "label": "Approve Replace show substitute first",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "runtimeType": "state",
+      "note": "Replacement with your approval selected. You will review any substitute before the retailer changes the item.",
+      "evidence": "Specific prototype outcome replaces generic-fallback."
+    },
+    {
+      "screen": 12,
+      "label": "Remove Item pay only available items",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 12,
+      "label": "Confirm Stock First",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 13,
+      "label": "Confirm All unlock customer payment",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 13,
+      "label": "Edit Qty send changed quantity",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 14,
+      "label": "Mool Wallet instant refund path when live",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 14,
+      "label": "Counter QR pay at shop QR after app lock",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 14,
+      "label": "Pay Rs 645",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 16,
+      "label": "Submit",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 18,
+      "label": "Rate Order shop and delivery",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 18,
+      "label": "Report Problem missing, damaged, bill",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 18,
+      "label": "Report item issue",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 18,
+      "label": "Submit",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 19,
+      "label": "Full order bill or delivery issue",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 19,
+      "label": "Refund eligible amount",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 19,
+      "label": "Submit",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 20,
+      "label": "Add proof more photo",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 20,
+      "label": "Shop accepts refund approved",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 21,
+      "label": "Refund approved",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 22,
+      "label": "Refund update",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 22,
+      "label": "Send message",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 24,
+      "label": "Pay after confirm",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 24,
+      "label": "Send photo",
+      "occurrence": 0,
+      "resolutionType": "route",
+      "evidence": "Clean mobile replay navigated to http://127.0.0.1:8787/screens/24-chat-business-thread.html?intentReplay=1784029896669#"
+    },
+    {
+      "screen": 24,
+      "label": "Send PDF",
+      "occurrence": 0,
+      "resolutionType": "route",
+      "evidence": "Clean mobile replay navigated to http://127.0.0.1:8787/screens/24-chat-business-thread.html?intentReplay=1784029897039#"
+    },
+    {
+      "screen": 24,
+      "label": "Send final bill",
+      "occurrence": 0,
+      "resolutionType": "route",
+      "evidence": "Clean mobile replay navigated to http://127.0.0.1:8787/screens/24-chat-business-thread.html?intentReplay=1784029897405#"
+    },
+    {
+      "screen": 24,
+      "label": "Send message",
+      "occurrence": 0,
+      "resolutionType": "route",
+      "evidence": "Clean mobile replay navigated to http://127.0.0.1:8787/screens/24-chat-business-thread.html?intentReplay=1784029897789#"
+    },
+    {
+      "screen": 25,
+      "label": "Add option",
+      "occurrence": 0,
+      "resolutionType": "route",
+      "evidence": "Clean mobile replay navigated to http://127.0.0.1:8787/screens/25-chat-people-thread.html?intentReplay=1784029898168#"
+    },
+    {
+      "screen": 25,
+      "label": "Add to basket",
+      "occurrence": 0,
+      "resolutionType": "route",
+      "evidence": "Clean mobile replay navigated to http://127.0.0.1:8787/screens/25-chat-people-thread.html?intentReplay=1784029898539#"
+    },
+    {
+      "screen": 25,
+      "label": "Create poll",
+      "occurrence": 0,
+      "resolutionType": "route",
+      "evidence": "Clean mobile replay navigated to http://127.0.0.1:8787/screens/25-chat-people-thread.html?intentReplay=1784029898917#"
+    },
+    {
+      "screen": 25,
+      "label": "Send file",
+      "occurrence": 0,
+      "resolutionType": "route",
+      "evidence": "Clean mobile replay navigated to http://127.0.0.1:8787/screens/25-chat-people-thread.html?intentReplay=1784029899286#"
+    },
+    {
+      "screen": 25,
+      "label": "Send message",
+      "occurrence": 0,
+      "resolutionType": "route",
+      "evidence": "Clean mobile replay navigated to http://127.0.0.1:8787/screens/25-chat-people-thread.html?intentReplay=1784029899653#"
+    },
+    {
+      "screen": 26,
+      "label": "Deliver home",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 26,
+      "label": "Offers save",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 26,
+      "label": "SD Spice Darbar North Indian · 1.1 km Open Order · Table · Pickup · 10% reward",
+      "occurrence": 0,
+      "resolutionType": "route",
+      "runtimeType": "route",
+      "note": "Opening Spice Darbar menu and fulfilment choices.",
+      "route": "27-eat-order-food.html?restaurant=spice-darbar",
+      "primaryLabel": "Open menu",
+      "evidence": "Specific prototype outcome replaces generic-fallback."
+    },
+    {
+      "screen": 26,
+      "label": "Book Table seat confirmed",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 26,
+      "label": "Order now",
+      "occurrence": 0,
+      "resolutionType": "route",
+      "evidence": "Clean mobile replay navigated to http://127.0.0.1:8787/screens/26-eat.html?intentReplay=1784029901586#"
+    },
+    {
+      "screen": 26,
+      "label": "Add pack",
+      "occurrence": 0,
+      "resolutionType": "route",
+      "evidence": "Clean mobile replay navigated to http://127.0.0.1:8787/screens/26-eat.html?intentReplay=1784029901964#"
+    },
+    {
+      "screen": 26,
+      "label": "Order",
+      "occurrence": 0,
+      "resolutionType": "route",
+      "evidence": "Clean mobile replay navigated to http://127.0.0.1:8787/screens/27-eat-order-food.html?fromScreen=26"
+    },
+    {
+      "screen": 27,
+      "label": "Deliver",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 27,
+      "label": "Schedule",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 27,
+      "label": "Add",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 27,
+      "label": "Add",
+      "occurrence": 1,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 27,
+      "label": "Add pack",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "runtimeType": "state",
+      "note": "Selected meal pack added. Basket quantity and total are updated.",
+      "evidence": "Specific prototype outcome replaces generic-fallback."
+    },
+    {
+      "screen": 27,
+      "label": "Order",
+      "occurrence": 0,
+      "resolutionType": "route",
+      "evidence": "Clean mobile replay navigated to http://127.0.0.1:8787/screens/27-eat-order-food.html?intentReplay=1784029904624#"
+    },
+    {
+      "screen": 28,
+      "label": "Standard table normal table · fastest confirm",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 28,
+      "label": "Celebration setup decor · cake note · confirm",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 28,
+      "label": "Book table",
+      "occurrence": 0,
+      "resolutionType": "route",
+      "evidence": "Clean mobile replay navigated to http://127.0.0.1:8787/screens/28-eat-book-table.html?intentReplay=1784029905764#"
+    },
+    {
+      "screen": 29,
+      "label": "OM Office Meal Co Office lunch · 4.4 km Bulk route · save",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 29,
+      "label": "Start month Rs 2,850 26 meals · skip allowed",
+      "occurrence": 0,
+      "resolutionType": "terminal",
+      "runtimeType": "terminal",
+      "note": "Monthly tiffin plan prepared. Review address, meal calendar and payment before activation.",
+      "primaryLabel": "Review plan",
+      "evidence": "Specific prototype outcome replaces generic-fallback."
+    },
+    {
+      "screen": 29,
+      "label": "Start monthly tiffin",
+      "occurrence": 0,
+      "resolutionType": "route",
+      "evidence": "Clean mobile replay navigated to http://127.0.0.1:8787/screens/29-eat-tiffin.html?intentReplay=1784029906899#"
+    },
+    {
+      "screen": 30,
+      "label": "Schedule",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "runtimeType": "state",
+      "note": "Scheduled ride selected. Choose pickup date and time to see available vehicles.",
+      "evidence": "Specific prototype outcome replaces generic-fallback."
+    },
+    {
+      "screen": 31,
+      "label": "Cancel",
+      "occurrence": 0,
+      "resolutionType": "terminal",
+      "runtimeType": "terminal",
+      "note": "Cancellation review opened. Any applicable fee must be shown before final cancellation.",
+      "primaryLabel": "Review cancellation",
+      "evidence": "Specific prototype outcome replaces generic-fallback."
+    },
+    {
+      "screen": 32,
+      "label": "Add stop",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "runtimeType": "state",
+      "note": "Add-stop mode opened. Search or pin the extra stop before confirming the route change.",
+      "evidence": "Specific prototype outcome replaces generic-fallback."
+    },
+    {
+      "screen": 33,
+      "label": "Cash pay now",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 33,
+      "label": "UPI scan/pay",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 33,
+      "label": "Card approve",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "runtimeType": "state",
+      "note": "Saved card selected. Debit still requires your final approval.",
+      "evidence": "Specific prototype outcome replaces generic-fallback."
+    },
+    {
+      "screen": 33,
+      "label": "Pay",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "runtimeType": "state",
+      "note": "Payment option selected. The final amount remains locked until you approve it.",
+      "evidence": "Specific prototype outcome replaces generic-fallback."
+    },
+    {
+      "screen": 34,
+      "label": "Rate",
+      "occurrence": 0,
+      "resolutionType": "terminal",
+      "runtimeType": "terminal",
+      "note": "Trip rating recorded. You can still report a fare, safety or service issue from the receipt.",
+      "evidence": "Specific prototype outcome replaces generic-fallback."
+    },
+    {
+      "screen": 35,
+      "label": "Report missing item",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "runtimeType": "detail",
+      "note": "Lost-item report opened with trip, captain and vehicle details attached.",
+      "primaryLabel": "Start report",
+      "evidence": "Specific prototype outcome replaces generic-fallback."
+    },
+    {
+      "screen": 36,
+      "label": "Schedule",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "runtimeType": "state",
+      "note": "Scheduled booking selected. Choose a service, provider and available time next.",
+      "evidence": "Specific prototype outcome replaces generic-fallback."
+    },
+    {
+      "screen": 38,
+      "label": "Child add age",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 38,
+      "label": "Add new patient",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 38,
+      "label": "Lab report PDF/photo",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 39,
+      "label": "Send link SMS/WhatsApp",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 40,
+      "label": "Join visit doctor link",
+      "occurrence": 0,
+      "resolutionType": "route",
+      "runtimeType": "route",
+      "note": "Opening the clinic-linked follow-up workspace.",
+      "route": "41-patient-followup-workspace.html?source=clinic-invite",
+      "primaryLabel": "Open follow-up",
+      "evidence": "Specific prototype outcome replaces generic-fallback."
+    },
+    {
+      "screen": 40,
+      "label": "Upload reports before review",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 40,
+      "label": "Book follow-up slot/video",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 40,
+      "label": "Allow this clinic link Only this verified clinic can see this visit, reports you upload and follow-up consent.",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 41,
+      "label": "Upload report lab/photo",
+      "occurrence": 0,
+      "resolutionType": "handoff",
+      "runtimeType": "handoff",
+      "note": "Choose a report photo or PDF. The file remains attached only to this patient follow-up.",
+      "primaryLabel": "Choose file",
+      "evidence": "Specific prototype outcome replaces generic-fallback."
+    },
+    {
+      "screen": 41,
+      "label": "Book review slot/video",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 42,
+      "label": "Package combo save monthly/event",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 43,
+      "label": "Pay at salon no prepay pay after service",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "runtimeType": "state",
+      "note": "Pay after service selected. Paying through MoolSocial will keep the service bill and support record together.",
+      "evidence": "Specific prototype outcome replaces generic-fallback."
+    },
+    {
+      "screen": 43,
+      "label": "Card hold approve later debit after service",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 43,
+      "label": "No add-on",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "runtimeType": "state",
+      "note": "No add-on selected. Only the booked salon service remains in the total.",
+      "evidence": "Specific prototype outcome replaces generic-fallback."
+    },
+    {
+      "screen": 46,
+      "label": "Rate Good tap to change",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "runtimeType": "state",
+      "note": "Good rating selected. Tap another rating before submitting if needed.",
+      "evidence": "Specific prototype outcome replaces generic-fallback."
+    },
+    {
+      "screen": 48,
+      "label": "Market Buy locally price, bill, photo",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 48,
+      "label": "Confirm before collect Ask before paying, collecting or closing User controls final release Set safe",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "runtimeType": "state",
+      "note": "Safe confirmation selected. The helper must ask before payment, collection or task closure.",
+      "evidence": "Specific prototype outcome replaces generic-fallback."
+    },
+    {
+      "screen": 49,
+      "label": "Card hold approve",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 50,
+      "label": "Save task",
+      "occurrence": 0,
+      "resolutionType": "terminal",
+      "runtimeType": "terminal",
+      "note": "Task saved in My Work with helper, scope, hold amount and live status.",
+      "evidence": "Specific prototype outcome replaces generic-fallback."
+    },
+    {
+      "screen": 50,
+      "label": "Cancel",
+      "occurrence": 0,
+      "resolutionType": "route",
+      "evidence": "Clean mobile replay navigated to http://127.0.0.1:8787/screens/50-get-it-done-helper-accepted.html?intentReplay=1784029918272#"
+    },
+    {
+      "screen": 51,
+      "label": "Save proof",
+      "occurrence": 0,
+      "resolutionType": "terminal",
+      "runtimeType": "terminal",
+      "note": "Completion proof saved with time, location and task reference.",
+      "evidence": "Specific prototype outcome replaces generic-fallback."
+    },
+    {
+      "screen": 52,
+      "label": "Save receipt",
+      "occurrence": 0,
+      "resolutionType": "terminal",
+      "runtimeType": "terminal",
+      "note": "Task receipt saved with released amount, refund and rating.",
+      "evidence": "Specific prototype outcome replaces generic-fallback."
+    },
+    {
+      "screen": 53,
+      "label": "Add proof",
+      "occurrence": 0,
+      "resolutionType": "handoff",
+      "runtimeType": "handoff",
+      "note": "Choose a photo, video or document for this issue. Existing task evidence stays attached.",
+      "primaryLabel": "Choose proof",
+      "evidence": "Specific prototype outcome replaces generic-fallback."
+    },
+    {
+      "screen": 54,
+      "label": "Add proof",
+      "occurrence": 0,
+      "resolutionType": "handoff",
+      "runtimeType": "handoff",
+      "note": "Add supporting evidence to the open case without replacing earlier proof.",
+      "primaryLabel": "Choose proof",
+      "evidence": "Specific prototype outcome replaces generic-fallback."
+    },
+    {
+      "screen": 54,
+      "label": "Report filed Case created from Screen 53",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "runtimeType": "detail",
+      "note": "Case reference, submitted issue and protected amount are recorded for review.",
+      "evidence": "Specific prototype outcome replaces generic-fallback."
+    },
+    {
+      "screen": 54,
+      "label": "Decision Refund / rework / keep hold",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "runtimeType": "detail",
+      "note": "The reviewer may refund, request rework or keep the hold. The selected result and reason will be shown before money moves.",
+      "evidence": "Specific prototype outcome replaces generic-fallback."
+    },
+    {
+      "screen": 55,
+      "label": "Add proof",
+      "occurrence": 0,
+      "resolutionType": "handoff",
+      "runtimeType": "handoff",
+      "note": "Add final evidence before accepting or appealing this resolution.",
+      "primaryLabel": "Choose proof",
+      "evidence": "Specific prototype outcome replaces generic-fallback."
+    },
+    {
+      "screen": 55,
+      "label": "Refund return protected amount",
+      "occurrence": 0,
+      "resolutionType": "terminal",
+      "runtimeType": "terminal",
+      "note": "Refund resolution selected. Protected money will return to the original payment source after confirmation.",
+      "evidence": "Specific prototype outcome replaces generic-fallback."
+    },
+    {
+      "screen": 55,
+      "label": "Adjust bill partial release or refund",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 56,
+      "label": "Add proof",
+      "occurrence": 0,
+      "resolutionType": "handoff",
+      "runtimeType": "handoff",
+      "note": "Attach any final receipt or proof to the closed case record.",
+      "primaryLabel": "Choose proof",
+      "evidence": "Specific prototype outcome replaces generic-fallback."
+    },
+    {
+      "screen": 56,
+      "label": "Money action refund initiated",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "runtimeType": "detail",
+      "note": "Refund initiation, source account and expected credit time are available in the payment record.",
+      "evidence": "Specific prototype outcome replaces generic-fallback."
+    },
+    {
+      "screen": 56,
+      "label": "Proof trail saved to order",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 57,
+      "label": "Data pack pack based instant · plan confirm",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 60,
+      "label": "Order QR",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 61,
+      "label": "Request alerts",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "runtimeType": "state",
+      "note": "Payment request alerts enabled for new, expiring and changed requests.",
+      "evidence": "Specific prototype outcome replaces generic-fallback."
+    },
+    {
+      "screen": 61,
+      "label": "Mahadev Fresh Mart Rs 645 expires in 28 min · Order #MS2401 · grocery bill",
+      "occurrence": 0,
+      "resolutionType": "route",
+      "runtimeType": "route",
+      "note": "Opening the verified payment request for review.",
+      "route": "62-pay-request-confirmation.html?request=MS2401&amount=645",
+      "primaryLabel": "Review request",
+      "evidence": "Specific prototype outcome replaces generic-fallback."
+    },
+    {
+      "screen": 62,
+      "label": "Add method",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 62,
+      "label": "Order total Rs 620 12 items · grocery order #MS2401",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "runtimeType": "detail",
+      "note": "Order items, retailer identity and total are available before payment approval.",
+      "evidence": "Specific prototype outcome replaces generic-fallback."
+    },
+    {
+      "screen": 62,
+      "label": "Pay With",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 63,
+      "label": "Order",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 64,
+      "label": "Mahadev Fresh Mart 10 Jul · 8:12 AM · Order #MS2401 · UPI Rs 645 Success",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "runtimeType": "detail",
+      "note": "Opening the successful payment receipt with order reference and source account.",
+      "evidence": "Specific prototype outcome replaces generic-fallback."
+    },
+    {
+      "screen": 64,
+      "label": "Get It Done refund 9 Jul · 6:15 PM · Task #GID882 · UPI Rs 80 Credited",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 65,
+      "label": "Payment sent Card •••• 6068 · request accepted Done 7:40 AM",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "runtimeType": "detail",
+      "note": "Opening payment status, accepted request and pending credit or refund timeline.",
+      "evidence": "Specific prototype outcome replaces generic-fallback."
+    },
+    {
+      "screen": 66,
+      "label": "Payment attempt Card •••• 6068 · request declined Failed 8:04 AM",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "runtimeType": "detail",
+      "note": "Opening failure reason, debit status and safe retry choices.",
+      "evidence": "Specific prototype outcome replaces generic-fallback."
+    },
+    {
+      "screen": 67,
+      "label": "MOOL CREATE · MOOLSOCIAL VERIFIED Make one MoolSocial explainer video Remote India 12 slots 01:12:59 ₹1,500 per approved video ⌄",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "The clean 3,192-control browser replay verified this dynamic countdown card expands natively; its accessible label changes with live time."
+    },
+    {
+      "screen": 67,
+      "label": "SF CREATE · SHAKTI FOODS VERIFIED Make two product-demo shorts Remote India 18 slots 1d 01:12:59 ₹1,200 per approved pair ⌄",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "The clean 3,192-control browser replay verified this dynamic countdown card expands natively; its accessible label changes with live time."
+    },
+    {
+      "screen": 67,
+      "label": "MF PROMOTE · MAHADEV FRESH MART VERIFIED Bring completed grocery orders Jodhpur · 4 km 20 orders Closed ₹20 per delivered order ⌄",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: 00:37:52 | 1d 00:37:52 | Closed | 2d 00:37:52 | Closed | 4d 00:37:52 | 6d 00:37:52"
+    },
+    {
+      "screen": 67,
+      "label": "MD DELIVER · MOOLSOCIAL VERIFIED Complete an evening grocery route Jodhpur central 10 routes Closed ₹520 for 8 drops ⌄",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: 00:37:52 | 1d 00:37:52 | Closed | 2d 00:37:52 | Closed | 4d 00:37:52 | 6d 00:37:52"
+    },
+    {
+      "screen": 67,
+      "label": "MOOL ONBOARD · MOOLSOCIAL VERIFIED Activate local businesses Jodhpur district 40 nearby 4d 01:12:59 ₹350 per activation ⌄",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "The clean 3,192-control browser replay verified this dynamic countdown card expands natively; its accessible label changes with live time."
+    },
+    {
+      "screen": 68,
+      "label": "Save opportunity",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "runtimeType": "state",
+      "note": "Opportunity saved in My Work. Its deadline and funding status will remain visible.",
+      "evidence": "Specific prototype outcome replaces generic-fallback."
+    },
+    {
+      "screen": 70,
+      "label": "Create & Work Creator, freelancer or Get It Done",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 72,
+      "label": "Add GST",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: Add GST certificate Business review can continue without this document, but the GST reminder remains until verification or applicability review is complete. GSTIN GST certificate PDF or clear image Attach Cancel Submit GST"
+    },
+    {
+      "screen": 74,
+      "label": "Open Business Book",
+      "occurrence": 0,
+      "resolutionType": "route",
+      "evidence": "Clean mobile replay navigated to http://127.0.0.1:8787/screens/74-retail-products-stock-setup.html?intentReplay=1784029930075&view=books"
+    },
+    {
+      "screen": 74,
+      "label": "Open Business Book",
+      "occurrence": 1,
+      "resolutionType": "route",
+      "evidence": "Clean mobile replay navigated to http://127.0.0.1:8787/screens/74-retail-products-stock-setup.html?intentReplay=1784029930477&view=books"
+    },
+    {
+      "screen": 74,
+      "label": "Enter order",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: New customer order Use for a phone, counter or Chat order. The customer does not repeat the order. × Phone Counter Chat Customer mobile Product or repeat basket Quantity / items Order value Counter pickup Home delivery Own delivery Confirming creates one order, reserves inventory and prepares invoice and delivery. Create order | New customer order Use for a phone, counter or Chat order. The customer does not repeat the order. × Phone Counter Chat Customer mobile Product or repeat basket Quantity / items Order value Counter pickup Home delivery Own delivery Confirming creates one order, reserves inventory and prepares invoice and delivery. Create order"
+    },
+    {
+      "screen": 74,
+      "label": "Order + delivery",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: Request home delivery Assign a verified delivery partner after the order is packed. × 3.8 km Distance Rs 48 Delivery 32 min ETA Pickup Customer Customer pays Shop pays Offer funded Captain, vehicle, pickup proof, live status and delivery proof remain linked to the order. Request delivery | Request home delivery Assign a verified delivery partner after the order is packed. × 3.8 km Distance Rs 48 Delivery 32 min ETA Pickup Customer Customer pays Shop pays Offer funded Captain, vehicle, pickup proof, live status and delivery proof remain linked to the order. Request delivery"
+    },
+    {
+      "screen": 74,
+      "label": "New Order",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: New customer order Use for a phone, counter or Chat order. The customer does not repeat the order. × Phone Counter Chat Customer mobile Product or repeat basket Quantity / items Order value Counter pickup Home delivery Own delivery Confirming creates one order, reserves inventory and prepares invoice and delivery. Create order | New customer order Use for a phone, counter or Chat order. The customer does not repeat the order. × Phone Counter Chat Customer mobile Product or repeat basket Quantity / items Order value Counter pickup Home delivery Own delivery Confirming creates one order, reserves inventory and prepares invoice and delivery. Create order"
+    },
+    {
+      "screen": 74,
+      "label": "Add Stock",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: Add stock Use master catalog, barcode, purchase bill or stock file. × Scan barcode Purchase bill CSV file Product / SKU Accepted quantity Purchase cost Web accepts browse/drag-drop. Mobile accepts Files, cloud and share sheet. Unknown SKUs go to catalog review. Review stock event | Add stock Use master catalog, barcode, purchase bill or stock file. × Scan barcode Purchase bill CSV file Product / SKU Accepted quantity Purchase cost Web accepts browse/drag-drop. Mobile accepts Files, cloud and share sheet. Unknown SKUs go to catalog review. Review stock event"
+    },
+    {
+      "screen": 74,
+      "label": "Send Invoice",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: Send invoice Invoice access is separate from marketing permission. × MS-2840 Invoice Rs 428 Paid UPI Method Mool Chat WhatsApp SMS link QR Print Download WhatsApp uses an approved business flow and customer consent. Refusing marketing never blocks the invoice. Send invoice | Send invoice Invoice access is separate from marketing permission. × MS-2840 Invoice Rs 428 Paid UPI Method Mool Chat WhatsApp SMS link QR Print Download WhatsApp uses an approved business flow and customer consent. Refusing marketing never blocks the invoice. Send invoice"
+    },
+    {
+      "screen": 74,
+      "label": "Buy",
+      "occurrence": 0,
+      "resolutionType": "route",
+      "evidence": "Clean mobile replay navigated to http://127.0.0.1:8787/screens/74-retail-products-stock-setup.html?intentReplay=1784029932772&view=wholesale"
+    },
+    {
+      "screen": 74,
+      "label": "Wholesale Buy",
+      "occurrence": 0,
+      "resolutionType": "route",
+      "evidence": "Clean mobile replay navigated to http://127.0.0.1:8787/screens/74-retail-products-stock-setup.html?intentReplay=1784029933146&view=wholesale"
+    },
+    {
+      "screen": 75,
+      "label": "Open order alerts",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: Order alerts Only changes requiring retailer action appear here. × 3 new orders Review 1 delivery delayed 8 min Done | Order alerts Only changes requiring retailer action appear here. × 3 new orders Review 1 delivery delayed 8 min Done"
+    },
+    {
+      "screen": 75,
+      "label": "Accept order",
+      "occurrence": 0,
+      "resolutionType": "route",
+      "evidence": "Clean mobile replay navigated to http://127.0.0.1:8787/screens/75-retailer-order-review-fulfilment.html?intentReplay=1784029933909&state=accepted"
+    },
+    {
+      "screen": 78,
+      "label": "Open order alerts",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: Order alerts Only orders needing action remain here. × 3 new orders Review Done | Order alerts Only orders needing action remain here. × 3 new orders Review Done"
+    },
+    {
+      "screen": 78,
+      "label": "Add by voice",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: Add by voice Say product, pack and quantity. Review matches before adding. × Example Two atta one kg Done | Add by voice Say product, pack and quantity. Review matches before adding. × Example Two atta one kg Done"
+    },
+    {
+      "screen": 78,
+      "label": "Add Fortune Sunflower Oil",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 78,
+      "label": "Add Aashirvaad Atta",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 78,
+      "label": "+ Add",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 78,
+      "label": "Create order · ₹420",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: ✓ One order. Everything connected. Customer, stock, payment and fulfilment now use RT-3028. 2 items Reserved ₹420 Request sent Mool Fulfilment"
+    },
+    {
+      "screen": 79,
+      "label": "Create counter",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: New counter Choose its purpose and operator. × 4 Counter 4 Number assigned automatically Purpose Main Billing Express Delivery Orders Wholesale Returns Operator Open now Keep closed Create counter | New counter Choose its purpose and operator. × 4 Counter 4 Number assigned automatically Purpose Main Billing Express Delivery Orders Wholesale Returns Operator Open now Keep closed Create counter"
+    },
+    {
+      "screen": 79,
+      "label": "Start order",
+      "occurrence": 0,
+      "resolutionType": "route",
+      "evidence": "Clean mobile replay navigated to http://127.0.0.1:8787/screens/78-retailer-create-order.html?source=counter&counter=Counter+1+-+Main+Billing"
+    },
+    {
+      "screen": 80,
+      "label": "Complete UPI sale",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 80,
+      "label": "Edit order instead",
+      "occurrence": 0,
+      "resolutionType": "route",
+      "evidence": "Clean mobile replay navigated to http://127.0.0.1:8787/screens/78-retailer-create-order.html?source=counter&counter=Counter+1+-+Main+Billing"
+    },
+    {
+      "screen": 81,
+      "label": "Add to cart",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 81,
+      "label": "Add to cart",
+      "occurrence": 1,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 81,
+      "label": "Add to cart",
+      "occurrence": 2,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 81,
+      "label": "Add to cart",
+      "occurrence": 3,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 82,
+      "label": "Save wholesale cart",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: Order Draft Saved Continue this wholesale order later from Wholesale Buy. × 5 cases Saved quantity ₹5,697.60 Order value Checked again Rate and stock before order Mahadev Fresh Mart Retailer workspace Done | Order Draft Saved Continue this wholesale order later from Wholesale Buy. × 5 cases Saved quantity ₹5,697.60 Order value Checked again Rate and stock before order Mahadev Fresh Mart Retailer workspace Done"
+    },
+    {
+      "screen": 82,
+      "label": "Add Sunflower Oil 1 L",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 82,
+      "label": "Add Whole Wheat Atta 5 kg",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 82,
+      "label": "Review Order",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: Confirm Purchase Order 5 cases across 2 supplier-wise POs. × TOTAL ORDER VALUE ₹5,697.60 ₹856.80 Protected advance ₹4,840.80 Pay on delivery 2 Purchase orders 5 Total cases Verified Rate and stock After receipt Advance release Supplier/Mool Delivery owners GST tax invoice By Supermandi Secure advance & place 2 POs | Confirm Purchase Order 5 cases across 2 supplier-wise POs. × TOTAL ORDER VALUE ₹5,697.60 ₹856.80 Protected advance ₹4,840.80 Pay on delivery 2 Purchase orders 5 Total cases Verified Rate and stock After receipt Advance release Supplier/Mool Delivery owners GST tax invoice By Supermandi Secure advance & place 2 POs"
+    },
+    {
+      "screen": 83,
+      "label": "Track Order",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: Protected advance secured Not paid to supplier until accepted delivery | Track PO-MS-8201 Sunflower Oil 1 L · Supplier Fleet × CURRENT STATUS Order Confirmed 11 Jul · 9:41 Confirmed Today · 4 PM Dispatch due Tomorrow · 2-6 PM Delivery window Supplier Fleet Delivery by Starts after dispatch Live ETA/location After delivery Goods receipt Done | Track PO-MS-8201 Sunflower Oil 1 L · Supplier Fleet × CURRENT STATUS Order Confirmed 11 Jul · 9:41 Confirmed Today · 4 PM Dispatch due Tomorrow · 2-6 PM Delivery window Supplier Fleet Delivery by Starts after dispatch Live ETA/location After delivery Goods receipt Done"
+    },
+    {
+      "screen": 83,
+      "label": "Track Order",
+      "occurrence": 1,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: Protected advance secured Not paid to supplier until accepted delivery | Track PO-MS-8202 Aashirvaad Atta 5 kg · MoolSocial Transport × CURRENT STATUS Order Confirmed 11 Jul · 9:41 Confirmed 12 Jul · 6 PM Dispatch due 13 Jul · 10 AM-2 PM Delivery window MoolSocial Transport Delivery by Starts after dispatch Live ETA/location After delivery Goods receipt Done | Track PO-MS-8202 Aashirvaad Atta 5 kg · MoolSocial Transport × CURRENT STATUS Order Confirmed 11 Jul · 9:41 Confirmed 12 Jul · 6 PM Dispatch due 13 Jul · 10 AM-2 PM Delivery window MoolSocial Transport Delivery by Starts after dispatch Live ETA/location After delivery Goods receipt Done"
+    },
+    {
+      "screen": 84,
+      "label": "Report delay",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: Report Delivery Delay PO-MS-8202 · current commitment Today · 10:55-11:25 AM × Not dispatched Missed dispatch SLA ETA changed Later than commitment No movement Tracking appears stale Contact failed Driver or supplier unreachable Continue | Report Delivery Delay PO-MS-8202 · current commitment Today · 10:55-11:25 AM × Not dispatched Missed dispatch SLA ETA changed Later than commitment No movement Tracking appears stale Contact failed Driver or supplier unreachable Continue"
+    },
+    {
+      "screen": 85,
+      "label": "Report Issue short, damaged or mismatch",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: Report Goods Issue Choose what is wrong before stock or payment is posted. × Short Quantity Damaged Goods Wrong Product Invoice Mismatch Cancel | Report Goods Issue Choose what is wrong before stock or payment is posted. × Short Quantity Damaged Goods Wrong Product Invoice Mismatch Cancel"
+    },
+    {
+      "screen": 86,
+      "label": "Protected advance Payment partner release initiated ₹856.80 PROCESSING",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: Payment Events Amounts follow the accepted goods receipt. × ₹856.80 Advance release processing ₹1,999.20 Balance authorized Payment partner Protected settlement PO-MS-8202 Settlement reference Done | Payment Events Amounts follow the accepted goods receipt. × ₹856.80 Advance release processing ₹1,999.20 Balance authorized Payment partner Protected settlement PO-MS-8202 Settlement reference Done"
+    },
+    {
+      "screen": 86,
+      "label": "Purchase value Posted to Purchase Book ₹2,856.00 POSTED",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: Purchase Book Entry Posted from PO, invoice and accepted GRN. × ₹2,856.00 Purchase value 3 cases Accepted quantity Jodhpur Distributor Supplier 11:09 AM Posted at Done | Purchase Book Entry Posted from PO, invoice and accepted GRN. × ₹2,856.00 Purchase value 3 cases Accepted quantity Jodhpur Distributor Supplier 11:09 AM Posted at Done"
+    },
+    {
+      "screen": 87,
+      "label": "Purchase Book tools",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: Purchase Book Tools Reports and controls for the selected period. × ↓ Export Purchase Book PDF, Excel or CSV A Share with accountant Controlled read-only report G GST purchase summary Eligible input and issues ↑ Import purchase bills CSV or Excel with validation Done | Purchase Book Tools Reports and controls for the selected period. × ↓ Export Purchase Book PDF, Excel or CSV A Share with accountant Controlled read-only report G GST purchase summary Eligible input and issues ↑ Import purchase bills CSV or Excel with validation Done"
+    },
+    {
+      "screen": 87,
+      "label": "Add supplier bill",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: Add Supplier Bill Keep the original invoice and extract purchase details before posting. × Scan Invoice Upload Photo Enter Manually Done | Add Supplier Bill Keep the original invoice and extract purchase details before posting. × Scan Invoice Upload Photo Enter Manually Done"
+    },
+    {
+      "screen": 88,
+      "label": "Report Issue",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: Report Bill Issue An issue can hold the affected payment obligation. × Wrong amount Invoice difference Quantity mismatch GRN difference GST issue Tax correction Return goods Credit note expected Continue | Report Bill Issue An issue can hold the affected payment obligation. × Wrong amount Invoice difference Quantity mismatch GRN difference GST issue Tax correction Return goods Credit note expected Continue"
+    },
+    {
+      "screen": 90,
+      "label": "Export sales book",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: Export Sales Book Create a period-locked business record. × PDF Sales Statement Invoice, payment and return summary › GST GST-ready Export Taxable value and invoice register › CA Share with Accountant Role-controlled access with audit trail › Done | Export Sales Book Create a period-locked business record. × PDF Sales Statement Invoice, payment and return summary › GST GST-ready Export Taxable value and invoice register › CA Share with Accountant Role-controlled access with audit trail › Done"
+    },
+    {
+      "screen": 90,
+      "label": "Create sale",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: Create Sale Choose how this customer order started. × C Counter Sale Scan products and collect payment › P Phone Order Select customer and arrange pickup or delivery › CH Chat Order Create from the linked customer conversation › Done | Create Sale Choose how this customer order started. × C Counter Sale Scan products and collect payment › P Phone Order Select customer and arrange pickup or delivery › CH Chat Order Create from the linked customer conversation › Done"
+    },
+    {
+      "screen": 90,
+      "label": "APP MoolSocial App Order INV-MS-4107 · MS-2848 Meera Joshi · 4 items · 1:18 PM ₹645 UPI paid",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: INV-MS-4107 MoolSocial App Order · ₹645 × Meera Joshi Customer UPI paid Payment Delivered Fulfilment 4 units posted Stock ₹96 Estimated margin MS-2848 Order reference View Invoice Share Receipt Close | INV-MS-4107 MoolSocial App Order · ₹645 × Meera Joshi Customer UPI paid Payment Delivered Fulfilment 4 units posted Stock ₹96 Estimated margin MS-2848 Order reference View Invoice Share Receipt Close"
+    },
+    {
+      "screen": 90,
+      "label": "CALL Phone Order INV-MS-4106 · PH-1182 Rakesh Sharma · 9 items · 12:54 PM ₹1,240 ₹1,240 due",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: INV-MS-4106 Phone Order · ₹1,240 × Rakesh Sharma Customer ₹1,240 due Payment Out for delivery Fulfilment 9 units reserved Stock ₹174 Estimated margin PH-1182 Order reference View Invoice Share Receipt Close | INV-MS-4106 Phone Order · ₹1,240 × Rakesh Sharma Customer ₹1,240 due Payment Out for delivery Fulfilment 9 units reserved Stock ₹174 Estimated margin PH-1182 Order reference View Invoice Share Receipt Close"
+    },
+    {
+      "screen": 90,
+      "label": "CHAT Chat Order INV-MS-4105 · CH-0914 Nisha Khan · 3 items · 12:31 PM ₹420 Cash received",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: INV-MS-4105 Chat Order · ₹420 × Nisha Khan Customer Cash received Payment Counter pickup Fulfilment 3 units posted Stock ₹61 Estimated margin CH-0914 Order reference View Invoice Share Receipt Close | INV-MS-4105 Chat Order · ₹420 × Nisha Khan Customer Cash received Payment Counter pickup Fulfilment 3 units posted Stock ₹61 Estimated margin CH-0914 Order reference View Invoice Share Receipt Close"
+    },
+    {
+      "screen": 91,
+      "label": "Record stock change",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: Record Stock Change Use only when an automatic sale, receipt or return event is unavailable. × ± Physical Stock Count Correct quantity with reason and approval › ! Damage or Expiry Record non-sellable quantity › SR Supplier Return Link quantity to supplier and purchase › ₹ Unrecorded Counter Sale Create the missing sale instead of a stock shortcut › Done | Record Stock Change Use only when an automatic sale, receipt or return event is unavailable. × ± Physical Stock Count Correct quantity with reason and approval › ! Damage or Expiry Record non-sellable quantity › SR Supplier Return Link quantity to supplier and purchase › ₹ Unrecorded Counter Sale Create the missing sale instead of a stock shortcut › Done"
+    },
+    {
+      "screen": 91,
+      "label": "R Tata Tea 500 g App order accepted ORDER MS-2849 · 10:21 AM 4 reserved Available 20",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: Tata Tea 500 g App order accepted · ORDER MS-2849 · 10:21 AM × 24 Opening stock 0 Received 0 Sold 0 Customer returns 4 Reserved 0 Damaged/expiry 20 Available to sell 12 Incoming stock Close | Tata Tea 500 g App order accepted · ORDER MS-2849 · 10:21 AM × 24 Opening stock 0 Received 0 Sold 0 Customer returns 4 Reserved 0 Damaged/expiry 20 Available to sell 12 Incoming stock Close"
+    },
+    {
+      "screen": 93,
+      "label": "Offers & Ads Campaigns Create promotions and run campaigns Offers · creatives · advertising · reports + approved ad spend and agreed result fee FROM ₹299 /month View plan",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: Offers & Ads Create and operate shop promotions, creator campaigns and advertising. × MONTHLY PLAN STARTS AT ₹299/month + disclosed spend and result fee You receive Offer setup, campaign operation and reporting Extra charge Ad spend plus agreed attributed-sales fee Proof Spend report and attributed order record Control Budget cap and approval before campaign starts ✓ Before activation, MoolSocial shows the included work, exact additional charge, maximum payable amount, proof, renewal and cancellation rule. View plans Not now | Offers & Ads Create and operate shop promotions, creator campaigns and advertising. × MONTHLY PLAN STARTS AT ₹299/month + disclosed spend and result fee You receive Offer setup, campaign operation and reporting Extra charge Ad spend plus agreed attributed-sales fee Proof Spend report and attributed order record Control Budget cap and approval before campaign starts"
+    },
+    {
+      "screen": 95,
+      "label": "1× Pay manually each month Service pauses if renewal is not paid",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "runtimeType": "state",
+      "note": "Manual monthly renewal selected. The service will warn before expiry and pause only after the due date.",
+      "evidence": "Specific prototype outcome replaces generic-fallback."
+    },
+    {
+      "screen": 98,
+      "label": "Send reminder",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 100,
+      "label": "Save draft",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 100,
+      "label": "Continue",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 101,
+      "label": "D Surf Excel 1 kg · 24 units No sale 38 days · buy ₹112 · sell ₹128 Suggested floor ₹116 · recover ₹2,784 24 Available",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "runtimeType": "detail",
+      "note": "Slow-stock item opened with quantity, age, cost, selling price and suggested liquidation floor.",
+      "evidence": "Specific prototype outcome replaces dead."
+    },
+    {
+      "screen": 101,
+      "label": "Supplier claim Only where return terms allow",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 101,
+      "label": "Review & publish",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 103,
+      "label": "Add staff",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 103,
+      "label": "DEV Active devices 6 devices · last sign-in and branch Review",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "runtimeType": "detail",
+      "note": "Opening active devices, branch access, last sign-in and revoke controls.",
+      "evidence": "Specific prototype outcome replaces generic-fallback."
+    },
+    {
+      "screen": 104,
+      "label": "Save settings",
+      "occurrence": 0,
+      "resolutionType": "terminal",
+      "runtimeType": "terminal",
+      "note": "Store settings saved with order acceptance, schedule and fulfilment rules.",
+      "evidence": "Specific prototype outcome replaces generic-fallback."
+    },
+    {
+      "screen": 104,
+      "label": "Accept app orders",
+      "occurrence": 0,
+      "resolutionType": "toggle",
+      "runtimeType": "toggle",
+      "note": "App order acceptance changed. Public availability follows the saved store schedule.",
+      "evidence": "Specific prototype outcome replaces generic-fallback."
+    },
+    {
+      "screen": 105,
+      "label": "Refund",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 105,
+      "label": "✓ MS-2790 · Refund completed ₹42 returned to UPI · credit note posted Closed 9 Jul Closed Proof",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 105,
+      "label": "Refund ₹132",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 105,
+      "label": "Confirm resolution",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 106,
+      "label": "Add expense",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 106,
+      "label": "Resolve",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 106,
+      "label": "Add bill",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 107,
+      "label": "Open Business Book",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: Manufacturer Business Book X Accounting remains separate from Stock and uses the same verified sales and purchase transactions. Sales & GST invoices Purchase bills Receivables Payables Cash & bank GST & reconciliation Stock controls buyer-visible quantity. Business Book controls financial and statutory records. Open Business Book"
+    },
+    {
+      "screen": 107,
+      "label": "View order",
+      "occurrence": 0,
+      "resolutionType": "route",
+      "evidence": "Clean mobile replay navigated to http://127.0.0.1:8787/screens/110-manufacturer-order-review-fulfilment.html?state=review"
+    },
+    {
+      "screen": 107,
+      "label": "Confirm quantity",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: Confirm supply X Confirm available quantity, production date, dispatch responsibility and locked commercial terms. Confirm supply"
+    },
+    {
+      "screen": 107,
+      "label": "Add Products",
+      "occurrence": 0,
+      "resolutionType": "route",
+      "evidence": "Clean mobile replay navigated to http://127.0.0.1:8787/screens/107-manufacturer-supplier-workspace-home.html?intentReplay=1784029955389&view=products"
+    },
+    {
+      "screen": 107,
+      "label": "Buy",
+      "occurrence": 0,
+      "resolutionType": "route",
+      "evidence": "Clean mobile replay navigated to http://127.0.0.1:8787/screens/107-manufacturer-supplier-workspace-home.html?intentReplay=1784029955783&view=inputs"
+    },
+    {
+      "screen": 107,
+      "label": "Wholesale Buy",
+      "occurrence": 0,
+      "resolutionType": "route",
+      "evidence": "Clean mobile replay navigated to http://127.0.0.1:8787/screens/107-manufacturer-supplier-workspace-home.html?intentReplay=1784029956160&view=inputs"
+    },
+    {
+      "screen": 109,
+      "label": "Add Products",
+      "occurrence": 0,
+      "resolutionType": "route",
+      "evidence": "Clean mobile replay navigated to http://127.0.0.1:8787/screens/109-manufacturer-product-catalogue-stock.html?intentReplay=1784029956552&mode=master"
+    },
+    {
+      "screen": 110,
+      "label": "Sales order options",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: Order Options Audited actions for this order. × Download purchase order Open order chat Report buyer or term issue Continue | Order Options Audited actions for this order. × Download purchase order Open order chat Report buyer or term issue Continue"
+    },
+    {
+      "screen": 110,
+      "label": "Confirm Partial",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: Confirm Partial Quantity Enter confirmed quantity line by line. Remaining demand returns to allocation. × Oil ordered 180 cases Oil confirm 160 cases Atta ordered 80 cases Atta confirm 80 cases 20 oil cases will be reassigned or split visibly; the buyer is never silently short-supplied. Confirm Partial | Confirm Partial Quantity Enter confirmed quantity line by line. Remaining demand returns to allocation. × Oil ordered 180 cases Oil confirm 160 cases Atta ordered 80 cases Atta confirm 80 cases 20 oil cases will be reassigned or split visibly; the buyer is never silently short-supplied. Confirm Partial"
+    },
+    {
+      "screen": 110,
+      "label": "Confirm Full",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: Confirm Full Order Lock 260 cases, commercial terms and dispatch commitment. × Sunflower Oil 180 cases Atta 80 cases Dispatch 14 Jul Protected advance ₹1.02L held Confirm 260 cases | Confirm Full Order Lock 260 cases, commercial terms and dispatch commitment. × Sunflower Oil 180 cases Atta 80 cases Dispatch 14 Jul Protected advance ₹1.02L held Confirm 260 cases"
+    },
+    {
+      "screen": 111,
+      "label": "Wholesale buy options",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: purchase options This action opens inside the consolidated purchase route. × Price ₹91.40/kg MOQ 5 tonnes Delivery 2 days Payment 20% advance Advance remains held with MoolSocial until agreed delivery conditions are met. Continue"
+    },
+    {
+      "screen": 111,
+      "label": "Add MOQ",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: Added to PO Cart MOQ and commercial terms will be rechecked before PO. × Price ₹91.40/kg MOQ 5 tonnes Delivery 2 days Payment 20% advance Advance remains held with MoolSocial until agreed delivery conditions are met. View cart"
+    },
+    {
+      "screen": 111,
+      "label": "Add MOQ",
+      "occurrence": 1,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: Added to PO Cart MOQ and commercial terms will be rechecked before PO. × Price ₹91.40/kg MOQ 5 tonnes Delivery 2 days Payment 20% advance Advance remains held with MoolSocial until agreed delivery conditions are met. View cart"
+    },
+    {
+      "screen": 111,
+      "label": "Add MOQ",
+      "occurrence": 2,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: Added to PO Cart MOQ and commercial terms will be rechecked before PO. × Price ₹91.40/kg MOQ 5 tonnes Delivery 2 days Payment 20% advance Advance remains held with MoolSocial until agreed delivery conditions are met. View cart"
+    },
+    {
+      "screen": 111,
+      "label": "Add MOQ",
+      "occurrence": 3,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: Added to PO Cart MOQ and commercial terms will be rechecked before PO. × Price ₹91.40/kg MOQ 5 tonnes Delivery 2 days Payment 20% advance Advance remains held with MoolSocial until agreed delivery conditions are met. View cart"
+    },
+    {
+      "screen": 111,
+      "label": "Wholesale Buy",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "runtimeType": "state",
+      "note": "Wholesale input buying selected. Recommended raw materials follow the manufacturer product catalogue.",
+      "evidence": "Specific prototype outcome replaces generic-fallback."
+    },
+    {
+      "screen": 113,
+      "label": "Create demand campaign",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: Create Campaign Set objective, funded amount, geography, terms and approved outcome. × Verified buyers 42 Potential ₹4.5L Funded Yes Outcome proof Required Continue"
+    },
+    {
+      "screen": 113,
+      "label": "Collect",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: Growth Action Verified data and measurable outcomes remain attached. × Verified buyers 42 Potential ₹4.5L Funded Yes Outcome proof Required Continue"
+    },
+    {
+      "screen": 114,
+      "label": "Add team member or control",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: Add Team Member Invite with a predefined least-privilege role. × Operating model Manufacturer Verification Active Last review 12 Jul 2026 Audit Enabled Continue"
+    },
+    {
+      "screen": 114,
+      "label": "BUY Buyer quantity mismatch SO-4771 · 6 cases disputed ₹8,352 held · response due ›",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: Workspace Detail Changes are role-controlled and audited. × Operating model Manufacturer Verification Active Last review 12 Jul 2026 Audit Enabled Continue"
+    },
+    {
+      "screen": 114,
+      "label": "IN Input quality claim PO-IN-2028 · oil grade evidence Supplier response received ›",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: Workspace Detail Changes are role-controlled and audited. × Operating model Manufacturer Verification Active Last review 12 Jul 2026 Audit Enabled Continue"
+    },
+    {
+      "screen": 116,
+      "label": "Go Online",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 116,
+      "label": "DOC Insurance expires in 18 days Renew before ride eligibility pauses Reminder active ›",
+      "occurrence": 0,
+      "resolutionType": "route",
+      "evidence": "Clean mobile replay navigated to http://127.0.0.1:8787/screens/122-captain-vehicle-compliance.html"
+    },
+    {
+      "screen": 117,
+      "label": "Accept Ride",
+      "occurrence": 0,
+      "resolutionType": "route",
+      "evidence": "Clean mobile replay navigated to http://127.0.0.1:8787/screens/118-captain-pickup-navigation.html?trip=MS-R4821"
+    },
+    {
+      "screen": 119,
+      "label": "Report Issue",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: Report trip issue Safety, route, rider or vehicle support. X Route sharing Active GPS freshness 5 sec Rider contact Masked Support 24×7 Open Support"
+    },
+    {
+      "screen": 122,
+      "label": "PER Permit / Service Authorization Resolved by vehicle class and operating use Review complete Ready",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: Add or update vehicle Vehicle type controls required documents and ride eligibility. X Source DigiLocker Alternative Upload document Face check After workspace entry Review Server + operations Requirements may change by vehicle class, use, geography and competent-authority rules. Expired or suspended documents pause eligibility. Continue Verification"
+    },
+    {
+      "screen": 123,
+      "label": "ITEM Report an Item Found Keep it safe and start a traceable return Do not contact outside the app ›",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: Lost Item Report The case remains linked to the correct captain, vehicle and trip records. X Identity Captain verified Vehicle RJ19 GB 4421 Trip Attach if relevant Case trail Audited Continue"
+    },
+    {
+      "screen": 124,
+      "label": "PUBLISH Create content",
+      "occurrence": 0,
+      "resolutionType": "route",
+      "evidence": "Clean mobile replay navigated to http://127.0.0.1:8787/screens/125-creator-create-publish.html"
+    },
+    {
+      "screen": 124,
+      "label": "Fresh basket Short Processing complete · caption ready Ready to publish ›",
+      "occurrence": 0,
+      "resolutionType": "route",
+      "evidence": "Clean mobile replay navigated to http://127.0.0.1:8787/screens/126-creator-content-library.html"
+    },
+    {
+      "screen": 125,
+      "label": "Post",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 125,
+      "label": "Schedule",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "runtimeType": "state",
+      "note": "Scheduled publishing selected. Choose date, time and audience before final confirmation.",
+      "evidence": "Specific prototype outcome replaces generic-fallback."
+    },
+    {
+      "screen": 125,
+      "label": "Save Draft",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 125,
+      "label": "Review & Publish",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: Publish Short Processing and policy checks continue asynchronously. X Visibility Public Disclosure Not sponsored Rights Confirmed Processing Resumable Comments On Publish Now Publish"
+    },
+    {
+      "screen": 126,
+      "label": "How local baskets save time Short · 48.2K views ₹2,840 attributed published",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: Content detail Publishing, rights, performance and campaign links remain on one content record. X Format Short Status Published Rights Clear Views 48.2K Conversions 126 Earnings ₹2,840 Open Performance"
+    },
+    {
+      "screen": 126,
+      "label": "Ask before you buy Post · 1,206 actions Published published",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: Content detail Publishing, rights, performance and campaign links remain on one content record. X Format Short Status Published Rights Clear Views 48.2K Conversions 126 Earnings ₹2,840 Open Performance"
+    },
+    {
+      "screen": 127,
+      "label": "How local baskets save time 48.2K views · 126 orders ₹2,840 payable ›",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "runtimeType": "detail",
+      "note": "Opening attributed views, orders, gross earning, deductions and payable creator amount.",
+      "evidence": "Specific prototype outcome replaces generic-fallback."
+    },
+    {
+      "screen": 128,
+      "label": "Q Ask your audience Create a post, poll or demand question Build a verified demand signal ›",
+      "occurrence": 0,
+      "resolutionType": "route",
+      "evidence": "Clean mobile replay navigated to http://127.0.0.1:8787/screens/125-creator-create-publish.html?format=post"
+    },
+    {
+      "screen": 132,
+      "label": "Create Membership Plan",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: Create membership plan Set billing, benefits and member promise before activation. X Billing Monthly + yearly Price Creator selects Benefits Required Cancellation Member controlled Take-home Previewed Review Before live Continue Plan Setup"
+    },
+    {
+      "screen": 133,
+      "label": "Review & Apply",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: Onboard verified grocery retailers Work, output, proof, funding and payout before application. X Output Approved retailer Payout ₹450 Proof KYC + activation Review Within 24 h Rework One attempt Funding Reserved Monthly potential depends on open funded capacity, eligibility, acceptance and approved output. It is not salary or guaranteed income. Apply"
+    },
+    {
+      "screen": 133,
+      "label": "Review & Apply",
+      "occurrence": 1,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: Verify shop display and QR placement Work, output, proof, funding and payout before application. X Output Approved retailer Payout ₹450 Proof KYC + activation Review Within 24 h Rework One attempt Funding Reserved Monthly potential depends on open funded capacity, eligibility, acceptance and approved output. It is not salary or guaranteed income. Apply"
+    },
+    {
+      "screen": 133,
+      "label": "Review & Apply",
+      "occurrence": 2,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: Validate FMCG catalogue data Work, output, proof, funding and payout before application. X Output Approved retailer Payout ₹450 Proof KYC + activation Review Within 24 h Rework One attempt Funding Reserved Monthly potential depends on open funded capacity, eligibility, acceptance and approved output. It is not salary or guaranteed income. Apply"
+    },
+    {
+      "screen": 135,
+      "label": "Continue Proof",
+      "occurrence": 0,
+      "resolutionType": "route",
+      "evidence": "Clean mobile replay navigated to http://127.0.0.1:8787/screens/136-earn-proof-outcome.html?work=WRK-4821"
+    },
+    {
+      "screen": 136,
+      "label": "✓ Owner OTP Matched 10:06",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "runtimeType": "detail",
+      "note": "Owner OTP, identity match and verification time are recorded with the work outcome.",
+      "evidence": "Specific prototype outcome replaces generic-fallback."
+    },
+    {
+      "screen": 136,
+      "label": "Submit for Verification",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: Outcome submitted Verification target: within 24 hours. X Case WRK-4821 Evidence 4 records Payout held ₹450 Status Verifying Track Earnings"
+    },
+    {
+      "screen": 141,
+      "label": "Accept new demand",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 141,
+      "label": "Save availability",
+      "occurrence": 0,
+      "resolutionType": "terminal",
+      "runtimeType": "terminal",
+      "note": "Provider availability saved. Public booking follows this schedule and capacity.",
+      "evidence": "Specific prototype outcome replaces generic-fallback."
+    },
+    {
+      "screen": 142,
+      "label": "Accept",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: Accept Service request? Capacity will be reserved and the customer notified. X Price ₹850 Time Today 11:30 Payment Protected Cancellation Version locked Confirm and open work"
+    },
+    {
+      "screen": 142,
+      "label": "Accept",
+      "occurrence": 1,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: Accept Service request? Capacity will be reserved and the customer notified. X Price ₹850 Time Today 11:30 Payment Protected Cancellation Version locked Confirm and open work"
+    },
+    {
+      "screen": 143,
+      "label": "Confirm and continue",
+      "occurrence": 0,
+      "resolutionType": "route",
+      "evidence": "Clean mobile replay navigated to http://127.0.0.1:8787/screens/144-provider-business.html?profile=individual_service&completed=RQ-2401"
+    },
+    {
+      "screen": 144,
+      "label": "H ₹1,250 - Aarav Mehta Active request - terms locked Expected ›",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "runtimeType": "detail",
+      "note": "Opening the active service request with customer terms, expected outcome and payment protection.",
+      "evidence": "Specific prototype outcome replaces generic-fallback."
+    },
+    {
+      "screen": 144,
+      "label": "REPEAT 18 due Send reminder",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "runtimeType": "state",
+      "note": "Reminder queue opened for customers who consented to service reminders.",
+      "evidence": "Specific prototype outcome replaces generic-fallback."
+    },
+    {
+      "screen": 146,
+      "label": "ID Identity verified Primary contact and payout identity match Complete ›",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "runtimeType": "detail",
+      "note": "Opening verified identity, primary contact and payout-account match.",
+      "evidence": "Specific prototype outcome replaces generic-fallback."
+    },
+    {
+      "screen": 146,
+      "label": "Priority request alerts",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 146,
+      "label": "Save controls",
+      "occurrence": 0,
+      "resolutionType": "terminal",
+      "runtimeType": "terminal",
+      "note": "Provider controls saved with consent, visibility and payout rules.",
+      "evidence": "Specific prototype outcome replaces generic-fallback."
+    },
+    {
+      "screen": 147,
+      "label": "P2 - ORDER CAPACITY Retailer fulfilment acceptance falling in Zone 4 42 consumer orders need safe rerouting At risk SLA 18:20",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 148,
+      "label": "INDIVIDUAL DOCTOR - WP-256702 Dr. Meera Sharma Rajasthan Medical Council record matched Specialist 41 min",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 148,
+      "label": "Request one item",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 148,
+      "label": "Approve permitted access",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 149,
+      "label": "SKU MATCH - 98.7% Fortune Sunflower Oil 1 L Manufacturer GTIN matches canonical pack Confirm 12 min",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "runtimeType": "detail",
+      "note": "Opening canonical SKU match, GTIN, pack attributes and supplier evidence.",
+      "evidence": "Specific prototype outcome replaces generic-fallback."
+    },
+    {
+      "screen": 149,
+      "label": "Confirm canonical SKU",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 150,
+      "label": "Refund",
+      "occurrence": 0,
+      "resolutionType": "terminal",
+      "runtimeType": "terminal",
+      "note": "Refund decision opened with eligible amount, source payment and customer notification.",
+      "evidence": "Specific prototype outcome replaces generic-fallback."
+    },
+    {
+      "screen": 150,
+      "label": "STOCK MISMATCH - OR-84291 Retailer cannot fulfil 2 of 6 items Customer paid - home delivery - 3 backup shops Resolve SLA 06:40",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "runtimeType": "detail",
+      "note": "Opening the stock mismatch with affected items, nearby fulfilment options and customer promise.",
+      "evidence": "Specific prototype outcome replaces dead."
+    },
+    {
+      "screen": 150,
+      "label": "CUSTOMER CANCELLATION Cancellation requested after preparation Restaurant order - terms accepted at 9:32 Terms SLA 14:05",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 150,
+      "label": "Apply best resolution",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 151,
+      "label": "PICKUP DELAY Captain is 11 minutes from pickup Customer accepted 6-minute ETA Resolve 03:18",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 151,
+      "label": "Continue safety protocol",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 152,
+      "label": "CREATOR ECONOMICS - CE-2401 Eight funded creator earning engines Business funding - creator delivery - consumer outcome - ledger release Governed Live controls",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "runtimeType": "detail",
+      "note": "Opening funded creator earning sources, qualification rules, holds, deductions and payout controls.",
+      "evidence": "Specific prototype outcome replaces dead."
+    },
+    {
+      "screen": 152,
+      "label": "NEW CAMPAIGN - CP-2208 Onboard 1,000 verified retailers Manufacturer funded - Rajasthan - ₹450 approved outcome Approve terms 42 min",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 153,
+      "label": "HIGH HARM REPORT Short contains dangerous medical claim 48K views - health specialist required Specialist SLA 09:12",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "runtimeType": "detail",
+      "note": "Opening reported content, reach, risk evidence and specialist review controls.",
+      "evidence": "Specific prototype outcome replaces dead."
+    },
+    {
+      "screen": 154,
+      "label": "Refund",
+      "occurrence": 0,
+      "resolutionType": "terminal",
+      "runtimeType": "terminal",
+      "note": "Approved refund batch opened for final amount and source-account verification.",
+      "evidence": "Specific prototype outcome replaces generic-fallback."
+    },
+    {
+      "screen": 154,
+      "label": "UNMATCHED CALLBACK - PY-92018 Gateway success, platform pending Customer payment ₹645 - order OR-84291 Reconcile SLA 05:11",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 154,
+      "label": "ADVANCE HOLD - PO-5821 Supplier requests 30% advance release Goods not delivered - escrow protection active Keep held 2 h",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 154,
+      "label": "REFUND BATCH 42 approved customer refunds ready All source decisions and amounts verified Approve 31 min",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 155,
+      "label": "Record reasoned result",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 156,
+      "label": "REQUIRED NOTICE - RN-662 Pharmacy licence renewal action 42 pharmacy owners - required workspace action Ready Send now",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 156,
+      "label": "Approve controlled launch",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 157,
+      "label": "! Renew pharmacy licence record REQUIRED Review the licence expiry to keep medicine-selling capabilities active. MoolSocial Compliance · expires in 28 days Now ›",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: ! Renew pharmacy licence record Review the licence expiry to keep medicine-selling capabilities active. × What this controls You own a verified pharmacy workspace with a licence record nearing expiry. WORKSPACE Shree Medical DUE 10 Aug 2026 AFFECTS Medicine sales PROMOTION None 1 Review Check current licence details 2 Update Upload renewed document 3 Verify Compliance review 4 Restore Capability remains active Review document"
+    },
+    {
+      "screen": 157,
+      "label": "O Order ready for counter pickup ORDERS Mahadev Fresh Mart has packed all 6 items. Order MS-2941 · paid ₹645 24 min ›",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: O Order ready for counter pickup Mahadev Fresh Mart has packed all 6 items. × What this controls This is an active order placed from your personal consumer account. ORDER MS-2941 ITEMS 6 of 6 PICKUP Counter BILL Ready ✓ Placed Payment confirmed ✓ Packed All items ready 3 Collect Pick up at counter Open order"
+    },
+    {
+      "screen": 157,
+      "label": "% Nearby grocery basket price is ready OFFERS See the final price, delivery time and refund rule before buying. Available in your current area · promotional 1 hr ›",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: % Nearby grocery basket price is ready See the final price, delivery time and refund rule before buying. × What this controls You allowed local offers and your current area has confirmed supply. PRICE From ₹399 DELIVERY 45 min AREA Jodhpur EXPIRES Today 1 Compare Price and fulfilment 2 Choose Retail or basket 3 Pay Only after final review Not interested Check price"
+    },
+    {
+      "screen": 158,
+      "label": "• Pharmacy document access expires CONSENT Renew permission for licence verification. Shree Medical · 28 days left ›",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: • Pharmacy document access expires Renew permission for licence verification. × What this controls The compliance reviewer needs time-limited access to validate the regulated record. DOCUMENT Drug licence ACCESS Compliance team EXPIRES 10 Aug 2026 PURPOSE Licence check 1 Review Exact document and purpose 2 Allow Set time-limited access 3 Audit See every access Contact support Review permission"
+    },
+    {
+      "screen": 159,
+      "label": "Buy",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 159,
+      "label": "Book",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 160,
+      "label": "Add",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: | Choose camera, scan, gallery or file."
+    },
+    {
+      "screen": 160,
+      "label": "• Order issue photos EVIDENCE Three photos linked to issue case MS-2941. Private · case closes in 4 days ›",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: • Order issue photos Three photos linked to issue case MS-2941. × What this controls You submitted these photos to support a missing-item claim. CASE MS-2941 FILES 3 photos ACCESS Case team DELETE After retention ✓ Submitted Evidence received 2 Review Case team checking 3 Close Decision and retention Open case"
+    },
+    {
+      "screen": 160,
+      "label": "• Doctor follow-up report CLINICAL Clinical record is separated from business and social files. PDF · access expires in 6 days ›",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: • Doctor follow-up report Clinical record is separated from business and social files. × What this controls You allowed Dr Mehta’s clinic to use this report for your follow-up appointment. PATIENT You ACCESS Dr Mehta Clinic PURPOSE Follow-up EXPIRES 19 Jul 2026 ✓ Consent Time-limited access 2 Consult Doctor review 3 Expire Access ends automatically Revoke Review access"
+    },
+    {
+      "screen": 162,
+      "label": "Add",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: | Choose an available work profile to add."
+    },
+    {
+      "screen": 162,
+      "label": "P Personal & Social PERSONAL Social, Buy, Eat, Ride, Book, Pay, Work and Chat. Always active · default opens Social ›",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: P Personal & Social Social, Buy, Eat, Ride, Book, Pay, Work and Chat. × What this controls Every MoolSocial account remains an individual consumer first. SOCIAL Ready CONSUMER Always active AREA Jodhpur PRIVACY Personal 1 Open Return to focused personal experience Open personal"
+    },
+    {
+      "screen": 163,
+      "label": "BUY JOURNEY - ANDROID 6.4.1 Checkout confirmation failing after UPI return 184 users · Screen 14 · payment.confirm · started 09:18 Investigating SLA 08:14",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "runtimeType": "detail",
+      "note": "Opening affected users, failing action, release version, logs and rollback controls.",
+      "evidence": "Specific prototype outcome replaces dead."
+    },
+    {
+      "screen": 163,
+      "label": "MANUFACTURER ONBOARDING Proof upload abandonment increased in Rajasthan 86 sessions · Screen 71 · Android low-memory devices At risk Today",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 163,
+      "label": "RELEASE HEALTH - WEB 6.4.2 Creator upload canary is healthy 5% traffic · 3,842 sessions · no regression Healthy 38 min",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 163,
+      "label": "ACTION REGISTRY COVERAGE All launch controls have stable action IDs 1,842 controls · 163 prototype states · contract tests passed Complete Build 1554330",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 163,
+      "label": "Assign owner",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 164,
+      "label": "INTENT SEGMENT - SG-219 Weekly grocery planning Structured buy actions · recency 14 days · promotional consent required Ready 82,140 eligible",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "runtimeType": "detail",
+      "note": "Opening consented audience signals, eligibility, recency and campaign suppression rules.",
+      "evidence": "Specific prototype outcome replaces dead."
+    },
+    {
+      "screen": 164,
+      "label": "CONSENT SUPPRESSION - CS-41 Personalization withdrawal enforced 1,284 accounts · completed in 18 seconds Complete Today",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 164,
+      "label": "Create launch draft",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced an observable native screen-state change."
+    },
+    {
+      "screen": 165,
+      "label": "@ Social, messages and creator interactions SOCIAL Feed style, comments, mentions, message requests and collaboration invites. Public post visibility is still chosen for each post ›",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: @ Social, messages and creator interactions Feed style, comments, mentions, message requests and collaboration invites. × What this controls Discoverability, posting visibility and communication permission remain separate controls. FEED Personalized COMMENTS Followers + public posts MESSAGES Requests allowed AUTOPLAY Wi-Fi + mobile Personalized feed Use allowed follows and interactions Comments on public posts Followers and people you reply to Mentions and tags People you follow Message requests Unknown people stay in Requests Activity status Show when recently active Read receipts Show when messages are read Creator and campaign invitations Only verified and eligible opportunities Autoplay social video Can increase mobile data use Blocked accounts Save social settings"
+    },
+    {
+      "screen": 165,
+      "label": "• Mahadev Fresh Mart WORKSPACES Public now and accepting customer orders until 8:45 PM. Retailer · Jodhpur · automatic schedule on ›",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: • Mahadev Fresh Mart Public now and accepting customer orders until 8:45 PM. × What this controls Customers can see truthful open, closed, order-cutoff and fulfilment states before buying. LIVE PREVIEW Open · accepting orders Orders until 8:45 PM · closes 9:00 PM VISIBILITY Public ORDERS On NEXT CHANGE 9:00 PM TIME ZONE Asia/Kolkata Show shop publicly Customers can discover the shop and catalogue Accept new orders Existing accepted orders remain active if turned off Automatic opening schedule Server opens and closes ordering at saved times Counter pickup Customer can pay and collect at shop Home delivery Use shop or MoolSocial delivery Scheduled orders while closed Allow orders for next opening window Shop and order hours Asia/Kolkata Mon–Sat 8:00 AM–9:00 PM Sunday 9:00 AM–2:00 PM Order cutoff 15 min before close Pause temporarily Save shop controls"
+    },
+    {
+      "screen": 165,
+      "label": "• Rajasthan Foods factory WORKSPACES Catalogue visible and accepting wholesale orders during the saved order window. Manufacturer · Rajasthan · dispatch configured ›",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean mobile replay produced visible state: • Rajasthan Foods factory Catalogue visible and accepting wholesale orders during the saved order window. × What this controls Wholesale catalogue visibility, new-order acceptance and transport modes are controlled separately. LIVE PREVIEW Accepting wholesale orders Order window closes 6:00 PM CATALOGUE Public to eligible buyers ORDERS On CAPACITY Live DISPATCH Own + MoolSocial Show wholesale catalogue Eligible buyers see approved products and terms Accept new wholesale orders Existing purchase orders remain binding Automatic order window Use saved commercial hours Own-fleet dispatch Offer supplier transport where available MoolSocial transport Allow platform transport selection Buyer pickup Allow pickup under confirmed terms Wholesale order window Asia/Kolkata Mon–Sat 9:00 AM–6:00 PM Sunday Closed Dispatch cutoff 4:00 PM same-day Pause new orders Save factory controls"
+    }
+  ]
+}
