@@ -485,9 +485,10 @@
     .summary-price span { color: rgba(0,0,128,.58); font-size: 7px; font-weight: 850; }
     .filter-rail {
       display: flex;
+      flex-wrap: wrap;
       gap: 6px;
       min-width: 0;
-      overflow-x: auto;
+      overflow: visible;
       scrollbar-width: none;
     }
     .filter-rail::-webkit-scrollbar { display: none; }
@@ -502,6 +503,7 @@
       background: var(--ms-white);
       color: var(--ms-navy);
       font-size: 8px;
+      font-family: var(--ms-font);
       font-weight: 950;
       white-space: nowrap;
       box-shadow: 0 8px 18px rgba(0,0,128,.06);
@@ -897,7 +899,7 @@
                 <section class="decision-summary" aria-label="Live eat decision">
                   <span class="summary-copy">
                     <b id="summaryTitle">Order now or pickup</b>
-                    <span id="summaryText">Kitchen accepts first. Final payment captures only after restaurant confirms availability.</span>
+                  <span id="summaryText">Live availability is checked and your items are reserved before payment.</span>
                   </span>
                   <span class="summary-price">
                     <b id="summaryPrice">Rs 149+</b>
@@ -906,13 +908,13 @@
                 </section>
 
                 <div class="filter-rail" aria-label="Food filters">
-                  <span class="filter-chip active">Open now</span>
-                  <span class="filter-chip">Veg</span>
-                  <span class="filter-chip">Under 30 min</span>
-                  <span class="filter-chip">Family pack</span>
-                  <span class="filter-chip">Pure veg</span>
-                  <span class="filter-chip">No onion garlic</span>
-                  <span class="filter-chip">Offers</span>
+                  <button class="filter-chip active" type="button" aria-pressed="true">Open now</button>
+                  <button class="filter-chip" type="button" aria-pressed="false">Veg</button>
+                  <button class="filter-chip" type="button" aria-pressed="false">Under 30 min</button>
+                  <button class="filter-chip" type="button" aria-pressed="false">Family pack</button>
+                  <button class="filter-chip" type="button" aria-pressed="false">Pure veg</button>
+                  <button class="filter-chip" type="button" aria-pressed="false">No onion garlic</button>
+                  <button class="filter-chip" type="button" aria-pressed="false">Offers</button>
                 </div>
 
                 <div class="section-title">
@@ -949,7 +951,7 @@
                           <b>Family biryani pack</b>
                           <span>Rs 449</span>
                         </div>
-                        <div class="food-meta">serves 3 · 31 min · restaurant offer · refund if not accepted · group order ready</div>
+                        <div class="food-meta">serves 3 · 31 min · restaurant offer · live availability · group order ready</div>
                         <div class="decision-row">
                           <span class="decision-pill"><b>Pack</b><span>serves 3</span></span>
                           <span class="decision-pill"><b>Offer</b><span>Rs 40 off</span></span>
@@ -1058,7 +1060,7 @@
                     <span>MVP trust layer</span>
                   </div>
                   <div class="trust-grid">
-                    <span class="trust-item"><b>Live availability</b><span>Restaurant confirms before final payment capture.</span></span>
+                    <span class="trust-item"><b>Live availability</b><span>Available items are reserved before payment.</span></span>
                     <span class="trust-item"><b>Clear fulfilment</b><span>Delivery, pickup, table or tiffin slot shown first.</span></span>
                     <span class="trust-item"><b>Final cost</b><span>Food price, delivery fee, tax and offer shown before pay.</span></span>
                     <span class="trust-item"><b>Chat support</b><span>Restaurant and order support stay one tap away.</span></span>
@@ -1126,13 +1128,14 @@
     const contextText = document.getElementById("contextText");
     const selectedRestaurantMeta = document.getElementById("selectedRestaurantMeta");
     const selectedOffer = document.getElementById("selectedOffer");
+    const filterChips = document.querySelectorAll(".filter-chip");
 
     const copy = {
       order: {
         title: "Ready food near you",
         hint: "Price, time and proof before order",
         summary: "Order now or pickup",
-        text: "Kitchen accepts first. Final payment captures only after restaurant confirms availability.",
+        text: "Live availability is checked and your items are reserved before payment.",
         price: "Rs 149+",
         meta: "22 min"
       },
@@ -1212,6 +1215,17 @@
         restaurantChoices.forEach((item) => item.classList.toggle("active", item === choice));
         selectedRestaurantMeta.textContent = `${choice.dataset.restaurant} selected`;
         selectedOffer.textContent = choice.dataset.offer;
+      });
+    });
+
+    filterChips.forEach((chip) => {
+      chip.addEventListener("click", () => {
+        filterChips.forEach((item) => {
+          const selected = item === chip;
+          item.classList.toggle("active", selected);
+          item.setAttribute("aria-pressed", String(selected));
+        });
+        eatHint.textContent = `${chip.textContent.trim()} options ready to choose`;
       });
     });
   </script>

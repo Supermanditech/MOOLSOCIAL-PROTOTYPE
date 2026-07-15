@@ -2,7 +2,7 @@
   "version": "production-readiness-audit-2026-07-15",
   "rule": "Every user-facing tap must reach a concrete route, meaningful native state, governed handoff or terminal outcome, and phone-facing copy must not expose implementation or retailer-internal uncertainty.",
   "summary": {
-    "generatedAt": "2026-07-15T11:07:23.6159487+05:30",
+    "generatedAt": "2026-07-15T14:18:19.5156359+05:30",
     "status": "passed",
     "screensChecked": 166,
     "screensPassed": 166,
@@ -13,6 +13,7 @@
     "p1": 0,
     "genericHighIntentOutcomes": 0,
     "customerStockConfirmationLanguage": 0,
+    "customerAvailabilityConfirmationLanguage": 0,
     "internalUserFacingLanguage": 0
   },
   "screens": [

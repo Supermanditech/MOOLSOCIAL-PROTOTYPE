@@ -206,7 +206,7 @@
               Important moderation, demonetisation and campaign decisions
               include reason, evidence, policy version and appeal route.
             </div>
-            <button class="primary" style="width: 100%">Continue</button>
+            <button class="primary" id="continueControl" style="width: 100%">Continue</button>
           </section>
         </div>
       </section>
@@ -249,6 +249,14 @@
       document
         .getElementById("close")
         .addEventListener("click", () => (layer.hidden = true));
+      document.getElementById("continueControl").addEventListener("click", (event) => {
+        const selectedControl = document.getElementById("sheetTitle").textContent;
+        document.getElementById("sheetTitle").textContent = `${selectedControl} — next step open`;
+        document.getElementById("sheetText").textContent =
+          "The required evidence, permissions and review choices are ready to complete.";
+        event.currentTarget.textContent = "Next Step Open";
+        event.currentTarget.setAttribute("aria-pressed", "true");
+      });
       if (new URLSearchParams(location.search).get("state") === "review") {
         const reviewLink = [...document.querySelectorAll("a")].find(
           (link) => link.textContent.trim() === "Review request",

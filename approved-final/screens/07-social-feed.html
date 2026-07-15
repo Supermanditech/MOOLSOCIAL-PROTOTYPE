@@ -269,11 +269,18 @@
     }
 
     .composer-input {
+      appearance: none;
+      width: 100%;
       min-height: 36px;
       display: flex;
       align-items: center;
       border: 1px solid rgba(0, 0, 128, .12);
       border-radius: var(--ms-pill);
+      padding: 0 12px;
+      color: inherit;
+      font-family: var(--ms-font);
+      text-align: left;
+      cursor: pointer;
       padding: 0 13px;
       color: rgba(0, 0, 128, .62);
       background: #f6f8fc;
@@ -695,6 +702,21 @@
       font-weight: 900;
     }
 
+    .reply-sort button {
+      appearance: none;
+      border: 0;
+      padding: 0;
+      background: transparent;
+      color: rgba(255, 255, 255, .76);
+      font-family: var(--ms-font);
+      font-weight: 850;
+      cursor: pointer;
+    }
+
+    .reply-sort button.active {
+      color: var(--ms-green);
+    }
+
     .reply-text {
       margin: 0;
       color: rgba(255, 255, 255, .88);
@@ -703,6 +725,7 @@
     }
 
     .reply-compose {
+      appearance: none;
       position: absolute;
       left: 12px;
       right: 12px;
@@ -714,7 +737,12 @@
       border: 1px solid rgba(255, 255, 255, .12);
       border-radius: var(--ms-pill);
       padding: 8px;
+      border: 1px solid rgba(255, 255, 255, .10);
       background: rgba(20, 20, 20, .96);
+      color: var(--ms-white);
+      font-family: var(--ms-font);
+      text-align: left;
+      cursor: pointer;
       box-shadow: 0 -12px 30px rgba(0, 0, 0, .42);
     }
 
@@ -925,18 +953,27 @@
     }
 
     .sheet-chip {
+      appearance: none;
       min-height: 52px;
       display: grid;
       place-items: center;
       gap: 4px;
       border: 1px solid rgba(0, 0, 128, .18);
       border-radius: 16px;
+      padding: 8px;
       background: var(--ms-white);
       color: var(--ms-navy);
+      font-family: var(--ms-font);
       font-size: 9px;
       font-weight: 950;
       text-align: center;
       line-height: 1.1;
+      cursor: pointer;
+    }
+
+    .sheet-chip.active {
+      border-color: var(--ms-green);
+      background: #effff5;
     }
 
     .sheet-chip strong {
@@ -949,6 +986,29 @@
       color: rgba(0, 0, 128, .72);
       font-size: 10px;
       line-height: 1.34;
+    }
+
+    .feed-search-row {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 8px;
+    }
+
+    .feed-search-row input,
+    .feed-search-row button {
+      min-height: 40px;
+      border: 1px solid rgba(0, 0, 128, .18);
+      border-radius: var(--ms-pill);
+      padding: 0 12px;
+      font-family: var(--ms-font);
+      font-weight: 850;
+    }
+
+    .feed-search-row button {
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      cursor: pointer;
     }
 
     .launcher {
@@ -1125,7 +1185,7 @@
               <article class="composer">
                 <div class="composer-row">
                   <span class="avatar">You</span>
-                  <span class="composer-input">Share an update, ask, sell, hire or post proof</span>
+                  <button class="composer-input" type="button" data-compose-post>Share an update, ask, sell, hire or post proof</button>
                 </div>
                 <div class="composer-actions">
                   <button type="button">Post</button>
@@ -1296,17 +1356,17 @@
                   </div>
                   <div class="detail-meta">9:41 am - 06 Jul 26 - 58.3K views</div>
                   <div class="detail-actions">
-                    <button class="detail-action" type="button" data-open-comments>184</button>
-                    <button class="detail-action" type="button" data-toggle-action>42</button>
-                    <button class="detail-action" type="button" data-toggle-action>2.4K</button>
+                    <button class="detail-action" type="button" data-open-comments aria-label="Open 184 comments">184</button>
+                    <button class="detail-action" type="button" data-toggle-action aria-label="Repost, 42 reposts">42</button>
+                    <button class="detail-action" type="button" data-toggle-action aria-label="Like, 2.4K likes">2.4K</button>
                     <button class="detail-action" type="button" data-toggle-action>Save</button>
                     <button class="detail-action" type="button" data-open-sheet="share">Share</button>
                   </div>
                 </article>
 
                 <div class="reply-sort" data-replies>
-                  <span>Relevant</span>
-                  <span>View quotes</span>
+                  <button class="active" type="button" data-reply-sort="relevant">Relevant</button>
+                  <button type="button" data-reply-sort="quotes">View quotes</button>
                 </div>
 
                 <article class="reply-card">
@@ -1345,11 +1405,11 @@
                 </article>
               </section>
 
-              <div class="reply-compose">
+              <button class="reply-compose" type="button" data-reply-compose>
                 <span class="avatar">You</span>
                 <span>Post your reply</span>
                 <span class="expand-reply">↗</span>
-              </div>
+              </button>
             </section>
 
             <section class="action-sheet" data-action-sheet aria-live="polite">
@@ -1507,11 +1567,12 @@
     const repliesAnchor = document.querySelector("[data-replies]");
     const filterChips = Array.from(document.querySelectorAll(".filter-chip"));
     const filterResult = document.querySelector("[data-filter-result]");
+    let activeSheetType = "";
 
     const sheetContent = {
       basket: {
         title: "Basket proof",
-        note: "Open order flow only after live stock, price, delivery slot and refund rule are confirmed.",
+        note: "Review current availability, price, delivery slot and refund rule before ordering.",
         items: [
           ["Price", "Rs 399"],
           ["Time", "45 min"],
@@ -1594,11 +1655,13 @@
     function openSheet(type) {
       const content = sheetContent[type];
       if (!sheet || !content) return;
+      activeSheetType = type;
       if (sheetTitle) sheetTitle.textContent = content.title;
       if (sheetNote) sheetNote.textContent = content.note;
       if (sheetGrid) {
-        sheetGrid.innerHTML = content.items.map(([label, value]) => `
-          <span class="sheet-chip"><strong>${value}</strong>${label}</span>
+        const search = type === "search" ? '<div class="feed-search-row"><input type="search" data-feed-search-input aria-label="Search people, posts and topics" placeholder="Search Social" /><button type="button" data-feed-search-submit>Search</button></div>' : '';
+        sheetGrid.innerHTML = search + content.items.map(([label, value]) => `
+          <button class="sheet-chip" type="button" data-sheet-action data-action-label="${label}" data-action-value="${value}"><strong>${value}</strong>${label}</button>
         `).join("");
       }
       sheet.classList.add("open");
@@ -1606,12 +1669,131 @@
 
     function closeSheet() {
       sheet?.classList.remove("open");
+      activeSheetType = "";
+    }
+
+    function updateSheetOutcome(message, button) {
+      if (sheetNote) sheetNote.textContent = message;
+      if (button) {
+        button.classList.add("active");
+        button.setAttribute("aria-pressed", "true");
+      }
+    }
+
+    function openReplyComposer() {
+      activeSheetType = "reply";
+      sheetTitle.textContent = "Post your reply";
+      sheetNote.textContent = "Your reply will appear in this conversation after posting.";
+      sheetGrid.innerHTML = '<div class="feed-search-row"><input type="text" data-reply-input aria-label="Write a reply" placeholder="Write your reply" /><button type="button" data-reply-submit>Post</button></div>';
+      sheet.classList.add("open");
+      sheetGrid.querySelector("[data-reply-input]")?.focus();
+    }
+
+    function runSheetAction(button) {
+      const label = button.dataset.actionLabel || "Action";
+      const value = button.dataset.actionValue || "";
+
+      if (activeSheetType === "basket") {
+        if (label === "Open" || label === "Pay") {
+          window.location.href = "11-buy-product-detail.html?from=feed-proof";
+          return;
+        }
+        updateSheetOutcome(`${label}: ${value}. Confirmed for this basket.`, button);
+        return;
+      }
+
+      if (activeSheetType === "food") {
+        if (label === "Table") {
+          window.location.href = "28-eat-book-table.html?from=feed";
+          return;
+        }
+        if (label === "Order") {
+          window.location.href = "27-eat-order-food.html?from=feed";
+          return;
+        }
+        updateSheetOutcome(`${label}: ${value}. Confirmed for this food option.`, button);
+        return;
+      }
+
+      if (activeSheetType === "work") {
+        if (label === "Apply") {
+          window.location.href = "134-earn-applications-eligibility.html?from=feed";
+          return;
+        }
+        updateSheetOutcome(label === "Save" ? "Task saved. You can apply later from Earn." : `${label}: ${value}. Confirmed before application.`, button);
+        return;
+      }
+
+      if (activeSheetType === "comments") {
+        if (label === "Reply") {
+          openReplyComposer();
+          return;
+        }
+        updateSheetOutcome(`${label} comment control is active.`, button);
+        return;
+      }
+
+      if (activeSheetType === "share") {
+        if (label === "Chat" || label === "Group") {
+          window.location.href = "23-chat-inbox-home.html?from=feed-share&compose=1";
+          return;
+        }
+        if (label === "Copy" || label === "External") {
+          navigator.clipboard?.writeText(window.location.href).catch(() => {});
+          updateSheetOutcome(label === "Copy" ? "Post link copied with creator attribution." : "System sharing is ready with the post link and creator attribution.", button);
+          return;
+        }
+        updateSheetOutcome(label === "Save" ? "Post saved to your Social collection." : "A share-ready QR code is open for this post.", button);
+        return;
+      }
+
+      if (activeSheetType === "search") {
+        updateSheetOutcome(`${label} search is active for ${value.toLowerCase()} results.`, button);
+        sheetGrid.querySelector("[data-feed-search-input]")?.focus();
+        return;
+      }
+
+      if (activeSheetType === "notifications") {
+        updateSheetOutcome(`${label} notifications are open. ${value} new item${value === "1" ? "" : "s"}.`, button);
+        return;
+      }
+
+      if (activeSheetType === "account") {
+        if (label === "Creator") {
+          window.location.href = "124-creator-studio-home.html?from=feed";
+          return;
+        }
+        updateSheetOutcome(`${label} is open in your Social account.`, button);
+        return;
+      }
+
+      if (activeSheetType === "more") {
+        if (label === "Not interested") {
+          closeSheet();
+          if (filterResult) filterResult.textContent = "This post was removed from your recommendations";
+          return;
+        }
+        if (label === "Report") {
+          sheetTitle.textContent = "Report received";
+          sheetGrid.innerHTML = "";
+          sheetNote.textContent = "The safety team will review this post. Your report remains private.";
+          return;
+        }
+        if (label === "Copy") navigator.clipboard?.writeText(window.location.href).catch(() => {});
+        updateSheetOutcome(label === "Mute" ? "This account is muted in your feed." : "Post link copied.", button);
+        return;
+      }
+
+      updateSheetOutcome(`${label}: ${value}.`, button);
     }
 
     function openPostDetail(scrollToReplies = false) {
       feedApp?.classList.add("detail-mode");
       closeSheet();
       if (detailScroll) detailScroll.scrollTop = 0;
+      const detailComments = document.querySelector("[data-post-detail] [data-open-comments]");
+      detailComments?.classList.toggle("active", scrollToReplies);
+      detailComments?.setAttribute("aria-pressed", String(scrollToReplies));
       if (scrollToReplies) {
         window.setTimeout(() => repliesAnchor?.scrollIntoView({ block: "start" }), 40);
       }
@@ -1619,6 +1801,9 @@
 
     function openFeedTimeline() {
       feedApp?.classList.remove("detail-mode");
+      const detailComments = document.querySelector("[data-post-detail] [data-open-comments]");
+      detailComments?.classList.remove("active");
+      detailComments?.setAttribute("aria-pressed", "false");
       closeSheet();
     }
 
@@ -1640,7 +1825,41 @@
     document.querySelector("[data-back-feed]")?.addEventListener("click", openFeedTimeline);
 
     document.querySelectorAll("[data-toggle-action]").forEach((button) => {
-      button.addEventListener("click", () => button.classList.toggle("active"));
+      button.addEventListener("click", () => {
+        button.classList.toggle("active");
+        button.setAttribute("aria-pressed", String(button.classList.contains("active")));
+      });
+    });
+
+    document.querySelectorAll(".reply-card .detail-action").forEach((button) => {
+      button.addEventListener("click", () => {
+        const action = button.textContent.trim();
+        if (action === "Reply") {
+          openReplyComposer();
+          return;
+        }
+        if (action === "Share") {
+          openSheet("share");
+          return;
+        }
+        button.classList.toggle("active");
+        button.setAttribute("aria-pressed", String(button.classList.contains("active")));
+        const completedLabel = { Repost: "Reposted", Like: "Liked", Save: "Saved" }[action] || action;
+        const originalLabel = { Reposted: "Repost", Liked: "Like", Saved: "Save" }[action] || action;
+        button.textContent = button.classList.contains("active") ? completedLabel : originalLabel;
+      });
+    });
+
+    document.querySelectorAll("[data-reply-sort]").forEach((button) => {
+      button.addEventListener("click", () => {
+        document.querySelectorAll("[data-reply-sort]").forEach((item) => item.classList.toggle("active", item === button));
+        button.textContent = button.dataset.replySort === "quotes" ? "Quotes (2)" : "Relevant";
+      });
+    });
+
+    document.querySelector("[data-reply-compose]")?.addEventListener("click", openReplyComposer);
+    document.querySelector("[data-compose-post]")?.addEventListener("click", () => {
+      window.location.href = "08-social-create.html?mode=text&from=feed";
     });
 
     filterChips.forEach((chip) => {
@@ -1653,6 +1872,36 @@
     });
 
     document.querySelector("[data-close-sheet]")?.addEventListener("click", closeSheet);
+    sheetGrid?.addEventListener("click", (event) => {
+      const sheetAction = event.target.closest("[data-sheet-action]");
+      if (sheetAction) {
+        runSheetAction(sheetAction);
+        return;
+      }
+      if (event.target.closest("[data-feed-search-submit]")) {
+        const input = sheetGrid.querySelector("[data-feed-search-input]");
+        const query = input?.value.trim();
+        if (!query) {
+          input?.focus();
+          sheetNote.textContent = "Enter a person, post or topic to search.";
+          return;
+        }
+        sheetTitle.textContent = `Results for “${query}”`;
+        sheetNote.textContent = "Matching people, posts and topics are shown with local and verification context.";
+        return;
+      }
+      if (!event.target.closest("[data-reply-submit]")) return;
+      const input = sheetGrid.querySelector("[data-reply-input]");
+      const reply = input?.value.trim();
+      if (!reply) {
+        input?.focus();
+        sheetNote.textContent = "Write your reply before posting.";
+        return;
+      }
+      sheetTitle.textContent = "Reply posted";
+      sheetGrid.innerHTML = "";
+      sheetNote.textContent = "Your reply is now visible in this conversation.";
+    });
 
     document.querySelector("[aria-label='Search feed']")?.addEventListener("click", () => openSheet("search"));
     document.querySelector("[aria-label='Notifications']")?.addEventListener("click", () => openSheet("notifications"));

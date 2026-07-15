@@ -1,1 +1,265 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Screen 118 · Captain Pickup</title><link rel="stylesheet" href="../shared/captain-workspace.css"><style>.customer{display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:9px;align-items:center}.avatar{width:44px;height:44px;display:grid;place-items:center;border-radius:50%;background:var(--green);color:#fff;font-weight:900}.customer span{display:grid;gap:2px}.customer b{font-size:12px}.customer small{color:var(--muted);font-size:9px}.quick{display:flex;gap:6px}.quick button{width:36px;height:36px;border:1px solid var(--line);border-radius:50%;background:#fff;color:var(--navy);font-size:9px;font-weight:900}.otp{width:100%;border:1px solid var(--line);border-radius:7px;padding:12px;text-align:center;font-size:20px;font-weight:900;letter-spacing:8px}</style></head><body><main class="stage"><section class="phone"><header class="status"><span>9:44</span><span>Pickup · GPS 8 sec</span></header><div class="appbar"><a class="icon-btn" href="116-captain-home-availability.html" aria-label="Back">‹</a><span class="app-title"><b>Reach Pickup</b><span>Trip MS-R4821 · 1.2 km away</span></span><button class="icon-btn" id="support">!</button></div><div class="content"><div class="map"><span class="map-label">4 min · turn left after 300 m</span><span class="route"></span><i class="pin start">YOU</i><i class="pin end">PICK</i></div><section class="band customer"><i class="avatar">AK</i><span><b>Asha K. · 4.8</b><small>Opposite Central Bank · blue gate</small></span><span class="quick"><button id="call">Call</button><button id="chat">Chat</button></span></section><div class="notice warn"><i>!</i><span><b>Start only with rider OTP</b><span>Do not ask the rider to cancel or start before meeting at the pickup point.</span></span></div><section class="band"><div class="metric-grid"><span class="metric"><small>PICKUP ETA</small><b>4 min</b></span><span class="metric"><small>WAIT FREE</small><b>3 min</b></span><span class="metric"><small>TRIP NET</small><b>₹238</b></span></div></section><button class="primary" id="arrived" style="width:100%">I Have Arrived</button></div><nav class="dock"><a class="mool" href="04-universal-focus-shell.html">Mool</a><div class="dock-rail"><a class="dock-link" href="117-captain-ride-request.html"><i>R</i><span>Requests</span></a><a class="dock-link active" href="118-captain-pickup-navigation.html"><i>T</i><span>Trips</span></a><a class="dock-link" href="121-captain-earnings-payouts.html"><i>₹</i><span>Earnings</span></a></div><a class="chat" href="23-chat-inbox-home.html">Chat</a></nav><div class="layer" id="layer" hidden><section class="sheet"><div class="sheet-head"><span><h2 id="sheetTitle">Start trip</h2><p id="sheetText">Ask the rider for the 4-digit trip OTP.</p></span><button class="sheet-close" id="close">X</button></div><input class="otp" id="otp" inputmode="numeric" maxlength="4" placeholder="----"><div class="sheet-note">Pickup geofence and OTP must both match. Accessibility fallback opens through Support.</div><button class="primary" id="start" style="width:100%">Verify OTP & Start</button></section></div></section><aside class="notes"><small>SCREEN 118 · REVIEW DRAFT</small><h1>Pickup Navigation and Arrival</h1><p>Navigation, customer contact and trip start stay focused. Arrival is geofence-backed; the customer OTP is the deliberate start command.</p><section class="contract"><div><b>Customer Contact</b>Masked calling and trip-linked chat preserve privacy.</div><div><b>Arrival</b>The app records location freshness and geofence before allowing start.</div><div><b>Trip Start</b>OTP and server state, not UI alone, start the trip.</div></section></aside></main><script type="module">const layer=document.getElementById('layer');document.getElementById('arrived').addEventListener('click',()=>layer.hidden=false);document.getElementById('close').addEventListener('click',()=>layer.hidden=true);document.getElementById('start').addEventListener('click',()=>{if(document.getElementById('otp').value.length===4)location.href='119-captain-live-trip-safety.html?trip=MS-R4821'});document.getElementById('chat').addEventListener('click',()=>location.href='25-chat-people-thread.html?trip=MS-R4821');document.getElementById('call').addEventListener('click',()=>{document.getElementById('sheetTitle').textContent='Masked call';document.getElementById('sheetText').textContent='Call connects without sharing either personal number.';layer.hidden=false});document.getElementById('support').addEventListener('click',()=>location.href='123-captain-support-paid-work.html?case=pickup')</script><script type="application/json" id="screen118ProductionContract">{"screen":118,"states":["navigating","arrived","otp_pending","started"],"startGate":"fresh_pickup_geofence_plus_customer_otp_or_approved_fallback"}</script><script type="application/json" id="prototypeApprovalContract">{"prototypeScreen":118,"status":"approved-and-frozen","authoritative":true,"approvedAt":"2026-07-12"}</script><script type="application/json" id="productionRouteContract">{"contractVersion":"mvp-route-machine-flex-2026-07-12","prototypeScreen":118,"prototypeName":"Captain Pickup Navigation and Arrival","productionModule":"captain","budgetBucket":"captain","routeId":"captain.pickup","routePath":"/captain/trips/:tripId/pickup","routeState":"navigating","implementation":"route-shell","launchScope":"mvp-core","separateProductionRoute":true,"painSolved":"An assigned captain needs focused pickup navigation, masked rider contact, geofence arrival and OTP-backed trip start.","capabilityKeys":["pickup-navigation"],"featureOutcomes":["Navigate to the exact pickup","Contact rider without exposing phone numbers","Start only after fresh geofence and customer OTP"],"budgetExtension":false,"budgetExtensionReason":null,"productionNote":"Own production route /captain/trips/:tripId/pickup and keep all progressive states inside it.","canonicalMap":"architecture/MVP-120-ROUTE-MACHINE.md"}</script></body></html>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Screen 118 · Captain Pickup</title>
+    <link rel="stylesheet" href="../shared/captain-workspace.css" />
+    <style>
+      .customer {
+        display: grid;
+        grid-template-columns: 44px minmax(0, 1fr) auto;
+        gap: 9px;
+        align-items: center;
+      }
+      .avatar {
+        width: 44px;
+        height: 44px;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        background: var(--green);
+        color: #fff;
+        font-weight: 900;
+      }
+      .customer span {
+        display: grid;
+        gap: 2px;
+      }
+      .customer b {
+        font-size: 12px;
+      }
+      .customer small {
+        color: var(--muted);
+        font-size: 9px;
+      }
+      .quick {
+        display: flex;
+        gap: 6px;
+      }
+      .quick button {
+        width: 36px;
+        height: 36px;
+        border: 1px solid var(--line);
+        border-radius: 50%;
+        background: #fff;
+        color: var(--navy);
+        font-size: 9px;
+        font-weight: 900;
+      }
+      .otp {
+        width: 100%;
+        border: 1px solid var(--line);
+        border-radius: 7px;
+        padding: 12px;
+        text-align: center;
+        font-size: 20px;
+        font-weight: 900;
+        letter-spacing: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="stage">
+      <section class="phone">
+        <header class="status">
+          <span>9:44</span><span>Pickup · GPS 8 sec</span>
+        </header>
+        <div class="appbar">
+          <a
+            class="icon-btn"
+            href="116-captain-home-availability.html"
+            aria-label="Back"
+            >‹</a
+          ><span class="app-title"
+            ><b>Reach Pickup</b><span>Trip MS-R4821 · 1.2 km away</span></span
+          ><button class="icon-btn" id="support">!</button>
+        </div>
+        <div class="content">
+          <div class="map">
+            <span class="map-label">4 min · turn left after 300 m</span
+            ><span class="route"></span><i class="pin start">YOU</i
+            ><i class="pin end">PICK</i>
+          </div>
+          <section class="band customer">
+            <i class="avatar">AK</i
+            ><span
+              ><b>Asha K. · 4.8</b
+              ><small>Opposite Central Bank · blue gate</small></span
+            ><span class="quick"
+              ><button id="call">Call</button
+              ><button id="chat">Chat</button></span
+            >
+          </section>
+          <div class="notice warn">
+            <i>!</i
+            ><span
+              ><b>Start only with rider OTP</b
+              ><span
+                >Do not ask the rider to cancel or start before meeting at the
+                pickup point.</span
+              ></span
+            >
+          </div>
+          <section class="band">
+            <div class="metric-grid">
+              <span class="metric"><small>PICKUP ETA</small><b>4 min</b></span
+              ><span class="metric"><small>WAIT FREE</small><b>3 min</b></span
+              ><span class="metric"><small>TRIP NET</small><b>₹238</b></span>
+            </div>
+          </section>
+          <button class="primary" id="arrived" style="width: 100%">
+            I Have Arrived
+          </button>
+        </div>
+        <nav class="dock">
+          <a class="mool" href="04-universal-focus-shell.html">Mool</a>
+          <div class="dock-rail">
+            <a class="dock-link" href="117-captain-ride-request.html"
+              ><i>R</i><span>Requests</span></a
+            ><a
+              class="dock-link active"
+              href="118-captain-pickup-navigation.html"
+              ><i>T</i><span>Trips</span></a
+            ><a class="dock-link" href="121-captain-earnings-payouts.html"
+              ><i>₹</i><span>Earnings</span></a
+            >
+          </div>
+          <a class="chat" href="23-chat-inbox-home.html">Chat</a>
+        </nav>
+        <div class="layer" id="layer" hidden>
+          <section class="sheet">
+            <div class="sheet-head">
+              <span
+                ><h2 id="sheetTitle">Start trip</h2>
+                <p id="sheetText">
+                  Ask the rider for the 4-digit trip OTP.
+                </p></span
+              ><button class="sheet-close" id="close">X</button>
+            </div>
+            <input
+              class="otp"
+              id="otp"
+              inputmode="numeric"
+              maxlength="4"
+              placeholder="----"
+            />
+            <div class="sheet-note" id="otpStatus" role="status">
+              Pickup geofence and OTP must both match. Accessibility fallback
+              opens through Support.
+            </div>
+            <button class="primary" id="start" style="width: 100%">
+              Verify OTP & Start
+            </button>
+          </section>
+        </div>
+      </section>
+      <aside class="notes">
+        <small>SCREEN 118 · REVIEW DRAFT</small>
+        <h1>Pickup Navigation and Arrival</h1>
+        <p>
+          Navigation, customer contact and trip start stay focused. Arrival is
+          geofence-backed; the customer OTP is the deliberate start command.
+        </p>
+        <section class="contract">
+          <div>
+            <b>Customer Contact</b>Masked calling and trip-linked chat preserve
+            privacy.
+          </div>
+          <div>
+            <b>Arrival</b>The app records location freshness and geofence before
+            allowing start.
+          </div>
+          <div>
+            <b>Trip Start</b>OTP and server state, not UI alone, start the trip.
+          </div>
+        </section>
+      </aside>
+    </main>
+    <script type="module">
+      const layer = document.getElementById("layer");
+      document
+        .getElementById("arrived")
+        .addEventListener("click", () => (layer.hidden = false));
+      document
+        .getElementById("close")
+        .addEventListener("click", () => (layer.hidden = true));
+      document.getElementById("start").addEventListener("click", () => {
+        const otp = document.getElementById("otp");
+        const status = document.getElementById("otpStatus");
+        if (otp.value.length === 4) {
+          location.href = "119-captain-live-trip-safety.html?trip=MS-R4821";
+          return;
+        }
+        status.textContent = "Enter the rider’s 4-digit OTP to verify and start this trip.";
+        otp.focus();
+      });
+      document.getElementById("otp").addEventListener("input", (event) => {
+        document.getElementById("otpStatus").textContent =
+          event.currentTarget.value.length === 4
+            ? "OTP entered. Tap Verify OTP & Start."
+            : "Enter all 4 digits from the rider.";
+      });
+      document
+        .getElementById("chat")
+        .addEventListener(
+          "click",
+          () => (location.href = "25-chat-people-thread.html?trip=MS-R4821"),
+        );
+      document.getElementById("call").addEventListener("click", () => {
+        document.getElementById("sheetTitle").textContent = "Masked call";
+        document.getElementById("sheetText").textContent =
+          "Call connects without sharing either personal number.";
+        layer.hidden = false;
+      });
+      document
+        .getElementById("support")
+        .addEventListener(
+          "click",
+          () =>
+            (location.href = "123-captain-support-paid-work.html?case=pickup"),
+        );
+    </script>
+    <script type="application/json" id="screen118ProductionContract">
+      {
+        "screen": 118,
+        "states": ["navigating", "arrived", "otp_pending", "started"],
+        "startGate": "fresh_pickup_geofence_plus_customer_otp_or_approved_fallback"
+      }
+    </script>
+    <script type="application/json" id="prototypeApprovalContract">
+      {
+        "prototypeScreen": 118,
+        "status": "approved-and-frozen",
+        "authoritative": true,
+        "approvedAt": "2026-07-12"
+      }
+    </script>
+    <script type="application/json" id="productionRouteContract">
+      {
+        "contractVersion": "mvp-route-machine-flex-2026-07-12",
+        "prototypeScreen": 118,
+        "prototypeName": "Captain Pickup Navigation and Arrival",
+        "productionModule": "captain",
+        "budgetBucket": "captain",
+        "routeId": "captain.pickup",
+        "routePath": "/captain/trips/:tripId/pickup",
+        "routeState": "navigating",
+        "implementation": "route-shell",
+        "launchScope": "mvp-core",
+        "separateProductionRoute": true,
+        "painSolved": "An assigned captain needs focused pickup navigation, masked rider contact, geofence arrival and OTP-backed trip start.",
+        "capabilityKeys": ["pickup-navigation"],
+        "featureOutcomes": [
+          "Navigate to the exact pickup",
+          "Contact rider without exposing phone numbers",
+          "Start only after fresh geofence and customer OTP"
+        ],
+        "budgetExtension": false,
+        "budgetExtensionReason": null,
+        "productionNote": "Own production route /captain/trips/:tripId/pickup and keep all progressive states inside it.",
+        "canonicalMap": "architecture/MVP-120-ROUTE-MACHINE.md"
+      }
+    </script>
+  </body>
+</html>

@@ -1,50 +1,1111 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <title>110 Manufacturer Order Review and Fulfilment - MoolSocial Screenbook</title>
-  <style>
-    :root{--navy:#000080;--green:#138808;--saffron:#ff9933;--ink:#18192b;--muted:#686c7c;--line:#dce0eb;--surface:#f3f5fa;--white:#fff;--soft-blue:#eef1ff;--soft-green:#edf8ed;--soft-orange:#fff3e4;--soft-red:#fff0ee;--red:#b42318}
-    *{box-sizing:border-box;letter-spacing:0}html,body{min-width:280px;min-height:100%;margin:0;background:#edf0f6;color:var(--ink);font-family:Arial,Helvetica,sans-serif}button,a{font:inherit;cursor:pointer}svg{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}[hidden]{display:none!important}
-    .screenbook{width:min(1190px,100%);margin:auto;display:grid;grid-template-columns:430px minmax(0,1fr);gap:34px;padding:18px}.device{width:min(100%,410px);height:min(840px,calc(100vh - 36px));min-height:680px;position:sticky;top:18px;overflow:hidden;border:10px solid var(--navy);border-radius:38px;background:var(--surface);box-shadow:0 22px 55px rgba(0,0,72,.2)}
-    .phone-header{height:84px;padding:10px 12px;background:var(--navy);color:#fff}.status{display:flex;justify-content:space-between;font-size:10px;font-weight:900}.workspace-bar{display:grid;grid-template-columns:34px minmax(0,1fr) 34px;gap:7px;align-items:center;margin-top:7px}.back,.head-action{width:34px;height:34px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.45);border-radius:50%;background:transparent;color:#fff;text-decoration:none}.back svg,.head-action svg{width:17px;height:17px}.workspace-copy{min-width:0;display:grid;gap:2px}.workspace-copy b,.workspace-copy span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.workspace-copy b{font-size:14px}.workspace-copy span{color:rgba(255,255,255,.74);font-size:9px;font-weight:800}
-    .scroll{height:calc(100% - 84px);overflow-y:auto;padding:9px 9px 98px;scrollbar-width:none}.scroll::-webkit-scrollbar{display:none}.view{display:grid;gap:8px}.title-row{display:flex;justify-content:space-between;gap:8px;align-items:end}.title-row h1{margin:0;color:var(--navy);font-size:19px}.title-row p{margin:2px 0 0;color:var(--muted);font-size:8px;font-weight:800}.order-value{border-radius:999px;padding:5px 8px;background:var(--soft-green);color:var(--green);font-size:8px;font-weight:950}
-    .stage-rail{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:3px;border:1px solid var(--line);border-radius:8px;padding:3px;background:#fff}.stage{min-width:0;min-height:31px;border:0;border-radius:6px;background:transparent;color:var(--muted);font-size:6px;font-weight:900}.stage.active{background:var(--navy);color:#fff}.stage.done{background:var(--soft-green);color:var(--green)}
-    .buyer{display:grid;grid-template-columns:39px minmax(0,1fr) auto;gap:8px;align-items:center;border:1px solid #bdd7cf;border-radius:8px;padding:8px;background:#f7fcf8}.buyer-mark{width:38px;height:38px;display:grid;place-items:center;border-radius:8px;background:var(--green);color:#fff;font-size:8px;font-weight:950}.buyer span{min-width:0}.buyer small,.buyer b,.buyer em{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.buyer small{color:var(--green);font-size:6.5px;font-weight:950}.buyer b{margin-top:2px;color:var(--navy);font-size:10px}.buyer em{margin-top:2px;color:var(--muted);font-size:7px;font-style:normal}.buyer button{min-height:29px;border:1px solid var(--navy);border-radius:6px;background:#fff;color:var(--navy);font-size:7px;font-weight:950}
-    .section-head{display:flex;justify-content:space-between;gap:8px;align-items:center}.section-head b{color:var(--navy);font-size:11px}.section-head span{color:var(--muted);font-size:7px;font-weight:800}.invoice{border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#fff}.invoice-head,.invoice-line{display:grid;grid-template-columns:minmax(0,1.35fr) 54px 64px 60px;gap:4px;align-items:center}.invoice-head{padding:6px 8px;background:var(--soft-blue);color:var(--navy);font-size:6px;font-weight:950;text-transform:uppercase}.invoice-line{min-height:61px;border-top:1px solid var(--line);padding:7px 8px}.invoice-line:first-of-type{border-top:0}.product{min-width:0}.product b,.product span,.product em{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.product b{color:var(--navy);font-size:9px}.product span{margin-top:3px;color:var(--muted);font-size:6.5px}.product em{margin-top:4px;color:var(--green);font-size:6px;font-style:normal;font-weight:900}.cell{color:var(--navy);font-size:7px;font-weight:900;text-align:right}.cell small{display:block;margin-top:3px;color:var(--muted);font-size:6px;font-weight:750}.total-grid{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:5px;border-top:1px solid var(--line);padding:7px 8px}.total-grid span{color:var(--muted);font-size:7px;line-height:1.6}.total-grid b{color:var(--navy);font-size:8px;line-height:1.4;text-align:right}.total-grid strong{display:block;color:var(--green);font-size:11px}
-    .terms{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#fff}.term{min-width:0;display:grid;gap:3px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:8px}.term:nth-child(2n){border-right:0}.term:nth-last-child(-n+2){border-bottom:0}.term small{color:var(--muted);font-size:6.5px;font-weight:850}.term b{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--navy);font-size:8.5px}.term.protected b{color:var(--green)}
-    .readiness{display:grid;grid-template-columns:36px minmax(0,1fr) auto;gap:8px;align-items:center;border:1px solid #c9cbea;border-radius:8px;padding:8px;background:#f6f6ff}.readiness i{width:35px;height:35px;display:grid;place-items:center;border-radius:50%;background:var(--navy);color:#fff;font-size:8px;font-style:normal;font-weight:950}.readiness span{min-width:0}.readiness b,.readiness small{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.readiness b{color:var(--navy);font-size:9px}.readiness small{margin-top:3px;color:var(--muted);font-size:7px}.readiness em{color:var(--green);font-size:7px;font-style:normal;font-weight:950}
-    .decision{display:grid;grid-template-columns:.9fr 1fr 1.2fr;gap:5px}.decision button{min-height:39px;border:1px solid var(--navy);border-radius:7px;background:#fff;color:var(--navy);font-size:7.5px;font-weight:950}.decision .reject{border-color:#e5b9b4;color:var(--red)}.decision .primary{border:0;background:var(--navy);color:#fff}.audit-note{border-left:3px solid var(--green);padding:7px 8px;background:var(--soft-green);color:var(--ink);font-size:7px;line-height:1.4}
-    .bottom-dock{position:absolute;right:7px;bottom:7px;left:7px;z-index:12;display:grid;grid-template-columns:52px minmax(0,1fr) 52px;gap:6px;align-items:center;border:1px solid rgba(0,0,128,.75);border-radius:23px;padding:6px;background:rgba(255,255,255,.98);box-shadow:0 -12px 24px rgba(0,0,128,.15)}.mool,.chat{width:52px;height:52px;position:relative;display:grid;place-items:center;border:1px solid rgba(0,0,128,.16);border-radius:50%;color:var(--navy);font-size:8px;font-weight:950;text-decoration:none}.mool{border:0;background:var(--navy);color:#fff;box-shadow:inset 0 -3px 0 var(--green)}.mool::after{content:"";width:18px;height:3px;position:absolute;bottom:7px;left:17px;border-left:6px solid var(--saffron);border-right:6px solid var(--green);background:#fff}.chat{gap:1px;background:#fff}.chat svg{width:18px;height:18px}.chat-badge{min-width:16px;height:16px;position:absolute;top:2px;right:0;display:grid;place-items:center;border-radius:999px;background:var(--saffron);font-size:8px}.dock-track{min-width:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:3px;border:1px solid rgba(0,0,128,.18);border-radius:19px;padding:4px;background:#f1f3fb}.dock-tab{min-width:0;min-height:44px;display:grid;place-items:center;align-content:center;gap:2px;border:0;border-radius:15px;background:transparent;color:var(--navy);font-size:6px;font-weight:950;line-height:1.05;text-align:center;text-decoration:none}.dock-tab.active{background:var(--navy);color:#fff;box-shadow:inset 0 -3px 0 var(--saffron)}.dock-tab svg{width:16px;height:16px}
-    .sheet-layer{position:absolute;inset:0;z-index:30;display:grid;align-items:end;background:rgba(0,0,44,.48)}.sheet{max-height:88%;overflow:auto;display:grid;gap:9px;border-radius:18px 18px 0 0;padding:12px 14px 20px;background:#fff}.handle{width:42px;height:4px;margin:auto;border-radius:999px;background:#c7cad8}.sheet-head{display:grid;grid-template-columns:minmax(0,1fr) 34px;gap:8px}.sheet-head h2{margin:0;color:var(--navy);font-size:17px}.sheet-head p{margin:3px 0 0;color:var(--muted);font-size:8px;line-height:1.4}.close{width:34px;height:34px;border:1px solid var(--line);border-radius:50%;background:#fff;color:var(--navy);font-size:18px}.sheet-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px}.sheet-cell{display:grid;gap:3px;border:1px solid var(--line);border-radius:7px;padding:8px;background:var(--surface)}.sheet-cell small{color:var(--muted);font-size:7px}.sheet-cell b{color:var(--navy);font-size:9px}.sheet-note{border-left:3px solid var(--saffron);padding:8px;background:var(--soft-orange);color:var(--ink);font-size:7px;line-height:1.4}.reason-list{display:grid;gap:5px}.reason{min-height:38px;border:1px solid var(--line);border-radius:7px;padding:0 10px;background:#fff;color:var(--navy);font-size:8px;font-weight:900;text-align:left}.sheet-primary{min-height:43px;border:0;border-radius:8px;background:var(--navy);color:#fff;font-size:10px;font-weight:950}
-    .notes{display:grid;gap:16px;padding-top:12px}.notes small{color:var(--green);font-size:10px;font-weight:950}.notes h1{max-width:760px;margin:0;color:var(--navy);font-size:clamp(28px,4vw,48px);line-height:1.04}.notes>p{max-width:790px;margin:0;color:var(--muted);font-size:15px;line-height:1.55}.contract{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--navy);border-left:1px solid var(--navy);background:#fff}.contract div{min-height:105px;border-right:1px solid var(--navy);border-bottom:1px solid var(--navy);padding:14px;color:var(--muted);font-size:12px;line-height:1.45}.contract b{display:block;margin-bottom:5px;color:var(--navy);font-size:12px;text-transform:uppercase}
-    @media(max-width:850px){.screenbook{display:block;padding:0}.device{width:100%;height:100dvh;min-height:620px;position:relative;top:0;border:0;border-radius:0}.notes{display:none}}@media(max-width:350px){.invoice-head,.invoice-line{grid-template-columns:minmax(0,1.25fr) 48px 58px 55px}.decision{grid-template-columns:1fr}.bottom-dock{right:4px;left:4px;grid-template-columns:48px minmax(0,1fr) 48px;gap:4px}.mool,.chat{width:48px;height:48px}.dock-tab{font-size:5.5px}}
-  </style>
-</head>
-<body>
-  <main class="screenbook">
-    <section class="device" aria-label="Manufacturer order review and fulfilment prototype">
-      <header class="phone-header"><div class="status"><span>9:41</span><span>5G 100%</span></div><div class="workspace-bar"><a class="back" href="107-manufacturer-supplier-workspace-home.html?view=orders" aria-label="Back to manufacturer Orders"><svg viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg></a><span class="workspace-copy"><b>Shakti Foods Manufacturing</b><span>Sales Order SO-4821</span></span><button class="head-action" id="more" type="button" aria-label="Sales order options"><svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/></svg></button></div></header>
-      <div class="scroll"><section class="view" id="viewRoot"></section></div>
-      <nav class="bottom-dock" aria-label="Manufacturer workspace navigation"><a class="mool" href="04-universal-focus-shell.html">Mool</a><div class="dock-track"><a class="dock-tab active" href="107-manufacturer-supplier-workspace-home.html?view=orders"><svg viewBox="0 0 24 24"><path d="M5 4h14v16H5zM8 8h8M8 12h8M8 16h5"/></svg>Orders</a><a class="dock-tab" href="109-manufacturer-product-catalogue-stock.html?mode=stock"><svg viewBox="0 0 24 24"><path d="m4 7 8-4 8 4-8 4zM4 7v10l8 4 8-4V7"/></svg>Stock</a><a class="dock-tab" href="107-manufacturer-supplier-workspace-home.html?view=inputs"><svg viewBox="0 0 24 24"><path d="M3 7h18M5 7V4h14v3M5 7v13h14V7"/></svg><span>Wholesale<br>Buy</span></a></div><a class="chat" href="23-chat-inbox-home.html"><svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/></svg><span>Chat</span><span class="chat-badge">3</span></a></nav>
-      <section class="sheet-layer" id="sheetLayer" role="dialog" aria-modal="true" hidden><div class="sheet"><span class="handle"></span><div class="sheet-head"><span><h2 id="sheetTitle"></h2><p id="sheetIntro"></p></span><button class="close" id="close" type="button">×</button></div><div id="sheetContent"></div><button class="sheet-primary" id="sheetPrimary" type="button">Continue</button></div></section>
-    </section>
-    <aside class="notes"><small>SCREEN 110 · REVIEW DRAFT</small><h1>Manufacturer Order Review and Fulfilment</h1><p>An invoice-style, decision-ready order route. The manufacturer confirms quantity and terms once, then the same order progresses through production, packing, dispatch, GST invoice, delivery and receivable states.</p><section class="contract"><div><b>Buyer</b>Verified retailer, hotel, restaurant, distributor or demand pool identity remains visible.</div><div><b>Decision</b>Full, partial or cannot fulfil; no silent quantity reduction.</div><div><b>Terms</b>Price, tax, protection, delivery, payment and cancellation are locked before confirmation.</div><div><b>Partial</b>Remaining demand returns explicitly to allocation or split fulfilment.</div><div><b>Money</b>Advance holds and receivables use authoritative payment-ledger states.</div><div><b>Production route</b>One `/supply/orders` route with review, ready, packed, dispatched, delivered and receivable states.</div></section></aside>
-  </main>
-  <script type="application/json" id="screen110ProductionContract">{"screen":110,"name":"Manufacturer Order Review and Fulfilment","status":"draft-until-user-approval","decisionRule":"confirm_full_confirm_partial_or_cannot_fulfil","partialRule":"remaining demand returns explicitly to allocation","moneyRule":"authoritative payment ledger owns holds releases and receivables","routeRule":"one route with progressive fulfilment states"}</script>
-  <script>
-    let orderState=new URLSearchParams(location.search).get('state')||'review';const root=document.getElementById('viewRoot'),layer=document.getElementById('sheetLayer');
-    const stages=['review','confirmed','packed','dispatched','delivered'];
-    function stageRail(){const current=stages.indexOf(orderState);return `<div class="stage-rail">${stages.map((s,i)=>`<button class="stage ${i<current?'done':i===current?'active':''}" data-stage="${s}">${s[0].toUpperCase()+s.slice(1)}</button>`).join('')}</div>`}
-    function invoice(){return `<div class="invoice"><div class="invoice-head"><span>Product</span><span>Qty</span><span>Rate</span><span>Amount</span></div><div class="invoice-line"><span class="product"><b>Sunflower Oil 1 L</b><span>12 x 1 L case · HSN 1512</span><em>220 cases available</em></span><span class="cell">180<small>cases</small></span><span class="cell">₹1,392<small>/case</small></span><span class="cell">₹2,50,560</span></div><div class="invoice-line"><span class="product"><b>Whole Wheat Atta 5 kg</b><span>4 x 5 kg case · HSN 1101</span><em>80 cases available</em></span><span class="cell">80<small>cases</small></span><span class="cell">₹896<small>/case</small></span><span class="cell">₹71,680</span></div><div class="total-grid"><span>Taxable ₹3,22,240<br>GST 5% ₹16,112<br>Transport ₹2,650</span><b>Total order<strong>₹3,41,002</strong>260 cases</b></div></div>`}
-    function decisions(){if(orderState==='review')return `<div class="decision"><button class="reject" data-action="cannot">Cannot Fulfil</button><button data-action="partial">Confirm Partial</button><button class="primary" data-action="full">Confirm Full</button></div>`;if(orderState==='confirmed')return `<div class="decision"><button data-action="production">Production</button><button data-action="invoice">GST Invoice</button><button class="primary" data-action="packed">Mark Packed</button></div>`;if(orderState==='packed')return `<div class="decision"><button data-action="invoice">GST Invoice</button><button data-action="transport">Transport</button><button class="primary" data-action="dispatched">Dispatch</button></div>`;return `<div class="decision"><button data-action="documents">Documents</button><button data-action="chat">Order Chat</button><button class="primary" data-action="status">Track Status</button></div>`}
-    function render(){root.innerHTML=`<div class="title-row"><span><h1>Order SO-4821</h1><p>Placed 12 Jul · confirmation due in 02:14</p></span><span class="order-value">₹3.41L</span></div>${stageRail()}<section class="buyer"><span class="buyer-mark">RP</span><span><small>VERIFIED BUYER · RETAILER POOL</small><b>42 retailers · Jaipur + Jodhpur</b><em>MoolSocial demand aggregation order</em></span><button data-action="buyer">View</button></section><div class="section-head"><b>Order lines</b><span>pack · quantity · price · GST</span></div>${invoice()}<div class="section-head"><b>Locked terms</b><span>before confirmation</span></div><div class="terms"><span class="term protected"><small>Payment protection</small><b>₹1.02L advance held</b></span><span class="term"><small>Balance payment</small><b>7 days after receipt</b></span><span class="term"><small>Dispatch commitment</small><b>14 Jul · before 4 PM</b></span><span class="term"><small>Delivery responsibility</small><b>MoolSocial Transport</b></span><span class="term"><small>Delivery locations</small><b>Jodhpur + Jaipur hubs</b></span><span class="term"><small>Cancellation</small><b>Before production lock</b></span></div><section class="readiness"><i>ATP</i><span><b>Full quantity can be committed</b><small>Finished stock + scheduled production checked</small></span><em>Ready</em></section>${decisions()}<div class="audit-note">Confirmed quantities and commercial terms are locked to this order. Later changes require buyer approval and an auditable revision.</div>`;root.querySelectorAll('[data-action]').forEach(x=>x.addEventListener('click',()=>handle(x.dataset.action)));root.querySelectorAll('[data-stage]').forEach(x=>x.addEventListener('click',()=>previewStage(x.dataset.stage)));const url=new URL(location.href);url.searchParams.set('state',orderState);history.replaceState({},'',url)}
-    function openSheet(title,intro,content,primary='Continue'){document.getElementById('sheetTitle').textContent=title;document.getElementById('sheetIntro').textContent=intro;document.getElementById('sheetContent').innerHTML=content;document.getElementById('sheetPrimary').textContent=primary;layer.hidden=false}
-    const summary='<div class="sheet-grid"><span class="sheet-cell"><small>Sunflower Oil</small><b>180 cases</b></span><span class="sheet-cell"><small>Atta</small><b>80 cases</b></span><span class="sheet-cell"><small>Dispatch</small><b>14 Jul</b></span><span class="sheet-cell"><small>Protected advance</small><b>₹1.02L held</b></span></div>';
-    function handle(action){if(action==='full'){openSheet('Confirm Full Order','Lock 260 cases, commercial terms and dispatch commitment.',summary,'Confirm 260 cases');return}if(action==='partial'){openSheet('Confirm Partial Quantity','Enter confirmed quantity line by line. Remaining demand returns to allocation.','<div class="sheet-grid"><span class="sheet-cell"><small>Oil ordered</small><b>180 cases</b></span><span class="sheet-cell"><small>Oil confirm</small><b>160 cases</b></span><span class="sheet-cell"><small>Atta ordered</small><b>80 cases</b></span><span class="sheet-cell"><small>Atta confirm</small><b>80 cases</b></span></div><div class="sheet-note">20 oil cases will be reassigned or split visibly; the buyer is never silently short-supplied.</div>','Confirm Partial');return}if(action==='cannot'){openSheet('Cannot Fulfil','Choose the operational reason. Buyer demand returns immediately to allocation.','<div class="reason-list"><button class="reason">Insufficient finished stock</button><button class="reason">Production capacity unavailable</button><button class="reason">Commercial terms not acceptable</button><button class="reason">Delivery commitment not possible</button></div><div class="sheet-note">The buyer is not charged. Reliability impact is recorded transparently and can be disputed.</div>','Return demand');return}if(action==='packed'){orderState='packed';render();return}if(action==='dispatched'){orderState='dispatched';render();return}openSheet(action.replaceAll('-',' '),'This action opens as a progressive state inside the same order route.',summary)}
-    function previewStage(stage){openSheet(stage[0].toUpperCase()+stage.slice(1),'Lifecycle preview for this sales order.',summary,'Close')}
-    document.getElementById('close').addEventListener('click',()=>layer.hidden=true);layer.addEventListener('click',e=>{if(e.target===layer)layer.hidden=true});document.getElementById('sheetPrimary').addEventListener('click',()=>{if(document.getElementById('sheetTitle').textContent==='Confirm Full Order'){orderState='confirmed';location.href='112-manufacturer-dispatch-delivery.html?order=SO-4821';return}layer.hidden=true});document.getElementById('more').addEventListener('click',()=>openSheet('Order Options','Audited actions for this order.','<div class="reason-list"><button class="reason">Download purchase order</button><button class="reason">Open order chat</button><button class="reason">Report buyer or term issue</button></div>'));render();
-  </script>
-<script type="application/json" id="productionRouteContract">{"contractVersion":"mvp-route-machine-flex-2026-07-12","prototypeScreen":110,"prototypeName":"Manufacturer Order Review and Fulfilment","productionModule":"manufacturer_supplier","budgetBucket":"manufacturer_supplier","routeId":"supply.orders","routePath":"/supply/orders","routeState":"review","implementation":"route-shell","launchScope":"mvp-core","separateProductionRoute":true,"painSolved":"Manufacturers need a decision-ready sales order showing buyer line quantities available stock price tax protected money dispatch and delivery terms before confirming full partial or unable-to-fulfil outcomes.","capabilityKeys":["orders","availability","payment-protection","dispatch","delivery-proof","receivables","tax-documents"],"featureOutcomes":["Review verified buyer and exact commercial order lines","Confirm full partial or unable-to-fulfil without silent quantity changes","Return remaining demand visibly to allocation","Progress through production packing dispatch delivery invoice and receivable states","Preserve protected money and commercial audit history inside one route"],"budgetExtension":false,"budgetExtensionReason":null,"productionNote":"Own production route /supply/orders and keep all progressive states inside it.","canonicalMap":"architecture/MVP-120-ROUTE-MACHINE.md"}</script><script type="application/json" id="prototypeApprovalContract">{"prototypeScreen":110,"status":"approved-and-frozen","authoritative":true,"approvedAt":"2026-07-12"}</script></body>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+    <title>
+      110 Manufacturer Order Review and Fulfilment - MoolSocial Screenbook
+    </title>
+    <style>
+      :root {
+        --navy: #000080;
+        --green: #138808;
+        --saffron: #ff9933;
+        --ink: #18192b;
+        --muted: #686c7c;
+        --line: #dce0eb;
+        --surface: #f3f5fa;
+        --white: #fff;
+        --soft-blue: #eef1ff;
+        --soft-green: #edf8ed;
+        --soft-orange: #fff3e4;
+        --soft-red: #fff0ee;
+        --red: #b42318;
+      }
+      * {
+        box-sizing: border-box;
+        letter-spacing: 0;
+      }
+      html,
+      body {
+        min-width: 280px;
+        min-height: 100%;
+        margin: 0;
+        background: #edf0f6;
+        color: var(--ink);
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      button,
+      a {
+        font: inherit;
+        cursor: pointer;
+      }
+      svg {
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      [hidden] {
+        display: none !important;
+      }
+      .screenbook {
+        width: min(1190px, 100%);
+        margin: auto;
+        display: grid;
+        grid-template-columns: 430px minmax(0, 1fr);
+        gap: 34px;
+        padding: 18px;
+      }
+      .device {
+        width: min(100%, 410px);
+        height: min(840px, calc(100vh - 36px));
+        min-height: 680px;
+        position: sticky;
+        top: 18px;
+        overflow: hidden;
+        border: 10px solid var(--navy);
+        border-radius: 38px;
+        background: var(--surface);
+        box-shadow: 0 22px 55px rgba(0, 0, 72, 0.2);
+      }
+      .phone-header {
+        height: 84px;
+        padding: 10px 12px;
+        background: var(--navy);
+        color: #fff;
+      }
+      .status {
+        display: flex;
+        justify-content: space-between;
+        font-size: 10px;
+        font-weight: 900;
+      }
+      .workspace-bar {
+        display: grid;
+        grid-template-columns: 34px minmax(0, 1fr) 34px;
+        gap: 7px;
+        align-items: center;
+        margin-top: 7px;
+      }
+      .back,
+      .head-action {
+        width: 34px;
+        height: 34px;
+        display: grid;
+        place-items: center;
+        border: 1px solid rgba(255, 255, 255, 0.45);
+        border-radius: 50%;
+        background: transparent;
+        color: #fff;
+        text-decoration: none;
+      }
+      .back svg,
+      .head-action svg {
+        width: 17px;
+        height: 17px;
+      }
+      .workspace-copy {
+        min-width: 0;
+        display: grid;
+        gap: 2px;
+      }
+      .workspace-copy b,
+      .workspace-copy span {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .workspace-copy b {
+        font-size: 14px;
+      }
+      .workspace-copy span {
+        color: rgba(255, 255, 255, 0.74);
+        font-size: 9px;
+        font-weight: 800;
+      }
+      .scroll {
+        height: calc(100% - 84px);
+        overflow-y: auto;
+        padding: 9px 9px 98px;
+        scrollbar-width: none;
+      }
+      .scroll::-webkit-scrollbar {
+        display: none;
+      }
+      .view {
+        display: grid;
+        gap: 8px;
+      }
+      .title-row {
+        display: flex;
+        justify-content: space-between;
+        gap: 8px;
+        align-items: end;
+      }
+      .title-row h1 {
+        margin: 0;
+        color: var(--navy);
+        font-size: 19px;
+      }
+      .title-row p {
+        margin: 2px 0 0;
+        color: var(--muted);
+        font-size: 8px;
+        font-weight: 800;
+      }
+      .order-value {
+        border-radius: 999px;
+        padding: 5px 8px;
+        background: var(--soft-green);
+        color: var(--green);
+        font-size: 8px;
+        font-weight: 950;
+      }
+      .stage-rail {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 3px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 3px;
+        background: #fff;
+      }
+      .stage {
+        min-width: 0;
+        min-height: 31px;
+        border: 0;
+        border-radius: 6px;
+        background: transparent;
+        color: var(--muted);
+        font-size: 6px;
+        font-weight: 900;
+      }
+      .stage.active {
+        background: var(--navy);
+        color: #fff;
+      }
+      .stage.done {
+        background: var(--soft-green);
+        color: var(--green);
+      }
+      .buyer {
+        display: grid;
+        grid-template-columns: 39px minmax(0, 1fr) auto;
+        gap: 8px;
+        align-items: center;
+        border: 1px solid #bdd7cf;
+        border-radius: 8px;
+        padding: 8px;
+        background: #f7fcf8;
+      }
+      .buyer-mark {
+        width: 38px;
+        height: 38px;
+        display: grid;
+        place-items: center;
+        border-radius: 8px;
+        background: var(--green);
+        color: #fff;
+        font-size: 8px;
+        font-weight: 950;
+      }
+      .buyer span {
+        min-width: 0;
+      }
+      .buyer small,
+      .buyer b,
+      .buyer em {
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .buyer small {
+        color: var(--green);
+        font-size: 6.5px;
+        font-weight: 950;
+      }
+      .buyer b {
+        margin-top: 2px;
+        color: var(--navy);
+        font-size: 10px;
+      }
+      .buyer em {
+        margin-top: 2px;
+        color: var(--muted);
+        font-size: 7px;
+        font-style: normal;
+      }
+      .buyer button {
+        min-height: 29px;
+        border: 1px solid var(--navy);
+        border-radius: 6px;
+        background: #fff;
+        color: var(--navy);
+        font-size: 7px;
+        font-weight: 950;
+      }
+      .section-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 8px;
+        align-items: center;
+      }
+      .section-head b {
+        color: var(--navy);
+        font-size: 11px;
+      }
+      .section-head span {
+        color: var(--muted);
+        font-size: 7px;
+        font-weight: 800;
+      }
+      .invoice {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        overflow: hidden;
+        background: #fff;
+      }
+      .invoice-head,
+      .invoice-line {
+        display: grid;
+        grid-template-columns: minmax(0, 1.35fr) 54px 64px 60px;
+        gap: 4px;
+        align-items: center;
+      }
+      .invoice-head {
+        padding: 6px 8px;
+        background: var(--soft-blue);
+        color: var(--navy);
+        font-size: 6px;
+        font-weight: 950;
+        text-transform: uppercase;
+      }
+      .invoice-line {
+        min-height: 61px;
+        border-top: 1px solid var(--line);
+        padding: 7px 8px;
+      }
+      .invoice-line:first-of-type {
+        border-top: 0;
+      }
+      .product {
+        min-width: 0;
+      }
+      .product b,
+      .product span,
+      .product em {
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .product b {
+        color: var(--navy);
+        font-size: 9px;
+      }
+      .product span {
+        margin-top: 3px;
+        color: var(--muted);
+        font-size: 6.5px;
+      }
+      .product em {
+        margin-top: 4px;
+        color: var(--green);
+        font-size: 6px;
+        font-style: normal;
+        font-weight: 900;
+      }
+      .cell {
+        color: var(--navy);
+        font-size: 7px;
+        font-weight: 900;
+        text-align: right;
+      }
+      .cell small {
+        display: block;
+        margin-top: 3px;
+        color: var(--muted);
+        font-size: 6px;
+        font-weight: 750;
+      }
+      .total-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 5px;
+        border-top: 1px solid var(--line);
+        padding: 7px 8px;
+      }
+      .total-grid span {
+        color: var(--muted);
+        font-size: 7px;
+        line-height: 1.6;
+      }
+      .total-grid b {
+        color: var(--navy);
+        font-size: 8px;
+        line-height: 1.4;
+        text-align: right;
+      }
+      .total-grid strong {
+        display: block;
+        color: var(--green);
+        font-size: 11px;
+      }
+      .terms {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        overflow: hidden;
+        background: #fff;
+      }
+      .term {
+        min-width: 0;
+        display: grid;
+        gap: 3px;
+        border-right: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        padding: 8px;
+      }
+      .term:nth-child(2n) {
+        border-right: 0;
+      }
+      .term:nth-last-child(-n + 2) {
+        border-bottom: 0;
+      }
+      .term small {
+        color: var(--muted);
+        font-size: 6.5px;
+        font-weight: 850;
+      }
+      .term b {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        color: var(--navy);
+        font-size: 8.5px;
+      }
+      .term.protected b {
+        color: var(--green);
+      }
+      .readiness {
+        display: grid;
+        grid-template-columns: 36px minmax(0, 1fr) auto;
+        gap: 8px;
+        align-items: center;
+        border: 1px solid #c9cbea;
+        border-radius: 8px;
+        padding: 8px;
+        background: #f6f6ff;
+      }
+      .readiness i {
+        width: 35px;
+        height: 35px;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        background: var(--navy);
+        color: #fff;
+        font-size: 8px;
+        font-style: normal;
+        font-weight: 950;
+      }
+      .readiness span {
+        min-width: 0;
+      }
+      .readiness b,
+      .readiness small {
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .readiness b {
+        color: var(--navy);
+        font-size: 9px;
+      }
+      .readiness small {
+        margin-top: 3px;
+        color: var(--muted);
+        font-size: 7px;
+      }
+      .readiness em {
+        color: var(--green);
+        font-size: 7px;
+        font-style: normal;
+        font-weight: 950;
+      }
+      .decision {
+        display: grid;
+        grid-template-columns: 0.9fr 1fr 1.2fr;
+        gap: 5px;
+      }
+      .decision button {
+        min-height: 39px;
+        border: 1px solid var(--navy);
+        border-radius: 7px;
+        background: #fff;
+        color: var(--navy);
+        font-size: 7.5px;
+        font-weight: 950;
+      }
+      .decision .reject {
+        border-color: #e5b9b4;
+        color: var(--red);
+      }
+      .decision .primary {
+        border: 0;
+        background: var(--navy);
+        color: #fff;
+      }
+      .audit-note {
+        border-left: 3px solid var(--green);
+        padding: 7px 8px;
+        background: var(--soft-green);
+        color: var(--ink);
+        font-size: 7px;
+        line-height: 1.4;
+      }
+      .bottom-dock {
+        position: absolute;
+        right: 7px;
+        bottom: 7px;
+        left: 7px;
+        z-index: 12;
+        display: grid;
+        grid-template-columns: 52px minmax(0, 1fr) 52px;
+        gap: 6px;
+        align-items: center;
+        border: 1px solid rgba(0, 0, 128, 0.75);
+        border-radius: 23px;
+        padding: 6px;
+        background: rgba(255, 255, 255, 0.98);
+        box-shadow: 0 -12px 24px rgba(0, 0, 128, 0.15);
+      }
+      .mool,
+      .chat {
+        width: 52px;
+        height: 52px;
+        position: relative;
+        display: grid;
+        place-items: center;
+        border: 1px solid rgba(0, 0, 128, 0.16);
+        border-radius: 50%;
+        color: var(--navy);
+        font-size: 8px;
+        font-weight: 950;
+        text-decoration: none;
+      }
+      .mool {
+        border: 0;
+        background: var(--navy);
+        color: #fff;
+        box-shadow: inset 0 -3px 0 var(--green);
+      }
+      .mool::after {
+        content: "";
+        width: 18px;
+        height: 3px;
+        position: absolute;
+        bottom: 7px;
+        left: 17px;
+        border-left: 6px solid var(--saffron);
+        border-right: 6px solid var(--green);
+        background: #fff;
+      }
+      .chat {
+        gap: 1px;
+        background: #fff;
+      }
+      .chat svg {
+        width: 18px;
+        height: 18px;
+      }
+      .chat-badge {
+        min-width: 16px;
+        height: 16px;
+        position: absolute;
+        top: 2px;
+        right: 0;
+        display: grid;
+        place-items: center;
+        border-radius: 999px;
+        background: var(--saffron);
+        font-size: 8px;
+      }
+      .dock-track {
+        min-width: 0;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 3px;
+        border: 1px solid rgba(0, 0, 128, 0.18);
+        border-radius: 19px;
+        padding: 4px;
+        background: #f1f3fb;
+      }
+      .dock-tab {
+        min-width: 0;
+        min-height: 44px;
+        display: grid;
+        place-items: center;
+        align-content: center;
+        gap: 2px;
+        border: 0;
+        border-radius: 15px;
+        background: transparent;
+        color: var(--navy);
+        font-size: 6px;
+        font-weight: 950;
+        line-height: 1.05;
+        text-align: center;
+        text-decoration: none;
+      }
+      .dock-tab.active {
+        background: var(--navy);
+        color: #fff;
+        box-shadow: inset 0 -3px 0 var(--saffron);
+      }
+      .dock-tab svg {
+        width: 16px;
+        height: 16px;
+      }
+      .sheet-layer {
+        position: absolute;
+        inset: 0;
+        z-index: 30;
+        display: grid;
+        align-items: end;
+        background: rgba(0, 0, 44, 0.48);
+      }
+      .sheet {
+        max-height: 88%;
+        overflow: auto;
+        display: grid;
+        gap: 9px;
+        border-radius: 18px 18px 0 0;
+        padding: 12px 14px 20px;
+        background: #fff;
+      }
+      .handle {
+        width: 42px;
+        height: 4px;
+        margin: auto;
+        border-radius: 999px;
+        background: #c7cad8;
+      }
+      .sheet-head {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 34px;
+        gap: 8px;
+      }
+      .sheet-head h2 {
+        margin: 0;
+        color: var(--navy);
+        font-size: 17px;
+      }
+      .sheet-head p {
+        margin: 3px 0 0;
+        color: var(--muted);
+        font-size: 8px;
+        line-height: 1.4;
+      }
+      .close {
+        width: 34px;
+        height: 34px;
+        border: 1px solid var(--line);
+        border-radius: 50%;
+        background: #fff;
+        color: var(--navy);
+        font-size: 18px;
+      }
+      .sheet-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 5px;
+      }
+      .sheet-cell {
+        display: grid;
+        gap: 3px;
+        border: 1px solid var(--line);
+        border-radius: 7px;
+        padding: 8px;
+        background: var(--surface);
+      }
+      .sheet-cell small {
+        color: var(--muted);
+        font-size: 7px;
+      }
+      .sheet-cell b {
+        color: var(--navy);
+        font-size: 9px;
+      }
+      .sheet-note {
+        border-left: 3px solid var(--saffron);
+        padding: 8px;
+        background: var(--soft-orange);
+        color: var(--ink);
+        font-size: 7px;
+        line-height: 1.4;
+      }
+      .reason-list {
+        display: grid;
+        gap: 5px;
+      }
+      .reason {
+        min-height: 38px;
+        border: 1px solid var(--line);
+        border-radius: 7px;
+        padding: 0 10px;
+        background: #fff;
+        color: var(--navy);
+        font-size: 8px;
+        font-weight: 900;
+        text-align: left;
+      }
+      .sheet-primary {
+        min-height: 43px;
+        border: 0;
+        border-radius: 8px;
+        background: var(--navy);
+        color: #fff;
+        font-size: 10px;
+        font-weight: 950;
+      }
+      .notes {
+        display: grid;
+        gap: 16px;
+        padding-top: 12px;
+      }
+      .notes small {
+        color: var(--green);
+        font-size: 10px;
+        font-weight: 950;
+      }
+      .notes h1 {
+        max-width: 760px;
+        margin: 0;
+        color: var(--navy);
+        font-size: clamp(28px, 4vw, 48px);
+        line-height: 1.04;
+      }
+      .notes > p {
+        max-width: 790px;
+        margin: 0;
+        color: var(--muted);
+        font-size: 15px;
+        line-height: 1.55;
+      }
+      .contract {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        border-top: 1px solid var(--navy);
+        border-left: 1px solid var(--navy);
+        background: #fff;
+      }
+      .contract div {
+        min-height: 105px;
+        border-right: 1px solid var(--navy);
+        border-bottom: 1px solid var(--navy);
+        padding: 14px;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.45;
+      }
+      .contract b {
+        display: block;
+        margin-bottom: 5px;
+        color: var(--navy);
+        font-size: 12px;
+        text-transform: uppercase;
+      }
+      @media (max-width: 850px) {
+        .screenbook {
+          display: block;
+          padding: 0;
+        }
+        .device {
+          width: 100%;
+          height: 100dvh;
+          min-height: 620px;
+          position: relative;
+          top: 0;
+          border: 0;
+          border-radius: 0;
+        }
+        .notes {
+          display: none;
+        }
+      }
+      @media (max-width: 350px) {
+        .invoice-head,
+        .invoice-line {
+          grid-template-columns: minmax(0, 1.25fr) 48px 58px 55px;
+        }
+        .decision {
+          grid-template-columns: 1fr;
+        }
+        .bottom-dock {
+          right: 4px;
+          left: 4px;
+          grid-template-columns: 48px minmax(0, 1fr) 48px;
+          gap: 4px;
+        }
+        .mool,
+        .chat {
+          width: 48px;
+          height: 48px;
+        }
+        .dock-tab {
+          font-size: 5.5px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="screenbook">
+      <section
+        class="device"
+        aria-label="Manufacturer order review and fulfilment prototype"
+      >
+        <header class="phone-header">
+          <div class="status"><span>9:41</span><span>5G 100%</span></div>
+          <div class="workspace-bar">
+            <a
+              class="back"
+              href="107-manufacturer-supplier-workspace-home.html?view=orders"
+              aria-label="Back to manufacturer Orders"
+              ><svg viewBox="0 0 24 24"><path d="m15 18-6-6 6-6" /></svg></a
+            ><span class="workspace-copy"
+              ><b>Shakti Foods Manufacturing</b
+              ><span>Sales Order SO-4821</span></span
+            ><button
+              class="head-action"
+              id="more"
+              type="button"
+              aria-label="Sales order options"
+            >
+              <svg viewBox="0 0 24 24">
+                <circle cx="5" cy="12" r="1" />
+                <circle cx="12" cy="12" r="1" />
+                <circle cx="19" cy="12" r="1" />
+              </svg>
+            </button>
+          </div>
+        </header>
+        <div class="scroll"><section class="view" id="viewRoot"></section></div>
+        <nav class="bottom-dock" aria-label="Manufacturer workspace navigation">
+          <a class="mool" href="04-universal-focus-shell.html">Mool</a>
+          <div class="dock-track">
+            <a
+              class="dock-tab active"
+              href="107-manufacturer-supplier-workspace-home.html?view=orders"
+              ><svg viewBox="0 0 24 24">
+                <path d="M5 4h14v16H5zM8 8h8M8 12h8M8 16h5" /></svg
+              >Orders</a
+            ><a
+              class="dock-tab"
+              href="109-manufacturer-product-catalogue-stock.html?mode=stock"
+              ><svg viewBox="0 0 24 24">
+                <path d="m4 7 8-4 8 4-8 4zM4 7v10l8 4 8-4V7" /></svg
+              >Stock</a
+            ><a
+              class="dock-tab"
+              href="107-manufacturer-supplier-workspace-home.html?view=inputs"
+              ><svg viewBox="0 0 24 24">
+                <path d="M3 7h18M5 7V4h14v3M5 7v13h14V7" /></svg
+              ><span>Wholesale<br />Buy</span></a
+            >
+          </div>
+          <a class="chat" href="23-chat-inbox-home.html"
+            ><svg viewBox="0 0 24 24">
+              <path
+                d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"
+              /></svg
+            ><span>Chat</span><span class="chat-badge">3</span></a
+          >
+        </nav>
+        <section
+          class="sheet-layer"
+          id="sheetLayer"
+          role="dialog"
+          aria-modal="true"
+          hidden
+        >
+          <div class="sheet">
+            <span class="handle"></span>
+            <div class="sheet-head">
+              <span
+                ><h2 id="sheetTitle"></h2>
+                <p id="sheetIntro"></p></span
+              ><button class="close" id="close" type="button">×</button>
+            </div>
+            <div id="sheetContent"></div>
+            <button class="sheet-primary" id="sheetPrimary" type="button">
+              Continue
+            </button>
+          </div>
+        </section>
+      </section>
+      <aside class="notes">
+        <small>SCREEN 110 · REVIEW DRAFT</small>
+        <h1>Manufacturer Order Review and Fulfilment</h1>
+        <p>
+          An invoice-style, decision-ready order route. The manufacturer
+          confirms quantity and terms once, then the same order progresses
+          through production, packing, dispatch, GST invoice, delivery and
+          receivable states.
+        </p>
+        <section class="contract">
+          <div>
+            <b>Buyer</b>Verified retailer, hotel, restaurant, distributor or
+            demand pool identity remains visible.
+          </div>
+          <div>
+            <b>Decision</b>Full, partial or cannot fulfil; no silent quantity
+            reduction.
+          </div>
+          <div>
+            <b>Terms</b>Price, tax, protection, delivery, payment and
+            cancellation are locked before confirmation.
+          </div>
+          <div>
+            <b>Partial</b>Remaining demand returns explicitly to allocation or
+            split fulfilment.
+          </div>
+          <div>
+            <b>Money</b>Advance holds and receivables use authoritative
+            payment-ledger states.
+          </div>
+          <div>
+            <b>Production route</b>One `/supply/orders` route with review,
+            ready, packed, dispatched, delivered and receivable states.
+          </div>
+        </section>
+      </aside>
+    </main>
+    <script type="application/json" id="screen110ProductionContract">
+      {
+        "screen": 110,
+        "name": "Manufacturer Order Review and Fulfilment",
+        "status": "draft-until-user-approval",
+        "decisionRule": "confirm_full_confirm_partial_or_cannot_fulfil",
+        "partialRule": "remaining demand returns explicitly to allocation",
+        "moneyRule": "authoritative payment ledger owns holds releases and receivables",
+        "routeRule": "one route with progressive fulfilment states"
+      }
+    </script>
+    <script>
+      let orderState =
+        new URLSearchParams(location.search).get("state") || "review";
+      const root = document.getElementById("viewRoot"),
+        layer = document.getElementById("sheetLayer");
+      const stages = [
+        "review",
+        "confirmed",
+        "packed",
+        "dispatched",
+        "delivered",
+      ];
+      function stageRail() {
+        const current = stages.indexOf(orderState);
+        return `<div class="stage-rail">${stages.map((s, i) => `<button class="stage ${i < current ? "done" : i === current ? "active" : ""}" data-stage="${s}">${s[0].toUpperCase() + s.slice(1)}</button>`).join("")}</div>`;
+      }
+      function invoice() {
+        return `<div class="invoice"><div class="invoice-head"><span>Product</span><span>Qty</span><span>Rate</span><span>Amount</span></div><div class="invoice-line"><span class="product"><b>Sunflower Oil 1 L</b><span>12 x 1 L case · HSN 1512</span><em>220 cases available</em></span><span class="cell">180<small>cases</small></span><span class="cell">₹1,392<small>/case</small></span><span class="cell">₹2,50,560</span></div><div class="invoice-line"><span class="product"><b>Whole Wheat Atta 5 kg</b><span>4 x 5 kg case · HSN 1101</span><em>80 cases available</em></span><span class="cell">80<small>cases</small></span><span class="cell">₹896<small>/case</small></span><span class="cell">₹71,680</span></div><div class="total-grid"><span>Taxable ₹3,22,240<br>GST 5% ₹16,112<br>Transport ₹2,650</span><b>Total order<strong>₹3,41,002</strong>260 cases</b></div></div>`;
+      }
+      function decisions() {
+        if (orderState === "review")
+          return `<div class="decision"><button class="reject" data-action="cannot">Cannot Fulfil</button><button data-action="partial">Confirm Partial</button><button class="primary" data-action="full">Confirm Full</button></div>`;
+        if (orderState === "confirmed")
+          return `<div class="decision"><button data-action="production">Production</button><button data-action="invoice">GST Invoice</button><button class="primary" data-action="packed">Mark Packed</button></div>`;
+        if (orderState === "packed")
+          return `<div class="decision"><button data-action="invoice">GST Invoice</button><button data-action="transport">Transport</button><button class="primary" data-action="dispatched">Dispatch</button></div>`;
+        return `<div class="decision"><button data-action="documents">Documents</button><button data-action="chat">Order Chat</button><button class="primary" data-action="status">Track Status</button></div>`;
+      }
+      function render() {
+        root.innerHTML = `<div class="title-row"><span><h1>Order SO-4821</h1><p>Placed 12 Jul · confirmation due in 02:14</p></span><span class="order-value">₹3.41L</span></div>${stageRail()}<section class="buyer"><span class="buyer-mark">RP</span><span><small>VERIFIED BUYER · RETAILER POOL</small><b>42 retailers · Jaipur + Jodhpur</b><em>MoolSocial demand aggregation order</em></span><button data-action="buyer">View</button></section><div class="section-head"><b>Order lines</b><span>pack · quantity · price · GST</span></div>${invoice()}<div class="section-head"><b>Locked terms</b><span>before confirmation</span></div><div class="terms"><span class="term protected"><small>Payment protection</small><b>₹1.02L advance held</b></span><span class="term"><small>Balance payment</small><b>7 days after receipt</b></span><span class="term"><small>Dispatch commitment</small><b>14 Jul · before 4 PM</b></span><span class="term"><small>Delivery responsibility</small><b>MoolSocial Transport</b></span><span class="term"><small>Delivery locations</small><b>Jodhpur + Jaipur hubs</b></span><span class="term"><small>Cancellation</small><b>Before production lock</b></span></div><section class="readiness"><i>ATP</i><span><b>Full quantity can be committed</b><small>Finished stock + scheduled production checked</small></span><em>Ready</em></section>${decisions()}<div class="audit-note">Confirmed quantities and commercial terms are locked to this order. Later changes require buyer approval and an auditable revision.</div>`;
+        root
+          .querySelectorAll("[data-action]")
+          .forEach((x) =>
+            x.addEventListener("click", () => handle(x.dataset.action)),
+          );
+        root
+          .querySelectorAll("[data-stage]")
+          .forEach((x) =>
+            x.addEventListener("click", () => previewStage(x.dataset.stage)),
+          );
+        const url = new URL(location.href);
+        url.searchParams.set("state", orderState);
+        history.replaceState({}, "", url);
+      }
+      function openSheet(title, intro, content, primary = "Continue") {
+        document.getElementById("sheetTitle").textContent = title;
+        document.getElementById("sheetIntro").textContent = intro;
+        document.getElementById("sheetContent").innerHTML = content;
+        document.getElementById("sheetPrimary").textContent = primary;
+        layer.hidden = false;
+      }
+      const summary =
+        '<div class="sheet-grid"><span class="sheet-cell"><small>Sunflower Oil</small><b>180 cases</b></span><span class="sheet-cell"><small>Atta</small><b>80 cases</b></span><span class="sheet-cell"><small>Dispatch</small><b>14 Jul</b></span><span class="sheet-cell"><small>Protected advance</small><b>₹1.02L held</b></span></div>';
+      function handle(action) {
+        if (action === "full") {
+          openSheet(
+            "Confirm Full Order",
+            "Lock 260 cases, commercial terms and dispatch commitment.",
+            summary,
+            "Confirm 260 cases",
+          );
+          return;
+        }
+        if (action === "partial") {
+          openSheet(
+            "Confirm Partial Quantity",
+            "Enter confirmed quantity line by line. Remaining demand returns to allocation.",
+            '<div class="sheet-grid"><span class="sheet-cell"><small>Oil ordered</small><b>180 cases</b></span><span class="sheet-cell"><small>Oil confirm</small><b>160 cases</b></span><span class="sheet-cell"><small>Atta ordered</small><b>80 cases</b></span><span class="sheet-cell"><small>Atta confirm</small><b>80 cases</b></span></div><div class="sheet-note">20 oil cases will be reassigned or split visibly; the buyer is never silently short-supplied.</div>',
+            "Confirm Partial",
+          );
+          return;
+        }
+        if (action === "cannot") {
+          openSheet(
+            "Cannot Fulfil",
+            "Choose the operational reason. Buyer demand returns immediately to allocation.",
+            '<div class="reason-list"><button class="reason">Insufficient finished stock</button><button class="reason">Production capacity unavailable</button><button class="reason">Commercial terms not acceptable</button><button class="reason">Delivery commitment not possible</button></div><div class="sheet-note">The buyer is not charged. Reliability impact is recorded transparently and can be disputed.</div>',
+            "Return demand",
+          );
+          return;
+        }
+        if (action === "packed") {
+          orderState = "packed";
+          render();
+          return;
+        }
+        if (action === "dispatched") {
+          orderState = "dispatched";
+          render();
+          return;
+        }
+        openSheet(
+          action.replaceAll("-", " "),
+          "This action opens as a progressive state inside the same order route.",
+          summary,
+        );
+      }
+      function previewStage(stage) {
+        openSheet(
+          stage[0].toUpperCase() + stage.slice(1),
+          "Lifecycle preview for this sales order.",
+          summary,
+          "Close",
+        );
+      }
+      document
+        .getElementById("close")
+        .addEventListener("click", () => (layer.hidden = true));
+      layer.addEventListener("click", (e) => {
+        if (e.target === layer) layer.hidden = true;
+      });
+      document.getElementById("sheetContent").addEventListener("click", (event) => {
+        const reason = event.target.closest(".reason");
+        if (!reason) return;
+        const label = reason.textContent.trim();
+        if (label === "Download purchase order") {
+          openSheet(
+            "Purchase order ready",
+            "SO-4821 is prepared with quantity, commercial terms and delivery commitment.",
+            '<div class="sheet-note" role="status">Purchase order PDF ready for this buyer order.</div>',
+            "Done",
+          );
+          return;
+        }
+        if (label === "Open order chat") {
+          location.href = "24-chat-business-thread.html?topic=sales-order";
+          return;
+        }
+        if (label === "Report buyer or term issue") {
+          location.href = "114-manufacturer-claims-team-control.html?source=sales-order";
+          return;
+        }
+        document.querySelectorAll("#sheetContent .reason").forEach((item) => {
+          item.classList.remove("selected");
+          item.setAttribute("aria-pressed", "false");
+        });
+        reason.classList.add("selected");
+        reason.setAttribute("aria-pressed", "true");
+        document.getElementById("sheetIntro").textContent = `${label} selected. Review and return the unfulfilled demand.`;
+      });
+      document.getElementById("sheetPrimary").addEventListener("click", () => {
+        if (
+          document.getElementById("sheetTitle").textContent ===
+          "Confirm Full Order"
+        ) {
+          orderState = "confirmed";
+          location.href =
+            "112-manufacturer-dispatch-delivery.html?order=SO-4821";
+          return;
+        }
+        layer.hidden = true;
+      });
+      document
+        .getElementById("more")
+        .addEventListener("click", () =>
+          openSheet(
+            "Order Options",
+            "Audited actions for this order.",
+            '<div class="reason-list"><button class="reason">Download purchase order</button><button class="reason">Open order chat</button><button class="reason">Report buyer or term issue</button></div>',
+          ),
+        );
+      render();
+    </script>
+    <script type="application/json" id="productionRouteContract">
+      {
+        "contractVersion": "mvp-route-machine-flex-2026-07-12",
+        "prototypeScreen": 110,
+        "prototypeName": "Manufacturer Order Review and Fulfilment",
+        "productionModule": "manufacturer_supplier",
+        "budgetBucket": "manufacturer_supplier",
+        "routeId": "supply.orders",
+        "routePath": "/supply/orders",
+        "routeState": "review",
+        "implementation": "route-shell",
+        "launchScope": "mvp-core",
+        "separateProductionRoute": true,
+        "painSolved": "Manufacturers need a decision-ready sales order showing buyer line quantities available stock price tax protected money dispatch and delivery terms before confirming full partial or unable-to-fulfil outcomes.",
+        "capabilityKeys": [
+          "orders",
+          "availability",
+          "payment-protection",
+          "dispatch",
+          "delivery-proof",
+          "receivables",
+          "tax-documents"
+        ],
+        "featureOutcomes": [
+          "Review verified buyer and exact commercial order lines",
+          "Confirm full partial or unable-to-fulfil without silent quantity changes",
+          "Return remaining demand visibly to allocation",
+          "Progress through production packing dispatch delivery invoice and receivable states",
+          "Preserve protected money and commercial audit history inside one route"
+        ],
+        "budgetExtension": false,
+        "budgetExtensionReason": null,
+        "productionNote": "Own production route /supply/orders and keep all progressive states inside it.",
+        "canonicalMap": "architecture/MVP-120-ROUTE-MACHINE.md"
+      }
+    </script>
+    <script type="application/json" id="prototypeApprovalContract">
+      {
+        "prototypeScreen": 110,
+        "status": "approved-and-frozen",
+        "authoritative": true,
+        "approvedAt": "2026-07-12"
+      }
+    </script>
+  </body>
 </html>

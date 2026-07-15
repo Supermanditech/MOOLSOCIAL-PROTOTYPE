@@ -48,6 +48,7 @@
       var reportJson = document.getElementById('reportJson');
       var auditFast = new URLSearchParams(location.search).get('fast') === '1';
       var inventoryOnly = new URLSearchParams(location.search).get('inventory') === '1';
+      var selectedScreen = Number(new URLSearchParams(location.search).get('screen') || 0);
       var report = { startedAt: new Date().toISOString(), complete: false, summary: { tested: 0, passed: 0, failed: 0, skipped: 0, screens: 0 }, screens: [], issues: [] };
       var controlSelector = 'button, a[href], input, select, textarea, [role="button"], [role="tab"], [role="switch"]';
 
@@ -156,17 +157,15 @@
           }
           await sleep(auditFast ? 55 : 220);
 
-          // A fast local navigation can start before the iframe has committed its
-          // destination. Wait only while neither navigation nor visible DOM state
-          // has changed so real links are not reported as unresolved timing races.
-          if (expectedHref) {
-            for (var settle = 0; settle < 12; settle += 1) {
-              var settlingDoc = subject.contentDocument;
-              var settlingUrl = subject.contentWindow.location.href;
-              var settlingHash = settlingDoc && settlingDoc.body ? hash(settlingDoc.body.innerHTML) : '';
-              if (settlingUrl !== beforeUrl || settlingHash !== beforeHash) break;
-              await sleep(auditFast ? 50 : 80);
-            }
+          // A button can start a local route just as an anchor can. Wait while
+          // neither navigation nor visible DOM state has committed so a valid
+          // tap is not reported as unresolved because of an iframe timing race.
+          for (var settle = 0; settle < (expectedHref ? 12 : 8); settle += 1) {
+            var settlingDoc = subject.contentDocument;
+            var settlingUrl = subject.contentWindow.location.href;
+            var settlingHash = settlingDoc && settlingDoc.body ? hash(settlingDoc.body.innerHTML) : '';
+            if (settlingUrl !== beforeUrl || settlingHash !== beforeHash) break;
+            await sleep(auditFast ? 50 : 80);
           }
 
           var currentDoc = subject.contentDocument;
@@ -189,6 +188,7 @@
       async function run() {
         var registry = window.MoolPrototypeInteractionContracts.screens;
         var screenNumbers = Object.keys(window.__MOOL_SCREEN_FILES__).map(Number).sort(function (a, b) { return a - b; });
+        if (selectedScreen) screenNumbers = screenNumbers.filter(function (screen) { return screen === selectedScreen; });
         report.summary.screens = screenNumbers.length;
         var inventory = [];
         for (var s = 0; s < screenNumbers.length; s += 1) {

@@ -1,4 +1,304 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Screen 130 · Creator Earnings</title>
-<script defer src="../shared/creator-economics-ui.js" data-surface="creator-earnings"></script><script type="application/json" id="creatorEconomicsBinding">{"engines":"all_eight","contract":"shared/creator-economics-flow-contract.json","role":"authoritative_creator_ledger"}</script>
-<link rel="stylesheet" href="../shared/creator-workspace.css"><link rel="stylesheet" href="../shared/creator-workspace-web.css"><style>.earn-hero{display:grid;gap:4px;background:linear-gradient(130deg,#000080,#1717a7);color:#fff}.earn-hero small{font-size:9px;opacity:.75}.earn-hero b{font-size:29px}.earn-hero span{font-size:9px}.source-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:7px}.source{display:grid;gap:3px;border-left:3px solid var(--saffron);background:#fff;padding:9px}.source small{color:var(--muted);font-size:8px}.source b{font-size:13px}.ledger{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:center;border-bottom:1px solid var(--line);padding:9px 0}.ledger:last-child{border:0}.ledger span{display:grid;gap:2px}.ledger b{font-size:11px}.ledger small{color:var(--muted);font-size:8px}.ledger em{color:var(--green);font-size:11px;font-style:normal;font-weight:900}@media(min-width:851px){.earnings-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:12px}.source-grid{grid-template-columns:repeat(4,1fr)}}</style></head><body><main class="stage"><section class="phone"><header class="status"><span>9:48</span><span>Ledger updated now</span></header><div class="appbar"><a class="icon-btn" href="124-creator-studio-home.html">‹</a><span class="app-title"><b>Earnings</b><span>Campaign and attributed-value ledger</span></span><button class="icon-btn" id="statement">↓</button></div><div class="content"><section class="band earn-hero"><small>AVAILABLE FOR PAYOUT</small><b>₹6,240</b><span>Verified bank account · automatic payout tomorrow</span></section><div class="earnings-grid"><section><div class="section-title"><b>This month</b><span>payable sources</span></div><div class="source-grid"><span class="source"><small>FIXED CAMPAIGNS</small><b>₹7,500</b></span><span class="source"><small>CONVERSIONS</small><b>₹3,840</b></span><span class="source"><small>AWARENESS</small><b>₹1,500</b></span><span class="source"><small>ADJUSTMENTS</small><b>−₹220</b></span></div><section class="band" style="margin-top:9px"><div class="metric-grid"><span class="metric"><small>TOTAL EARNED</small><b>₹12,620</b></span><span class="metric"><small>PAID</small><b>₹6,380</b></span><span class="metric"><small>AVAILABLE</small><b>₹6,240</b></span></div></section></section><section class="band"><div class="band-title"><b>Recent ledger</b><span>authoritative records</span></div><div class="ledger"><span><b>Local basket campaign</b><small>126 verified orders · attribution closed</small></span><em>+₹5,040</em></div><div class="ledger"><span><b>Restaurant discovery</b><small>Fixed deliverable approved</small></span><em>+₹4,500</em></div><div class="ledger"><span><b>Prior payout</b><small>Bank ••4421 · 8 Jul</small></span><em>−₹6,380</em></div><div class="ledger"><span><b>TDS / applicable deduction</b><small>Statement record</small></span><em>−₹220</em></div></section></div><div class="notice"><i>₹</i><span><b>Views alone do not create payout</b><span>Every payable amount shows its funded campaign or verified attribution rule.</span></span></div></div><nav class="dock"><a class="mool" href="04-universal-focus-shell.html">Mool</a><div class="dock-rail"><a class="dock-link" href="125-creator-create-publish.html"><i>+</i><span>Create</span></a><a class="dock-link" href="124-creator-studio-home.html"><i>S</i><span>Studio</span></a><a class="dock-link active" href="130-creator-earnings-payouts.html"><i>₹</i><span>Earnings</span></a></div><a class="chat" href="23-chat-inbox-home.html">Chat</a></nav><div class="layer" id="layer" hidden><section class="sheet"><div class="sheet-head"><span><h2>Creator statement</h2><p>Campaign, attribution, deduction and payout records.</p></span><button class="sheet-close" id="close">X</button></div><div class="sheet-grid"><span class="cell"><small>Period</small><b>July 2026</b></span><span class="cell"><small>Earned</small><b>₹12,620</b></span><span class="cell"><small>Paid</small><b>₹6,380</b></span><span class="cell"><small>Available</small><b>₹6,240</b></span><span class="cell"><small>Bank</small><b>••4421</b></span><span class="cell"><small>Format</small><b>PDF / CSV</b></span></div><button class="primary" style="width:100%">Prepare Statement</button></section></div></section><aside class="notes"><small>SCREEN 130 · REVIEW DRAFT</small><h1>Creator Earnings and Payouts</h1><p>Every rupee is connected to funded awareness, an approved deliverable or verified attribution. Statements work on mobile and web.</p><section class="contract"><div><b>Ledger</b>Campaign and payout engines own money truth.</div><div><b>Transparent</b>Creators can inspect the source, rule, deductions and payout state.</div><div><b>No Subsidy</b>Unfunded views do not become hidden platform liability.</div></section></aside></main><script type="module">const layer=document.getElementById('layer');document.getElementById('statement').addEventListener('click',()=>layer.hidden=false);document.getElementById('close').addEventListener('click',()=>layer.hidden=true)</script><script type="application/json" id="screen130ProductionContract">{"screen":130,"states":["summary","ledger","available","processing","paid","reversed","statement"],"payoutRule":"funded_awareness_or_verified_attributed_value_only"}</script><script type="application/json" id="prototypeApprovalContract">{"prototypeScreen":130,"status":"approved-and-frozen","authoritative":true,"approvedAt":"2026-07-13"}</script><script type="application/json" id="productionRouteContract">{"contractVersion":"mvp-route-machine-flex-2026-07-12","prototypeScreen":130,"prototypeName":"Creator Earnings and Payouts","productionModule":"creator","budgetBucket":"creator","routeId":"creator.earnings","routePath":"/creator/earnings","routeState":"summary","implementation":"route-shell","launchScope":"mvp-core","separateProductionRoute":true,"painSolved":"Creators need an authoritative ledger showing funded campaigns verified attribution adjustments deductions available money and payout status.","capabilityKeys":["earnings-payouts"],"featureOutcomes":["Trace every payable amount to its rule","Review earnings deductions and payouts","Download creator statements on mobile and web"],"budgetExtension":false,"budgetExtensionReason":null,"productionNote":"Own production route /creator/earnings and keep all progressive states inside it.","canonicalMap":"architecture/MVP-120-ROUTE-MACHINE.md"}</script></body></html>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Screen 130 · Creator Earnings</title>
+    <script
+      defer
+      src="../shared/creator-economics-ui.js"
+      data-surface="creator-earnings"
+    ></script>
+    <script type="application/json" id="creatorEconomicsBinding">
+      {
+        "engines": "all_eight",
+        "contract": "shared/creator-economics-flow-contract.json",
+        "role": "authoritative_creator_ledger"
+      }
+    </script>
+    <link rel="stylesheet" href="../shared/creator-workspace.css" />
+    <link rel="stylesheet" href="../shared/creator-workspace-web.css" />
+    <style>
+      .earn-hero {
+        display: grid;
+        gap: 4px;
+        background: linear-gradient(130deg, #000080, #1717a7);
+        color: #fff;
+      }
+      .earn-hero small {
+        font-size: 9px;
+        opacity: 0.75;
+      }
+      .earn-hero b {
+        font-size: 29px;
+      }
+      .earn-hero span {
+        font-size: 9px;
+      }
+      .source-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 7px;
+      }
+      .source {
+        display: grid;
+        gap: 3px;
+        border-left: 3px solid var(--saffron);
+        background: #fff;
+        padding: 9px;
+      }
+      .source small {
+        color: var(--muted);
+        font-size: 8px;
+      }
+      .source b {
+        font-size: 13px;
+      }
+      .ledger {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 8px;
+        align-items: center;
+        border-bottom: 1px solid var(--line);
+        padding: 9px 0;
+      }
+      .ledger:last-child {
+        border: 0;
+      }
+      .ledger span {
+        display: grid;
+        gap: 2px;
+      }
+      .ledger b {
+        font-size: 11px;
+      }
+      .ledger small {
+        color: var(--muted);
+        font-size: 8px;
+      }
+      .ledger em {
+        color: var(--green);
+        font-size: 11px;
+        font-style: normal;
+        font-weight: 900;
+      }
+      @media (min-width: 851px) {
+        .earnings-grid {
+          display: grid;
+          grid-template-columns: 0.85fr 1.15fr;
+          gap: 12px;
+        }
+        .source-grid {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="stage">
+      <section class="phone">
+        <header class="status">
+          <span>9:48</span><span>Ledger updated now</span>
+        </header>
+        <div class="appbar">
+          <a class="icon-btn" href="124-creator-studio-home.html">‹</a
+          ><span class="app-title"
+            ><b>Earnings</b
+            ><span>Campaign and attributed-value ledger</span></span
+          ><button class="icon-btn" id="statement">↓</button>
+        </div>
+        <div class="content">
+          <section class="band earn-hero">
+            <small>AVAILABLE FOR PAYOUT</small><b>₹6,240</b
+            ><span>Verified bank account · automatic payout tomorrow</span>
+          </section>
+          <div class="earnings-grid">
+            <section>
+              <div class="section-title">
+                <b>This month</b><span>payable sources</span>
+              </div>
+              <div class="source-grid">
+                <span class="source"
+                  ><small>FIXED CAMPAIGNS</small><b>₹7,500</b></span
+                ><span class="source"
+                  ><small>CONVERSIONS</small><b>₹3,840</b></span
+                ><span class="source"
+                  ><small>AWARENESS</small><b>₹1,500</b></span
+                ><span class="source"
+                  ><small>ADJUSTMENTS</small><b>−₹220</b></span
+                >
+              </div>
+              <section class="band" style="margin-top: 9px">
+                <div class="metric-grid">
+                  <span class="metric"
+                    ><small>TOTAL EARNED</small><b>₹12,620</b></span
+                  ><span class="metric"><small>PAID</small><b>₹6,380</b></span
+                  ><span class="metric"
+                    ><small>AVAILABLE</small><b>₹6,240</b></span
+                  >
+                </div>
+              </section>
+            </section>
+            <section class="band">
+              <div class="band-title">
+                <b>Recent ledger</b><span>authoritative records</span>
+              </div>
+              <div class="ledger">
+                <span
+                  ><b>Local basket campaign</b
+                  ><small>126 verified orders · attribution closed</small></span
+                ><em>+₹5,040</em>
+              </div>
+              <div class="ledger">
+                <span
+                  ><b>Restaurant discovery</b
+                  ><small>Fixed deliverable approved</small></span
+                ><em>+₹4,500</em>
+              </div>
+              <div class="ledger">
+                <span
+                  ><b>Prior payout</b><small>Bank ••4421 · 8 Jul</small></span
+                ><em>−₹6,380</em>
+              </div>
+              <div class="ledger">
+                <span
+                  ><b>TDS / applicable deduction</b
+                  ><small>Statement record</small></span
+                ><em>−₹220</em>
+              </div>
+            </section>
+          </div>
+          <div class="notice">
+            <i>₹</i
+            ><span
+              ><b>Views alone do not create payout</b
+              ><span
+                >Every payable amount shows its funded campaign or verified
+                attribution rule.</span
+              ></span
+            >
+          </div>
+        </div>
+        <nav class="dock">
+          <a class="mool" href="04-universal-focus-shell.html">Mool</a>
+          <div class="dock-rail">
+            <a class="dock-link" href="125-creator-create-publish.html"
+              ><i>+</i><span>Create</span></a
+            ><a class="dock-link" href="124-creator-studio-home.html"
+              ><i>S</i><span>Studio</span></a
+            ><a
+              class="dock-link active"
+              href="130-creator-earnings-payouts.html"
+              ><i>₹</i><span>Earnings</span></a
+            >
+          </div>
+          <a class="chat" href="23-chat-inbox-home.html">Chat</a>
+        </nav>
+        <div class="layer" id="layer" hidden>
+          <section class="sheet">
+            <div class="sheet-head">
+              <span
+                ><h2>Creator statement</h2>
+                <p>
+                  Campaign, attribution, deduction and payout records.
+                </p></span
+              ><button class="sheet-close" id="close">X</button>
+            </div>
+            <div class="sheet-grid">
+              <span class="cell"><small>Period</small><b>July 2026</b></span
+              ><span class="cell"><small>Earned</small><b>₹12,620</b></span
+              ><span class="cell"><small>Paid</small><b>₹6,380</b></span
+              ><span class="cell"><small>Available</small><b>₹6,240</b></span
+              ><span class="cell"><small>Bank</small><b>••4421</b></span
+              ><span class="cell"><small>Format</small><b>PDF / CSV</b></span>
+            </div>
+            <button class="primary" id="prepareStatement" style="width: 100%">
+              Prepare Statement
+            </button>
+          </section>
+        </div>
+      </section>
+      <aside class="notes">
+        <small>SCREEN 130 · REVIEW DRAFT</small>
+        <h1>Creator Earnings and Payouts</h1>
+        <p>
+          Every rupee is connected to funded awareness, an approved deliverable
+          or verified attribution. Statements work on mobile and web.
+        </p>
+        <section class="contract">
+          <div><b>Ledger</b>Campaign and payout engines own money truth.</div>
+          <div>
+            <b>Transparent</b>Creators can inspect the source, rule, deductions
+            and payout state.
+          </div>
+          <div>
+            <b>No Subsidy</b>Unfunded views do not become hidden platform
+            liability.
+          </div>
+        </section>
+      </aside>
+    </main>
+    <script type="module">
+      const layer = document.getElementById("layer");
+      document
+        .getElementById("statement")
+        .addEventListener("click", () => (layer.hidden = false));
+      document
+        .getElementById("close")
+        .addEventListener("click", () => (layer.hidden = true));
+      document.getElementById("prepareStatement").addEventListener("click", (event) => {
+        event.currentTarget.textContent = "Statement Ready · PDF / CSV";
+        event.currentTarget.setAttribute("aria-pressed", "true");
+      });
+    </script>
+    <script type="application/json" id="screen130ProductionContract">
+      {
+        "screen": 130,
+        "states": [
+          "summary",
+          "ledger",
+          "available",
+          "processing",
+          "paid",
+          "reversed",
+          "statement"
+        ],
+        "payoutRule": "funded_awareness_or_verified_attributed_value_only"
+      }
+    </script>
+    <script type="application/json" id="prototypeApprovalContract">
+      {
+        "prototypeScreen": 130,
+        "status": "approved-and-frozen",
+        "authoritative": true,
+        "approvedAt": "2026-07-13"
+      }
+    </script>
+    <script type="application/json" id="productionRouteContract">
+      {
+        "contractVersion": "mvp-route-machine-flex-2026-07-12",
+        "prototypeScreen": 130,
+        "prototypeName": "Creator Earnings and Payouts",
+        "productionModule": "creator",
+        "budgetBucket": "creator",
+        "routeId": "creator.earnings",
+        "routePath": "/creator/earnings",
+        "routeState": "summary",
+        "implementation": "route-shell",
+        "launchScope": "mvp-core",
+        "separateProductionRoute": true,
+        "painSolved": "Creators need an authoritative ledger showing funded campaigns verified attribution adjustments deductions available money and payout status.",
+        "capabilityKeys": ["earnings-payouts"],
+        "featureOutcomes": [
+          "Trace every payable amount to its rule",
+          "Review earnings deductions and payouts",
+          "Download creator statements on mobile and web"
+        ],
+        "budgetExtension": false,
+        "budgetExtensionReason": null,
+        "productionNote": "Own production route /creator/earnings and keep all progressive states inside it.",
+        "canonicalMap": "architecture/MVP-120-ROUTE-MACHINE.md"
+      }
+    </script>
+  </body>
+</html>

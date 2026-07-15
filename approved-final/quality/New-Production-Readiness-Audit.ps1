@@ -33,6 +33,7 @@ $copyRules = @(
   [pscustomobject]@{ code = 'internal-prototype'; pattern = '(?i)\b(prototype|screenbook|review draft)\b'; message = 'Prototype or review terminology is visible to the user.' },
   [pscustomobject]@{ code = 'internal-delivery-language'; pattern = '(?i)\b(backend|route state|production route|handoff contract)\b'; message = 'Implementation terminology is visible to the user.' },
   [pscustomobject]@{ code = 'customer-stock-confirmation'; pattern = '(?i)(confirm stock first|customer is waiting to pay|payment blocked|retailer stock lock|unlock customer payment|no confirm, no pay|waiting for .{0,40}retailer|after retailer stock|retailer confirmed stock|stock confirmation requested)'; message = 'Customer checkout exposes a retailer stock-confirmation dependency.' },
+  [pscustomobject]@{ code = 'customer-availability-confirmation'; pattern = '(?i)(kitchen accepts first|restaurant accepts before payment|restaurant confirms before final payment|after restaurant confirms availability|refund if not accepted)'; message = 'Customer food checkout exposes a provider-confirmation dependency instead of reserving live availability.' },
   [pscustomobject]@{ code = 'generic-action-result'; pattern = '(?i)\b(review the shown state|details are open|is selected\.?)\b'; message = 'Generic fallback wording is visible instead of a user outcome.' }
 )
 
@@ -121,7 +122,7 @@ foreach ($screenRecord in @($inventory.screens | Sort-Object screen)) {
       $finding = [pscustomobject]@{
         screen = $screen
         file = $screenRecord.file
-        severity = if ($rule.code -eq 'customer-stock-confirmation') { 'P0' } else { 'P1' }
+        severity = if ($rule.code -in @('customer-stock-confirmation','customer-availability-confirmation')) { 'P0' } else { 'P1' }
         category = $rule.code
         control = ''
         message = "$($rule.message) Context: $context"
@@ -155,6 +156,7 @@ $summary = [ordered]@{
   p1 = @($findings | Where-Object severity -eq 'P1').Count
   genericHighIntentOutcomes = @($findings | Where-Object category -eq 'generic-high-intent-outcome').Count
   customerStockConfirmationLanguage = @($findings | Where-Object category -eq 'customer-stock-confirmation').Count
+  customerAvailabilityConfirmationLanguage = @($findings | Where-Object category -eq 'customer-availability-confirmation').Count
   internalUserFacingLanguage = @($findings | Where-Object category -in @('internal-screen-number','internal-prototype','internal-delivery-language')).Count
 }
 

@@ -1,1 +1,293 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Screen 135 · Earn Active Work</title><link rel="stylesheet" href="../shared/creator-workspace.css"><link rel="stylesheet" href="../shared/creator-workspace-web.css"><style>.work-hero{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:9px;align-items:center;background:linear-gradient(130deg,#000080,#1717a7);color:#fff}.work-hero span{display:grid;gap:3px}.work-hero small{font-size:8px;opacity:.75}.work-hero b{font-size:17px}.work-hero em{font-size:9px;font-style:normal}.timer{border-radius:999px;background:var(--saffron);color:var(--navy);padding:8px;font-size:9px;font-weight:900}.steps{display:grid;gap:7px}.step{display:grid;grid-template-columns:30px minmax(0,1fr) auto;gap:8px;align-items:center;border-bottom:1px solid var(--line);padding:8px 0}.step:last-child{border:0}.step i{width:28px;height:28px;display:grid;place-items:center;border-radius:50%;background:#eceeff;color:var(--navy);font-size:9px;font-style:normal;font-weight:900}.step.done i{background:var(--green);color:#fff}.step span{display:grid;gap:2px}.step b{font-size:10px}.step small{color:var(--muted);font-size:8px}.step em{color:var(--green);font-size:8px;font-style:normal;font-weight:900}</style></head><body><main class="stage"><section class="phone"><header class="status"><span>10:04</span><span>Work seat reserved</span></header><div class="appbar"><a class="icon-btn" href="134-earn-applications-eligibility.html">‹</a><span class="app-title"><b>Active Work</b><span>WRK-4821 · one bounded output</span></span><button class="icon-btn" id="support">?</button></div><div class="content"><section class="band work-hero"><span><small>ASSIGNED OUTPUT</small><b>Onboard Mahadev Fresh Mart</b><em>Jodhpur · ₹450 after approved activation</em></span><i class="timer">3h 42m</i></section><section class="band"><div class="metric-grid"><span class="metric"><small>PAYOUT</small><b>₹450</b></span><span class="metric"><small>PROOF</small><b>4 items</b></span><span class="metric"><small>REVIEW</small><b>≤24 h</b></span></div></section><section class="band steps"><div class="step done"><i>✓</i><span><b>Meet authorized owner</b><small>Owner OTP and identity match</small></span><em>Done</em></div><div class="step done"><i>✓</i><span><b>Capture business details</b><small>Shop, category, GST if available</small></span><em>Done</em></div><div class="step"><i>3</i><span><b>Place and verify QR</b><small>GPS, shop photo and scan test</small></span><em>Next</em></div><div class="step"><i>4</i><span><b>Complete first activation</b><small>Owner confirms app access</small></span><em>Pending</em></div></section><div class="notice warn"><i>!</i><span><b>Do only the assigned output</b><span>Never collect cash, passwords or unrelated documents. Customer and business consent remain required.</span></span></div><button class="primary" id="continue" style="width:100%;margin-top:10px">Continue Proof</button></div><nav class="dock"><a class="mool" href="04-universal-focus-shell.html">Mool</a><div class="dock-rail"><a class="dock-link" href="133-earn-opportunities.html"><i>₹</i><span>Opportunities</span></a><a class="dock-link active" href="135-earn-active-work.html"><i>W</i><span>My Work</span></a><a class="dock-link" href="137-earn-earnings-payout.html"><i>₹</i><span>Earnings</span></a></div><a class="chat" href="23-chat-inbox-home.html">Chat</a></nav><div class="layer" id="layer" hidden><section class="sheet"><div class="sheet-head"><span><h2>Work support</h2><p>Support remains linked to WRK-4821 and its terms.</p></span><button class="sheet-close" id="close">X</button></div><div class="sheet-grid"><span class="cell"><small>Business unavailable</small><b>Reschedule</b></span><span class="cell"><small>Wrong location</small><b>Report</b></span><span class="cell"><small>Safety issue</small><b>Priority</b></span><span class="cell"><small>Terms question</small><b>Chat</b></span></div><button class="primary" style="width:100%">Start Support</button></section></div></section><aside class="notes"><small>SCREEN 135 · REVIEW DRAFT</small><h1>Active Work</h1><p>The worker sees one bounded funded output, exact steps, proof, payout and deadline. They are not responsible for the full business onboarding chain.</p><section class="contract"><div><b>Reservation</b>Acceptance reserves funded capacity and starts expiry rules.</div><div><b>Scope</b>The worker cannot collect unrelated information or money.</div><div><b>Failure</b>Warnings, reschedule, release and reassignment protect both sides.</div></section></aside></main><script type="module">const layer=document.getElementById('layer');document.getElementById('continue').addEventListener('click',()=>location.href='136-earn-proof-outcome.html?work=WRK-4821');document.getElementById('support').addEventListener('click',()=>layer.hidden=false);document.getElementById('close').addEventListener('click',()=>layer.hidden=true)</script><script type="application/json" id="screen135ProductionContract">{"screen":135,"states":["reserved","started","in_progress","paused","expired","released","completed"],"scopeRule":"worker_completes_only_defined_output_with_consent"}</script><script type="application/json" id="prototypeApprovalContract">{"prototypeScreen":135,"status":"approved-and-frozen","authoritative":true,"approvedAt":"2026-07-13"}</script><script type="application/json" id="productionRouteContract">{"contractVersion":"mvp-route-machine-flex-2026-07-12","prototypeScreen":135,"prototypeName":"Earn Active Work","productionModule":"earn","budgetBucket":"freelancer_earn","routeId":"earn.work","routePath":"/earn/work/:workId","routeState":"active","implementation":"route-shell","launchScope":"mvp-core","separateProductionRoute":true,"painSolved":"An assigned worker needs one bounded funded output with exact steps deadline proof payout consent safety and failure support rather than responsibility for the full value chain.","capabilityKeys":["active-work"],"featureOutcomes":["Execute one clearly bounded output","Follow progressive task steps and expiry","Pause reschedule release or reassign failed work safely"],"budgetExtension":false,"budgetExtensionReason":null,"productionNote":"Own production route /earn/work/:workId and keep all progressive states inside it.","canonicalMap":"architecture/MVP-120-ROUTE-MACHINE.md"}</script></body></html>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Screen 135 · Earn Active Work</title>
+    <link rel="stylesheet" href="../shared/creator-workspace.css" />
+    <link rel="stylesheet" href="../shared/creator-workspace-web.css" />
+    <style>
+      .work-hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 9px;
+        align-items: center;
+        background: linear-gradient(130deg, #000080, #1717a7);
+        color: #fff;
+      }
+      .work-hero span {
+        display: grid;
+        gap: 3px;
+      }
+      .work-hero small {
+        font-size: 8px;
+        opacity: 0.75;
+      }
+      .work-hero b {
+        font-size: 17px;
+      }
+      .work-hero em {
+        font-size: 9px;
+        font-style: normal;
+      }
+      .timer {
+        border-radius: 999px;
+        background: var(--saffron);
+        color: var(--navy);
+        padding: 8px;
+        font-size: 9px;
+        font-weight: 900;
+      }
+      .steps {
+        display: grid;
+        gap: 7px;
+      }
+      .step {
+        display: grid;
+        grid-template-columns: 30px minmax(0, 1fr) auto;
+        gap: 8px;
+        align-items: center;
+        border-bottom: 1px solid var(--line);
+        padding: 8px 0;
+      }
+      .step:last-child {
+        border: 0;
+      }
+      .step i {
+        width: 28px;
+        height: 28px;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        background: #eceeff;
+        color: var(--navy);
+        font-size: 9px;
+        font-style: normal;
+        font-weight: 900;
+      }
+      .step.done i {
+        background: var(--green);
+        color: #fff;
+      }
+      .step span {
+        display: grid;
+        gap: 2px;
+      }
+      .step b {
+        font-size: 10px;
+      }
+      .step small {
+        color: var(--muted);
+        font-size: 8px;
+      }
+      .step em {
+        color: var(--green);
+        font-size: 8px;
+        font-style: normal;
+        font-weight: 900;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="stage">
+      <section class="phone">
+        <header class="status">
+          <span>10:04</span><span>Work seat reserved</span>
+        </header>
+        <div class="appbar">
+          <a class="icon-btn" href="134-earn-applications-eligibility.html">‹</a
+          ><span class="app-title"
+            ><b>Active Work</b><span>WRK-4821 · one bounded output</span></span
+          ><button class="icon-btn" id="support">?</button>
+        </div>
+        <div class="content">
+          <section class="band work-hero">
+            <span
+              ><small>ASSIGNED OUTPUT</small><b>Onboard Mahadev Fresh Mart</b
+              ><em>Jodhpur · ₹450 after approved activation</em></span
+            ><i class="timer">3h 42m</i>
+          </section>
+          <section class="band">
+            <div class="metric-grid">
+              <span class="metric"><small>PAYOUT</small><b>₹450</b></span
+              ><span class="metric"><small>PROOF</small><b>4 items</b></span
+              ><span class="metric"><small>REVIEW</small><b>≤24 h</b></span>
+            </div>
+          </section>
+          <section class="band steps">
+            <div class="step done">
+              <i>✓</i
+              ><span
+                ><b>Meet authorized owner</b
+                ><small>Owner OTP and identity match</small></span
+              ><em>Done</em>
+            </div>
+            <div class="step done">
+              <i>✓</i
+              ><span
+                ><b>Capture business details</b
+                ><small>Shop, category, GST if available</small></span
+              ><em>Done</em>
+            </div>
+            <div class="step">
+              <i>3</i
+              ><span
+                ><b>Place and verify QR</b
+                ><small>GPS, shop photo and scan test</small></span
+              ><em>Next</em>
+            </div>
+            <div class="step">
+              <i>4</i
+              ><span
+                ><b>Complete first activation</b
+                ><small>Owner confirms app access</small></span
+              ><em>Pending</em>
+            </div>
+          </section>
+          <div class="notice warn">
+            <i>!</i
+            ><span
+              ><b>Do only the assigned output</b
+              ><span
+                >Never collect cash, passwords or unrelated documents. Customer
+                and business consent remain required.</span
+              ></span
+            >
+          </div>
+          <button
+            class="primary"
+            id="continue"
+            style="width: 100%; margin-top: 10px"
+          >
+            Continue Proof
+          </button>
+        </div>
+        <nav class="dock">
+          <a class="mool" href="04-universal-focus-shell.html">Mool</a>
+          <div class="dock-rail">
+            <a class="dock-link" href="133-earn-opportunities.html"
+              ><i>₹</i><span>Opportunities</span></a
+            ><a class="dock-link active" href="135-earn-active-work.html"
+              ><i>W</i><span>My Work</span></a
+            ><a class="dock-link" href="137-earn-earnings-payout.html"
+              ><i>₹</i><span>Earnings</span></a
+            >
+          </div>
+          <a class="chat" href="23-chat-inbox-home.html">Chat</a>
+        </nav>
+        <div class="layer" id="layer" hidden>
+          <section class="sheet">
+            <div class="sheet-head">
+              <span
+                ><h2>Work support</h2>
+                <p>Support remains linked to WRK-4821 and its terms.</p></span
+              ><button class="sheet-close" id="close">X</button>
+            </div>
+            <div class="sheet-grid">
+              <span class="cell"
+                ><small>Business unavailable</small><b>Reschedule</b></span
+              ><span class="cell"
+                ><small>Wrong location</small><b>Report</b></span
+              ><span class="cell"
+                ><small>Safety issue</small><b>Priority</b></span
+              ><span class="cell"
+                ><small>Terms question</small><b>Chat</b></span
+              >
+            </div>
+            <button class="primary" id="startSupport" style="width: 100%">Start Support</button>
+          </section>
+        </div>
+      </section>
+      <aside class="notes">
+        <small>SCREEN 135 · REVIEW DRAFT</small>
+        <h1>Active Work</h1>
+        <p>
+          The worker sees one bounded funded output, exact steps, proof, payout
+          and deadline. They are not responsible for the full business
+          onboarding chain.
+        </p>
+        <section class="contract">
+          <div>
+            <b>Reservation</b>Acceptance reserves funded capacity and starts
+            expiry rules.
+          </div>
+          <div>
+            <b>Scope</b>The worker cannot collect unrelated information or
+            money.
+          </div>
+          <div>
+            <b>Failure</b>Warnings, reschedule, release and reassignment protect
+            both sides.
+          </div>
+        </section>
+      </aside>
+    </main>
+    <script type="module">
+      const layer = document.getElementById("layer");
+      document
+        .getElementById("continue")
+        .addEventListener(
+          "click",
+          () => (location.href = "136-earn-proof-outcome.html?work=WRK-4821"),
+        );
+      document
+        .getElementById("support")
+        .addEventListener("click", () => (layer.hidden = false));
+      document
+        .getElementById("close")
+        .addEventListener("click", () => (layer.hidden = true));
+      document.getElementById("startSupport").addEventListener("click", () => {
+        location.href = "138-earn-issues-ratings-history.html?view=support&work=WRK-4821";
+      });
+    </script>
+    <script type="application/json" id="screen135ProductionContract">
+      {
+        "screen": 135,
+        "states": [
+          "reserved",
+          "started",
+          "in_progress",
+          "paused",
+          "expired",
+          "released",
+          "completed"
+        ],
+        "scopeRule": "worker_completes_only_defined_output_with_consent"
+      }
+    </script>
+    <script type="application/json" id="prototypeApprovalContract">
+      {
+        "prototypeScreen": 135,
+        "status": "approved-and-frozen",
+        "authoritative": true,
+        "approvedAt": "2026-07-13"
+      }
+    </script>
+    <script type="application/json" id="productionRouteContract">
+      {
+        "contractVersion": "mvp-route-machine-flex-2026-07-12",
+        "prototypeScreen": 135,
+        "prototypeName": "Earn Active Work",
+        "productionModule": "earn",
+        "budgetBucket": "freelancer_earn",
+        "routeId": "earn.work",
+        "routePath": "/earn/work/:workId",
+        "routeState": "active",
+        "implementation": "route-shell",
+        "launchScope": "mvp-core",
+        "separateProductionRoute": true,
+        "painSolved": "An assigned worker needs one bounded funded output with exact steps deadline proof payout consent safety and failure support rather than responsibility for the full value chain.",
+        "capabilityKeys": ["active-work"],
+        "featureOutcomes": [
+          "Execute one clearly bounded output",
+          "Follow progressive task steps and expiry",
+          "Pause reschedule release or reassign failed work safely"
+        ],
+        "budgetExtension": false,
+        "budgetExtensionReason": null,
+        "productionNote": "Own production route /earn/work/:workId and keep all progressive states inside it.",
+        "canonicalMap": "architecture/MVP-120-ROUTE-MACHINE.md"
+      }
+    </script>
+  </body>
+</html>

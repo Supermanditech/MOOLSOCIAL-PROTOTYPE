@@ -1045,6 +1045,20 @@
       font-weight: 900;
     }
 
+    .comment-actions button {
+      appearance: none;
+      border: 0;
+      padding: 0;
+      background: transparent;
+      color: inherit;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .comment-actions button.active {
+      color: var(--ms-green);
+    }
+
     .creator-reply {
       margin-top: 5px;
       border-left: 2px solid var(--ms-green);
@@ -1121,18 +1135,27 @@
     }
 
     .sheet-chip {
+      appearance: none;
       min-height: 52px;
       display: grid;
       place-items: center;
       gap: 4px;
       border: 1px solid rgba(0, 0, 128, .18);
       border-radius: 16px;
+      padding: 8px;
       background: var(--ms-white);
       color: var(--ms-navy);
+      font-family: var(--ms-font);
       font-size: 9px;
       font-weight: 950;
       text-align: center;
       line-height: 1.1;
+      cursor: pointer;
+    }
+
+    .sheet-chip.active {
+      border-color: var(--ms-green);
+      background: #effff5;
     }
 
     .sheet-chip strong {
@@ -1631,6 +1654,7 @@
     let currentShortIndex = 0;
     let wheelLock = false;
     let touchStartY = 0;
+    let activeSheetType = "";
 
     const sheetContent = {
       creator: {
@@ -1756,6 +1780,7 @@
 
     function renderSheet(content, type = "") {
       if (!sheet || !content) return;
+      activeSheetType = type;
       sheet.classList.toggle("creator-sheet", type === "creator");
       sheet.classList.toggle("detail-sheet", type === "details");
       sheet.classList.toggle("comments-sheet", type === "comments");
@@ -1772,15 +1797,15 @@
             <div class="short-comment-list" data-comment-list>
               <article class="short-comment">
                 <span class="comment-avatar">RV</span>
-                <div class="comment-copy"><b>Ritu Vyas · 8 min</b><p>Fresh items and the delivery time are both clearly shown. This helps before ordering.</p><span class="comment-actions">Like 24 · Reply · Translate</span></div>
+                <div class="comment-copy"><b>Ritu Vyas · 8 min</b><p>Fresh items and the delivery time are both clearly shown. This helps before ordering.</p><span class="comment-actions"><button type="button" data-comment-action="like">Like 24</button><button type="button" data-comment-action="reply">Reply</button><button type="button" data-comment-action="translate">Translate</button></span></div>
               </article>
               <article class="short-comment">
                 <span class="comment-avatar">AK</span>
-                <div class="comment-copy"><b>Arun Kumar · 14 min</b><p>Is counter pickup available this morning?</p><span class="creator-reply">Mahadev Fresh Mart: Yes, pickup is ready in about 20 minutes.</span><span class="comment-actions">Like 11 · Reply · Translate</span></div>
+                <div class="comment-copy"><b>Arun Kumar · 14 min</b><p>Is counter pickup available this morning?</p><span class="creator-reply">Mahadev Fresh Mart: Yes, pickup is ready in about 20 minutes.</span><span class="comment-actions"><button type="button" data-comment-action="like">Like 11</button><button type="button" data-comment-action="reply">Reply</button><button type="button" data-comment-action="translate">Translate</button></span></div>
               </article>
               <article class="short-comment">
                 <span class="comment-avatar">NS</span>
-                <div class="comment-copy"><b>Neha Saini · 21 min</b><p>Please show tomorrow's family basket too.</p><span class="comment-actions">Like 7 · Reply · Translate</span></div>
+                <div class="comment-copy"><b>Neha Saini · 21 min</b><p>Please show tomorrow's family basket too.</p><span class="comment-actions"><button type="button" data-comment-action="like">Like 7</button><button type="button" data-comment-action="reply">Reply</button><button type="button" data-comment-action="translate">Translate</button></span></div>
               </article>
             </div>
             <div class="comment-composer">
@@ -1797,11 +1822,12 @@
             const value = input?.value.trim();
             if (!value) {
               input?.focus();
+              sheetNote.textContent = "Write a comment before posting.";
               return;
             }
             const row = document.createElement("article");
             row.className = "short-comment";
-            row.innerHTML = `<span class="comment-avatar">You</span><div class="comment-copy"><b>You · now</b><p></p><span class="comment-actions">Like · Reply</span></div>`;
+            row.innerHTML = `<span class="comment-avatar">You</span><div class="comment-copy"><b>You · now</b><p></p><span class="comment-actions"><button type="button" data-comment-action="like">Like</button><button type="button" data-comment-action="reply">Reply</button></span></div>`;
             row.querySelector("p").textContent = value;
             sheetGrid.querySelector("[data-comment-list]")?.prepend(row);
             input.value = "";
@@ -1809,7 +1835,7 @@
           });
         } else {
           sheetGrid.innerHTML = content.items.map(([label, value]) => `
-            <span class="sheet-chip"><strong>${value}</strong>${label}</span>
+            <button class="sheet-chip" type="button" data-sheet-action data-action-label="${label}" data-action-value="${value}"><strong>${value}</strong>${label}</button>
           `).join("");
         }
       }
@@ -1850,6 +1876,128 @@
       sheet?.classList.remove("creator-sheet");
       sheet?.classList.remove("detail-sheet");
       sheet?.classList.remove("comments-sheet");
+      activeSheetType = "";
+    }
+
+    function contextDestination() {
+      if (currentShortIndex === 1) return "27-eat-order-food.html?from=short";
+      if (currentShortIndex === 2) return "134-earn-applications-eligibility.html?from=short";
+      return "11-buy-product-detail.html?from=short";
+    }
+
+    function updateSheetOutcome(message, button) {
+      if (sheetNote) sheetNote.textContent = message;
+      if (button) {
+        button.classList.add("active");
+        button.setAttribute("aria-pressed", "true");
+      }
+    }
+
+    function runSheetAction(button) {
+      const label = button.dataset.actionLabel || "Action";
+      const value = button.dataset.actionValue || "";
+
+      if (activeSheetType === "creator") {
+        if (label === "Follow") {
+          followed = true;
+          followButton?.classList.add("active");
+          const followLabel = followButton?.querySelector("small");
+          if (followLabel) followLabel.textContent = "Following";
+          updateSheetOutcome("You are now following this creator. New shorts will appear in Following.", button);
+          return;
+        }
+        if (label === "Message") {
+          window.location.href = "23-chat-inbox-home.html?from=shorts&compose=creator";
+          return;
+        }
+        if (label === "More shorts") {
+          closeSheet();
+          nextShort();
+          return;
+        }
+        if (label === "Report") {
+          renderSheet({ title: "Report creator", note: "Choose the concern that best describes this account.", items: [["Spam", "Report"], ["Unsafe content", "Report"], ["False identity", "Report"], ["Cancel", "Back"]] }, "report");
+          return;
+        }
+        updateSheetOutcome(`${label} is open with verified creator identity, public work and attribution.`, button);
+        return;
+      }
+
+      if (activeSheetType === "create") {
+        const step = label === "Record" ? "record" : label === "Drafts" ? "drafts" : label === "Audio" ? "audio" : "upload";
+        window.location.href = `08-social-create.html?mode=short&step=${encodeURIComponent(step)}`;
+        return;
+      }
+
+      if (activeSheetType === "context" || activeSheetType === "details") {
+        if (label === "Open" || label === "Payment") {
+          window.location.href = contextDestination();
+          return;
+        }
+        updateSheetOutcome(`${label}: ${value}. This information is confirmed for the active short.`, button);
+        return;
+      }
+
+      if (activeSheetType === "share") {
+        if (label === "Chat" || label === "Group") {
+          window.location.href = "23-chat-inbox-home.html?from=short-share&compose=1";
+          return;
+        }
+        if (label === "Status") {
+          window.location.href = "08-social-create.html?mode=text&shared=short";
+          return;
+        }
+        if (label === "Copy" || label === "Embed") {
+          navigator.clipboard?.writeText(window.location.href).catch(() => {});
+          updateSheetOutcome(label === "Copy" ? "Short link copied with creator attribution." : "Embed link copied with creator attribution.", button);
+          return;
+        }
+        updateSheetOutcome("A share-ready QR code is open for this short.", button);
+        return;
+      }
+
+      if (activeSheetType === "remix") {
+        if (label === "Permission") {
+          button.classList.toggle("active");
+          const enabled = button.classList.contains("active");
+          updateSheetOutcome(`Remix permission is ${enabled ? "on" : "off"} for your draft.`, button);
+          return;
+        }
+        window.location.href = `08-social-create.html?mode=short&remix=${encodeURIComponent(label.toLowerCase())}`;
+        return;
+      }
+
+      if (activeSheetType === "more") {
+        if (label === "Not interested") {
+          closeSheet();
+          nextShort();
+          return;
+        }
+        if (label === "Report") {
+          renderSheet({ title: "Report short", note: "Choose a reason. Your report is private.", items: [["Spam", "Report"], ["Unsafe", "Report"], ["Misleading", "Report"], ["Cancel", "Back"]] }, "report");
+          return;
+        }
+        updateSheetOutcome(label === "Mute" ? "This creator is muted. Their shorts will no longer autoplay in your feed." : `${label} setting updated for this short.`, button);
+        return;
+      }
+
+      if (activeSheetType === "report") {
+        if (label === "Cancel") {
+          closeSheet();
+          return;
+        }
+        sheetTitle.textContent = "Report received";
+        sheetGrid.innerHTML = "";
+        sheetNote.textContent = "Thank you. The safety team will review the selected content and protect your identity.";
+        return;
+      }
+
+      if (activeSheetType === "search") {
+        updateSheetOutcome(`${label} results are shown for ${value.toLowerCase()} discovery.`, button);
+        return;
+      }
+
+      updateSheetOutcome(`${label}: ${value}.`, button);
     }
 
     function wakeChrome() {
@@ -1865,6 +2013,29 @@
     });
 
     document.querySelector("[data-close-sheet]")?.addEventListener("click", closeSheet);
+
+    sheetGrid?.addEventListener("click", (event) => {
+      const sheetAction = event.target.closest("[data-sheet-action]");
+      if (sheetAction) {
+        runSheetAction(sheetAction);
+        return;
+      }
+      const commentAction = event.target.closest("[data-comment-action]");
+      if (!commentAction) return;
+      const action = commentAction.dataset.commentAction;
+      if (action === "like") {
+        commentAction.classList.toggle("active");
+        commentAction.textContent = commentAction.classList.contains("active") ? "Liked" : "Like";
+        return;
+      }
+      if (action === "reply") {
+        sheetGrid.querySelector("[data-comment-input]")?.focus();
+        sheetNote.textContent = "Write your reply. It will appear below the selected comment after posting.";
+        return;
+      }
+      commentAction.textContent = "Translated";
+      sheetNote.textContent = "This comment is now shown in your preferred language.";
+    });
 
     shortDetailButtons.forEach((button) => {
       button.addEventListener("click", () => {
