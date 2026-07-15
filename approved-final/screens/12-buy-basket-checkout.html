@@ -908,7 +908,7 @@
                 <div class="decision-row">
                   <div class="decision-chip">
                     <b id="decisionAmount">Est. Rs 645</b>
-                    <span id="decisionAmountMeta">estimate before stock check</span>
+                    <span id="decisionAmountMeta">available now at this price</span>
                   </div>
                   <div class="decision-chip">
                     <b id="decisionFulfil">Pickup 8 min</b>
@@ -920,8 +920,8 @@
                   </div>
                 </div>
                 <div class="stock-assurance">
-                  <b>Shop lock</b>
-                  <span id="stockAssuranceText">Retailer must confirm stock before payment. No confirmation means no payment.</span>
+                  <b>Availability guarantee</b>
+                  <span id="stockAssuranceText">Items and prices are checked automatically. You pay only for the basket shown.</span>
                 </div>
               </section>
 
@@ -1004,26 +1004,26 @@
 
               <section class="panel-card">
                 <div class="panel-head">
-                  <b>Retailer stock lock</b>
-                  <span id="stockHint">payment waits for stock</span>
+                  <b>Availability and replacements</b>
+                  <span id="stockHint">checked automatically</span>
                 </div>
                 <div class="stock-card">
                   <div class="stock-status">
-                    <b class="stock-badge" id="stockBadge">Recheck</b>
-                    <span id="stockStatusText">Mahadev must confirm every item before payment. If not confirmed, checkout cannot continue.</span>
+                    <b class="stock-badge" id="stockBadge">Available</b>
+                    <span id="stockStatusText">All three items are available at the prices shown. Your basket is held while you review and pay.</span>
                   </div>
-                  <div class="retailer-lock-grid" aria-label="Retailer stock accountability">
+                  <div class="retailer-lock-grid" aria-label="Basket availability protection">
                     <div class="retailer-lock">
-                      <b>Confirm SLA</b>
-                      <span>shop must respond</span>
+                      <b>Live check</b>
+                      <span>items available now</span>
                     </div>
                     <div class="retailer-lock">
-                      <b>Mismatch Log</b>
-                      <span>stock miss recorded</span>
+                      <b>Price held</b>
+                      <span>no change at payment</span>
                     </div>
                     <div class="retailer-lock">
-                      <b>Trust Score</b>
-                      <span>visibility affected</span>
+                      <b>Protected</b>
+                      <span>refund if unavailable</span>
                     </div>
                   </div>
                   <div class="unavailable-grid" aria-label="If item is unavailable">
@@ -1032,8 +1032,8 @@
                       <span>ask before any change</span>
                     </button>
                     <button class="rule-btn active" type="button" data-unavailable-rule="approve">
-                      <b>Approve Replace</b>
-                      <span>show substitute first</span>
+                      <b>Allow Substitute</b>
+                      <span>ask me before replacing</span>
                     </button>
                     <button class="rule-btn" type="button" data-unavailable-rule="remove">
                       <b>Remove Item</b>
@@ -1063,9 +1063,9 @@
                   <span>before payment</span>
                 </div>
                 <div class="proof-row">
-                  <span class="proof-pill">Retailer stock lock</span>
-                  <span class="proof-pill">No confirm, no pay</span>
-                  <span class="proof-pill">Mismatch logged</span>
+                  <span class="proof-pill">Live availability</span>
+                  <span class="proof-pill">Price guaranteed</span>
+                  <span class="proof-pill">No unavailable charge</span>
                   <span class="proof-pill">Shop bill</span>
                   <span class="proof-pill">Refund rule</span>
                   <span class="proof-pill">Order chat</span>
@@ -1076,9 +1076,9 @@
             <div class="checkout-bar">
               <div class="checkout-copy">
                 <b id="checkoutTotal">Est. Rs 645</b>
-                <span id="checkoutMeta">Stock check before pay · 3 items</span>
+                <span id="checkoutMeta">Pickup 8 min · 3 items available</span>
               </div>
-              <button class="checkout-btn" type="button" id="checkoutBtn">Confirm Stock First</button>
+              <button class="checkout-btn" type="button" id="checkoutBtn" data-native-interaction>Review &amp; Pay</button>
             </div>
 
             <nav class="bottom-dock" aria-label="Basket navigation">
@@ -1101,7 +1101,7 @@
                   Offers
                 </a>
               </div>
-              <a class="chat-button" href="03-login-account-handoff.html" aria-label="Open chat">
+              <a class="chat-button" href="23-chat-inbox-home.html?from=basket" aria-label="Open chat">
                 <svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z" /></svg>
                 <span class="chat-count">2</span>
               </a>
@@ -1122,15 +1122,15 @@
             <div class="ms-section-head">Screen Contract <span>Approved</span></div>
             <div class="state-grid">
               <div class="state-cell"><b>Entry</b>After Add Basket from Screen 11 or View Basket from Screen 09/10.</div>
-              <div class="state-cell"><b>User Sees</b>Shop basket, estimated total, fulfilment, retailer stock lock and fallback rule.</div>
-              <div class="state-cell"><b>Decision</b>User chooses pickup/delivery/schedule and fallback rule, then asks retailer to confirm stock.</div>
+              <div class="state-cell"><b>User Sees</b>Shop basket, final total, fulfilment, live availability and replacement choice.</div>
+              <div class="state-cell"><b>Decision</b>User chooses pickup, delivery or schedule, chooses a replacement rule, then reviews payment.</div>
 
-              <div class="state-cell"><b>Backend</b>Block payment until retailer confirms stock, price, offer, ETA and fulfilment lock.</div>
-              <div class="state-cell"><b>Retailer Duty</b>Stock miss is logged; repeated mismatch lowers visibility or disables the item until updated.</div>
-              <div class="state-cell"><b>Counter Use</b>QR shop user pays only after retailer locks available quantity for counter pickup.</div>
+              <div class="state-cell"><b>Backend</b>Validate inventory, price, offer, ETA and fulfilment automatically before presenting payment.</div>
+              <div class="state-cell"><b>Retailer Duty</b>Inventory changes update availability; a later mismatch triggers replacement, reassignment or refund protection.</div>
+              <div class="state-cell"><b>Counter Use</b>Counter pickup reserves the available quantity during the payment window.</div>
 
-              <div class="state-cell"><b>Next</b>Confirm Stock First locks availability. Only then Proceed to Pay goes to Screen 13.</div>
-              <div class="state-cell"><b>Trust</b>No silent replacement, no charge before confirmation, no reward for wrong stock.</div>
+              <div class="state-cell"><b>Next</b>Review &amp; Pay opens the final order total and payment method on Screen 14.</div>
+              <div class="state-cell"><b>Trust</b>No silent replacement, no unavailable-item charge and no customer-facing retailer wait.</div>
               <div class="state-cell"><b>Dock</b>Mool, Shop, Browse, Basket, Offers and Chat remain one tap accessible.</div>
             </div>
           </div>
@@ -1146,9 +1146,10 @@
       price: Number(node.dataset.price || 0),
       qty: 1
     }));
-    let selectedFulfil = "pickup";
+    const requestedFulfil = new URLSearchParams(window.location.search).get("fulfilment");
+    let selectedFulfil = ["pickup", "delivery", "schedule"].includes(requestedFulfil) ? requestedFulfil : "pickup";
     let unavailableRule = "approve";
-    let stockConfirmed = false;
+    let stockConfirmed = true;
     const fulfilCopy = {
       pickup: ["Pickup 8 min", "Pickup 8 min · Mahadev", 0],
       delivery: ["Deliver 22 min", "Deliver 22 min · Mahadev", 25],
@@ -1156,9 +1157,9 @@
     };
 
     const unavailableCopy = {
-      call: "Retailer must confirm stock. If any item is unavailable, shop must call before changing basket.",
-      approve: "Retailer must confirm stock. Any substitute is shown first and needs your approval.",
-      remove: "Retailer must confirm stock. Unavailable items are removed and not charged."
+      call: "If availability changes before payment, the shop calls you before changing the basket.",
+      approve: "Any substitute is shown with its price first and requires your approval.",
+      remove: "An unavailable item is removed automatically and is never charged."
     };
 
     function rupees(value) {
@@ -1182,32 +1183,32 @@
 
       const total = totals();
       document.getElementById("basketQty").textContent = total.qty;
-      document.getElementById("decisionAmount").textContent = stockConfirmed ? rupees(total.payable) : `Est. ${rupees(total.payable)}`;
+      document.getElementById("decisionAmount").textContent = rupees(total.payable);
       document.getElementById("decisionFulfil").textContent = fulfilCopy[selectedFulfil][0];
       document.getElementById("decisionSaving").textContent = `${rupees(total.saving)} saved`;
       document.getElementById("itemsTotal").textContent = rupees(total.itemTotal);
       document.getElementById("savingTotal").textContent = `- ${rupees(total.saving)}`;
       document.getElementById("feeLabel").textContent = selectedFulfil === "delivery" ? "Delivery charge" : selectedFulfil === "schedule" ? "Schedule charge" : "Pickup charge";
       document.getElementById("feeValue").textContent = rupees(total.fee);
-      document.getElementById("payableLabel").textContent = stockConfirmed ? "To pay" : "Estimated total";
-      document.getElementById("payableTotal").textContent = stockConfirmed ? rupees(total.payable) : `Est. ${rupees(total.payable)}`;
-      document.getElementById("checkoutTotal").textContent = stockConfirmed ? rupees(total.payable) : `Est. ${rupees(total.payable)}`;
-      document.getElementById("checkoutMeta").textContent = stockConfirmed ? `${fulfilCopy[selectedFulfil][1]} · retailer stock locked` : `Retailer stock lock before pay · ${total.qty} items`;
-      document.getElementById("checkoutBtn").textContent = stockConfirmed ? "Proceed to Pay" : "Confirm Stock First";
-      document.getElementById("stockBadge").textContent = stockConfirmed ? "Confirmed" : "Recheck";
-      document.getElementById("decisionAmountMeta").textContent = stockConfirmed ? "confirmed available basket" : "estimate before stock check";
-      document.getElementById("stockHint").textContent = stockConfirmed ? "stock confirmed" : (unavailableRule === "remove" ? "remove unavailable" : unavailableRule === "call" ? "call before change" : "approval required");
-      document.getElementById("stockStatusText").textContent = stockConfirmed ? "Mahadev confirmed available quantity. Payment will charge only confirmed items." : unavailableCopy[unavailableRule];
-      document.getElementById("stockAssuranceText").textContent = stockConfirmed ? "Retailer stock locked. Payment will charge only confirmed items." : "Retailer must confirm stock before payment. No confirmation means no payment.";
-      document.getElementById("heroTitle").textContent = total.qty ? (stockConfirmed ? "Confirmed basket at Mahadev" : "Basket estimate at Mahadev") : "Basket is empty";
-      document.getElementById("heroSubtitle").textContent = total.qty ? (stockConfirmed ? "Retailer confirmed stock. Proceed to payment only for available items." : "Retailer must lock stock before payment. Pay only after confirmation.") : "Add items from this shop to continue.";
+      document.getElementById("payableLabel").textContent = "To pay";
+      document.getElementById("payableTotal").textContent = rupees(total.payable);
+      document.getElementById("checkoutTotal").textContent = rupees(total.payable);
+      document.getElementById("checkoutMeta").textContent = `${fulfilCopy[selectedFulfil][1]} · ${total.qty} items available`;
+      document.getElementById("checkoutBtn").textContent = "Review & Pay";
+      document.getElementById("stockBadge").textContent = "Available";
+      document.getElementById("decisionAmountMeta").textContent = "available now at this price";
+      document.getElementById("stockHint").textContent = unavailableRule === "remove" ? "remove unavailable" : unavailableRule === "call" ? "call before change" : "ask before substitute";
+      document.getElementById("stockStatusText").textContent = unavailableCopy[unavailableRule];
+      document.getElementById("stockAssuranceText").textContent = "Items and prices are checked automatically. You pay only for the basket shown.";
+      document.getElementById("heroTitle").textContent = total.qty ? "Basket ready at Mahadev" : "Basket is empty";
+      document.getElementById("heroSubtitle").textContent = total.qty ? "Items are available now. Review fulfilment and pay the final amount shown." : "Add items from this shop to continue.";
       app.dataset.ready = total.qty ? "yes" : "no";
     }
 
     document.querySelectorAll("[data-fulfil]").forEach((button) => {
       button.addEventListener("click", () => {
         selectedFulfil = button.dataset.fulfil;
-        stockConfirmed = false;
+        stockConfirmed = true;
         document.querySelectorAll("[data-fulfil]").forEach((node) => node.classList.toggle("active", node === button));
         document.getElementById("fulfilHint").textContent = `${fulfilCopy[selectedFulfil][0]} selected`;
         render();
@@ -1218,7 +1219,7 @@
       button.addEventListener("click", () => {
         const item = items.find((entry) => entry.node.contains(button));
         if (!item) return;
-        stockConfirmed = false;
+        stockConfirmed = true;
         if (button.dataset.qty === "plus") item.qty += 1;
         if (button.dataset.qty === "minus") item.qty = Math.max(0, item.qty - 1);
         render();
@@ -1229,30 +1230,24 @@
       button.addEventListener("click", () => {
         unavailableRule = button.dataset.unavailableRule;
         document.querySelectorAll("[data-unavailable-rule]").forEach((node) => node.classList.toggle("active", node === button));
-        document.getElementById("stockHint").textContent = unavailableRule === "remove" ? "remove unavailable" : unavailableRule === "call" ? "call before change" : "approval required";
+        document.getElementById("stockHint").textContent = unavailableRule === "remove" ? "remove unavailable" : unavailableRule === "call" ? "call before change" : "ask before substitute";
         render();
       });
     });
 
     document.getElementById("checkoutBtn").addEventListener("click", () => {
       const total = totals();
-      const button = document.getElementById("checkoutBtn");
       if (!total.qty) return;
-      if (!stockConfirmed) {
-        button.textContent = "Asking Retailer...";
-        document.getElementById("stockBadge").textContent = "Checking";
-        document.getElementById("stockStatusText").textContent = "Waiting for Mahadev to lock stock and price. If the retailer does not confirm, payment will not open.";
-        document.getElementById("checkoutMeta").textContent = "No charge until retailer confirms";
-        setTimeout(() => {
-          stockConfirmed = true;
-          render();
-        }, 450);
-        return;
-      }
-      button.textContent = "Opening Payment...";
-      document.getElementById("checkoutMeta").textContent = "Payment screen next";
+      const target = new URL("14-customer-payment-order-confirmation.html", window.location.href);
+      target.searchParams.set("fulfilment", selectedFulfil);
+      target.searchParams.set("amount", String(total.payable));
+      target.searchParams.set("items", String(total.qty));
+      target.searchParams.set("replacement", unavailableRule);
+      window.location.href = target.href;
     });
 
+    document.querySelectorAll("[data-fulfil]").forEach((node) => node.classList.toggle("active", node.dataset.fulfil === selectedFulfil));
+    document.getElementById("fulfilHint").textContent = `${fulfilCopy[selectedFulfil][0]} selected`;
     render();
   </script>
 <script type="application/json" id="productionRouteContract">{"contractVersion":"mvp-route-lock-2026-07-12","prototypeScreen":12,"productionModule":"commerce","routeId":"commerce.cart","routePath":"/buy/cart","routeState":"basket-checkout","implementation":"route-shell","launchScope":"mvp-core","separateProductionRoute":true,"productionNote":"Own production route /buy/cart. Implement basket-checkout as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.","canonicalMap":"architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"}</script><script type="application/json" id="prototypeApprovalContract">{"prototypeScreen":12,"status":"approved-and-frozen","authoritative":true,"approvedAt":"2026-07-12","approvalScope":"prototype-ui-ux-and-production-contract"}</script>  <script src="../shared/prototype-interaction-contracts.js?v=intent-completion-20260714b"></script>

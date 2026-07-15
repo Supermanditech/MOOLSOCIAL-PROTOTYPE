@@ -13,6 +13,7 @@ $paths = [ordered]@{
   semanticMobileAudit = Join-Path $Root 'quality\generated\semantic-mobile-user-flow-final.json'
   intentCompletionAudit = Join-Path $Root 'quality\generated\intent-completion-audit.json'
   intentCompletionReplay = Join-Path $Root 'quality\generated\intent-completion-resolved-replay.json'
+  productionReadinessAudit = Join-Path $Root 'quality\generated\production-readiness-audit.json'
 }
 
 $blockers = [System.Collections.Generic.List[string]]::new()
@@ -38,6 +39,7 @@ $mobile = Read-RequiredJson 'final mobile user-flow audit' $paths.finalMobileAud
 $semantic = Read-RequiredJson 'semantic mobile user-flow audit' $paths.semanticMobileAudit
 $intent = Read-RequiredJson 'intent completion audit' $paths.intentCompletionAudit
 $intentReplay = Read-RequiredJson 'intent completion resolved replay' $paths.intentCompletionReplay
+$productionReadiness = Read-RequiredJson 'production readiness screenwise audit' $paths.productionReadinessAudit
 
 if ($static -and $static.status -ne 'passed') {
   $blockers.Add('Static route, asset or contract audit has not passed.')
@@ -117,6 +119,15 @@ if ($intentReplay) {
   }
 }
 
+if ($productionReadiness) {
+  if ($productionReadiness.summary.status -ne 'passed' -or [int]$productionReadiness.summary.p0 -ne 0 -or [int]$productionReadiness.summary.p1 -ne 0) {
+    $blockers.Add('Production readiness audit contains unresolved screen, wording or high-intent findings.')
+  }
+  if ([int]$productionReadiness.summary.screensChecked -ne [int]$flows.approvedScreenCount) {
+    $blockers.Add('Production readiness audit does not cover every approved screen.')
+  }
+}
+
 $result = [ordered]@{
   generatedAt = (Get-Date).ToString('o')
   status = if ($blockers.Count -eq 0) { 'ready' } else { 'blocked' }
@@ -127,6 +138,7 @@ $result = [ordered]@{
   strictInteractions = if ($tap) { [int]$tap.summary.tested } else { 0 }
   highIntentControls = if ($intent) { [int]$intent.summary.highIntentControlsChecked } else { 0 }
   curatedIntentOutcomes = if ($intentReplay) { [int]$intentReplay.summary.passed } else { 0 }
+  productionReadyScreens = if ($productionReadiness) { [int]$productionReadiness.summary.screensPassed } else { 0 }
   openInteractions = if ($backlog) { [int]$backlog.summary.total } else { -1 }
   blockers = @($blockers)
   rule = 'Do not give the user a final mobile app testing link until this gate returns ready.'

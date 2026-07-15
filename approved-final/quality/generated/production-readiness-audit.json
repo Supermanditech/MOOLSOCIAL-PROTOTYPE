@@ -1,0 +1,1681 @@
+{
+  "version": "production-readiness-audit-2026-07-15",
+  "rule": "Every user-facing tap must reach a concrete route, meaningful native state, governed handoff or terminal outcome, and phone-facing copy must not expose implementation or retailer-internal uncertainty.",
+  "summary": {
+    "generatedAt": "2026-07-15T11:07:23.6159487+05:30",
+    "status": "passed",
+    "screensChecked": 166,
+    "screensPassed": 166,
+    "screensNeedingCorrection": 0,
+    "controlsChecked": 3191,
+    "highIntentControls": 497.0,
+    "p0": 0,
+    "p1": 0,
+    "genericHighIntentOutcomes": 0,
+    "customerStockConfirmationLanguage": 0,
+    "internalUserFacingLanguage": 0
+  },
+  "screens": [
+    {
+      "screen": 0,
+      "file": "00-install-app.html",
+      "module": "distribution",
+      "controls": 2,
+      "highIntentControls": 1,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 1,
+      "file": "01-app-splash-first-open.html",
+      "module": "launch",
+      "controls": 1,
+      "highIntentControls": 0,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 2,
+      "file": "02-first-setup-language-location.html",
+      "module": "onboarding",
+      "controls": 4,
+      "highIntentControls": 1,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 3,
+      "file": "03-login-account-handoff.html",
+      "module": "identity",
+      "controls": 9,
+      "highIntentControls": 8,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 4,
+      "file": "04-universal-focus-shell.html",
+      "module": "universal",
+      "controls": 47,
+      "highIntentControls": 7,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 5,
+      "file": "05-social-shorts.html",
+      "module": "social",
+      "controls": 27,
+      "highIntentControls": 3,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 6,
+      "file": "06-social-videos.html",
+      "module": "social",
+      "controls": 30,
+      "highIntentControls": 3,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 7,
+      "file": "07-social-feed.html",
+      "module": "social",
+      "controls": 40,
+      "highIntentControls": 5,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 8,
+      "file": "08-social-create.html",
+      "module": "social",
+      "controls": 35,
+      "highIntentControls": 5,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 9,
+      "file": "09-buy.html",
+      "module": "commerce",
+      "controls": 29,
+      "highIntentControls": 8,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 10,
+      "file": "10-buy-grocery-decision.html",
+      "module": "commerce",
+      "controls": 43,
+      "highIntentControls": 8,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 11,
+      "file": "11-buy-product-detail.html",
+      "module": "commerce",
+      "controls": 28,
+      "highIntentControls": 8,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 12,
+      "file": "12-buy-basket-checkout.html",
+      "module": "commerce",
+      "controls": 22,
+      "highIntentControls": 6,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 13,
+      "file": "13-retailer-stock-confirmation.html",
+      "module": "retailer",
+      "controls": 19,
+      "highIntentControls": 2,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 14,
+      "file": "14-customer-payment-order-confirmation.html",
+      "module": "orders",
+      "controls": 14,
+      "highIntentControls": 3,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 15,
+      "file": "15-counter-ready-receipt.html",
+      "module": "orders",
+      "controls": 14,
+      "highIntentControls": 0,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 16,
+      "file": "16-order-completed-bill-rating.html",
+      "module": "orders",
+      "controls": 30,
+      "highIntentControls": 2,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 17,
+      "file": "17-home-delivery-tracking.html",
+      "module": "orders",
+      "controls": 19,
+      "highIntentControls": 0,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 18,
+      "file": "18-home-delivery-completed-bill-rating.html",
+      "module": "orders",
+      "controls": 38,
+      "highIntentControls": 7,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 19,
+      "file": "19-order-issue-refund-evidence.html",
+      "module": "orders",
+      "controls": 26,
+      "highIntentControls": 4,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 20,
+      "file": "20-issue-review-status-retailer-response.html",
+      "module": "orders",
+      "controls": 16,
+      "highIntentControls": 2,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 21,
+      "file": "21-issue-result-refund-replacement.html",
+      "module": "orders",
+      "controls": 15,
+      "highIntentControls": 2,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 22,
+      "file": "22-chat-order-support-thread.html",
+      "module": "chat",
+      "controls": 37,
+      "highIntentControls": 3,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 23,
+      "file": "23-chat-inbox-home.html",
+      "module": "chat",
+      "controls": 24,
+      "highIntentControls": 4,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 24,
+      "file": "24-chat-business-thread.html",
+      "module": "chat",
+      "controls": 27,
+      "highIntentControls": 7,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 25,
+      "file": "25-chat-people-thread.html",
+      "module": "chat",
+      "controls": 25,
+      "highIntentControls": 5,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 26,
+      "file": "26-eat.html",
+      "module": "eat",
+      "controls": 26,
+      "highIntentControls": 8,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 27,
+      "file": "27-eat-order-food.html",
+      "module": "eat",
+      "controls": 29,
+      "highIntentControls": 7,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 28,
+      "file": "28-eat-book-table.html",
+      "module": "eat",
+      "controls": 33,
+      "highIntentControls": 4,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 29,
+      "file": "29-eat-tiffin.html",
+      "module": "eat",
+      "controls": 32,
+      "highIntentControls": 6,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 30,
+      "file": "30-ride.html",
+      "module": "ride",
+      "controls": 17,
+      "highIntentControls": 1,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 31,
+      "file": "31-ride-accepted-captain-arriving.html",
+      "module": "ride",
+      "controls": 18,
+      "highIntentControls": 1,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 32,
+      "file": "32-ride-live-trip.html",
+      "module": "ride",
+      "controls": 21,
+      "highIntentControls": 1,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 33,
+      "file": "33-ride-payment-approval.html",
+      "module": "ride",
+      "controls": 17,
+      "highIntentControls": 5,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 34,
+      "file": "34-ride-receipt-rating.html",
+      "module": "ride",
+      "controls": 25,
+      "highIntentControls": 2,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 35,
+      "file": "35-ride-post-trip-support.html",
+      "module": "ride",
+      "controls": 23,
+      "highIntentControls": 1,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 36,
+      "file": "36-book.html",
+      "module": "booking",
+      "controls": 20,
+      "highIntentControls": 1,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 37,
+      "file": "37-book-doctor-appointment.html",
+      "module": "health",
+      "controls": 26,
+      "highIntentControls": 1,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 38,
+      "file": "38-book-patient-details-reports.html",
+      "module": "health",
+      "controls": 29,
+      "highIntentControls": 5,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 39,
+      "file": "39-doctor-patient-invite-followup.html",
+      "module": "health",
+      "controls": 29,
+      "highIntentControls": 2,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 40,
+      "file": "40-patient-clinic-invite-join.html",
+      "module": "health",
+      "controls": 29,
+      "highIntentControls": 6,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 41,
+      "file": "41-patient-followup-workspace.html",
+      "module": "health",
+      "controls": 29,
+      "highIntentControls": 3,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 42,
+      "file": "42-book-salon-appointment.html",
+      "module": "salon",
+      "controls": 26,
+      "highIntentControls": 2,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 43,
+      "file": "43-salon-booking-confirm.html",
+      "module": "salon",
+      "controls": 22,
+      "highIntentControls": 6,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 44,
+      "file": "44-salon-booking-confirmed.html",
+      "module": "salon",
+      "controls": 20,
+      "highIntentControls": 3,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 45,
+      "file": "45-salon-visit-check-in.html",
+      "module": "salon",
+      "controls": 20,
+      "highIntentControls": 4,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 46,
+      "file": "46-salon-service-payment-rating.html",
+      "module": "salon",
+      "controls": 20,
+      "highIntentControls": 7,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 47,
+      "file": "47-salon-post-visit-support.html",
+      "module": "salon",
+      "controls": 20,
+      "highIntentControls": 3,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 48,
+      "file": "48-book-get-it-done.html",
+      "module": "tasks",
+      "controls": 31,
+      "highIntentControls": 5,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 49,
+      "file": "49-get-it-done-review-payment.html",
+      "module": "tasks",
+      "controls": 16,
+      "highIntentControls": 2,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 50,
+      "file": "50-get-it-done-helper-accepted.html",
+      "module": "tasks",
+      "controls": 16,
+      "highIntentControls": 2,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 51,
+      "file": "51-get-it-done-proof-release.html",
+      "module": "tasks",
+      "controls": 16,
+      "highIntentControls": 5,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 52,
+      "file": "52-get-it-done-completed-rating.html",
+      "module": "tasks",
+      "controls": 22,
+      "highIntentControls": 5,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 53,
+      "file": "53-get-it-done-issue-support.html",
+      "module": "tasks",
+      "controls": 19,
+      "highIntentControls": 3,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 54,
+      "file": "54-get-it-done-issue-case-status.html",
+      "module": "tasks",
+      "controls": 19,
+      "highIntentControls": 3,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 55,
+      "file": "55-get-it-done-issue-resolution.html",
+      "module": "tasks",
+      "controls": 19,
+      "highIntentControls": 6,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 56,
+      "file": "56-get-it-done-resolution-complete.html",
+      "module": "tasks",
+      "controls": 19,
+      "highIntentControls": 4,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 57,
+      "file": "57-pay.html",
+      "module": "pay",
+      "controls": 21,
+      "highIntentControls": 1,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 58,
+      "file": "58-pay-recharge.html",
+      "module": "pay",
+      "controls": 21,
+      "highIntentControls": 1,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 59,
+      "file": "59-pay-bills.html",
+      "module": "pay",
+      "controls": 21,
+      "highIntentControls": 1,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 60,
+      "file": "60-pay-scan.html",
+      "module": "pay",
+      "controls": 21,
+      "highIntentControls": 1,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 61,
+      "file": "61-pay-requests.html",
+      "module": "pay",
+      "controls": 20,
+      "highIntentControls": 3,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 62,
+      "file": "62-pay-request-confirmation.html",
+      "module": "pay",
+      "controls": 17,
+      "highIntentControls": 4,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 63,
+      "file": "63-pay-processing-receipt.html",
+      "module": "pay",
+      "controls": 13,
+      "highIntentControls": 2,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 64,
+      "file": "64-pay-receipts-history.html",
+      "module": "pay",
+      "controls": 15,
+      "highIntentControls": 3,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 65,
+      "file": "65-pay-pending-refund-status.html",
+      "module": "pay",
+      "controls": 13,
+      "highIntentControls": 1,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 66,
+      "file": "66-pay-failed-reversal-safe-retry.html",
+      "module": "pay",
+      "controls": 13,
+      "highIntentControls": 1,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 67,
+      "file": "67-work.html",
+      "module": "work",
+      "controls": 19,
+      "highIntentControls": 0,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 68,
+      "file": "68-work-opportunity-terms-apply.html",
+      "module": "work",
+      "controls": 9,
+      "highIntentControls": 1,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 69,
+      "file": "69-my-work-setup.html",
+      "module": "work",
+      "controls": 8,
+      "highIntentControls": 1,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 70,
+      "file": "70-my-work-choose-activity.html",
+      "module": "work",
+      "controls": 14,
+      "highIntentControls": 1,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 71,
+      "file": "71-work-profile-proof.html",
+      "module": "work",
+      "controls": 10,
+      "highIntentControls": 1,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 72,
+      "file": "72-my-work-verification-status.html",
+      "module": "work",
+      "controls": 10,
+      "highIntentControls": 1,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 73,
+      "file": "73-workspace-ready-handoff.html",
+      "module": "work",
+      "controls": 7,
+      "highIntentControls": 0,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 74,
+      "file": "74-retail-products-stock-setup.html",
+      "module": "retailer",
+      "controls": 29,
+      "highIntentControls": 9,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 75,
+      "file": "75-retailer-order-review-fulfilment.html",
+      "module": "retailer",
+      "controls": 13,
+      "highIntentControls": 4,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 76,
+      "file": "76-retailer-delivery-assignment-handover.html",
+      "module": "retailer",
+      "controls": 12,
+      "highIntentControls": 3,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 77,
+      "file": "77-retailer-delivery-tracking-completion.html",
+      "module": "retailer",
+      "controls": 12,
+      "highIntentControls": 2,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 78,
+      "file": "78-retailer-create-order.html",
+      "module": "retailer",
+      "controls": 29,
+      "highIntentControls": 9,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 79,
+      "file": "79-retailer-counter-management.html",
+      "module": "retailer",
+      "controls": 15,
+      "highIntentControls": 5,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 80,
+      "file": "80-retailer-counter-sale-invoice.html",
+      "module": "retailer",
+      "controls": 14,
+      "highIntentControls": 5,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 81,
+      "file": "81-retailer-wholesale-buy-catalog.html",
+      "module": "retailer",
+      "controls": 26,
+      "highIntentControls": 6,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 82,
+      "file": "82-retailer-wholesale-cart-purchase-order.html",
+      "module": "retailer",
+      "controls": 16,
+      "highIntentControls": 5,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 83,
+      "file": "83-retailer-wholesale-order-confirmed.html",
+      "module": "retailer",
+      "controls": 12,
+      "highIntentControls": 4,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 84,
+      "file": "84-retailer-wholesale-delivery-tracking.html",
+      "module": "retailer",
+      "controls": 13,
+      "highIntentControls": 3,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 85,
+      "file": "85-retailer-wholesale-goods-receipt.html",
+      "module": "retailer",
+      "controls": 10,
+      "highIntentControls": 2,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 86,
+      "file": "86-retailer-wholesale-receipt-result.html",
+      "module": "retailer",
+      "controls": 14,
+      "highIntentControls": 3,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 87,
+      "file": "87-retailer-purchase-book.html",
+      "module": "retailer",
+      "controls": 22,
+      "highIntentControls": 4,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 88,
+      "file": "88-retailer-supplier-bill-payment.html",
+      "module": "retailer",
+      "controls": 14,
+      "highIntentControls": 3,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 89,
+      "file": "89-retailer-supplier-payment-status.html",
+      "module": "retailer",
+      "controls": 10,
+      "highIntentControls": 1,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 90,
+      "file": "90-retailer-sales-book.html",
+      "module": "retailer",
+      "controls": 24,
+      "highIntentControls": 8,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 91,
+      "file": "91-retailer-stock-statement.html",
+      "module": "retailer",
+      "controls": 26,
+      "highIntentControls": 4,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 92,
+      "file": "92-retailer-business-book-home.html",
+      "module": "retailer",
+      "controls": 15,
+      "highIntentControls": 3,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 93,
+      "file": "93-retailer-business-services.html",
+      "module": "retailer",
+      "controls": 11,
+      "highIntentControls": 3,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 94,
+      "file": "94-retailer-business-service-plan.html",
+      "module": "retailer",
+      "controls": 13,
+      "highIntentControls": 2,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 95,
+      "file": "95-retailer-business-service-activation.html",
+      "module": "retailer",
+      "controls": 12,
+      "highIntentControls": 3,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 96,
+      "file": "96-retailer-business-service-active.html",
+      "module": "retailer",
+      "controls": 13,
+      "highIntentControls": 1,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 97,
+      "file": "97-retailer-customers-loyalty.html",
+      "module": "retailer",
+      "controls": 22,
+      "highIntentControls": 3,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 98,
+      "file": "98-retailer-customer-detail-retention.html",
+      "module": "retailer",
+      "controls": 16,
+      "highIntentControls": 4,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 99,
+      "file": "99-retailer-offers-campaigns.html",
+      "module": "retailer",
+      "controls": 25,
+      "highIntentControls": 3,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 100,
+      "file": "100-retailer-offer-campaign-builder.html",
+      "module": "retailer",
+      "controls": 20,
+      "highIntentControls": 3,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 101,
+      "file": "101-retailer-slow-stock-liquidation.html",
+      "module": "retailer",
+      "controls": 18,
+      "highIntentControls": 4,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 102,
+      "file": "102-retailer-ai-operating-assistant.html",
+      "module": "retailer",
+      "controls": 20,
+      "highIntentControls": 1,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 103,
+      "file": "103-retailer-staff-permissions.html",
+      "module": "retailer",
+      "controls": 12,
+      "highIntentControls": 3,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 104,
+      "file": "104-retailer-store-settings-readiness.html",
+      "module": "retailer",
+      "controls": 18,
+      "highIntentControls": 3,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 105,
+      "file": "105-retailer-returns-customer-issues.html",
+      "module": "retailer",
+      "controls": 22,
+      "highIntentControls": 5,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 106,
+      "file": "106-retailer-cash-bank-expenses-reconciliation.html",
+      "module": "retailer",
+      "controls": 18,
+      "highIntentControls": 8,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 107,
+      "file": "107-manufacturer-supplier-workspace-home.html",
+      "module": "manufacturer_supplier",
+      "controls": 24,
+      "highIntentControls": 6,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 108,
+      "file": "108-manufacturer-business-book.html",
+      "module": "manufacturer_supplier",
+      "controls": 22,
+      "highIntentControls": 1,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 109,
+      "file": "109-manufacturer-product-catalogue-stock.html",
+      "module": "manufacturer_supplier",
+      "controls": 24,
+      "highIntentControls": 2,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 110,
+      "file": "110-manufacturer-order-review-fulfilment.html",
+      "module": "manufacturer_supplier",
+      "controls": 16,
+      "highIntentControls": 4,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 111,
+      "file": "111-manufacturer-input-procurement.html",
+      "module": "manufacturer_supplier",
+      "controls": 21,
+      "highIntentControls": 7,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 112,
+      "file": "112-manufacturer-dispatch-delivery.html",
+      "module": "manufacturer_supplier",
+      "controls": 14,
+      "highIntentControls": 1,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 113,
+      "file": "113-manufacturer-buyers-demand-campaigns.html",
+      "module": "manufacturer_supplier",
+      "controls": 21,
+      "highIntentControls": 3,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 114,
+      "file": "114-manufacturer-claims-team-control.html",
+      "module": "manufacturer_supplier",
+      "controls": 14,
+      "highIntentControls": 4,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 115,
+      "file": "115-manufacturer-business-services.html",
+      "module": "manufacturer_supplier",
+      "controls": 21,
+      "highIntentControls": 1,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 116,
+      "file": "116-captain-home-availability.html",
+      "module": "captain",
+      "controls": 10,
+      "highIntentControls": 2,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 117,
+      "file": "117-captain-ride-request.html",
+      "module": "captain",
+      "controls": 9,
+      "highIntentControls": 1,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 118,
+      "file": "118-captain-pickup-navigation.html",
+      "module": "captain",
+      "controls": 10,
+      "highIntentControls": 0,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 119,
+      "file": "119-captain-live-trip-safety.html",
+      "module": "captain",
+      "controls": 10,
+      "highIntentControls": 1,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 120,
+      "file": "120-captain-fare-completion.html",
+      "module": "captain",
+      "controls": 7,
+      "highIntentControls": 0,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 121,
+      "file": "121-captain-earnings-payouts.html",
+      "module": "captain",
+      "controls": 13,
+      "highIntentControls": 0,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 122,
+      "file": "122-captain-vehicle-compliance.html",
+      "module": "captain",
+      "controls": 12,
+      "highIntentControls": 1,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 123,
+      "file": "123-captain-support-paid-work.html",
+      "module": "captain",
+      "controls": 14,
+      "highIntentControls": 1,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 124,
+      "file": "124-creator-studio-home.html",
+      "module": "creator",
+      "controls": 21,
+      "highIntentControls": 5,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 125,
+      "file": "125-creator-create-publish.html",
+      "module": "creator",
+      "controls": 21,
+      "highIntentControls": 6,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 126,
+      "file": "126-creator-content-library.html",
+      "module": "creator",
+      "controls": 15,
+      "highIntentControls": 3,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 127,
+      "file": "127-creator-content-performance.html",
+      "module": "creator",
+      "controls": 13,
+      "highIntentControls": 2,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 128,
+      "file": "128-creator-audience-community.html",
+      "module": "creator",
+      "controls": 10,
+      "highIntentControls": 2,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 129,
+      "file": "129-creator-campaigns.html",
+      "module": "creator",
+      "controls": 25,
+      "highIntentControls": 3,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 130,
+      "file": "130-creator-earnings-payouts.html",
+      "module": "creator",
+      "controls": 17,
+      "highIntentControls": 1,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 131,
+      "file": "131-creator-verification-rights-safety.html",
+      "module": "creator",
+      "controls": 17,
+      "highIntentControls": 2,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 132,
+      "file": "132-creator-memberships.html",
+      "module": "creator",
+      "controls": 12,
+      "highIntentControls": 2,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 133,
+      "file": "133-earn-opportunities.html",
+      "module": "earn",
+      "controls": 16,
+      "highIntentControls": 3,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 134,
+      "file": "134-earn-applications-eligibility.html",
+      "module": "earn",
+      "controls": 12,
+      "highIntentControls": 0,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 135,
+      "file": "135-earn-active-work.html",
+      "module": "earn",
+      "controls": 8,
+      "highIntentControls": 1,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 136,
+      "file": "136-earn-proof-outcome.html",
+      "module": "earn",
+      "controls": 12,
+      "highIntentControls": 2,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 137,
+      "file": "137-earn-earnings-payout.html",
+      "module": "earn",
+      "controls": 7,
+      "highIntentControls": 0,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 138,
+      "file": "138-earn-issues-ratings-history.html",
+      "module": "earn",
+      "controls": 12,
+      "highIntentControls": 0,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 139,
+      "file": "139-provider-home-readiness.html",
+      "module": "provider",
+      "controls": 14,
+      "highIntentControls": 3,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 140,
+      "file": "140-provider-catalogue.html",
+      "module": "provider",
+      "controls": 15,
+      "highIntentControls": 0,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 141,
+      "file": "141-provider-availability.html",
+      "module": "provider",
+      "controls": 15,
+      "highIntentControls": 2,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 142,
+      "file": "142-provider-requests.html",
+      "module": "provider",
+      "controls": 14,
+      "highIntentControls": 2,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 143,
+      "file": "143-provider-fulfilment.html",
+      "module": "provider",
+      "controls": 9,
+      "highIntentControls": 1,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 144,
+      "file": "144-provider-business.html",
+      "module": "provider",
+      "controls": 16,
+      "highIntentControls": 2,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 145,
+      "file": "145-provider-growth.html",
+      "module": "provider",
+      "controls": 20,
+      "highIntentControls": 0,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 146,
+      "file": "146-provider-control.html",
+      "module": "provider",
+      "controls": 18,
+      "highIntentControls": 4,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 147,
+      "file": "147-admin-command-centre.html",
+      "module": "admin",
+      "controls": 27,
+      "highIntentControls": 1,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 148,
+      "file": "148-admin-workspace-verification.html",
+      "module": "admin",
+      "controls": 27,
+      "highIntentControls": 3,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 149,
+      "file": "149-admin-catalogue-governance.html",
+      "module": "admin",
+      "controls": 26,
+      "highIntentControls": 2,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 150,
+      "file": "150-admin-commerce-exceptions.html",
+      "module": "admin",
+      "controls": 26,
+      "highIntentControls": 4,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 151,
+      "file": "151-admin-ride-operations.html",
+      "module": "admin",
+      "controls": 26,
+      "highIntentControls": 2,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 152,
+      "file": "152-admin-work-campaign-governance.html",
+      "module": "admin",
+      "controls": 27,
+      "highIntentControls": 2,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 153,
+      "file": "153-admin-content-trust-safety.html",
+      "module": "admin",
+      "controls": 26,
+      "highIntentControls": 1,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 154,
+      "file": "154-admin-finance-reconciliation.html",
+      "module": "admin",
+      "controls": 27,
+      "highIntentControls": 4,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 155,
+      "file": "155-admin-support-disputes.html",
+      "module": "admin",
+      "controls": 27,
+      "highIntentControls": 1,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 156,
+      "file": "156-admin-audience-launch-configuration.html",
+      "module": "admin",
+      "controls": 37,
+      "highIntentControls": 3,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 157,
+      "file": "157-shared-priority-inbox.html",
+      "module": "shared",
+      "controls": 16,
+      "highIntentControls": 3,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 158,
+      "file": "158-shared-identity-documents-consent.html",
+      "module": "shared",
+      "controls": 13,
+      "highIntentControls": 2,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 159,
+      "file": "159-shared-universal-input.html",
+      "module": "shared",
+      "controls": 11,
+      "highIntentControls": 2,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 160,
+      "file": "160-shared-files-evidence-media.html",
+      "module": "shared",
+      "controls": 15,
+      "highIntentControls": 3,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 161,
+      "file": "161-shared-security-support.html",
+      "module": "shared",
+      "controls": 13,
+      "highIntentControls": 0,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 162,
+      "file": "162-shared-workspaces-settings-analytics.html",
+      "module": "shared",
+      "controls": 20,
+      "highIntentControls": 2,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 163,
+      "file": "163-admin-user-activity-product-health.html",
+      "module": "admin",
+      "controls": 29,
+      "highIntentControls": 5,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 164,
+      "file": "164-admin-signals-consent-personalization.html",
+      "module": "admin",
+      "controls": 29,
+      "highIntentControls": 3,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    },
+    {
+      "screen": 165,
+      "file": "165-shared-personalized-controls.html",
+      "module": "shared",
+      "controls": 21,
+      "highIntentControls": 3,
+      "p0": 0,
+      "p1": 0,
+      "status": "passed"
+    }
+  ],
+  "findings": []
+}

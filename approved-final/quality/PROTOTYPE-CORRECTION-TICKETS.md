@@ -94,8 +94,8 @@ Rule: a primary user action passes only when it opens the correct product state 
 ## PRT-012 - Creator Commerce Uses Protected Checkout
 
 - Scope: creator-attributed Buy journey across Screens 09, 12, 13 and 14.
-- Problem: the commerce-share flow jumped from Buy directly to payment confirmation, bypassing basket review and retailer stock confirmation.
-- Required result: route attributed commerce through Basket, retailer stock confirmation and customer payment before delivery outcome and creator settlement.
+- Problem: the commerce-share flow jumped from Buy directly to payment confirmation and bypassed basket review.
+- Required result: route attributed commerce through Basket and customer payment before delivery outcome and creator settlement. Availability must be reserved automatically; the customer must never wait for a retailer stock-confirmation step.
 - Priority: P0
 - Status: completed
 
@@ -131,10 +131,43 @@ Rule: a primary user action passes only when it opens the correct product state 
 - Priority: P0
 - Status: completed
 
+## PRT-017 - Real Tap Runner Cannot Force Ordinary Navigation
+
+- Scope: all 47 operational journeys.
+- Problem: the earlier flow runner could force the declared destination after a tap even when the clicked control did not navigate, creating false passes.
+- Required result: ordinary `tap`, `direct` and `multi` actions pass only when the clicked control opens the declared screen. Only explicit automatic or governed handoff transitions may simulate an external event.
+- Priority: P0
+- Status: completed
+
+## PRT-018 - Customer Checkout Is Immediate and Trustworthy
+
+- Screens: 10-18.
+- Problem: customer checkout exposed an internal retailer stock-confirmation dependency after basket review and before payment.
+- Required result: show automatic availability, let the customer choose pickup or delivery, review the basket, pay and immediately open the correct order status. Screen 13 remains a retailer-only paid-order preparation state.
+- Priority: P0
+- Status: completed
+
+## PRT-019 - Operational State Changes Continue to the Next User Task
+
+- Screens: 19, 63, 74-89, 92-94, 107-112, 118-119 and 136-137.
+- Problem: several controls changed text or opened a sheet but did not expose the next required action or destination.
+- Required result: complete issue evidence submission, retailer acceptance/packing/handover, wholesale PO/receipt/books/payment, business reports, service activation, manufacturer confirmation, captain OTP start and work-verification flows through their final user-facing outcome.
+- Priority: P0
+- Status: completed
+
+## PRT-020 - Mobile Taps, Search and Copy Are Production-Facing
+
+- Scope: all 166 screens, with focused fixes on Screens 40, 49, 59-61 and 81.
+- Problem: fixed bottom navigation could cover important CTAs; wholesale search did not filter results; some runtime feedback exposed prototype or implementation wording.
+- Required result: scroll every target clear of fixed navigation, support real typed product search before add-to-cart, and show only professional, action-oriented user copy in the phone surface.
+- Priority: P0
+- Status: completed
+
 ## Verification Evidence
 
 - Semantic mobile flows: `quality/generated/semantic-mobile-user-flow-final.json`
 - Result: 47/47 operational flows passed at 390 x 844 with zero browser console errors.
-- Static graph: 166 source and approved screens, 484 flow nodes, 1,057 local navigation targets and 474 assets passed.
+- Static graph: 166 source and approved screens, 483 flow nodes, 1,077 local navigation targets and 474 assets passed.
 - Source/approved parity and full interaction gates passed. Public GitHub Pages verification is the final publication check before the mobile URL is shared.
 - Intent completion: 483/483 high-intent controls declared, 63/63 curated outcomes replayed, zero generic fallbacks and zero dead controls.
+- Production-facing screen audit: 3,191 controls and 497 high-intent controls checked; zero P0/P1 findings, generic outcomes, internal wording or customer-facing retailer stock-confirmation language.

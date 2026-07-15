@@ -16,6 +16,18 @@
     return String(value || '').replace(/\s+/g, ' ').trim();
   }
 
+  function userMessage(contract, label) {
+    var note = normalize(contract && contract.note);
+    var generic = /\b(selected|details? open|is ready|recorded|updated|submitted|started|saved)\.?$/i.test(note);
+    if (note && !generic) return note;
+    if (contract.type === 'select' || contract.type === 'state' || contract.type === 'toggle') return label + ' applied.';
+    if (contract.type === 'progress') return label + ' started. Follow the next action shown to finish.';
+    if (contract.type === 'handoff') return label + ' is ready. Continue to complete this task.';
+    if (contract.type === 'terminal') return label + ' completed.';
+    if (contract.type === 'detail') return label + ' details are ready.';
+    return label + ' is ready.';
+  }
+
   function getCandidates(element) {
     if (!element) return [];
     return [
@@ -110,7 +122,7 @@
     }
     element.classList.add('mool-contract-selected');
     element.setAttribute('aria-pressed', 'true');
-    announce(contract.note || (label + ' selected.'), contract.intentOutcome ? contract.type : '');
+    announce(userMessage(contract, label), contract.intentOutcome ? contract.type : '');
   }
 
   function openSheet(contract, label) {
@@ -123,18 +135,17 @@
       backdrop.dataset.intentResolved = contract.type;
     }
     backdrop.setAttribute('role', 'presentation');
-    var reference = 'MS-' + screen.padStart(3, '0') + '-' + String(Date.now()).slice(-6);
     backdrop.innerHTML = '<section class="mool-contract-sheet" role="dialog" aria-modal="true" aria-labelledby="mool-contract-title">' +
       '<div class="mool-contract-sheet__head"><h2 class="mool-contract-sheet__title" id="mool-contract-title"></h2><button class="mool-contract-sheet__close" type="button" aria-label="Close">×</button></div>' +
       '<div class="mool-contract-sheet__body"><p class="mool-contract-sheet__note"></p>' +
-      '<div class="mool-contract-sheet__meta"><span>Screen ' + screen.padStart(2, '0') + '</span><span>Reference ' + reference + '</span></div>' +
+      '<div class="mool-contract-sheet__meta"><span>Action protected</span><span>Progress saved</span></div>' +
       '<div class="mool-contract-sheet__actions"><button type="button" data-contract-retry></button><button type="button" data-contract-return></button></div></div></section>';
     backdrop.querySelector('#mool-contract-title').textContent = label;
-    backdrop.querySelector('.mool-contract-sheet__note').textContent = contract.note || (label + ' is ready.');
+    backdrop.querySelector('.mool-contract-sheet__note').textContent = userMessage(contract, label);
     var retryButton = backdrop.querySelector('[data-contract-retry]');
     var returnButton = backdrop.querySelector('[data-contract-return]');
     retryButton.textContent = contract.intentOutcome ? 'Back' : 'Try again';
-    returnButton.textContent = contract.primaryLabel || (contract.intentOutcome ? 'Done' : 'Return');
+    returnButton.textContent = contract.primaryLabel || (contract.intentOutcome ? 'Finish' : 'Return');
     function close() { backdrop.remove(); }
     backdrop.querySelector('.mool-contract-sheet__close').addEventListener('click', close);
     returnButton.addEventListener('click', function () {

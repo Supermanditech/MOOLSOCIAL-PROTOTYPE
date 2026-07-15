@@ -76,6 +76,9 @@
     const finish=document.getElementById('finish');
 
     const normalize=value=>String(value||'').replace(/\s+/g,' ').trim().toLowerCase();
+    const actionSpec=action=>action&&typeof action==='object'
+      ?{kind:action.kind||'tap',field:action.field||'',value:String(action.value??''),label:action.label||action.field||'input'}
+      :{kind:'tap',field:'',value:'',label:String(action||'')};
     const screenNumber=url=>{const match=String(url||'').match(/\/(\d{2,3})-/);return match?Number(match[1]):null};
     const nodeUrl=node=>{
       const url=new URL(node.file,location.href);
@@ -83,8 +86,8 @@
       if(state.flow?.id)url.searchParams.set('flowId',state.flow.id);
       return url.href;
     };
-    const controlLabel=el=>normalize(el.getAttribute('aria-label')||el.getAttribute('title')||el.innerText||el.textContent);
-    const controls=doc=>[...doc.querySelectorAll('a,button,[role="button"],input[type="checkbox"],input[type="radio"]')].filter(el=>!el.disabled&&el.getAttribute('aria-disabled')!=='true');
+    const controlLabel=el=>normalize(el.getAttribute('aria-label')||el.getAttribute('title')||el.getAttribute('placeholder')||el.getAttribute('name')||el.innerText||el.textContent);
+    const controls=doc=>[...doc.querySelectorAll('a,button,[role="button"],input:not([type]),input[type="text"],input[type="tel"],input[type="number"],input[type="search"],input[type="checkbox"],input[type="radio"],textarea')].filter(el=>!el.disabled&&el.getAttribute('aria-disabled')!=='true');
     const currentContract=()=>{
       const next=state.flow?.nodes[state.nodeIndex+1];
       if(!next)return null;
@@ -106,13 +109,32 @@
     function setInstruction(text){instruction.textContent=text}
     function clearTimer(){if(state.timer){clearTimeout(state.timer);state.timer=null}}
     function clearHighlights(doc){
-      doc.querySelectorAll('[data-mool-flow-target]').forEach(el=>{el.style.removeProperty('outline');el.style.removeProperty('outline-offset');el.removeAttribute('data-mool-flow-target')});
+      doc.querySelectorAll('[data-mool-flow-target]').forEach(el=>{el.style.removeProperty('outline');el.style.removeProperty('outline-offset');el.removeAttribute('data-mool-flow-target');el.removeAttribute('data-mool-flow-input-value')});
       doc.querySelectorAll('[data-mool-flow-rail]').forEach(el=>{el.style.removeProperty('scroll-snap-type');el.style.removeProperty('scroll-behavior');el.removeAttribute('data-mool-flow-rail')});
     }
     function highlight(elements){
       elements.forEach(el=>{el.dataset.moolFlowTarget='true';el.style.setProperty('outline','3px solid #ff9933','important');el.style.setProperty('outline-offset','2px','important')});
       const first=elements[0];
-      first?.scrollIntoView({block:'center',inline:'center',behavior:auditMode?'auto':'smooth'});
+      const revealForTap=()=>{
+        if(!first)return;
+        first.scrollIntoView({block:'center',inline:'center',behavior:'auto'});
+        const doc=first.ownerDocument;
+        const blocker=[...doc.querySelectorAll('.bottom-dock,.dock')].filter(element=>{
+          const box=element.getBoundingClientRect();
+          const style=frame.contentWindow.getComputedStyle(element);
+          return box.width>0&&box.height>0&&style.display!=='none'&&style.visibility!=='hidden';
+        }).sort((a,b)=>a.getBoundingClientRect().top-b.getBoundingClientRect().top)[0];
+        if(!blocker)return;
+        const targetBox=first.getBoundingClientRect();
+        const blockerTop=blocker.getBoundingClientRect().top;
+        const adjustment=targetBox.bottom-(blockerTop-12);
+        if(adjustment<=0)return;
+        let scroller=first.parentElement;
+        while(scroller&&!(scroller.scrollHeight>scroller.clientHeight+1&&/(auto|scroll)/.test(frame.contentWindow.getComputedStyle(scroller).overflowY)))scroller=scroller.parentElement;
+        if(scroller)scroller.scrollTop+=adjustment;
+      };
+      revealForTap();
+      [wait(90,35),wait(260,90)].forEach(delay=>setTimeout(revealForTap,delay));
       const rootRail=first?.closest('[data-context-dock]');
       if(rootRail&&first?.dataset.rootCycle){
         rootRail.dataset.moolFlowRail='true';
@@ -129,8 +151,17 @@
       }
     }
     function findAction(doc,action){
-      const needle=normalize(action);
-      const matches=controls(doc).filter(el=>controlLabel(el).includes(needle));
+      const spec=actionSpec(action);
+      let matches;
+      if(spec.field){
+        const exact=doc.querySelector(spec.field);
+        matches=exact?[exact]:[];
+      }else{
+        const needle=normalize(spec.kind==='type'?spec.field:spec.label);
+        const available=controls(doc);
+        const exact=available.filter(el=>controlLabel(el)===needle);
+        matches=exact.length?exact:available.filter(el=>controlLabel(el).includes(needle));
+      }
       const rendered=matches.filter(el=>{
         const r=el.getBoundingClientRect();
         const style=frame.contentWindow.getComputedStyle(el);
@@ -154,6 +185,41 @@
       });
     }
     function navigateTarget(target){frame.src=nodeUrl(target)}
+    function waitForTarget(target,sourceIndex,timeout=3200){
+      const started=Date.now();
+      const poll=()=>{
+        if(state.nodeIndex!==sourceIndex)return;
+        let now=null;
+        try{now=screenNumber(frame.contentWindow.location.href)}catch{}
+        if(now===target.screen){advance();return}
+        if(Date.now()-started>=wait(timeout,2200)){
+          showError('The selected action did not open the expected next step.');
+          setInstruction('Blocked transition');
+          return;
+        }
+        state.timer=setTimeout(poll,wait(120,80));
+      };
+      poll();
+    }
+    function waitForNextAction(contract,target,sourceIndex,timeout=4200){
+      const started=Date.now();
+      const poll=()=>{
+        if(state.nodeIndex!==sourceIndex)return;
+        let doc;
+        try{doc=frame.contentDocument}catch{}
+        const nextAction=contract.actions?.[state.actionIndex];
+        const matches=doc&&nextAction?findAction(doc,nextAction):[];
+        const ready=matches.some(element=>!element.disabled&&element.getAttribute('aria-disabled')!=='true');
+        if(ready){prepareStep();return}
+        if(Date.now()-started>=wait(timeout,3000)){
+          showError(`The next action “${nextAction||'continue'}” did not become available.`);
+          setInstruction('Blocked transition');
+          return;
+        }
+        state.timer=setTimeout(poll,wait(120,80));
+      };
+      poll();
+    }
     function markComplete(){
       clearTimer();
       const done=JSON.parse(localStorage.getItem('mool-flow-complete')||'{}');done[state.flow.id]=true;localStorage.setItem('mool-flow-complete',JSON.stringify(done));
@@ -168,24 +234,22 @@
     }
     function actionDone(contract,target,sourceIndex){
       if(contract.mode==='direct'){
-        state.timer=setTimeout(()=>{
-          if(state.nodeIndex!==sourceIndex)return;
-          const now=screenNumber(frame.contentWindow.location.href);
-          if(now===target.screen){advance();return}
-          showError(`The selected action did not open Screen ${target.screen}.`);
-          setInstruction('Blocked transition');
-        },wait(520,90));
+        waitForTarget(target,sourceIndex,1200);
         return;
       }
       if(state.nodeIndex!==sourceIndex)return;
       state.actionIndex++;
       if(state.actionIndex<(contract.actions||[]).length){
-        setTimeout(prepareStep,wait(280,260));return;
+        waitForNextAction(contract,target,sourceIndex);return;
       }
       const now=screenNumber(frame.contentWindow.location.href);
       if(now===target.screen){advance();return}
-      if(contract.event)showEvent(contract.event);
-      state.timer=setTimeout(()=>navigateTarget(target),wait(contract.mode.includes('handoff')?700:360,180));
+      if(contract.mode.includes('handoff')){
+        if(contract.event)showEvent(contract.event);
+        state.timer=setTimeout(()=>navigateTarget(target),wait(700,360));
+        return;
+      }
+      waitForTarget(target,sourceIndex);
     }
     function bindExpected(doc,elements,contract,target,bindingGeneration){
       let handled=false;
@@ -196,6 +260,15 @@
         setInstruction('Opening next verified state...');
         setTimeout(()=>actionDone(contract,target,sourceIndex),wait(80,20));
       };
+      const inputValue=elements[0]?.dataset?.moolFlowInputValue;
+      if(inputValue!==undefined){
+        const inputHandler=event=>{
+          const target=event.composedPath().find(node=>node?.dataset?.moolFlowTarget==='true');
+          if(target&&String(target.value)===inputValue)handler();
+        };
+        doc.addEventListener('input',inputHandler,true);
+        return;
+      }
       const documentHandler=event=>{
         const target=event.composedPath().find(node=>node?.dataset?.moolFlowTarget==='true');
         if(target)handler();
@@ -211,6 +284,12 @@
       let doc;
       try{doc=frame.contentDocument}catch{showError('This flow must run from the same hosted MoolSocial prototype.');return}
       if(!doc)return;
+      if(!doc.getElementById('mool-user-facing-review-style')){
+        const reviewStyle=doc.createElement('style');
+        reviewStyle.id='mool-user-facing-review-style';
+        reviewStyle.textContent='.back-row,main>.ms-panel>.ms-section-head,.preview>.notes{display:none!important}.preview{grid-template-columns:minmax(0,1fr)!important}';
+        (doc.head||doc.documentElement)?.appendChild(reviewStyle);
+      }
       clearHighlights(doc);
       const contract=currentContract();
       if(contract?.mode==='automatic'){
@@ -219,6 +298,7 @@
       }
       if(contract){
         const action=contract.actions?.[state.actionIndex];
+        const spec=actionSpec(action);
         if(!action){
           showError('Flow contract exhausted its actions before this transition completed.');
           setInstruction('Blocked transition');return;
@@ -233,11 +313,12 @@
         const nativeDirect=directMatches.length>0;
         const actionableMatches=nativeDirect?directMatches:matches;
         const effectiveContract=nativeDirect?{...contract,mode:'direct'}:contract;
-        setInstruction(`Tap: ${action}`);highlight(actionableMatches);bindExpected(doc,actionableMatches,effectiveContract,target,bindingGeneration);return;
+        if(spec.kind==='type')actionableMatches.forEach(element=>element.dataset.moolFlowInputValue=spec.value);
+        setInstruction(spec.kind==='type'?`Type ${spec.label}`:`Tap: ${spec.label}`);highlight(actionableMatches);bindExpected(doc,actionableMatches,effectiveContract,target,bindingGeneration);return;
       }
       const direct=findDirect(doc,target);
       if(!direct.length){
-        showError(`No verified user action connects Screen ${current.screen} to Screen ${target.screen}.`);
+        showError('No verified user action connects this step to the expected next step.');
         setInstruction('Blocked transition');return;
       }
       const label=(direct[0].getAttribute('aria-label')||direct[0].innerText||'continue').trim();
@@ -261,7 +342,7 @@
         return
       }
       if(actual!==expected&&state.actionIndex===0){
-        showError(`Unexpected route opened: Screen ${actual??'unknown'}; expected Screen ${expected}.`);return
+        showError('An unexpected route opened instead of the expected next step.');return
       }
       if(state.actionIndex>0){
         setTimeout(prepareStep,wait(180,90));

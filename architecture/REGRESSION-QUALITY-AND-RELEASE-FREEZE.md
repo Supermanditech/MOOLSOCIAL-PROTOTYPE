@@ -43,4 +43,4 @@ Each release retains test results, contract diff, visual diff, load summary, fla
 
 ## Explicit exclusions
 
-Per the user's instruction, this phase does not produce item 6 domain/database architecture, item 8 security/compliance program or item 10 production tickets. Their absence is recorded and is not represented as completed work.
+This phase still excludes item 6 domain/database architecture and item 8 security/compliance program. Item 10 production journey tickets are now defined in `architecture/PRODUCTION-JOURNEY-IMPLEMENTATION-TICKETS-2026-07-15.md`; the two remaining exclusions are recorded and are not represented as completed work.

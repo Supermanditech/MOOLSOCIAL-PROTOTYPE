@@ -813,7 +813,7 @@
     <section class="ms-panel">
       <div class="ms-section-head">
         Screen 14: Customer Payment / Order Confirmation
-        <span>After retailer stock lock from Screen 13</span>
+        <span>Review final basket and complete payment</span>
       </div>
 
       <div class="preview">
@@ -829,7 +829,7 @@
                 <div class="title-lockup">
                   <b>Payment</b>
                   <div class="identity-line" aria-hidden="true"><span></span><span></span><span></span></div>
-                  <span>Mahadev confirmed stock</span>
+                  <span>Basket ready to pay</span>
                 </div>
                 <div class="top-buttons">
                   <a class="circle-btn" href="12-buy-basket-checkout.html?v=retailer-stock-lock-1" aria-label="Back to basket">
@@ -847,36 +847,36 @@
                 <div class="hero-top">
                   <div class="hero-copy">
                     <b id="heroTitle">Ready to pay</b>
-                    <span id="heroSubtitle">Mahadev Fresh Mart confirmed available items. Final amount is locked before payment.</span>
-                    <em class="timer-chip" id="stockTimer">Stock lock 04:59 left</em>
+                  <span id="heroSubtitle">Items are available now. Pay the final amount shown to place your order.</span>
+                    <em class="timer-chip" id="availabilityTimer">Availability held 04:59</em>
                   </div>
                   <div class="pay-amount">
-                    <span><strong id="amountHero">Rs 645</strong>confirmed</span>
+                    <span><strong id="amountHero">Rs 645</strong>final total</span>
                   </div>
                 </div>
                 <div class="lock-row">
-                  <span class="lock-pill">Stock locked</span>
+                  <span class="lock-pill">Availability guaranteed</span>
                   <span class="lock-pill">Final amount</span>
                   <span class="lock-pill">Pickup 8 min</span>
                   <span class="lock-pill">Refund rule</span>
                 </div>
                 <div class="journey-row" aria-label="Payment journey">
-                  <span class="journey-step done" data-step="stock">Stock locked</span>
+                  <span class="journey-step done" data-step="stock">Basket ready</span>
                   <span class="journey-step active" data-step="pay">Pay</span>
                   <span class="journey-step" data-step="receipt">Receipt</span>
                   <span class="journey-step" data-step="track">Track</span>
                 </div>
               </section>
 
-              <section class="fulfilment-card" aria-label="Confirmed fulfilment">
+              <section class="fulfilment-card" aria-label="Selected fulfilment">
                 <div class="fulfilment-icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24"><path d="M4 7h16" /><path d="M6 7v13h12V7" /><path d="M9 7a3 3 0 0 1 6 0" /></svg>
                 </div>
                 <div class="fulfilment-copy">
-                  <b>Counter pickup selected</b>
-                  <span>Mahadev Fresh Mart · packet ready in 8 min</span>
+                  <b id="fulfilmentTitle">Counter pickup selected</b>
+                  <span id="fulfilmentCopy">Mahadev Fresh Mart · packet ready in 8 min</span>
                 </div>
-                <span class="fulfilment-lock">Change needs reconfirm</span>
+                <span class="fulfilment-lock">Change refreshes availability</span>
               </section>
 
               <section class="panel-card">
@@ -899,22 +899,22 @@
                   </button>
                   <button class="method-btn" type="button" data-method="counter">
                     <b>Counter QR</b>
-                    <span>pay at shop QR after app lock</span>
+                    <span>scan and pay at the shop</span>
                   </button>
                 </div>
               </section>
 
               <section class="panel-card">
                 <div class="panel-head">
-                  <b>Confirmed bill</b>
-                  <span>after retailer stock lock</span>
+                  <b>Order total</b>
+                  <span>final amount due now</span>
                 </div>
                 <div class="summary-grid">
-                  <div class="summary-row"><span>Confirmed items</span><b>Rs 687</b></div>
+                  <div class="summary-row"><span>Items</span><b id="itemsAmount">Rs 687</b></div>
                   <div class="summary-row"><span>Pack and shop saving</span><b>- Rs 42</b></div>
                   <div class="summary-row"><span>Pickup charge</span><b>Rs 0</b></div>
                   <div class="summary-row"><span>Platform fee</span><b>Rs 0</b></div>
-                  <div class="summary-row total"><span>Payable now</span><b>Rs 645</b></div>
+                  <div class="summary-row total"><span>Payable now</span><b id="payableAmount">Rs 645</b></div>
                 </div>
               </section>
 
@@ -924,7 +924,7 @@
                   <span>applied now</span>
                 </div>
                 <div class="proof-row">
-                  <span class="proof-pill">Confirmed stock only</span>
+                  <span class="proof-pill">Available items only</span>
                   <span class="proof-pill">No unavailable charge</span>
                   <span class="proof-pill">Refund protected</span>
                   <span class="proof-pill">Shop receipt</span>
@@ -947,7 +947,7 @@
                 <b id="payTotal">Rs 645</b>
                 <span id="payMeta">UPI · final Rs 645 · Mahadev</span>
               </div>
-              <button class="pay-btn" type="button" id="payButton">Pay Rs 645</button>
+              <button class="pay-btn" type="button" id="payButton" data-native-interaction>Pay Rs 645</button>
             </div>
 
             <nav class="bottom-dock" aria-label="Payment navigation">
@@ -970,7 +970,7 @@
                   Orders
                 </a>
               </div>
-              <a class="chat-button" href="03-login-account-handoff.html" aria-label="Open chat">
+              <a class="chat-button" href="23-chat-inbox-home.html?from=payment" aria-label="Open chat">
                 <svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z" /></svg>
                 <span class="chat-count">2</span>
               </a>
@@ -980,26 +980,26 @@
 
         <div class="notes">
           <div>
-            <h1 class="ms-title">Payment opens only after retailer stock lock.</h1>
+            <h1 class="ms-title">Review the final basket, pay and open the live order.</h1>
             <p class="ms-lead">
-              Screen 14 is the first place where payment is allowed. It receives confirmed stock from Screen 13,
-              shows the exact payable amount, lets the user choose payment method, and then creates the order receipt.
+              Screen 14 receives the automatically validated basket from Screen 12, shows the exact payable amount,
+              lets the customer choose a payment method, creates the receipt and opens the correct order journey.
             </p>
           </div>
 
           <div class="ms-panel">
             <div class="ms-section-head">Screen Contract <span>Approved</span></div>
             <div class="state-grid">
-              <div class="state-cell"><b>Entry</b>After retailer confirms stock on Screen 13 and Screen 12 changes to Proceed to Pay.</div>
-              <div class="state-cell"><b>User Sees</b>Confirmed payable amount, stock-lock timer, final fulfilment, protection and payment method.</div>
+              <div class="state-cell"><b>Entry</b>After Review &amp; Pay on Screen 12 validates availability, price and fulfilment.</div>
+              <div class="state-cell"><b>User Sees</b>Final payable amount, availability window, selected fulfilment, protection and payment method.</div>
               <div class="state-cell"><b>Decision</b>User chooses UPI, Mool Wallet, card or counter QR and taps Pay Rs 645.</div>
 
-              <div class="state-cell"><b>Backend</b>Create payment intent only for confirmed stock lock and payable amount.</div>
+              <div class="state-cell"><b>Backend</b>Create the payment intent only for the validated basket and final payable amount.</div>
               <div class="state-cell"><b>Safety</b>No charge for unavailable items; refunds go to source/wallet based on payment method.</div>
               <div class="state-cell"><b>Retailer</b>On success, shop receives paid order and counter pickup packing instruction.</div>
 
               <div class="state-cell"><b>Next</b>Payment success shows pickup code, shop bill state, chat handoff and later full Orders screen.</div>
-              <div class="state-cell"><b>Failure</b>Opening, pending and failed states keep stock lock briefly and show retry/change method.</div>
+              <div class="state-cell"><b>Failure</b>Opening, pending and failed states preserve the basket briefly and show refresh, retry or change-method actions.</div>
               <div class="state-cell"><b>Dock</b>Mool, Shop, Basket, Pay, Orders and Chat remain one tap accessible.</div>
             </div>
           </div>
@@ -1016,12 +1016,38 @@
     const paymentHero = document.getElementById("paymentHero");
     const heroTitle = document.getElementById("heroTitle");
     const heroSubtitle = document.getElementById("heroSubtitle");
-    const stockTimer = document.getElementById("stockTimer");
+    const availabilityTimer = document.getElementById("availabilityTimer");
+    const query = new URLSearchParams(window.location.search);
+    const fulfilment = ["pickup", "delivery", "schedule"].includes(query.get("fulfilment")) ? query.get("fulfilment") : "pickup";
+    const amount = Math.max(1, Number(query.get("amount")) || 645);
+    const items = Math.max(1, Number(query.get("items")) || 3);
+    const amountText = `Rs ${amount}`;
+    const fulfilmentOptions = {
+      pickup: {
+        title: "Counter pickup selected",
+        copy: "Mahadev Fresh Mart · packet ready in 8 min",
+        timer: "pickup 8 min",
+        target: "15-counter-ready-receipt.html"
+      },
+      delivery: {
+        title: "Home delivery selected",
+        copy: "Mahadev Fresh Mart · delivery in about 22 min",
+        timer: "delivery 22 min",
+        target: "17-home-delivery-tracking.html"
+      },
+      schedule: {
+        title: "Scheduled delivery selected",
+        copy: "Mahadev Fresh Mart · delivery at your selected time",
+        timer: "scheduled delivery",
+        target: "17-home-delivery-tracking.html?mode=scheduled"
+      }
+    };
+    const selectedFulfilment = fulfilmentOptions[fulfilment];
     const methodCopy = {
-      upi: "UPI · final Rs 645 · Mahadev",
+      upi: `UPI · final ${amountText} · Mahadev`,
       wallet: "Mool Wallet · refund protected",
-      card: "Card · final Rs 645 · Mahadev",
-      counter: "Counter QR · stock lock active"
+      card: `Card · final ${amountText} · Mahadev`,
+      counter: `Counter QR · final ${amountText}`
     };
     const methodHintCopy = {
       upi: "UPI selected",
@@ -1039,21 +1065,31 @@
       return `${mins}:${secs}`;
     };
 
-    const lockInterval = window.setInterval(() => {
+    document.getElementById("amountHero").textContent = amountText;
+    document.getElementById("payTotal").textContent = amountText;
+    document.getElementById("payableAmount").textContent = amountText;
+    document.getElementById("itemsAmount").textContent = `Rs ${amount + 42}`;
+    document.getElementById("fulfilmentTitle").textContent = selectedFulfilment.title;
+    document.getElementById("fulfilmentCopy").textContent = selectedFulfilment.copy;
+    payButton.textContent = `Pay ${amountText}`;
+    payMeta.textContent = methodCopy.upi;
+
+    const availabilityInterval = window.setInterval(() => {
       if (app.dataset.paid === "yes") {
-        stockTimer.textContent = "Paid · pickup 8 min";
-        window.clearInterval(lockInterval);
+        availabilityTimer.textContent = `Paid · ${selectedFulfilment.timer}`;
+        window.clearInterval(availabilityInterval);
         return;
       }
 
       secondsLeft = Math.max(0, secondsLeft - 1);
-      stockTimer.textContent = `Stock lock ${formatTime(secondsLeft)} left`;
+      availabilityTimer.textContent = `Availability held ${formatTime(secondsLeft)}`;
       if (secondsLeft === 0) {
-        stockTimer.textContent = "Stock lock expired";
-        payButton.disabled = true;
-        payButton.textContent = "Reconfirm stock";
-        payMeta.textContent = "Ask shop to lock stock again";
-        window.clearInterval(lockInterval);
+        availabilityTimer.textContent = "Availability refresh needed";
+        payButton.disabled = false;
+        payButton.textContent = "Refresh Basket";
+        payMeta.textContent = "Return to the basket to refresh items and prices";
+        app.dataset.stage = "refresh";
+        window.clearInterval(availabilityInterval);
       }
     }, 1000);
 
@@ -1068,8 +1104,16 @@
     });
 
     payButton.addEventListener("click", () => {
+      if (app.dataset.stage === "refresh") {
+        window.location.href = "12-buy-basket-checkout.html";
+        return;
+      }
       if (app.dataset.paid === "yes") {
-        payMeta.textContent = "Opening Orders · MS-BUY-1042";
+        const target = new URL(selectedFulfilment.target, window.location.href);
+        target.searchParams.set("order", "MS-BUY-1042");
+        target.searchParams.set("amount", String(amount));
+        target.searchParams.set("items", String(items));
+        window.location.href = target.href;
         return;
       }
 
@@ -1078,8 +1122,8 @@
       paymentHero.dataset.state = "processing";
       heroTitle.textContent = selectedMethod === "counter" ? "Counter QR ready" : "Opening payment";
       heroSubtitle.textContent = selectedMethod === "counter"
-        ? "Show the shop QR. Payment will attach to this stock lock."
-        : "Complete payment in your selected app. Stock remains locked during this step.";
+        ? "Scan the shop QR. This payment will be applied to the basket shown."
+        : "Complete payment in your selected app. Your basket remains protected during this step.";
       payButton.disabled = true;
       payButton.textContent = selectedMethod === "counter" ? "Waiting QR" : "Opening...";
       payMeta.textContent = selectedMethod === "upi" ? "Opening UPI app" : `${methodHintCopy[selectedMethod]} · processing`;
@@ -1097,11 +1141,11 @@
         app.dataset.stage = "success";
         paymentHero.dataset.state = "success";
         heroTitle.textContent = "Payment successful";
-        heroSubtitle.textContent = "Order created for confirmed available items only. Pickup code is ready.";
-        stockTimer.textContent = "Paid · pickup 8 min";
+        heroSubtitle.textContent = "Order placed for the items and amount shown. Your live order is ready.";
+        availabilityTimer.textContent = `Paid · ${selectedFulfilment.timer}`;
         payButton.disabled = false;
-        payButton.textContent = "Track Order";
-        payMeta.textContent = "Order MS-BUY-1042 · pickup code 7421";
+        payButton.textContent = "View Order";
+        payMeta.textContent = fulfilment === "pickup" ? "Order MS-BUY-1042 · pickup code 7421" : "Order MS-BUY-1042 · live tracking ready";
       }, 1600);
     });
   </script>

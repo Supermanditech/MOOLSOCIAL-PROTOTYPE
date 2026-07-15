@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-14T15:10:47.505Z",
+  "generatedAt": "2026-07-15T05:36:55Z",
   "status": "passed",
-  "source": "mobile-user-flow.html audit mode using only highlighted visible user controls",
+  "source": "Microsoft Edge at 390x844 using native clicks on only highlighted, visible user controls; no forced navigation for tap or multi-action transitions",
   "viewport": {
     "width": 390,
     "height": 844
@@ -14,6 +14,7 @@
     "horizontalOverflows": 0,
     "consoleErrors": 0
   },
+  "consoleErrorDetails": [],
   "flows": [
     {
       "flow": "onboarding",
@@ -25,7 +26,8 @@
       "screensSeen": [
         0,
         2,
-        3
+        3,
+        4
       ],
       "horizontalOverflows": [],
       "turns": [
@@ -33,19 +35,22 @@
           "counter": "1 / 5",
           "screen": 0,
           "file": "00-install-app.html",
-          "action": "Install and open MoolSocial"
+          "action": "Install and open MoolSocial",
+          "intent": "Tap: Install and open MoolSocial"
         },
         {
           "counter": "3 / 5",
           "screen": 2,
           "file": "02-first-setup-language-location.html",
-          "action": "Skip now Continue to login and set area after signup"
+          "action": "Skip now Continue to login and set area after signup",
+          "intent": "Tap: Skip now"
         },
         {
           "counter": "4 / 5",
           "screen": 3,
           "file": "03-login-account-handoff.html",
-          "action": "Continue with Google"
+          "action": "Continue with Google",
+          "intent": "Tap: Continue with Google"
         }
       ],
       "error": null
@@ -69,25 +74,29 @@
           "counter": "1 / 5",
           "screen": 4,
           "file": "04-universal-focus-shell.html",
-          "action": "Open current Short full screen"
+          "action": "Open current Short full screen",
+          "intent": "Tap: Open current Short full screen"
         },
         {
           "counter": "2 / 5",
           "screen": 5,
           "file": "05-social-shorts.html",
-          "action": "Open Videos"
+          "action": "Open Videos",
+          "intent": "Tap: Open Videos"
         },
         {
           "counter": "3 / 5",
           "screen": 6,
           "file": "06-social-videos.html",
-          "action": "Open Feed"
+          "action": "Open Feed",
+          "intent": "Tap: Open Feed"
         },
         {
           "counter": "4 / 5",
           "screen": 7,
           "file": "07-social-feed.html",
-          "action": "Open Create"
+          "action": "Open Create",
+          "intent": "Tap: Open Create"
         }
       ],
       "error": null
@@ -96,74 +105,83 @@
       "flow": "buy-counter",
       "title": "Buy and Counter Pickup",
       "status": "passed",
-      "expectedNodes": 9,
+      "expectedNodes": 8,
       "interactionTurns": 9,
-      "finalCounter": "9 / 9",
+      "finalCounter": "8 / 8",
       "screensSeen": [
         4,
         9,
         10,
         11,
         12,
-        13,
         14,
-        15
+        15,
+        16
       ],
       "horizontalOverflows": [],
       "turns": [
         {
-          "counter": "1 / 9",
+          "counter": "1 / 8",
           "screen": 4,
           "file": "04-universal-focus-shell.html",
-          "action": "Open product buying"
+          "action": "Open product buying",
+          "intent": "Tap: Open product buying"
         },
         {
-          "counter": "2 / 9",
+          "counter": "2 / 8",
           "screen": 9,
           "file": "09-buy.html",
-          "action": "Buy Here"
+          "action": "Buy Here",
+          "intent": "Tap: Buy Here"
         },
         {
-          "counter": "3 / 9",
+          "counter": "3 / 8",
           "screen": 10,
           "file": "10-buy-grocery-decision.html",
-          "action": "Counter Pickup pay and collect"
+          "action": "Counter Pickup pay & collect",
+          "intent": "Tap: Counter Pickup"
         },
         {
-          "counter": "4 / 9",
+          "counter": "4 / 8",
           "screen": 11,
           "file": "11-buy-product-detail.html",
-          "action": "Add Basket"
+          "action": "Add Basket",
+          "intent": "Tap: Add Basket"
         },
         {
-          "counter": "4 / 9",
+          "counter": "4 / 8",
           "screen": 11,
           "file": "11-buy-product-detail.html",
-          "action": "Open basket"
+          "action": "Open basket",
+          "intent": "Tap: Open basket"
         },
         {
-          "counter": "5 / 9",
+          "counter": "5 / 8",
           "screen": 12,
           "file": "12-buy-basket-checkout.html",
-          "action": "Confirm Stock First"
+          "action": "Review & Pay",
+          "intent": "Tap: Review & Pay"
         },
         {
-          "counter": "6 / 9",
-          "screen": 13,
-          "file": "13-retailer-stock-confirmation.html",
-          "action": "Confirm All unlock customer payment"
-        },
-        {
-          "counter": "7 / 9",
+          "counter": "6 / 8",
           "screen": 14,
           "file": "14-customer-payment-order-confirmation.html",
-          "action": "Pay Rs 645"
+          "action": "Pay Rs 645",
+          "intent": "Tap: Pay Rs"
         },
         {
-          "counter": "8 / 9",
+          "counter": "6 / 8",
+          "screen": 14,
+          "file": "14-customer-payment-order-confirmation.html",
+          "action": "View Order",
+          "intent": "Opening next verified state..."
+        },
+        {
+          "counter": "7 / 8",
           "screen": 15,
           "file": "15-counter-ready-receipt.html",
-          "action": "Refresh"
+          "action": "Refresh",
+          "intent": "Tap: Refresh"
         }
       ],
       "error": null
@@ -172,74 +190,89 @@
       "flow": "buy-delivery",
       "title": "Buy and Home Delivery",
       "status": "passed",
-      "expectedNodes": 9,
-      "interactionTurns": 9,
-      "finalCounter": "9 / 9",
+      "expectedNodes": 8,
+      "interactionTurns": 10,
+      "finalCounter": "8 / 8",
       "screensSeen": [
         4,
         9,
         10,
         11,
         12,
-        13,
         14,
         17
       ],
       "horizontalOverflows": [],
       "turns": [
         {
-          "counter": "1 / 9",
+          "counter": "1 / 8",
           "screen": 4,
           "file": "04-universal-focus-shell.html",
-          "action": "Open product buying"
+          "action": "Open product buying",
+          "intent": "Loading first state..."
         },
         {
-          "counter": "2 / 9",
+          "counter": "2 / 8",
           "screen": 9,
           "file": "09-buy.html",
-          "action": "Buy Here"
+          "action": "Buy Here",
+          "intent": "Tap: Buy Here"
         },
         {
-          "counter": "3 / 9",
+          "counter": "3 / 8",
           "screen": 10,
           "file": "10-buy-grocery-decision.html",
-          "action": "Home Delivery shop/local delivery"
+          "action": "Home Delivery 11-45 min",
+          "intent": "Tap: Home Delivery"
         },
         {
-          "counter": "4 / 9",
+          "counter": "4 / 8",
           "screen": 11,
           "file": "11-buy-product-detail.html",
-          "action": "Add Basket"
+          "action": "Add Basket",
+          "intent": "Tap: Add Basket"
         },
         {
-          "counter": "4 / 9",
+          "counter": "4 / 8",
           "screen": 11,
           "file": "11-buy-product-detail.html",
-          "action": "Open basket"
+          "action": "Open basket",
+          "intent": "Tap: Open basket"
         },
         {
-          "counter": "5 / 9",
+          "counter": "5 / 8",
           "screen": 12,
           "file": "12-buy-basket-checkout.html",
-          "action": "Confirm Stock First"
+          "action": "Deliver 22 min local delivery available",
+          "intent": "Tap: Deliver 22 min"
         },
         {
-          "counter": "6 / 9",
-          "screen": 13,
-          "file": "13-retailer-stock-confirmation.html",
-          "action": "Confirm All unlock customer payment"
+          "counter": "5 / 8",
+          "screen": 12,
+          "file": "12-buy-basket-checkout.html",
+          "action": "Review & Pay",
+          "intent": "Tap: Review & Pay"
         },
         {
-          "counter": "7 / 9",
+          "counter": "6 / 8",
           "screen": 14,
           "file": "14-customer-payment-order-confirmation.html",
-          "action": "Pay Rs 645"
+          "action": "Pay Rs 670",
+          "intent": "Tap: Pay Rs"
         },
         {
-          "counter": "8 / 9",
+          "counter": "6 / 8",
+          "screen": 14,
+          "file": "14-customer-payment-order-confirmation.html",
+          "action": "View Order",
+          "intent": "Tap: View Order"
+        },
+        {
+          "counter": "7 / 8",
           "screen": 17,
           "file": "17-home-delivery-tracking.html",
-          "action": "Refresh status"
+          "action": "Refresh status",
+          "intent": "Tap: Refresh status"
         }
       ],
       "error": null
@@ -249,7 +282,7 @@
       "title": "Order Issue and Resolution",
       "status": "passed",
       "expectedNodes": 5,
-      "interactionTurns": 4,
+      "interactionTurns": 8,
       "finalCounter": "5 / 5",
       "screensSeen": [
         18,
@@ -263,25 +296,57 @@
           "counter": "1 / 5",
           "screen": 18,
           "file": "18-home-delivery-completed-bill-rating.html",
-          "action": "Report Problem missing, damaged, bill"
+          "action": "Report Problem missing, damaged, bill",
+          "intent": "Tap: Report Problem"
         },
         {
           "counter": "2 / 5",
           "screen": 19,
           "file": "19-order-issue-refund-evidence.html",
-          "action": "Submit"
+          "action": "Hybrid Tomato 500 g - Rs 37",
+          "intent": "Tap: Hybrid Tomato"
+        },
+        {
+          "counter": "2 / 5",
+          "screen": 19,
+          "file": "19-order-issue-refund-evidence.html",
+          "action": "Missing item paid item not received",
+          "intent": "Tap: Missing item"
+        },
+        {
+          "counter": "2 / 5",
+          "screen": 19,
+          "file": "19-order-issue-refund-evidence.html",
+          "action": "Item photo camera/gallery",
+          "intent": "Tap: Item photo"
+        },
+        {
+          "counter": "2 / 5",
+          "screen": 19,
+          "file": "19-order-issue-refund-evidence.html",
+          "action": "Refund eligible amount",
+          "intent": "Tap: Refund"
+        },
+        {
+          "counter": "2 / 5",
+          "screen": 19,
+          "file": "19-order-issue-refund-evidence.html",
+          "action": "Submit",
+          "intent": "Tap: Submit"
         },
         {
           "counter": "3 / 5",
           "screen": 20,
           "file": "20-issue-review-status-retailer-response.html",
-          "action": "Refresh"
+          "action": "Refresh",
+          "intent": "Tap: Refresh"
         },
         {
           "counter": "4 / 5",
           "screen": 21,
           "file": "21-issue-result-refund-replacement.html",
-          "action": "Chat case support"
+          "action": "Chat case support",
+          "intent": "Tap: Chat case support"
         }
       ],
       "error": null
@@ -291,7 +356,7 @@
       "title": "Chat Inbox and Threads",
       "status": "passed",
       "expectedNodes": 5,
-      "interactionTurns": 4,
+      "interactionTurns": 6,
       "finalCounter": "5 / 5",
       "screensSeen": [
         4,
@@ -304,25 +369,43 @@
           "counter": "1 / 5",
           "screen": 4,
           "file": "04-universal-focus-shell.html",
-          "action": "Open chats, 2 unread messages"
+          "action": "Open chats, 2 unread messages",
+          "intent": "Tap: Open chats, 2 unread messages"
         },
         {
           "counter": "2 / 5",
           "screen": 23,
           "file": "23-chat-inbox-home.html",
-          "action": "JW Jodhpur Wholesale Supplier V Price list reply for oil, pulses and monthly basket MOQ. Business Price list 6m 1"
+          "action": "Business",
+          "intent": "Tap: Business"
+        },
+        {
+          "counter": "2 / 5",
+          "screen": 23,
+          "file": "23-chat-inbox-home.html",
+          "action": "JW Jodhpur Wholesale Supplier V Price list reply for oil, pulses and monthly basket MOQ. Business Price list 6m 1",
+          "intent": "Tap: Jodhpur Wholesale Supplier"
         },
         {
           "counter": "3 / 5",
           "screen": 24,
           "file": "24-chat-business-thread.html",
-          "action": "Back to chat inbox"
+          "action": "Back to chat inbox",
+          "intent": "Tap: Back to chat inbox"
         },
         {
           "counter": "4 / 5",
           "screen": 23,
           "file": "23-chat-inbox-home.html",
-          "action": "AV Amit Vyas Shared monthly basket list: atta, rice and fruits. People Basket group 18m sent"
+          "action": "People",
+          "intent": "Tap: People"
+        },
+        {
+          "counter": "4 / 5",
+          "screen": 23,
+          "file": "23-chat-inbox-home.html",
+          "action": "AV Amit Vyas Shared monthly basket list: atta, rice and fruits. People Basket group 18m sent",
+          "intent": "Tap: Amit Vyas"
         }
       ],
       "error": null
@@ -344,13 +427,15 @@
           "counter": "1 / 3",
           "screen": 4,
           "file": "04-universal-focus-shell.html",
-          "action": "Open food"
+          "action": "Open food",
+          "intent": "Tap: Open food"
         },
         {
           "counter": "2 / 3",
           "screen": 26,
           "file": "26-eat.html",
-          "action": "Order Food delivery or pickup"
+          "action": "Order Food delivery or pickup",
+          "intent": "Tap: Order Food"
         }
       ],
       "error": null
@@ -372,13 +457,15 @@
           "counter": "1 / 3",
           "screen": 4,
           "file": "04-universal-focus-shell.html",
-          "action": "Open food"
+          "action": "Open food",
+          "intent": "Loading first state..."
         },
         {
           "counter": "2 / 3",
           "screen": 26,
           "file": "26-eat.html",
-          "action": "Book Table seat confirmed"
+          "action": "Book Table seat confirmed",
+          "intent": "Tap: Book Table seat confirmed"
         }
       ],
       "error": null
@@ -400,13 +487,15 @@
           "counter": "1 / 3",
           "screen": 4,
           "file": "04-universal-focus-shell.html",
-          "action": "Open food"
+          "action": "Open food",
+          "intent": "Tap: Open food"
         },
         {
           "counter": "2 / 3",
           "screen": 26,
           "file": "26-eat.html",
-          "action": "Tiffin trial or plan"
+          "action": "Tiffin trial or plan",
+          "intent": "Tap: Tiffin trial or plan"
         }
       ],
       "error": null
@@ -430,25 +519,29 @@
           "counter": "1 / 7",
           "screen": 4,
           "file": "04-universal-focus-shell.html",
-          "action": "Open ride"
+          "action": "Open ride",
+          "intent": "Tap: Open ride"
         },
         {
           "counter": "2 / 7",
           "screen": 30,
           "file": "30-ride.html",
-          "action": "Auto from Rs 112 routine fare · local"
+          "action": "Auto from Rs 112 routine fare · local",
+          "intent": "Tap: Auto from Rs 112"
         },
         {
           "counter": "5 / 7",
           "screen": 33,
           "file": "33-ride-payment-approval.html",
-          "action": "Approve Rs 112"
+          "action": "Approve Rs 112",
+          "intent": "Tap: Approve Rs 112"
         },
         {
           "counter": "6 / 7",
           "screen": 34,
           "file": "34-ride-receipt-rating.html",
-          "action": "Support chat"
+          "action": "Support",
+          "intent": "Tap: Support"
         }
       ],
       "error": null
@@ -471,19 +564,22 @@
           "counter": "1 / 4",
           "screen": 4,
           "file": "04-universal-focus-shell.html",
-          "action": "Open booking"
+          "action": "Open booking",
+          "intent": "Tap: Open booking"
         },
         {
           "counter": "2 / 4",
           "screen": 36,
           "file": "36-book.html",
-          "action": "Doctor slot + fee clinic, video, OPD"
+          "action": "Doctor slot + fee clinic, video, OPD",
+          "intent": "Tap: Doctor slot + fee"
         },
         {
           "counter": "3 / 4",
           "screen": 37,
           "file": "37-book-doctor-appointment.html",
-          "action": "Book doctor"
+          "action": "Book doctor",
+          "intent": "Tap: Book doctor"
         }
       ],
       "error": null
@@ -506,19 +602,22 @@
           "counter": "1 / 4",
           "screen": 39,
           "file": "39-doctor-patient-invite-followup.html",
-          "action": "Show patient QR"
+          "action": "Show patient QR",
+          "intent": "Tap: Show patient QR"
         },
         {
           "counter": "2 / 4",
           "screen": 40,
           "file": "40-patient-clinic-invite-join.html",
-          "action": "Sign in & link visit"
+          "action": "Sign in & link visit",
+          "intent": "Tap: Sign in & link visit"
         },
         {
           "counter": "3 / 4",
           "screen": 3,
           "file": "03-login-account-handoff.html",
-          "action": "Continue with Google"
+          "action": "Continue with Google",
+          "intent": "Tap: Continue with Google"
         }
       ],
       "error": null
@@ -544,37 +643,43 @@
           "counter": "1 / 8",
           "screen": 4,
           "file": "04-universal-focus-shell.html",
-          "action": "Open booking"
+          "action": "Open booking",
+          "intent": "Tap: Open booking"
         },
         {
           "counter": "2 / 8",
           "screen": 36,
           "file": "36-book.html",
-          "action": "Salon slot ready salon visit or home"
+          "action": "Salon slot ready salon visit or home",
+          "intent": "Tap: Salon slot ready"
         },
         {
           "counter": "3 / 8",
           "screen": 42,
           "file": "42-book-salon-appointment.html",
-          "action": "Book salon slot"
+          "action": "Book salon slot",
+          "intent": "Tap: Book salon slot"
         },
         {
           "counter": "4 / 8",
           "screen": 43,
           "file": "43-salon-booking-confirm.html",
-          "action": "Confirm slot"
+          "action": "Confirm slot",
+          "intent": "Tap: Confirm slot"
         },
         {
           "counter": "6 / 8",
           "screen": 45,
           "file": "45-salon-visit-check-in.html",
-          "action": "Service done"
+          "action": "Service done",
+          "intent": "Tap: Service done"
         },
         {
           "counter": "7 / 8",
           "screen": 46,
           "file": "46-salon-service-payment-rating.html",
-          "action": "Salon support"
+          "action": "Salon support",
+          "intent": "Tap: Salon support"
         }
       ],
       "error": null
@@ -604,61 +709,71 @@
           "counter": "1 / 11",
           "screen": 4,
           "file": "04-universal-focus-shell.html",
-          "action": "Open booking"
+          "action": "Open booking",
+          "intent": "Loading first state..."
         },
         {
           "counter": "2 / 11",
           "screen": 36,
           "file": "36-book.html",
-          "action": "Get It Done from Rs 99 remote/local task"
+          "action": "Get It Done from Rs 99 remote/local task",
+          "intent": "Tap: Get It Done from Rs 99"
         },
         {
           "counter": "3 / 11",
           "screen": 48,
           "file": "48-book-get-it-done.html",
-          "action": "Review task"
+          "action": "Review task",
+          "intent": "Tap: Review task"
         },
         {
           "counter": "4 / 11",
           "screen": 49,
           "file": "49-get-it-done-review-payment.html",
-          "action": "Confirm task"
+          "action": "Confirm task",
+          "intent": "Tap: Confirm task"
         },
         {
           "counter": "5 / 11",
           "screen": 50,
           "file": "50-get-it-done-helper-accepted.html",
-          "action": "Proof"
+          "action": "Proof",
+          "intent": "Tap: Proof"
         },
         {
           "counter": "6 / 11",
           "screen": 51,
           "file": "51-get-it-done-proof-release.html",
-          "action": "Release Rs 519 task done, proof accepted Release"
+          "action": "Release Rs 519 task done, proof accepted Release",
+          "intent": "Tap: Release Rs 519 task done, proof accepted Release"
         },
         {
           "counter": "7 / 11",
           "screen": 52,
           "file": "52-get-it-done-completed-rating.html",
-          "action": "Support post-task issue"
+          "action": "Support post-task issue",
+          "intent": "Tap: Support post-task issue"
         },
         {
           "counter": "8 / 11",
           "screen": 53,
           "file": "53-get-it-done-issue-support.html",
-          "action": "Submit issue support reviews before any release Send"
+          "action": "Submit issue support reviews before any release Send",
+          "intent": "Tap: Submit issue support reviews before any release Send"
         },
         {
           "counter": "9 / 11",
           "screen": 54,
           "file": "54-get-it-done-issue-case-status.html",
-          "action": "View decision"
+          "action": "View decision",
+          "intent": "Tap: View decision"
         },
         {
           "counter": "10 / 11",
           "screen": 55,
           "file": "55-get-it-done-issue-resolution.html",
-          "action": "Accept refund returns to original payment method Refund"
+          "action": "Accept refund returns to original payment method Refund",
+          "intent": "Tap: Accept refund returns to original payment method Refund"
         }
       ],
       "error": null
@@ -682,25 +797,29 @@
           "counter": "1 / 5",
           "screen": 4,
           "file": "04-universal-focus-shell.html",
-          "action": "Open payments"
+          "action": "Open payments",
+          "intent": "Tap: Open payments"
         },
         {
           "counter": "2 / 5",
           "screen": 57,
           "file": "57-pay.html",
-          "action": "Recharge mobile"
+          "action": "Recharge mobile",
+          "intent": "Tap: Recharge mobile"
         },
         {
           "counter": "3 / 5",
           "screen": 58,
           "file": "58-pay-recharge.html",
-          "action": "Continue Rs 299"
+          "action": "Continue Rs 299",
+          "intent": "Tap: Continue Rs 299"
         },
         {
           "counter": "4 / 5",
           "screen": 63,
           "file": "63-pay-processing-receipt.html",
-          "action": "Share receipt"
+          "action": "Open all receipts",
+          "intent": "Tap: Open all receipts"
         }
       ],
       "error": null
@@ -724,25 +843,29 @@
           "counter": "1 / 5",
           "screen": 4,
           "file": "04-universal-focus-shell.html",
-          "action": "Open payments"
+          "action": "Open payments",
+          "intent": "Loading first state..."
         },
         {
           "counter": "2 / 5",
           "screen": 57,
           "file": "57-pay.html",
-          "action": "Bills"
+          "action": "Bills",
+          "intent": "Tap: Bills"
         },
         {
           "counter": "3 / 5",
           "screen": 59,
           "file": "59-pay-bills.html",
-          "action": "Pay Rs 1,240"
+          "action": "Pay Rs 1,240",
+          "intent": "Tap: Pay Rs 1,240"
         },
         {
           "counter": "4 / 5",
           "screen": 63,
           "file": "63-pay-processing-receipt.html",
-          "action": "Share receipt"
+          "action": "Open all receipts",
+          "intent": "Tap: Open all receipts"
         }
       ],
       "error": null
@@ -766,25 +889,29 @@
           "counter": "1 / 5",
           "screen": 4,
           "file": "04-universal-focus-shell.html",
-          "action": "Open payments"
+          "action": "Open payments",
+          "intent": "Tap: Open payments"
         },
         {
           "counter": "2 / 5",
           "screen": 57,
           "file": "57-pay.html",
-          "action": "Scan"
+          "action": "Scan",
+          "intent": "Tap: Scan"
         },
         {
           "counter": "3 / 5",
           "screen": 60,
           "file": "60-pay-scan.html",
-          "action": "Scan shop QR"
+          "action": "Scan shop QR",
+          "intent": "Tap: Scan shop QR"
         },
         {
           "counter": "4 / 5",
           "screen": 63,
           "file": "63-pay-processing-receipt.html",
-          "action": "Share receipt"
+          "action": "Open all receipts",
+          "intent": "Tap: Open all receipts"
         }
       ],
       "error": null
@@ -809,31 +936,36 @@
           "counter": "1 / 6",
           "screen": 4,
           "file": "04-universal-focus-shell.html",
-          "action": "Open payments"
+          "action": "Open payments",
+          "intent": "Tap: Open payments"
         },
         {
           "counter": "2 / 6",
           "screen": 57,
           "file": "57-pay.html",
-          "action": "Requests"
+          "action": "Requests",
+          "intent": "Tap: Requests"
         },
         {
           "counter": "3 / 6",
           "screen": 61,
           "file": "61-pay-requests.html",
-          "action": "Review to pay"
+          "action": "Review to pay",
+          "intent": "Tap: Review to pay"
         },
         {
           "counter": "4 / 6",
           "screen": 62,
           "file": "62-pay-request-confirmation.html",
-          "action": "Pay Rs 645"
+          "action": "Pay Rs 645",
+          "intent": "Tap: Pay Rs 645"
         },
         {
           "counter": "5 / 6",
           "screen": 63,
           "file": "63-pay-processing-receipt.html",
-          "action": "Share receipt"
+          "action": "Open all receipts",
+          "intent": "Tap: Open all receipts"
         }
       ],
       "error": null
@@ -849,7 +981,8 @@
         4,
         57,
         61,
-        62
+        62,
+        65
       ],
       "horizontalOverflows": [],
       "turns": [
@@ -857,25 +990,29 @@
           "counter": "1 / 6",
           "screen": 4,
           "file": "04-universal-focus-shell.html",
-          "action": "Open payments"
+          "action": "Open payments",
+          "intent": "Loading first state..."
         },
         {
           "counter": "2 / 6",
           "screen": 57,
           "file": "57-pay.html",
-          "action": "Requests"
+          "action": "Requests",
+          "intent": "Tap: Requests"
         },
         {
           "counter": "3 / 6",
           "screen": 61,
           "file": "61-pay-requests.html",
-          "action": "Review to pay"
+          "action": "Review to pay",
+          "intent": "Tap: Review to pay"
         },
         {
           "counter": "4 / 6",
           "screen": 62,
           "file": "62-pay-request-confirmation.html",
-          "action": "Pay Rs 645"
+          "action": "Pay Rs 645",
+          "intent": "Tap: Pay Rs 645"
         }
       ],
       "error": null
@@ -899,25 +1036,29 @@
           "counter": "1 / 6",
           "screen": 4,
           "file": "04-universal-focus-shell.html",
-          "action": "Open payments"
+          "action": "Open payments",
+          "intent": "Tap: Open payments"
         },
         {
           "counter": "2 / 6",
           "screen": 57,
           "file": "57-pay.html",
-          "action": "Requests"
+          "action": "Requests",
+          "intent": "Tap: Requests"
         },
         {
           "counter": "3 / 6",
           "screen": 61,
           "file": "61-pay-requests.html",
-          "action": "Review to pay"
+          "action": "Review to pay",
+          "intent": "Tap: Review to pay"
         },
         {
           "counter": "4 / 6",
           "screen": 62,
           "file": "62-pay-request-confirmation.html",
-          "action": "Pay Rs 645"
+          "action": "Pay Rs 645",
+          "intent": "Tap: Pay Rs 645"
         }
       ],
       "error": null
@@ -935,7 +1076,8 @@
         68,
         69,
         70,
-        71
+        71,
+        73
       ],
       "horizontalOverflows": [],
       "turns": [
@@ -943,43 +1085,50 @@
           "counter": "1 / 8",
           "screen": 4,
           "file": "04-universal-focus-shell.html",
-          "action": "Open work"
+          "action": "Open work",
+          "intent": "Tap: Open work"
         },
         {
           "counter": "2 / 8",
           "screen": 67,
           "file": "67-work.html",
-          "action": "View featured opportunity details"
+          "action": "View featured opportunity details",
+          "intent": "Tap: View featured opportunity details"
         },
         {
           "counter": "2 / 8",
           "screen": 67,
           "file": "67-work.html",
-          "action": "Review & Apply →"
+          "action": "Review & Apply →",
+          "intent": "Tap: Review & Apply"
         },
         {
           "counter": "3 / 8",
           "screen": 68,
           "file": "68-work-opportunity-terms-apply.html",
-          "action": "Apply now Freelancer setup opens next"
+          "action": "Apply now Freelancer setup opens next",
+          "intent": "Tap: Apply now"
         },
         {
           "counter": "4 / 8",
           "screen": 69,
           "file": "69-my-work-setup.html",
-          "action": "Start My Work"
+          "action": "Start My Work",
+          "intent": "Tap: Start My Work"
         },
         {
           "counter": "5 / 8",
           "screen": 70,
           "file": "70-my-work-choose-activity.html",
-          "action": "Create & Work Creator, freelancer or Get It Done"
+          "action": "Create & Work Creator, freelancer or Get It Done",
+          "intent": "Tap: Create & Work"
         },
         {
           "counter": "6 / 8",
           "screen": 71,
           "file": "71-work-profile-proof.html",
-          "action": "Continue to proof"
+          "action": "Continue to proof",
+          "intent": "Tap: Continue to proof"
         }
       ],
       "error": null
@@ -1002,19 +1151,22 @@
           "counter": "1 / 5",
           "screen": 70,
           "file": "70-my-work-choose-activity.html",
-          "action": "Products & Trade Factory, supply, shop or product selling"
+          "action": "Products & Trade Factory, supply, shop or product selling",
+          "intent": "Tap: Products & Trade"
         },
         {
           "counter": "2 / 5",
           "screen": 71,
           "file": "71-work-profile-proof.html",
-          "action": "Continue to proof"
+          "action": "Continue to proof",
+          "intent": "Tap: Continue to proof"
         },
         {
           "counter": "4 / 5",
           "screen": 73,
           "file": "73-workspace-ready-handoff.html",
-          "action": "Set up my shop"
+          "action": "Set up my shop",
+          "intent": "Tap: Set up my shop"
         }
       ],
       "error": null
@@ -1023,10 +1175,11 @@
       "flow": "retailer-orders",
       "title": "Retailer Customer Order",
       "status": "passed",
-      "expectedNodes": 4,
-      "interactionTurns": 3,
-      "finalCounter": "4 / 4",
+      "expectedNodes": 5,
+      "interactionTurns": 17,
+      "finalCounter": "5 / 5",
       "screensSeen": [
+        13,
         74,
         75,
         76
@@ -1034,22 +1187,123 @@
       "horizontalOverflows": [],
       "turns": [
         {
-          "counter": "1 / 4",
+          "counter": "1 / 5",
+          "screen": 13,
+          "file": "13-retailer-stock-confirmation.html",
+          "action": "Start Packing accept the paid order",
+          "intent": "Tap: Start Packing"
+        },
+        {
+          "counter": "1 / 5",
+          "screen": 13,
+          "file": "13-retailer-stock-confirmation.html",
+          "action": "Back to retailer orders",
+          "intent": "Tap: Back to retailer orders"
+        },
+        {
+          "counter": "2 / 5",
           "screen": 74,
           "file": "74-retail-products-stock-setup.html",
-          "action": "Orders on"
+          "action": "Orders",
+          "intent": "Tap: Orders"
         },
         {
-          "counter": "2 / 4",
+          "counter": "2 / 5",
+          "screen": 74,
+          "file": "74-retail-products-stock-setup.html",
+          "action": "Review",
+          "intent": "Tap: Review"
+        },
+        {
+          "counter": "3 / 5",
           "screen": 75,
           "file": "75-retailer-order-review-fulfilment.html",
-          "action": "Accept order"
+          "action": "Accept order",
+          "intent": "Tap: Accept order"
         },
         {
-          "counter": "3 / 4",
+          "counter": "3 / 5",
+          "screen": 75,
+          "file": "75-retailer-order-review-fulfilment.html",
+          "action": "Start packing",
+          "intent": "Tap: Start packing"
+        },
+        {
+          "counter": "3 / 5",
+          "screen": 75,
+          "file": "75-retailer-order-review-fulfilment.html",
+          "action": "Mark Fortune Sunflower Oil packed",
+          "intent": "Tap: Mark Fortune Sunflower Oil packed"
+        },
+        {
+          "counter": "3 / 5",
+          "screen": 75,
+          "file": "75-retailer-order-review-fulfilment.html",
+          "action": "Mark Aashirvaad Atta packed",
+          "intent": "Tap: Mark Aashirvaad Atta packed"
+        },
+        {
+          "counter": "3 / 5",
+          "screen": 75,
+          "file": "75-retailer-order-review-fulfilment.html",
+          "action": "Mark Tata Salt packed",
+          "intent": "Tap: Mark Tata Salt packed"
+        },
+        {
+          "counter": "3 / 5",
+          "screen": 75,
+          "file": "75-retailer-order-review-fulfilment.html",
+          "action": "Mark 9 more products packed",
+          "intent": "Tap: Mark 9 more products packed"
+        },
+        {
+          "counter": "3 / 5",
+          "screen": 75,
+          "file": "75-retailer-order-review-fulfilment.html",
+          "action": "Mark order packed",
+          "intent": "Tap: Mark order packed"
+        },
+        {
+          "counter": "3 / 5",
+          "screen": 75,
+          "file": "75-retailer-order-review-fulfilment.html",
+          "action": "Request delivery",
+          "intent": "Tap: Request delivery"
+        },
+        {
+          "counter": "4 / 5",
           "screen": 76,
           "file": "76-retailer-delivery-assignment-handover.html",
-          "action": "Parcel ready"
+          "action": "Parcel ready",
+          "intent": "Tap: Parcel ready"
+        },
+        {
+          "counter": "4 / 5",
+          "screen": 76,
+          "file": "76-retailer-delivery-assignment-handover.html",
+          "action": "Captain is here",
+          "intent": "Tap: Captain is here"
+        },
+        {
+          "counter": "4 / 5",
+          "screen": 76,
+          "file": "76-retailer-delivery-assignment-handover.html",
+          "action": "Confirm handover",
+          "intent": "Tap: Confirm handover"
+        },
+        {
+          "counter": "4 / 5",
+          "screen": 76,
+          "file": "76-retailer-delivery-assignment-handover.html",
+          "action": "Hand over parcel",
+          "intent": "Tap: Hand over parcel"
+        },
+        {
+          "counter": "4 / 5",
+          "screen": 76,
+          "file": "76-retailer-delivery-assignment-handover.html",
+          "action": "Track delivery",
+          "intent": "Tap: Track delivery"
         }
       ],
       "error": null
@@ -1059,7 +1313,7 @@
       "title": "Retailer Counter and POS",
       "status": "passed",
       "expectedNodes": 6,
-      "interactionTurns": 6,
+      "interactionTurns": 7,
       "finalCounter": "6 / 6",
       "screensSeen": [
         74,
@@ -1073,37 +1327,50 @@
           "counter": "1 / 6",
           "screen": 74,
           "file": "74-retail-products-stock-setup.html",
-          "action": "New Order"
+          "action": "New Order",
+          "intent": "Tap: New Order"
         },
         {
           "counter": "2 / 6",
           "screen": 78,
           "file": "78-retailer-create-order.html",
-          "action": "Counter Walk-in"
+          "action": "Counter Walk-in",
+          "intent": "Tap: Counter Walk-in"
+        },
+        {
+          "counter": "2 / 6",
+          "screen": 78,
+          "file": "78-retailer-create-order.html",
+          "action": "Create another counter",
+          "intent": "Tap: Create another counter"
         },
         {
           "counter": "3 / 6",
           "screen": 79,
           "file": "79-retailer-counter-management.html",
-          "action": "Start order"
+          "action": "Start order",
+          "intent": "Tap: Start order"
         },
         {
           "counter": "4 / 6",
           "screen": 78,
           "file": "78-retailer-create-order.html",
-          "action": "Create order · ₹372"
+          "action": "Create order · ₹372",
+          "intent": "Tap: Create order"
         },
         {
           "counter": "4 / 6",
           "screen": 78,
           "file": "78-retailer-create-order.html",
-          "action": "Complete sale"
+          "action": "Complete sale",
+          "intent": "Tap: Complete sale"
         },
         {
           "counter": "5 / 6",
           "screen": 80,
           "file": "80-retailer-counter-sale-invoice.html",
-          "action": "Complete UPI sale"
+          "action": "Complete UPI sale",
+          "intent": "Tap: Complete UPI sale"
         }
       ],
       "error": null
@@ -1113,7 +1380,7 @@
       "title": "Retailer Wholesale Procurement",
       "status": "passed",
       "expectedNodes": 11,
-      "interactionTurns": 10,
+      "interactionTurns": 22,
       "finalCounter": "11 / 11",
       "screensSeen": [
         74,
@@ -1132,61 +1399,155 @@
           "counter": "1 / 11",
           "screen": 74,
           "file": "74-retail-products-stock-setup.html",
-          "action": "Wholesale Buy"
+          "action": "Wholesale Buy",
+          "intent": "Tap: Wholesale Buy"
         },
         {
           "counter": "2 / 11",
           "screen": 81,
           "file": "81-retailer-wholesale-buy-catalog.html",
-          "action": "Add to cart"
+          "action": "Search wholesale products",
+          "intent": "Type Fortune in product search"
+        },
+        {
+          "counter": "2 / 11",
+          "screen": 81,
+          "file": "81-retailer-wholesale-buy-catalog.html",
+          "action": "Add to cart",
+          "intent": "Tap: Add to cart"
+        },
+        {
+          "counter": "2 / 11",
+          "screen": 81,
+          "file": "81-retailer-wholesale-buy-catalog.html",
+          "action": "Review",
+          "intent": "Tap: Review"
         },
         {
           "counter": "3 / 11",
           "screen": 82,
           "file": "82-retailer-wholesale-cart-purchase-order.html",
-          "action": "Review Order"
+          "action": "Review Order",
+          "intent": "Tap: Review Order"
+        },
+        {
+          "counter": "3 / 11",
+          "screen": 82,
+          "file": "82-retailer-wholesale-cart-purchase-order.html",
+          "action": "Secure advance & place 1 PO",
+          "intent": "Tap: Secure advance & place"
+        },
+        {
+          "counter": "3 / 11",
+          "screen": 82,
+          "file": "82-retailer-wholesale-cart-purchase-order.html",
+          "action": "Done",
+          "intent": "Tap: Done"
         },
         {
           "counter": "4 / 11",
           "screen": 83,
           "file": "83-retailer-wholesale-order-confirmed.html",
-          "action": "Track Orders"
+          "action": "Track Orders",
+          "intent": "Tap: Track Orders"
         },
         {
           "counter": "6 / 11",
           "screen": 85,
           "file": "85-retailer-wholesale-goods-receipt.html",
-          "action": "All Received 3 cases · good condition"
+          "action": "All Received 3 cases · good condition",
+          "intent": "Automatic: Supplier shipment arrived at the shop"
         },
         {
           "counter": "6 / 11",
           "screen": 85,
           "file": "85-retailer-wholesale-goods-receipt.html",
-          "action": "Confirm Receipt"
+          "action": "Confirm Receipt",
+          "intent": "Tap: Review the receipt"
+        },
+        {
+          "counter": "6 / 11",
+          "screen": 85,
+          "file": "85-retailer-wholesale-goods-receipt.html",
+          "action": "Done",
+          "intent": "Tap: Open the receipt result"
         },
         {
           "counter": "7 / 11",
           "screen": 86,
           "file": "86-retailer-wholesale-receipt-result.html",
-          "action": "Purchase value Posted to Purchase Book ₹2,856.00 POSTED"
+          "action": "Purchase value Posted to Purchase Book ₹2,856.00 POSTED",
+          "intent": "Tap: Open the Purchase Book entry"
+        },
+        {
+          "counter": "7 / 11",
+          "screen": 86,
+          "file": "86-retailer-wholesale-receipt-result.html",
+          "action": "Done",
+          "intent": "Tap: Continue to the Purchase Book"
         },
         {
           "counter": "8 / 11",
           "screen": 87,
           "file": "87-retailer-purchase-book.html",
-          "action": "Add supplier bill"
+          "action": "Add supplier bill",
+          "intent": "Tap: Add supplier bill"
+        },
+        {
+          "counter": "8 / 11",
+          "screen": 87,
+          "file": "87-retailer-purchase-book.html",
+          "action": "Scan Invoice",
+          "intent": "Tap: Scan Invoice"
+        },
+        {
+          "counter": "8 / 11",
+          "screen": 87,
+          "file": "87-retailer-purchase-book.html",
+          "action": "Extract Purchase Details",
+          "intent": "Tap: Extract Purchase Details"
+        },
+        {
+          "counter": "8 / 11",
+          "screen": 87,
+          "file": "87-retailer-purchase-book.html",
+          "action": "Confirm & Add Purchase",
+          "intent": "Tap: Confirm & Add Purchase"
+        },
+        {
+          "counter": "8 / 11",
+          "screen": 87,
+          "file": "87-retailer-purchase-book.html",
+          "action": "Done",
+          "intent": "Tap: Done"
         },
         {
           "counter": "9 / 11",
           "screen": 88,
           "file": "88-retailer-supplier-bill-payment.html",
-          "action": "Review Payment"
+          "action": "Review Payment",
+          "intent": "Tap: Review Payment"
+        },
+        {
+          "counter": "9 / 11",
+          "screen": 88,
+          "file": "88-retailer-supplier-bill-payment.html",
+          "action": "Authorize ₹2,568",
+          "intent": "Tap: Authorize ₹2,568"
+        },
+        {
+          "counter": "9 / 11",
+          "screen": 88,
+          "file": "88-retailer-supplier-bill-payment.html",
+          "action": "Done",
+          "intent": "Tap: Done"
         },
         {
           "counter": "10 / 11",
           "screen": 89,
           "file": "89-retailer-supplier-payment-status.html",
-          "action": "Refresh"
+          "action": "Refresh",
+          "intent": "Tap: Refresh"
         }
       ],
       "error": null
@@ -1210,43 +1571,50 @@
           "counter": "1 / 8",
           "screen": 92,
           "file": "92-retailer-business-book-home.html",
-          "action": "S Sales Book App, counter, phone and Chat sales ₹4,82,900 42 today"
+          "action": "S Sales Book App, counter, phone and Chat sales ₹4,82,900 42 today",
+          "intent": "Loading first state..."
         },
         {
           "counter": "2 / 8",
           "screen": 90,
           "file": "90-retailer-sales-book.html",
-          "action": "Back to Business Book"
+          "action": "Back to Business Book",
+          "intent": "Tap: Back to Business Book"
         },
         {
           "counter": "3 / 8",
           "screen": 92,
           "file": "92-retailer-business-book-home.html",
-          "action": "P Purchase Book Supplier bills, payments and returns ₹3,31,400 2 due"
+          "action": "P Purchase Book Supplier bills, payments and returns ₹3,31,400 2 due",
+          "intent": "Tap: P Purchase Book Supplier bills, payments and returns ₹3,31,400 2 due"
         },
         {
           "counter": "4 / 8",
           "screen": 87,
           "file": "87-retailer-purchase-book.html",
-          "action": "Back to Business Book"
+          "action": "Back to Business Book",
+          "intent": "Tap: Back to Business Book"
         },
         {
           "counter": "5 / 8",
           "screen": 92,
           "file": "92-retailer-business-book-home.html",
-          "action": "ST Stock Statement Value, movements, checks and incoming stock ₹3,84,620 24 low"
+          "action": "ST Stock Statement Value, movements, checks and incoming stock ₹3,84,620 24 low",
+          "intent": "Tap: ST Stock Statement Value, movements, checks and incoming stock ₹3,84,620 24 low"
         },
         {
           "counter": "6 / 8",
           "screen": 91,
           "file": "91-retailer-stock-statement.html",
-          "action": "Back to Business Book"
+          "action": "Back to Business Book",
+          "intent": "Tap: Back to Business Book"
         },
         {
           "counter": "7 / 8",
           "screen": 92,
           "file": "92-retailer-business-book-home.html",
-          "action": "Business reports and export"
+          "action": "Business reports and export",
+          "intent": "Tap: Business reports and export"
         }
       ],
       "error": null
@@ -1256,7 +1624,7 @@
       "title": "Retailer Business Services",
       "status": "passed",
       "expectedNodes": 5,
-      "interactionTurns": 5,
+      "interactionTurns": 6,
       "finalCounter": "5 / 5",
       "screensSeen": [
         74,
@@ -1270,31 +1638,43 @@
           "counter": "1 / 5",
           "screen": 74,
           "file": "74-retail-products-stock-setup.html",
-          "action": "MOOLSOCIAL BUSINESS SERVICES Delivery, sales, tax, books, offers and ads Separate professional plans for your shop View ›"
+          "action": "MOOLSOCIAL BUSINESS SERVICES Delivery, sales, tax, books, offers and ads Separate professional plans for your shop View ›",
+          "intent": "Tap: MOOLSOCIAL BUSINESS SERVICES Delivery, sales, tax, books, offers and ads Separate professional plans for your shop View ›"
         },
         {
           "counter": "2 / 5",
           "screen": 93,
           "file": "93-retailer-business-services.html",
-          "action": "Delivery Support Nearby Customer orders delivered from your shop Partner assignment · live tracking · proof + charge only for completed delivery FROM ₹299 /month View plan"
+          "action": "Delivery Support Nearby Customer orders delivered from your shop Partner assignment · live tracking · proof + charge only for completed delivery FROM ₹299 /month View plan",
+          "intent": "Tap: Delivery Support Nearby"
+        },
+        {
+          "counter": "2 / 5",
+          "screen": 93,
+          "file": "93-retailer-business-services.html",
+          "action": "View plans",
+          "intent": "Tap: View plans"
         },
         {
           "counter": "3 / 5",
           "screen": 94,
           "file": "94-retailer-business-service-plan.html",
-          "action": "Review activation"
+          "action": "Review activation",
+          "intent": "Tap: Review activation"
         },
         {
           "counter": "4 / 5",
           "screen": 95,
           "file": "95-retailer-business-service-activation.html",
-          "action": "Approve service terms"
+          "action": "Approve service terms",
+          "intent": "Tap: Approve service terms"
         },
         {
           "counter": "4 / 5",
           "screen": 95,
           "file": "95-retailer-business-service-activation.html",
-          "action": "Pay & activate"
+          "action": "Pay & activate",
+          "intent": "Tap: Pay & activate"
         }
       ],
       "error": null
@@ -1318,37 +1698,43 @@
           "counter": "1 / 7",
           "screen": 74,
           "file": "74-retail-products-stock-setup.html",
-          "action": "1,284 Customers"
+          "action": "1,284 Customers",
+          "intent": "Tap: 1,284 Customers"
         },
         {
           "counter": "2 / 7",
           "screen": 97,
           "file": "97-retailer-customers-loyalty.html",
-          "action": "SF Sharma Family 18 orders · last buy 4 days ago · home delivery Monthly staples basket ready ₹645 Offers allowed"
+          "action": "SF Sharma Family 18 orders · last buy 4 days ago · home delivery Monthly staples basket ready ₹645 Offers allowed",
+          "intent": "Tap: SF Sharma Family 18 orders · last buy 4 days ago · home delivery Monthly staples basket ready ₹645 Offers allowed"
         },
         {
           "counter": "3 / 7",
           "screen": 98,
           "file": "98-retailer-customer-detail-retention.html",
-          "action": "Back to customers"
+          "action": "Back to customers",
+          "intent": "Tap: Back to customers"
         },
         {
           "counter": "4 / 7",
           "screen": 97,
           "file": "97-retailer-customers-loyalty.html",
-          "action": "Back to retailer home"
+          "action": "Back to retailer home",
+          "intent": "Tap: Back to retailer home"
         },
         {
           "counter": "5 / 7",
           "screen": 74,
           "file": "74-retail-products-stock-setup.html",
-          "action": "3 Offers"
+          "action": "3 Offers",
+          "intent": "Tap: 3 Offers"
         },
         {
           "counter": "6 / 7",
           "screen": 99,
           "file": "99-retailer-offers-campaigns.html",
-          "action": "+ Create"
+          "action": "+ Create",
+          "intent": "Tap: + Create"
         }
       ],
       "error": null
@@ -1374,79 +1760,92 @@
           "counter": "1 / 12",
           "screen": 74,
           "file": "74-retail-products-stock-setup.html",
-          "action": "18 Slow Stock"
+          "action": "18 Slow Stock",
+          "intent": "Tap: 18 Slow Stock"
         },
         {
           "counter": "2 / 12",
           "screen": 101,
           "file": "101-retailer-slow-stock-liquidation.html",
-          "action": "Back to stock"
+          "action": "Back to stock",
+          "intent": "Tap: Back to stock"
         },
         {
           "counter": "3 / 12",
           "screen": 74,
           "file": "74-retail-products-stock-setup.html",
-          "action": "Open retailer business home"
+          "action": "Open retailer business home",
+          "intent": "Tap: Open retailer business home"
         },
         {
           "counter": "3 / 12",
           "screen": 74,
           "file": "74-retail-products-stock-setup.html",
-          "action": "AI Assistant"
+          "action": "AI Assistant",
+          "intent": "Tap: AI Assistant"
         },
         {
           "counter": "4 / 12",
           "screen": 102,
           "file": "102-retailer-ai-operating-assistant.html",
-          "action": "Back to retailer home"
+          "action": "Back to retailer home",
+          "intent": "Tap: Back to retailer home"
         },
         {
           "counter": "5 / 12",
           "screen": 74,
           "file": "74-retail-products-stock-setup.html",
-          "action": "8 Staff"
+          "action": "8 Staff",
+          "intent": "Tap: 8 Staff"
         },
         {
           "counter": "6 / 12",
           "screen": 103,
           "file": "103-retailer-staff-permissions.html",
-          "action": "Back to retailer home"
+          "action": "Back to retailer home",
+          "intent": "Tap: Back to retailer home"
         },
         {
           "counter": "7 / 12",
           "screen": 74,
           "file": "74-retail-products-stock-setup.html",
-          "action": "92% Settings"
+          "action": "92% Settings",
+          "intent": "Tap: 92% Settings"
         },
         {
           "counter": "8 / 12",
           "screen": 104,
           "file": "104-retailer-store-settings-readiness.html",
-          "action": "Back to retailer home"
+          "action": "Back to retailer home",
+          "intent": "Tap: Back to retailer home"
         },
         {
           "counter": "9 / 12",
           "screen": 74,
           "file": "74-retail-products-stock-setup.html",
-          "action": "3 Issues"
+          "action": "3 Issues",
+          "intent": "Tap: 3 Issues"
         },
         {
           "counter": "10 / 12",
           "screen": 105,
           "file": "105-retailer-returns-customer-issues.html",
-          "action": "Back to retailer orders"
+          "action": "Back to retailer orders",
+          "intent": "Tap: Back to retailer orders"
         },
         {
           "counter": "11 / 12",
           "screen": 74,
           "file": "74-retail-products-stock-setup.html",
-          "action": "Open retailer business home"
+          "action": "Open retailer business home",
+          "intent": "Tap: Open retailer business home"
         },
         {
           "counter": "11 / 12",
           "screen": 74,
           "file": "74-retail-products-stock-setup.html",
-          "action": "96% Money"
+          "action": "96% Money",
+          "intent": "Tap: 96% Money"
         }
       ],
       "error": null
@@ -1456,7 +1855,7 @@
       "title": "Manufacturer Sales and Fulfilment",
       "status": "passed",
       "expectedNodes": 5,
-      "interactionTurns": 4,
+      "interactionTurns": 5,
       "finalCounter": "5 / 5",
       "screensSeen": [
         107,
@@ -1469,25 +1868,36 @@
           "counter": "1 / 5",
           "screen": 107,
           "file": "107-manufacturer-supplier-workspace-home.html",
-          "action": "Update Stock"
+          "action": "Stock",
+          "intent": "Loading first state..."
         },
         {
           "counter": "2 / 5",
           "screen": 109,
           "file": "109-manufacturer-product-catalogue-stock.html",
-          "action": "Orders"
+          "action": "Orders",
+          "intent": "Tap: Orders"
         },
         {
           "counter": "3 / 5",
           "screen": 107,
           "file": "107-manufacturer-supplier-workspace-home.html",
-          "action": "Review"
+          "action": "Review",
+          "intent": "Tap: Review"
         },
         {
           "counter": "4 / 5",
           "screen": 110,
           "file": "110-manufacturer-order-review-fulfilment.html",
-          "action": "Confirm Full"
+          "action": "Confirm Full",
+          "intent": "Tap: Confirm Full"
+        },
+        {
+          "counter": "4 / 5",
+          "screen": 110,
+          "file": "110-manufacturer-order-review-fulfilment.html",
+          "action": "Confirm 260 cases",
+          "intent": "Tap: Confirm 260 cases"
         }
       ],
       "error": null
@@ -1509,25 +1919,29 @@
           "counter": "1 / 3",
           "screen": 107,
           "file": "107-manufacturer-supplier-workspace-home.html",
-          "action": "Wholesale Buy"
+          "action": "Wholesale Buy",
+          "intent": "Loading first state..."
         },
         {
           "counter": "2 / 3",
           "screen": 111,
           "file": "111-manufacturer-input-procurement.html",
-          "action": "Back to manufacturer Wholesale Buy"
+          "action": "Back to manufacturer Wholesale Buy",
+          "intent": "Tap: Back to manufacturer Wholesale Buy"
         },
         {
           "counter": "2 / 3",
           "screen": 107,
           "file": "107-manufacturer-supplier-workspace-home.html",
-          "action": "Open Business Book"
+          "action": "Open Business Book",
+          "intent": "Tap: Open Business Book"
         },
         {
           "counter": "2 / 3",
           "screen": 107,
           "file": "107-manufacturer-supplier-workspace-home.html",
-          "action": "Continue to Manufacturer Business Book"
+          "action": "Continue to Manufacturer Business Book",
+          "intent": "Tap: Continue to Manufacturer Business Book"
         }
       ],
       "error": null
@@ -1549,25 +1963,29 @@
           "counter": "1 / 4",
           "screen": 107,
           "file": "107-manufacturer-supplier-workspace-home.html",
-          "action": "Review retailer demand pool"
+          "action": "Review retailer demand pool",
+          "intent": "Tap: Review retailer demand pool"
         },
         {
           "counter": "2 / 4",
           "screen": 113,
           "file": "113-manufacturer-buyers-demand-campaigns.html",
-          "action": "Back to manufacturer workspace"
+          "action": "Back to manufacturer workspace",
+          "intent": "Tap: Back to manufacturer workspace"
         },
         {
           "counter": "3 / 4",
           "screen": 107,
           "file": "107-manufacturer-supplier-workspace-home.html",
-          "action": "MS MOOLSOCIAL BUSINESS SERVICES Transport, sales, GST, books and campaigns Separate professional plans for your business View ›"
+          "action": "MS MOOLSOCIAL BUSINESS SERVICES Transport, sales, GST, books and campaigns Separate professional plans for your business View ›",
+          "intent": "Tap: MOOLSOCIAL BUSINESS SERVICES"
         },
         {
           "counter": "3 / 4",
           "screen": 107,
           "file": "107-manufacturer-supplier-workspace-home.html",
-          "action": "View services"
+          "action": "View services",
+          "intent": "Tap: View services"
         }
       ],
       "error": null
@@ -1589,31 +2007,36 @@
           "counter": "1 / 4",
           "screen": 107,
           "file": "107-manufacturer-supplier-workspace-home.html",
-          "action": "Open alerts"
+          "action": "Open alerts",
+          "intent": "Tap: Open alerts"
         },
         {
           "counter": "1 / 4",
           "screen": 107,
           "file": "107-manufacturer-supplier-workspace-home.html",
-          "action": "Review alerts"
+          "action": "Review alerts",
+          "intent": "Tap: Review alerts"
         },
         {
           "counter": "2 / 4",
           "screen": 114,
           "file": "114-manufacturer-claims-team-control.html",
-          "action": "Back to manufacturer workspace"
+          "action": "Back to manufacturer workspace",
+          "intent": "Tap: Back to manufacturer workspace"
         },
         {
           "counter": "3 / 4",
           "screen": 107,
           "file": "107-manufacturer-supplier-workspace-home.html",
-          "action": "Open Business Book"
+          "action": "Open Business Book",
+          "intent": "Tap: Open Business Book"
         },
         {
           "counter": "3 / 4",
           "screen": 107,
           "file": "107-manufacturer-supplier-workspace-home.html",
-          "action": "Continue to Manufacturer Business Book"
+          "action": "Continue to Manufacturer Business Book",
+          "intent": "Tap: Continue to Manufacturer Business Book"
         }
       ],
       "error": null
@@ -1623,7 +2046,7 @@
       "title": "Captain Ride and Earnings",
       "status": "passed",
       "expectedNodes": 10,
-      "interactionTurns": 10,
+      "interactionTurns": 12,
       "finalCounter": "10 / 10",
       "screensSeen": [
         116,
@@ -1640,61 +2063,85 @@
           "counter": "1 / 10",
           "screen": 116,
           "file": "116-captain-home-availability.html",
-          "action": "R Requests"
+          "action": "R Requests",
+          "intent": "Tap: R Requests"
         },
         {
           "counter": "2 / 10",
           "screen": 117,
           "file": "117-captain-ride-request.html",
-          "action": "T Trips"
+          "action": "T Trips",
+          "intent": "Tap: T Trips"
         },
         {
           "counter": "3 / 10",
           "screen": 118,
           "file": "118-captain-pickup-navigation.html",
-          "action": "I Have Arrived"
+          "action": "I Have Arrived",
+          "intent": "Tap: I Have Arrived"
+        },
+        {
+          "counter": "3 / 10",
+          "screen": 118,
+          "file": "118-captain-pickup-navigation.html",
+          "action": "",
+          "intent": "Type the trip OTP"
+        },
+        {
+          "counter": "3 / 10",
+          "screen": 118,
+          "file": "118-captain-pickup-navigation.html",
+          "action": "Verify OTP & Start",
+          "intent": "Tap: Verify OTP & Start"
         },
         {
           "counter": "4 / 10",
           "screen": 119,
           "file": "119-captain-live-trip-safety.html",
-          "action": "Arrived at Destination"
+          "action": "Arrived at Destination",
+          "intent": "Tap: Arrived at Destination"
         },
         {
           "counter": "5 / 10",
           "screen": 120,
           "file": "120-captain-fare-completion.html",
-          "action": "₹ Earnings"
+          "action": "₹ Earnings",
+          "intent": "Tap: ₹ Earnings"
         },
         {
           "counter": "6 / 10",
           "screen": 121,
           "file": "121-captain-earnings-payouts.html",
-          "action": "‹"
+          "action": "‹",
+          "intent": "Tap: ‹"
         },
         {
           "counter": "7 / 10",
           "screen": 116,
           "file": "116-captain-home-availability.html",
-          "action": "DOC Insurance expires in 18 days Renew before ride eligibility pauses Reminder active ›"
+          "action": "DOC Insurance expires in 18 days Renew before ride eligibility pauses Reminder active ›",
+          "intent": "Tap: Insurance expires in 18 days"
         },
         {
           "counter": "8 / 10",
           "screen": 122,
           "file": "122-captain-vehicle-compliance.html",
-          "action": "‹"
+          "action": "‹",
+          "intent": "Tap: ‹"
         },
         {
           "counter": "9 / 10",
           "screen": 116,
           "file": "116-captain-home-availability.html",
-          "action": "Open captain controls"
+          "action": "Open captain controls",
+          "intent": "Tap: Open captain controls"
         },
         {
           "counter": "9 / 10",
           "screen": 116,
           "file": "116-captain-home-availability.html",
-          "action": "Support & Paid Work"
+          "action": "Support & Paid Work",
+          "intent": "Tap: Support"
         }
       ],
       "error": null
@@ -1722,97 +2169,113 @@
           "counter": "1 / 15",
           "screen": 124,
           "file": "124-creator-studio-home.html",
-          "action": "+ Create"
+          "action": "+ Create",
+          "intent": "Tap: + Create"
         },
         {
           "counter": "2 / 15",
           "screen": 125,
           "file": "125-creator-create-publish.html",
-          "action": "‹"
+          "action": "‹",
+          "intent": "Tap: ‹"
         },
         {
           "counter": "3 / 15",
           "screen": 124,
           "file": "124-creator-studio-home.html",
-          "action": "MANAGE Content library"
+          "action": "MANAGE Content library",
+          "intent": "Tap: Content library"
         },
         {
           "counter": "4 / 15",
           "screen": 126,
           "file": "126-creator-content-library.html",
-          "action": "How local baskets save time Short · 48.2K views ₹2,840 attributed published"
+          "action": "How local baskets save time Short · 48.2K views ₹2,840 attributed published",
+          "intent": "Tap: How local baskets save time"
         },
         {
           "counter": "4 / 15",
           "screen": 126,
           "file": "126-creator-content-library.html",
-          "action": "Open Performance"
+          "action": "Open Performance",
+          "intent": "Tap: Open Performance"
         },
         {
           "counter": "5 / 15",
           "screen": 127,
           "file": "127-creator-content-performance.html",
-          "action": "‹"
+          "action": "‹",
+          "intent": "Tap: ‹"
         },
         {
           "counter": "6 / 15",
           "screen": 124,
           "file": "124-creator-studio-home.html",
-          "action": "UNDERSTAND Audience"
+          "action": "UNDERSTAND Audience",
+          "intent": "Tap: Audience"
         },
         {
           "counter": "7 / 15",
           "screen": 128,
           "file": "128-creator-audience-community.html",
-          "action": "‹"
+          "action": "‹",
+          "intent": "Tap: ‹"
         },
         {
           "counter": "8 / 15",
           "screen": 124,
           "file": "124-creator-studio-home.html",
-          "action": "CAMPAIGN ₹3,500 fixed + ₹40/order Open"
+          "action": "CAMPAIGN ₹3,500 fixed + ₹40/order Open",
+          "intent": "Tap: CAMPAIGN ₹3,500 fixed + ₹40/order Open"
         },
         {
           "counter": "9 / 15",
           "screen": 129,
           "file": "129-creator-campaigns.html",
-          "action": "‹"
+          "action": "‹",
+          "intent": "Tap: ‹"
         },
         {
           "counter": "10 / 15",
           "screen": 124,
           "file": "124-creator-studio-home.html",
-          "action": "₹ Earnings"
+          "action": "₹ Earnings",
+          "intent": "Tap: ₹ Earnings"
         },
         {
           "counter": "11 / 15",
           "screen": 130,
           "file": "130-creator-earnings-payouts.html",
-          "action": "‹"
+          "action": "‹",
+          "intent": "Tap: ‹"
         },
         {
           "counter": "12 / 15",
           "screen": 124,
           "file": "124-creator-studio-home.html",
-          "action": "Studio controls"
+          "action": "Studio controls",
+          "intent": "Tap: Studio controls"
         },
         {
           "counter": "12 / 15",
           "screen": 124,
           "file": "124-creator-studio-home.html",
-          "action": "Open Controls"
+          "action": "Open Controls",
+          "intent": "Tap: Open Controls"
         },
         {
           "counter": "13 / 15",
           "screen": 131,
           "file": "131-creator-verification-rights-safety.html",
-          "action": "‹"
+          "action": "‹",
+          "intent": "Tap: ‹"
         },
         {
           "counter": "14 / 15",
           "screen": 124,
           "file": "124-creator-studio-home.html",
-          "action": "MEMBERS ₹99/month or ₹999/year Open"
+          "action": "MEMBERS ₹99/month or ₹999/year Open",
+          "intent": "Tap: MEMBERS ₹99/month or ₹999/year Open"
         }
       ],
       "error": null
@@ -1822,14 +2285,15 @@
       "title": "Creator Earning - Funded Campaign",
       "status": "passed",
       "expectedNodes": 8,
-      "interactionTurns": 8,
+      "interactionTurns": 6,
       "finalCounter": "8 / 8",
       "screensSeen": [
         100,
         152,
         129,
         125,
-        154
+        154,
+        130
       ],
       "horizontalOverflows": [],
       "turns": [
@@ -1837,49 +2301,43 @@
           "counter": "1 / 8",
           "screen": 100,
           "file": "100-retailer-offer-campaign-builder.html",
-          "action": "Continue"
+          "action": "Continue",
+          "intent": "Tap: Continue"
         },
         {
           "counter": "1 / 8",
           "screen": 100,
           "file": "100-retailer-offer-campaign-builder.html",
-          "action": "Continue"
-        },
-        {
-          "counter": "1 / 8",
-          "screen": 100,
-          "file": "100-retailer-offer-campaign-builder.html",
-          "action": "Continue"
-        },
-        {
-          "counter": "1 / 8",
-          "screen": 100,
-          "file": "100-retailer-offer-campaign-builder.html",
-          "action": "Publish campaign"
+          "action": "Publish campaign",
+          "intent": "Tap: Publish campaign"
         },
         {
           "counter": "2 / 8",
           "screen": 152,
           "file": "152-admin-work-campaign-governance.html",
-          "action": "Open engine controls"
+          "action": "Open engine controls",
+          "intent": "Tap: Open engine controls"
         },
         {
           "counter": "3 / 8",
           "screen": 129,
           "file": "129-creator-campaigns.html",
-          "action": "Open Deliverable"
+          "action": "Open Deliverable",
+          "intent": "Tap: Open Deliverable"
         },
         {
           "counter": "4 / 8",
           "screen": 125,
           "file": "125-creator-create-publish.html",
-          "action": "Review & Publish"
+          "action": "Review & Publish",
+          "intent": "Tap: Review & Publish"
         },
         {
           "counter": "7 / 8",
           "screen": 154,
           "file": "154-admin-finance-reconciliation.html",
-          "action": "Reconcile exceptions"
+          "action": "Reconcile exceptions",
+          "intent": "Tap: Reconcile exceptions"
         }
       ],
       "error": null
@@ -1889,7 +2347,7 @@
       "title": "Creator Earning - Commerce Share",
       "status": "passed",
       "expectedNodes": 12,
-      "interactionTurns": 9,
+      "interactionTurns": 11,
       "finalCounter": "12 / 12",
       "screensSeen": [
         99,
@@ -1898,9 +2356,11 @@
         5,
         9,
         12,
-        13,
         14,
-        154
+        17,
+        127,
+        154,
+        130
       ],
       "horizontalOverflows": [],
       "turns": [
@@ -1908,55 +2368,78 @@
           "counter": "1 / 12",
           "screen": 99,
           "file": "99-retailer-offers-campaigns.html",
-          "action": "Preview creator view"
+          "action": "Preview creator view",
+          "intent": "Tap: Preview creator view"
         },
         {
           "counter": "2 / 12",
           "screen": 129,
           "file": "129-creator-campaigns.html",
-          "action": "Review and continue"
+          "action": "Review and continue",
+          "intent": "Tap: Review and continue"
         },
         {
           "counter": "3 / 12",
           "screen": 125,
           "file": "125-creator-create-publish.html",
-          "action": "Review & Publish"
+          "action": "Review & Publish",
+          "intent": "Tap: Review & Publish"
         },
         {
-          "counter": "4 / 12",
+          "counter": "3 / 12",
           "screen": 5,
           "file": "05-social-shorts.html",
-          "action": "Details"
+          "action": "Details",
+          "intent": "Opening next verified state..."
         },
         {
           "counter": "5 / 12",
           "screen": 9,
           "file": "09-buy.html",
-          "action": "Open basket"
+          "action": "Open basket",
+          "intent": "Tap: Open basket"
         },
         {
           "counter": "6 / 12",
           "screen": 12,
           "file": "12-buy-basket-checkout.html",
-          "action": "Confirm Stock First"
+          "action": "Deliver 22 min local delivery available",
+          "intent": "Tap: Deliver 22 min"
+        },
+        {
+          "counter": "6 / 12",
+          "screen": 12,
+          "file": "12-buy-basket-checkout.html",
+          "action": "Review & Pay",
+          "intent": "Tap: Review & Pay"
         },
         {
           "counter": "7 / 12",
-          "screen": 13,
-          "file": "13-retailer-stock-confirmation.html",
-          "action": "Confirm All unlock customer payment"
+          "screen": 14,
+          "file": "14-customer-payment-order-confirmation.html",
+          "action": "Pay Rs 670",
+          "intent": "Tap: Pay Rs"
+        },
+        {
+          "counter": "7 / 12",
+          "screen": 14,
+          "file": "14-customer-payment-order-confirmation.html",
+          "action": "View Order",
+          "intent": "Tap: View Order"
         },
         {
           "counter": "8 / 12",
-          "screen": 14,
-          "file": "14-customer-payment-order-confirmation.html",
-          "action": "Pay Rs 645"
+          "screen": 17,
+          "file": "17-home-delivery-tracking.html",
+          "action": "Refresh status",
+          "intent": "Tap: Refresh status"
         },
         {
           "counter": "11 / 12",
           "screen": 154,
           "file": "154-admin-finance-reconciliation.html",
-          "action": "Reconcile exceptions"
+          "action": "Reconcile exceptions",
+          "intent": "Tap: Reconcile exceptions"
         }
       ],
       "error": null
@@ -1979,19 +2462,22 @@
           "counter": "1 / 5",
           "screen": 132,
           "file": "132-creator-memberships.html",
-          "action": "Create Membership Plan"
+          "action": "Create Membership Plan",
+          "intent": "Tap: Create Membership Plan"
         },
         {
           "counter": "2 / 5",
           "screen": 7,
           "file": "07-social-feed.html",
-          "action": "Join membership"
+          "action": "Join membership",
+          "intent": "Tap: Join membership"
         },
         {
           "counter": "3 / 5",
           "screen": 62,
           "file": "62-pay-request-confirmation.html",
-          "action": "Pay Rs 645"
+          "action": "Pay Rs 645",
+          "intent": "Tap: Pay Rs 645"
         }
       ],
       "error": null
@@ -2004,7 +2490,9 @@
       "interactionTurns": 1,
       "finalCounter": "4 / 4",
       "screensSeen": [
-        154
+        127,
+        154,
+        130
       ],
       "horizontalOverflows": [],
       "turns": [
@@ -2012,7 +2500,8 @@
           "counter": "3 / 4",
           "screen": 154,
           "file": "154-admin-finance-reconciliation.html",
-          "action": "Reconcile exceptions"
+          "action": "Reconcile exceptions",
+          "intent": "Tap: Reconcile exceptions"
         }
       ],
       "error": null
@@ -2037,31 +2526,36 @@
           "counter": "1 / 6",
           "screen": 100,
           "file": "100-retailer-offer-campaign-builder.html",
-          "action": "Preview creator view"
+          "action": "Preview creator view",
+          "intent": "Tap: Preview creator view"
         },
         {
           "counter": "2 / 6",
           "screen": 129,
           "file": "129-creator-campaigns.html",
-          "action": "Open Deliverable"
+          "action": "Open Deliverable",
+          "intent": "Tap: Open Deliverable"
         },
         {
           "counter": "3 / 6",
           "screen": 125,
           "file": "125-creator-create-publish.html",
-          "action": "Review & Publish"
+          "action": "Review & Publish",
+          "intent": "Tap: Review & Publish"
         },
         {
           "counter": "4 / 6",
           "screen": 152,
           "file": "152-admin-work-campaign-governance.html",
-          "action": "Open engine controls"
+          "action": "Open engine controls",
+          "intent": "Tap: Open engine controls"
         },
         {
           "counter": "5 / 6",
           "screen": 154,
           "file": "154-admin-finance-reconciliation.html",
-          "action": "Reconcile exceptions"
+          "action": "Reconcile exceptions",
+          "intent": "Tap: Reconcile exceptions"
         }
       ],
       "error": null
@@ -2071,7 +2565,7 @@
       "title": "Creator Earning - Verified Onboarding",
       "status": "passed",
       "expectedNodes": 7,
-      "interactionTurns": 5,
+      "interactionTurns": 6,
       "finalCounter": "7 / 7",
       "screensSeen": [
         152,
@@ -2086,31 +2580,43 @@
           "counter": "1 / 7",
           "screen": 152,
           "file": "152-admin-work-campaign-governance.html",
-          "action": "Open engine controls"
+          "action": "Open engine controls",
+          "intent": "Loading first state..."
         },
         {
           "counter": "2 / 7",
           "screen": 133,
           "file": "133-earn-opportunities.html",
-          "action": "Check eligibility"
+          "action": "Check eligibility",
+          "intent": "Tap: Check eligibility"
         },
         {
           "counter": "3 / 7",
           "screen": 134,
           "file": "134-earn-applications-eligibility.html",
-          "action": "Open Assignment"
+          "action": "Open Assignment",
+          "intent": "Tap: Open Assignment"
         },
         {
           "counter": "4 / 7",
           "screen": 135,
           "file": "135-earn-active-work.html",
-          "action": "Continue Proof"
+          "action": "Continue Proof",
+          "intent": "Tap: Continue Proof"
         },
         {
           "counter": "5 / 7",
           "screen": 136,
           "file": "136-earn-proof-outcome.html",
-          "action": "Submit for Verification"
+          "action": "Submit for Verification",
+          "intent": "Tap: Submit for Verification"
+        },
+        {
+          "counter": "5 / 7",
+          "screen": 136,
+          "file": "136-earn-proof-outcome.html",
+          "action": "Track Earnings",
+          "intent": "Tap: Track Earnings"
         }
       ],
       "error": null
@@ -2128,7 +2634,8 @@
         129,
         125,
         7,
-        62
+        62,
+        130
       ],
       "horizontalOverflows": [],
       "turns": [
@@ -2136,37 +2643,43 @@
           "counter": "1 / 9",
           "screen": 113,
           "file": "113-manufacturer-buyers-demand-campaigns.html",
-          "action": "Set terms and reserve"
+          "action": "Set terms and reserve",
+          "intent": "Tap: Set terms and reserve"
         },
         {
           "counter": "2 / 9",
           "screen": 156,
           "file": "156-admin-audience-launch-configuration.html",
-          "action": "Approve controlled launch"
+          "action": "Approve controlled launch",
+          "intent": "Tap: Approve controlled launch"
         },
         {
           "counter": "3 / 9",
           "screen": 129,
           "file": "129-creator-campaigns.html",
-          "action": "Open Deliverable"
+          "action": "Open Deliverable",
+          "intent": "Tap: Open Deliverable"
         },
         {
           "counter": "4 / 9",
           "screen": 125,
           "file": "125-creator-create-publish.html",
-          "action": "Review & Publish"
+          "action": "Review & Publish",
+          "intent": "Tap: Review & Publish"
         },
         {
           "counter": "5 / 9",
           "screen": 7,
           "file": "07-social-feed.html",
-          "action": "Join live event"
+          "action": "Join live event",
+          "intent": "Tap: Join live event"
         },
         {
           "counter": "6 / 9",
           "screen": 62,
           "file": "62-pay-request-confirmation.html",
-          "action": "Pay Rs 645"
+          "action": "Pay Rs 645",
+          "intent": "Tap: Pay Rs 645"
         }
       ],
       "error": null
@@ -2189,25 +2702,29 @@
           "counter": "1 / 4",
           "screen": 99,
           "file": "99-retailer-offers-campaigns.html",
-          "action": "Set terms and reserve"
+          "action": "Set terms and reserve",
+          "intent": "Loading first state..."
         },
         {
           "counter": "2 / 4",
           "screen": 131,
           "file": "131-creator-verification-rights-safety.html",
-          "action": "Review request"
+          "action": "Review request",
+          "intent": "Tap: Review request"
         },
         {
           "counter": "2 / 4",
           "screen": 131,
           "file": "131-creator-verification-rights-safety.html",
-          "action": "Approve licence"
+          "action": "Approve licence",
+          "intent": "Tap: Approve licence"
         },
         {
           "counter": "3 / 4",
           "screen": 154,
           "file": "154-admin-finance-reconciliation.html",
-          "action": "Reconcile exceptions"
+          "action": "Reconcile exceptions",
+          "intent": "Tap: Reconcile exceptions"
         }
       ],
       "error": null
@@ -2217,7 +2734,7 @@
       "title": "Freelancer Earn Operations",
       "status": "passed",
       "expectedNodes": 6,
-      "interactionTurns": 6,
+      "interactionTurns": 7,
       "finalCounter": "6 / 6",
       "screensSeen": [
         133,
@@ -2232,37 +2749,50 @@
           "counter": "1 / 6",
           "screen": 133,
           "file": "133-earn-opportunities.html",
-          "action": "Check eligibility"
+          "action": "Check eligibility",
+          "intent": "Tap: Check eligibility"
         },
         {
           "counter": "2 / 6",
           "screen": 134,
           "file": "134-earn-applications-eligibility.html",
-          "action": "Open Assignment"
+          "action": "Open Assignment",
+          "intent": "Tap: Open Assignment"
         },
         {
           "counter": "3 / 6",
           "screen": 135,
           "file": "135-earn-active-work.html",
-          "action": "Continue Proof"
+          "action": "Continue Proof",
+          "intent": "Tap: Continue Proof"
         },
         {
           "counter": "4 / 6",
           "screen": 136,
           "file": "136-earn-proof-outcome.html",
-          "action": "Submit for Verification"
+          "action": "Submit for Verification",
+          "intent": "Tap: Submit for Verification"
+        },
+        {
+          "counter": "4 / 6",
+          "screen": 136,
+          "file": "136-earn-proof-outcome.html",
+          "action": "Track Earnings",
+          "intent": "Tap: Track Earnings"
         },
         {
           "counter": "5 / 6",
           "screen": 137,
           "file": "137-earn-earnings-payout.html",
-          "action": "Earnings statement"
+          "action": "Earnings statement",
+          "intent": "Tap: Earnings statement"
         },
         {
           "counter": "5 / 6",
           "screen": 137,
           "file": "137-earn-earnings-payout.html",
-          "action": "Issues & History"
+          "action": "Issues & History",
+          "intent": "Tap: Issues & History"
         }
       ],
       "error": null
@@ -2272,7 +2802,7 @@
       "title": "Service Provider Operations",
       "status": "passed",
       "expectedNodes": 12,
-      "interactionTurns": 11,
+      "interactionTurns": 12,
       "finalCounter": "12 / 12",
       "screensSeen": [
         139,
@@ -2289,67 +2819,85 @@
           "counter": "1 / 12",
           "screen": 139,
           "file": "139-provider-home-readiness.html",
-          "action": "KEEP CURRENT Services 8 consumer-ready"
+          "action": "KEEP CURRENT Services 8 consumer-ready",
+          "intent": "Tap: KEEP CURRENT Services 8 consumer-ready"
         },
         {
           "counter": "2 / 12",
           "screen": 140,
           "file": "140-provider-catalogue.html",
-          "action": "‹"
+          "action": "‹",
+          "intent": "Tap: ‹"
         },
         {
           "counter": "3 / 12",
           "screen": 139,
           "file": "139-provider-home-readiness.html",
-          "action": "CONTROL Availability and area Open until 7 PM"
+          "action": "CONTROL Availability and area Open until 7 PM",
+          "intent": "Tap: CONTROL Availability and area Open until 7 PM"
         },
         {
           "counter": "4 / 12",
           "screen": 141,
           "file": "141-provider-availability.html",
-          "action": "‹"
+          "action": "‹",
+          "intent": "Tap: ‹"
         },
         {
           "counter": "5 / 12",
           "screen": 139,
           "file": "139-provider-home-readiness.html",
-          "action": "ACT NOW Open Requests 2 need response"
+          "action": "ACT NOW Open Requests 2 need response",
+          "intent": "Tap: ACT NOW Open Requests 2 need response"
         },
         {
           "counter": "6 / 12",
           "screen": 142,
           "file": "142-provider-requests.html",
-          "action": "Accepted 4"
+          "action": "Accept",
+          "intent": "Tap: Accept"
+        },
+        {
+          "counter": "6 / 12",
+          "screen": 142,
+          "file": "142-provider-requests.html",
+          "action": "Confirm and open work",
+          "intent": "Tap: Confirm and open work"
         },
         {
           "counter": "7 / 12",
           "screen": 143,
           "file": "143-provider-fulfilment.html",
-          "action": "₹ Money"
+          "action": "₹ Money",
+          "intent": "Tap: ₹ Money"
         },
         {
           "counter": "8 / 12",
           "screen": 144,
           "file": "144-provider-business.html",
-          "action": "‹"
+          "action": "‹",
+          "intent": "Tap: ‹"
         },
         {
           "counter": "9 / 12",
           "screen": 139,
           "file": "139-provider-home-readiness.html",
-          "action": "FUNDED NEARBY Earn and campaign opportunities 12 open POTENTIAL ₹18K/month AREA Jodhpur FIT Verified"
+          "action": "FUNDED NEARBY Earn and campaign opportunities 12 open POTENTIAL ₹18K/month AREA Jodhpur FIT Verified",
+          "intent": "Tap: FUNDED NEARBY Earn and campaign opportunities 12 open POTENTIAL ₹18K/month AREA Jodhpur FIT Verified"
         },
         {
           "counter": "10 / 12",
           "screen": 145,
           "file": "145-provider-growth.html",
-          "action": "‹"
+          "action": "‹",
+          "intent": "Tap: ‹"
         },
         {
           "counter": "11 / 12",
           "screen": 139,
           "file": "139-provider-home-readiness.html",
-          "action": "?"
+          "action": "?",
+          "intent": "Tap: ?"
         }
       ],
       "error": null
@@ -2380,67 +2928,78 @@
           "counter": "1 / 12",
           "screen": 147,
           "file": "147-admin-command-centre.html",
-          "action": "ID Verification"
+          "action": "ID Verification",
+          "intent": "Loading first state..."
         },
         {
           "counter": "2 / 12",
           "screen": 148,
           "file": "148-admin-workspace-verification.html",
-          "action": "SKU Catalogue"
+          "action": "SKU Catalogue",
+          "intent": "Tap: SKU Catalogue"
         },
         {
           "counter": "3 / 12",
           "screen": 149,
           "file": "149-admin-catalogue-governance.html",
-          "action": "CO Commerce"
+          "action": "CO Commerce",
+          "intent": "Tap: CO Commerce"
         },
         {
           "counter": "4 / 12",
           "screen": 150,
           "file": "150-admin-commerce-exceptions.html",
-          "action": "RD Ride Ops"
+          "action": "RD Ride Ops",
+          "intent": "Tap: RD Ride Ops"
         },
         {
           "counter": "5 / 12",
           "screen": 151,
           "file": "151-admin-ride-operations.html",
-          "action": "WK Work Ops"
+          "action": "WK Work Ops",
+          "intent": "Tap: WK Work Ops"
         },
         {
           "counter": "6 / 12",
           "screen": 152,
           "file": "152-admin-work-campaign-governance.html",
-          "action": "TS Trust & Safety"
+          "action": "TS Trust & Safety",
+          "intent": "Tap: TS Trust & Safety"
         },
         {
           "counter": "7 / 12",
           "screen": 153,
           "file": "153-admin-content-trust-safety.html",
-          "action": "₹ Finance"
+          "action": "₹ Finance",
+          "intent": "Tap: ₹ Finance"
         },
         {
           "counter": "8 / 12",
           "screen": 154,
           "file": "154-admin-finance-reconciliation.html",
-          "action": "SP Support"
+          "action": "SP Support",
+          "intent": "Tap: SP Support"
         },
         {
           "counter": "9 / 12",
           "screen": 155,
           "file": "155-admin-support-disputes.html",
-          "action": "LC Launch & Config"
+          "action": "LC Launch & Config",
+          "intent": "Tap: LC Launch & Config"
         },
         {
           "counter": "10 / 12",
           "screen": 156,
           "file": "156-admin-audience-launch-configuration.html",
-          "action": "AH Activity & Health"
+          "action": "AH Activity & Health",
+          "intent": "Tap: AH Activity & Health"
         },
         {
           "counter": "11 / 12",
           "screen": 163,
           "file": "163-admin-user-activity-product-health.html",
-          "action": "SG Signals & Privacy"
+          "action": "SG Signals & Privacy",
+          "intent": "Tap: SG Signals & Privacy"
         }
       ],
       "error": null
@@ -2466,97 +3025,113 @@
           "counter": "1 / 12",
           "screen": 162,
           "file": "162-shared-workspaces-settings-analytics.html",
-          "action": "◫ Activity"
+          "action": "◫ Activity",
+          "intent": "Loading first state..."
         },
         {
           "counter": "2 / 12",
           "screen": 157,
           "file": "157-shared-priority-inbox.html",
-          "action": "▣ Workspaces"
+          "action": "▣ Workspaces",
+          "intent": "Tap: ▣ Workspaces"
         },
         {
           "counter": "3 / 12",
           "screen": 162,
           "file": "162-shared-workspaces-settings-analytics.html",
-          "action": "• Identity and consent SETTINGS Verified identity, linked documents and consent history. Reusable across eligible workspaces ›"
+          "action": "• Identity and consent SETTINGS Verified identity, linked documents and consent history. Reusable across eligible workspaces ›",
+          "intent": "Tap: Identity and consent"
         },
         {
           "counter": "3 / 12",
           "screen": 162,
           "file": "162-shared-workspaces-settings-analytics.html",
-          "action": "Open identity"
+          "action": "Open identity",
+          "intent": "Tap: Open identity"
         },
         {
           "counter": "4 / 12",
           "screen": 158,
           "file": "158-shared-identity-documents-consent.html",
-          "action": "▣ Workspaces"
+          "action": "▣ Workspaces",
+          "intent": "Tap: ▣ Workspaces"
         },
         {
           "counter": "5 / 12",
           "screen": 162,
           "file": "162-shared-workspaces-settings-analytics.html",
-          "action": "• Ask, scan and voice SETTINGS Use one input for questions, documents, QR and voice actions. Available across personal and work ›"
+          "action": "• Ask, scan and voice SETTINGS Use one input for questions, documents, QR and voice actions. Available across personal and work ›",
+          "intent": "Tap: Ask, scan and voice"
         },
         {
           "counter": "5 / 12",
           "screen": 162,
           "file": "162-shared-workspaces-settings-analytics.html",
-          "action": "Open universal input"
+          "action": "Open universal input",
+          "intent": "Tap: Open universal input"
         },
         {
           "counter": "6 / 12",
           "screen": 159,
           "file": "159-shared-universal-input.html",
-          "action": "▣ Workspaces"
+          "action": "▣ Workspaces",
+          "intent": "Tap: ▣ Workspaces"
         },
         {
           "counter": "7 / 12",
           "screen": 162,
           "file": "162-shared-workspaces-settings-analytics.html",
-          "action": "• Files and evidence SETTINGS Photos, invoices, reports and task proof in one controlled library. Private until you share it ›"
+          "action": "• Files and evidence SETTINGS Photos, invoices, reports and task proof in one controlled library. Private until you share it ›",
+          "intent": "Tap: Files and evidence"
         },
         {
           "counter": "7 / 12",
           "screen": 162,
           "file": "162-shared-workspaces-settings-analytics.html",
-          "action": "Open files"
+          "action": "Open files",
+          "intent": "Tap: Open files"
         },
         {
           "counter": "8 / 12",
           "screen": 160,
           "file": "160-shared-files-evidence-media.html",
-          "action": "▣ Workspaces"
+          "action": "▣ Workspaces",
+          "intent": "Tap: ▣ Workspaces"
         },
         {
           "counter": "9 / 12",
           "screen": 162,
           "file": "162-shared-workspaces-settings-analytics.html",
-          "action": "• Security and support SETTINGS Devices, sessions, account recovery and support cases. Account protection and help ›"
+          "action": "• Security and support SETTINGS Devices, sessions, account recovery and support cases. Account protection and help ›",
+          "intent": "Tap: Security and support"
         },
         {
           "counter": "9 / 12",
           "screen": 162,
           "file": "162-shared-workspaces-settings-analytics.html",
-          "action": "Open security"
+          "action": "Open security",
+          "intent": "Tap: Open security"
         },
         {
           "counter": "10 / 12",
           "screen": 161,
           "file": "161-shared-security-support.html",
-          "action": "▣ Workspaces"
+          "action": "▣ Workspaces",
+          "intent": "Tap: ▣ Workspaces"
         },
         {
           "counter": "11 / 12",
           "screen": 162,
           "file": "162-shared-workspaces-settings-analytics.html",
-          "action": "• Global preferences SETTINGS Language, area, notifications, accessibility and data controls. Applied across personal and eligible workspaces ›"
+          "action": "• Global preferences SETTINGS Language, area, notifications, accessibility and data controls. Applied across personal and eligible workspaces ›",
+          "intent": "Tap: Global preferences"
         },
         {
           "counter": "11 / 12",
           "screen": 162,
           "file": "162-shared-workspaces-settings-analytics.html",
-          "action": "Manage preferences"
+          "action": "Manage preferences",
+          "intent": "Tap: Manage preferences"
         }
       ],
       "error": null
