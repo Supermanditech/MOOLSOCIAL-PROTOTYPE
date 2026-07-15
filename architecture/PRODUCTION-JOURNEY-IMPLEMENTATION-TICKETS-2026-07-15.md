@@ -120,10 +120,26 @@ Every ticket requires loading, empty, offline, denied, timeout, duplicate/retry 
 - Outcome: resolve prioritized verification/catalogue/commerce/ride/work/content/finance/support cases and manage shared identity, evidence, security and preferences.
 - Acceptance: least privilege, break-glass audit, reasoned decisions, bulk-action safeguards, immutable evidence references and reversible configuration changes.
 
+## PROD-JRN-017 - Social discovery, engagement and publishing
+
+- Users: viewer, follower, creator and verified business.
+- Prototype: 04-08.
+- Outcome: enter Social once, move between Shorts, Videos, Feed and Create, open selected content, follow, like, comment/reply, share, remix, save, inspect contextual actions and publish governed content.
+- Acceptance: back navigation preserves selected content and scroll; engagement commands are idempotent and reconcile counts; comments support pagination, moderation and creator replies; share uses an approved device handoff; remix checks rights and attribution; save persists per account; sponsored content opens the exact product/service CTA; record, caption, draft, schedule and publish expose specific completion states.
+- Events: `social_surface_opened`, `content_opened`, `follow_changed`, `reaction_changed`, `comment_submitted`, `share_started`, `remix_started`, `content_saved`, `publish_completed`.
+
+## PROD-JRN-018 - Business Book periods, reports and operational sheets
+
+- Users: retailer/manufacturer owner, authorized operator and accountant.
+- Prototype: 87-92 and 108-110.
+- Outcome: select today/week/month/custom dates, open evidence-backed answers, match or review records, prepare exports, grant timed accountant access and complete order exception decisions.
+- Acceptance: custom start/end dates validate and apply; every answer links to source ledger records; exports are period-locked and audited; access has role and expiry; exception reasons are explicit; full/partial/unable order decisions preserve quantity, terms and buyer impact.
+
 ## Release acceptance for every ticket
 
 - Contract tests prove route/state, authorization, idempotency and error model.
 - Mobile replay proves the same action sequence as `quality/generated/semantic-mobile-user-flow-final.json`.
+- Nested replay proves the relevant second- and third-level actions from `quality/generated/nested-control-intent-audit.json`; no ticket may substitute navigation when a meaningful in-route state is the intended result.
 - Copy audit finds no prototype/internal wording or customer-facing operational uncertainty.
 - Observability identifies journey, route, correlation ID and outcome without storing private message/evidence content in analytics.
 - Feature flag, migration/backfill plan, rollback and support runbook are attached before production enablement.

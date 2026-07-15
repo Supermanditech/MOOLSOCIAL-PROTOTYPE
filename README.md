@@ -30,7 +30,7 @@ Approved screens are frozen in:
 
 Approved prototype baseline:
 
-`Screens 00 through 106 - all approved and frozen`
+`Screens 00 through 165 - all approved and frozen`
 
 Every prototype remains subject to its production route contract. Approval of a prototype does not require a separate production route.
 
@@ -54,7 +54,7 @@ Complete retailer workspace review:
 http://127.0.0.1:8787/retailer-workspace-review.html
 ```
 
-Screens 97-106 remain working drafts until the consolidated retailer review is approved.
+The approved bundle contains all 166 numbered screens and the passing mobile-review evidence.
 
 ## Prototype Structure
 
@@ -68,7 +68,7 @@ Screens 97-106 remain working drafts until the consolidated retailer review is a
 
 ## Production Route Contracts
 
-Every numbered screen from 00 through 106 contains an invisible `script#productionRouteContract`. Production implementation must read this contract before creating a route.
+Every numbered screen from 00 through 165 contains an invisible `script#productionRouteContract`. Production implementation must read this contract before creating a route.
 
 - Canonical rules: `architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md`
 - Machine-readable registry: `shared/production-route-map.json`
@@ -76,7 +76,7 @@ Every numbered screen from 00 through 106 contains an invisible `script#producti
 - 120-route launch machine: `architecture/Mvp-Screen-Machine.ps1`
 - Locked route budget: `shared/mvp-route-budget.json`
 
-The current 107 prototypes resolve to 74 total route groups, of which 51 are MVP core and 7 are MVP conditional. Post-MVP and superseded routes do not consume the 45-day launch budget.
+The 166 approved prototypes resolve through the consolidated production route machine. Post-MVP and superseded routes do not consume the launch budget.
 
 ## Regression Rule
 

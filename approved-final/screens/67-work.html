@@ -2024,13 +2024,10 @@
       resetPhoneScroll();
       requestAnimationFrame(resetPhoneScroll);
       setTimeout(resetPhoneScroll, 80);
-      setTimeout(resetPhoneScroll, 250);
-      setTimeout(resetPhoneScroll, 600);
     });
 
     window.addEventListener("pageshow", () => {
       resetPhoneScroll();
-      setTimeout(resetPhoneScroll, 250);
     });
 
     const viewButtons = document.querySelectorAll("[data-work-view]");
@@ -2197,6 +2194,11 @@
         countdown.classList.toggle("urgent", urgent);
         card.classList.toggle("expired", expired);
         card.setAttribute("aria-disabled", String(expired));
+        const toggle = card.querySelector("[data-opportunity-toggle]");
+        if (toggle) {
+          toggle.disabled = expired;
+          toggle.setAttribute("aria-disabled", String(expired));
+        }
         const action = card.querySelector(".scan-cta");
         if (action) {
           if (!action.dataset.openLabel) action.dataset.openLabel = action.textContent;
@@ -2281,7 +2283,7 @@
         titleElement.id = `opportunity-title-${index + 1}`;
         toggle.setAttribute("aria-describedby", titleElement.id);
       }
-      toggle.setAttribute("aria-label", index === 0 ? "View featured opportunity details" : "View opportunity details");
+      toggle.setAttribute("aria-label", index === 0 ? "View featured opportunity details" : `View ${title} opportunity details`);
       toggle.addEventListener("click", () => toggleOpportunity(toggle.closest(".opportunity-card")));
     });
 

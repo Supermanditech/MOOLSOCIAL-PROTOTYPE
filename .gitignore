@@ -5,3 +5,5 @@ Thumbs.db
 .env.*
 node_modules/
 output/
+__pycache__/
+*.pyc

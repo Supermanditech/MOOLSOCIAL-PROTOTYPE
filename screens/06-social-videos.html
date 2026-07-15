@@ -263,7 +263,9 @@
     }
 
     .sponsored-card,
-    .feed-video-card {
+    .feed-video-card,
+    .sponsored-trigger,
+    .feed-video-main {
       appearance: none;
       display: grid;
       gap: 9px;
@@ -274,6 +276,11 @@
       font-family: var(--ms-font);
       text-align: left;
       cursor: pointer;
+    }
+
+    .sponsored-card,
+    .feed-video-card {
+      cursor: default;
     }
 
     .feed-video-card,
@@ -443,6 +450,7 @@
     }
 
     .quick-chip {
+      appearance: none;
       min-height: 32px;
       display: inline-flex;
       align-items: center;
@@ -451,9 +459,17 @@
       border-radius: var(--ms-pill);
       background: #1d1d1d;
       color: var(--ms-white);
+      font-family: var(--ms-font);
       font-size: 10px;
       font-weight: 950;
       line-height: 1;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .quick-chip.active {
+      border-color: var(--ms-green);
+      background: #123d22;
     }
 
     .quick-chip.primary {
@@ -476,7 +492,7 @@
 
     .ad-actions {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
       gap: 8px;
       margin-top: 6px;
     }
@@ -628,12 +644,21 @@
     }
 
     .play-control {
+      appearance: none;
       position: absolute;
-      inset: 0;
+      left: 50%;
+      top: 50%;
       z-index: 2;
+      width: 56px;
+      height: 56px;
       display: grid;
       place-items: center;
-      pointer-events: none;
+      border: 0;
+      padding: 0;
+      background: transparent;
+      color: var(--ms-white);
+      transform: translate(-50%, -50%);
+      cursor: pointer;
     }
 
     .play-control span {
@@ -645,6 +670,14 @@
       background: rgba(255, 255, 255, .94);
       color: var(--ms-navy);
       box-shadow: 0 18px 38px rgba(0, 0, 0, .24);
+    }
+
+    .video-app.fullscreen-mode .video-player {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      height: 100dvh;
+      aspect-ratio: auto;
     }
 
     .progress-line {
@@ -1126,24 +1159,77 @@
     }
 
     .sheet-chip {
+      appearance: none;
       min-height: 52px;
       display: grid;
       place-items: center;
       gap: 4px;
       border: 1px solid rgba(0, 0, 128, .18);
       border-radius: 16px;
+      padding: 8px;
       background: var(--ms-white);
       color: var(--ms-navy);
+      font-family: var(--ms-font);
       font-size: 9px;
       font-weight: 950;
       text-align: center;
       line-height: 1.1;
+      cursor: pointer;
+    }
+
+    .sheet-chip.active {
+      border-color: var(--ms-green);
+      background: #effff5;
     }
 
     .sheet-chip strong {
       color: var(--ms-green);
       font-size: 10px;
       line-height: 1;
+    }
+
+    .sheet-grid.comments-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .video-comment-list {
+      display: grid;
+      gap: 8px;
+      max-height: 210px;
+      overflow-y: auto;
+    }
+
+    .video-comment {
+      display: grid;
+      gap: 4px;
+      border: 1px solid rgba(0, 0, 128, .12);
+      border-radius: 12px;
+      padding: 9px;
+      background: #f7f8ff;
+      color: var(--ms-navy);
+      font-size: 10px;
+    }
+
+    .video-comment-composer {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 8px;
+    }
+
+    .video-comment-composer input,
+    .video-comment-composer button {
+      min-height: 40px;
+      border: 1px solid rgba(0, 0, 128, .18);
+      border-radius: var(--ms-pill);
+      padding: 0 12px;
+      font-family: var(--ms-font);
+      font-weight: 850;
+    }
+
+    .video-comment-composer button {
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      cursor: pointer;
     }
 
     .sheet-note {
@@ -1345,27 +1431,28 @@
 
               <div class="feed-stack">
                 <article class="sponsored-card">
-                  <div class="wide-thumb food">
-                    <span class="mute">Off</span>
-                    <span class="cc">CC</span>
-                    <span class="duration">Sponsored</span>
-                    <span class="smart-badge"><i></i>Verified tools</span>
-                  </div>
-                  <div class="feed-copy-row">
-                    <span class="feed-avatar">MS</span>
-                    <span class="feed-copy">
-                      <b>Grow your shop with verified product videos and local orders.</b>
-                      <span>Sponsored - MoolSocial for Business</span>
-                      <span class="feed-proof-row">
-                        <i>Verified</i><i>Lead ready</i><i>No clutter</i>
-                      </span>
-                      <span class="ad-actions">
-                        <span class="ad-action">Watch</span>
-                        <span class="ad-action primary">Start now</span>
-                      </span>
+                  <button class="sponsored-trigger" type="button" data-open-sheet="business" aria-label="Grow your shop with verified product videos and local orders">
+                    <span class="wide-thumb food">
+                      <span class="mute">Off</span>
+                      <span class="cc">CC</span>
+                      <span class="duration">Sponsored</span>
+                      <span class="smart-badge"><i></i>Verified tools</span>
                     </span>
-                    <span class="feed-more">⋮</span>
-                  </div>
+                    <span class="feed-copy-row">
+                      <span class="feed-avatar">MS</span>
+                      <span class="feed-copy">
+                        <b>Grow your shop with verified product videos and local orders.</b>
+                        <span>Sponsored - MoolSocial for Business</span>
+                        <span class="feed-proof-row">
+                          <i>Verified</i><i>Lead ready</i><i>No clutter</i>
+                        </span>
+                        <span class="ad-actions">
+                          <span class="ad-action primary">Open growth plan</span>
+                        </span>
+                      </span>
+                      <span class="feed-more">›</span>
+                    </span>
+                  </button>
                 </article>
 
                 <section class="shorts-section" aria-label="Shorts preview">
@@ -1393,53 +1480,57 @@
                   </div>
                 </section>
 
-                <button class="feed-video-card" type="button" data-open-watch>
-                  <span class="wide-thumb">
-                    <span class="mute">Off</span>
-                    <span class="cc">CC</span>
-                    <span class="duration">12:48</span>
-                    <span class="smart-badge"><i></i>Order ready</span>
-                  </span>
-                  <span class="feed-copy-row">
-                    <span class="feed-avatar">MS</span>
-                    <span class="feed-copy">
-                      <b>How this Jodhpur shop packs a fresh morning basket</b>
-                      <span>Mahadev Fresh Mart - 82K views - today</span>
-                      <span class="feed-proof-row">
-                        <i>Rs 399</i><i>45 min</i><i>Refund rule</i>
-                      </span>
-                      <span class="quick-row">
-                        <span class="quick-chip primary">Watch</span>
-                        <span class="quick-chip">Get basket</span>
-                        <span class="quick-chip">Save</span>
-                      </span>
+                <article class="feed-video-card">
+                  <button class="feed-video-main" type="button" data-open-watch aria-label="Watch how this Jodhpur shop packs a fresh morning basket">
+                    <span class="wide-thumb">
+                      <span class="mute">Off</span>
+                      <span class="cc">CC</span>
+                      <span class="duration">12:48</span>
+                      <span class="smart-badge"><i></i>Order ready</span>
                     </span>
-                    <span class="feed-more">⋮</span>
+                    <span class="feed-copy-row">
+                      <span class="feed-avatar">MS</span>
+                      <span class="feed-copy">
+                        <b>How this Jodhpur shop packs a fresh morning basket</b>
+                        <span>Mahadev Fresh Mart - 82K views - today</span>
+                        <span class="feed-proof-row">
+                          <i>Rs 399</i><i>45 min</i><i>Refund rule</i>
+                        </span>
+                      </span>
+                      <span class="feed-more">⋮</span>
+                    </span>
+                  </button>
+                  <span class="quick-row">
+                    <button class="quick-chip primary" type="button" data-open-watch>Watch</button>
+                    <a class="quick-chip" href="11-buy-product-detail.html?from=video">Get basket</a>
+                    <button class="quick-chip" type="button" data-card-save>Save</button>
                   </span>
-                </button>
+                </article>
 
-                <button class="feed-video-card" type="button" data-open-watch>
-                  <span class="wide-thumb work">
-                    <span class="duration">8:20</span>
-                    <span class="smart-badge"><i></i>Paid task</span>
-                  </span>
-                  <span class="feed-copy-row">
-                    <span class="feed-avatar">GO</span>
-                    <span class="feed-copy">
-                      <b>How QR proof tasks are checked before payout</b>
-                      <span>Ground Ops - 18K views - 2 hours ago</span>
-                      <span class="feed-proof-row">
-                        <i>Funded</i><i>Geo proof</i><i>Payout rule</i>
-                      </span>
-                      <span class="quick-row">
-                        <span class="quick-chip primary">Watch</span>
-                        <span class="quick-chip">Apply</span>
-                        <span class="quick-chip">Proof</span>
-                      </span>
+                <article class="feed-video-card">
+                  <button class="feed-video-main" type="button" data-open-watch aria-label="Watch how QR proof tasks are checked before payout">
+                    <span class="wide-thumb work">
+                      <span class="duration">8:20</span>
+                      <span class="smart-badge"><i></i>Paid task</span>
                     </span>
-                    <span class="feed-more">⋮</span>
+                    <span class="feed-copy-row">
+                      <span class="feed-avatar">GO</span>
+                      <span class="feed-copy">
+                        <b>How QR proof tasks are checked before payout</b>
+                        <span>Ground Ops - 18K views - 2 hours ago</span>
+                        <span class="feed-proof-row">
+                          <i>Funded</i><i>Geo proof</i><i>Payout rule</i>
+                        </span>
+                      </span>
+                      <span class="feed-more">⋮</span>
+                    </span>
+                  </button>
+                  <span class="quick-row">
+                    <button class="quick-chip primary" type="button" data-open-watch>Watch</button>
+                    <a class="quick-chip" href="134-earn-applications-eligibility.html?from=video">Apply</a>
+                    <button class="quick-chip" type="button" data-open-sheet="work-proof">Proof</button>
                   </span>
-                </button>
+                </article>
               </div>
             </section>
 
@@ -1450,14 +1541,14 @@
                   <span class="player-pill">Near you</span>
                   <span class="player-pill">12:48</span>
                 </div>
-                <div class="play-control" aria-hidden="true">
+                <button class="play-control" type="button" aria-label="Play video" data-player-toggle>
                   <span>
                     <svg viewBox="0 0 24 24"><path d="m9 6 9 6-9 6Z"/></svg>
                   </span>
-                </div>
+                </button>
                 <div class="player-bottom">
-                  <span class="player-pill">HD</span>
-                  <span class="player-pill">Full screen</span>
+                  <button class="player-pill" type="button" data-quality-toggle>HD</button>
+                  <button class="player-pill" type="button" data-fullscreen-toggle>Full screen</button>
                 </div>
                 <span class="progress-line" aria-hidden="true"><i></i></span>
               </section>
@@ -1710,8 +1801,21 @@
     const saveButton = document.querySelector("[data-save]");
     const followButton = document.querySelector("[data-follow]");
     const topicResult = document.querySelector("[data-topic-result]");
+    let activeSheetType = "";
 
     const sheetContent = {
+      business: {
+        title: "Grow your shop",
+        note: "Choose how you want to turn verified product videos into local customer orders.",
+        items: [
+          ["Watch overview", "2 min"],
+          ["Create shop page", "Start"],
+          ["Publish product video", "Create"],
+          ["Receive local orders", "Set up"],
+          ["View pricing", "Plans"],
+          ["Start shop setup", "Continue"]
+        ]
+      },
       details: {
         title: "Video details",
         note: "Description, hashtags and source context open only when user asks, keeping the watch surface clean.",
@@ -1734,6 +1838,18 @@
           ["Refund", "Rule"],
           ["Payment", "Ready"],
           ["Open", "Order"]
+        ]
+      },
+      "work-proof": {
+        title: "Paid task proof",
+        note: "Review funded status, required proof, review time and payout before applying.",
+        items: [
+          ["Funding", "Confirmed"],
+          ["Location proof", "Required"],
+          ["Review time", "24 hours"],
+          ["Payout", "Rs 450"],
+          ["Save task", "Later"],
+          ["Apply for task", "Continue"]
         ]
       },
       comments: {
@@ -1795,27 +1911,147 @@
     };
 
     function openSheet(type) {
-      if (type === "comments") {
-        openWatch();
-        requestAnimationFrame(() => {
-          document.querySelector(".comments-card")?.scrollIntoView({ block: "center", behavior: "smooth" });
-        });
-        return;
-      }
       const content = sheetContent[type];
       if (!sheet || !content) return;
+      activeSheetType = type;
       if (sheetTitle) sheetTitle.textContent = content.title;
       if (sheetNote) sheetNote.textContent = content.note;
       if (sheetGrid) {
-        sheetGrid.innerHTML = content.items.map(([label, value]) => `
-          <span class="sheet-chip"><strong>${value}</strong>${label}</span>
-        `).join("");
+        sheetGrid.classList.toggle("comments-grid", type === "comments");
+        if (type === "comments") {
+          sheetGrid.innerHTML = `
+            <div class="video-comment-list" data-video-comment-list>
+              <article class="video-comment"><b>Ritu Vyas · 8 min</b><span>The price and delivery time are clear. Is pickup also available?</span></article>
+              <article class="video-comment"><b>Mahadev Fresh Mart · creator</b><span>Yes. Choose pickup during checkout and collect from the counter.</span></article>
+              <article class="video-comment"><b>Arun Kumar · 14 min</b><span>Please publish the family basket for tomorrow too.</span></article>
+            </div>
+            <div class="video-comment-composer"><input type="text" data-video-comment-input aria-label="Write a video comment" placeholder="Add a comment" /><button type="button" data-video-comment-submit>Post</button></div>
+          `;
+        } else {
+          sheetGrid.innerHTML = content.items.map(([label, value]) => `
+            <button class="sheet-chip" type="button" data-sheet-action data-action-label="${label}" data-action-value="${value}"><strong>${value}</strong>${label}</button>
+          `).join("");
+        }
       }
       sheet.classList.add("open");
     }
 
     function closeSheet() {
       sheet?.classList.remove("open");
+      sheetGrid?.classList.remove("comments-grid");
+      activeSheetType = "";
+    }
+
+    function updateSheetOutcome(message, button) {
+      if (sheetNote) sheetNote.textContent = message;
+      if (button) {
+        button.classList.add("active");
+        button.setAttribute("aria-pressed", "true");
+      }
+    }
+
+    function runSheetAction(button) {
+      const label = button.dataset.actionLabel || "Action";
+      const value = button.dataset.actionValue || "";
+
+      if (activeSheetType === "business") {
+        if (label === "Watch overview") {
+          closeSheet();
+          openWatch();
+          if (topicResult) topicResult.textContent = "Business growth overview is playing";
+          return;
+        }
+        if (label === "Publish product video") {
+          window.location.href = "08-social-create.html?mode=video&purpose=shop-growth";
+          return;
+        }
+        if (label === "Start shop setup" || label === "Create shop page" || label === "Receive local orders") {
+          window.location.href = `70-my-work-choose-activity.html?intent=${encodeURIComponent(label.toLowerCase().replace(/\s+/g, "-"))}`;
+          return;
+        }
+        if (label === "View pricing") {
+          window.location.href = "93-retailer-business-services.html?from=social-video";
+          return;
+        }
+      }
+
+      if (activeSheetType === "proof") {
+        if (label === "Open" || label === "Payment") {
+          window.location.href = "11-buy-product-detail.html?from=video-proof";
+          return;
+        }
+        updateSheetOutcome(`${label}: ${value}. Confirmed for this basket.`, button);
+        return;
+      }
+
+      if (activeSheetType === "work-proof") {
+        if (label === "Apply for task") {
+          window.location.href = "134-earn-applications-eligibility.html?from=video-proof";
+          return;
+        }
+        updateSheetOutcome(`${label}: ${value}. This condition is saved with the task.`, button);
+        return;
+      }
+
+      if (activeSheetType === "share") {
+        if (label === "Chat" || label === "Group") {
+          window.location.href = "23-chat-inbox-home.html?from=video-share&compose=1";
+          return;
+        }
+        if (label === "Post") {
+          window.location.href = "08-social-create.html?mode=text&shared=video";
+          return;
+        }
+        if (label === "Copy" || label === "Embed") {
+          navigator.clipboard?.writeText(window.location.href).catch(() => {});
+          updateSheetOutcome(label === "Copy" ? "Video link copied with creator attribution." : "Embed link copied with creator attribution.", button);
+          return;
+        }
+        updateSheetOutcome("A share-ready QR code is open for this video.", button);
+        return;
+      }
+
+      if (activeSheetType === "more") {
+        if (label === "Not interested") {
+          closeSheet();
+          openFeed();
+          if (topicResult) topicResult.textContent = "This video was removed from your recommendations";
+          return;
+        }
+        if (label === "Report") {
+          sheetTitle.textContent = "Report received";
+          sheetGrid.innerHTML = "";
+          sheetNote.textContent = "The safety team will review this video. Your report remains private.";
+          return;
+        }
+        updateSheetOutcome(label === "Mute" ? "This creator is muted in your recommendations." : `${label} updated for this video.`, button);
+        return;
+      }
+
+      if (activeSheetType === "cast") {
+        if (label === "Cancel") {
+          closeSheet();
+          return;
+        }
+        updateSheetOutcome(`${label} is connected for ${value.toLowerCase()} playback.`, button);
+        return;
+      }
+
+      if (activeSheetType === "search" || activeSheetType === "explore") {
+        updateSheetOutcome(`${label} results are now shown for ${value.toLowerCase()} discovery.`, button);
+        return;
+      }
+
+      if (activeSheetType === "account") {
+        if (label === "Creator") {
+          window.location.href = "124-creator-studio-home.html?from=videos";
+          return;
+        }
+        updateSheetOutcome(`${label} is open in your Social account.`, button);
+        return;
+      }
+
+      updateSheetOutcome(`${label}: ${value}.`, button);
     }
 
     function openWatch() {
@@ -1835,7 +2071,57 @@
     });
 
     document.querySelector("[data-close-sheet]")?.addEventListener("click", closeSheet);
+    sheetGrid?.addEventListener("click", (event) => {
+      const action = event.target.closest("[data-sheet-action]");
+      if (action) {
+        runSheetAction(action);
+        return;
+      }
+      if (!event.target.closest("[data-video-comment-submit]")) return;
+      const input = sheetGrid.querySelector("[data-video-comment-input]");
+      const value = input?.value.trim();
+      if (!value) {
+        input?.focus();
+        if (sheetNote) sheetNote.textContent = "Write a comment before posting.";
+        return;
+      }
+      const comment = document.createElement("article");
+      comment.className = "video-comment";
+      comment.innerHTML = "<b>You · now</b><span></span>";
+      comment.querySelector("span").textContent = value;
+      sheetGrid.querySelector("[data-video-comment-list]")?.prepend(comment);
+      input.value = "";
+      sheetTitle.textContent = "925 comments";
+      sheetNote.textContent = "Your comment is posted.";
+    });
     openWatchButtons.forEach((button) => button.addEventListener("click", openWatch));
+    document.querySelectorAll("[data-card-save]").forEach((button) => {
+      button.addEventListener("click", () => {
+        button.classList.toggle("active");
+        button.textContent = button.classList.contains("active") ? "Saved" : "Save";
+      });
+    });
+    document.querySelector("[data-player-toggle]")?.addEventListener("click", (event) => {
+      const button = event.currentTarget;
+      const playing = button.getAttribute("aria-pressed") === "true";
+      button.setAttribute("aria-pressed", String(!playing));
+      button.setAttribute("aria-label", playing ? "Play video" : "Pause video");
+      const svg = button.querySelector("svg");
+      if (svg) svg.innerHTML = playing ? '<path d="m9 6 9 6-9 6Z"/>' : '<path d="M8 5v14M16 5v14"/>';
+    });
+    document.querySelector("[data-quality-toggle]")?.addEventListener("click", (event) => {
+      const button = event.currentTarget;
+      const isHd = button.textContent.trim() === "HD";
+      button.textContent = isHd ? "Data saver" : "HD";
+      button.setAttribute("aria-pressed", String(!isHd));
+    });
+    document.querySelector("[data-fullscreen-toggle]")?.addEventListener("click", (event) => {
+      const button = event.currentTarget;
+      videoApp?.classList.toggle("fullscreen-mode");
+      const expanded = videoApp?.classList.contains("fullscreen-mode");
+      button.textContent = expanded ? "Exit full screen" : "Full screen";
+      button.setAttribute("aria-pressed", String(Boolean(expanded)));
+    });
     backFeedButton?.addEventListener("click", openFeed);
     topicChips.forEach((chip) => {
       chip.addEventListener("click", () => {

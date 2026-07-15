@@ -163,6 +163,31 @@ Rule: a primary user action passes only when it opens the correct product state 
 - Priority: P0
 - Status: completed
 
+## PRT-021 - Every Revealed Control Completes Its Tap Intent
+
+- Scope: all numbered Screens 00-165, including controls revealed inside sheets, dialogs, content detail, comments, filters, statements, support and verification states.
+- Problem: initial-screen inventories and 47 representative journeys did not prove every second- or third-level tap; some nested controls were visible but inert.
+- Required result: physically replay every button path from a clean 390 x 844 session to depth three. A route, meaningful visible state/input/result, or clearly marked already-current selection passes; scroll/focus-only changes and generic acknowledgements fail.
+- Evidence: 3,906/3,906 paths pass, including 2,491 nested paths, with zero truncation and zero console errors.
+- Priority: P0
+- Status: completed
+
+## PRT-022 - Social Content Engagement Is Deeply Functional
+
+- Screens: 05 Shorts, 06 Videos and 07 Feed, entered from Screen 04 Social.
+- Problem: visible content and promotional cards could open the surface but stop before the user completed Follow, Like, Comments, Share, Remix, Save, More or the sponsored business CTA.
+- Required result: selected content opens; every engagement action produces its real visible state or governed handoff; comments expose discussion/reply controls; sponsored “Grow your shop” content opens its decision state; Feed comments already open are explicitly marked current.
+- Priority: P0
+- Status: completed
+
+## PRT-023 - Business Sheets and Work Cards Remain Actionable
+
+- Screens: 67, 92, 108, 110, 118, 122, 128, 130, 131, 135 and 137.
+- Problem: lower Work opportunities could be snapped out of reach during the first 600 ms, and several dynamically revealed report, exception, OTP, verification, share, statement and support controls had no completed user result.
+- Required result: never override user scroll after initial layout; give every dynamic sheet action a specific state or route; retain OTP validation; expose real custom-period start/end inputs and Apply action.
+- Priority: P0
+- Status: completed
+
 ## Verification Evidence
 
 - Semantic mobile flows: `quality/generated/semantic-mobile-user-flow-final.json`
@@ -171,3 +196,5 @@ Rule: a primary user action passes only when it opens the correct product state 
 - Source/approved parity and full interaction gates passed. Public GitHub Pages verification is the final publication check before the mobile URL is shared.
 - Intent completion: 483/483 high-intent controls declared, 63/63 curated outcomes replayed, zero generic fallbacks and zero dead controls.
 - Production-facing screen audit: 3,191 controls and 497 high-intent controls checked; zero P0/P1 findings, generic outcomes, internal wording or customer-facing retailer stock-confirmation language.
+- Independent rendered audit: 3,220/3,220 controls passed; visual action-semantics findings: 0.
+- Nested intent audit: 3,906/3,906 tap paths passed, including 2,491 revealed controls; zero truncation and console errors.

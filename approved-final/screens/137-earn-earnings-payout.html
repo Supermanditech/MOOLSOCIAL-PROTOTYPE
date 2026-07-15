@@ -164,7 +164,7 @@
               ><span class="cell"><small>Account</small><b>••4421</b></span
               ><span class="cell"><small>Format</small><b>PDF / CSV</b></span>
             </div>
-            <button class="primary" style="width: 100%">
+            <button class="primary" id="prepareStatement" style="width: 100%">
               Prepare Statement
             </button>
             <a
@@ -205,6 +205,10 @@
       document
         .getElementById("close")
         .addEventListener("click", () => (layer.hidden = true));
+      document.getElementById("prepareStatement").addEventListener("click", (event) => {
+        event.currentTarget.textContent = "Statement Ready · PDF / CSV";
+        event.currentTarget.setAttribute("aria-pressed", "true");
+      });
     </script>
     <script type="application/json" id="screen137ProductionContract">
       {

@@ -797,7 +797,7 @@
               <span class="restaurant-copy">
                 <b>Spice Darbar</b>
                 <span>North Indian · Ratanada · 4.7</span>
-                <small id="restaurantStatus">Kitchen open · accepts in 2 min</small>
+                <small id="restaurantStatus">Kitchen open · instant order confirmation</small>
               </span>
               <a class="small-action" href="26-eat.html">Change</a>
             </section>
@@ -829,7 +829,7 @@
                 <button class="menu-chip" data-menu="Offers">Offers</button>
               </div>
               <div class="quick-row">
-                <span class="quick-pill">Kitchen accepts first</span>
+                <span class="quick-pill">Live availability reserved</span>
                 <span class="quick-pill">Refund before accept</span>
                 <span class="quick-pill">Bill proof</span>
               </div>
@@ -901,7 +901,7 @@
           <section class="basket-card" aria-label="Basket summary">
             <span class="basket-copy">
               <b id="basketTitle">1 item · Rs 149</b>
-              <span id="basketText">Delivery · 22 min · restaurant accepts before payment</span>
+              <span id="basketText">Delivery · 22 min · available items reserved</span>
             </span>
             <a class="basket-action" href="#" aria-label="Open food basket">
               <svg viewBox="0 0 24 24"><path d="M5 12h14" /><path d="m13 6 6 6-6 6" /></svg>
@@ -939,8 +939,8 @@
             <div class="state-cell"><b>Entry</b>From Screen 26 Order Food, restaurant search, food social post, QR table scan, chat recommendation or repeat order.</div>
             <div class="state-cell"><b>User Sees</b>Selected restaurant, fulfilment choice, menu categories, item cards, price/time/offer/cancel proof and live basket.</div>
             <div class="state-cell"><b>Decision</b>User chooses delivery/pickup/table/schedule, filters menu, adds item, customizes and moves to basket.</div>
-            <div class="state-cell"><b>Backend</b>Restaurant menu, item availability, preparation time, delivery availability, offer eligibility, customization, basket, tax/fee and restaurant acceptance APIs.</div>
-            <div class="state-cell"><b>Trust</b>Payment should not be captured until restaurant accepts; cancellation window, bill proof, food availability and delivery fee must be visible.</div>
+            <div class="state-cell"><b>Backend</b>Restaurant menu, item availability, preparation time, delivery availability, offer eligibility, customization, basket, tax/fee and order confirmation APIs.</div>
+            <div class="state-cell"><b>Trust</b>Availability is checked and items are reserved before payment; cancellation window, bill proof and delivery fee remain visible.</div>
             <div class="state-cell"><b>Failure</b>If kitchen closes, item is unavailable, delivery is blocked or prep time changes, show replacement, pickup, schedule or another restaurant.</div>
             <div class="state-cell"><b>Next</b>Basket action routes to food basket/checkout; Table routes to Screen 28; Tiffin routes to Screen 29.</div>
             <div class="state-cell"><b>Regression</b>Bottom dock must match approved Eat dock shape; Mool and Chat stay fixed; Order remains active on this screen.</div>
@@ -970,7 +970,7 @@
 
     function updateBasket() {
       basketTitle.textContent = `${basket.count} item${basket.count > 1 ? "s" : ""} · Rs ${basket.amount}`;
-      basketText.textContent = `${basket.mode} · ${basket.time} · restaurant accepts before payment`;
+      basketText.textContent = `${basket.mode} · ${basket.time} · available items reserved`;
       timeOne.textContent = basket.time;
     }
 

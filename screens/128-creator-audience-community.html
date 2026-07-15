@@ -1,1 +1,299 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Screen 128 · Creator Audience</title><link rel="stylesheet" href="../shared/creator-workspace.css"><link rel="stylesheet" href="../shared/creator-workspace-web.css"><style>.audience-hero{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:center;background:linear-gradient(130deg,#000080,#1717a7);color:#fff}.audience-hero span{display:grid;gap:3px}.audience-hero small{font-size:9px;opacity:.75}.audience-hero b{font-size:24px}.growth{color:#aff4a5;font-size:10px;font-weight:900}.ring{width:64px;height:64px;display:grid;place-items:center;border:7px solid var(--saffron);border-right-color:var(--green);border-radius:50%;font-size:11px;font-weight:900}.map-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:7px}.map-cell{display:grid;gap:3px;border-left:3px solid var(--green);background:#fff;padding:8px}.map-cell b{font-size:11px}.map-cell span{color:var(--muted);font-size:8px}.interest{display:grid;gap:5px}.interest span{display:grid;grid-template-columns:90px minmax(0,1fr) 30px;gap:6px;align-items:center;font-size:8px}.interest i{height:6px;border-radius:8px;background:var(--navy)}@media(min-width:851px){.audience-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.map-grid{grid-template-columns:repeat(4,1fr)}}</style></head><body><main class="stage"><section class="phone"><header class="status"><span>9:46</span><span>Audience privacy protected</span></header><div class="appbar"><a class="icon-btn" href="124-creator-studio-home.html">‹</a><span class="app-title"><b>Audience</b><span>Aggregated people, interests and community</span></span><button class="icon-btn" id="invite">+</button></div><div class="content"><section class="band audience-hero"><span><small>FOLLOWERS</small><b>84,260</b><em class="growth">+8.4% this month</em></span><i class="ring">62%</i></section><section class="band"><div class="metric-grid"><span class="metric"><small>RETURN VIEWERS</small><b>52.4K</b></span><span class="metric"><small>ENGAGED</small><b>18.4K</b></span><span class="metric"><small>BUY INTENT</small><b>6.2K</b></span></div></section><div class="audience-grid"><section><div class="section-title"><b>Audience geography</b><span>minimum thresholds applied</span></div><div class="map-grid"><span class="map-cell"><b>Jodhpur</b><span>38% · strongest</span></span><span class="map-cell"><b>Jaipur</b><span>21% · growing</span></span><span class="map-cell"><b>Rajasthan</b><span>29% · other</span></span><span class="map-cell"><b>India</b><span>12% · other</span></span></div></section><section class="band"><div class="band-title"><b>Top interests</b><span>aggregated</span></div><div class="interest"><span>Daily needs<i style="width:92%"></i><b>42%</b></span><span>Local food<i style="width:76%"></i><b>31%</b></span><span>Small business<i style="width:59%"></i><b>18%</b></span><span>Mobility<i style="width:36%"></i><b>9%</b></span></div></section></div><div class="section-title"><b>Community</b><span>recent actions</span></div><div class="row-list"><button class="studio-row"><i class="mark green">Q</i><span class="row-copy"><b>Ask your audience</b><span>Create a post, poll or demand question</span><em>Build a verified demand signal</em></span><span class="row-next">›</span></button><button class="studio-row"><i class="mark">C</i><span class="row-copy"><b>326 comments need attention</b><span>Helpful, questions and held-for-review</span><em>Open community replies</em></span><span class="row-next">›</span></button><button class="studio-row"><i class="mark orange">LINK</i><span class="row-copy"><b>Invite existing followers</b><span>Share your MoolSocial channel link</span><em>No password or contact import required</em></span><span class="row-next">›</span></button></div></div><nav class="dock"><a class="mool" href="04-universal-focus-shell.html">Mool</a><div class="dock-rail"><a class="dock-link" href="125-creator-create-publish.html"><i>+</i><span>Create</span></a><a class="dock-link active" href="124-creator-studio-home.html"><i>S</i><span>Studio</span></a><a class="dock-link" href="130-creator-earnings-payouts.html"><i>₹</i><span>Earnings</span></a></div><a class="chat" href="23-chat-inbox-home.html">Chat</a></nav><div class="layer" id="layer" hidden><section class="sheet"><div class="sheet-head"><span><h2>Invite to your channel</h2><p>Share a public channel link without importing private contacts.</p></span><button class="sheet-close" id="close">X</button></div><div class="sheet-grid"><span class="cell"><small>Channel</small><b>@JodhpurDaily</b></span><span class="cell"><small>Link</small><b>mool.social/jd</b></span><span class="cell"><small>QR</small><b>Available</b></span><span class="cell"><small>Attribution</small><b>Invite source</b></span></div><button class="primary" style="width:100%">Share Channel</button></section></div></section><aside class="notes"><small>SCREEN 128 · REVIEW DRAFT</small><h1>Audience and Community</h1><p>The creator understands aggregated geography, interests and demand signals without receiving private viewer identities or purchase histories.</p><section class="contract"><div><b>Privacy</b>Small cohorts and sensitive attributes stay hidden.</div><div><b>Community</b>Posts, polls, replies and chat reuse shared Social systems.</div><div><b>Migration</b>Creators may share channel links; the platform does not request external passwords.</div></section></aside></main><script type="module">const layer=document.getElementById('layer');document.getElementById('invite').addEventListener('click',()=>layer.hidden=false);document.getElementById('close').addEventListener('click',()=>layer.hidden=true);document.querySelectorAll('.studio-row').forEach((x,i)=>x.addEventListener('click',()=>{if(i===0)location.href='125-creator-create-publish.html?format=post';else layer.hidden=false}))</script><script type="application/json" id="screen128ProductionContract">{"screen":128,"states":["overview","geography","interests","community","invite"],"privacy":"minimum_cohort_thresholds_no_private_viewer_or_purchase_identity"}</script><script type="application/json" id="prototypeApprovalContract">{"prototypeScreen":128,"status":"approved-and-frozen","authoritative":true,"approvedAt":"2026-07-13"}</script><script type="application/json" id="productionRouteContract">{"contractVersion":"mvp-route-machine-flex-2026-07-12","prototypeScreen":128,"prototypeName":"Creator Audience and Community","productionModule":"creator","budgetBucket":"creator","routeId":"creator.audience","routePath":"/creator/audience","routeState":"overview","implementation":"route-shell","launchScope":"mvp-core","separateProductionRoute":true,"painSolved":"Creators need aggregated audience geography interests community actions and channel growth without access to private viewer or purchase identities.","capabilityKeys":["audience"],"featureOutcomes":["Understand thresholded audience geography and interests","Engage community through shared Social systems","Invite followers through public channel links without external passwords"],"budgetExtension":false,"budgetExtensionReason":null,"productionNote":"Own production route /creator/audience and keep all progressive states inside it.","canonicalMap":"architecture/MVP-120-ROUTE-MACHINE.md"}</script></body></html>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Screen 128 · Creator Audience</title>
+    <link rel="stylesheet" href="../shared/creator-workspace.css" />
+    <link rel="stylesheet" href="../shared/creator-workspace-web.css" />
+    <style>
+      .audience-hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 10px;
+        align-items: center;
+        background: linear-gradient(130deg, #000080, #1717a7);
+        color: #fff;
+      }
+      .audience-hero span {
+        display: grid;
+        gap: 3px;
+      }
+      .audience-hero small {
+        font-size: 9px;
+        opacity: 0.75;
+      }
+      .audience-hero b {
+        font-size: 24px;
+      }
+      .growth {
+        color: #aff4a5;
+        font-size: 10px;
+        font-weight: 900;
+      }
+      .ring {
+        width: 64px;
+        height: 64px;
+        display: grid;
+        place-items: center;
+        border: 7px solid var(--saffron);
+        border-right-color: var(--green);
+        border-radius: 50%;
+        font-size: 11px;
+        font-weight: 900;
+      }
+      .map-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 7px;
+      }
+      .map-cell {
+        display: grid;
+        gap: 3px;
+        border-left: 3px solid var(--green);
+        background: #fff;
+        padding: 8px;
+      }
+      .map-cell b {
+        font-size: 11px;
+      }
+      .map-cell span {
+        color: var(--muted);
+        font-size: 8px;
+      }
+      .interest {
+        display: grid;
+        gap: 5px;
+      }
+      .interest span {
+        display: grid;
+        grid-template-columns: 90px minmax(0, 1fr) 30px;
+        gap: 6px;
+        align-items: center;
+        font-size: 8px;
+      }
+      .interest i {
+        height: 6px;
+        border-radius: 8px;
+        background: var(--navy);
+      }
+      @media (min-width: 851px) {
+        .audience-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 12px;
+        }
+        .map-grid {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="stage">
+      <section class="phone">
+        <header class="status">
+          <span>9:46</span><span>Audience privacy protected</span>
+        </header>
+        <div class="appbar">
+          <a class="icon-btn" href="124-creator-studio-home.html">‹</a
+          ><span class="app-title"
+            ><b>Audience</b
+            ><span>Aggregated people, interests and community</span></span
+          ><button class="icon-btn" id="invite">+</button>
+        </div>
+        <div class="content">
+          <section class="band audience-hero">
+            <span
+              ><small>FOLLOWERS</small><b>84,260</b
+              ><em class="growth">+8.4% this month</em></span
+            ><i class="ring">62%</i>
+          </section>
+          <section class="band">
+            <div class="metric-grid">
+              <span class="metric"
+                ><small>RETURN VIEWERS</small><b>52.4K</b></span
+              ><span class="metric"><small>ENGAGED</small><b>18.4K</b></span
+              ><span class="metric"><small>BUY INTENT</small><b>6.2K</b></span>
+            </div>
+          </section>
+          <div class="audience-grid">
+            <section>
+              <div class="section-title">
+                <b>Audience geography</b><span>minimum thresholds applied</span>
+              </div>
+              <div class="map-grid">
+                <span class="map-cell"
+                  ><b>Jodhpur</b><span>38% · strongest</span></span
+                ><span class="map-cell"
+                  ><b>Jaipur</b><span>21% · growing</span></span
+                ><span class="map-cell"
+                  ><b>Rajasthan</b><span>29% · other</span></span
+                ><span class="map-cell"
+                  ><b>India</b><span>12% · other</span></span
+                >
+              </div>
+            </section>
+            <section class="band">
+              <div class="band-title">
+                <b>Top interests</b><span>aggregated</span>
+              </div>
+              <div class="interest">
+                <span>Daily needs<i style="width: 92%"></i><b>42%</b></span
+                ><span>Local food<i style="width: 76%"></i><b>31%</b></span
+                ><span>Small business<i style="width: 59%"></i><b>18%</b></span
+                ><span>Mobility<i style="width: 36%"></i><b>9%</b></span>
+              </div>
+            </section>
+          </div>
+          <div class="section-title">
+            <b>Community</b><span>recent actions</span>
+          </div>
+          <div class="row-list">
+            <button class="studio-row">
+              <i class="mark green">Q</i
+              ><span class="row-copy"
+                ><b>Ask your audience</b
+                ><span>Create a post, poll or demand question</span
+                ><em>Build a verified demand signal</em></span
+              ><span class="row-next">›</span></button
+            ><button class="studio-row">
+              <i class="mark">C</i
+              ><span class="row-copy"
+                ><b>326 comments need attention</b
+                ><span>Helpful, questions and held-for-review</span
+                ><em>Open community replies</em></span
+              ><span class="row-next">›</span></button
+            ><button class="studio-row">
+              <i class="mark orange">LINK</i
+              ><span class="row-copy"
+                ><b>Invite existing followers</b
+                ><span>Share your MoolSocial channel link</span
+                ><em>No password or contact import required</em></span
+              ><span class="row-next">›</span>
+            </button>
+          </div>
+        </div>
+        <nav class="dock">
+          <a class="mool" href="04-universal-focus-shell.html">Mool</a>
+          <div class="dock-rail">
+            <a class="dock-link" href="125-creator-create-publish.html"
+              ><i>+</i><span>Create</span></a
+            ><a class="dock-link active" href="124-creator-studio-home.html"
+              ><i>S</i><span>Studio</span></a
+            ><a class="dock-link" href="130-creator-earnings-payouts.html"
+              ><i>₹</i><span>Earnings</span></a
+            >
+          </div>
+          <a class="chat" href="23-chat-inbox-home.html">Chat</a>
+        </nav>
+        <div class="layer" id="layer" hidden>
+          <section class="sheet">
+            <div class="sheet-head">
+              <span
+                ><h2>Invite to your channel</h2>
+                <p>
+                  Share a public channel link without importing private
+                  contacts.
+                </p></span
+              ><button class="sheet-close" id="close">X</button>
+            </div>
+            <div class="sheet-grid">
+              <span class="cell"
+                ><small>Channel</small><b>@JodhpurDaily</b></span
+              ><span class="cell"><small>Link</small><b>mool.social/jd</b></span
+              ><span class="cell"><small>QR</small><b>Available</b></span
+              ><span class="cell"
+                ><small>Attribution</small><b>Invite source</b></span
+              >
+            </div>
+            <button class="primary" id="shareChannel" style="width: 100%">Share Channel</button>
+          </section>
+        </div>
+      </section>
+      <aside class="notes">
+        <small>SCREEN 128 · REVIEW DRAFT</small>
+        <h1>Audience and Community</h1>
+        <p>
+          The creator understands aggregated geography, interests and demand
+          signals without receiving private viewer identities or purchase
+          histories.
+        </p>
+        <section class="contract">
+          <div>
+            <b>Privacy</b>Small cohorts and sensitive attributes stay hidden.
+          </div>
+          <div>
+            <b>Community</b>Posts, polls, replies and chat reuse shared Social
+            systems.
+          </div>
+          <div>
+            <b>Migration</b>Creators may share channel links; the platform does
+            not request external passwords.
+          </div>
+        </section>
+      </aside>
+    </main>
+    <script type="module">
+      const layer = document.getElementById("layer");
+      document
+        .getElementById("invite")
+        .addEventListener("click", () => (layer.hidden = false));
+      document
+        .getElementById("close")
+        .addEventListener("click", () => (layer.hidden = true));
+      document.getElementById("shareChannel").addEventListener("click", (event) => {
+        event.currentTarget.textContent = "Channel Link Ready";
+        event.currentTarget.setAttribute("aria-pressed", "true");
+      });
+      document.querySelectorAll(".studio-row").forEach((x, i) =>
+        x.addEventListener("click", () => {
+          if (i === 0)
+            location.href = "125-creator-create-publish.html?format=post";
+          else layer.hidden = false;
+        }),
+      );
+    </script>
+    <script type="application/json" id="screen128ProductionContract">
+      {
+        "screen": 128,
+        "states": ["overview", "geography", "interests", "community", "invite"],
+        "privacy": "minimum_cohort_thresholds_no_private_viewer_or_purchase_identity"
+      }
+    </script>
+    <script type="application/json" id="prototypeApprovalContract">
+      {
+        "prototypeScreen": 128,
+        "status": "approved-and-frozen",
+        "authoritative": true,
+        "approvedAt": "2026-07-13"
+      }
+    </script>
+    <script type="application/json" id="productionRouteContract">
+      {
+        "contractVersion": "mvp-route-machine-flex-2026-07-12",
+        "prototypeScreen": 128,
+        "prototypeName": "Creator Audience and Community",
+        "productionModule": "creator",
+        "budgetBucket": "creator",
+        "routeId": "creator.audience",
+        "routePath": "/creator/audience",
+        "routeState": "overview",
+        "implementation": "route-shell",
+        "launchScope": "mvp-core",
+        "separateProductionRoute": true,
+        "painSolved": "Creators need aggregated audience geography interests community actions and channel growth without access to private viewer or purchase identities.",
+        "capabilityKeys": ["audience"],
+        "featureOutcomes": [
+          "Understand thresholded audience geography and interests",
+          "Engage community through shared Social systems",
+          "Invite followers through public channel links without external passwords"
+        ],
+        "budgetExtension": false,
+        "budgetExtensionReason": null,
+        "productionNote": "Own production route /creator/audience and keep all progressive states inside it.",
+        "canonicalMap": "architecture/MVP-120-ROUTE-MACHINE.md"
+      }
+    </script>
+  </body>
+</html>

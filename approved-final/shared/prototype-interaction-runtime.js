@@ -18,14 +18,21 @@
 
   function userMessage(contract, label) {
     var note = normalize(contract && contract.note);
-    var generic = /\b(selected|details? open|is ready|recorded|updated|submitted|started|saved)\.?$/i.test(note);
+    var generic = /(is selected|selected\.|details? (?:are|is) open|opened\. close|review the shown state|current screen state is preserved)/i.test(note);
     if (note && !generic) return note;
     if (contract.type === 'select' || contract.type === 'state' || contract.type === 'toggle') return label + ' applied.';
-    if (contract.type === 'progress') return label + ' started. Follow the next action shown to finish.';
-    if (contract.type === 'handoff') return label + ' is ready. Continue to complete this task.';
+    if (contract.type === 'progress') return label + ' is ready for the next step. Review the information and continue when ready.';
+    if (contract.type === 'handoff') return label + ' is ready to continue.';
     if (contract.type === 'terminal') return label + ' completed.';
-    if (contract.type === 'detail') return label + ' details are ready.';
+    if (contract.type === 'detail') return label + ' information is available now.';
     return label + ' is ready.';
+  }
+
+  function panelMeta(contract) {
+    if (contract.type === 'terminal') return ['Status', 'Complete'];
+    if (contract.type === 'handoff') return ['Next step', 'Ready'];
+    if (contract.type === 'progress') return ['Task', 'Ready to continue'];
+    return ['Information', 'Available now'];
   }
 
   function getCandidates(element) {
@@ -93,7 +100,9 @@
       '.mool-contract-sheet__meta span{padding:9px;border-radius:6px;background:#f2f4ff;font-weight:700;font-size:12px}',
       '.mool-contract-sheet__actions{display:flex;gap:10px;margin-top:16px}',
       '.mool-contract-sheet__actions button{min-height:44px;flex:1;border-radius:7px;border:1px solid #080b7d;background:#fff;color:#080b7d;font-weight:800}',
-      '.mool-contract-sheet__actions button:last-child{background:#080b7d;color:#fff}'
+      '.mool-contract-sheet__actions button:last-child{background:#080b7d;color:#fff}',
+      '.command-text.mool-command-input{width:100%;min-width:0;border:0!important;outline:0!important;padding:0!important;background:transparent!important;color:inherit!important;font:inherit!important;font-weight:inherit!important}',
+      '.command-text.mool-command-input::placeholder{color:inherit;opacity:.82}'
     ].join('');
     document.head.appendChild(style);
   }
@@ -135,17 +144,22 @@
       backdrop.dataset.intentResolved = contract.type;
     }
     backdrop.setAttribute('role', 'presentation');
+    var meta = panelMeta(contract);
     backdrop.innerHTML = '<section class="mool-contract-sheet" role="dialog" aria-modal="true" aria-labelledby="mool-contract-title">' +
       '<div class="mool-contract-sheet__head"><h2 class="mool-contract-sheet__title" id="mool-contract-title"></h2><button class="mool-contract-sheet__close" type="button" aria-label="Close">×</button></div>' +
       '<div class="mool-contract-sheet__body"><p class="mool-contract-sheet__note"></p>' +
-      '<div class="mool-contract-sheet__meta"><span>Action protected</span><span>Progress saved</span></div>' +
+      '<div class="mool-contract-sheet__meta"><span></span><span></span></div>' +
       '<div class="mool-contract-sheet__actions"><button type="button" data-contract-retry></button><button type="button" data-contract-return></button></div></div></section>';
     backdrop.querySelector('#mool-contract-title').textContent = label;
     backdrop.querySelector('.mool-contract-sheet__note').textContent = userMessage(contract, label);
     var retryButton = backdrop.querySelector('[data-contract-retry]');
     var returnButton = backdrop.querySelector('[data-contract-return]');
-    retryButton.textContent = contract.intentOutcome ? 'Back' : 'Try again';
-    returnButton.textContent = contract.primaryLabel || (contract.intentOutcome ? 'Finish' : 'Return');
+    var metaCells = backdrop.querySelectorAll('.mool-contract-sheet__meta span');
+    metaCells[0].textContent = meta[0];
+    metaCells[1].textContent = meta[1];
+    retryButton.textContent = 'Back';
+    retryButton.hidden = !contract.route;
+    returnButton.textContent = contract.primaryLabel || (contract.route ? 'Continue' : 'Done');
     function close() { backdrop.remove(); }
     backdrop.querySelector('.mool-contract-sheet__close').addEventListener('click', close);
     returnButton.addEventListener('click', function () {
@@ -153,8 +167,7 @@
       else close();
     });
     retryButton.addEventListener('click', function () {
-      if (contract.intentOutcome) close();
-      else backdrop.querySelector('.mool-contract-sheet__note').textContent = 'Ready to try again. Your current screen and entered information are unchanged.';
+      close();
     });
     backdrop.addEventListener('click', function (event) { if (event.target === backdrop) close(); });
     document.body.appendChild(backdrop);
@@ -207,7 +220,29 @@
     openSheet(contract, label);
   }
 
+  function enhanceSearchInputs() {
+    Array.prototype.forEach.call(document.querySelectorAll('.command-bar .command-text:not([data-command-text])'), function (prompt) {
+      var label = normalize(prompt.textContent);
+      var searchButton = prompt.parentElement && prompt.parentElement.querySelector('button[aria-label^="Search" i]');
+      if (!searchButton || !/^Search\b/i.test(label)) return;
+      var input = document.createElement('input');
+      input.type = 'search';
+      input.className = prompt.className + ' mool-command-input';
+      input.placeholder = label;
+      input.setAttribute('aria-label', label.replace(/[.]+$/, ''));
+      input.setAttribute('autocomplete', 'off');
+      input.addEventListener('keydown', function (event) {
+        if (event.key === 'Enter') {
+          event.preventDefault();
+          searchButton.click();
+        }
+      });
+      prompt.replaceWith(input);
+    });
+  }
+
   ensureStyles();
+  enhanceSearchInputs();
   markBound(document);
   document.addEventListener('click', function (event) {
     var element = event.target.closest && event.target.closest(controlSelector);

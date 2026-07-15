@@ -102,7 +102,7 @@ $result = [ordered]@{
   contractArtifacts = 8
   productionComponents = if ($components) { @($components.components.PSObject.Properties).Count } else { 0 }
   economicsPolicies = if ($economics) { @($economics.sourcePolicies.PSObject.Properties).Count } else { 0 }
-  productionJourneyTickets = 16
+  productionJourneyTickets = 18
   blockers = @($blockers)
   finalMobileTestingLinkMayBeShared = ($blockers.Count -eq 0 -and $mobileGate -and $mobileGate.finalMobileTestingLinkMayBeShared)
 }
