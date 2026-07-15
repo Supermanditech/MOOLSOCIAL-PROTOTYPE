@@ -683,7 +683,7 @@
                   <button class="star-button" type="button" data-rating="4">4</button>
                   <button class="star-button active" type="button" data-rating="5">5</button>
                 </div>
-                <div class="rating-note" id="ratingNote">Great helper. Save for repeat tasks?</div>
+                <div class="rating-note" id="ratingNote" role="status" aria-live="polite">Great helper. Save for repeat tasks?</div>
               </section>
 
               <section class="next-card" aria-label="Next actions">
@@ -724,7 +724,7 @@
                 </div>
                 <div class="cta-row">
                   <a class="primary-cta" href="48-book-get-it-done.html">Book again</a>
-                  <a class="secondary-cta" href="04-universal-focus-shell.html">Done</a>
+                  <a class="secondary-cta" href="04-universal-focus-shell.html" aria-label="Finish and return to Mool home" data-native-interaction>Done</a>
                 </div>
               </section>
             </main>
@@ -734,7 +734,7 @@
               <div class="dock-track">
                 <a class="dock-tab active" href="#summaryTitle"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></svg>Done</a>
                 <a class="dock-tab" href="#releasedLine"><svg viewBox="0 0 24 24"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2Z" /></svg>Receipt</a>
-                <a class="dock-tab" href="#ratingNote"><svg viewBox="0 0 24 24"><path d="M12 3l2.4 5 5.6.8-4 3.9.9 5.5-4.9-2.6-4.9 2.6.9-5.5-4-3.9 5.6-.8Z" /></svg>Rate</a>
+                <button class="dock-tab" id="rateDock" type="button"><svg viewBox="0 0 24 24"><path d="M12 3l2.4 5 5.6.8-4 3.9.9 5.5-4.9-2.6-4.9 2.6.9-5.5-4-3.9 5.6-.8Z" /></svg>Rate</button>
                 <a class="dock-tab" href="53-get-it-done-issue-support.html"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="M12 9v4" /><path d="M12 17h.01" /></svg>Help</a>
               </div>
               <a class="chat-button" href="23-chat-inbox-home.html" aria-label="Open chat">
@@ -814,6 +814,11 @@
         ratingButtons.forEach((item) => item.classList.toggle("active", Number(item.dataset.rating) <= Number(button.dataset.rating)));
         ratingNote.textContent = Number(button.dataset.rating) >= 4 ? "Good helper. Save for repeat tasks?" : "Thanks. We will ask what can improve.";
       });
+    });
+
+    document.getElementById("rateDock").addEventListener("click", () => {
+      ratingNote.textContent = "Choose 1 to 5 to rate Ramesh, then save him for a future task if you wish.";
+      document.querySelector(".rating-card").scrollIntoView({ block: "center", behavior: "smooth" });
     });
   </script>
 <script type="application/json" id="productionRouteContract">{"contractVersion":"mvp-route-lock-2026-07-12","prototypeScreen":52,"productionModule":"tasks","routeId":"tasks.lifecycle","routePath":"/tasks/:taskId","routeState":"completed-rating","implementation":"route-state","launchScope":"post-mvp","separateProductionRoute":false,"productionNote":"Do not create a separate production route. Implement completed-rating inside /tasks/:taskId and reuse the owning route API, authorization, analytics and regression suite.","canonicalMap":"architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"}</script><script type="application/json" id="prototypeApprovalContract">{"prototypeScreen":52,"status":"approved-and-frozen","authoritative":true,"approvedAt":"2026-07-12","approvalScope":"prototype-ui-ux-and-production-contract"}</script>  <script src="../shared/prototype-interaction-contracts.js?v=intent-completion-20260714b"></script>

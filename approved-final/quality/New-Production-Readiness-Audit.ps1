@@ -197,7 +197,7 @@ foreach ($finding in $findings) {
   $control = if ($finding.control) { " — **$($finding.control)**" } else { '' }
   $markdown.Add("- [$($finding.severity)] Screen $($finding.screen), `$($finding.file)` — $($finding.category)${control}: $($finding.message)")
 }
-$markdown -join "`n" | Set-Content -LiteralPath $mdPath -Encoding utf8
+($markdown -join "`n").TrimEnd() | Set-Content -LiteralPath $mdPath -Encoding utf8
 
 $result | ConvertTo-Json -Depth 8
 

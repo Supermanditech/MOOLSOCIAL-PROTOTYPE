@@ -659,6 +659,10 @@
         var(--ms-white);
     }
 
+    .method-form { display: grid; gap: 9px; }
+    .method-form label { display: grid; gap: 5px; color: var(--ms-navy); font-size: 9px; font-weight: 900; }
+    .method-form input { min-height: 42px; width: 100%; border: 1px solid rgba(0,0,128,.18); border-radius: 12px; padding: 0 12px; color: var(--ms-ink); background: var(--ms-white); font: inherit; }
+
     .summary-top {
       display: grid;
       grid-template-columns: 1fr auto;
@@ -972,7 +976,7 @@
                     <span class="route-dot drop">#</span>
                     <span class="route-copy">
                       <b>Order #MS2401 · grocery bill</b>
-                      <span>Stock confirmed · bill total locked at Rs 645</span>
+                      <span>Items reserved · bill total locked at Rs 645</span>
                     </span>
                   </div>
                 </div>
@@ -1029,7 +1033,19 @@
                 </div>
               </section>
 
-              <section class="summary-card is-hidden" aria-label="Final payment summary" id="summaryCard">
+              <section class="option-card is-hidden" id="methodEntry" role="dialog" aria-labelledby="methodEntryTitle">
+                <div class="card-head">
+                  <b id="methodEntryTitle">Add UPI method</b>
+                  <span>saved only after validation</span>
+                </div>
+                <div class="method-form">
+                  <label for="newUpiId">UPI ID<input id="newUpiId" type="email" inputmode="email" placeholder="name@bank" autocomplete="off" /></label>
+                  <div class="decision-note" id="methodFormStatus" role="status" aria-live="polite">Enter your UPI ID, then save it for this payment.</div>
+                  <div class="cta-row"><button class="primary-cta" id="saveUpiMethod" type="button">Save UPI method</button><button class="secondary-cta" id="cancelMethod" type="button">Cancel</button></div>
+                </div>
+              </section>
+
+              <section class="summary-card is-hidden" aria-label="Final payment summary" id="summaryCard" role="status" aria-live="polite">
                 <div class="summary-top">
                   <span class="summary-copy">
                     <b id="summaryTitle">Pay Mahadev Fresh Mart</b>
@@ -1125,6 +1141,9 @@
     const summaryFollow = document.getElementById("summaryFollow");
     const decisionNoteText = document.getElementById("decisionNoteText");
     const primaryCta = document.getElementById("primaryCta");
+    const methodEntry = document.getElementById("methodEntry");
+    const newUpiId = document.getElementById("newUpiId");
+    const methodFormStatus = document.getElementById("methodFormStatus");
 
     const branchNotes = {
       Review: "Payee, linked order, expiry and total debit are revalidated before payment authentication.",
@@ -1241,10 +1260,33 @@
     timeChips.forEach((chip) => {
       chip.addEventListener("click", () => {
         timeChips.forEach((item) => item.classList.toggle("active", item === chip));
+        if (chip.dataset.time === "Add method") {
+          methodEntry.classList.remove("is-hidden");
+          methodFormStatus.textContent = "Enter your UPI ID, then save it for this payment.";
+          newUpiId.focus();
+          return;
+        }
         state.time = chip.dataset.time;
         state.follow = chip.dataset.time;
         updateSummary();
       });
+    });
+
+    document.getElementById("cancelMethod").addEventListener("click", () => {
+      methodEntry.classList.add("is-hidden");
+    });
+
+    document.getElementById("saveUpiMethod").addEventListener("click", () => {
+      const upiId = newUpiId.value.trim();
+      if (!upiId.includes("@")) {
+        methodFormStatus.textContent = "Enter a valid UPI ID before saving this payment method.";
+        return;
+      }
+      state.time = upiId;
+      state.follow = upiId;
+      methodEntry.classList.add("is-hidden");
+      updateSummary();
+      summaryText.textContent = `Order #MS2401 · grocery bill · payment method ${upiId} saved for this debit.`;
     });
 
     applyRide("Review");

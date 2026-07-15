@@ -1069,7 +1069,7 @@
                 </div>
               </section>
 
-              <section class="panel-card" id="ratingPanel">
+              <section class="panel-card" id="ratingPanel" hidden>
                 <div class="panel-head">
                   <b>Rate order</b>
                   <span id="ratingHint">shop and delivery</span>
@@ -1089,7 +1089,7 @@
                   </div>
                   <div class="quick-tags">
                     <button class="tag-btn" type="button">Fresh items</button>
-                    <button class="tag-btn" type="button">Correct bill</button>
+                    <button class="tag-btn" type="button">Accurate total</button>
                     <button class="tag-btn" type="button">Good packing</button>
                   </div>
                 </div>
@@ -1157,7 +1157,7 @@
             </div>
 
             <div class="bottom-action">
-              <div class="action-copy">
+              <div class="action-copy" role="status" aria-live="polite">
                 <b id="actionTitle">Bill saved</b>
                 <span id="actionMeta">Rate, report, or buy again</span>
               </div>
@@ -1248,6 +1248,7 @@
     }
 
     rateOrderButton.addEventListener("click", () => {
+      ratingPanel.hidden = false;
       ratingPanel.scrollIntoView({ block: "nearest", behavior: "smooth" });
       actionTitle.textContent = "Rate order";
       actionMeta.textContent = "Rate shop experience and delivery experience";
@@ -1314,23 +1315,22 @@
     });
 
     document.getElementById("downloadBillButton").addEventListener("click", () => {
-      actionTitle.textContent = "Bill downloaded";
-      actionMeta.textContent = "PDF receipt saved on device";
+      actionTitle.textContent = "Bill PDF prepared";
+      actionMeta.textContent = "Order MS-BUY-1042 · Rs 645 · receipt reference BILL-1042-645";
     });
 
     document.getElementById("shareBillButton").addEventListener("click", () => {
-      actionTitle.textContent = "Share bill";
-      actionMeta.textContent = "Share sheet opens in production";
+      actionTitle.textContent = "Bill ready to share";
+      actionMeta.textContent = "Order MS-BUY-1042 · Rs 645 · share reference BILL-1042-645";
     });
 
     document.getElementById("shareBillTop").addEventListener("click", () => {
-      actionTitle.textContent = "Share bill";
-      actionMeta.textContent = "Share sheet opens in production";
+      actionTitle.textContent = "Bill ready to share";
+      actionMeta.textContent = "Order MS-BUY-1042 · Rs 645 · share reference BILL-1042-645";
     });
 
     document.getElementById("openOrdersButton").addEventListener("click", () => {
-      actionTitle.textContent = "Orders";
-      actionMeta.textContent = "Order history opens with this bill selected";
+      window.location.href = "09-buy.html?tab=orders&order=MS-BUY-1042";
     });
 
     document.getElementById("monthlyButton").addEventListener("click", () => {

@@ -852,7 +852,7 @@
                 <div class="hero-top">
                   <div class="hero-copy">
                     <b id="heroTitle">Ready to pay</b>
-                  <span id="heroSubtitle">Items are available now. Pay the final amount shown to place your order.</span>
+                  <span id="heroSubtitle" role="status" aria-live="polite">Items are available now. Pay the final amount shown to place your order.</span>
                     <em class="timer-chip" id="availabilityTimer">Availability held 04:59</em>
                   </div>
                   <div class="pay-amount">
@@ -887,7 +887,7 @@
               <section class="panel-card">
                 <div class="panel-head">
                   <b>Pay with</b>
-                  <span id="methodHint">UPI selected</span>
+                  <span id="methodHint" role="status" aria-live="polite">Pay by UPI for the fastest confirmation</span>
                 </div>
                 <div class="method-grid">
                   <button class="method-btn active recommended" type="button" data-method="upi" data-native-interaction>
@@ -1071,10 +1071,10 @@
       counter: `Counter QR · final ${amountText}`
     };
     const methodHintCopy = {
-      upi: "UPI selected",
-      wallet: "Mool Wallet selected",
-      card: "Card selected",
-      counter: "Counter QR selected"
+      upi: "Pay by UPI for the fastest confirmation",
+      wallet: "Pay from Mool Wallet with refund protection",
+      card: "Pay by saved or new debit or credit card",
+      counter: "Pay through this shop's verified counter QR"
     };
     let selectedMethod = "upi";
     let secondsLeft = 299;
@@ -1148,35 +1148,15 @@
       }
 
       window.clearTimeout(paymentTimer);
-      app.dataset.stage = "opening";
-      paymentHero.dataset.state = "processing";
-      heroTitle.textContent = selectedMethod === "counter" ? "Counter QR ready" : "Opening payment";
-      heroSubtitle.textContent = selectedMethod === "counter"
-        ? "Scan the shop QR. This payment will be applied to the basket shown."
-        : "Complete payment in your selected app. Your basket remains protected during this step.";
-      payButton.disabled = true;
-      payButton.textContent = selectedMethod === "counter" ? "Waiting QR" : "Opening...";
-      payMeta.textContent = selectedMethod === "upi" ? "Opening UPI app" : `${methodHintCopy[selectedMethod]} · processing`;
-
-      paymentTimer = window.setTimeout(() => {
-        app.dataset.stage = "pending";
-        heroTitle.textContent = "Payment pending";
-        heroSubtitle.textContent = "Waiting for confirmation from payment network. Do not close this screen.";
-        payButton.textContent = "Checking...";
-        payMeta.textContent = "Checking payment confirmation";
-      }, 700);
-
-      paymentTimer = window.setTimeout(() => {
-        app.dataset.paid = "yes";
-        app.dataset.stage = "success";
-        paymentHero.dataset.state = "success";
-        heroTitle.textContent = "Payment successful";
-        heroSubtitle.textContent = "Order placed for the items and amount shown. Your live order is ready.";
-        availabilityTimer.textContent = `Paid · ${selectedFulfilment.timer}`;
-        payButton.disabled = false;
-        payButton.textContent = "View Order";
-        payMeta.textContent = fulfilment === "pickup" ? "Order MS-BUY-1042 · collection code 7421" : fulfilment === "schedule" ? "Order MS-BUY-1042 · scheduled tracking ready" : "Order MS-BUY-1042 · live tracking ready";
-      }, 1600);
+      app.dataset.paid = "yes";
+      app.dataset.stage = "success";
+      paymentHero.dataset.state = "success";
+      heroTitle.textContent = "Payment successful";
+      heroSubtitle.textContent = `Order MS-BUY-1042 is placed for ${amountText}. Payment reference PAY-1042 is saved.`;
+      availabilityTimer.textContent = `Paid · ${selectedFulfilment.timer}`;
+      payButton.disabled = false;
+      payButton.textContent = "View Order";
+      payMeta.textContent = fulfilment === "pickup" ? "Order MS-BUY-1042 · collection code 7421" : fulfilment === "schedule" ? "Order MS-BUY-1042 · scheduled tracking ready" : "Order MS-BUY-1042 · live tracking ready";
     });
   </script>
 <script type="application/json" id="productionRouteContract">{"contractVersion":"mvp-route-lock-2026-07-12","prototypeScreen":14,"productionModule":"orders","routeId":"orders.payment","routePath":"/orders/:orderId/payment","routeState":"review-confirmation","implementation":"route-shell","launchScope":"mvp-core","separateProductionRoute":true,"productionNote":"Own production route /orders/:orderId/payment. Implement review-confirmation as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.","canonicalMap":"architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"}</script><script type="application/json" id="prototypeApprovalContract">{"prototypeScreen":14,"status":"approved-and-frozen","authoritative":true,"approvedAt":"2026-07-12","approvalScope":"prototype-ui-ux-and-production-contract"}</script>  <script src="../shared/prototype-interaction-contracts.js?v=intent-completion-20260714b"></script>

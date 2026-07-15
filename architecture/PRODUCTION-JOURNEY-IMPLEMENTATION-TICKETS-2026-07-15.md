@@ -1,7 +1,7 @@
 # Production Journey Implementation Tickets
 
 Date: 2026-07-15
-Source of truth: approved prototype Screens 00-165 and the passing 47-journey Edge audit
+Source of truth: approved prototype Screens 00-165, the passing 47-journey Edge audit and the canonical two-viewport live black-box intent ledger
 Delivery rule: implement vertical user outcomes on the consolidated production routes; do not recreate 166 isolated pages.
 
 Every ticket requires loading, empty, offline, denied, timeout, duplicate/retry and support behavior; idempotent money/stock commands; accessible mobile controls; analytics without private content; feature flag; rollback; API/contract tests; and a replay matching the linked prototype journey.
@@ -150,11 +150,20 @@ Every ticket requires loading, empty, offline, denied, timeout, duplicate/retry 
 - Acceptance: seller type and authorization gate publication; required fields are canonical SKU, case/pack, available quantity, bulk price/unit, MOQ, HSN/GST invoice, delivery responsibility/date, payment terms and claim rules; consumer and wholesale visibility are separate flags; campaigns, pooled demand and internal matches cannot publish product cards; existing orders retain versioned locked terms after edits.
 - Events: `bulk_listing_published`, `bulk_terms_versioned`, `bulk_listing_paused`, `bulk_order_placed`, `bulk_goods_received`.
 
+## PROD-JRN-021 - Screenwise micro-intent completion and responsive parity
+
+- Users: every consumer, creator, worker, workspace operator and administrator.
+- Prototype: every visible and recursively revealed action on Screens 00-165.
+- Outcome: each tap, subtap, input, choice, search, composer, menu, popup and terminal action completes the intent stated by its label in mobile and laptop layouts.
+- Acceptance: controls have accessible names and physical hit targets; fixed rails never cover the intended action; selected/current states are explicit; typed input is retained and applied; searches expose relevant results; task actions advance to a domain-specific next step or final result; completion records include a useful reference and recovery path; navigation opens the promised destination; no fragment-only link, scroll/focus-only change, generic acknowledgement or synthetic runtime fallback passes as completion.
+- Quality evidence: `quality/generated/live-black-box-intent-audit.json` must contain all 166 screens in both required viewports with zero failed paths, no-op outcomes, synthetic-runtime-only outcomes, truncations and severe console errors.
+
 ## Release acceptance for every ticket
 
 - Contract tests prove route/state, authorization, idempotency and error model.
 - Mobile replay proves the same action sequence as `quality/generated/semantic-mobile-user-flow-final.json`.
 - Recursive replay proves every relevant action, popup, input, same-form submit, nested confirmation and terminal result to depth eight from `quality/generated/nested-control-intent-audit.json`; fragment-only links and generic acknowledgements do not pass.
+- Live black-box replay physically hit-tests every discoverable root and recursively revealed action to depth twelve from a clean state at 390 x 844 and 1440 x 1000, using `quality/generated/live-black-box-intent-audit.json` as the release ledger.
 - Copy audit finds no prototype/internal wording or customer-facing operational uncertainty.
 - Observability identifies journey, route, correlation ID and outcome without storing private message/evidence content in analytics.
 - Feature flag, migration/backfill plan, rollback and support runbook are attached before production enablement.

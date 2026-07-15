@@ -435,6 +435,13 @@
       gap: 6px;
     }
 
+    .schedule-panel[hidden] { display: none; }
+    .schedule-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px; }
+    .schedule-fields label { display: grid; gap: 4px; color: var(--ms-navy); font-size: 9px; font-weight: 900; }
+    .schedule-fields input { min-width: 0; min-height: 42px; border: 1px solid rgba(0,0,128,.18); border-radius: 12px; padding: 0 9px; color: var(--ms-navy); font: 850 11px/1 var(--ms-font); }
+    .schedule-confirm { min-height: 42px; border: 0; border-radius: 14px; background: var(--ms-navy); color: #fff; font: 900 10px/1 var(--ms-font); }
+    .schedule-status { margin: 0; color: rgba(0,0,128,.68); font-size: 9px; font-weight: 800; line-height: 1.35; }
+
     .fulfil-btn {
       min-height: 58px;
       display: grid;
@@ -1004,6 +1011,16 @@
                 </div>
               </section>
 
+              <section class="panel-card schedule-panel" id="schedulePanel" hidden>
+                <div class="panel-head"><b>Choose delivery time</b><span>date and time</span></div>
+                <div class="schedule-fields">
+                  <label>Delivery date<input id="scheduleDate" type="date" aria-label="Delivery date"></label>
+                  <label>Delivery time<input id="scheduleTime" type="time" value="18:00" aria-label="Delivery time"></label>
+                </div>
+                <p class="schedule-status" id="scheduleStatus" role="status" aria-live="polite">Review the suggested slot, then confirm it before payment.</p>
+                <button class="schedule-confirm" id="confirmSchedule" type="button">Confirm delivery time</button>
+              </section>
+
               <section class="panel-card">
                 <div class="panel-head">
                   <b>Availability and replacements</b>
@@ -1012,7 +1029,7 @@
                 <div class="stock-card">
                   <div class="stock-status">
                     <b class="stock-badge" id="stockBadge">Available</b>
-                    <span id="stockStatusText">All three items are available at the prices shown. Your basket is held while you review and pay.</span>
+                    <span id="stockStatusText" role="status" aria-live="polite">All three items are available at the prices shown. Your basket is held while you review and pay.</span>
                   </div>
                   <div class="retailer-lock-grid" aria-label="Basket availability protection">
                     <div class="retailer-lock">
@@ -1176,6 +1193,11 @@
     let selectedFulfil = requestedFulfil === "pickup" && atShop
       ? "pickup"
       : ["delivery", "schedule"].includes(requestedFulfil) ? requestedFulfil : "delivery";
+    const schedulePanel = document.getElementById("schedulePanel");
+    const scheduleDate = document.getElementById("scheduleDate");
+    const scheduleTime = document.getElementById("scheduleTime");
+    const suggestedDate = new Date(Date.now() + 24 * 60 * 60 * 1000);
+    scheduleDate.value = `${suggestedDate.getFullYear()}-${String(suggestedDate.getMonth() + 1).padStart(2, "0")}-${String(suggestedDate.getDate()).padStart(2, "0")}`;
     let unavailableRule = "approve";
     let couponSaving = Math.max(0, Number(checkoutParams.get("coupon")) || 0);
     let stockConfirmed = true;
@@ -1230,6 +1252,7 @@
       document.getElementById("decisionAmountMeta").textContent = "available now at this price";
       document.getElementById("stockHint").textContent = unavailableRule === "remove" ? "remove unavailable" : unavailableRule === "call" ? "call before change" : "ask before substitute";
       document.getElementById("stockStatusText").textContent = unavailableCopy[unavailableRule];
+      schedulePanel.hidden = selectedFulfil !== "schedule";
       document.getElementById("stockAssuranceText").textContent = couponSaving ? "Eligible coupon applied. Item prices and delivery remain unchanged." : "Items and prices are checked automatically. You pay only for the basket shown.";
       document.getElementById("heroTitle").textContent = total.qty ? "Basket ready at Mahadev" : "Basket is empty";
       document.getElementById("heroSubtitle").textContent = total.qty ? "Items are available now. Review fulfilment and pay the final amount shown." : "Add items from this shop to continue.";
@@ -1273,6 +1296,13 @@
       button.setAttribute("aria-label", "Coupon applied: Rs 25 saved");
       button.setAttribute("aria-pressed", "true");
       render();
+    });
+
+    document.getElementById("confirmSchedule").addEventListener("click", () => {
+      if (!scheduleDate.value || !scheduleTime.value) return;
+      const readable = new Date(`${scheduleDate.value}T${scheduleTime.value}`).toLocaleString("en-IN", { dateStyle: "medium", timeStyle: "short" });
+      document.getElementById("scheduleStatus").textContent = `Delivery scheduled for ${readable}. This slot will be included in the payment review.`;
+      document.getElementById("fulfilHint").textContent = `Scheduled · ${readable}`;
     });
 
     document.getElementById("checkoutBtn").addEventListener("click", () => {

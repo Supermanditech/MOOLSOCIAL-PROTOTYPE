@@ -337,6 +337,12 @@
     .need-row::-webkit-scrollbar,
     .report-grid::-webkit-scrollbar { display: none; }
 
+    .age-entry { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px; align-items: end; margin-top: 9px; }
+    .age-entry[hidden] { display: none; }
+    .age-entry label { display: grid; gap: 4px; color: var(--ms-navy); font-size: 8px; font-weight: 900; }
+    .age-entry input { min-height: 38px; width: 100%; border: 1px solid rgba(0,0,128,.16); border-radius: 11px; padding: 0 10px; color: var(--ms-navy); background: var(--ms-white); font: inherit; }
+    .age-entry span { min-height: 38px; display: grid; place-items: center; border-radius: 11px; padding: 0 10px; background: #eef3ff; color: var(--ms-navy); font-size: 8px; font-weight: 900; }
+
     .patient-option,
     .need-chip,
     .report-tile,
@@ -805,6 +811,10 @@
                   <button class="patient-option" data-patient="Child"><strong>Child</strong><span>add age</span></button>
                   <button class="patient-option" data-patient="New"><strong>Add</strong><span>new patient</span></button>
                 </div>
+                <div class="age-entry" id="childAgeEntry" hidden>
+                  <label for="childAge">Child age<input id="childAge" type="number" inputmode="numeric" min="0" max="17" value="8" /></label>
+                  <span id="childAgeStatus" role="status" aria-live="polite">Age 8 added</span>
+                </div>
               </section>
 
               <section class="need-card" id="need" aria-label="Patient need">
@@ -883,10 +893,10 @@
             <nav class="bottom-dock" aria-label="Patient details navigation">
               <a class="mool-button" href="04-universal-focus-shell.html">Mool</a>
               <div class="dock-track">
-                <a class="dock-tab active" href="#patient"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></svg>Patient</a>
-                <a class="dock-tab" href="#need"><svg viewBox="0 0 24 24"><path d="M12 6v12" /><path d="M6 12h12" /></svg>Need</a>
-                <a class="dock-tab" href="#reports"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z" /><path d="M14 2v6h6" /></svg>Reports</a>
-                <a class="dock-tab" href="#consent"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-5" /><path d="M20 6 9 17l-5-5" /></svg>Consent</a>
+                <button class="dock-tab active" type="button" data-tab="patient"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></svg>Patient</button>
+                <button class="dock-tab" type="button" data-tab="need"><svg viewBox="0 0 24 24"><path d="M12 6v12" /><path d="M6 12h12" /></svg>Need</button>
+                <button class="dock-tab" type="button" data-tab="reports"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z" /><path d="M14 2v6h6" /></svg>Reports</button>
+                <button class="dock-tab" type="button" data-tab="consent"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-5" /><path d="M20 6 9 17l-5-5" /></svg>Consent</button>
               </div>
               <a class="chat-button" href="23-chat-inbox-home.html" aria-label="Open chat">
                 <svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z" /></svg>
@@ -984,6 +994,9 @@
     const needButtons = document.querySelectorAll("[data-need]");
     const reportButtons = document.querySelectorAll("[data-report]");
     const consentToggle = document.getElementById("consentToggle");
+    const childAgeEntry = document.getElementById("childAgeEntry");
+    const childAge = document.getElementById("childAge");
+    const childAgeStatus = document.getElementById("childAgeStatus");
     const modeTag = document.getElementById("modeTag");
     const doctorInitials = document.getElementById("doctorInitials");
     const doctorName = document.getElementById("doctorName");
@@ -998,6 +1011,7 @@
     const readyText = document.getElementById("readyText");
     const readyPill = document.getElementById("readyPill");
     const primaryCta = document.getElementById("primaryCta");
+    const detailTabs = document.querySelectorAll("[data-tab]");
 
     const state = {
       patient: "Self",
@@ -1045,7 +1059,8 @@
         ? "Only appointment details and attached reports are shared."
         : "Turn on consent before confirming appointment.";
       readyTitle.textContent = state.consent ? "Ready to confirm" : "Consent needed";
-      readyText.textContent = `${state.patient} · ${state.need} · ${reportList} · ${state.consent ? "consent given" : "consent pending"}.`;
+      const patientLabel = state.patient === "Child" ? `Child · age ${childAge.value || "required"}` : state.patient;
+      readyText.textContent = `${patientLabel} · ${state.need} · ${reportList} · ${state.consent ? "consent given" : "consent pending"}.`;
       readyPill.textContent = state.consent ? "Ready" : "Pending";
       primaryCta.href = state.consent ? "39-doctor-patient-invite-followup.html" : "#consent";
     }
@@ -1054,7 +1069,20 @@
       button.addEventListener("click", () => {
         patientButtons.forEach((item) => item.classList.toggle("active", item === button));
         state.patient = button.dataset.patient;
+        childAgeEntry.hidden = state.patient !== "Child";
         updateReady();
+      });
+    });
+
+    childAge.addEventListener("input", () => {
+      childAgeStatus.textContent = childAge.value ? `Age ${childAge.value} added` : "Enter the child's age before confirming.";
+      updateReady();
+    });
+
+    detailTabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        detailTabs.forEach((item) => item.classList.toggle("active", item === tab));
+        document.getElementById(tab.dataset.tab)?.scrollIntoView({ block: "nearest", behavior: "smooth" });
       });
     });
 

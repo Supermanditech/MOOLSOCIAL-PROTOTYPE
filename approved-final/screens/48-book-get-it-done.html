@@ -572,6 +572,85 @@
       font-weight: 850;
     }
 
+    .detail-editor {
+      position: absolute;
+      inset: 0;
+      z-index: 40;
+      display: grid;
+      align-items: end;
+    }
+
+    .detail-editor[hidden] { display: none; }
+
+    .detail-editor-backdrop {
+      position: absolute;
+      inset: 0;
+      border: 0;
+      background: rgba(0, 0, 40, .62);
+    }
+
+    .detail-editor-panel {
+      position: relative;
+      display: grid;
+      gap: 10px;
+      margin: 12px;
+      padding: 14px;
+      border: 1px solid rgba(0, 0, 128, .14);
+      border-radius: 22px;
+      background: var(--ms-white);
+      box-shadow: 0 18px 44px rgba(0, 0, 64, .30);
+    }
+
+    .detail-editor-head {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .detail-editor-head span { display: grid; gap: 3px; }
+    .detail-editor-head b { font-size: 13px; font-weight: 950; }
+    .detail-editor-head small { color: rgba(0, 0, 128, .62); font-size: 8px; font-weight: 850; }
+
+    .detail-editor-close {
+      width: 34px;
+      height: 34px;
+      border: 1px solid rgba(0, 0, 128, .12);
+      border-radius: 12px;
+      background: rgba(0, 0, 128, .06);
+      color: var(--ms-navy);
+      font-size: 18px;
+      font-weight: 950;
+    }
+
+    .detail-editor-input {
+      width: 100%;
+      min-height: 48px;
+      border: 1px solid rgba(0, 0, 128, .18);
+      border-radius: 14px;
+      padding: 11px 12px;
+      color: var(--ms-navy);
+      font: inherit;
+      font-size: 10px;
+      font-weight: 850;
+    }
+
+    .detail-editor-status { min-height: 16px; color: var(--ms-green); font-size: 8px; font-weight: 900; }
+
+    .detail-editor-save {
+      min-height: 46px;
+      border: 0;
+      border-radius: 15px;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      font: inherit;
+      font-size: 10px;
+      font-weight: 950;
+      box-shadow: inset 0 -4px 0 var(--ms-saffron);
+    }
+
+    .detail-editor-save:disabled { opacity: .42; box-shadow: none; }
+
     .proof-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1055,6 +1134,18 @@
                 <span class="chat-badge">2</span>
               </a>
             </nav>
+            <div class="detail-editor" id="detailEditor" role="dialog" aria-modal="true" aria-labelledby="detailEditorTitle" hidden>
+              <button class="detail-editor-backdrop" type="button" data-close-detail-editor aria-label="Close task detail editor"></button>
+              <section class="detail-editor-panel">
+                <div class="detail-editor-head">
+                  <span><b id="detailEditorTitle">Add task detail</b><small id="detailEditorHelp">Enter the exact information the helper needs.</small></span>
+                  <button class="detail-editor-close" type="button" data-close-detail-editor aria-label="Close task detail editor">×</button>
+                </div>
+                <input class="detail-editor-input" id="detailEditorInput" type="text" aria-label="Task detail" autocomplete="off" />
+                <div class="detail-editor-status" id="detailEditorStatus" role="status" aria-live="polite">Type the detail to enable Save.</div>
+                <button class="detail-editor-save" id="detailEditorSave" type="button" disabled>Save detail</button>
+              </section>
+            </div>
           </div>
         </div>
 
@@ -1123,6 +1214,12 @@
     const instructionText = document.getElementById("instructionText");
     const approvalTitle = document.getElementById("approvalTitle");
     const approvalText = document.getElementById("approvalText");
+    const detailEditor = document.getElementById("detailEditor");
+    const detailEditorTitle = document.getElementById("detailEditorTitle");
+    const detailEditorHelp = document.getElementById("detailEditorHelp");
+    const detailEditorInput = document.getElementById("detailEditorInput");
+    const detailEditorStatus = document.getElementById("detailEditorStatus");
+    const detailEditorSave = document.getElementById("detailEditorSave");
 
     const taskModes = {
       Pickup: {
@@ -1201,7 +1298,8 @@
       optionIndex: 0,
       proof: "Photo",
       activeField: "place",
-      filled: new Set()
+      filled: new Set(),
+      details: {}
     };
 
     function renderHelpers() {
@@ -1211,6 +1309,8 @@
         const button = document.createElement("button");
         button.className = `helper-option${index === state.optionIndex ? " active" : ""}`;
         button.type = "button";
+        button.dataset.nativeInteraction = "";
+        button.setAttribute("aria-pressed", String(index === state.optionIndex));
         button.innerHTML = `
           <span class="avatar">${item.initials}</span>
           <span class="helper-copy">
@@ -1222,7 +1322,10 @@
         `;
         button.addEventListener("click", () => {
           state.optionIndex = index;
-          renderHelpers();
+          helperList.querySelectorAll(".helper-option").forEach((item, itemIndex) => {
+            item.classList.toggle("active", itemIndex === index);
+            item.setAttribute("aria-pressed", String(itemIndex === index));
+          });
           renderSummary();
         });
         helperList.appendChild(button);
@@ -1239,7 +1342,7 @@
       cityHint.textContent = state.city === "Jodhpur" ? "current area saved" : "other city selected";
       taskHelp.textContent = mode.help;
       listTitle.textContent = mode.title;
-      listHelp.textContent = mode.help;
+      listHelp.textContent = `${selected.name} selected · ${selected.fee}`;
       placeTitle.textContent = mode.placeTitle;
       placeText.textContent = mode.placeText;
       instructionTitle.textContent = mode.instructionTitle;
@@ -1247,7 +1350,7 @@
       approvalTitle.textContent = mode.approvalTitle;
       approvalText.textContent = mode.approvalText;
       summaryTitle.textContent = mode.title;
-      summaryText.textContent = `${state.city} · ${selected.name} · ${mode.instructionText}. Release after ${state.proof.toLowerCase()} proof.`;
+      summaryText.textContent = `${state.city} · ${selected.name} · ${state.details.instruction || mode.instructionText}. Release after ${state.proof.toLowerCase()} proof.`;
       summaryPrice.textContent = selected.fee;
       summaryEta.textContent = selected.eta;
       payRule.textContent = mode.pay;
@@ -1260,10 +1363,14 @@
       state.task = task;
       state.optionIndex = 0;
       state.filled.clear();
+      state.details = {};
       state.activeField = "place";
       taskButtons.forEach((button) => button.classList.toggle("active", button.dataset.task === task));
       dockButtons.forEach((button) => button.classList.toggle("active", button.dataset.dockTask === task));
       fieldButtons.forEach((button) => button.classList.toggle("active", button.dataset.field === state.activeField));
+      taskButtons.forEach((button) => button.setAttribute("aria-pressed", String(button.dataset.task === task)));
+      dockButtons.forEach((button) => button.toggleAttribute("aria-current", button.dataset.dockTask === task));
+      renderFieldStates();
       renderHelpers();
       renderSummary();
     }
@@ -1272,6 +1379,7 @@
       button.addEventListener("click", () => {
         state.city = button.dataset.city;
         cityButtons.forEach((item) => item.classList.toggle("active", item === button));
+        cityButtons.forEach((item) => item.setAttribute("aria-pressed", String(item === button)));
         renderHelpers();
         renderSummary();
       });
@@ -1288,23 +1396,72 @@
       });
     });
 
-    fieldButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        state.activeField = button.dataset.field;
-        state.filled.add(button.dataset.field);
-        fieldButtons.forEach((item) => item.classList.toggle("active", item === button));
-        renderSummary();
+    const detailHelp = {
+      place: "Enter the shop, counter, office or exact address.",
+      instruction: "Describe what to collect, submit, buy or complete.",
+      approval: "State what the helper must show before spending or closing."
+    };
+
+    function renderFieldStates() {
+      fieldButtons.forEach((button) => {
+        const field = button.dataset.field;
+        const saved = Boolean(state.details[field]);
+        button.classList.toggle("active", field === state.activeField);
+        button.setAttribute("aria-pressed", String(field === state.activeField));
+        button.querySelector(".field-status b").textContent = saved ? "Saved" : field === "approval" ? "Set" : "Add";
+        button.querySelector(".field-status span").textContent = saved ? "ready" : field === "approval" ? "safe" : "needed";
       });
+    }
+
+    function closeDetailEditor() {
+      detailEditor.hidden = true;
+    }
+
+    function openDetailEditor(field) {
+      state.activeField = field;
+      renderFieldStates();
+      const mode = taskModes[state.task];
+      const title = field === "place" ? mode.placeTitle : field === "instruction" ? mode.instructionTitle : mode.approvalTitle;
+      detailEditorTitle.textContent = `Add ${title.toLowerCase()}`;
+      detailEditorHelp.textContent = detailHelp[field];
+      detailEditorInput.value = state.details[field] || "";
+      detailEditorInput.placeholder = field === "place" ? mode.placeText : field === "instruction" ? mode.instructionText : mode.approvalText;
+      detailEditorSave.disabled = !detailEditorInput.value.trim();
+      detailEditorStatus.textContent = detailEditorSave.disabled ? "Type the detail to enable Save." : "Ready to save this detail.";
+      detailEditor.hidden = false;
+      detailEditorInput.focus();
+    }
+
+    fieldButtons.forEach((button) => button.addEventListener("click", () => openDetailEditor(button.dataset.field)));
+    document.querySelectorAll("[data-close-detail-editor]").forEach((button) => button.addEventListener("click", closeDetailEditor));
+    detailEditorInput.addEventListener("input", () => {
+      detailEditorSave.disabled = !detailEditorInput.value.trim();
+      detailEditorStatus.textContent = detailEditorSave.disabled ? "Type the detail to enable Save." : "Ready to save this detail.";
+    });
+    detailEditorSave.addEventListener("click", () => {
+      const value = detailEditorInput.value.trim();
+      if (!value) return;
+      state.details[state.activeField] = value;
+      state.filled.add(state.activeField);
+      renderFieldStates();
+      renderSummary();
+      closeDetailEditor();
     });
 
     proofButtons.forEach((button) => {
       button.addEventListener("click", () => {
         state.proof = button.dataset.proof;
         proofButtons.forEach((item) => item.classList.toggle("active", item === button));
+        proofButtons.forEach((item) => item.setAttribute("aria-pressed", String(item === button)));
         renderSummary();
       });
     });
 
+    cityButtons.forEach((button) => button.setAttribute("aria-pressed", String(button.dataset.city === state.city)));
+    taskButtons.forEach((button) => button.setAttribute("aria-pressed", String(button.dataset.task === state.task)));
+    dockButtons.forEach((button) => button.toggleAttribute("aria-current", button.dataset.dockTask === state.task));
+    proofButtons.forEach((button) => button.setAttribute("aria-pressed", String(button.dataset.proof === state.proof)));
+    renderFieldStates();
     renderHelpers();
     renderSummary();
   </script>

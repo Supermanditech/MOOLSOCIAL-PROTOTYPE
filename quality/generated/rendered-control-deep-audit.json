@@ -1,6 +1,6 @@
 {
   "complete": true,
-  "completedAt": "2026-07-15T14:04:01.970Z",
+  "completedAt": "2026-07-15T22:48:59.958Z",
   "issues": [],
   "screens": [
     {
@@ -166,11 +166,11 @@
       "skipped": 0
     },
     {
-      "controls": 38,
+      "controls": 22,
       "failed": 0,
       "file": "18-home-delivery-completed-bill-rating.html",
       "issues": [],
-      "passed": 38,
+      "passed": 22,
       "screen": 18,
       "skipped": 0
     },
@@ -220,11 +220,11 @@
       "skipped": 0
     },
     {
-      "controls": 27,
+      "controls": 28,
       "failed": 0,
       "file": "24-chat-business-thread.html",
       "issues": [],
-      "passed": 27,
+      "passed": 28,
       "screen": 24,
       "skipped": 0
     },
@@ -283,20 +283,20 @@
       "skipped": 0
     },
     {
-      "controls": 18,
+      "controls": 17,
       "failed": 0,
       "file": "31-ride-accepted-captain-arriving.html",
       "issues": [],
-      "passed": 18,
+      "passed": 17,
       "screen": 31,
       "skipped": 0
     },
     {
-      "controls": 21,
+      "controls": 20,
       "failed": 0,
       "file": "32-ride-live-trip.html",
       "issues": [],
-      "passed": 21,
+      "passed": 20,
       "screen": 32,
       "skipped": 0
     },
@@ -949,11 +949,11 @@
       "skipped": 0
     },
     {
-      "controls": 22,
+      "controls": 23,
       "failed": 0,
       "file": "105-retailer-returns-customer-issues.html",
       "issues": [],
-      "passed": 22,
+      "passed": 23,
       "screen": 105,
       "skipped": 0
     },
@@ -1498,13 +1498,13 @@
       "skipped": 0
     }
   ],
-  "startedAt": "2026-07-15T13:55:13.221Z",
+  "startedAt": "2026-07-15T22:41:14.046Z",
   "summary": {
     "failed": 0,
-    "passed": 3210,
+    "passed": 3194,
     "screens": 166,
     "skipped": 0,
-    "tested": 3210
+    "tested": 3194
   },
   "consoleErrors": []
 }

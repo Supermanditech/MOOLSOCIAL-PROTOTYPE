@@ -636,8 +636,12 @@
     }
 
     .primary-cta {
+      border: 0;
+      padding: 0 14px;
       background: var(--ms-navy);
       color: var(--ms-white);
+      font-family: inherit;
+      cursor: pointer;
       box-shadow: inset 0 -4px 0 var(--ms-saffron), 0 10px 20px rgba(0, 0, 128, .18);
     }
 
@@ -713,6 +717,8 @@
       font-size: 9px;
       font-weight: 950;
     }
+
+    button.dock-tab { border: 0; background: transparent; font-family: inherit; cursor: pointer; }
 
     .dock-tab svg {
       width: 17px;
@@ -920,7 +926,7 @@
                 </button>
               </section>
 
-              <section class="ready-card" aria-label="Ready to invite patient">
+              <section class="ready-card" aria-label="Ready to invite patient" role="status" aria-live="polite" aria-atomic="true">
                 <div class="ready-top">
                   <span class="ready-copy">
                     <b id="readyTitle">Patient invite ready</b>
@@ -942,7 +948,7 @@
                   </span>
                 </div>
                 <div class="cta-row">
-                  <a class="primary-cta" href="#" id="primaryCta">Show patient QR</a>
+                  <button class="primary-cta" type="button" id="primaryCta">Show patient QR</button>
                   <a class="secondary-cta" href="23-chat-inbox-home.html">Chat</a>
                 </div>
               </section>
@@ -951,10 +957,10 @@
             <nav class="bottom-dock" aria-label="Patient invite navigation">
               <a class="mool-button" href="04-universal-focus-shell.html">Mool</a>
               <div class="dock-track">
-                <a class="dock-tab active" href="#patient"><svg viewBox="0 0 24 24"><path d="M3 3h7v7H3Z" /><path d="M14 3h7v7h-7Z" /><path d="M3 14h7v7H3Z" /><path d="M17 17h4v4h-4Z" /></svg>Invite</a>
-                <a class="dock-tab" href="#need"><svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-3-6.7" /><path d="M21 3v6h-6" /></svg>Follow</a>
-                <a class="dock-tab" href="#reports"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z" /><path d="M14 2v6h6" /></svg>Reasons</a>
-                <a class="dock-tab" href="#consent"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-5" /><path d="M20 6 9 17l-5-5" /></svg>Consent</a>
+                <button class="dock-tab active" type="button" data-invite-section="patient" aria-current="page"><svg viewBox="0 0 24 24"><path d="M3 3h7v7H3Z" /><path d="M14 3h7v7h-7Z" /><path d="M3 14h7v7H3Z" /><path d="M17 17h4v4h-4Z" /></svg>Invite</button>
+                <button class="dock-tab" type="button" data-invite-section="need"><svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-3-6.7" /><path d="M21 3v6h-6" /></svg>Follow</button>
+                <button class="dock-tab" type="button" data-invite-section="reports"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z" /><path d="M14 2v6h6" /></svg>Reasons</button>
+                <button class="dock-tab" type="button" data-invite-section="consent"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-5" /><path d="M20 6 9 17l-5-5" /></svg>Consent</button>
               </div>
               <a class="chat-button" href="23-chat-inbox-home.html" aria-label="Open chat">
                 <svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z" /></svg>
@@ -1074,36 +1080,46 @@
       readyText.textContent = `${state.invite} · ${state.follow} · ${reasons} · ${state.consent ? "consent on patient phone" : "consent pending"}.`;
       readyPill.textContent = state.consent ? invite.pill : "Pending";
       primaryCta.textContent = invite.cta;
-      primaryCta.href = state.consent ? "#patient" : "#consent";
       qrTitle.textContent = invite.title;
       qrText.textContent = invite.text;
     }
 
     patientButtons.forEach((button) => {
+      button.setAttribute("aria-pressed", String(button.classList.contains("active")));
       button.addEventListener("click", () => {
-        patientButtons.forEach((item) => item.classList.toggle("active", item === button));
+        patientButtons.forEach((item) => {
+          item.classList.toggle("active", item === button);
+          item.setAttribute("aria-pressed", String(item === button));
+        });
         state.invite = button.dataset.patient;
         updateReady();
       });
     });
 
     needButtons.forEach((button) => {
+      button.setAttribute("aria-pressed", String(button.classList.contains("active")));
       button.addEventListener("click", () => {
-        needButtons.forEach((item) => item.classList.toggle("active", item === button));
+        needButtons.forEach((item) => {
+          item.classList.toggle("active", item === button);
+          item.setAttribute("aria-pressed", String(item === button));
+        });
         state.follow = button.dataset.need;
         updateReady();
       });
     });
 
     reasonButtons.forEach((button) => {
+      button.setAttribute("aria-pressed", String(button.classList.contains("active")));
       button.addEventListener("click", () => {
         const reason = button.dataset.report;
         if (state.reasons.has(reason)) {
           state.reasons.delete(reason);
           button.classList.remove("active");
+          button.setAttribute("aria-pressed", "false");
         } else {
           state.reasons.add(reason);
           button.classList.add("active");
+          button.setAttribute("aria-pressed", "true");
         }
         updateReady();
       });
@@ -1112,6 +1128,39 @@
     consentToggle.addEventListener("click", () => {
       state.consent = !state.consent;
       updateReady();
+    });
+
+    document.querySelectorAll("[data-invite-section]").forEach((button) => {
+      button.addEventListener("click", () => {
+        document.querySelectorAll("[data-invite-section]").forEach((item) => {
+          item.classList.toggle("active", item === button);
+          item.toggleAttribute("aria-current", item === button);
+        });
+        const section = document.getElementById(button.dataset.inviteSection);
+        section?.scrollIntoView({ behavior: "smooth", block: "center" });
+        const labels = { patient: "Invite methods open", need: "Follow-up choices open", reports: "Patient reasons open", consent: "Consent controls open" };
+        readyTitle.textContent = labels[button.dataset.inviteSection] || "Invite section open";
+        readyText.textContent = "Choose or update the visible options, then complete the patient invite below.";
+      });
+    });
+
+    primaryCta.addEventListener("click", () => {
+      if (!state.consent) {
+        document.getElementById("consent")?.scrollIntoView({ behavior: "smooth", block: "center" });
+        readyTitle.textContent = "Patient consent required";
+        readyText.textContent = "Ask the patient to approve the clinic link before sending follow-up data.";
+        return;
+      }
+      const outcomes = {
+        QR: ["Patient QR shown", "Invite INV-KAV-3901 is ready for the patient to scan at the clinic counter."],
+        Link: ["Patient link sent", "Invite INV-KAV-3902 was sent securely to the patient phone and expires in 24 hours."],
+        "Desk code": ["Desk code created", "Code KAVITA7 is ready at reception and expires after the patient connects."],
+        Prescription: ["Prescription QR ready", "Invite INV-KAV-3903 is ready to print on the prescription for later scanning."]
+      };
+      const [title, text] = outcomes[state.invite] || outcomes.QR;
+      readyTitle.textContent = title;
+      readyText.textContent = `${text} Follow-up: ${state.follow}.`;
+      readyPill.textContent = "Ready";
     });
 
     updateReady();

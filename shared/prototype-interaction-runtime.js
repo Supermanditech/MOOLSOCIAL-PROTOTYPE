@@ -123,12 +123,18 @@
     var note = normalize(contract && contract.note);
     var generic = /(is selected|selected\.|details? (?:are|is) open|opened\. close|review the shown state|current screen state is preserved)/i.test(note);
     if (note && !generic) return note;
-    if (contract.type === 'select' || contract.type === 'state' || contract.type === 'toggle') return label + ' applied.';
-    if (contract.type === 'progress') return label + ' is ready for the next step. Review the information and continue when ready.';
-    if (contract.type === 'handoff') return label + ' is ready to continue.';
-    if (contract.type === 'terminal') return label + ' completed.';
-    if (contract.type === 'detail') return label + ' information is available now.';
-    return label + ' is ready.';
+    if (/proof/i.test(label)) return 'Review the submitted proof, linked task or order, amount, current status and available support action.';
+    if (/receipt|bill|invoice/i.test(label)) return 'Review the itemised amount, payment status, reference and support options.';
+    if (/voice/i.test(label)) return 'Choose a language, start voice guidance and review the captured request before continuing.';
+    if (/call/i.test(label)) return 'Review the verified contact, then start or end the protected in-app call.';
+    if (/share/i.test(label)) return 'Choose a destination, review the shared information and confirm the share action.';
+    if (/file|photo|camera|gallery|upload/i.test(label)) return 'Choose a source, review the selected item and confirm before attaching it.';
+    if (/status|history/i.test(label)) return 'Review the current status, recent timeline and the next available action.';
+    if (contract.type === 'select' || contract.type === 'state' || contract.type === 'toggle') return label + ' is now the active choice.';
+    if (contract.type === 'progress') return 'Review the requirements, timing and next action for ' + label + '.';
+    if (contract.type === 'terminal') return 'Review the final details before confirming ' + label + '.';
+    if (contract.type === 'detail') return 'Review ' + label + ' and choose the relevant next action.';
+    return 'Review the available choices for ' + label + ' and continue.';
   }
 
   function panelMeta(contract) {
@@ -136,6 +142,141 @@
     if (contract.type === 'handoff') return ['Next step', 'Ready'];
     if (contract.type === 'progress') return ['Task', 'Ready to continue'];
     return ['Information', 'Available now'];
+  }
+
+  function referenceFor(label) {
+    var value = String(screen) + ':' + label;
+    var hash = 0;
+    for (var i = 0; i < value.length; i += 1) hash = ((hash << 5) - hash + value.charCodeAt(i)) | 0;
+    return 'MS-' + String(screen).padStart(3, '0') + '-' + String(Math.abs(hash) % 100000).padStart(5, '0');
+  }
+
+  function workflowFor(contract, label) {
+    var lower = label.toLowerCase();
+    var workflow = {
+      kind: contract.type,
+      note: userMessage(contract, label),
+      options: [],
+      fields: [],
+      primary: contract.primaryLabel || (contract.route ? 'Continue' : 'Review'),
+      initial: 'Choose an option to continue.',
+      complete: label + ' is complete.',
+      reference: referenceFor(label)
+    };
+
+    if (/\bsearch\b/.test(lower) && !/\bvoice\b/.test(lower)) {
+      workflow.kind = 'search';
+      workflow.fields = [{ label: 'Search query', type: 'search', placeholder: 'Type what you want to find' }];
+      workflow.options = ['All results', 'Nearby', 'Recent'];
+      workflow.primary = 'Show results';
+      workflow.initial = 'Type a query. No search has run yet.';
+      workflow.complete = 'Verified matching results are shown for your query.';
+    } else if (/^schedule(?:\b|$)/.test(lower)) {
+      workflow.kind = 'schedule';
+      workflow.fields = [
+        { label: 'Date', type: 'date', placeholder: '' },
+        { label: 'Time', type: 'time', placeholder: '' }
+      ];
+      workflow.options = ['Use local time', 'Add reminder'];
+      workflow.primary = 'Confirm schedule';
+      workflow.initial = 'Choose a date and time. Nothing is scheduled yet.';
+      workflow.complete = label + ' is scheduled for the selected date and time.';
+    } else if (/accountant/.test(lower)) {
+      workflow.kind = 'access';
+      workflow.fields = [{ label: 'Accountant email', type: 'email', placeholder: 'accountant@example.com' }];
+      workflow.options = ['Read-only books', '7-day access', 'Include stock statement', 'Require sign-in'];
+      workflow.primary = 'Grant secure access';
+      workflow.initial = 'No accountant has access. Choose the records and expiry before granting access.';
+      workflow.complete = 'Read-only accountant access is active for 7 days with audit history enabled.';
+    } else if (/share/.test(lower)) {
+      workflow.kind = 'share';
+      workflow.options = ['Chat', 'Copy secure link', 'QR code', 'More apps'];
+      workflow.primary = 'Share now';
+      workflow.initial = 'No destination selected.';
+      workflow.complete = 'Share prepared with the current item and verified source context.';
+    } else if (/video call|call/.test(lower)) {
+      workflow.kind = 'call';
+      workflow.options = ['In-app audio', 'Speaker', 'Mute'];
+      workflow.primary = /video/.test(lower) ? 'Start video call' : 'Start call';
+      workflow.initial = 'Protected calling is ready. No call has started.';
+      workflow.complete = 'Protected call connected to the verified contact.';
+    } else if (/voice/.test(lower)) {
+      workflow.kind = 'voice';
+      workflow.options = ['Hindi', 'English', 'Marwari'];
+      workflow.primary = 'Start listening';
+      workflow.initial = 'Microphone is off. Choose a language before speaking.';
+      workflow.complete = 'Voice request captured: “Help me continue this task.”';
+    } else if (/scan|qr/.test(lower)) {
+      workflow.kind = 'scan';
+      workflow.options = ['Scan with camera', 'Enter code'];
+      workflow.primary = 'Start scanner';
+      workflow.initial = 'Camera is off. You can also enter the code manually.';
+      workflow.complete = 'Sample verified code detected and ready to use.';
+    } else if (/file|photo|camera|gallery|upload|document/.test(lower)) {
+      workflow.kind = 'attachment';
+      workflow.options = ['Camera', 'Gallery', 'Files'];
+      workflow.primary = 'Choose sample item';
+      workflow.initial = 'Nothing is attached. The selected item will be reviewed before sending.';
+      workflow.complete = 'sample-proof.jpg · 1.2 MB is attached and ready to send.';
+    } else if (/location|map|direction/.test(lower)) {
+      workflow.kind = 'location';
+      workflow.options = ['Current location', 'Choose on map'];
+      workflow.primary = 'Confirm location';
+      workflow.initial = 'No location is shared until you confirm.';
+      workflow.complete = 'Sardarpura, Jodhpur is confirmed for this action.';
+    } else if (/download|export|pdf|csv|print|statement/.test(lower)) {
+      workflow.kind = 'file';
+      workflow.options = [/csv/.test(lower) ? 'CSV' : 'PDF', 'Date range', 'Share securely'];
+      workflow.primary = 'Prepare file';
+      workflow.initial = 'Choose the format and reporting period.';
+      workflow.complete = label + ' is prepared with the selected period and access controls.';
+    } else if (/proof|receipt|bill|invoice|amount|payment/.test(lower) && contract.type === 'detail') {
+      workflow.kind = 'detail';
+      workflow.options = ['Summary', 'Amounts', 'Status', 'Support'];
+      workflow.primary = 'Done';
+      workflow.initial = 'Choose a section to review.';
+    } else if (/comment|reply/.test(lower)) {
+      workflow.kind = 'discussion';
+      workflow.options = ['Top comments', 'Newest', 'Write reply'];
+      workflow.fields = [{ label: 'Reply', type: 'text', placeholder: 'Write a reply' }];
+      workflow.primary = 'Post reply';
+      workflow.initial = 'Read the discussion or write a reply.';
+      workflow.complete = 'Your reply is added to this discussion.';
+    } else if (/more|manage|setting|control/.test(lower)) {
+      workflow.kind = 'detail';
+      workflow.options = ['View details', 'Save', 'Report issue', 'Cancel'];
+      workflow.primary = 'Done';
+      workflow.initial = 'Choose the action you want to complete.';
+    } else if (/status|history|track|timeline/.test(lower)) {
+      workflow.kind = 'detail';
+      workflow.options = ['Current status', 'Timeline', 'Get help'];
+      workflow.primary = 'Done';
+      workflow.initial = 'Choose what you want to review.';
+    } else if (/plan|pricing|term|rule|eligib|details?|review|open|view/.test(lower) || contract.type === 'detail') {
+      workflow.kind = 'detail';
+      workflow.options = ['Overview', 'Included', 'Rules', 'Next action'];
+      workflow.primary = 'Done';
+      workflow.initial = 'Choose a section to review.';
+    } else if (contract.type === 'progress') {
+      workflow.kind = 'progress';
+      workflow.options = ['Requirements', 'Timing', 'Support'];
+      workflow.primary = contract.primaryLabel || 'Continue';
+      workflow.initial = 'Review the requirements before continuing.';
+      workflow.complete = label + ' is ready for the next required step.';
+    } else if (contract.type === 'terminal') {
+      workflow.kind = 'terminal';
+      workflow.options = ['Summary', 'Terms', 'Support'];
+      workflow.primary = contract.primaryLabel || 'Confirm';
+      workflow.initial = 'Nothing has been submitted yet. Review before confirming.';
+      workflow.complete = label + ' completed successfully.';
+    } else if (contract.type === 'handoff') {
+      workflow.kind = 'handoff';
+      workflow.options = ['Review details', 'Continue securely'];
+      workflow.primary = contract.primaryLabel || 'Continue';
+      workflow.initial = 'Review the handoff details before continuing.';
+      workflow.complete = label + ' is ready in the protected next step.';
+    }
+    return workflow;
   }
 
   function getCandidates(element) {
@@ -191,19 +332,27 @@
     var style = document.createElement('style');
     style.id = 'mool-contract-styles';
     style.textContent = [
-      '.mool-contract-selected{outline:2px solid #ff9933!important;outline-offset:2px!important;box-shadow:0 0 0 4px rgba(255,153,51,.18)!important}',
+      '.mool-intent-selected{outline:2px solid #ff9933!important;outline-offset:2px!important;box-shadow:0 0 0 4px rgba(255,153,51,.18)!important}',
+      '.mool-intent-inline-status{display:block;width:100%;margin-top:8px;padding:9px 10px;border-left:3px solid #138808;border-radius:5px;background:#eef9f0;color:#063e20;font:700 12px/1.35 system-ui,sans-serif}',
       '.mool-contract-toast{position:fixed;left:50%;bottom:max(92px,calc(env(safe-area-inset-bottom) + 76px));transform:translateX(-50%);z-index:2147483646;max-width:min(340px,calc(100vw - 32px));padding:10px 14px;border-radius:8px;background:#07134f;color:#fff;font:700 13px/1.35 system-ui,sans-serif;box-shadow:0 10px 30px rgba(0,0,0,.28);text-align:center}',
-      '.mool-contract-backdrop{position:fixed;inset:0;z-index:2147483645;background:rgba(2,8,50,.46);display:flex;align-items:flex-end;justify-content:center;padding:14px}',
-      '.mool-contract-sheet{width:min(430px,100%);max-height:min(70vh,580px);overflow:auto;border:1px solid #cbd2f2;border-radius:8px;background:#fff;color:#080b7d;box-shadow:0 24px 70px rgba(0,0,0,.3);font-family:system-ui,sans-serif}',
-      '.mool-contract-sheet__head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;padding:17px 18px 10px}',
-      '.mool-contract-sheet__title{margin:0;font-size:19px;line-height:1.2;letter-spacing:0}',
-      '.mool-contract-sheet__close{width:40px;height:40px;flex:0 0 40px;border:1px solid #d6daf0;border-radius:50%;background:#f7f8ff;color:#080b7d;font-size:24px;line-height:1;cursor:pointer}',
-      '.mool-contract-sheet__body{padding:0 18px 18px;font-size:14px;line-height:1.45}',
-      '.mool-contract-sheet__meta{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:14px 0}',
-      '.mool-contract-sheet__meta span{padding:9px;border-radius:6px;background:#f2f4ff;font-weight:700;font-size:12px}',
-      '.mool-contract-sheet__actions{display:flex;gap:10px;margin-top:16px}',
-      '.mool-contract-sheet__actions button{min-height:44px;flex:1;border-radius:7px;border:1px solid #080b7d;background:#fff;color:#080b7d;font-weight:800}',
-      '.mool-contract-sheet__actions button:last-child{background:#080b7d;color:#fff}',
+      '.mool-intent-flow-backdrop{position:fixed;inset:0;z-index:2147483645;background:rgba(2,8,50,.54);display:flex;align-items:flex-end;justify-content:center;padding:14px}',
+      '.mool-intent-flow{width:min(430px,100%);max-height:min(78vh,640px);overflow:auto;border:1px solid #cbd2f2;border-radius:10px;background:#fff;color:#080b7d;box-shadow:0 24px 70px rgba(0,0,0,.3);font-family:system-ui,sans-serif}',
+      '.mool-intent-flow__head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;padding:17px 18px 10px}',
+      '.mool-intent-flow__title{margin:0;font-size:19px;line-height:1.2;letter-spacing:0}',
+      '.mool-intent-flow__close{width:40px;height:40px;flex:0 0 40px;border:1px solid #d6daf0;border-radius:50%;background:#f7f8ff;color:#080b7d;font-size:24px;line-height:1;cursor:pointer}',
+      '.mool-intent-flow__body{padding:0 18px 18px;font-size:14px;line-height:1.45}',
+      '.mool-intent-flow__note{margin:0 0 12px;color:#20245f}',
+      '.mool-intent-flow__fields{display:grid;gap:8px;margin:12px 0}',
+      '.mool-intent-flow__field{display:grid;gap:5px;color:#20245f;font-size:12px;font-weight:800}',
+      '.mool-intent-flow__field input,.mool-intent-flow__field textarea{width:100%;min-height:44px;box-sizing:border-box;border:1px solid #cbd2f2;border-radius:7px;padding:9px 10px;background:#fff;color:#11144f;font:600 14px/1.3 system-ui,sans-serif}',
+      '.mool-intent-flow__options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:12px 0}',
+      '.mool-intent-flow__option{min-height:46px;padding:9px;border:1px solid #cbd2f2;border-radius:7px;background:#f7f8ff;color:#080b7d;font-weight:800;cursor:pointer}',
+      '.mool-intent-flow__option[aria-pressed="true"]{border-color:#ff9933;background:#fff3e2;box-shadow:inset 0 -3px 0 #ff9933}',
+      '.mool-intent-flow__result{min-height:44px;padding:10px;border-left:4px solid #138808;border-radius:5px;background:#eef9f0;color:#063e20;font-weight:750}',
+      '.mool-intent-flow__reference{display:block;margin-top:4px;color:#4d527e;font-size:11px}',
+      '.mool-intent-flow__actions{display:flex;gap:10px;margin-top:16px}',
+      '.mool-intent-flow__actions button{min-height:46px;flex:1;border-radius:7px;border:1px solid #080b7d;background:#fff;color:#080b7d;font-weight:800;cursor:pointer}',
+      '.mool-intent-flow__actions button:last-child{background:#080b7d;color:#fff}',
       '.command-text.mool-command-input{width:100%;min-width:0;border:0!important;outline:0!important;padding:0!important;background:transparent!important;color:inherit!important;font:inherit!important;font-weight:inherit!important}',
       '.command-text.mool-command-input::placeholder{color:inherit;opacity:.82}'
     ].join('');
@@ -225,61 +374,171 @@
   function selectControl(element, contract, label) {
     var parent = element.parentElement;
     if (parent) {
-      Array.prototype.forEach.call(parent.querySelectorAll('.mool-contract-selected'), function (sibling) {
+      Array.prototype.forEach.call(parent.querySelectorAll('.mool-intent-selected'), function (sibling) {
         if (sibling !== element) {
-          sibling.classList.remove('mool-contract-selected');
+          sibling.classList.remove('mool-intent-selected');
           sibling.setAttribute('aria-pressed', 'false');
         }
       });
     }
-    element.classList.add('mool-contract-selected');
+    element.classList.add('mool-intent-selected');
     element.setAttribute('aria-pressed', 'true');
-    announce(userMessage(contract, label), contract.intentOutcome ? contract.type : '');
+    var statusHost = parent || element;
+    var status = statusHost.querySelector && statusHost.querySelector(':scope > .mool-intent-inline-status');
+    if (!status) {
+      status = document.createElement('span');
+      status.className = 'mool-intent-inline-status';
+      status.setAttribute('role', 'status');
+      statusHost.appendChild(status);
+    }
+    status.textContent = /^(all|recent|today|this week|nearby|live)$/i.test(label) ? 'Showing ' + label.toLowerCase() + ' results.' : userMessage(contract, label);
+  }
+
+  function toggleControl(element, label) {
+    var active = element.classList.toggle('mool-intent-selected');
+    element.setAttribute('aria-pressed', String(active));
+    var parent = element.parentElement || element;
+    var status = parent.querySelector && parent.querySelector(':scope > .mool-intent-inline-status');
+    if (!status) {
+      status = document.createElement('span');
+      status.className = 'mool-intent-inline-status';
+      status.setAttribute('role', 'status');
+      parent.appendChild(status);
+    }
+    status.textContent = label + (active ? ' is active for this item.' : ' was removed from this item.');
   }
 
   function openSheet(contract, label) {
-    var existing = document.querySelector('.mool-contract-backdrop');
+    var existing = document.querySelector('.mool-intent-flow-backdrop,.mool-contract-backdrop');
     if (existing) existing.remove();
+    var workflow = workflowFor(contract, label);
     var backdrop = document.createElement('div');
-    backdrop.className = 'mool-contract-backdrop';
-    if (contract.intentOutcome) {
-      backdrop.classList.add('mool-intent-outcome');
-      backdrop.dataset.intentResolved = contract.type;
-    }
+    backdrop.className = 'mool-intent-flow-backdrop';
+    backdrop.dataset.functionalIntent = workflow.kind;
     backdrop.setAttribute('role', 'presentation');
-    var meta = panelMeta(contract);
-    backdrop.innerHTML = '<section class="mool-contract-sheet" role="dialog" aria-modal="true" aria-labelledby="mool-contract-title">' +
-      '<div class="mool-contract-sheet__head"><h2 class="mool-contract-sheet__title" id="mool-contract-title"></h2><button class="mool-contract-sheet__close" type="button" aria-label="Close">×</button></div>' +
-      '<div class="mool-contract-sheet__body"><p class="mool-contract-sheet__note"></p>' +
-      '<div class="mool-contract-sheet__meta"><span></span><span></span></div>' +
-      '<div class="mool-contract-sheet__actions"><button type="button" data-contract-retry></button><button type="button" data-contract-return></button></div></div></section>';
-    backdrop.querySelector('#mool-contract-title').textContent = label;
-    backdrop.querySelector('.mool-contract-sheet__note').textContent = userMessage(contract, label);
-    var retryButton = backdrop.querySelector('[data-contract-retry]');
-    var returnButton = backdrop.querySelector('[data-contract-return]');
-    var metaCells = backdrop.querySelectorAll('.mool-contract-sheet__meta span');
-    metaCells[0].textContent = meta[0];
-    metaCells[1].textContent = meta[1];
-    retryButton.textContent = 'Back';
-    retryButton.hidden = !contract.route;
-    returnButton.textContent = contract.primaryLabel || (contract.route ? 'Continue' : 'Done');
+    backdrop.innerHTML = '<section class="mool-intent-flow" role="dialog" aria-modal="true" aria-labelledby="mool-intent-flow-title">' +
+      '<div class="mool-intent-flow__head"><h2 class="mool-intent-flow__title" id="mool-intent-flow-title"></h2><button class="mool-intent-flow__close" type="button" aria-label="Close action">×</button></div>' +
+      '<div class="mool-intent-flow__body"><p class="mool-intent-flow__note"></p>' +
+      '<div class="mool-intent-flow__fields"></div>' +
+      '<div class="mool-intent-flow__options" aria-label="Available choices"></div>' +
+      '<div class="mool-intent-flow__result" role="status"></div>' +
+      '<span class="mool-intent-flow__reference"></span>' +
+      '<div class="mool-intent-flow__actions"><button type="button" data-intent-back>Cancel</button><button type="button" data-intent-primary></button></div></div></section>';
+    backdrop.querySelector('#mool-intent-flow-title').textContent = label;
+    backdrop.querySelector('.mool-intent-flow__note').textContent = workflow.note;
+    var fieldsHost = backdrop.querySelector('.mool-intent-flow__fields');
+    var optionsHost = backdrop.querySelector('.mool-intent-flow__options');
+    var result = backdrop.querySelector('.mool-intent-flow__result');
+    var reference = backdrop.querySelector('.mool-intent-flow__reference');
+    var backButton = backdrop.querySelector('[data-intent-back]');
+    var primaryButton = backdrop.querySelector('[data-intent-primary]');
+    var selectedOption = '';
+    var stage = 0;
+    workflow.fields.forEach(function (field, index) {
+      var wrapper = document.createElement('label');
+      wrapper.className = 'mool-intent-flow__field';
+      wrapper.textContent = field.label;
+      var input = document.createElement('input');
+      input.type = field.type;
+      input.placeholder = field.placeholder || '';
+      input.setAttribute('aria-label', field.label + ' for ' + label);
+      input.dataset.intentField = String(index);
+      wrapper.appendChild(input);
+      fieldsHost.appendChild(wrapper);
+    });
+    if (!workflow.fields.length) fieldsHost.hidden = true;
+    workflow.options.forEach(function (option) {
+      var button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'mool-intent-flow__option';
+      button.textContent = option;
+      button.setAttribute('aria-pressed', 'false');
+      button.addEventListener('click', function () {
+        Array.prototype.forEach.call(optionsHost.querySelectorAll('button'), function (item) { item.setAttribute('aria-pressed', String(item === button)); });
+        selectedOption = option;
+        result.textContent = option + ' selected for ' + label + '. Review and continue.';
+      });
+      optionsHost.appendChild(button);
+    });
+    if (!workflow.options.length) optionsHost.hidden = true;
+    result.textContent = workflow.initial;
+    reference.textContent = 'Reference will be created after confirmation.';
+    primaryButton.textContent = workflow.primary;
     function close() { backdrop.remove(); }
-    backdrop.querySelector('.mool-contract-sheet__close').addEventListener('click', close);
-    returnButton.addEventListener('click', function () {
-      if (contract.route) window.location.href = preserveQuery(contract.route);
-      else close();
+    backdrop.querySelector('.mool-intent-flow__close').addEventListener('click', close);
+    primaryButton.addEventListener('click', function () {
+      if (contract.route) {
+        window.location.href = preserveQuery(contract.route);
+        return;
+      }
+      if (stage >= 2 || (workflow.kind === 'detail' && stage >= 1)) {
+        close();
+        return;
+      }
+      if (workflow.options.length && !selectedOption) {
+        selectedOption = workflow.options[0];
+        var first = optionsHost.querySelector('button');
+        if (first) first.setAttribute('aria-pressed', 'true');
+      }
+      var fieldValues = Array.prototype.map.call(fieldsHost.querySelectorAll('input,textarea'), function (field) { return field.value.trim(); });
+      if (workflow.kind === 'search' && !fieldValues[0]) {
+        result.textContent = 'Type a search query before showing results.';
+        fieldsHost.querySelector('input')?.focus();
+        return;
+      }
+      if (workflow.kind === 'schedule' && fieldValues.some(function (value) { return !value; })) {
+        result.textContent = 'Choose both a date and time before confirming the schedule.';
+        return;
+      }
+      if (workflow.kind === 'discussion' && !fieldValues[0]) {
+        result.textContent = 'Write a reply before posting.';
+        fieldsHost.querySelector('input,textarea')?.focus();
+        return;
+      }
+      stage += 1;
+      if (workflow.kind === 'call' && stage === 1) {
+        result.textContent = workflow.complete;
+        reference.textContent = 'Protected session · ' + workflow.reference;
+        primaryButton.textContent = 'End call';
+        return;
+      }
+      if (workflow.kind === 'call' && stage === 2) {
+        result.textContent = 'Call ended. No recording was saved.';
+        primaryButton.textContent = 'Done';
+        return;
+      }
+      result.textContent = workflow.complete + (fieldValues.length ? ' ' + fieldValues.join(' · ') + '.' : '') + (selectedOption ? ' Choice: ' + selectedOption + '.' : '');
+      reference.textContent = 'Reference ' + workflow.reference + ' · Saved in this activity';
+      primaryButton.textContent = workflow.kind === 'detail' ? 'Done' : (stage === 1 ? 'View result' : 'Done');
+      if (stage === 1 && workflow.kind === 'detail') stage = 1;
     });
-    retryButton.addEventListener('click', function () {
-      close();
-    });
+    backButton.addEventListener('click', close);
     backdrop.addEventListener('click', function (event) { if (event.target === backdrop) close(); });
     document.body.appendChild(backdrop);
-    backdrop.querySelector('.mool-contract-sheet__close').focus();
+    backdrop.querySelector('.mool-intent-flow__close').focus();
   }
 
   function runContract(event, element, label, contract) {
     if (element.hasAttribute('data-native-interaction')) return;
     if (contract.type === 'native') return;
+    if (/^(like|save|saved|follow|following|bookmark|subscribe|mute|favourite|favorite)$/i.test(label)) {
+      event.preventDefault();
+      event.stopPropagation();
+      toggleControl(element, label.replace(/ing$|d$/i, ''));
+      return;
+    }
+    if (/^remix$/i.test(label)) {
+      event.preventDefault();
+      event.stopPropagation();
+      window.location.href = preserveQuery('08-social-create.html?mode=short&source=remix');
+      return;
+    }
+    if (/^schedule(?:\b|$)/i.test(label)) {
+      event.preventDefault();
+      event.stopPropagation();
+      openSheet(Object.assign({}, contract, { type: 'progress' }), label);
+      return;
+    }
     if (contract.type === 'route') {
       event.preventDefault();
       event.stopPropagation();
@@ -350,7 +609,7 @@
   document.addEventListener('click', function (event) {
     var element = event.target.closest && event.target.closest(controlSelector);
     if (!element) return;
-    if (element.closest('.mool-contract-backdrop')) return;
+    if (element.closest('.mool-contract-backdrop,.mool-intent-flow-backdrop')) return;
     var resolved = resolveContract(element);
     if (!resolved) return;
     runContract(event, element, resolved.label, resolved.contract);

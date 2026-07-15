@@ -348,6 +348,13 @@
     .menu-row::-webkit-scrollbar,
     .quick-row::-webkit-scrollbar { display: none; }
 
+    .schedule-card { display: grid; gap: 9px; }
+    .schedule-card[hidden] { display: none; }
+    .schedule-fields { display: grid; grid-template-columns: 1fr 1fr auto; gap: 7px; align-items: end; }
+    .schedule-fields label { display: grid; gap: 4px; color: var(--ms-navy); font-size: 8px; font-weight: 900; }
+    .schedule-fields input { min-width: 0; min-height: 36px; border: 1px solid rgba(0,0,128,.16); border-radius: 10px; padding: 0 7px; color: var(--ms-navy); background: var(--ms-white); font: inherit; }
+    .schedule-confirm { min-height: 36px; border: 0; border-radius: 10px; padding: 0 11px; background: var(--ms-navy); color: var(--ms-white); font-size: 8px; font-weight: 950; }
+
     .fulfilment-chip,
     .menu-chip {
       flex: 0 0 auto;
@@ -815,6 +822,15 @@
               </div>
             </section>
 
+            <section class="mode-card schedule-card" id="scheduleCard" aria-label="Schedule food delivery" hidden>
+              <div class="card-head"><b>Schedule delivery</b><span id="scheduleStatus" role="status" aria-live="polite">Choose a date and time, then confirm the slot.</span></div>
+              <div class="schedule-fields">
+                <label for="scheduleDate">Date<input id="scheduleDate" type="date" value="2026-07-17" /></label>
+                <label for="scheduleTime">Time<input id="scheduleTime" type="time" value="20:30" /></label>
+                <button class="schedule-confirm" id="confirmSchedule" type="button">Confirm schedule</button>
+              </div>
+            </section>
+
             <section class="menu-card" aria-label="Menu categories">
               <div class="card-head">
                 <b>Menu</b>
@@ -959,6 +975,8 @@
     const basketTitle = document.getElementById("basketTitle");
     const basketText = document.getElementById("basketText");
     const timeOne = document.getElementById("timeOne");
+    const scheduleCard = document.getElementById("scheduleCard");
+    const scheduleStatus = document.getElementById("scheduleStatus");
 
     const basket = {
       count: 1,
@@ -980,9 +998,24 @@
         basket.mode = chip.dataset.mode;
         basket.time = chip.dataset.time;
         basket.fee = chip.dataset.fee;
+        scheduleCard.hidden = chip.dataset.mode !== "Schedule";
         fulfilmentHelp.textContent = `${basket.mode} selected · ${basket.fee}`;
         updateBasket();
       });
+    });
+
+    document.getElementById("confirmSchedule").addEventListener("click", () => {
+      const date = document.getElementById("scheduleDate").value;
+      const time = document.getElementById("scheduleTime").value;
+      if (!date || !time) {
+        scheduleStatus.textContent = "Choose both a delivery date and time before confirming the slot.";
+        return;
+      }
+      basket.mode = "Scheduled delivery";
+      basket.time = `${date} at ${time}`;
+      scheduleStatus.textContent = `Delivery scheduled for ${date} at ${time}. Change either field to choose another slot.`;
+      fulfilmentHelp.textContent = `Scheduled delivery · ${date} at ${time}`;
+      updateBasket();
     });
 
     menuChips.forEach((chip) => {

@@ -1,14 +1,303 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>98 Retailer Customer Detail and Retention - MoolSocial Screenbook</title><link rel="stylesheet" href="../shared/retailer-completion.css"><style>.profile{display:grid;grid-template-columns:42px minmax(0,1fr) auto;gap:9px;align-items:center}.avatar{width:42px;height:42px;display:grid;place-items:center;border-radius:50%;background:var(--navy);color:#fff;font-size:10px;font-weight:950}.basket{display:grid;gap:6px}.basket-line{display:flex;justify-content:space-between;gap:8px;color:var(--muted);font-size:7px;font-weight:800}.basket-line b{color:var(--navy)}.channel-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px}.channel{min-height:42px;border:1px solid var(--line);border-radius:7px;background:#fff;color:var(--navy);font-size:6.5px;font-weight:950}.channel.selected{border:2px solid var(--navy);background:var(--soft-blue)}.channel:disabled{color:#9a9cac;background:#f0f1f4;cursor:not-allowed}</style></head><body><main class="screenbook"><section class="device" aria-label="Retailer Customer Detail prototype">
-<header class="phone-header"><div class="status"><span>9:45</span><span>5G 100%</span></div><div class="workspace-bar"><a class="back" href="97-retailer-customers-loyalty.html" aria-label="Back to customers"><svg viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg></a><span class="shop-copy"><b>Mahadev Fresh Mart</b><span>Customer detail</span></span><a class="head-action" href="23-chat-inbox-home.html" aria-label="Customer chat"><svg viewBox="0 0 24 24"><path d="M4 5h16v12H8l-4 3z"/></svg></a></div></header>
-<div class="scroll with-action"><section class="view"><div class="profile card card-pad"><span class="avatar" id="avatar">SF</span><span class="row-copy"><b id="customerName">Sharma Family</b><span>Customer since Aug 2025 · Jodhpur</span><em>Offers allowed on Mool Chat and WhatsApp</em></span><span class="pill green">Trusted</span></div>
-<section class="metrics"><span class="metric"><small>ORDERS</small><b>18</b><span>₹11,840 total</span></span><span class="metric"><small>LAST BUY</small><b>4 days</b><span>Delivered</span></span><span class="metric"><small>CREDIT DUE</small><b>₹0</b><span>No balance</span></span></section>
-<section class="notice"><i>✓</i><span>Invoice messages are always allowed. Marketing permission: Mool Chat and WhatsApp only. SMS offers are off.</span></section>
-<div class="section-head"><b>Repeat basket</b><span>last ordered 4 days ago</span></div><section class="card card-pad basket"><div class="basket-line"><span>Atta 5 kg · Oil 1 L · Rice 5 kg</span><b>3 items</b></div><div class="basket-line"><span>Current shop prices · stock confirmed</span><b>₹645</b></div><div class="manage-row"><a class="small-action" href="78-retailer-create-order.html?customer=sharma&basket=monthly">Edit basket</a><a class="small-action primary" href="78-retailer-create-order.html?customer=sharma&basket=monthly">Create order</a></div></section>
-<div class="section-head"><b>History</b><span>purpose-limited</span></div><section class="row-list"><a class="row" href="90-retailer-sales-book.html?invoice=MS-2840"><span class="row-icon green">INV</span><span class="row-copy"><b>Invoice MS-2840</b><span>₹645 · UPI · home delivery</span><em>Completed 4 days ago</em></span><span class="row-side"><b>View</b><span>PDF</span></span></a><a class="row" href="90-retailer-sales-book.html?invoice=MS-2712"><span class="row-icon">INV</span><span class="row-copy"><b>Invoice MS-2712</b><span>₹428 · counter pickup</span><em>Completed 32 days ago</em></span><span class="row-side"><b>View</b><span>Receipt</span></span></a><a class="row" href="105-retailer-returns-customer-issues.html?customer=sharma"><span class="row-icon orange">ISS</span><span class="row-copy"><b>Previous issue resolved</b><span>Missing item · refund ₹42</span><em>Closed with customer confirmation</em></span><span class="row-side"><b>Closed</b><span>Proof</span></span></a></section>
-<div class="section-head"><b>Send permitted reminder</b><span>choose one channel</span></div><div class="channel-grid"><button class="channel selected" data-channel="Mool Chat">Mool Chat</button><button class="channel" data-channel="WhatsApp">WhatsApp</button><button class="channel" disabled>SMS off</button></div><label class="field"><span>Message preview</span><textarea id="message">Your monthly staples basket is ready at current shop prices. Review before ordering.</textarea></label><section class="notice warn"><i>!</i><span>Sending records the customer permission, message purpose, channel, operator and opt-out path.</span></section></section></div>
-<section class="action-bar"><span><small>RETENTION ACTION</small><b id="chosenChannel">Mool Chat reminder</b><em>No order is created until the customer confirms</em></span><button id="sendButton">Send reminder</button></section>
-<nav class="bottom-dock" aria-label="Retailer navigation"><a class="mool-button" href="04-universal-focus-shell.html">Mool</a><div class="dock-track"><a class="dock-tab" href="74-retail-products-stock-setup.html?view=orders">Orders</a><a class="dock-tab" href="74-retail-products-stock-setup.html?view=stock">Stock</a><a class="dock-tab" href="81-retailer-wholesale-buy-catalog.html">Wholesale<br>Buy</a></div><a class="chat-button" href="23-chat-inbox-home.html"><span>Chat</span><span class="chat-badge">2</span></a></nav></section>
-<aside class="notes"><h1>Screen 98 owns one customer and one permitted action.</h1><p>It combines order, invoice, repeat-basket, credit, issue and communication permission facts before the retailer creates an order or sends a retention message.</p><section class="contract"><div><b>One customer</b>No bulk list ambiguity.</div><div><b>Permission</b>Each channel reflects current consent.</div><div><b>Invoice</b>Invoice access remains independent.</div><div><b>Order</b>Repeat basket uses current stock and price.</div><div><b>Credit</b>Due balance is explicit.</div><div><b>Issue</b>Open issues can suppress promotions.</div><div><b>Message</b>Preview and opt-out are retained.</div><div><b>Audit</b>Purpose, operator and channel are recorded.</div></section></aside></main>
-<script type="application/json">{"screen":98,"status":"approved-and-frozen","workspace":"retailer","domain":"customer-detail-retention"}</script><script>let channel="Mool Chat";document.querySelectorAll("[data-channel]").forEach(button=>button.addEventListener("click",()=>{channel=button.dataset.channel;document.querySelectorAll("[data-channel]").forEach(x=>x.classList.toggle("selected",x===button));document.getElementById("chosenChannel").textContent=`${channel} reminder`}));document.getElementById("sendButton").addEventListener("click",event=>{event.currentTarget.textContent="Reminder sent";event.currentTarget.disabled=true;document.getElementById("chosenChannel").textContent=`Sent through ${channel}`});</script><script type="application/json" id="productionRouteContract">{"contractVersion":"mvp-route-lock-2026-07-12","prototypeScreen":98,"productionModule":"retailer","routeId":"retailer.customer-detail","routePath":"/retailer/customers/:customerId","routeState":"customer-retention","implementation":"route-shell","launchScope":"mvp-conditional","separateProductionRoute":true,"productionNote":"Own production route /retailer/customers/:customerId. Implement customer-retention as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.","canonicalMap":"architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"}</script><script type="application/json" id="prototypeApprovalContract">{"prototypeScreen":98,"status":"approved-and-frozen","authoritative":true,"approvedAt":"2026-07-12","approvalScope":"prototype-ui-ux-and-production-contract"}</script>  <script src="../shared/prototype-interaction-contracts.js?v=intent-completion-20260714b"></script>
-  <script src="../shared/prototype-interaction-runtime.js?v=intent-completion-20260714c"></script>
-</body></html>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>
+      98 Retailer Customer Detail and Retention - MoolSocial Screenbook
+    </title>
+    <link rel="stylesheet" href="../shared/retailer-completion.css" />
+    <style>
+      .profile {
+        display: grid;
+        grid-template-columns: 42px minmax(0, 1fr) auto;
+        gap: 9px;
+        align-items: center;
+      }
+      .avatar {
+        width: 42px;
+        height: 42px;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        background: var(--navy);
+        color: #fff;
+        font-size: 10px;
+        font-weight: 950;
+      }
+      .basket {
+        display: grid;
+        gap: 6px;
+      }
+      .basket-line {
+        display: flex;
+        justify-content: space-between;
+        gap: 8px;
+        color: var(--muted);
+        font-size: 7px;
+        font-weight: 800;
+      }
+      .basket-line b {
+        color: var(--navy);
+      }
+      .channel-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 5px;
+      }
+      .channel {
+        min-height: 42px;
+        border: 1px solid var(--line);
+        border-radius: 7px;
+        background: #fff;
+        color: var(--navy);
+        font-size: 6.5px;
+        font-weight: 950;
+      }
+      .channel.selected {
+        border: 2px solid var(--navy);
+        background: var(--soft-blue);
+      }
+      .channel:disabled {
+        color: #9a9cac;
+        background: #f0f1f4;
+        cursor: not-allowed;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="screenbook">
+      <section class="device" aria-label="Retailer Customer Detail prototype">
+        <header class="phone-header">
+          <div class="status"><span>9:45</span><span>5G 100%</span></div>
+          <div class="workspace-bar">
+            <a
+              class="back"
+              href="97-retailer-customers-loyalty.html"
+              aria-label="Back to customers"
+              ><svg viewBox="0 0 24 24"><path d="m15 18-6-6 6-6" /></svg></a
+            ><span class="shop-copy"
+              ><b>Mahadev Fresh Mart</b><span>Customer detail</span></span
+            ><a
+              class="head-action"
+              href="23-chat-inbox-home.html"
+              aria-label="Customer chat"
+              ><svg viewBox="0 0 24 24"><path d="M4 5h16v12H8l-4 3z" /></svg
+            ></a>
+          </div>
+        </header>
+        <div class="scroll with-action">
+          <section class="view">
+            <div class="profile card card-pad">
+              <span class="avatar" id="avatar">SF</span
+              ><span class="row-copy"
+                ><b id="customerName">Sharma Family</b
+                ><span>Customer since Aug 2025 · Jodhpur</span
+                ><em>Offers allowed on Mool Chat and WhatsApp</em></span
+              ><span class="pill green">Trusted</span>
+            </div>
+            <section class="metrics">
+              <span class="metric"
+                ><small>ORDERS</small><b>18</b><span>₹11,840 total</span></span
+              ><span class="metric"
+                ><small>LAST BUY</small><b>4 days</b
+                ><span>Delivered</span></span
+              ><span class="metric"
+                ><small>CREDIT DUE</small><b>₹0</b><span>No balance</span></span
+              >
+            </section>
+            <section class="notice">
+              <i>✓</i
+              ><span
+                >Invoice messages are always allowed. Marketing permission: Mool
+                Chat and WhatsApp only. SMS offers are off.</span
+              >
+            </section>
+            <div class="section-head">
+              <b>Repeat basket</b><span>last ordered 4 days ago</span>
+            </div>
+            <section class="card card-pad basket">
+              <div class="basket-line">
+                <span>Atta 5 kg · Oil 1 L · Rice 5 kg</span><b>3 items</b>
+              </div>
+              <div class="basket-line">
+                <span>Current shop prices · available now</span><b>₹645</b>
+              </div>
+              <div class="manage-row">
+                <a
+                  class="small-action"
+                  href="78-retailer-create-order.html?customer=sharma&basket=monthly"
+                  >Edit basket</a
+                ><a
+                  class="small-action primary"
+                  href="78-retailer-create-order.html?customer=sharma&basket=monthly"
+                  >Create order</a
+                >
+              </div>
+            </section>
+            <div class="section-head">
+              <b>History</b><span>purpose-limited</span>
+            </div>
+            <section class="row-list">
+              <a class="row" href="90-retailer-sales-book.html?invoice=MS-2840"
+                ><span class="row-icon green">INV</span
+                ><span class="row-copy"
+                  ><b>Invoice MS-2840</b><span>₹645 · UPI · home delivery</span
+                  ><em>Completed 4 days ago</em></span
+                ><span class="row-side"><b>View</b><span>PDF</span></span></a
+              ><a class="row" href="90-retailer-sales-book.html?invoice=MS-2712"
+                ><span class="row-icon">INV</span
+                ><span class="row-copy"
+                  ><b>Invoice MS-2712</b><span>₹428 · counter pickup</span
+                  ><em>Completed 32 days ago</em></span
+                ><span class="row-side"
+                  ><b>View</b><span>Receipt</span></span
+                ></a
+              ><a
+                class="row"
+                href="105-retailer-returns-customer-issues.html?customer=sharma"
+                ><span class="row-icon orange">ISS</span
+                ><span class="row-copy"
+                  ><b>Previous issue resolved</b
+                  ><span>Missing item · refund ₹42</span
+                  ><em>Closed with customer confirmation</em></span
+                ><span class="row-side"
+                  ><b>Closed</b><span>Proof</span></span
+                ></a
+              >
+            </section>
+            <div class="section-head">
+              <b>Send permitted reminder</b><span>choose one channel</span>
+            </div>
+            <div class="channel-grid">
+              <button class="channel selected" type="button" data-channel="Mool Chat" aria-pressed="true" data-native-interaction>
+                Mool Chat</button
+              ><button class="channel" type="button" data-channel="WhatsApp" aria-pressed="false" data-native-interaction>WhatsApp</button
+              ><button class="channel" disabled>SMS off</button>
+            </div>
+            <label class="field"
+              ><span>Message preview</span
+              ><textarea id="message">
+Your monthly staples basket is ready at current shop prices. Review before ordering.</textarea>
+            </label>
+            <section class="notice warn">
+              <i>!</i
+              ><span
+                >Sending records the customer permission, message purpose,
+                channel, operator and opt-out path.</span
+              >
+            </section>
+            <section class="notice" id="reminderResult" role="status" aria-live="polite" hidden><i>✓</i><span><b id="reminderResultTitle">Reminder sent</b><br /><span id="reminderResultText"></span><br /><a href="23-chat-inbox-home.html?view=business">View message log</a></span></section>
+          </section>
+        </div>
+        <section class="action-bar">
+          <span
+            ><small>RETENTION ACTION</small
+            ><b id="chosenChannel">Mool Chat reminder</b
+            ><em>No order is created until the customer confirms</em></span
+          ><button id="sendButton" type="button" data-native-interaction>Send with Mool Chat</button>
+        </section>
+        <nav class="bottom-dock" aria-label="Retailer navigation">
+          <a class="mool-button" href="04-universal-focus-shell.html">Mool</a>
+          <div class="dock-track">
+            <a
+              class="dock-tab"
+              href="74-retail-products-stock-setup.html?view=orders"
+              >Orders</a
+            ><a
+              class="dock-tab"
+              href="74-retail-products-stock-setup.html?view=stock"
+              >Stock</a
+            ><a class="dock-tab" href="81-retailer-wholesale-buy-catalog.html"
+              >Wholesale<br />Buy</a
+            >
+          </div>
+          <a class="chat-button" href="23-chat-inbox-home.html"
+            ><span>Chat</span><span class="chat-badge">2</span></a
+          >
+        </nav>
+      </section>
+      <aside class="notes">
+        <h1>Screen 98 owns one customer and one permitted action.</h1>
+        <p>
+          It combines order, invoice, repeat-basket, credit, issue and
+          communication permission facts before the retailer creates an order or
+          sends a retention message.
+        </p>
+        <section class="contract">
+          <div><b>One customer</b>No bulk list ambiguity.</div>
+          <div><b>Permission</b>Each channel reflects current consent.</div>
+          <div><b>Invoice</b>Invoice access remains independent.</div>
+          <div><b>Order</b>Repeat basket uses current stock and price.</div>
+          <div><b>Credit</b>Due balance is explicit.</div>
+          <div><b>Issue</b>Open issues can suppress promotions.</div>
+          <div><b>Message</b>Preview and opt-out are retained.</div>
+          <div><b>Audit</b>Purpose, operator and channel are recorded.</div>
+        </section>
+      </aside>
+    </main>
+    <script type="application/json">
+      {
+        "screen": 98,
+        "status": "approved-and-frozen",
+        "workspace": "retailer",
+        "domain": "customer-detail-retention"
+      }
+    </script>
+    <script>
+      let channel = "Mool Chat";
+      const sendButton = document.getElementById("sendButton");
+      document.querySelectorAll("[data-channel]").forEach((button) =>
+        button.addEventListener("click", () => {
+          channel = button.dataset.channel;
+          document
+            .querySelectorAll("[data-channel]")
+            .forEach((x) => {
+              x.classList.toggle("selected", x === button);
+              x.setAttribute("aria-pressed", String(x === button));
+            });
+          document.getElementById("chosenChannel").textContent =
+            `${channel} selected · customer permission valid`;
+          sendButton.textContent = `Send with ${channel}`;
+        }),
+      );
+      sendButton.addEventListener("click", (event) => {
+          event.currentTarget.textContent = "Reminder sent";
+          event.currentTarget.disabled = true;
+          document.getElementById("chosenChannel").textContent =
+            `Sent through ${channel} · delivery recorded`;
+          document.getElementById("reminderResultTitle").textContent = `${channel} reminder MSG-98071 sent`;
+          document.getElementById("reminderResultText").textContent = "Permission, purpose, operator and opt-out path were recorded. No order was created.";
+          const result = document.getElementById("reminderResult");
+          result.hidden = false;
+          result.scrollIntoView({ block: "nearest" });
+        });
+    </script>
+    <script type="application/json" id="productionRouteContract">
+      {
+        "contractVersion": "mvp-route-lock-2026-07-12",
+        "prototypeScreen": 98,
+        "productionModule": "retailer",
+        "routeId": "retailer.customer-detail",
+        "routePath": "/retailer/customers/:customerId",
+        "routeState": "customer-retention",
+        "implementation": "route-shell",
+        "launchScope": "mvp-conditional",
+        "separateProductionRoute": true,
+        "productionNote": "Own production route /retailer/customers/:customerId. Implement customer-retention as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.",
+        "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+      }
+    </script>
+    <script type="application/json" id="prototypeApprovalContract">
+      {
+        "prototypeScreen": 98,
+        "status": "approved-and-frozen",
+        "authoritative": true,
+        "approvedAt": "2026-07-12",
+        "approvalScope": "prototype-ui-ux-and-production-contract"
+      }
+    </script>
+    <script src="../shared/prototype-interaction-contracts.js?v=intent-completion-20260714b"></script>
+    <script src="../shared/prototype-interaction-runtime.js?v=intent-completion-20260714c"></script>
+  </body>
+</html>

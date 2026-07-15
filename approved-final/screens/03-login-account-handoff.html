@@ -975,9 +975,7 @@
         const provider = providerButton.dataset.authProvider;
         providerButton.setAttribute('aria-busy', 'true');
         providerButton.classList.add('selected');
-        window.setTimeout(() => {
-          window.location.href = postAuthTarget(provider);
-        }, 180);
+        window.location.href = postAuthTarget(provider);
         return;
       }
 
@@ -996,9 +994,7 @@
         const verify = event.target.closest('[data-verify-otp]');
         verify.setAttribute('aria-busy', 'true');
         verify.textContent = 'Verified';
-        window.setTimeout(() => {
-          window.location.href = postAuthTarget(otpMethod + '_otp', true);
-        }, 180);
+        window.location.href = postAuthTarget(otpMethod + '_otp', true);
       }
     });
   })();

@@ -1046,7 +1046,7 @@
                     <button class="tag-btn" type="button">Fast pickup</button>
                     <button class="tag-btn" type="button">Fresh items</button>
                     <button class="tag-btn" type="button">Good packing</button>
-                    <button class="tag-btn" type="button">Correct bill</button>
+                    <button class="tag-btn" type="button">Accurate total</button>
                   </div>
                   <div class="issue-reasons" id="lowRatingReasons" aria-label="Low rating reasons">
                     <button class="reason-btn" type="button">Wrong item</button>
@@ -1119,7 +1119,7 @@
             </div>
 
             <div class="bottom-action">
-              <div class="action-copy">
+              <div class="action-copy" role="status" aria-live="polite">
                 <b id="actionTitle">No pending action</b>
                 <span id="actionMeta">Rating optional - bill already saved</span>
               </div>
@@ -1257,18 +1257,17 @@
     });
 
     downloadBillButton.addEventListener("click", () => {
-      actionTitle.textContent = "Bill download ready";
-      actionMeta.textContent = "PDF bill will save to phone in production";
+      actionTitle.textContent = "Bill PDF prepared";
+      actionMeta.textContent = "Order MS-BUY-1042 · Rs 645 · receipt reference BILL-1042-645";
     });
 
     shareBillButton.addEventListener("click", () => {
-      actionTitle.textContent = "Share bill";
-      actionMeta.textContent = "Share sheet opens in production";
+      actionTitle.textContent = "Bill ready to share";
+      actionMeta.textContent = "Order MS-BUY-1042 · Rs 645 · share reference BILL-1042-645";
     });
 
     openOrdersButton.addEventListener("click", () => {
-      actionTitle.textContent = "Opening Orders";
-      actionMeta.textContent = "This bill remains saved in order history";
+      window.location.href = "09-buy.html?tab=orders&order=MS-BUY-1042";
     });
 
     saveMonthlyButton.addEventListener("click", () => {

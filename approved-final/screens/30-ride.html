@@ -1131,6 +1131,16 @@
       summaryText.textContent = `${state.seat} · ${state.eta} arrival · ${state.note}. Captain call, chat and map open after booking.`;
       summaryPrice.textContent = state.price;
       primaryCta.textContent = state.cta;
+      if (state.ride && state.packageName) {
+        const params = new URLSearchParams({
+          ride: state.ride,
+          package: state.packageName,
+          price: state.price,
+          time: state.time,
+          eta: state.eta
+        });
+        primaryCta.href = `31-ride-accepted-captain-arriving.html?${params.toString()}`;
+      }
     }
 
     function applyPackage(packageItem) {

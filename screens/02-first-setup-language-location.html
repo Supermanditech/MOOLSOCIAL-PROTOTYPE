@@ -1680,9 +1680,7 @@
       if (action === 'current') {
         actionButton.setAttribute('aria-busy', 'true');
         actionButton.querySelector('b').textContent = 'Checking current location';
-        window.setTimeout(() => {
-          window.location.href = '03-login-account-handoff.html?area=current&areaSource=device&permission=requested';
-        }, 180);
+        window.location.href = '03-login-account-handoff.html?area=current&areaSource=device&permission=requested';
       }
       if (action === 'manual') {
         choices.hidden = true;

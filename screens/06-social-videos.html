@@ -1210,6 +1210,10 @@
       grid-template-columns: 1fr;
     }
 
+    .sheet-grid.search-grid {
+      grid-template-columns: 1fr;
+    }
+
     .video-comment-list {
       display: grid;
       gap: 8px;
@@ -1245,6 +1249,28 @@
     }
 
     .video-comment-composer button {
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      cursor: pointer;
+    }
+
+    .video-search-form {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 8px;
+    }
+
+    .video-search-form input,
+    .video-search-form button {
+      min-height: 44px;
+      border: 1px solid rgba(0, 0, 128, .18);
+      border-radius: var(--ms-pill);
+      padding: 0 12px;
+      font-family: var(--ms-font);
+      font-weight: 850;
+    }
+
+    .video-search-form button {
       background: var(--ms-navy);
       color: var(--ms-white);
       cursor: pointer;
@@ -1995,6 +2021,7 @@
       if (sheetNote) sheetNote.textContent = content.note;
       if (sheetGrid) {
         sheetGrid.classList.toggle("comments-grid", type === "comments");
+        sheetGrid.classList.toggle("search-grid", type === "search");
         if (type === "comments") {
           sheetGrid.innerHTML = `
             <div class="video-comment-list" data-video-comment-list>
@@ -2003,6 +2030,11 @@
               <article class="video-comment"><b>Arun Kumar · 14 min</b><span>Please publish the family basket for tomorrow too.</span></article>
             </div>
             <div class="video-comment-composer"><input type="text" data-video-comment-input aria-label="Write a video comment" placeholder="Add a comment" /><button type="button" data-video-comment-submit>Post</button></div>
+          `;
+        } else if (type === "search") {
+          sheetGrid.innerHTML = `
+            <div class="video-search-form"><input type="search" data-video-search-input aria-label="Search videos query" placeholder="Search videos, creators or topics" /><button type="button" data-video-search-submit>Show results</button></div>
+            ${content.items.map(([label, value]) => `<button class="sheet-chip" type="button" data-sheet-action data-action-label="${label}" data-action-value="${value}"><strong>${value}</strong>${label}</button>`).join("")}
           `;
         } else {
           sheetGrid.innerHTML = content.items.map(([label, value]) => `
@@ -2016,6 +2048,7 @@
     function closeSheet() {
       sheet?.classList.remove("open");
       sheetGrid?.classList.remove("comments-grid");
+      sheetGrid?.classList.remove("search-grid");
       activeSheetType = "";
     }
 
@@ -2184,6 +2217,11 @@
       videoApp?.classList.add("watch-mode");
       closeSheet();
       if (watchScroll) watchScroll.scrollTop = 0;
+      requestAnimationFrame(() => {
+        const player = document.querySelector(".video-player");
+        player?.scrollIntoView({ block: "start", inline: "nearest" });
+        document.querySelector("[data-player-toggle]")?.focus({ preventScroll: true });
+      });
     }
 
     function openFeed() {
@@ -2198,6 +2236,12 @@
 
     document.querySelector("[data-close-sheet]")?.addEventListener("click", closeSheet);
     sheetGrid?.addEventListener("click", (event) => {
+      const searchSubmit = event.target.closest("[data-video-search-submit]");
+      if (searchSubmit) {
+        const query = sheetGrid.querySelector("[data-video-search-input]")?.value.trim();
+        if (sheetNote) sheetNote.textContent = query ? `Showing verified video, creator and topic results for “${query}”.` : "Type a query before showing results.";
+        return;
+      }
       const action = event.target.closest("[data-sheet-action]");
       if (action) {
         runSheetAction(action);

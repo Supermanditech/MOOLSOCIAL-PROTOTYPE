@@ -1060,6 +1060,16 @@
         var(--ms-white);
     }
 
+    .trip-intent-card { display: grid; gap: 7px; border: 1px solid rgba(0, 0, 128, .18); border-radius: 18px; padding: 11px; background: linear-gradient(135deg, rgba(241, 240, 255, .98), rgba(232, 252, 244, .98)); color: var(--ms-navy); box-shadow: 0 12px 26px rgba(0, 0, 128, .10); }
+    .trip-intent-card[hidden] { display: none !important; }
+    .trip-intent-card b { font-size: 12px; font-weight: 950; }
+    .trip-intent-card > span { color: rgba(0, 0, 128, .68); font-size: 9px; font-weight: 850; line-height: 1.35; }
+    .trip-intent-controls { display: flex; flex-wrap: wrap; gap: 7px; }
+    .trip-intent-controls button, .trip-intent-controls a { min-height: 42px; border: 1px solid rgba(0, 0, 128, .18); border-radius: 13px; padding: 8px 10px; background: #fff; color: var(--ms-navy); font: inherit; font-size: 9px; font-weight: 950; text-decoration: none; cursor: pointer; }
+    .trip-intent-controls label { display: grid; flex: 1 1 100%; gap: 4px; color: rgba(0, 0, 128, .7); font-size: 8px; font-weight: 900; }
+    .trip-intent-controls input { min-height: 42px; border: 1px solid rgba(0, 0, 128, .18); border-radius: 12px; padding: 8px 10px; color: var(--ms-navy); font: inherit; font-size: 10px; font-weight: 850; }
+    button.dock-tab, button.compact-action, button.mini-control, button.route-tag { font-family: inherit; cursor: pointer; }
+
     .summary-top {
       display: grid;
       grid-template-columns: 1fr auto;
@@ -1347,7 +1357,7 @@
                   <a class="circle-btn" href="04-universal-focus-shell.html" aria-label="Back">
                     <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" /></svg>
                   </a>
-                  <button class="circle-btn" aria-label="Safety">
+                  <button class="circle-btn" type="button" aria-label="Open safety centre" data-trip-action="safe">
                     <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" /><path d="M9 12l2 2 4-5" /></svg>
                   </button>
                 </div>
@@ -1355,13 +1365,13 @@
 
               <div class="command-bar" aria-label="Ride accepted status">
                 <span class="command-text">Reaching Railway Station in 12 min</span>
-                <button class="search-action" aria-label="Open map">
+                <button class="search-action" type="button" aria-label="Open map" data-trip-action="map">
                   <svg viewBox="0 0 24 24"><path d="M9 18l-6 3V6l6-3 6 3 6-3v15l-6 3-6-3Z" /><path d="M9 3v15" /><path d="M15 6v15" /></svg>
                 </button>
-                <button class="search-action" aria-label="Call captain">
+                <button class="search-action" type="button" aria-label="Call captain" data-trip-action="call">
                   <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.8 19.8 0 0 1 3 5.18 2 2 0 0 1 5 3h3a2 2 0 0 1 2 1.72c.12.9.33 1.77.62 2.6a2 2 0 0 1-.45 2.11L9 10.6a16 16 0 0 0 4.4 4.4l1.17-1.17a2 2 0 0 1 2.11-.45c.83.29 1.7.5 2.6.62A2 2 0 0 1 22 16.92Z" /></svg>
                 </button>
-                <button class="search-action" aria-label="Chat with captain">
+                <button class="search-action" type="button" aria-label="Chat with captain" data-trip-action="chat">
                   <svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z" /></svg>
                 </button>
               </div>
@@ -1379,7 +1389,7 @@
                       <b>3.2 km to Railway Station</b>
                       <span>Route running normally · fare remains locked</span>
                     </span>
-                    <a class="route-tag" href="#"><svg viewBox="0 0 24 24"><path d="M9 18l-6 3V6l6-3 6 3 6-3v15l-6 3-6-3Z" /></svg>Map</a>
+                    <button class="route-tag" type="button" data-trip-action="map"><svg viewBox="0 0 24 24"><path d="M9 18l-6 3V6l6-3 6 3 6-3v15l-6 3-6-3Z" /></svg>Map</button>
                   </div>
                 </div>
               </section>
@@ -1401,10 +1411,10 @@
 
               <section class="action-card" aria-label="Captain actions">
                 <div class="captain-actions">
-                  <a class="compact-action primary" href="#"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.8 19.8 0 0 1 3 5.18 2 2 0 0 1 5 3h3a2 2 0 0 1 2 1.72c.12.9.33 1.77.62 2.6a2 2 0 0 1-.45 2.11L9 10.6a16 16 0 0 0 4.4 4.4l1.17-1.17a2 2 0 0 1 2.11-.45c.83.29 1.7.5 2.6.62A2 2 0 0 1 22 16.92Z" /></svg>Call</a>
+                  <button class="compact-action primary" type="button" data-trip-action="call"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.8 19.8 0 0 1 3 5.18 2 2 0 0 1 5 3h3a2 2 0 0 1 2 1.72c.12.9.33 1.77.62 2.6a2 2 0 0 1-.45 2.11L9 10.6a16 16 0 0 0 4.4 4.4l1.17-1.17a2 2 0 0 1 2.11-.45c.83.29 1.7.5 2.6.62A2 2 0 0 1 22 16.92Z" /></svg>Call</button>
                   <a class="compact-action" href="23-chat-inbox-home.html"><svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z" /></svg>Chat</a>
-                  <a class="compact-action" href="#"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" /><path d="M9 12l2 2 4-5" /></svg>Safety</a>
-                  <a class="compact-action" href="#"><svg viewBox="0 0 24 24"><path d="M20 12v10H4V12" /><path d="M2 7h20v5H2z" /><path d="M12 22V7" /></svg>Share</a>
+                  <button class="compact-action" type="button" data-trip-action="safe"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" /><path d="M9 12l2 2 4-5" /></svg>Safety</button>
+                  <button class="compact-action" type="button" data-trip-action="share"><svg viewBox="0 0 24 24"><path d="M20 12v10H4V12" /><path d="M2 7h20v5H2z" /><path d="M12 22V7" /></svg>Share</button>
                 </div>
               </section>
 
@@ -1414,11 +1424,11 @@
                   <b>Railway Station main gate</b>
                   <span>Drop is set near platform entrance. Add stop only if the route needs to change.</span>
                 </span>
-                <a class="mini-control" href="#"><svg viewBox="0 0 24 24"><path d="M12 5v14" /><path d="M5 12h14" /></svg>Add stop</a>
+                <button class="mini-control" type="button" data-trip-action="add-stop"><svg viewBox="0 0 24 24"><path d="M12 5v14" /><path d="M5 12h14" /></svg>Add stop</button>
               </section>
 
               <section class="payment-card" aria-label="Ride payment lock">
-                <div class="payment-head">
+                <div class="payment-head" role="status" aria-live="polite" aria-atomic="true">
                   <span>
                     <b>Rs 112 fare locked</b>
                     <small id="payNote">Final debit only after trip completion approval</small>
@@ -1441,7 +1451,13 @@
                   <b>Route looks normal</b>
                   <span>If route changes, fare difference or safety issue appears here before payment.</span>
                 </span>
-                <a class="mini-control" href="#">Help</a>
+                <button class="mini-control" type="button" data-trip-action="safe">Help</button>
+              </section>
+
+              <section class="trip-intent-card" id="tripIntentCard" role="status" aria-live="polite" aria-atomic="true" hidden>
+                <b id="tripIntentTitle">Trip action</b>
+                <span id="tripIntentMessage">Choose a live-trip action.</span>
+                <div class="trip-intent-controls" id="tripIntentControls"></div>
               </section>
 
             </main>
@@ -1449,9 +1465,9 @@
             <nav class="bottom-dock" aria-label="Ride navigation">
               <a class="mool-button" href="04-universal-focus-shell.html">Mool</a>
               <div class="dock-track">
-                <a class="dock-tab active" href="#"><svg viewBox="0 0 24 24"><path d="M4 16h16" /><path d="M6 16V9h9l3 4v3" /><circle cx="7" cy="17" r="2" /><circle cx="17" cy="17" r="2" /></svg>Trip</a>
-                <a class="dock-tab" href="#"><svg viewBox="0 0 24 24"><path d="M9 18l-6 3V6l6-3 6 3 6-3v15l-6 3-6-3Z" /><path d="M9 3v15" /><path d="M15 6v15" /></svg>Map</a>
-                <a class="dock-tab" href="#"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" /><path d="M9 12l2 2 4-5" /></svg>Safe</a>
+                <span class="dock-tab active" aria-current="page"><svg viewBox="0 0 24 24"><path d="M4 16h16" /><path d="M6 16V9h9l3 4v3" /><circle cx="7" cy="17" r="2" /><circle cx="17" cy="17" r="2" /></svg>Trip</span>
+                <button class="dock-tab" type="button" data-trip-action="map"><svg viewBox="0 0 24 24"><path d="M9 18l-6 3V6l6-3 6 3 6-3v15l-6 3-6-3Z" /><path d="M9 3v15" /><path d="M15 6v15" /></svg>Map</button>
+                <button class="dock-tab" type="button" data-trip-action="safe"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" /><path d="M9 12l2 2 4-5" /></svg>Safe</button>
               </div>
               <a class="chat-button" href="23-chat-inbox-home.html" aria-label="Open chat">
                 <svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z" /></svg>
@@ -1500,23 +1516,67 @@
 
     window.addEventListener("load", resetPhoneScroll, { once: true });
 
-    const actionButtons = document.querySelectorAll(".compact-action, .mini-control, .route-tag");
     const paymentButtons = document.querySelectorAll("[data-pay]");
     const payState = document.getElementById("payState");
     const payNote = document.getElementById("payNote");
 
     paymentButtons.forEach((button) => {
+      button.setAttribute("aria-pressed", String(button.classList.contains("active")));
       button.addEventListener("click", () => {
-        paymentButtons.forEach((item) => item.classList.toggle("active", item === button));
+        paymentButtons.forEach((item) => {
+          item.classList.toggle("active", item === button);
+          item.setAttribute("aria-pressed", String(item === button));
+        });
         payState.textContent = button.dataset.pay;
         payNote.textContent = button.dataset.note;
       });
     });
 
-    actionButtons.forEach((button) => {
-      button.addEventListener("click", (event) => {
-        if (button.getAttribute("href") === "#") event.preventDefault();
-      });
+    const tripIntentCard = document.getElementById("tripIntentCard");
+    const tripIntentTitle = document.getElementById("tripIntentTitle");
+    const tripIntentMessage = document.getElementById("tripIntentMessage");
+    const tripIntentControls = document.getElementById("tripIntentControls");
+
+    function showTripIntent(title, message, controls = "") {
+      tripIntentTitle.textContent = title;
+      tripIntentMessage.textContent = message;
+      tripIntentControls.innerHTML = controls;
+      tripIntentCard.hidden = false;
+      tripIntentCard.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+
+    document.addEventListener("click", (event) => {
+      const action = event.target.closest("[data-trip-action]")?.dataset.tripAction;
+      if (action === "chat") window.location.href = "23-chat-inbox-home.html?context=ride&trip=MS-RIDE-3184";
+      if (action === "map") showTripIntent("Live route open", "3.2 km to Railway Station. Route is normal, destination ETA is 12 min and fare remains locked.", '<button type="button" data-trip-followup="refresh-map">Refresh route</button>');
+      if (action === "call") showTripIntent("Calling captain", "Calling Arjun Singh through the protected masked number +91 98xx xx2841.", '<button type="button" data-trip-followup="end-call">End call</button>');
+      if (action === "share") showTripIntent("Share live trip", "Trip MS-RIDE-3184 is ready to share with the live route, captain and vehicle details.", '<button type="button" data-trip-followup="copy-trip">Copy secure trip link</button>');
+      if (action === "add-stop") showTripIntent("Add a stop", "Enter the stop before confirming. The app will show the new ETA and fare estimate.", '<label for="tripStopInput">Stop address<input id="tripStopInput" placeholder="Search landmark or address" /></label><button type="button" data-trip-followup="save-stop">Review added stop</button>');
+      if (action === "safe") showTripIntent("Safety centre", "Trip MS-RIDE-3184 and the current live route are attached to every safety action.", '<button type="button" data-trip-followup="share-safety">Share live trip</button><button type="button" data-trip-followup="emergency">Get emergency help</button><button type="button" data-trip-followup="report-safety">Report route or safety issue</button>');
+
+      const followup = event.target.closest("[data-trip-followup]")?.dataset.tripFollowup;
+      if (followup === "refresh-map") showTripIntent("Route refreshed", "3.0 km remain. Destination ETA is now 11 min; fare remains locked at Rs 112.");
+      if (followup === "end-call") showTripIntent("Call ended", "Protected call with Arjun Singh ended. Call again or use ride chat if you still need help.", '<button type="button" data-trip-action="call">Call again</button><a href="23-chat-inbox-home.html?context=ride&amp;trip=MS-RIDE-3184">Open ride chat</a>');
+      if (followup === "copy-trip") showTripIntent("Secure trip link copied", "The link expires after ride completion and exposes live location only to the person you send it to.");
+      if (followup === "share-safety") showTripIntent("Live trip shared", "Emergency contact received trip MS-RIDE-3184, vehicle RJ19 AB 2841 and current route progress.");
+      if (followup === "emergency") showTripIntent("Emergency help ready", "Call 112 now if anyone is in immediate danger. MoolSocial safety has retained this trip and live route.", '<a href="35-ride-post-trip-support.html?trip=MS-RIDE-3184&amp;issue=safety">Open safety support</a>');
+      if (followup === "report-safety") showTripIntent("Safety case created", "Case MS-SAFE-3184 is attached to this trip for route, call and location review.", '<a href="35-ride-post-trip-support.html?trip=MS-RIDE-3184&amp;case=MS-SAFE-3184">Track safety case</a>');
+      if (followup === "save-stop") {
+        const stop = document.getElementById("tripStopInput")?.value.trim();
+        if (!stop) {
+          showTripIntent("Stop address required", "Enter a landmark or address before reviewing the added stop.", '<label for="tripStopInput">Stop address<input id="tripStopInput" placeholder="Search landmark or address" /></label><button type="button" data-trip-followup="save-stop">Review added stop</button>');
+        } else {
+          showTripIntent("Stop added for review", `${stop} adds about 6 min. New estimated fare is Rs 138; payment remains locked until trip-end approval.`, '<button type="button" data-trip-followup="confirm-stop">Confirm stop and fare estimate</button>');
+        }
+      }
+      if (followup === "confirm-stop") showTripIntent("Stop confirmed", "The captain received the added stop. Updated ETA is 18 min and estimated fare is Rs 138; final payment still needs trip-end approval.");
+    });
+
+    document.addEventListener("input", (event) => {
+      if (event.target.id === "tripStopInput") {
+        tripIntentTitle.textContent = "Stop ready to review";
+        tripIntentMessage.textContent = event.target.value.trim() || "Enter a landmark or address before reviewing the added stop.";
+      }
     });
   </script>
 <script type="application/json" id="productionRouteContract">{"contractVersion":"mvp-route-lock-2026-07-12","prototypeScreen":32,"productionModule":"ride","routeId":"ride.trip","routePath":"/ride/trips/:tripId","routeState":"live-trip","implementation":"route-state","launchScope":"mvp-core","separateProductionRoute":false,"productionNote":"Do not create a separate production route. Implement live-trip inside /ride/trips/:tripId and reuse the owning route API, authorization, analytics and regression suite.","canonicalMap":"architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"}</script><script type="application/json" id="prototypeApprovalContract">{"prototypeScreen":32,"status":"approved-and-frozen","authoritative":true,"approvedAt":"2026-07-12","approvalScope":"prototype-ui-ux-and-production-contract"}</script>  <script src="../shared/prototype-interaction-contracts.js?v=intent-completion-20260714b"></script>

@@ -204,6 +204,10 @@
       box-shadow: 0 16px 34px rgba(0, 0, 128, .12);
     }
 
+    .refresh-detail[hidden] { display: none; }
+    .refresh-detail p { margin: 0; color: rgba(0, 0, 128, .7); font-size: 9px; font-weight: 800; line-height: 1.4; }
+    .refresh-detail .action-tile { min-height: 38px; text-decoration: none; }
+
     .tracking-hero {
       background:
         radial-gradient(circle at 92% 12%, rgba(19, 136, 8, .12), transparent 30%),
@@ -1033,9 +1037,9 @@
                     <svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-3-6.7" /><path d="M21 3v6h-6" /></svg>
                     Refresh
                   </button>
-                  <a class="action-tile" href="03-login-account-handoff.html">
+                  <a class="action-tile" href="22-chat-order-support-thread.html?order=MS-BUY-1042&amp;from=delivery-status">
                     <svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z" /></svg>
-                    Chat
+                    Chat with delivery support
                   </a>
                   <button class="action-tile" type="button" id="delayButton">
                     <svg viewBox="0 0 24 24"><path d="M12 6v6l4 2" /><circle cx="12" cy="12" r="10" /></svg>
@@ -1052,14 +1056,19 @@
                   <span class="mini-pill warn" id="delayPill">No delay reported</span>
                 </div>
               </section>
+
+              <section class="panel-card refresh-detail" id="refreshDetails" aria-label="Latest delivery update">
+                <div class="panel-head"><b>Latest delivery update</b><span id="refreshTime">checked now</span></div>
+                <p id="refreshMessage" role="status" aria-live="polite">The rider is still travelling to your address. OTP stays locked until the rider reaches your delivery point.</p>
+              </section>
             </div>
 
             <div class="bottom-action">
-              <div class="action-copy">
+              <div class="action-copy" role="status" aria-live="polite">
                 <b id="actionTitle">Order on the way</b>
                 <span id="actionMeta">Rider completes delivery after OTP verification</span>
               </div>
-              <button class="primary-btn" type="button" id="deliveredButton">Refresh status</button>
+              <button class="primary-btn" type="button" id="deliveredButton">Check doorstep arrival</button>
             </div>
 
             <nav class="bottom-dock" aria-label="Delivery navigation">
@@ -1152,8 +1161,14 @@
     const deliveryProofTime = document.getElementById("deliveryProofTime");
     const stepNear = document.getElementById("stepNear");
     const stepDone = document.getElementById("stepDone");
+    const refreshDetails = document.getElementById("refreshDetails");
+    const refreshMessage = document.getElementById("refreshMessage");
+    const refreshTime = document.getElementById("refreshTime");
 
     refreshButton.addEventListener("click", () => {
+      refreshDetails.hidden = false;
+      refreshTime.textContent = "updated just now";
+      refreshMessage.textContent = "Rakesh is about 600 m away. Keep the delivery OTP private until you receive and check the packet.";
       app.dataset.status = "near";
       heroTitle.textContent = "Rider near you";
       heroSubtitle.textContent = "Rakesh is close to your delivery point. Keep OTP ready after packet check.";
@@ -1182,8 +1197,8 @@
     });
 
     callRiderButton.addEventListener("click", () => {
-      actionTitle.textContent = "Calling rider";
-      actionMeta.textContent = "Masked call opens in production";
+      actionTitle.textContent = "Secure rider call started";
+      actionMeta.textContent = "The masked connection keeps both phone numbers private";
     });
 
     instructionButton.addEventListener("click", () => {
@@ -1217,7 +1232,14 @@
     });
 
     deliveredButton.addEventListener("click", () => {
+      if (app.dataset.delivered === "yes") {
+        window.location.href = "18-home-delivery-completed-bill-rating.html?order=MS-BUY-1042";
+        return;
+      }
       if (app.dataset.status !== "near") {
+        refreshDetails.hidden = false;
+        refreshTime.textContent = "checked just now";
+        refreshMessage.textContent = "No doorstep arrival is recorded yet. The rider remains on the way, and delivery support is available below.";
         actionTitle.textContent = "OTP not unlocked yet";
         actionMeta.textContent = "Delivery completes only after rider reaches you and verifies OTP";
         return;

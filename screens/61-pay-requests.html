@@ -1049,7 +1049,7 @@
                 </div>
               </section>
 
-              <section class="summary-card is-hidden" aria-label="Payment request summary" id="summaryCard">
+              <section class="summary-card is-hidden" aria-label="Payment request summary" id="summaryCard" role="status" aria-live="polite">
                 <div class="summary-top">
                   <span class="summary-copy">
                     <b id="summaryTitle">Choose a request</b>
@@ -1067,7 +1067,7 @@
                 </div>
                 <div class="cta-row">
                   <a class="primary-cta" href="#" id="primaryCta">Review to pay</a>
-                  <a class="secondary-cta" href="#decline">Decline</a>
+                  <button class="secondary-cta" id="declineCta" type="button">Decline</button>
                 </div>
               </section>
 
@@ -1146,6 +1146,7 @@
     const summaryFollow = document.getElementById("summaryFollow");
     const decisionNoteText = document.getElementById("decisionNoteText");
     const primaryCta = document.getElementById("primaryCta");
+    const declineCta = document.getElementById("declineCta");
 
     const branchNotes = {
       Pending: "Newest pending requests appear first. No request can debit without your final approval.",
@@ -1160,7 +1161,7 @@
         { name: "Dr Mehta Clinic", price: "Rs 600", eta: "expires today", seat: "verified clinic", note: "Appointment #DC108 · consultation", captains: "2 pending", cta: "Review to pay", input: "clinic verified", proof: "visit #DC108", follow: "today", url: "62-pay-request-confirmation.html?request=DC108&amount=600" }
       ],
       Orders: [
-        { name: "Grocery order", price: "Rs 645", eta: "expires in 28 min", seat: "Mahadev Fresh Mart", note: "Order #MS2401 · stock confirmed", captains: "order matched", cta: "Review order request", input: "shop verified", proof: "order #MS2401", follow: "28 min", url: "62-pay-request-confirmation.html?request=MS2401&amount=645" },
+        { name: "Grocery order", price: "Rs 645", eta: "expires in 28 min", seat: "Mahadev Fresh Mart", note: "Order #MS2401 · items reserved", captains: "order matched", cta: "Review order request", input: "shop verified", proof: "order #MS2401", follow: "28 min", url: "62-pay-request-confirmation.html?request=MS2401&amount=645" },
         { name: "Get It Done hold", price: "Rs 599", eta: "expires in 1 hr", seat: "Task #GID882", note: "release only after proof", captains: "task matched", cta: "Review protected hold", input: "helper verified", proof: "task #GID882", follow: "1 hour", url: "62-pay-request-confirmation.html?request=GID882&amount=599" },
         { name: "Table bill", price: "Rs 1,480", eta: "expires today", seat: "Jodhpur Kitchen", note: "Booking #EAT94 · table 6", captains: "order matched", cta: "Review table bill", input: "restaurant verified", proof: "booking #EAT94", follow: "today", url: "62-pay-request-confirmation.html?request=EAT94&amount=1480" }
       ],
@@ -1219,6 +1220,8 @@
       state.follow = packageItem.follow;
       state.url = packageItem.url || "#";
       state.cta = packageItem.cta;
+      declineCta.disabled = false;
+      declineCta.textContent = "Decline";
       summaryCard.classList.remove("is-hidden");
       [...packageRow.querySelectorAll("[data-package]")].forEach((button) => {
         button.classList.toggle("active", button.dataset.package === packageItem.name);
@@ -1269,6 +1272,20 @@
         state.time = chip.dataset.time;
         updateSummary();
       });
+    });
+
+    declineCta.addEventListener("click", () => {
+      summaryTitle.textContent = `${state.packageName} request declined`;
+      summaryText.textContent = "No debit was made. The requester can see that this payment request was declined.";
+      summaryPrice.textContent = "No debit";
+      summaryInput.textContent = "REQ-DECLINED-6101";
+      summaryProof.textContent = state.proof;
+      summaryFollow.textContent = "closed";
+      decisionNoteText.textContent = "Decline receipt REQ-DECLINED-6101 saved. You can return to Requests or contact support.";
+      primaryCta.textContent = "View requests";
+      primaryCta.href = "61-pay-requests.html?status=declined";
+      declineCta.textContent = "Declined";
+      declineCta.disabled = true;
     });
 
     applyRide("Pending");

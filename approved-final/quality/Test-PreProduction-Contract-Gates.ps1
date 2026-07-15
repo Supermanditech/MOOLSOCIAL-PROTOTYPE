@@ -71,6 +71,14 @@ foreach ($doc in @(
   Require-File $doc
 }
 
+$journeyTicketPath = Join-Path $Root 'architecture\PRODUCTION-JOURNEY-IMPLEMENTATION-TICKETS-2026-07-15.md'
+$productionJourneyTickets = if (Test-Path -LiteralPath $journeyTicketPath) {
+  ([regex]::Matches((Get-Content -Raw -LiteralPath $journeyTicketPath), '(?m)^## PROD-JRN-\d{3}\s+-')).Count
+} else { 0 }
+if ($productionJourneyTickets -lt 21) {
+  $blockers.Add("Production journey ticket coverage is incomplete: $productionJourneyTickets of 21.")
+}
+
 $releaseScript = Join-Path $Root 'quality\Test-Mobile-User-Flow-ReleaseGate.ps1'
 if (-not (Test-Path -LiteralPath $releaseScript)) {
   $blockers.Add('Missing mobile user-flow release gate.')
@@ -102,7 +110,7 @@ $result = [ordered]@{
   contractArtifacts = 8
   productionComponents = if ($components) { @($components.components.PSObject.Properties).Count } else { 0 }
   economicsPolicies = if ($economics) { @($economics.sourcePolicies.PSObject.Properties).Count } else { 0 }
-  productionJourneyTickets = 18
+  productionJourneyTickets = $productionJourneyTickets
   blockers = @($blockers)
   finalMobileTestingLinkMayBeShared = ($blockers.Count -eq 0 -and $mobileGate -and $mobileGate.finalMobileTestingLinkMayBeShared)
 }

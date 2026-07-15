@@ -978,7 +978,7 @@
                     <span>optional</span>
                   </button>
                 </div>
-                <div class="evidence-preview" id="evidencePreview">
+                <div class="evidence-preview" id="evidencePreview" role="status" aria-live="polite" aria-atomic="true">
                   <span>No proof added</span>
                 </div>
               </section>
@@ -1049,7 +1049,7 @@
             </div>
 
             <div class="bottom-action">
-              <div class="action-copy">
+              <div class="action-copy" role="status" aria-live="polite" aria-atomic="true">
                 <b id="actionTitle">Select issue</b>
                 <span id="actionMeta">Choose problem type to start review</span>
               </div>
@@ -1170,7 +1170,7 @@
         suggestionMeta.textContent = `${issue} on ${item}. Refund estimate depends on item proof and shop reply.`;
         suggestionValue.textContent = `Rs ${refund}`;
       } else if (suggestion === "Replace") {
-        suggestionMeta.textContent = `${issue} on ${item}. Replacement is suggested if shop has stock and accepts proof.`;
+        suggestionMeta.textContent = `${issue} on ${item}. Replacement is available when the matching item is ready; refund remains available.`;
         suggestionValue.textContent = "Replace";
       } else {
         suggestionMeta.textContent = `${issue} needs support review with attached order, rider, shop and customer proof.`;
@@ -1190,9 +1190,14 @@
     }
 
     document.querySelectorAll(".item-card").forEach((button) => {
+      button.setAttribute("aria-pressed", "false");
       button.addEventListener("click", () => {
-        document.querySelectorAll(".item-card").forEach((item) => item.classList.remove("active"));
+        document.querySelectorAll(".item-card").forEach((item) => {
+          item.classList.remove("active");
+          item.setAttribute("aria-pressed", "false");
+        });
         button.classList.add("active");
+        button.setAttribute("aria-pressed", "true");
         app.dataset.item = button.dataset.item;
         app.dataset.refund = button.dataset.refund;
         itemHint.textContent = button.dataset.item;
@@ -1206,9 +1211,14 @@
     });
 
     document.querySelectorAll(".issue-type").forEach((button) => {
+      button.setAttribute("aria-pressed", "false");
       button.addEventListener("click", () => {
-        document.querySelectorAll(".issue-type").forEach((item) => item.classList.remove("active"));
+        document.querySelectorAll(".issue-type").forEach((item) => {
+          item.classList.remove("active");
+          item.setAttribute("aria-pressed", "false");
+        });
         button.classList.add("active");
+        button.setAttribute("aria-pressed", "true");
         app.dataset.issue = button.dataset.issue;
         issueHint.textContent = button.dataset.issue;
         issueStep.classList.add("active");
@@ -1220,8 +1230,10 @@
     });
 
     document.querySelectorAll(".evidence-tile").forEach((button) => {
+      button.setAttribute("aria-pressed", "false");
       button.addEventListener("click", () => {
         button.classList.toggle("active");
+        button.setAttribute("aria-pressed", String(button.classList.contains("active")));
         const activeCount = document.querySelectorAll(".evidence-tile.active").length;
         app.dataset.evidence = String(activeCount);
         const activeLabels = Array.from(document.querySelectorAll(".evidence-tile.active")).map((tile) => tile.dataset.evidence);
@@ -1237,9 +1249,14 @@
     });
 
     document.querySelectorAll(".resolution-card").forEach((button) => {
+      button.setAttribute("aria-pressed", "false");
       button.addEventListener("click", () => {
-        document.querySelectorAll(".resolution-card").forEach((item) => item.classList.remove("active"));
+        document.querySelectorAll(".resolution-card").forEach((item) => {
+          item.classList.remove("active");
+          item.setAttribute("aria-pressed", "false");
+        });
         button.classList.add("active");
+        button.setAttribute("aria-pressed", "true");
         app.dataset.resolution = button.dataset.resolution;
         resolutionHint.textContent = button.dataset.resolution;
         actionTitle.textContent = `${button.dataset.resolution} requested`;

@@ -522,6 +522,10 @@
       font-size: 10px;
       font-weight: 850;
     }
+    .composer-field:empty::before {
+      content: attr(data-placeholder);
+      color: rgba(0,0,128,.60);
+    }
     .bottom-dock {
       position: absolute;
       left: 10px;
@@ -787,9 +791,9 @@
                 <div class="reply-suggestions">
                   <b>Smart replies</b>
                   <div class="suggestion-row">
-                    <button class="suggestion-button" type="button" data-reply="Please update me when refund is credited.">Refund update</button>
-                    <button class="suggestion-button" type="button" data-reply="Please repeat my basket without this issue.">Repeat basket</button>
-                    <button class="suggestion-button" type="button" data-reply="I need support to check this again.">Support check</button>
+                    <button class="suggestion-button" type="button" data-reply="Please update me when refund is credited." aria-pressed="false">Ask for refund update</button>
+                    <button class="suggestion-button" type="button" data-reply="Please repeat my basket without this issue." aria-pressed="false">Ask to repeat basket</button>
+                    <button class="suggestion-button" type="button" data-reply="I need support to check this again." aria-pressed="false">Ask support to check</button>
                   </div>
                 </div>
               </section>
@@ -810,11 +814,11 @@
               <button type="button" id="cameraButton" aria-label="Open camera">
                 <svg viewBox="0 0 24 24"><path d="M9 7l1.5-2h3L15 7h3a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-7a3 3 0 0 1 3-3Z" /><circle cx="12" cy="13" r="3" /></svg>
               </button>
-              <div class="composer-field" id="composerField">Message shop/support...</div>
+              <div class="composer-field" id="composerField" role="textbox" aria-label="Message shop or support" aria-live="polite" contenteditable="true" data-placeholder="Message shop/support..."></div>
               <button type="button" id="voiceButton" aria-label="Voice message">
                 <svg viewBox="0 0 24 24"><path d="M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3Z" /><path d="M19 10v2a7 7 0 0 1-14 0v-2" /></svg>
               </button>
-              <button class="send" type="button" id="sendButton" aria-label="Send message">
+              <button class="send" type="button" id="sendButton" aria-label="Send message" data-native-interaction>
                 <svg viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4 20-7Z" /><path d="M22 2 11 13" /></svg>
               </button>
             </div>
@@ -839,7 +843,7 @@
                   Support
                 </a>
               </div>
-              <a class="chat-button" href="22-chat-order-support-thread.html" aria-label="Open chat">
+              <a class="chat-button" href="22-chat-order-support-thread.html" aria-label="Open chat" aria-current="page">
                 <svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z" /></svg>
                 <span class="chat-count">2</span>
               </a>
@@ -953,7 +957,8 @@
       topHint.textContent = state.hint;
       contextTitle.textContent = state.context;
       contextStatus.textContent = state.status;
-      composerField.textContent = state.composer;
+      composerField.textContent = "";
+      composerField.dataset.placeholder = state.composer;
       threadControls.forEach((item) => {
         item.classList.toggle("active", item.dataset.thread === thread);
       });
@@ -996,16 +1001,20 @@
 
     document.querySelectorAll(".suggestion-button").forEach((button) => {
       button.addEventListener("click", () => {
+        document.querySelectorAll(".suggestion-button").forEach((item) => item.setAttribute("aria-pressed", String(item === button)));
         composerField.textContent = button.dataset.reply;
       });
     });
 
     document.getElementById("sendButton").addEventListener("click", () => {
-      const copy = composerField.textContent.includes("Message ") || composerField.textContent === "Message sent"
-        ? "Thanks. Please keep this case saved."
-        : composerField.textContent;
+      const copy = composerField.textContent.trim();
+      if (!copy || copy.startsWith("Message sent")) {
+        composerField.textContent = "Type a message or choose a quick reply before sending.";
+        composerField.focus();
+        return;
+      }
       addMessage("user", "You", copy, "now - sent");
-      composerField.textContent = "Message sent";
+      composerField.textContent = "Message sent successfully. Type another message when needed.";
     });
   </script>
 <script type="application/json" id="productionRouteContract">{"contractVersion":"mvp-route-lock-2026-07-12","prototypeScreen":22,"productionModule":"chat","routeId":"chat.order-support","routePath":"/chat/orders/:orderId","routeState":"support-thread","implementation":"route-shell","launchScope":"mvp-core","separateProductionRoute":true,"productionNote":"Own production route /chat/orders/:orderId. Implement support-thread as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.","canonicalMap":"architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"}</script><script type="application/json" id="prototypeApprovalContract">{"prototypeScreen":22,"status":"approved-and-frozen","authoritative":true,"approvedAt":"2026-07-12","approvalScope":"prototype-ui-ux-and-production-contract"}</script><script src="../shared/prototype-interaction-runtime.js?v=micro-intent-20260715a"></script></body>

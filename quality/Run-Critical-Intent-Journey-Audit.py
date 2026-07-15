@@ -163,9 +163,15 @@ def main() -> int:
                     wait.until(lambda current: "14-customer-payment-order-confirmation.html" in current.current_url, "Review and Pay did not reopen Screen 14")
                     require(text("#payableAmount") == payment_total, "reopened payment total changed")
                 click('[data-method="card"]')
-                require(text("#methodHint") == "Card selected", "Card payment method did not select")
+                require(
+                    text("#methodHint") == "Pay by saved or new debit or credit card",
+                    "Card payment method did not select",
+                )
                 click('[data-method="upi"]')
-                require(text("#methodHint") == "UPI selected", "UPI payment method did not reselect")
+                require(
+                    text("#methodHint") == "Pay by UPI for the fastest confirmation",
+                    "UPI payment method did not reselect",
+                )
                 click("#payButton")
                 wait.until(lambda _driver: text("#payButton") == "View Order", "payment did not reach successful View Order state")
                 click("#payButton")
@@ -207,11 +213,26 @@ def main() -> int:
                 require(element('[data-fulfil="pickup"]').is_displayed(), "at-shop collection was not available in the confirmed shop context")
                 return {"mode": "At-shop collection", **continue_product_to_order("15-counter-ready-receipt.html")}
 
+            def business_chat_fulfilment_context() -> dict:
+                open_path("screens/24-chat-business-thread.html")
+                pickup = driver.find_element(By.CSS_SELECTOR, "#atShopChoice")
+                require(not pickup.is_displayed(), "at-shop collection appeared in a home business-chat session")
+                require("Home delivery" in text("#quoteFulfilmentMeta"), "home delivery was not the default business-chat fulfilment")
+                require("fulfilment=delivery" in element("#confirmQuoteLink").get_attribute("href"), "home quote did not carry delivery into checkout")
+
+                open_path("screens/24-chat-business-thread.html?context=at-shop")
+                require(element("#atShopChoice").is_displayed(), "at-shop collection was missing from an explicit at-shop chat session")
+                require("At-shop collection" in text("#quoteFulfilmentMeta"), "at-shop collection was not selected for the at-shop session")
+                click('[data-fulfilment-choice="delivery"]')
+                require("Home delivery" in text("#quoteFulfilmentMeta"), "the at-shop user could not switch to home delivery")
+                return {"homeSession": "delivery only", "atShopSession": "collection available", "alternate": "home delivery selected"}
+
             run("social-selected-video-and-nested-actions", social_video)
             run("people-chat-call-media-message", people_chat)
             run("buy-home-value-pack-delivery", home_value_delivery)
             run("buy-business-bulk-delivery", business_bulk_delivery)
             run("buy-at-shop-collection", at_shop_collection)
+            run("business-chat-fulfilment-context", business_chat_fulfilment_context)
     finally:
         server.shutdown()
         server.server_close()

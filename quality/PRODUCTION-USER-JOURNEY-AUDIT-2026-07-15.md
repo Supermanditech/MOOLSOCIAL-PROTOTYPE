@@ -2,7 +2,7 @@
 
 Date: 2026-07-15
 Status: passed and ready for review
-Scope: approved Screens 00-165, 47 operational journeys, phone viewport 390 x 844
+Scope: approved Screens 00-165, 47 operational journeys, phone viewport 390 x 844 and laptop viewport 1440 x 1000
 
 ## Outcome
 
@@ -10,7 +10,7 @@ The recovered prototype was audited from the visible user surface, not from revi
 
 The first fresh strict Edge replay exposed the interrupted work's false-positive baseline: 15 of 47 journeys passed and 32 failed. After correcting the runner and product flows, the final clean replay passes 47 of 47 journeys across all 166 approved screens, with zero horizontal overflow and zero console errors.
 
-The screenwise production-readiness audit checked 3,210 current controls, including 490 high-intent actions. The independent rendered audit exercised all 3,210 initially visible controls. The recursive physical-tap audit then replayed 5,670 clean-state paths, including 3,040 actions revealed only after an earlier tap and 4,062 distinct visible states/outcomes. All 166 screens pass with zero unresolved actions, truncation, console errors, P0/P1 findings, generic high-intent outcomes, internal user-facing terminology, customer-facing retailer stock-confirmation language or food provider-confirmation uncertainty.
+The screenwise production-readiness audit checked 3,210 current controls, including 490 high-intent actions. The independent rendered audit exercised all 3,194 testable visible controls. The authoritative live black-box audit then completed 332/332 phone-and-laptop screen runs and replayed 14,793 real interaction paths, including 9,299 actions revealed only after an earlier tap. All 166 screens pass with zero unresolved actions, synthetic-runtime-only outcomes, no-ops, truncation, missing runs, console errors, P0/P1 findings, generic high-intent outcomes, internal user-facing terminology, customer-facing retailer stock-confirmation language or food provider-confirmation uncertainty.
 
 ## Tap intent completion rule
 
@@ -57,8 +57,8 @@ Scroll movement, focus alone, generic acknowledgements and unexplained no-op tap
 
 - `quality/generated/semantic-mobile-user-flow-final.json`: 47/47 passed, 166-screen manifest coverage, zero overflow/errors.
 - `quality/generated/real-user-flow-audit.json`: final 47/47 clean Edge journey replay, zero overflow/errors.
-- `quality/generated/rendered-control-deep-audit.json`: 3,210/3,210 initially rendered controls passed.
-- `quality/generated/nested-control-intent-audit.json`: 5,670/5,670 physical tap paths passed, including 3,040 nested paths and 4,062 distinct states/outcomes, with zero truncation/errors.
+- `quality/generated/rendered-control-deep-audit.json`: 3,194/3,194 testable visible controls passed across all 166 screens with zero console errors.
+- `quality/generated/live-black-box-intent-audit.json`: 332/332 phone-and-laptop screen runs and 14,793/14,793 real interaction paths passed, including 9,299 nested paths, with zero failures, synthetic-runtime-only outcomes, no-ops, truncation, missing runs or console errors.
 - `quality/generated/visual-action-semantics-audit.json`: all 166 screens passed with zero non-semantic fake-action findings.
 - `quality/generated/production-readiness-audit.json`: 166/166 passed; 3,210 controls; 490 high-intent controls; zero P0/P1 findings.
 - `quality/generated/flow-static-audit.json`: routes, assets, contracts and flow graph passed.

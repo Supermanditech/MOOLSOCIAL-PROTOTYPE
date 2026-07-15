@@ -866,14 +866,14 @@
                   <div class="contact-line"><span><small>Primary contact</small><b id="primaryContact">+91 98••• ••210</b></span><label class="toggle" aria-label="Use primary account number for work"><input id="usePrimary" type="checkbox" checked><span class="toggle-track"></span></label></div>
                   <div class="contact-line"><span><small>Account identity</small><b id="accountLogin">Google · user@gmail.com</b></span><em>Verified</em></div>
                   <div class="alternate-row">
-                    <label class="secondary-field"><span>+91</span><input id="secondaryContact" type="tel" inputmode="numeric" autocomplete="tel" maxlength="10" placeholder="Alternate mobile (optional)"></label>
+                    <label class="secondary-field"><span>+91</span><input id="secondaryContact" type="tel" inputmode="numeric" autocomplete="tel" maxlength="10" placeholder="Alternate mobile (optional)" aria-describedby="secondaryHelp"></label>
                     <button class="verify-contact" id="sendAlternateOtp" type="button">Send OTP</button>
                   </div>
                   <div class="otp-row" id="alternateOtpRow" hidden>
                     <input id="alternateOtp" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="6" aria-label="Alternate mobile OTP" placeholder="6-digit OTP">
                     <button class="verify-contact" id="verifyAlternateOtp" type="button">Verify</button>
                   </div>
-                  <p class="secondary-help" id="secondaryHelp">Add an alternate number if available. It must be OTP verified before use.</p>
+                  <p class="secondary-help" id="secondaryHelp" role="status" aria-live="polite">Add an alternate number if available. It must be OTP verified before use.</p>
                 </div>
               </section>
 

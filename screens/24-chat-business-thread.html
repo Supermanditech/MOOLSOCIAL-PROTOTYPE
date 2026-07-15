@@ -445,7 +445,13 @@
       border-radius: 16px;
       padding: 8px;
       background: #f7f9fd;
+      color: inherit;
+      font: inherit;
+      text-align: left;
+      cursor: pointer;
     }
+    .choice[hidden] { display: none; }
+    .fulfilment-choice.home-only { grid-template-columns: 1fr; }
     .choice.active {
       background: rgba(19,136,8,.10);
       border-color: rgba(19,136,8,.30);
@@ -555,10 +561,16 @@
       background: rgba(0,0,128,.08);
       color: var(--ms-navy);
     }
-    .composer span {
+    .composer input {
+      min-width: 0;
+      width: 100%;
+      border: 0;
+      outline: 0;
+      background: transparent;
       color: rgba(0,0,128,.60);
       font-size: 10px;
       font-weight: 850;
+      font-family: var(--ms-font);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -666,7 +678,7 @@
                 <div class="commerce-head">
                   <div>
                     <b id="contextTitle">Basket quote in progress</b>
-                    <span id="contextText">Chat is linked to grocery basket, counter pickup and app payment.</span>
+                    <span id="contextText" role="status" aria-live="polite">Chat is linked to your grocery basket, home delivery and secure app payment.</span>
                   </div>
                   <span class="commerce-state" id="contextState">Live</span>
                 </div>
@@ -676,7 +688,7 @@
                   <span class="product-pill">Atta 10 kg</span>
                   <span class="product-pill">Oil 5 L</span>
                 </div>
-                <div class="safe-note">Payment opens only after shop confirms stock and final bill. This prevents counter mismatch and trust issues.</div>
+                <div class="safe-note">Items are reserved from live shop inventory. Review the itemised bill and pay securely in the app.</div>
               </section>
 
               <section class="business-card">
@@ -685,7 +697,7 @@
                   <span class="trust-pill">Verified</span>
                 </div>
                 <div class="biz-stats">
-                  <div class="biz-stat"><b>Counter</b><span>pickup ready</span></div>
+                  <div class="biz-stat" id="atShopStat" hidden><b>At shop</b><span>collect here</span></div>
                   <div class="biz-stat"><b>Delivery</b><span>35-45 min</span></div>
                   <div class="biz-stat"><b>Return</b><span>same day issue</span></div>
                 </div>
@@ -730,7 +742,7 @@
                 <div class="quote-meta">
                   <span>Valid 9 min</span>
                   <span>Stock checked</span>
-                  <span>Counter or delivery</span>
+                  <span id="quoteFulfilmentMeta">Home delivery</span>
                 </div>
                 <div class="quote-lines">
                   <div class="quote-line"><span>Tomato 1 kg</span><b>Rs 74</b></div>
@@ -738,33 +750,33 @@
                   <div class="quote-line"><span>Atta 10 kg</span><b>Rs 420</b></div>
                   <div class="quote-line"><span>Oil 5 L</span><b>Rs 670</b></div>
                 </div>
-                <div class="fulfilment-choice">
-                  <div class="choice active"><b>Counter pickup</b><span>Pack in 12 min - no queue</span></div>
-                  <div class="choice"><b>Home delivery</b><span>45 min - delivery fee may apply</span></div>
+                <div class="fulfilment-choice home-only" id="fulfilmentChoices">
+                  <button class="choice" id="atShopChoice" type="button" data-fulfilment-choice="pickup" aria-pressed="false" hidden><b>At-shop collection</b><span>Collect here in 12 min</span></button>
+                  <button class="choice active" type="button" data-fulfilment-choice="delivery" aria-pressed="true"><b>Home delivery</b><span>45 min · delivery fee shown before payment</span></button>
                 </div>
                 <div class="quote-actions">
                   <a href="#">Change items</a>
-                  <a class="primary" href="12-buy-basket-checkout.html">Confirm quote</a>
+                  <a class="primary" id="confirmQuoteLink" href="12-buy-basket-checkout.html?fulfilment=delivery&amp;context=home">Confirm quote</a>
                 </div>
               </section>
 
               <div class="message-row in">
                 <div class="bubble in">
-                  I can pack this for counter pickup in 12 minutes or send home delivery in 45 minutes.
+                  <span id="fulfilmentOfferMessage">I can send this basket to your saved address in 45 minutes. The delivery fee is shown before payment.</span>
                   <small>10:44</small>
                 </div>
               </div>
 
               <div class="message-row out">
                 <div class="bubble out">
-                  Keep it ready for counter pickup. I will pay in app.
+                  <span id="fulfilmentChoiceMessage">Deliver it to my saved address. I will review the final amount and pay in the app.</span>
                   <small>10:45 sent</small>
                 </div>
               </div>
 
               <div class="message-row in">
                 <div class="bubble in">
-                  Packing photo and final bill can be attached here before payment confirmation.
+                  Your itemised app bill is ready with the basket. Review it before paying.
                   <small>10:46</small>
                 </div>
               </div>
@@ -775,7 +787,7 @@
                 <a href="#">Need GST bill</a>
                 <a href="#">Share location</a>
                 <a href="#">Home delivery</a>
-                    <a href="#">At-shop collection</a>
+                <a href="#" id="atShopQuickReply" hidden>At-shop collection</a>
                 <a href="#">Send photo</a>
                 <a href="#">Send PDF</a>
                 <a href="#">Send final bill</a>
@@ -793,13 +805,13 @@
                 <button type="button" aria-label="Open camera">
                   <svg viewBox="0 0 24 24"><path d="M9 7l1.5-2h3L15 7h3a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-7a3 3 0 0 1 3-3Z" /><circle cx="12" cy="13" r="3" /></svg>
                 </button>
-                <span>Message Mahadev Fresh Mart...</span>
+                <input id="businessComposerInput" type="text" aria-label="Message Mahadev Fresh Mart" placeholder="Message Mahadev Fresh Mart..." />
                 <button type="button" aria-label="Voice message">
                   <svg viewBox="0 0 24 24"><path d="M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3Z" /><path d="M19 10v2a7 7 0 0 1-14 0v-2" /></svg>
                 </button>
-                <a class="send-btn" href="#" aria-label="Send message">
+                <button class="send-btn" id="businessSendButton" type="button" aria-label="Send message" data-native-interaction>
                   <svg viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4 20-7Z" /><path d="M22 2 11 13" /></svg>
-                </a>
+                </button>
               </div>
             </section>
           </div>
@@ -843,7 +855,7 @@
     const contextCopy = {
       chat: {
         title: "Basket quote in progress",
-        text: "Chat is linked to grocery basket, counter pickup and app payment.",
+        text: "Chat is linked to your grocery basket, home delivery and secure app payment.",
         state: "Live"
       },
       catalog: {
@@ -853,7 +865,7 @@
       },
       quote: {
         title: "Quote Q-2841 active",
-        text: "Final basket price is valid for 9 minutes after stock check.",
+        text: "Items are reserved and this basket price is valid for 9 minutes.",
         state: "Valid"
       },
       orders: {
@@ -863,10 +875,55 @@
       },
       pay: {
         title: "Safe app payment",
-        text: "Payment opens only after stock and bill confirmation from the verified shop.",
+        text: "Review the final basket total and pay securely in the app.",
         state: "Safe"
       }
     };
+
+    const entryParams = new URLSearchParams(window.location.search);
+    const atShopSession = entryParams.get("context") === "at-shop";
+    const fulfilmentChoices = document.getElementById("fulfilmentChoices");
+    const atShopChoice = document.getElementById("atShopChoice");
+    const atShopStat = document.getElementById("atShopStat");
+    const atShopQuickReply = document.getElementById("atShopQuickReply");
+    const quoteFulfilmentMeta = document.getElementById("quoteFulfilmentMeta");
+    const fulfilmentOfferMessage = document.getElementById("fulfilmentOfferMessage");
+    const fulfilmentChoiceMessage = document.getElementById("fulfilmentChoiceMessage");
+    const confirmQuoteLink = document.getElementById("confirmQuoteLink");
+
+    function setQuoteFulfilment(mode) {
+      const pickup = atShopSession && mode === "pickup";
+      document.querySelectorAll("[data-fulfilment-choice]").forEach((choice) => {
+        const active = choice.dataset.fulfilmentChoice === (pickup ? "pickup" : "delivery");
+        choice.classList.toggle("active", active);
+        choice.setAttribute("aria-pressed", String(active));
+      });
+      quoteFulfilmentMeta.textContent = pickup ? "At-shop collection" : "Home delivery";
+      fulfilmentOfferMessage.textContent = pickup
+        ? "Your basket can be ready to collect here in 12 minutes. Pay securely in the app before collection."
+        : "I can send this basket to your saved address in 45 minutes. The delivery fee is shown before payment.";
+      fulfilmentChoiceMessage.textContent = pickup
+        ? "Keep it ready for collection here. I will review the final amount and pay in the app."
+        : "Deliver it to my saved address. I will review the final amount and pay in the app.";
+      contextText.textContent = pickup
+        ? "This at-shop session is linked to collection here and secure app payment."
+        : "Chat is linked to your grocery basket, home delivery and secure app payment.";
+      const target = new URL(confirmQuoteLink.href);
+      target.searchParams.set("fulfilment", pickup ? "pickup" : "delivery");
+      target.searchParams.set("context", pickup ? "at-shop" : "home");
+      confirmQuoteLink.href = target.href;
+    }
+
+    if (atShopSession) {
+      atShopChoice.hidden = false;
+      atShopStat.hidden = false;
+      atShopQuickReply.hidden = false;
+      fulfilmentChoices.classList.remove("home-only");
+    }
+    document.querySelectorAll("[data-fulfilment-choice]").forEach((choice) => {
+      choice.addEventListener("click", () => setQuoteFulfilment(choice.dataset.fulfilmentChoice));
+    });
+    setQuoteFulfilment(atShopSession ? "pickup" : "delivery");
 
     contextChips.forEach((chip) => {
       chip.addEventListener("click", (event) => {
@@ -878,6 +935,39 @@
         contextText.textContent = copy.text;
         contextState.textContent = copy.state;
       });
+    });
+
+    const businessComposerInput = document.getElementById("businessComposerInput");
+    const businessSendButton = document.getElementById("businessSendButton");
+    const businessChatBody = document.querySelector(".chat-body");
+
+    function sendBusinessMessage() {
+      const message = businessComposerInput.value.trim();
+      if (!message) {
+        contextTitle.textContent = "Write a message first";
+        contextText.textContent = "Type your message or choose a quick action before sending.";
+        contextState.textContent = "Required";
+        businessComposerInput.focus();
+        return;
+      }
+      const row = document.createElement("div");
+      row.className = "message-row out";
+      row.innerHTML = '<div class="bubble out"><span></span><small>now · sent</small></div>';
+      row.querySelector("span").textContent = message;
+      businessChatBody.append(row);
+      businessComposerInput.value = "";
+      contextTitle.textContent = "Message sent";
+      contextText.textContent = "Mahadev Fresh Mart received your message in this order-linked chat.";
+      contextState.textContent = "Sent";
+      businessChatBody.scrollTop = businessChatBody.scrollHeight;
+    }
+
+    businessSendButton.addEventListener("click", sendBusinessMessage);
+    businessComposerInput.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        sendBusinessMessage();
+      }
     });
   </script>
 <script type="application/json" id="productionRouteContract">{"contractVersion":"mvp-route-lock-2026-07-12","prototypeScreen":24,"productionModule":"chat","routeId":"chat.business","routePath":"/chat/business/:threadId","routeState":"business-thread","implementation":"route-shell","launchScope":"mvp-core","separateProductionRoute":true,"productionNote":"Own production route /chat/business/:threadId. Implement business-thread as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.","canonicalMap":"architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"}</script><script type="application/json" id="prototypeApprovalContract">{"prototypeScreen":24,"status":"approved-and-frozen","authoritative":true,"approvedAt":"2026-07-12","approvalScope":"prototype-ui-ux-and-production-contract"}</script>  <script src="../shared/prototype-interaction-contracts.js?v=intent-completion-20260714b"></script>

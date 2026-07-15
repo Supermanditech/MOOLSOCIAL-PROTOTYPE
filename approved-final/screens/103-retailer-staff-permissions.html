@@ -1,13 +1,312 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>103 Retailer Staff and Permissions - MoolSocial Screenbook</title><link rel="stylesheet" href="../shared/retailer-completion.css"><style>.permission-grid{display:grid;grid-template-columns:110px repeat(3,minmax(0,1fr));border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#fff}.permission-grid span{min-width:0;display:grid;place-items:center;border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:6px 4px;color:var(--muted);font-size:5.5px;font-weight:850;text-align:center}.permission-grid span:nth-child(4n){border-right:0}.permission-grid span:nth-last-child(-n+4){border-bottom:0}.permission-grid .label{place-items:start;color:var(--navy);font-size:6.5px;text-align:left}.yes{color:var(--green)!important}.no{color:#a2a4b0!important}.invite-panel{display:grid;gap:7px;padding:9px}</style></head><body><main class="screenbook"><section class="device" aria-label="Retailer Staff and Permissions prototype">
-<header class="phone-header"><div class="status"><span>11:02</span><span>5G 100%</span></div><div class="workspace-bar"><a class="back" href="74-retail-products-stock-setup.html?view=home" aria-label="Back to retailer home"><svg viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg></a><span class="shop-copy"><b>Mahadev Fresh Mart</b><span>Staff and permissions</span></span><button class="head-action" id="addStaff" aria-label="Add staff"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button></div></header>
-<div class="scroll"><section class="view"><div class="title-row"><span><h1>Staff &amp; Access</h1><p>Branch roles, limits, devices and audit history</p></span><span class="pill green">Owner control</span></div>
-<section class="metrics"><span class="metric"><small>ACTIVE STAFF</small><b>8</b><span>5 working now</span></span><span class="metric"><small>COUNTERS</small><b>3</b><span>2 open</span></span><span class="metric warn"><small>DEVICES</small><b>6</b><span>1 needs review</span></span></section>
-<section class="card invite-panel" id="invitePanel" hidden><div class="section-head"><b>Invite staff member</b><button id="closeInvite">Close</button></div><div class="form-grid"><label class="field"><span>Name</span><input id="staffName" value="Rakesh Kumar"></label><label class="field"><span>Mobile</span><input value="98765 11223" inputmode="tel"></label><label class="field wide"><span>Role</span><select id="staffRole"><option>Counter Operator</option><option>Stock Operator</option><option>Procurement Operator</option><option>Delivery Coordinator</option><option>Accountant</option><option>Marketing Operator</option><option>Manager</option></select></label></div><button class="small-action primary" id="sendInvite">Send secure invite</button></section>
-<div class="section-head"><b>Team</b><span>Mahadev Fresh Mart · main branch</span></div><section class="row-list" id="teamList"><div class="row"><span class="row-icon green">JK</span><span class="row-copy"><b>Jitendra Kumar · Owner</b><span>All controls · verified device</span><em>Active now</em></span><span class="row-side"><b>Owner</b><span>Protected</span></span></div><div class="row"><span class="row-icon">RK</span><span class="row-copy"><b>Rakesh Kumar · Counter</b><span>Counter 1 · sales and invoices up to ₹25,000</span><em>Active now</em></span><span class="row-side"><button data-edit>Manage</button></span></div><div class="row"><span class="row-icon orange">SP</span><span class="row-copy"><b>Sunita Parihar · Stock</b><span>Quantity, catalog and goods receipt</span><em>Last active 24 min ago</em></span><span class="row-side"><button data-edit>Manage</button></span></div><div class="row"><span class="row-icon red">VM</span><span class="row-copy"><b>Vikas Mehta · Accountant</b><span>Books/export · device review required</span><em>Access paused</em></span><span class="row-side"><button data-edit>Review</button></span></div></section>
-<div class="section-head"><b>Permission view</b><span>selected common roles</span></div><section class="permission-grid"><span class="label">Action</span><span>Counter</span><span>Stock</span><span>Accountant</span><span class="label">Create sale/invoice</span><span class="yes">Yes</span><span class="no">No</span><span class="no">No</span><span class="label">Edit stock quantity</span><span class="no">No</span><span class="yes">Yes</span><span class="no">No</span><span class="label">Export books</span><span class="no">No</span><span class="no">No</span><span class="yes">Yes</span><span class="label">Refund / bank / staff</span><span class="no">Owner</span><span class="no">Owner</span><span class="no">Owner</span></section>
-<div class="section-head"><b>Security</b><span>workspace audit</span></div><section class="row-list"><button class="row"><span class="row-icon">DEV</span><span class="row-copy"><b>Active devices</b><span>6 devices · last sign-in and branch</span></span><span class="row-side"><b>Review</b></span></button><button class="row"><span class="row-icon green">LOG</span><span class="row-copy"><b>Permission history</b><span>Every grant, revoke and limit change</span></span><span class="row-side"><b>View</b></span></button></section><section class="notice warn"><i>!</i><span>Bank mandates, high-value refunds, staff administration and statutory filing approval require the owner or explicit delegated authority.</span></section></section></div>
-<nav class="bottom-dock" aria-label="Retailer navigation"><a class="mool-button" href="04-universal-focus-shell.html">Mool</a><div class="dock-track"><a class="dock-tab" href="74-retail-products-stock-setup.html?view=orders">Orders</a><a class="dock-tab" href="74-retail-products-stock-setup.html?view=stock">Stock</a><a class="dock-tab" href="81-retailer-wholesale-buy-catalog.html">Wholesale<br>Buy</a></div><a class="chat-button" href="23-chat-inbox-home.html"><span>Chat</span><span class="chat-badge">2</span></a></nav></section>
-<aside class="notes"><h1>Screen 103 owns branch-scoped staff and permissions.</h1><p>It exposes roles, limits, devices and owner-only controls while keeping personal accounts and workspace operations separate.</p><section class="contract"><div><b>Branch scope</b>Access is limited to assigned workspace/branch.</div><div><b>Least privilege</b>Roles start with only required actions.</div><div><b>Owner controls</b>Money, staff and filing actions stay protected.</div><div><b>Limits</b>Value and refund limits are explicit.</div><div><b>Devices</b>Active devices and sign-ins are visible.</div><div><b>Revoke</b>Access may be paused without deleting history.</div><div><b>Invite</b>Secure mobile invite binds the person.</div><div><b>Audit</b>Every permission change is retained.</div></section></aside></main>
-<script type="application/json">{"screen":103,"status":"approved-and-frozen","workspace":"retailer","domain":"staff-permissions"}</script><script>const panel=document.getElementById("invitePanel");document.getElementById("addStaff").addEventListener("click",()=>{panel.hidden=false;panel.scrollIntoView({behavior:"smooth"})});document.getElementById("closeInvite").addEventListener("click",()=>panel.hidden=true);document.getElementById("sendInvite").addEventListener("click",event=>{event.currentTarget.textContent="Invite sent";event.currentTarget.disabled=true});document.querySelectorAll("[data-edit]").forEach(button=>button.addEventListener("click",()=>{button.textContent="Selected"}));</script><script type="application/json" id="productionRouteContract">{"contractVersion":"mvp-route-lock-2026-07-12","prototypeScreen":103,"productionModule":"retailer","routeId":"retailer.settings-team","routePath":"/retailer/settings/team","routeState":"staff-permissions","implementation":"route-shell","launchScope":"mvp-conditional","separateProductionRoute":true,"productionNote":"Own production route /retailer/settings/team. Implement staff-permissions as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.","canonicalMap":"architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"}</script><script type="application/json" id="prototypeApprovalContract">{"prototypeScreen":103,"status":"approved-and-frozen","authoritative":true,"approvedAt":"2026-07-12","approvalScope":"prototype-ui-ux-and-production-contract"}</script>  <script src="../shared/prototype-interaction-contracts.js?v=intent-completion-20260714b"></script>
-  <script src="../shared/prototype-interaction-runtime.js?v=intent-completion-20260714c"></script>
-</body></html>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>103 Retailer Staff and Permissions - MoolSocial Screenbook</title>
+    <link rel="stylesheet" href="../shared/retailer-completion.css" />
+    <style>
+      .permission-grid {
+        display: grid;
+        grid-template-columns: 110px repeat(3, minmax(0, 1fr));
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        overflow: hidden;
+        background: #fff;
+      }
+      .permission-grid span {
+        min-width: 0;
+        display: grid;
+        place-items: center;
+        border-right: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        padding: 6px 4px;
+        color: var(--muted);
+        font-size: 5.5px;
+        font-weight: 850;
+        text-align: center;
+      }
+      .permission-grid span:nth-child(4n) {
+        border-right: 0;
+      }
+      .permission-grid span:nth-last-child(-n + 4) {
+        border-bottom: 0;
+      }
+      .permission-grid .label {
+        place-items: start;
+        color: var(--navy);
+        font-size: 6.5px;
+        text-align: left;
+      }
+      .yes {
+        color: var(--green) !important;
+      }
+      .no {
+        color: #a2a4b0 !important;
+      }
+      .invite-panel {
+        display: grid;
+        gap: 7px;
+        padding: 9px;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="screenbook">
+      <section
+        class="device"
+        aria-label="Retailer Staff and Permissions prototype"
+      >
+        <header class="phone-header">
+          <div class="status"><span>11:02</span><span>5G 100%</span></div>
+          <div class="workspace-bar">
+            <a
+              class="back"
+              href="74-retail-products-stock-setup.html?view=home"
+              aria-label="Back to retailer home"
+              ><svg viewBox="0 0 24 24"><path d="m15 18-6-6 6-6" /></svg></a
+            ><span class="shop-copy"
+              ><b>Mahadev Fresh Mart</b><span>Staff and permissions</span></span
+            ><button class="head-action" id="addStaff" aria-label="Add staff">
+              <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" /></svg>
+            </button>
+          </div>
+        </header>
+        <div class="scroll">
+          <section class="view">
+            <div class="title-row">
+              <span
+                ><h1>Staff &amp; Access</h1>
+                <p>Branch roles, limits, devices and audit history</p></span
+              ><span class="pill green">Owner control</span>
+            </div>
+            <section class="metrics">
+              <span class="metric"
+                ><small>ACTIVE STAFF</small><b>8</b
+                ><span>5 working now</span></span
+              ><span class="metric"
+                ><small>COUNTERS</small><b>3</b><span>2 open</span></span
+              ><span class="metric warn"
+                ><small>DEVICES</small><b>6</b><span>1 needs review</span></span
+              >
+            </section>
+            <section class="card invite-panel" id="invitePanel" hidden>
+              <div class="section-head">
+                <b>Invite staff member</b
+                ><button id="closeInvite">Close</button>
+              </div>
+              <div class="form-grid">
+                <label class="field"
+                  ><span>Name</span
+                  ><input id="staffName" value="Rakesh Kumar" /></label
+                ><label class="field"
+                  ><span>Mobile</span
+                  ><input value="98765 11223" inputmode="tel" /></label
+                ><label class="field wide"
+                  ><span>Role</span
+                  ><select id="staffRole">
+                    <option>Counter Operator</option>
+                    <option>Stock Operator</option>
+                    <option>Procurement Operator</option>
+                    <option>Delivery Coordinator</option>
+                    <option>Accountant</option>
+                    <option>Marketing Operator</option>
+                    <option>Manager</option>
+                  </select></label
+                >
+              </div>
+              <button class="small-action primary" id="sendInvite" type="button" data-native-interaction>
+                Send secure invite
+              </button>
+              <section class="notice" id="inviteResult" role="status" aria-live="polite" hidden><i>✓</i><span><b>Secure invite INV-103-0715 sent</b><br /><span id="inviteResultText"></span><br /><a href="103-retailer-staff-permissions.html?view=pending">View pending invites</a></span></section>
+            </section>
+            <div class="section-head">
+              <b>Team</b><span>Mahadev Fresh Mart · main branch</span>
+            </div>
+            <section class="row-list" id="teamList">
+              <div class="row">
+                <span class="row-icon green">JK</span
+                ><span class="row-copy"
+                  ><b>Jitendra Kumar · Owner</b
+                  ><span>All controls · verified device</span
+                  ><em>Active now</em></span
+                ><span class="row-side"
+                  ><b>Owner</b><span>Protected</span></span
+                >
+              </div>
+              <div class="row">
+                <span class="row-icon">RK</span
+                ><span class="row-copy"
+                  ><b>Rakesh Kumar · Counter</b
+                  ><span>Counter 1 · sales and invoices up to ₹25,000</span
+                  ><em>Active now</em></span
+                ><span class="row-side"><button data-edit>Manage</button></span>
+              </div>
+              <div class="row">
+                <span class="row-icon orange">SP</span
+                ><span class="row-copy"
+                  ><b>Sunita Parihar · Stock</b
+                  ><span>Quantity, catalog and goods receipt</span
+                  ><em>Last active 24 min ago</em></span
+                ><span class="row-side"><button data-edit>Manage</button></span>
+              </div>
+              <div class="row">
+                <span class="row-icon red">VM</span
+                ><span class="row-copy"
+                  ><b>Vikas Mehta · Accountant</b
+                  ><span>Books/export · device review required</span
+                  ><em>Access paused</em></span
+                ><span class="row-side"><button data-edit>Review</button></span>
+              </div>
+            </section>
+            <div class="section-head">
+              <b>Permission view</b><span>selected common roles</span>
+            </div>
+            <section class="permission-grid">
+              <span class="label">Action</span><span>Counter</span
+              ><span>Stock</span><span>Accountant</span
+              ><span class="label">Create sale/invoice</span
+              ><span class="yes">Yes</span><span class="no">No</span
+              ><span class="no">No</span
+              ><span class="label">Edit stock quantity</span
+              ><span class="no">No</span><span class="yes">Yes</span
+              ><span class="no">No</span><span class="label">Export books</span
+              ><span class="no">No</span><span class="no">No</span
+              ><span class="yes">Yes</span
+              ><span class="label">Refund / bank / staff</span
+              ><span class="no">Owner</span><span class="no">Owner</span
+              ><span class="no">Owner</span>
+            </section>
+            <div class="section-head">
+              <b>Security</b><span>workspace audit</span>
+            </div>
+            <section class="row-list">
+              <button class="row">
+                <span class="row-icon">DEV</span
+                ><span class="row-copy"
+                  ><b>Active devices</b
+                  ><span>6 devices · last sign-in and branch</span></span
+                ><span class="row-side"><b>Review</b></span></button
+              ><button class="row">
+                <span class="row-icon green">LOG</span
+                ><span class="row-copy"
+                  ><b>Permission history</b
+                  ><span>Every grant, revoke and limit change</span></span
+                ><span class="row-side"><b>View</b></span>
+              </button>
+            </section>
+            <section class="notice warn">
+              <i>!</i
+              ><span
+                >Bank mandates, high-value refunds, staff administration and
+                statutory filing approval require the owner or explicit
+                delegated authority.</span
+              >
+            </section>
+          </section>
+        </div>
+        <nav class="bottom-dock" aria-label="Retailer navigation">
+          <a class="mool-button" href="04-universal-focus-shell.html">Mool</a>
+          <div class="dock-track">
+            <a
+              class="dock-tab"
+              href="74-retail-products-stock-setup.html?view=orders"
+              >Orders</a
+            ><a
+              class="dock-tab"
+              href="74-retail-products-stock-setup.html?view=stock"
+              >Stock</a
+            ><a class="dock-tab" href="81-retailer-wholesale-buy-catalog.html"
+              >Wholesale<br />Buy</a
+            >
+          </div>
+          <a class="chat-button" href="23-chat-inbox-home.html"
+            ><span>Chat</span><span class="chat-badge">2</span></a
+          >
+        </nav>
+      </section>
+      <aside class="notes">
+        <h1>Screen 103 owns branch-scoped staff and permissions.</h1>
+        <p>
+          It exposes roles, limits, devices and owner-only controls while
+          keeping personal accounts and workspace operations separate.
+        </p>
+        <section class="contract">
+          <div>
+            <b>Branch scope</b>Access is limited to assigned workspace/branch.
+          </div>
+          <div>
+            <b>Least privilege</b>Roles start with only required actions.
+          </div>
+          <div>
+            <b>Owner controls</b>Money, staff and filing actions stay protected.
+          </div>
+          <div><b>Limits</b>Value and refund limits are explicit.</div>
+          <div><b>Devices</b>Active devices and sign-ins are visible.</div>
+          <div><b>Revoke</b>Access may be paused without deleting history.</div>
+          <div><b>Invite</b>Secure mobile invite binds the person.</div>
+          <div><b>Audit</b>Every permission change is retained.</div>
+        </section>
+      </aside>
+    </main>
+    <script type="application/json">
+      {
+        "screen": 103,
+        "status": "approved-and-frozen",
+        "workspace": "retailer",
+        "domain": "staff-permissions"
+      }
+    </script>
+    <script>
+      const panel = document.getElementById("invitePanel");
+      document.getElementById("addStaff").addEventListener("click", () => {
+        panel.hidden = false;
+        panel.scrollIntoView({ behavior: "smooth" });
+      });
+      document
+        .getElementById("closeInvite")
+        .addEventListener("click", () => (panel.hidden = true));
+      document
+        .getElementById("sendInvite")
+        .addEventListener("click", (event) => {
+          event.currentTarget.textContent = "Invite sent";
+          event.currentTarget.disabled = true;
+          document.getElementById("inviteResultText").textContent = `${document.getElementById("staffName").value} was invited as ${document.getElementById("staffRole").value}. The mobile link expires in 24 hours and grants no access until verification.`;
+          const result = document.getElementById("inviteResult");
+          result.hidden = false;
+          result.scrollIntoView({ block: "nearest" });
+        });
+      document.querySelectorAll("[data-edit]").forEach((button) =>
+        button.addEventListener("click", () => {
+          button.textContent = "Selected";
+        }),
+      );
+    </script>
+    <script type="application/json" id="productionRouteContract">
+      {
+        "contractVersion": "mvp-route-lock-2026-07-12",
+        "prototypeScreen": 103,
+        "productionModule": "retailer",
+        "routeId": "retailer.settings-team",
+        "routePath": "/retailer/settings/team",
+        "routeState": "staff-permissions",
+        "implementation": "route-shell",
+        "launchScope": "mvp-conditional",
+        "separateProductionRoute": true,
+        "productionNote": "Own production route /retailer/settings/team. Implement staff-permissions as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.",
+        "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"
+      }
+    </script>
+    <script type="application/json" id="prototypeApprovalContract">
+      {
+        "prototypeScreen": 103,
+        "status": "approved-and-frozen",
+        "authoritative": true,
+        "approvedAt": "2026-07-12",
+        "approvalScope": "prototype-ui-ux-and-production-contract"
+      }
+    </script>
+    <script src="../shared/prototype-interaction-contracts.js?v=intent-completion-20260714b"></script>
+    <script src="../shared/prototype-interaction-runtime.js?v=intent-completion-20260714c"></script>
+  </body>
+</html>

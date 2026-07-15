@@ -434,6 +434,17 @@
       box-shadow: inset 0 -4px 0 var(--ms-saffron), 0 10px 18px rgba(0, 0, 128, .14);
     }
 
+    .method-detail {
+      margin-top: 8px;
+      border-radius: 14px;
+      padding: 9px 10px;
+      background: rgba(19, 136, 8, .08);
+      color: rgba(0, 0, 128, .76);
+      font-size: 8px;
+      font-weight: 850;
+      line-height: 1.45;
+    }
+
     .method-button small {
       color: currentColor;
       opacity: .72;
@@ -704,14 +715,14 @@
                   <a class="circle-btn" href="48-book-get-it-done.html" aria-label="Back to task details">
                     <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" /></svg>
                   </a>
-                  <button class="circle-btn" aria-label="Saved task">
+                  <button class="circle-btn" id="savedTaskButton" type="button" aria-label="Task saved" aria-pressed="true" data-native-interaction>
                     <svg viewBox="0 0 24 24"><path d="M19 21 12 17 5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2Z" /></svg>
                   </button>
                 </div>
               </div>
 
               <div class="command-bar" aria-label="Review status">
-                <span class="command-text">Details ready. Review payment hold and release rule.</span>
+                <span class="command-text" id="reviewStatus" role="status" aria-live="polite">Details ready. Review payment hold and release rule.</span>
                 <button class="search-action" aria-label="Task proof">
                   <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-5" /><path d="M21 12a9 9 0 1 1-9-9" /></svg>
                 </button>
@@ -778,25 +789,26 @@
               <section class="method-card" aria-label="Payment method">
                 <div class="card-head">
                   <b>Pay through MoolSocial</b>
-                  <span>proof linked</span>
+                  <span id="methodStatus" role="status" aria-live="polite">UPI approval follows task confirmation</span>
                 </div>
                 <div class="method-grid">
-                  <button class="method-button active" type="button" data-method="UPI hold">
+                  <button class="method-button active" type="button" data-method="UPI hold" data-native-interaction>
                     <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="M3 10h18" /></svg>
                     UPI hold
                     <small>fast</small>
                   </button>
-                  <button class="method-button" type="button" data-method="Card hold">
+                  <button class="method-button" type="button" data-method="Card hold" data-native-interaction>
                     <svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2" /><path d="M2 10h20" /></svg>
                     Card hold
-                    <small>approve</small>
+                    <small>secure</small>
                   </button>
-                  <button class="method-button" type="button" data-method="Wallet">
+                  <button class="method-button" type="button" data-method="Wallet" data-native-interaction>
                     <svg viewBox="0 0 24 24"><path d="M20 7H5a3 3 0 0 0 0 6h15v6H5a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3h15Z" /><path d="M16 12h4" /></svg>
                     Wallet
                     <small>balance</small>
                   </button>
                 </div>
+                <div class="method-detail" id="paymentMethodDetail">UPI: approve the protected hold in your UPI app only after you confirm this task.</div>
               </section>
 
               <section class="release-card" aria-label="Release controls">
@@ -847,7 +859,7 @@
               <div class="dock-track">
                 <a class="dock-tab" href="48-book-get-it-done.html"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-5" /><path d="M21 12a9 9 0 1 1-9-9" /></svg>Details</a>
                 <a class="dock-tab active" href="#primaryCta"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="M3 10h18" /></svg>Hold</a>
-                <a class="dock-tab" href="#"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" /></svg>Proof</a>
+                <button class="dock-tab" id="proofDock" type="button"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" /></svg>Proof</button>
                 <a class="dock-tab" href="23-chat-inbox-home.html"><svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z" /></svg>Support</a>
               </div>
               <a class="chat-button" href="23-chat-inbox-home.html" aria-label="Open chat">
@@ -908,6 +920,10 @@
     const releaseHint = document.getElementById("releaseHint");
     const summaryText = document.getElementById("summaryText");
     const primaryCta = document.getElementById("primaryCta");
+    const methodStatus = document.getElementById("methodStatus");
+    const paymentMethodDetail = document.getElementById("paymentMethodDetail");
+    const savedTaskButton = document.getElementById("savedTaskButton");
+    const reviewStatus = document.getElementById("reviewStatus");
 
     const taskCopy = {
       Pickup: { title: "Pickup work", fee: 99, limit: 500, eta: "60 min target" },
@@ -919,6 +935,11 @@
     const activeTask = taskCopy[task] || taskCopy.Pickup;
     const total = activeTask.fee + activeTask.limit;
     let method = params.get("method") || "UPI hold";
+    const methodDetails = {
+      "UPI hold": "UPI: approve the protected hold in your UPI app only after you confirm this task.",
+      "Card hold": "Card: place one protected authorization hold; the helper is paid only after the required proof.",
+      Wallet: "Wallet: use available balance for the protected hold; any unused task spend returns automatically."
+    };
 
     function money(value) {
       return `Rs ${value}`;
@@ -935,9 +956,16 @@
       proofTitle.textContent = `${proof} before release`;
       releaseHint.textContent = `${proof.toLowerCase()} proof`;
       summaryText.textContent = `${method} · ${money(total)} · release after ${proof.toLowerCase()} proof.`;
+      methodStatus.textContent = method === "Card hold"
+        ? "Card authorization follows task confirmation"
+        : method === "Wallet"
+          ? "Available wallet balance will fund the protected hold"
+          : "UPI approval follows task confirmation";
+      paymentMethodDetail.textContent = methodDetails[method] || methodDetails["UPI hold"];
       primaryCta.href = `50-get-it-done-helper-accepted.html?task=${encodeURIComponent(task)}&city=${encodeURIComponent(city)}&proof=${encodeURIComponent(proof)}&method=${encodeURIComponent(method)}&hold=${encodeURIComponent(total)}`;
       methodButtons.forEach((button) => {
         button.classList.toggle("active", button.dataset.method === method);
+        button.setAttribute("aria-pressed", String(button.dataset.method === method));
       });
     }
 
@@ -947,6 +975,21 @@
         methodButtons.forEach((item) => item.classList.toggle("active", item === button));
         render();
       });
+    });
+
+    savedTaskButton.addEventListener("click", () => {
+      const saved = savedTaskButton.getAttribute("aria-pressed") !== "true";
+      savedTaskButton.setAttribute("aria-pressed", String(saved));
+      savedTaskButton.setAttribute("aria-label", saved ? "Task saved" : "Save task");
+      reviewStatus.textContent = saved
+        ? "Task saved. You can return to this review before confirming payment."
+        : "Task removed from saved items. This review remains open.";
+    });
+
+    document.getElementById("proofDock").addEventListener("click", (event) => {
+      document.querySelectorAll(".dock-tab").forEach((item) => item.classList.toggle("active", item === event.currentTarget));
+      reviewStatus.textContent = `${proof} proof is required before the protected hold can be released.`;
+      document.querySelector(".release-card").scrollIntoView({ block: "nearest", behavior: "smooth" });
     });
 
     render();

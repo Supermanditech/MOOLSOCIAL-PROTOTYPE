@@ -1328,14 +1328,13 @@
     .mode-option {
       appearance: none;
       min-width: 0;
-      min-height: 34px;
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      gap: 5px;
+      min-height: 48px;
+      display: grid;
+      place-content: center;
+      gap: 2px;
       border: 1px solid rgba(0, 0, 128, .1);
       border-radius: var(--ms-pill);
-      padding: 0 9px;
+      padding: 6px 8px;
       background: #f8f9ff;
       color: var(--ms-navy);
       font-family: var(--ms-font);
@@ -1353,9 +1352,8 @@
     .mode-option b {
       overflow: hidden;
       font-size: 8.6px;
-      line-height: 1;
-      text-overflow: ellipsis;
-      white-space: nowrap;
+      line-height: 1.15;
+      white-space: normal;
     }
 
     .mode-option span {
@@ -1363,10 +1361,9 @@
       color: currentColor;
       font-size: 7.6px;
       font-weight: 820;
-      line-height: 1;
+      line-height: 1.15;
       opacity: .75;
-      text-overflow: ellipsis;
-      white-space: nowrap;
+      white-space: normal;
     }
 
     .best-price-hint {
@@ -2184,11 +2181,11 @@
                   <div class="mode-strip" aria-label="Choose buying mode">
                     <button class="mode-option active" type="button" data-price-mode="retail" data-native-interaction>
                       <b>Home &amp; Personal</b>
-                      <span>single item or household value pack</span>
+                      <span>single quantity or home value pack</span>
                     </button>
                     <button class="mode-option" type="button" data-price-mode="wholesale" data-native-interaction>
                       <b>Business Bulk</b>
-                      <span>seller-listed cases, MOQ and GST terms</span>
+                      <span>listed cases, MOQ and GST terms</span>
                     </button>
                   </div>
 
@@ -2548,7 +2545,7 @@
                     </div>
                     <div class="cart-lines">
                       <div class="cart-line">
-                        <span><b>Why this seller?</b><small>Nearer shop, stock confirmed, lower complaint risk.</small></span>
+                        <span><b>Why this seller?</b><small>Nearer shop, items available now, lower complaint risk.</small></span>
                         <strong class="line-price">Picked</strong>
                       </div>
                       <div class="cart-line">

@@ -1117,7 +1117,7 @@
               <div class="dock-track">
                 <a class="dock-tab active" href="#providerName"><svg viewBox="0 0 24 24"><path d="M20 4 8.5 15.5" /><circle cx="6" cy="6" r="3" /><circle cx="6" cy="18" r="3" /></svg>Slot</a>
                 <a class="dock-tab" href="#modeHint"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="M3 10h18" /></svg>Pay</a>
-                <a class="dock-tab" href="#primaryCta"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></svg>Confirm</a>
+                <a class="dock-tab" id="confirmDock" href="44-salon-booking-confirmed.html"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></svg>Confirm</a>
               </div>
               <a class="chat-button" href="23-chat-inbox-home.html" aria-label="Open chat">
                 <svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z" /></svg>
@@ -1293,6 +1293,7 @@
       payReasonText.textContent = payment.reasonText;
       primaryCta.textContent = payment.cta;
       primaryCta.href = `44-salon-booking-confirmed.html?provider=${encodeURIComponent(booking.provider)}&service=${encodeURIComponent(addon.label)}&pay=${encodeURIComponent(state.pay)}&amount=${encodeURIComponent(amount)}`;
+      document.getElementById("confirmDock").href = primaryCta.href;
     }
 
     payButtons.forEach((button) => {

@@ -160,12 +160,28 @@
           // A button can start a local route just as an anchor can. Wait while
           // neither navigation nor visible DOM state has committed so a valid
           // tap is not reported as unresolved because of an iframe timing race.
+          var externalHandoff = false;
           for (var settle = 0; settle < (expectedHref ? 12 : 8); settle += 1) {
-            var settlingDoc = subject.contentDocument;
-            var settlingUrl = subject.contentWindow.location.href;
-            var settlingHash = settlingDoc && settlingDoc.body ? hash(settlingDoc.body.innerHTML) : '';
-            if (settlingUrl !== beforeUrl || settlingHash !== beforeHash) break;
+            try {
+              var settlingDoc = subject.contentDocument;
+              var settlingUrl = subject.contentWindow.location.href;
+              var settlingHash = settlingDoc && settlingDoc.body ? hash(settlingDoc.body.innerHTML) : '';
+              if (settlingUrl !== beforeUrl || settlingHash !== beforeHash) break;
+            } catch (settlingError) {
+              // A successful cross-origin navigation makes the iframe opaque to
+              // the audit runner. Treat that security boundary as observable
+              // evidence only when the tapped anchor declared that destination.
+              if (expectedHref && new URL(expectedHref).origin !== new URL(beforeUrl).origin) {
+                externalHandoff = true;
+                break;
+              }
+              throw settlingError;
+            }
             await sleep(auditFast ? 50 : 80);
+          }
+
+          if (externalHandoff) {
+            return { pass: true, error: '', route: expectedHref, contract: contract ? contract.type : 'native-existing' };
           }
 
           var currentDoc = subject.contentDocument;

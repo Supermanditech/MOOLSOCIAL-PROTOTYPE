@@ -238,6 +238,15 @@ Rule: a primary user action passes only when it opens the correct product state 
 - Priority: P0
 - Status: completed
 
+## PRT-030 - Live Black-Box Intent Completion Is Proven on Phone and Laptop
+
+- Scope: every numbered Screen 00-165 at 390 x 844 and 1440 x 1000, including controls revealed by earlier taps, typed values, selections, forms, dialogs, sheets, routes and terminal outcomes.
+- Problem: inventory, contract and single-viewport replays could not prove that every real hit-tested user action remained complete across both phone and laptop layouts or through longer tap/subtap branches.
+- Required result: start each branch from a clean browser state; use real hit testing; explore the visible interaction graph to depth 12; require an intended route, meaningful state, completed input/result or clearly marked current selection; fail synthetic-runtime-only outcomes, no-ops, console errors, truncation and missing screen-viewport runs.
+- Evidence: 332/332 screen-viewport runs pass across all 166 screens. The audit completes 14,793/14,793 real interaction paths, including 9,299 nested paths, with zero failures, synthetic-runtime-only outcomes, no-ops, truncation, missing runs or console errors.
+- Priority: P0
+- Status: completed
+
 ## Verification Evidence
 
 - Semantic mobile flows: `quality/generated/semantic-mobile-user-flow-final.json`
@@ -246,5 +255,5 @@ Rule: a primary user action passes only when it opens the correct product state 
 - Source/approved parity and full interaction gates passed. Public GitHub Pages verification is the final publication check before the mobile URL is shared.
 - Intent completion: 475/475 current high-intent controls declared, zero generic fallbacks, uncontracted actions or dead controls.
 - Production-facing screen audit: 3,210 controls and 490 high-intent controls checked; zero P0/P1 findings, generic outcomes, internal wording or customer-facing retailer stock-confirmation language.
-- Independent rendered audit: 3,210/3,210 controls passed; visual action-semantics findings: 0.
-- Nested intent audit: 5,670/5,670 tap paths passed, including 3,040 revealed actions and 4,062 distinct states/outcomes; zero truncation and console errors.
+- Independent rendered audit: 3,194/3,194 testable visible controls passed across all 166 screens with zero console errors; visual action-semantics findings: 0.
+- Authoritative live black-box audit: 332/332 phone-and-laptop screen runs and 14,793/14,793 real interaction paths passed, including 9,299 nested paths; zero failures, synthetic-runtime-only outcomes, no-ops, truncation, missing runs or console errors.

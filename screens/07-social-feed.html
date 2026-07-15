@@ -1364,12 +1364,12 @@
                   </div>
                 </article>
 
-                <div class="reply-sort" data-replies>
+                <div class="reply-sort" data-replies data-comments-region hidden>
                   <button class="active" type="button" data-reply-sort="relevant">Relevant</button>
                   <button type="button" data-reply-sort="quotes">View quotes</button>
                 </div>
 
-                <article class="reply-card">
+                <article class="reply-card" data-comments-region hidden>
                   <header class="reply-author">
                     <span class="avatar">R</span>
                     <span class="reply-name">
@@ -1390,7 +1390,7 @@
                   </div>
                 </article>
 
-                <article class="reply-card">
+                <article class="reply-card" data-comments-region hidden>
                   <header class="reply-author">
                     <span class="avatar">MS</span>
                     <span class="reply-name">
@@ -1405,7 +1405,7 @@
                 </article>
               </section>
 
-              <button class="reply-compose" type="button" data-reply-compose>
+              <button class="reply-compose" type="button" data-reply-compose data-comments-region hidden>
                 <span class="avatar">You</span>
                 <span>Post your reply</span>
                 <span class="expand-reply">↗</span>
@@ -1791,6 +1791,7 @@
       feedApp?.classList.add("detail-mode");
       closeSheet();
       if (detailScroll) detailScroll.scrollTop = 0;
+      document.querySelectorAll("[data-comments-region]").forEach((region) => { region.hidden = !scrollToReplies; });
       const detailComments = document.querySelector("[data-post-detail] [data-open-comments]");
       detailComments?.classList.toggle("active", scrollToReplies);
       detailComments?.setAttribute("aria-pressed", String(scrollToReplies));
@@ -1801,6 +1802,7 @@
 
     function openFeedTimeline() {
       feedApp?.classList.remove("detail-mode");
+      document.querySelectorAll("[data-comments-region]").forEach((region) => { region.hidden = true; });
       const detailComments = document.querySelector("[data-post-detail] [data-open-comments]");
       detailComments?.classList.remove("active");
       detailComments?.setAttribute("aria-pressed", "false");

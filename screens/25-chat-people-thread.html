@@ -879,7 +879,7 @@
                 </span>
                 <span class="note-copy">
                   <b id="modeTitle">Private family group</b>
-                  <span id="modeText">5 members · 3 online · media, poll and basket open from attach.</span>
+                  <span id="modeText" role="status" aria-live="polite">5 members · 3 online · media, poll and basket open from attach.</span>
                 </span>
                 <span class="note-mini" id="modeState">Private</span>
               </section>
@@ -1005,7 +1005,7 @@
                   <b>Replying to Amit</b>
                   <span>Please add atta, rice and oil for this month...</span>
                 </div>
-                <button type="button" id="closeReply" aria-label="Close reply preview">x</button>
+                <button type="button" id="closeReply" aria-label="Close reply preview" data-native-interaction>x</button>
               </div>
               <div class="attachment-tray is-hidden" id="attachmentTray" aria-label="Attachment options">
                 <button class="attach-chip primary" type="button" data-attachment="Camera">
@@ -1042,17 +1042,17 @@
                 </a>
               </div>
               <div class="composer">
-                <button type="button" id="attachToggle" aria-label="Attach media or basket">
+                <button type="button" id="attachToggle" aria-label="Attach media or basket" data-native-interaction>
                   <svg viewBox="0 0 24 24"><path d="M21.4 11.6 12 21a6 6 0 0 1-8.5-8.5l9.4-9.4a4 4 0 0 1 5.7 5.7L9.2 18.2a2 2 0 1 1-2.8-2.8l8.7-8.7" /></svg>
                 </button>
-                <button type="button" id="cameraToggle" aria-label="Open camera">
+                <button type="button" id="cameraToggle" aria-label="Open camera" data-native-interaction>
                   <svg viewBox="0 0 24 24"><path d="M9 7l1.5-2h3L15 7h3a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-7a3 3 0 0 1 3-3Z" /><circle cx="12" cy="13" r="3" /></svg>
                 </button>
                 <input id="composerInput" type="text" aria-label="Message Home Basket Group" placeholder="Message Home Basket Group..." />
-                <button type="button" data-chat-intent="voice" aria-label="Record voice note">
+                <button type="button" data-chat-intent="voice" aria-label="Record voice note" data-native-interaction>
                   <svg viewBox="0 0 24 24"><path d="M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3Z" /><path d="M19 10v2a7 7 0 0 1-14 0v-2" /></svg>
                 </button>
-                <button class="send-btn" type="button" data-send-message aria-label="Send message">
+                <button class="send-btn" type="button" data-send-message aria-label="Send message" data-native-interaction>
                   <svg viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4 20-7Z" /><path d="M22 2 11 13" /></svg>
                 </button>
               </div>
@@ -1112,6 +1112,7 @@
     const chatSheetCopy = document.getElementById("chatSheetCopy");
     const chatSheetFields = document.getElementById("chatSheetFields");
     const chatSheetActions = document.getElementById("chatSheetActions");
+    let selectedAttachment = "";
 
     const modeCopy = {
       chat: {
@@ -1288,8 +1289,11 @@
       chip.addEventListener("click", (event) => {
         const label = event.currentTarget.textContent.trim();
         if (label === "Basket") return;
+        selectedAttachment = label;
+        document.querySelectorAll(".attach-chip[data-attachment]").forEach((item) => item.setAttribute("aria-pressed", String(item === event.currentTarget)));
         composerInput.placeholder = `${label} selected - add a message...`;
         modeText.textContent = `${label} is attached and ready to send.`;
+        modeState.textContent = "Attached";
         attachmentTray?.classList.add("is-hidden");
       });
     });
@@ -1430,20 +1434,24 @@
     });
 
     document.querySelector("[data-send-message]")?.addEventListener("click", () => {
-      const message = composerInput.value.trim();
-      if (!message) {
+      const typedMessage = composerInput.value.trim();
+      if (!typedMessage && !selectedAttachment) {
         modeText.textContent = "Type a message or choose an attachment before sending.";
         composerInput.focus();
         return;
       }
+      const message = [selectedAttachment ? `${selectedAttachment} attached` : "", typedMessage].filter(Boolean).join(" · ");
       const row = document.createElement("div");
       row.className = "message-row out";
       row.innerHTML = `<div class="bubble out"><span></span><small>now · sent</small></div>`;
       row.querySelector("span").textContent = message;
       chatBody.append(row);
       composerInput.value = "";
-      modeText.textContent = "Message sent to 5 members.";
+      modeText.textContent = selectedAttachment ? `${selectedAttachment} sent to 5 members.` : "Message sent to 5 members.";
       modeState.textContent = "Sent";
+      selectedAttachment = "";
+      document.querySelectorAll(".attach-chip[data-attachment]").forEach((item) => item.setAttribute("aria-pressed", "false"));
+      composerInput.placeholder = "Message Home Basket Group...";
       chatBody.scrollTop = chatBody.scrollHeight;
     });
   </script>

@@ -23,8 +23,13 @@
     document.querySelectorAll("[data-filter]").forEach(b=>b.onclick=()=>{active=b.dataset.filter;render()});
     document.querySelectorAll("[data-item]").forEach(b=>b.onclick=()=>open(c.items[+b.dataset.item]));
     document.querySelector(".shade").onclick=close;
-    document.querySelector(".back").onclick=()=>history.length>1?history.back():location.assign("../screens/04-universal-focus-shell.html");
-    document.querySelector(".topAction")?.addEventListener("click",()=>toast(c.topResult||"Action opened."));
+    document.querySelector(".back").onclick=()=>{
+      const referrer=document.referrer?new URL(document.referrer,location.href):null;
+      const hasScreenReferrer=referrer&&referrer.origin===location.origin&&/\/screens\/\d{2,3}-[^/]+[.]html$/.test(referrer.pathname)&&referrer.pathname!==location.pathname;
+      if(hasScreenReferrer) history.back();
+      else location.assign("../screens/04-universal-focus-shell.html");
+    };
+    document.querySelector(".topAction")?.addEventListener("click",()=>toast(c.topResult||`${c.topAction} options are ready for ${c.title}.`));
   }
 
   function open(x){
@@ -54,7 +59,34 @@
       toast(x.result||`${x.primary||"Changes"} saved.`);
       x.unread=false;
     };
-    sheet.querySelector(".secondary")?.addEventListener("click",()=>toast(x.secondaryResult||"Temporary override opened."));
+    sheet.querySelector(".secondary")?.addEventListener("click",event=>{
+      const secondaryButton=event.currentTarget;
+      const routes={
+        "Manage consent":"165-shared-personalized-controls.html?section=privacy",
+        "Contact support":c.screen===161?"23-chat-inbox-home.html?from=security-support":`161-shared-security-support.html?from=${c.screen||"shared"}`,
+        "Access log":"161-shared-security-support.html?section=access-log",
+        "Manage media":"124-creator-studio-home.html?tab=media",
+        "Workspace settings":"104-retailer-store-settings-readiness.html?from=workspaces",
+        "Channel settings":"124-creator-studio-home.html?tab=settings"
+      };
+      if(routes[x.secondary]){location.assign(routes[x.secondary]);return;}
+      const exactResults={
+        "Save":`${x.title} saved to Activity. Saved-item reference ACT-${c.screen||"MS"}-01.`,
+        "Not interested":`${x.title} removed from local offer recommendations. Preference receipt PREF-${c.screen||"MS"}-01 saved.`,
+        "Later":`${x.title} reminder scheduled for tomorrow at 10:00 AM. Reminder reference REM-${c.screen||"MS"}-01.`,
+        "Revoke":`Access to ${x.title} revoked for the named provider. Consent receipt CONSENT-${c.screen||"MS"}-01 saved.`
+      };
+      const message=x.secondaryResult||exactResults[x.secondary]||`${x.secondary} details for ${x.title} are ready. Your current setting is unchanged until you confirm a new choice.`;
+      sheet.querySelector(".secondary-result")?.remove();
+      const result=document.createElement("section");
+      result.className="secondary-result";
+      result.setAttribute("role","status");
+      result.setAttribute("aria-live","polite");
+      result.innerHTML=`<strong>${esc(x.secondary)}</strong><p>${esc(message)}</p><button type="button">Done</button>`;
+      result.querySelector("button").onclick=()=>{result.remove();secondaryButton?.focus()};
+      sheet.querySelector(".actions").before(result);
+      result.scrollIntoView({block:"nearest"});
+    });
     shade.classList.add("open");
     sheet.classList.add("open");
   }
