@@ -988,11 +988,7 @@
       if (content) content.scrollTop = 0;
     }
 
-    window.addEventListener("load", () => {
-      resetPhoneScroll();
-      requestAnimationFrame(resetPhoneScroll);
-      setTimeout(resetPhoneScroll, 80);
-    });
+    window.addEventListener("load", resetPhoneScroll, { once: true });
 
     const modes = {
       salon: {

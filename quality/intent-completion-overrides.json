@@ -2410,6 +2410,104 @@
       "occurrence": 0,
       "resolutionType": "state",
       "evidence": "Clean mobile replay produced visible state: • Rajasthan Foods factory Catalogue visible and accepting wholesale orders during the saved order window. × What this controls Wholesale catalogue visibility, new-order acceptance and transport modes are controlled separately. LIVE PREVIEW Accepting wholesale orders Order window closes 6:00 PM CATALOGUE Public to eligible buyers ORDERS On CAPACITY Live DISPATCH Own + MoolSocial Show wholesale catalogue Eligible buyers see approved products and terms Accept new wholesale orders Existing purchase orders remain binding Automatic order window Use saved commercial hours Own-fleet dispatch Offer supplier transport where available MoolSocial transport Allow platform transport selection Buyer pickup Allow pickup under confirmed terms Wholesale order window Asia/Kolkata Mon–Sat 9:00 AM–6:00 PM Sunday Closed Dispatch cutoff 4:00 PM same-day Pause new orders Save factory controls"
+    },
+    {
+      "screen": 6,
+      "label": "Save",
+      "occurrence": 0,
+      "resolutionType": "toggle",
+      "evidence": "Clean physical replay changes the selected video's Save control to its visible saved state."
+    },
+    {
+      "screen": 7,
+      "label": "Share an update, ask, sell, hire or post proof",
+      "occurrence": 0,
+      "resolutionType": "route",
+      "evidence": "Clean physical replay opens Screen 08 Create in text-post mode from Feed."
+    },
+    {
+      "screen": 11,
+      "label": "Deliver home in 22 min send to your confirmed address",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean physical replay selects home delivery and carries its ETA and confirmed-address instruction into the basket decision."
+    },
+    {
+      "screen": 12,
+      "label": "Deliver home in 22 min to your confirmed address",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean physical replay selects home delivery and updates the basket fulfilment summary and payable decision."
+    },
+    {
+      "screen": 12,
+      "label": "Review & Pay",
+      "occurrence": 0,
+      "resolutionType": "route",
+      "evidence": "Clean physical replay opens Screen 14 with the chosen product, pack or MOQ, quantity, fulfilment and exact payable total."
+    },
+    {
+      "screen": 13,
+      "label": "Start Packing accept the paid order",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean physical replay marks the retailer task Packing started and publishes the live ready time to the customer."
+    },
+    {
+      "screen": 13,
+      "label": "Adjust Quantity request customer approval",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean physical replay records the quantity adjustment and shows that customer approval or refund is pending."
+    },
+    {
+      "screen": 13,
+      "label": "Report Unavailable offer replace or refund",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean physical replay records the item exception and exposes substitute, reassignment or refund resolution."
+    },
+    {
+      "screen": 14,
+      "label": "Pay Rs 670",
+      "occurrence": 0,
+      "resolutionType": "terminal",
+      "evidence": "Clean physical replay progresses through payment processing to Payment successful and enables the exact order destination."
+    },
+    {
+      "screen": 25,
+      "label": "Record voice note",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean physical replay starts voice recording and reveals its review, send and cancel controls."
+    },
+    {
+      "screen": 48,
+      "label": "Pickup place Shop, counter, office or address Map pin or typed address Add needed",
+      "occurrence": 0,
+      "resolutionType": "input",
+      "evidence": "Clean physical replay selects Pickup place, marks the field added and updates the task summary."
+    },
+    {
+      "screen": 48,
+      "label": "Pickup instruction What to collect and from whom Text, voice or photo works Add needed",
+      "occurrence": 0,
+      "resolutionType": "input",
+      "evidence": "Clean physical replay selects Pickup instruction, marks the field added and updates the task summary."
+    },
+    {
+      "screen": 54,
+      "label": "Report filed Case created from your issue report",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "The case timeline visibly marks Report filed as the current completed phase; physical replay preserves that explicit selected state."
+    },
+    {
+      "screen": 67,
+      "label": "View Activate local businesses opportunity details",
+      "occurrence": 0,
+      "resolutionType": "state",
+      "evidence": "Clean physical replay expands the exact local-business activation opportunity with eligibility, payout and Apply action."
     }
   ]
 }

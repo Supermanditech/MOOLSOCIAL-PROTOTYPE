@@ -1,6 +1,6 @@
 {
   "version": "mobile-user-flow-audit-2026-07-14-v2",
-  "generatedAt": "2026-07-14T21:02:52.7154041+05:30",
+  "generatedAt": "2026-07-15T19:39:14.1402318+05:30",
   "status": "passed",
   "viewport": {
     "width": 390,
@@ -15,7 +15,7 @@
   "summary": {
     "operationalFlowsTested": 47,
     "approvedScreensRendered": 166,
-    "strictControlsTested": 3191,
+    "strictControlsTested": 3210,
     "loadErrors": 0,
     "consoleErrors": 0,
     "horizontalOverflows": 0,
@@ -74,16 +74,16 @@
       "flow": "buy-counter",
       "status": "passed",
       "steps": 9,
-      "expectedNodes": 9,
+      "expectedNodes": 8,
       "screensSeen": [
         4,
         9,
         10,
         11,
         12,
-        13,
         14,
-        15
+        15,
+        16
       ],
       "horizontalOverflows": 0,
       "error": null
@@ -91,17 +91,17 @@
     {
       "flow": "buy-delivery",
       "status": "passed",
-      "steps": 9,
-      "expectedNodes": 9,
+      "steps": 10,
+      "expectedNodes": 8,
       "screensSeen": [
         4,
         9,
         10,
         11,
         12,
-        13,
         14,
-        17
+        17,
+        18
       ],
       "horizontalOverflows": 0,
       "error": null
@@ -109,7 +109,7 @@
     {
       "flow": "buy-issue",
       "status": "passed",
-      "steps": 4,
+      "steps": 8,
       "expectedNodes": 5,
       "screensSeen": [
         18,
@@ -123,7 +123,7 @@
     {
       "flow": "chat",
       "status": "passed",
-      "steps": 4,
+      "steps": 6,
       "expectedNodes": 5,
       "screensSeen": [
         4,
@@ -177,6 +177,7 @@
       "screensSeen": [
         4,
         30,
+        31,
         33,
         34
       ],
@@ -311,7 +312,8 @@
         4,
         57,
         61,
-        62
+        62,
+        65
       ],
       "horizontalOverflows": 0,
       "error": null
@@ -341,7 +343,8 @@
         68,
         69,
         70,
-        71
+        71,
+        73
       ],
       "horizontalOverflows": 0,
       "error": null
@@ -362,9 +365,10 @@
     {
       "flow": "retailer-orders",
       "status": "passed",
-      "steps": 3,
-      "expectedNodes": 4,
+      "steps": 17,
+      "expectedNodes": 5,
       "screensSeen": [
+        13,
         74,
         75,
         76
@@ -375,7 +379,7 @@
     {
       "flow": "retailer-pos",
       "status": "passed",
-      "steps": 6,
+      "steps": 7,
       "expectedNodes": 6,
       "screensSeen": [
         74,
@@ -389,7 +393,7 @@
     {
       "flow": "retailer-wholesale",
       "status": "passed",
-      "steps": 10,
+      "steps": 22,
       "expectedNodes": 11,
       "screensSeen": [
         74,
@@ -422,7 +426,7 @@
     {
       "flow": "retailer-services",
       "status": "passed",
-      "steps": 5,
+      "steps": 6,
       "expectedNodes": 5,
       "screensSeen": [
         74,
@@ -466,7 +470,7 @@
     {
       "flow": "manufacturer-sales",
       "status": "passed",
-      "steps": 4,
+      "steps": 5,
       "expectedNodes": 5,
       "screensSeen": [
         107,
@@ -515,7 +519,7 @@
     {
       "flow": "captain-workspace",
       "status": "passed",
-      "steps": 10,
+      "steps": 12,
       "expectedNodes": 10,
       "screensSeen": [
         116,
@@ -550,7 +554,7 @@
     {
       "flow": "creator-funded-campaign",
       "status": "passed",
-      "steps": 8,
+      "steps": 6,
       "expectedNodes": 8,
       "screensSeen": [
         100,
@@ -565,7 +569,7 @@
     {
       "flow": "creator-commerce-share",
       "status": "passed",
-      "steps": 9,
+      "steps": 11,
       "expectedNodes": 12,
       "screensSeen": [
         99,
@@ -574,8 +578,8 @@
         5,
         9,
         12,
-        13,
         14,
+        17,
         154
       ],
       "horizontalOverflows": 0,
@@ -589,7 +593,8 @@
       "screensSeen": [
         132,
         7,
-        62
+        62,
+        130
       ],
       "horizontalOverflows": 0,
       "error": null
@@ -600,7 +605,8 @@
       "steps": 1,
       "expectedNodes": 4,
       "screensSeen": [
-        154
+        154,
+        130
       ],
       "horizontalOverflows": 0,
       "error": null
@@ -623,7 +629,7 @@
     {
       "flow": "creator-onboarding",
       "status": "passed",
-      "steps": 5,
+      "steps": 6,
       "expectedNodes": 7,
       "screensSeen": [
         152,
@@ -646,7 +652,8 @@
         129,
         125,
         7,
-        62
+        62,
+        130
       ],
       "horizontalOverflows": 0,
       "error": null
@@ -659,7 +666,8 @@
       "screensSeen": [
         99,
         131,
-        154
+        154,
+        130
       ],
       "horizontalOverflows": 0,
       "error": null
@@ -667,7 +675,7 @@
     {
       "flow": "earn-operations",
       "status": "passed",
-      "steps": 6,
+      "steps": 7,
       "expectedNodes": 6,
       "screensSeen": [
         133,
@@ -682,7 +690,7 @@
     {
       "flow": "provider-workspace",
       "status": "passed",
-      "steps": 11,
+      "steps": 12,
       "expectedNodes": 12,
       "screensSeen": [
         139,

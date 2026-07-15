@@ -991,11 +991,7 @@
       if (content) content.scrollTop = 0;
     }
 
-    window.addEventListener("load", () => {
-      resetPhoneScroll();
-      requestAnimationFrame(resetPhoneScroll);
-      setTimeout(resetPhoneScroll, 80);
-    });
+    window.addEventListener("load", resetPhoneScroll, { once: true });
 
     const kitchens = document.querySelectorAll("[data-kitchen]");
     const foodChips = document.querySelectorAll("[data-food]");

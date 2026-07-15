@@ -17,15 +17,15 @@ Every ticket requires loading, empty, offline, denied, timeout, duplicate/retry 
 
 - Users: consumer and retailer wholesale buyer.
 - Prototype: 09-11 and 81.
-- Outcome: type a query, filter products, choose retail/wholesale mode, inspect price/pack/MOQ/delivery/payment and add the intended SKU.
-- Acceptance: server search is paginated and typo-tolerant; unavailable products cannot be added; selected product, mode and attribution survive navigation.
+- Outcome: type a query, filter products, choose Home & Personal or Business Bulk, then add the intended SKU with one decisive rate visible at a time.
+- Acceptance: Single Quantity and fixed Home Value Pack remain household choices; every fixed pack shows its complete payable pack total; Business Bulk returns only direct case/MOQ listings published by an eligible seller and shows per-unit/case basis plus the complete minimum-order total, quantity, GST, delivery and payment terms; campaign/demand-aggregation records never enter consumer product results; selected product, mode, pack/MOQ, quantity, exact total and attribution survive navigation.
 
 ## PROD-JRN-003 - Availability reservation and customer checkout
 
 - Users: consumer.
 - Prototype: 10-18.
-- Outcome: choose counter pickup or delivery, review basket, reserve available items, pay once and open the correct order status.
-- Acceptance: no customer-visible retailer confirmation step; reservation has expiry/replacement rules; payment is idempotent; pickup routes to 15-16 and delivery to 17-18.
+- Outcome: order to a confirmed home address by default, or choose at-shop collection only from an explicit QR/location-confirmed shop session; review basket, reserve available items, pay once and open the correct order status.
+- Acceptance: home sessions never expose at-shop collection or counter QR; at-shop context is explicit and expires safely; the Basket and Payment summaries reconcile the exact selected product/rate/quantity, item subtotal, saving, fulfilment fee and payable amount; no customer-visible retailer confirmation step; reservation has expiry/replacement rules; payment is idempotent; at-shop collection routes to 15-16 and delivery to 17-18.
 - Events: `availability_reserved`, `checkout_reviewed`, `payment_authorized`, `order_confirmed`, `order_completed`.
 
 ## PROD-JRN-004 - Order issue, evidence and governed resolution
@@ -135,11 +135,26 @@ Every ticket requires loading, empty, offline, denied, timeout, duplicate/retry 
 - Outcome: select today/week/month/custom dates, open evidence-backed answers, match or review records, prepare exports, grant timed accountant access and complete order exception decisions.
 - Acceptance: custom start/end dates validate and apply; every answer links to source ledger records; exports are period-locked and audited; access has role and expiry; exception reasons are explicit; full/partial/unable order decisions preserve quantity, terms and buyer impact.
 
+## PROD-JRN-019 - People chat, calls and shared group utilities
+
+- Users: private chat members and group admins.
+- Prototype: 23 and 25.
+- Outcome: send a typed message, attachment or voice note; start/end voice or video calls; search messages; view members/media; edit a shared basket; create/update a poll; invite a member; change notifications; leave the group with confirmation.
+- Acceptance: message/attachment upload is queued offline and idempotent; call signaling exposes connecting/connected/ended and device controls; membership and leave actions are authorized and audited; basket/poll revisions reconcile concurrent edits; private content never enters analytics; every header/composer action has an accessible immediate state and a recoverable failure path.
+
+## PROD-JRN-020 - Seller-governed Business Bulk publication
+
+- Users: eligible retailer, wholesaler, distributor and manufacturer operators; business/bulk buyers.
+- Prototype: 09-11, 74, 81-86, 107 and 109-113.
+- Outcome: an authorized seller explicitly publishes a direct Business Bulk listing; a buyer sees and orders only confirmed case/MOQ terms through purchase order, delivery, goods receipt and reconciliation.
+- Acceptance: seller type and authorization gate publication; required fields are canonical SKU, case/pack, available quantity, bulk price/unit, MOQ, HSN/GST invoice, delivery responsibility/date, payment terms and claim rules; consumer and wholesale visibility are separate flags; campaigns, pooled demand and internal matches cannot publish product cards; existing orders retain versioned locked terms after edits.
+- Events: `bulk_listing_published`, `bulk_terms_versioned`, `bulk_listing_paused`, `bulk_order_placed`, `bulk_goods_received`.
+
 ## Release acceptance for every ticket
 
 - Contract tests prove route/state, authorization, idempotency and error model.
 - Mobile replay proves the same action sequence as `quality/generated/semantic-mobile-user-flow-final.json`.
-- Nested replay proves the relevant second- and third-level actions from `quality/generated/nested-control-intent-audit.json`; no ticket may substitute navigation when a meaningful in-route state is the intended result.
+- Recursive replay proves every relevant action, popup, input, same-form submit, nested confirmation and terminal result to depth eight from `quality/generated/nested-control-intent-audit.json`; fragment-only links and generic acknowledgements do not pass.
 - Copy audit finds no prototype/internal wording or customer-facing operational uncertainty.
 - Observability identifies journey, route, correlation ID and outcome without storing private message/evidence content in analytics.
 - Feature flag, migration/backfill plan, rollback and support runbook are attached before production enablement.

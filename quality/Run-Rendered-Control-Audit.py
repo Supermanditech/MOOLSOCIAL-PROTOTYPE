@@ -39,6 +39,8 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
     parser.add_argument("--output", type=Path)
+    parser.add_argument("--inventory-output", type=Path)
+    parser.add_argument("--inventory-only", action="store_true")
     parser.add_argument("--timeout", type=float, default=1200.0)
     parser.add_argument("--screen", type=int)
     parser.add_argument("--full-speed", action="store_true", help="Use the runner's slower observation timing")
@@ -47,11 +49,16 @@ def main() -> int:
     root = args.root.resolve()
     output = (args.output or root / "quality/generated/rendered-control-deep-audit.json").resolve()
     output.parent.mkdir(parents=True, exist_ok=True)
+    inventory_output = args.inventory_output.resolve() if args.inventory_output else None
+    if inventory_output:
+        inventory_output.parent.mkdir(parents=True, exist_ok=True)
 
     server = QuietServer(("127.0.0.1", 0), partial(QuietHandler, directory=str(root)))
     thread = threading.Thread(target=server.serve_forever, daemon=True)
     thread.start()
     query_parts = [] if args.full_speed else ["fast=1"]
+    if args.inventory_only:
+        query_parts.append("inventory=1")
     if args.screen is not None:
         query_parts.append(f"screen={args.screen}")
     query = f"?{'&'.join(query_parts)}" if query_parts else ""
@@ -69,6 +76,7 @@ def main() -> int:
     options.set_capability("goog:loggingPrefs", {"browser": "ALL"})
 
     report: dict = {}
+    inventory: dict = {}
     console_errors: list[dict] = []
     try:
         with webdriver.Edge(options=options) as driver:
@@ -96,6 +104,7 @@ def main() -> int:
                     last_reported = now
                 if complete:
                     report = driver.execute_script("return window.__MOOL_STRICT_AUDIT_REPORT__") or {}
+                    inventory = driver.execute_script("return window.__MOOL_RENDERED_CONTROL_INVENTORY__") or {}
                     break
                 time.sleep(0.4)
             else:
@@ -117,6 +126,8 @@ def main() -> int:
 
     report["consoleErrors"] = console_errors
     output.write_text(json.dumps(report, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    if inventory_output:
+        inventory_output.write_text(json.dumps(inventory, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     summary = report.get("summary", {})
     print(
         json.dumps(

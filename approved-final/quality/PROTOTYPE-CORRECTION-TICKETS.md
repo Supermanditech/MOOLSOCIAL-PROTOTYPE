@@ -115,11 +115,11 @@ Rule: a primary user action passes only when it opens the correct product state 
 - Priority: P0
 - Status: completed
 
-## PRT-015 - Choose Retail or Wholesale Once
+## PRT-015 - Choose Home Buying or Business Bulk Once
 
 - Screen: 09.
-- Problem: every product repeated Retail, Pack and Wholesale ladders, making the purchase decision dense and repetitive.
-- Required result: a single persistent `Retail Buy | Wholesale Buy` switch changes every product card. Pack size stays inside product details; wholesale mode shows unit rate, MOQ, delivery and payment terms.
+- Problem: every product repeated Retail, Family Pack and Wholesale ladders, making the purchase decision dense and unclear for household customers.
+- Required result: a single persistent `Home & Personal | Business Bulk` switch changes the catalogue. Home & Personal offers Single Quantity and a complete-price Home Value Pack; Business Bulk shows only eligible direct seller listings with case rate, minimum-order total, MOQ, GST, delivery and payment terms.
 - Priority: P0
 - Status: completed
 
@@ -143,7 +143,7 @@ Rule: a primary user action passes only when it opens the correct product state 
 
 - Screens: 10-18.
 - Problem: customer checkout exposed an internal retailer stock-confirmation dependency after basket review and before payment.
-- Required result: show automatic availability, let the customer choose pickup or delivery, review the basket, pay and immediately open the correct order status. Screen 13 remains a retailer-only paid-order preparation state.
+- Required result: show automatic availability, default home sessions to delivery, expose at-shop collection only after an explicit QR/location shop context, review the basket, pay and immediately open the correct delivery or collection status. Screen 13 remains a retailer-only paid-order preparation state.
 - Priority: P0
 - Status: completed
 
@@ -168,7 +168,7 @@ Rule: a primary user action passes only when it opens the correct product state 
 - Scope: all numbered Screens 00-165, including controls revealed inside sheets, dialogs, content detail, comments, filters, statements, support and verification states.
 - Problem: initial-screen inventories and 47 representative journeys did not prove every second- or third-level tap; some nested controls were visible but inert.
 - Required result: physically replay every button path from a clean 390 x 844 session to depth three. A route, meaningful visible state/input/result, or clearly marked already-current selection passes; scroll/focus-only changes and generic acknowledgements fail.
-- Evidence: 3,906/3,906 paths pass, including 2,491 nested paths, with zero truncation and zero console errors.
+- Evidence: the superseding depth-eight release replay passes 5,670/5,670 paths, including 3,040 nested paths and 4,062 distinct states, with zero truncation and zero console errors.
 - Priority: P0
 - Status: completed
 
@@ -188,13 +188,63 @@ Rule: a primary user action passes only when it opens the correct product state 
 - Priority: P0
 - Status: completed
 
+## PRT-024 - Recursive Micro-Intent Audit Covers the Whole App
+
+- Scope: all 166 numbered HTML screens plus every discoverable local state, sheet, dialog, input, choice, confirmation and terminal action.
+- Problem: the earlier depth-three button-only audit did not exercise links, form controls, same-form submit actions, fragment-only no-ops or deeper branches.
+- Required result: replay all phone-facing buttons, links, inputs, selects and textareas through a cycle-safe depth-eight graph. Ignore fragment-only URL changes; require a meaningful state, route, selected/current result or immediate completed action.
+- Audit rule: discover direct JavaScript card/row tap surfaces as well as semantic controls, and deduplicate identical states reached again after Close, Cancel or Back so path limits are spent on unique branches.
+- Evidence: 5,670/5,670 clean-state paths pass across all 166 screens, including 3,040 actions revealed after an earlier tap and 4,062 distinct screen-local states/outcomes; zero failed paths, truncation or console errors.
+- Priority: P0
+- Status: completed
+
+## PRT-025 - Long-Form Video Opens the Selected Content and Its Actions
+
+- Screen: 06 Social Videos.
+- Problem: multiple feed and recommended-video taps opened one hard-coded basket video, recommended cards were passive, and each feed card's More intent had no independent outcome.
+- Required result: every feed or recommendation tap selects and renders its own title, duration, creator, proof and context; recommended videos are semantic controls; More opens video-specific Watch, Save, Share, Hide and Report actions.
+- Priority: P0
+- Status: completed
+
+## PRT-026 - People Chat Completes Header, Composer and Nested Utility Intents
+
+- Screen: 25 Chat / People Thread.
+- Problem: Call, Video, More, Edit list, Add option, quick replies and Send used fragment-only links with no completed outcome.
+- Required result: support Call -> Start -> in-call controls -> End; Video -> Start -> camera/mic controls -> End; More -> members/search/media/notifications/leave; editable basket and poll forms; attachment choices; voice note record/send; typed message send.
+- Priority: P0
+- Status: completed
+
+## PRT-027 - Buy Modes and Fulfilment Are Decisive
+
+- Screens: 09-12 and 14 consumer Buy; 74 retailer listing; 109 manufacturer listing.
+- Problem: Retail, Family Pack and Wholesale appeared as competing columns; pooled-demand/campaign language appeared inside consumer product decisions; Counter Pickup appeared during home ordering; seller listing screens did not clearly govern Business Bulk visibility.
+- Required result: separate Home & Personal (Single Quantity and fixed Home Value Pack) from Business Bulk (direct seller case/MOQ listing). Show one selected rate at a time and display the complete fixed-pack or minimum-order total, not an ambiguous per-unit price beside a larger pack. Carry the selected product, rate, pack/MOQ, quantity and exact total into Basket and Payment. Require eligible seller type, case/pack, MOQ, direct price, GST, quantity, delivery and payment terms. Keep campaigns and demand aggregation out of the consumer grid. Default home sessions to delivery and expose at-shop collection only with explicit at-shop context.
+- Priority: P0
+- Status: completed
+
+## PRT-028 - User Scroll Is Never Repositioned After Interaction Begins
+
+- Screens: 29-68, covering Tiffin, Ride, Book, Doctor, Salon, Get It Done, Pay and Work journeys.
+- Problem: delayed load and `pageshow` scroll resets could move lower actions out from under a real user's tap during the first 80-600 ms, even though the control itself was correctly implemented.
+- Required result: set the initial phone position once on load, then preserve every user scroll position while cards, sheets, forms and follow-up actions are used. Back/Close actions may restore their owning state but must not unexpectedly jump the user to the top.
+- Priority: P0
+- Status: completed
+
+## PRT-029 - Dynamic Export, Sharing and Terms Actions Show Exact Outcomes
+
+- Screens: 70 workspace contact verification, 90 Sales Book, 95 service activation and 104 store readiness.
+- Problem: numeric verification fields could be exercised with invalid characters; PDF/GST/accountant/WhatsApp/QR choices, the service-terms link and the readiness reminder could appear actionable without a persistent result.
+- Required result: accept realistic numeric mobile/OTP input; prepare the selected export or receipt; open a governed sharing handoff; and visibly identify the exact terms or licence reminder that needs review.
+- Priority: P0
+- Status: completed
+
 ## Verification Evidence
 
 - Semantic mobile flows: `quality/generated/semantic-mobile-user-flow-final.json`
 - Result: 47/47 operational flows passed at 390 x 844 with zero browser console errors.
-- Static graph: 166 source and approved screens, 483 flow nodes, 1,077 local navigation targets and 474 assets passed.
+- Static graph: 166 source and approved screens, 483 flow nodes, 1,104 local navigation targets and 475 assets passed.
 - Source/approved parity and full interaction gates passed. Public GitHub Pages verification is the final publication check before the mobile URL is shared.
-- Intent completion: 483/483 high-intent controls declared, 63/63 curated outcomes replayed, zero generic fallbacks and zero dead controls.
-- Production-facing screen audit: 3,191 controls and 497 high-intent controls checked; zero P0/P1 findings, generic outcomes, internal wording or customer-facing retailer stock-confirmation language.
-- Independent rendered audit: 3,220/3,220 controls passed; visual action-semantics findings: 0.
-- Nested intent audit: 3,906/3,906 tap paths passed, including 2,491 revealed controls; zero truncation and console errors.
+- Intent completion: 475/475 current high-intent controls declared, zero generic fallbacks, uncontracted actions or dead controls.
+- Production-facing screen audit: 3,210 controls and 490 high-intent controls checked; zero P0/P1 findings, generic outcomes, internal wording or customer-facing retailer stock-confirmation language.
+- Independent rendered audit: 3,210/3,210 controls passed; visual action-semantics findings: 0.
+- Nested intent audit: 5,670/5,670 tap paths passed, including 3,040 revealed actions and 4,062 distinct states/outcomes; zero truncation and console errors.

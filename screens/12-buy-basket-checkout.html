@@ -466,6 +466,8 @@
       box-shadow: inset 0 -3px 0 var(--ms-saffron);
     }
 
+    .app[data-at-shop="off"] [data-fulfil="pickup"] { display: none; }
+
     .summary-grid {
       display: grid;
       gap: 6px;
@@ -887,7 +889,7 @@
                   <a class="circle-btn" href="11-buy-product-detail.html?product=tomato&wholesale=off" aria-label="Back to product detail">
                     <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" /></svg>
                   </a>
-                  <button class="circle-btn" type="button" aria-label="Apply coupon">
+                  <button class="circle-btn" type="button" id="applyCoupon" aria-label="Apply coupon" data-native-interaction>
                     <svg viewBox="0 0 24 24"><path d="M4 9V5h4l10 10-4 4L4 9Z" /><path d="M7 7h.01" /></svg>
                   </button>
                 </div>
@@ -899,7 +901,7 @@
                 <div class="hero-top">
                   <div class="shop-lock">
                     <b id="heroTitle">Basket ready at Mahadev</b>
-                    <span id="heroSubtitle">Pay in app, collect from counter or choose delivery.</span>
+                    <span id="heroSubtitle">Review the home-delivery basket and pay the final amount shown.</span>
                   </div>
                   <div class="basket-count">
                     <span><strong id="basketQty">3</strong>items</span>
@@ -911,12 +913,12 @@
                     <span id="decisionAmountMeta">available now at this price</span>
                   </div>
                   <div class="decision-chip">
-                    <b id="decisionFulfil">Pickup 8 min</b>
+                    <b id="decisionFulfil">Deliver home in 22 min</b>
                     <span>current fulfilment</span>
                   </div>
                   <div class="decision-chip">
                     <b id="decisionSaving">Rs 42 saved</b>
-                    <span>pack plus shop offer</span>
+                    <span id="decisionSavingMeta">pack plus shop offer</span>
                   </div>
                 </div>
                 <div class="stock-assurance">
@@ -935,7 +937,7 @@
                     <div class="item-img"></div>
                     <div class="item-copy">
                       <b>Hybrid Tomato</b>
-                      <span>500 g · Retail · refund safe</span>
+                      <span>500 g · Single Quantity · refund safe</span>
                     </div>
                     <div class="item-price">
                       <span>Rs <span data-line-total>37</span></span>
@@ -984,16 +986,16 @@
               <section class="panel-card">
                 <div class="panel-head">
                   <b>Choose fulfilment</b>
-                  <span id="fulfilHint">Pickup selected</span>
+                  <span id="fulfilHint">Home delivery selected</span>
                 </div>
                 <div class="fulfil-grid">
                   <button class="fulfil-btn active" type="button" data-fulfil="pickup">
-                    <b>Pickup 8 min</b>
-                    <span>packed at Mahadev counter</span>
+                    <b>At-shop collection 8 min</b>
+                    <span>only for a confirmed at-shop session</span>
                   </button>
                   <button class="fulfil-btn" type="button" data-fulfil="delivery">
-                    <b>Deliver 22 min</b>
-                    <span>local delivery available</span>
+                    <b>Deliver home in 22 min</b>
+                    <span>to your confirmed address</span>
                   </button>
                   <button class="fulfil-btn" type="button" data-fulfil="schedule">
                     <b>Schedule</b>
@@ -1051,7 +1053,7 @@
                 <div class="summary-grid">
                   <div class="summary-row"><span>Items total</span><b id="itemsTotal">Rs 687</b></div>
                   <div class="summary-row"><span>Pack and shop saving</span><b id="savingTotal">- Rs 42</b></div>
-                  <div class="summary-row"><span id="feeLabel">Pickup charge</span><b id="feeValue">Rs 0</b></div>
+                  <div class="summary-row"><span id="feeLabel">Delivery charge</span><b id="feeValue">Rs 25</b></div>
                   <div class="summary-row"><span>Platform fee</span><b>Rs 0</b></div>
                   <div class="summary-row total"><span id="payableLabel">Estimated total</span><b id="payableTotal">Est. Rs 645</b></div>
                 </div>
@@ -1076,7 +1078,7 @@
             <div class="checkout-bar">
               <div class="checkout-copy">
                 <b id="checkoutTotal">Est. Rs 645</b>
-                <span id="checkoutMeta">Pickup 8 min · 3 items available</span>
+                <span id="checkoutMeta">Home delivery 22 min · 3 items available</span>
               </div>
               <button class="checkout-btn" type="button" id="checkoutBtn" data-native-interaction>Review &amp; Pay</button>
             </div>
@@ -1127,7 +1129,7 @@
 
               <div class="state-cell"><b>Backend</b>Validate inventory, price, offer, ETA and fulfilment automatically before presenting payment.</div>
               <div class="state-cell"><b>Retailer Duty</b>Inventory changes update availability; a later mismatch triggers replacement, reassignment or refund protection.</div>
-              <div class="state-cell"><b>Counter Use</b>Counter pickup reserves the available quantity during the payment window.</div>
+              <div class="state-cell"><b>At-shop Use</b>Collection appears only after an at-shop session is confirmed and reserves available quantity during payment.</div>
 
               <div class="state-cell"><b>Next</b>Review &amp; Pay opens the final order total and payment method on Screen 14.</div>
               <div class="state-cell"><b>Trust</b>No silent replacement, no unavailable-item charge and no customer-facing retailer wait.</div>
@@ -1141,18 +1143,45 @@
 
   <script>
     const app = document.getElementById("basketApp");
+    const checkoutParams = new URLSearchParams(window.location.search);
+    const incomingProduct = checkoutParams.get("from") === "screen11" ? checkoutParams.get("product") : "";
+    const incomingRate = checkoutParams.get("rate") || "retail";
+    const incomingRateLabels = { retail: "Single Quantity", pack: "Home Value Pack", wholesale: "Business Bulk", offer: "Shop Discount" };
+    const incomingProducts = {
+      tomato: "Hybrid Tomato", chilli: "Green Chilli", coriander: "Coriander Bunch", banana: "Banana Robusta",
+      apple: "Royal Apple", atta: "Aashirvaad Atta", oil: "Fortune Oil", home: "Home Care Combo"
+    };
+    if (incomingProduct) {
+      const rows = Array.from(document.querySelectorAll("[data-item]"));
+      const primary = rows[0];
+      const price = Math.max(1, Number(checkoutParams.get("price")) || 1);
+      const quantity = Math.max(1, Number(checkoutParams.get("quantity")) || 1);
+      primary.dataset.price = String(price);
+      primary.dataset.startQuantity = String(quantity);
+      primary.querySelector(".item-copy b").textContent = incomingProducts[incomingProduct] || "Selected product";
+      primary.querySelector(".item-copy span").textContent = `${checkoutParams.get("unit") || "selected quantity"} · ${incomingRateLabels[incomingRate] || "Selected rate"} · final rate shown`;
+      primary.querySelector("[data-line-total]").textContent = String(price * quantity);
+      primary.querySelector("[data-qty-value]").textContent = String(quantity);
+      rows.slice(1).forEach((row) => row.remove());
+      document.querySelector('a[aria-label="Back to product detail"]').href = `11-buy-product-detail.html?product=${encodeURIComponent(incomingProduct)}&rate=${encodeURIComponent(incomingRate)}&context=${checkoutParams.get("context") === "at-shop" ? "at-shop" : "home"}&pickup=${checkoutParams.get("context") === "at-shop" ? "on" : "off"}&delivery=on&wholesale=${incomingRate === "wholesale" ? "on" : "off"}`;
+    }
     const items = Array.from(document.querySelectorAll("[data-item]")).map((node) => ({
       node,
       price: Number(node.dataset.price || 0),
-      qty: 1
+      qty: Number(node.dataset.startQuantity || 1)
     }));
-    const requestedFulfil = new URLSearchParams(window.location.search).get("fulfilment");
-    let selectedFulfil = ["pickup", "delivery", "schedule"].includes(requestedFulfil) ? requestedFulfil : "pickup";
+    const atShop = checkoutParams.get("context") === "at-shop";
+    app.dataset.atShop = atShop ? "on" : "off";
+    const requestedFulfil = checkoutParams.get("fulfilment");
+    let selectedFulfil = requestedFulfil === "pickup" && atShop
+      ? "pickup"
+      : ["delivery", "schedule"].includes(requestedFulfil) ? requestedFulfil : "delivery";
     let unavailableRule = "approve";
+    let couponSaving = Math.max(0, Number(checkoutParams.get("coupon")) || 0);
     let stockConfirmed = true;
     const fulfilCopy = {
-      pickup: ["Pickup 8 min", "Pickup 8 min · Mahadev", 0],
-      delivery: ["Deliver 22 min", "Deliver 22 min · Mahadev", 25],
+      pickup: ["At-shop collection 8 min", "Collect here in 8 min · Mahadev", 0],
+      delivery: ["Deliver home in 22 min", "Home delivery 22 min · Mahadev", 25],
       schedule: ["Schedule slot", "Scheduled · Mahadev", 0]
     };
 
@@ -1168,7 +1197,8 @@
 
     function totals() {
       const itemTotal = items.reduce((sum, item) => sum + item.price * item.qty, 0);
-      const saving = itemTotal >= 600 ? 42 : 18;
+      const baseSaving = incomingProduct ? 0 : itemTotal >= 600 ? 42 : 18;
+      const saving = baseSaving + couponSaving;
       const fee = fulfilCopy[selectedFulfil][2];
       const payable = Math.max(0, itemTotal - saving + fee);
       return { itemTotal, saving, fee, payable, qty: items.reduce((sum, item) => sum + item.qty, 0) };
@@ -1185,10 +1215,11 @@
       document.getElementById("basketQty").textContent = total.qty;
       document.getElementById("decisionAmount").textContent = rupees(total.payable);
       document.getElementById("decisionFulfil").textContent = fulfilCopy[selectedFulfil][0];
-      document.getElementById("decisionSaving").textContent = `${rupees(total.saving)} saved`;
+      document.getElementById("decisionSaving").textContent = couponSaving ? `${rupees(total.saving)} saved` : incomingProduct ? (incomingRateLabels[incomingRate] || "Selected rate") : `${rupees(total.saving)} saved`;
+      document.getElementById("decisionSavingMeta").textContent = couponSaving ? "eligible coupon included in the total" : incomingProduct ? "selected product total carried from product detail" : "pack plus shop offer";
       document.getElementById("itemsTotal").textContent = rupees(total.itemTotal);
       document.getElementById("savingTotal").textContent = `- ${rupees(total.saving)}`;
-      document.getElementById("feeLabel").textContent = selectedFulfil === "delivery" ? "Delivery charge" : selectedFulfil === "schedule" ? "Schedule charge" : "Pickup charge";
+      document.getElementById("feeLabel").textContent = selectedFulfil === "delivery" ? "Delivery charge" : selectedFulfil === "schedule" ? "Schedule charge" : "At-shop collection";
       document.getElementById("feeValue").textContent = rupees(total.fee);
       document.getElementById("payableLabel").textContent = "To pay";
       document.getElementById("payableTotal").textContent = rupees(total.payable);
@@ -1199,7 +1230,7 @@
       document.getElementById("decisionAmountMeta").textContent = "available now at this price";
       document.getElementById("stockHint").textContent = unavailableRule === "remove" ? "remove unavailable" : unavailableRule === "call" ? "call before change" : "ask before substitute";
       document.getElementById("stockStatusText").textContent = unavailableCopy[unavailableRule];
-      document.getElementById("stockAssuranceText").textContent = "Items and prices are checked automatically. You pay only for the basket shown.";
+      document.getElementById("stockAssuranceText").textContent = couponSaving ? "Eligible coupon applied. Item prices and delivery remain unchanged." : "Items and prices are checked automatically. You pay only for the basket shown.";
       document.getElementById("heroTitle").textContent = total.qty ? "Basket ready at Mahadev" : "Basket is empty";
       document.getElementById("heroSubtitle").textContent = total.qty ? "Items are available now. Review fulfilment and pay the final amount shown." : "Add items from this shop to continue.";
       app.dataset.ready = total.qty ? "yes" : "no";
@@ -1207,6 +1238,7 @@
 
     document.querySelectorAll("[data-fulfil]").forEach((button) => {
       button.addEventListener("click", () => {
+        if (button.dataset.fulfil === "pickup" && !atShop) return;
         selectedFulfil = button.dataset.fulfil;
         stockConfirmed = true;
         document.querySelectorAll("[data-fulfil]").forEach((node) => node.classList.toggle("active", node === button));
@@ -1235,6 +1267,14 @@
       });
     });
 
+    document.getElementById("applyCoupon").addEventListener("click", (event) => {
+      couponSaving = 25;
+      const button = event.currentTarget;
+      button.setAttribute("aria-label", "Coupon applied: Rs 25 saved");
+      button.setAttribute("aria-pressed", "true");
+      render();
+    });
+
     document.getElementById("checkoutBtn").addEventListener("click", () => {
       const total = totals();
       if (!total.qty) return;
@@ -1242,7 +1282,16 @@
       target.searchParams.set("fulfilment", selectedFulfil);
       target.searchParams.set("amount", String(total.payable));
       target.searchParams.set("items", String(total.qty));
+      target.searchParams.set("itemsTotal", String(total.itemTotal));
+      target.searchParams.set("saving", String(total.saving));
+      target.searchParams.set("fee", String(total.fee));
+      target.searchParams.set("coupon", String(couponSaving));
       target.searchParams.set("replacement", unavailableRule);
+      target.searchParams.set("context", atShop ? "at-shop" : "home");
+      ["from", "product", "rate", "unit", "price"].forEach((key) => {
+        if (checkoutParams.has(key)) target.searchParams.set(key, checkoutParams.get(key));
+      });
+      if (incomingProduct && items[0]) target.searchParams.set("quantity", String(items[0].qty));
       window.location.href = target.href;
     });
 

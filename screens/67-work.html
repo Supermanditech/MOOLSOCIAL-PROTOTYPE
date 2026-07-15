@@ -2020,15 +2020,7 @@
       window.scrollTo(0, 0);
     }
 
-    window.addEventListener("load", () => {
-      resetPhoneScroll();
-      requestAnimationFrame(resetPhoneScroll);
-      setTimeout(resetPhoneScroll, 80);
-    });
-
-    window.addEventListener("pageshow", () => {
-      resetPhoneScroll();
-    });
+    window.addEventListener("load", resetPhoneScroll, { once: true });
 
     const viewButtons = document.querySelectorAll("[data-work-view]");
     const filterButtons = document.querySelectorAll("[data-filter]");

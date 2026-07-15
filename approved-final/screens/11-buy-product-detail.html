@@ -388,6 +388,23 @@
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
+    .fixed-rate-unit {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid rgba(19,136,8,.26);
+      border-radius: 16px;
+      padding: 10px;
+      background: rgba(19,136,8,.07);
+      color: var(--ms-navy);
+    }
+    .fixed-rate-unit[hidden] { display: none; }
+    .fixed-rate-unit span { display: grid; gap: 3px; }
+    .fixed-rate-unit b { font-size: 11px; font-weight: 950; }
+    .fixed-rate-unit small { color: rgba(0,0,128,.64); font-size: 8px; font-weight: 850; }
+    .fixed-rate-unit strong { font-size: 15px; font-weight: 950; white-space: nowrap; }
+
     .fulfil-grid {
       grid-template-columns: repeat(auto-fit, minmax(96px, 1fr));
     }
@@ -880,7 +897,7 @@
                   <a class="circle-btn" id="backToGrocery" href="10-buy-grocery-decision.html" aria-label="Back to grocery decision">
                     <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" /></svg>
                   </a>
-                  <a class="circle-btn" href="12-buy-basket-checkout.html" aria-label="Open basket">
+                  <a class="circle-btn" href="12-buy-basket-checkout.html" aria-label="Open basket" data-native-interaction>
                     <svg viewBox="0 0 24 24"><path d="M6 7h15l-2 9H8L6 3H3" /><path d="M9 20h.01M18 20h.01" /></svg>
                   </a>
                 </div>
@@ -899,7 +916,7 @@
                   </div>
                   <div class="decision-strip">
                     <strong id="heroPrice">Rs 37 / 500 g</strong>
-                    <span id="heroFulfil">Pickup 8 min | Delivery 22 min</span>
+                    <span id="heroFulfil">Home delivery 22 min</span>
                   </div>
                   <div class="quick-proof-row" aria-label="Quick purchase proof">
                     <span class="quick-proof">Shop bill</span>
@@ -917,31 +934,31 @@
               <section class="panel-card">
                 <div class="panel-head">
                   <b>Choose rate</b>
-                  <span id="rateHint">Retail price selected</span>
+                  <span id="rateHint">One item or a small quantity for home</span>
                 </div>
                 <div class="rate-grid">
                   <button class="rate-btn active" type="button" data-rate="retail">
-                    <b>Retail</b>
+                    <b>Single Quantity</b>
                     <strong id="retailPrice">Rs 37</strong>
                     <span id="retailMeta">shop price now</span>
                   </button>
                   <button class="rate-btn" type="button" data-rate="pack">
-                    <b>Family Pack</b>
+                    <b>Home Value Pack</b>
                     <strong id="packPrice">Rs 34</strong>
                     <span id="packMeta">2 kg pack</span>
                   </button>
                   <button class="rate-btn" type="button" data-rate="wholesale">
-                    <b>Wholesale MOQ</b>
+                    <b>Business Bulk</b>
                     <strong id="wholesalePrice">Rs 31</strong>
                     <span id="wholesaleMeta">MOQ target</span>
                   </button>
                   <button class="rate-btn" type="button" data-rate="offer">
-                    <b>Shop Offer</b>
+                    <b>Shop Discount</b>
                     <strong id="offerPrice">Rs 34</strong>
                     <span id="offerMeta">basket offer</span>
                   </button>
                 </div>
-                <div class="capability-note" id="capabilityNote">This shop has not enabled wholesale price. Retail, family pack and shop offer are available.</div>
+                <div class="capability-note" id="capabilityNote">Business Bulk appears only for a direct case/MOQ listing published by an eligible seller. The shown price does not depend on other buyers joining.</div>
               </section>
 
               <section class="panel-card">
@@ -953,23 +970,27 @@
                   <button class="unit-btn active" type="button" data-unit="small">
                     <b id="unitSmall">500 g</b>
                     <strong id="unitSmallPrice">Rs 37</strong>
-                    <span>single buy</span>
+                    <span>one home quantity</span>
                   </button>
                   <button class="unit-btn" type="button" data-unit="medium">
                     <b id="unitMedium">1 kg</b>
                     <strong id="unitMediumPrice">Rs 72</strong>
-                    <span>family use</span>
+                    <span>household quantity</span>
                   </button>
                   <button class="unit-btn" type="button" data-unit="large">
                     <b id="unitLarge">2 kg</b>
                     <strong id="unitLargePrice">Rs 136</strong>
-                    <span>pack save</span>
+                    <span>fixed home value pack</span>
                   </button>
+                </div>
+                <div class="fixed-rate-unit" id="fixedRateUnit" hidden>
+                  <span><b id="fixedRateUnitTitle">Fixed pack</b><small id="fixedRateUnitMeta">One complete pack is added at the shown total.</small></span>
+                  <strong id="fixedRateUnitPrice">Rs 0</strong>
                 </div>
                 <div class="qty-row">
                   <div class="qty-copy">
-                    <b>Quantity</b>
-                    <span>Adjust before basket</span>
+                    <b id="quantityTitle">Quantity</b>
+                    <span id="quantityMeta">Adjust before basket</span>
                   </div>
                   <div class="qty-stepper">
                     <button type="button" id="qtyMinus">-</button>
@@ -982,16 +1003,16 @@
               <section class="panel-card">
                 <div class="panel-head">
                   <b>Fulfilment</b>
-                  <span id="fulfilHint">Counter pickup selected</span>
+                  <span id="fulfilHint">Home delivery selected</span>
                 </div>
                 <div class="fulfil-grid">
                   <button class="fulfil-btn active" type="button" data-fulfil="pickup">
-                    <b id="pickupTitle">Pickup 8 min</b>
-                    <span>pay in app, collect from counter</span>
+                    <b id="pickupTitle">At-shop collection 8 min</b>
+                    <span>available only while shopping at this shop</span>
                   </button>
                   <button class="fulfil-btn" type="button" data-fulfil="delivery">
-                    <b id="deliveryTitle">Deliver 22 min</b>
-                    <span>local delivery from this shop</span>
+                    <b id="deliveryTitle">Deliver home in 22 min</b>
+                    <span>send to your confirmed address</span>
                   </button>
                   <button class="fulfil-btn" type="button" data-fulfil="schedule">
                     <b id="scheduleTitle">Schedule</b>
@@ -1006,11 +1027,11 @@
                   <span>shown before add</span>
                 </div>
                 <div class="proof-grid">
-                  <span class="proof-chip"><b>Stock</b><span id="proofStock">counter checked</span></span>
+                  <span class="proof-chip"><b>Stock</b><span id="proofStock">availability checked</span></span>
                   <span class="proof-chip"><b>Bill</b><span>shop invoice</span></span>
                   <span class="proof-chip"><b>Refund</b><span>missing item safe</span></span>
                   <span class="proof-chip"><b>Replace</b><span>only with approval</span></span>
-                  <span class="proof-chip"><b>Rate</b><span id="proofRate">retail visible</span></span>
+                  <span class="proof-chip"><b>Rate</b><span id="proofRate">Single Quantity selected</span></span>
                   <span class="proof-chip"><b>Support</b><span>order chat</span></span>
                 </div>
               </section>
@@ -1019,7 +1040,7 @@
             <div class="bottom-buy">
               <div class="total-copy">
                 <b id="totalText">Rs 37</b>
-                <span id="totalMeta">Retail · 500 g · pickup</span>
+                <span id="totalMeta">Single quantity · 500 g · home delivery</span>
               </div>
               <button class="add-basket" type="button" id="addBasket">Add Basket</button>
             </div>
@@ -1039,7 +1060,7 @@
                   <svg viewBox="0 0 24 24"><path d="M8 4h8v16H8zM4 8h16M12 8v12" /></svg>
                   Meds
                 </a>
-                <a class="dock-tab" href="12-buy-basket-checkout.html" aria-label="Open basket">
+                <a class="dock-tab" href="12-buy-basket-checkout.html" aria-label="Open basket" data-native-interaction>
                   <svg viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6L5 8Z" /><path d="M9 8a3 3 0 0 1 6 0" /></svg>
                   Basket
                 </a>
@@ -1065,25 +1086,25 @@
             <div>
               <h2>Shop Capability Simulation</h2>
               <p>
-                Same retailer onboarding settings flow through from Screen 10. A retail-only shop will hide wholesale MOQ. A pickup-only shop will hide home delivery.
+                The same seller settings flow through from Screen 10. Business Bulk appears only for an eligible direct listing. At-shop collection appears only in a confirmed at-shop session.
               </p>
             </div>
             <div class="setting-list">
               <button class="setting-toggle" type="button" data-setting="familyPack" aria-pressed="true">
-                Family Pack
-                <span>larger pack saving</span>
+                Home Value Pack
+                <span>fixed household pack</span>
               </button>
               <button class="setting-toggle" type="button" data-setting="wholesale" aria-pressed="true">
-                Wholesale MOQ
-                <span>min quantity rate</span>
+                Business Bulk Listing
+                <span>eligible seller · case · MOQ · GST</span>
               </button>
               <button class="setting-toggle" type="button" data-setting="offers" aria-pressed="true">
-                Shop Offer
-                <span>discount/free delivery</span>
+                Shop Discount
+                <span>discount on stated pack</span>
               </button>
               <button class="setting-toggle" type="button" data-setting="counterPickup" aria-pressed="true">
-                Counter Pickup
-                <span>pay and collect</span>
+                At-shop Collection
+                <span>visible only at the shop</span>
               </button>
               <button class="setting-toggle" type="button" data-setting="homeDelivery" aria-pressed="true">
                 Home Delivery
@@ -1120,8 +1141,9 @@
   <script>
     const params = new URLSearchParams(window.location.search);
     const productId = params.get("product") || "tomato";
-    const wholesaleEnabled = params.get("wholesale") !== "off";
-    const pickupEnabled = params.get("pickup") !== "off";
+    const atShop = params.get("context") === "at-shop";
+    const wholesaleEnabled = params.get("wholesale") === "on" && ["atta", "oil"].includes(productId);
+    const pickupEnabled = atShop && params.get("pickup") === "on";
     const deliveryEnabled = params.get("delivery") !== "off";
     const offerEnabled = params.get("offer") !== "off";
     const app = document.getElementById("detailApp");
@@ -1134,17 +1156,19 @@
         tag: "fresh",
         imageClass: "",
         retail: 37,
-        pack: 34,
+        pack: 136,
         wholesale: 31,
-        offer: 34,
-        retailMeta: "500 g now",
-        packMeta: "2 kg family",
-        wholesaleMeta: "10 kg MOQ",
-        offerMeta: "basket offer",
-        pickup: "Pickup 8 min",
-        delivery: "Deliver 22 min",
+        offer: 129,
+        retailMeta: "500 g · home",
+        packMeta: "2 kg fixed home pack",
+        wholesaleMeta: "not seller-listed",
+        offerMeta: "home pack discount",
+        pickup: "At-shop collection 8 min",
+        delivery: "Deliver home in 22 min",
         schedule: "Schedule evening",
         units: [["500 g", 37], ["1 kg", 72], ["2 kg", 136]],
+        packUnit: "2 kg fixed home pack",
+        offerUnit: "2 kg discounted home pack",
         stock: "counter checked"
       },
       atta: {
@@ -1154,17 +1178,20 @@
         tag: "brand pack",
         imageClass: "staples",
         retail: 495,
-        pack: 475,
-        wholesale: 455,
-        offer: 475,
+        pack: 950,
+        wholesale: 4550,
+        offer: 930,
         retailMeta: "1 bag now",
-        packMeta: "2 bag saving",
-        wholesaleMeta: "10 bag MOQ",
-        offerMeta: "free delivery",
-        pickup: "Pickup 12 min",
-        delivery: "Deliver 35 min",
+        packMeta: "2 bag fixed home pack",
+        wholesaleMeta: "10 bags · Rs 455/bag · GST invoice",
+        offerMeta: "2 bags · Rs 20 saved",
+        pickup: "At-shop collection 12 min",
+        delivery: "Deliver home in 35 min",
         schedule: "Schedule tomorrow",
         units: [["10 kg", 495], ["2 bags", 950], ["5 bags", 2375]],
+        packUnit: "2 bags (10 kg each)",
+        wholesaleUnit: "10-bag minimum order",
+        offerUnit: "2-bag discounted home pack",
         stock: "sealed stock"
       },
       home: {
@@ -1174,20 +1201,50 @@
         tag: "offer",
         imageClass: "home",
         retail: 155,
-        pack: 145,
+        pack: 435,
         wholesale: 132,
-        offer: 139,
+        offer: 417,
         retailMeta: "1 combo now",
-        packMeta: "3 combo saving",
-        wholesaleMeta: "12 combo MOQ",
-        offerMeta: "basket Rs 799",
-        pickup: "Pickup 10 min",
-        delivery: "Deliver 45 min",
+        packMeta: "3 combo fixed home pack",
+        wholesaleMeta: "not seller-listed",
+        offerMeta: "3 combos · Rs 18 saved",
+        pickup: "At-shop collection 10 min",
+        delivery: "Deliver home in 45 min",
         schedule: "Schedule slot",
         units: [["1 combo", 155], ["3 combos", 435], ["6 combos", 792]],
+        packUnit: "3-combo fixed home pack",
+        offerUnit: "3-combo discounted home pack",
         stock: "offer stock"
       }
     };
+
+    Object.assign(products, {
+      chilli: {
+        name: "Green Chilli", desc: "100 g fresh pack with weight and replacement rule.", seller: "Mahadev Fresh Mart · Verified fresh stock", tag: "fresh", imageClass: "", retail: 16, pack: 70, wholesale: 12, offer: 65,
+        retailMeta: "100 g · home", packMeta: "500 g fixed home pack", wholesaleMeta: "not seller-listed", offerMeta: "500 g · Rs 5 saved",
+        pickup: "At-shop collection 8 min", delivery: "Deliver home in 22 min", schedule: "Schedule evening", units: [["100 g", 16], ["250 g", 38], ["500 g", 70]], packUnit: "500 g fixed home pack", offerUnit: "500 g discounted home pack", stock: "fresh stock"
+      },
+      coriander: {
+        name: "Coriander Bunch", desc: "100 g bunch with live quantity and freshness rule.", seller: "Mahadev Fresh Mart · Verified fresh stock", tag: "fresh", imageClass: "", retail: 24, pack: 63, wholesale: 19, offer: 60,
+        retailMeta: "1 bunch · home", packMeta: "3 bunch fixed home pack", wholesaleMeta: "not seller-listed", offerMeta: "3 bunches · Rs 3 saved",
+        pickup: "At-shop collection 8 min", delivery: "Deliver home in 22 min", schedule: "Schedule evening", units: [["1 bunch", 24], ["2 bunches", 46], ["3 bunches", 63]], packUnit: "3-bunch fixed home pack", offerUnit: "3-bunch discounted home pack", stock: "4 bunches nearby"
+      },
+      banana: {
+        name: "Banana Robusta", desc: "One dozen with ripeness choice and replacement rule.", seller: "Mahadev Fresh Mart · Verified fruit stock", tag: "fruit", imageClass: "", retail: 42, pack: 78, wholesale: 35, offer: 75,
+        retailMeta: "1 dozen · home", packMeta: "2 dozen fixed home pack", wholesaleMeta: "not seller-listed", offerMeta: "2 dozen · Rs 3 saved",
+        pickup: "At-shop collection 10 min", delivery: "Deliver home in 28 min", schedule: "Schedule evening", units: [["1 dozen", 42], ["2 dozen", 78], ["3 dozen", 117]], packUnit: "2-dozen fixed home pack", offerUnit: "2-dozen discounted home pack", stock: "ripeness checked"
+      },
+      apple: {
+        name: "Royal Apple", desc: "1 kg graded fruit with quality and replacement rule.", seller: "Mahadev Fresh Mart · Verified fruit stock", tag: "premium", imageClass: "", retail: 155, pack: 435, wholesale: 132, offer: 420,
+        retailMeta: "1 kg · home", packMeta: "3 kg fixed home pack", wholesaleMeta: "not seller-listed", offerMeta: "3 kg · Rs 15 saved",
+        pickup: "At-shop collection 12 min", delivery: "Deliver home in 35 min", schedule: "Schedule evening", units: [["1 kg", 155], ["2 kg", 300], ["3 kg", 435]], packUnit: "3 kg fixed home pack", offerUnit: "3 kg discounted home pack", stock: "grade checked"
+      },
+      oil: {
+        name: "Fortune Oil", desc: "5 L sealed brand can with MRP, batch and GST proof.", seller: "Verified brand distributor · Direct Business Bulk", tag: "brand pack", imageClass: "staples", retail: 849, pack: 1658, wholesale: 9588, offer: 1620,
+        retailMeta: "1 can · home", packMeta: "2 can fixed home pack", wholesaleMeta: "2 cases · 6 cans/case · GST invoice", offerMeta: "2 cans · Rs 38 saved",
+        pickup: "At-shop collection 12 min", delivery: "Deliver home tomorrow", schedule: "Schedule delivery", units: [["5 L can", 849], ["2 cans", 1658], ["1 case (6 cans)", 4794]], packUnit: "2-can fixed home pack", wholesaleUnit: "2-case minimum order (12 cans)", offerUnit: "2-can discounted home pack", stock: "sealed distributor stock"
+      }
+    });
 
     const product = products[productId] || products.tomato;
     const settings = {
@@ -1199,28 +1256,31 @@
       substitute: true
     };
 
-    let selectedRate = "retail";
+    const requestedRate = params.get("rate");
+    let selectedRate = requestedRate === "wholesale" && wholesaleEnabled
+      ? "wholesale"
+      : requestedRate === "pack" ? "pack" : requestedRate === "offer" && offerEnabled ? "offer" : "retail";
     let selectedUnitIndex = 0;
     const requestedFulfil = params.get("intent");
     let selectedFulfil = requestedFulfil === "delivery" && deliveryEnabled
       ? "delivery"
       : requestedFulfil === "pickup" && pickupEnabled
         ? "pickup"
-        : pickupEnabled ? "pickup" : (deliveryEnabled ? "delivery" : "schedule");
+        : deliveryEnabled ? "delivery" : (pickupEnabled ? "pickup" : "schedule");
     let quantity = 1;
 
     const rateHints = {
-      retail: "Pay normal shop price",
-      pack: "Buy larger pack and save",
-      wholesale: "MOQ price when shop enables it",
-      offer: "Shop offer applied"
+      retail: "Single item or a small quantity for home",
+      pack: "Fixed larger household pack with no pooled MOQ",
+      wholesale: "Direct verified-seller case rate, MOQ, GST, delivery and payment terms",
+      offer: "Shop discount applied to the clearly stated home pack"
     };
 
     const rateLabels = {
-      retail: "Retail",
-      pack: "Family Pack",
-      wholesale: "Wholesale MOQ",
-      offer: "Shop Offer"
+      retail: "Single Quantity",
+      pack: "Home Value Pack",
+      wholesale: "Business Bulk",
+      offer: "Shop Discount"
     };
 
     function rupees(value) {
@@ -1232,6 +1292,13 @@
       if (selectedRate === "wholesale") return product.wholesale;
       if (selectedRate === "offer") return product.offer;
       return product.units[selectedUnitIndex][1];
+    }
+
+    function activeUnitLabel() {
+      if (selectedRate === "pack") return product.packUnit || product.packMeta;
+      if (selectedRate === "wholesale") return product.wholesaleUnit || product.wholesaleMeta;
+      if (selectedRate === "offer") return product.offerUnit || product.offerMeta;
+      return product.units[selectedUnitIndex][0];
     }
 
     function fulfilTitle() {
@@ -1266,6 +1333,7 @@
 
     function render() {
       updateCapabilityUI();
+      app.dataset.rateMode = selectedRate;
       document.getElementById("productName").textContent = product.name;
       document.getElementById("productDescription").textContent = product.seller;
       document.getElementById("heroTag").textContent = product.tag;
@@ -1282,7 +1350,7 @@
       document.getElementById("deliveryTitle").textContent = product.delivery;
       document.getElementById("scheduleTitle").textContent = product.schedule;
       document.getElementById("proofStock").textContent = product.stock;
-      document.getElementById("proofRate").textContent = selectedRate === "wholesale" ? "MOQ visible" : `${selectedRate} visible`;
+      document.getElementById("proofRate").textContent = selectedRate === "wholesale" ? "MOQ and total shown" : `${rateLabels[selectedRate] || "Selected rate"} selected`;
       document.getElementById("rateHint").textContent = rateHints[selectedRate] || rateHints.retail;
 
       const unitIds = [["unitSmall", "unitSmallPrice"], ["unitMedium", "unitMediumPrice"], ["unitLarge", "unitLargePrice"]];
@@ -1290,7 +1358,18 @@
         document.getElementById(unitIds[index][0]).textContent = unit[0];
         document.getElementById(unitIds[index][1]).textContent = rupees(unit[1]);
       });
-      document.getElementById("unitHint").textContent = `${product.units[selectedUnitIndex][0]} selected`;
+      const fixedRate = selectedRate !== "retail";
+      const fixedRateUnit = document.getElementById("fixedRateUnit");
+      document.querySelector(".unit-grid").hidden = fixedRate;
+      fixedRateUnit.hidden = !fixedRate;
+      document.getElementById("fixedRateUnitTitle").textContent = activeUnitLabel();
+      document.getElementById("fixedRateUnitMeta").textContent = selectedRate === "wholesale"
+        ? "One quantity equals the complete seller minimum order. GST and delivery terms remain visible."
+        : "One quantity equals this complete fixed home pack at the shown total.";
+      document.getElementById("fixedRateUnitPrice").textContent = `${rupees(activeUnitPrice())} total`;
+      document.getElementById("unitHint").textContent = `${activeUnitLabel()} selected`;
+      document.getElementById("quantityTitle").textContent = selectedRate === "wholesale" ? "Minimum-order lots" : selectedRate === "retail" ? "Quantity" : "Pack quantity";
+      document.getElementById("quantityMeta").textContent = selectedRate === "wholesale" ? "1 lot meets the stated MOQ" : selectedRate === "retail" ? "Adjust before basket" : "Each step adds one complete pack";
       document.getElementById("qtyValue").textContent = quantity;
       document.getElementById("fulfilHint").textContent = `${fulfilTitle()} selected`;
 
@@ -1299,17 +1378,26 @@
       document.querySelectorAll("[data-fulfil]").forEach((button) => button.classList.toggle("active", button.dataset.fulfil === selectedFulfil));
 
       const total = activeUnitPrice() * quantity;
-      const fulfilLabel = selectedFulfil === "delivery" ? "home delivery" : selectedFulfil === "schedule" ? "scheduled" : "pickup";
-      document.getElementById("heroPrice").textContent = `${rupees(activeUnitPrice())} / ${product.units[selectedUnitIndex][0]}`;
+      document.getElementById("heroPrice").textContent = `${rupees(activeUnitPrice())} / ${activeUnitLabel()}`;
       document.getElementById("heroFulfil").textContent = fulfilOptionsText();
-      document.getElementById("totalText").textContent = `${rupees(total)} · ${product.units[selectedUnitIndex][0]}`;
+      document.getElementById("totalText").textContent = `${rupees(total)} · ${quantity} × ${activeUnitLabel()}`;
       document.getElementById("totalMeta").textContent = `${fulfilTitle()} · ${rateLabels[selectedRate]} · bill safe`;
       document.querySelectorAll('a[href^="12-buy-basket-checkout.html"]').forEach((link) => {
-        link.href = `12-buy-basket-checkout.html?fulfilment=${encodeURIComponent(selectedFulfil)}`;
+        const basketParams = new URLSearchParams({
+          from: "screen11",
+          product: productId,
+          rate: selectedRate,
+          unit: activeUnitLabel(),
+          price: String(activeUnitPrice()),
+          quantity: String(quantity),
+          fulfilment: selectedFulfil,
+          context: atShop ? "at-shop" : "home"
+        });
+        link.href = `12-buy-basket-checkout.html?${basketParams.toString()}`;
       });
       document.getElementById("shopNote").textContent = settings.wholesale
-        ? "Choose rate and fulfilment, then add to basket."
-        : "Retail-only shop. Wholesale MOQ is not enabled by this retailer.";
+        ? "This product has a direct Business Bulk listing from a verified distributor. Review MOQ, GST and delivery terms before adding."
+        : "Choose a single quantity or fixed Home Value Pack. Business Bulk is not seller-listed for this product.";
     }
 
     document.querySelectorAll("[data-rate]").forEach((button) => {
@@ -1319,6 +1407,7 @@
         if (rate === "offer" && !settings.offers) return;
         if (rate === "pack" && !settings.familyPack) return;
         selectedRate = rate;
+        quantity = 1;
         render();
       });
     });
@@ -1365,7 +1454,7 @@
       document.getElementById("totalMeta").textContent = "Basket ready · checkout next";
     });
 
-    document.getElementById("backToGrocery").href = `10-buy-grocery-decision.html?entry=shop&intent=${encodeURIComponent(selectedFulfil)}&wholesale=${settings.wholesale ? "on" : "off"}`;
+    document.getElementById("backToGrocery").href = `10-buy-grocery-decision.html?entry=shop&intent=${encodeURIComponent(selectedFulfil)}&context=${atShop ? "at-shop" : "home"}&wholesale=${settings.wholesale ? "on" : "off"}`;
     render();
   </script>
 <script type="application/json" id="productionRouteContract">{"contractVersion":"mvp-route-lock-2026-07-12","prototypeScreen":11,"productionModule":"commerce","routeId":"commerce.product","routePath":"/buy/products/:productId","routeState":"product-detail","implementation":"route-shell","launchScope":"mvp-core","separateProductionRoute":true,"productionNote":"Own production route /buy/products/:productId. Implement product-detail as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.","canonicalMap":"architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"}</script><script type="application/json" id="prototypeApprovalContract">{"prototypeScreen":11,"status":"approved-and-frozen","authoritative":true,"approvedAt":"2026-07-12","approvalScope":"prototype-ui-ux-and-production-contract"}</script>  <script src="../shared/prototype-interaction-contracts.js?v=intent-completion-20260714b"></script>

@@ -1155,42 +1155,42 @@
                   <div class="shop-badge">M</div>
                   <div class="shop-copy">
                     <b id="shopStateTitle">Step 2: Mahadev Fresh Mart selected</b>
-                    <span id="shopStateCopy">Skip queue: pay in app, collect from counter or choose home delivery.</span>
+                    <span id="shopStateCopy">Order for home delivery. Counter actions appear only during an at-shop session.</span>
                   </div>
                   <span class="shop-now" id="entryPill">QR live</span>
                 </div>
                 <div class="fulfil-row">
-                  <a class="fulfil-chip" data-capability-ui="counterPickup" href="11-buy-product-detail.html?product=tomato&amp;shop=mahadev-fresh-mart&amp;intent=pickup"><b>Counter Pickup</b>pay & collect</a>
-                  <a class="fulfil-chip" data-capability-ui="homeDelivery" href="11-buy-product-detail.html?product=tomato&amp;shop=mahadev-fresh-mart&amp;intent=delivery"><b>Home Delivery</b>11-45 min</a>
-                  <a class="fulfil-chip" data-capability-ui="offers" href="11-buy-product-detail.html?product=tomato&amp;shop=mahadev-fresh-mart&amp;intent=offer"><b>Shop Offer</b>active today</a>
+                  <a class="fulfil-chip" data-capability-ui="counterPickup" href="11-buy-product-detail.html?product=tomato&amp;shop=mahadev-fresh-mart&amp;intent=pickup&amp;context=at-shop&amp;pickup=on&amp;delivery=on&amp;wholesale=off"><b>At-shop collection</b>pay &amp; collect here</a>
+                  <a class="fulfil-chip" data-capability-ui="homeDelivery" href="11-buy-product-detail.html?product=tomato&amp;shop=mahadev-fresh-mart&amp;intent=delivery&amp;context=home&amp;pickup=off&amp;delivery=on&amp;wholesale=off"><b>Deliver to home</b>11-45 min</a>
+                  <a class="fulfil-chip" data-capability-ui="offers" href="11-buy-product-detail.html?product=tomato&amp;shop=mahadev-fresh-mart&amp;intent=offer&amp;context=home&amp;pickup=off&amp;delivery=on&amp;wholesale=off"><b>Shop Discount</b>active today</a>
                 </div>
                 <div class="entry-note">
                   <b id="entryStep">Step 2</b>
-                  <span id="entryNote">You already chose this shop on Buy. Now select item, rate type and fulfilment.</span>
+                  <span id="entryNote">You already chose this shop on Buy. Now select a home quantity and add it.</span>
                 </div>
               </section>
 
               <section class="mode-panel">
                 <div class="mode-title">
                   <b>Choose rate for this shop</b>
-                  <span id="modeHint">Retail shop price</span>
+                  <span id="modeHint">One item or a small quantity for home</span>
                 </div>
                 <div class="mode-grid">
                   <button class="mode-btn active" type="button" data-mode="now">
-                    <b>Buy Retail</b>
-                    <span>shop price</span>
+                    <b>Single Quantity</b>
+                    <span>daily home need</span>
                   </button>
                   <button class="mode-btn" type="button" data-mode="pack">
-                    <b>Family Pack</b>
-                    <span>more qty</span>
+                    <b>Home Value Pack</b>
+                    <span>fixed larger pack</span>
                   </button>
                   <button class="mode-btn" type="button" data-mode="wholesale">
-                    <b>Wholesale MOQ</b>
-                    <span>min qty</span>
+                    <b>Business Bulk</b>
+                    <span>seller case + MOQ</span>
                   </button>
                   <button class="mode-btn" type="button" data-mode="offer">
-                    <b>Shop Offer</b>
-                    <span>discount</span>
+                    <b>Shop Discount</b>
+                    <span>same home pack</span>
                   </button>
                 </div>
               </section>
@@ -1205,12 +1205,12 @@
               </nav>
 
               <div class="section-heading">
-                <b>Decision-ready products</b>
-                <span>No endless grid. Price, time and rule visible.</span>
+                <b>Products ready for your selected quantity</b>
+                <span>One clear rate at a time, with delivery and rule visible.</span>
               </div>
 
               <section class="product-list">
-                <article class="product-card" data-product-card data-product="tomato" data-kind="veg" data-base="37">
+                <article class="product-card" data-product-card data-product="tomato" data-kind="veg" data-base="37" data-total-now="37" data-total-pack="136" data-total-offer="129">
                   <div class="product-media">
                     <span class="media-label">fresh</span>
                   </div>
@@ -1218,14 +1218,15 @@
                     <div class="product-top">
                       <div class="product-name">
                         <b>Hybrid Tomato</b>
-                        <span>500 g. Mahadev counter stock. Substitution allowed.</span>
+                        <span>500 g. Mahadev shop stock. Substitution allowed.</span>
                       </div>
                       <span class="trust-pill">verified</span>
                     </div>
                     <div class="price-options">
-                      <button class="price-option active" type="button" data-choice="now"><b>Retail</b><strong>Rs 37</strong><span>11 min</span></button>
-                      <button class="price-option" type="button" data-choice="pack"><b>Pack</b><strong>Rs 34</strong><span>2 kg</span></button>
-                      <button class="price-option" type="button" data-choice="wholesale"><b>MOQ</b><strong>Rs 31</strong><span>target</span></button>
+                      <button class="price-option active" type="button" data-choice="now"><b>Single Quantity</b><strong>Rs 37</strong><span>500 g · home</span></button>
+                      <button class="price-option" type="button" data-choice="pack"><b>Home Value Pack</b><strong>Rs 136 total</strong><span>2 kg fixed pack</span></button>
+                      <button class="price-option" type="button" data-choice="wholesale"><b>Business Bulk</b><strong>Rs 31</strong><span>seller MOQ required</span></button>
+                      <button class="price-option" type="button" data-choice="offer"><b>Shop Discount</b><strong>Rs 129 total</strong><span>2 kg home pack · Rs 7 saved</span></button>
                     </div>
                     <div class="card-actions">
                       <div class="mini-proofs">
@@ -1243,7 +1244,7 @@
                   </div>
                 </article>
 
-                <article class="product-card" data-product-card data-product="atta" data-kind="staples" data-base="495">
+                <article class="product-card" data-product-card data-product="atta" data-kind="staples" data-base="495" data-total-now="495" data-total-pack="950" data-total-wholesale="4550" data-total-offer="930" data-wholesale-listed="true" data-wholesale-seller="Verified distributor">
                   <div class="product-media staples">
                     <span class="media-label">source</span>
                   </div>
@@ -1251,14 +1252,15 @@
                     <div class="product-top">
                       <div class="product-name">
                         <b>Aashirvaad Atta</b>
-                        <span>10 kg. Retail, family pack or source basket price.</span>
+                        <span>10 kg single bag, fixed home value pack, or verified distributor case listing.</span>
                       </div>
                       <span class="trust-pill">MRP proof</span>
                     </div>
                     <div class="price-options">
-                      <button class="price-option active" type="button" data-choice="now"><b>Retail</b><strong>Rs 495</strong><span>today</span></button>
-                      <button class="price-option" type="button" data-choice="pack"><b>Pack</b><strong>Rs 475</strong><span>2 bags</span></button>
-                      <button class="price-option" type="button" data-choice="wholesale"><b>MOQ</b><strong>Rs 455</strong><span>target</span></button>
+                      <button class="price-option active" type="button" data-choice="now"><b>Single Quantity</b><strong>Rs 495</strong><span>1 bag · home</span></button>
+                      <button class="price-option" type="button" data-choice="pack"><b>Home Value Pack</b><strong>Rs 950 total</strong><span>2 bag fixed pack</span></button>
+                      <button class="price-option" type="button" data-choice="wholesale"><b>Business Bulk</b><strong>Rs 4,550 minimum</strong><span>10 bags · Rs 455/bag · GST</span></button>
+                      <button class="price-option" type="button" data-choice="offer"><b>Shop Discount</b><strong>Rs 930 total</strong><span>2 bag home pack · Rs 20 saved</span></button>
                     </div>
                     <div class="card-actions">
                       <div class="mini-proofs">
@@ -1276,7 +1278,7 @@
                   </div>
                 </article>
 
-                <article class="product-card" data-product-card data-product="home" data-kind="home" data-base="155">
+                <article class="product-card" data-product-card data-product="home" data-kind="home" data-base="155" data-total-now="155" data-total-pack="435" data-total-offer="417">
                   <div class="product-media home">
                     <span class="media-label">repeat</span>
                   </div>
@@ -1289,9 +1291,10 @@
                       <span class="trust-pill">offer</span>
                     </div>
                     <div class="price-options">
-                      <button class="price-option active" type="button" data-choice="now"><b>Retail</b><strong>Rs 155</strong><span>60 min</span></button>
-                      <button class="price-option" type="button" data-choice="pack"><b>Pack</b><strong>Rs 145</strong><span>3 qty</span></button>
-                      <button class="price-option" type="button" data-choice="wholesale"><b>MOQ</b><strong>Rs 132</strong><span>target</span></button>
+                      <button class="price-option active" type="button" data-choice="now"><b>Single Quantity</b><strong>Rs 155</strong><span>1 combo · home</span></button>
+                      <button class="price-option" type="button" data-choice="pack"><b>Home Value Pack</b><strong>Rs 435 total</strong><span>3 combo fixed pack</span></button>
+                      <button class="price-option" type="button" data-choice="wholesale"><b>Business Bulk</b><strong>Rs 132</strong><span>seller MOQ required</span></button>
+                      <button class="price-option" type="button" data-choice="offer"><b>Shop Discount</b><strong>Rs 417 total</strong><span>3 combo home pack · Rs 18 saved</span></button>
                     </div>
                     <div class="card-actions">
                       <div class="mini-proofs">
@@ -1356,8 +1359,8 @@
                   <strong id="sheetTotal">Rs 0</strong>
                 </div>
                 <div class="basket-line" data-capability-ui="wholesale">
-                  <span><b>Wholesale progress</b><br />If area basket reaches target, lower price applies automatically.</span>
-                  <strong>live</strong>
+                  <span><b>Direct business-bulk terms</b><br />Seller MOQ, GST invoice, delivery and payment terms are locked before order.</span>
+                  <strong>direct</strong>
                 </div>
                 <div class="basket-line">
                   <span><b>Rule</b><br />Refund missing item, substitute only after approval.</span>
@@ -1374,7 +1377,7 @@
             <h1 class="ms-title">Grocery should feel faster than Blinkit, but smarter than a product grid.</h1>
             <p class="ms-lead">
               The user has already taken one action on Screen 09. This screen continues the selected shop/category journey:
-              retail price, family pack price, wholesale MOQ/rate, counter pickup, home delivery, trust proof, refund rule and add action.
+              a single home quantity, fixed Home Value Pack, eligible direct Business Bulk listing, context-safe fulfilment, trust proof, refund rule and add action.
             </p>
           </div>
 
@@ -1383,13 +1386,13 @@
             <div class="state-grid">
               <div class="state-cell"><b>Entry</b>From Screen 09 Grocery, category card, QR shop, product search or repeated basket.</div>
               <div class="state-cell"><b>User Sees</b>Selected shop/category context, rate choices, category chips, decision-ready products and basket bar.</div>
-              <div class="state-cell"><b>Decision</b>Buy Retail, Family Pack, Wholesale MOQ or Shop Offer is visible before add.</div>
+              <div class="state-cell"><b>Decision</b>One selected mode is visible at a time: Single Quantity, Home Value Pack, eligible Business Bulk, or Shop Discount.</div>
 
-              <div class="state-cell"><b>QR Walk-In</b>If location plus QR match a shop, show counter pickup and shop delivery first.</div>
+              <div class="state-cell"><b>QR Walk-In</b>If location plus QR confirm the customer is at the shop, show at-shop collection and home delivery first.</div>
               <div class="state-cell"><b>Backend</b>Filter stock, price, fulfilment time, proof, refund rule, licence where needed and backup shop.</div>
               <div class="state-cell"><b>No Marketplace</b>Do not show 10,000 shops or endless manufacturer listings to the consumer.</div>
 
-              <div class="state-cell"><b>Capability</b>Shop onboarding decides retail, family pack, wholesale MOQ, offers, pickup and delivery. Hide unavailable choices.</div>
+              <div class="state-cell"><b>Capability</b>Seller settings decide home packs, direct Business Bulk eligibility, discounts and home delivery. At-shop collection additionally requires confirmed at-shop context.</div>
               <div class="state-cell"><b>Basket</b>When items are added, a compact basket bar appears above dock without hiding product cards.</div>
               <div class="state-cell"><b>Dock</b>Mool and Chat remain fixed. Buy sub-actions keep the approved dock geometry.</div>
             </div>
@@ -1404,24 +1407,24 @@
             </div>
             <div class="setting-list">
               <button class="setting-toggle" type="button" data-setting="retail" aria-pressed="true" aria-disabled="true">
-                Retail Price
-                <span>default required</span>
+                Single Quantity
+                <span>consumer price required</span>
               </button>
               <button class="setting-toggle" type="button" data-setting="familyPack" aria-pressed="true">
-                Family Pack
-                <span>larger pack saving</span>
+                Home Value Pack
+                <span>fixed household pack</span>
               </button>
               <button class="setting-toggle" type="button" data-setting="wholesale" aria-pressed="true">
-                Wholesale MOQ
-                <span>min quantity rate</span>
+                Business Bulk Listing
+                <span>eligible seller · case · MOQ · GST</span>
               </button>
               <button class="setting-toggle" type="button" data-setting="offers" aria-pressed="true">
-                Shop Offer
-                <span>discount/free delivery</span>
+                Shop Discount
+                <span>discount on stated pack</span>
               </button>
               <button class="setting-toggle" type="button" data-setting="counterPickup" aria-pressed="true">
-                Counter Pickup
-                <span>pay and collect</span>
+                At-shop Collection
+                <span>visible only in at-shop context</span>
               </button>
               <button class="setting-toggle" type="button" data-setting="homeDelivery" aria-pressed="true">
                 Home Delivery
@@ -1436,17 +1439,18 @@
 
   <script>
     const modeHints = {
-      now: "Retail shop price",
-      pack: "Family pack saving",
-      wholesale: "Wholesale MOQ rate",
-      offer: "Shop offer applied"
+      now: "One item or a small quantity for home",
+      pack: "A fixed larger household pack; no pooled MOQ",
+      wholesale: "Direct seller case rate, MOQ, GST, delivery and payment terms",
+      offer: "Shop discount on the same clearly stated home pack"
     };
 
     const params = new URLSearchParams(window.location.search);
     const entry = params.get("entry") || "shop";
-    const intent = params.get("intent") || "buy";
+    const atShop = params.get("context") === "at-shop";
+    const intent = params.get("intent") || (atShop ? "buy" : "delivery");
     const selectedCategory = params.get("category") || "";
-    const wholesaleEnabled = params.get("wholesale") !== "off";
+    const wholesaleEnabled = params.get("wholesale") === "on";
     const groceryApp = document.getElementById("groceryApp");
     const modeButtons = document.querySelectorAll(".mode-btn");
     const modeHint = document.getElementById("modeHint");
@@ -1471,7 +1475,7 @@
       familyPack: true,
       wholesale: wholesaleEnabled,
       offers: true,
-      counterPickup: true,
+      counterPickup: atShop,
       homeDelivery: true
     };
 
@@ -1502,13 +1506,22 @@
         offer: "offers"
       }[mode];
       if (requiredCapability && !shopCapabilities[requiredCapability]) return;
+      groceryApp.dataset.rateMode = mode;
       modeButtons.forEach((button) => button.classList.toggle("active", button.dataset.mode === mode));
       modeHint.textContent = modeHints[mode] || modeHints.now;
       productCards.forEach((card) => {
-        const choice = mode === "offer" ? "pack" : mode;
+        const choice = mode;
+        const wholesaleCard = card.dataset.wholesaleListed === "true";
+        card.style.display = mode === "wholesale" && !wholesaleCard ? "none" : "";
+        card.dataset.activeTotal = card.dataset[`total${mode[0].toUpperCase()}${mode.slice(1)}`] || card.dataset.totalNow || card.dataset.base;
         card.querySelectorAll(".price-option").forEach((option) => {
           option.classList.toggle("active", option.dataset.choice === choice);
+          option.style.display = option.dataset.choice === choice ? "" : "none";
         });
+        const add = card.querySelector(".add-btn");
+        if (add && !card.classList.contains("added")) {
+          add.textContent = mode === "wholesale" ? "Add 10-bag minimum" : mode === "pack" ? "Add value pack" : mode === "offer" ? "Add discounted pack" : "Add";
+        }
       });
     }
 
@@ -1523,8 +1536,6 @@
       setVisible('[data-mode="pack"]', shopCapabilities.familyPack);
       setVisible('[data-mode="wholesale"]', shopCapabilities.wholesale);
       setVisible('[data-mode="offer"]', shopCapabilities.offers);
-      setVisible('.price-option[data-choice="pack"]', shopCapabilities.familyPack);
-      setVisible('.price-option[data-choice="wholesale"]', shopCapabilities.wholesale);
       setVisible('[data-capability-ui="wholesale"]', shopCapabilities.wholesale);
       setVisible('[data-capability-ui="offers"]', shopCapabilities.offers);
       setVisible('[data-capability-ui="counterPickup"]', shopCapabilities.counterPickup);
@@ -1543,12 +1554,14 @@
       }[activeMode];
       if (capabilityForMode && !shopCapabilities[capabilityForMode]) {
         setMode("now");
+      } else {
+        setMode(activeMode);
       }
     }
 
     function updateBasket() {
       itemCount.textContent = basketItems;
-      basketMeta.textContent = basketItems ? `Rs ${basketTotal} estimated. Counter pickup or home delivery next.` : "Add products to see basket total";
+      basketMeta.textContent = basketItems ? `Rs ${basketTotal} estimated. ${atShop ? "Choose at-shop collection or home delivery" : "Home delivery address is next"}.` : "Add products to see basket total";
       sheetTotal.textContent = `Rs ${basketTotal}`;
       basketBar.classList.toggle("show", basketItems > 0);
     }
@@ -1558,34 +1571,37 @@
         chip.classList.toggle("active", chip.dataset.filter === filter);
       });
       productCards.forEach((card) => {
-        card.style.display = filter === "all" || card.dataset.kind === filter ? "" : "none";
+        const matchesCategory = filter === "all" || card.dataset.kind === filter;
+        const wholesaleMode = groceryApp.dataset.rateMode === "wholesale";
+        const eligibleForMode = !wholesaleMode || card.dataset.wholesaleListed === "true";
+        card.style.display = matchesCategory && eligibleForMode ? "" : "none";
       });
     }
 
     function applyEntryContext() {
       updateCapabilityUI();
       if (!shopCapabilities.wholesale) {
-        modeHint.textContent = "Retail-only shop";
+        modeHint.textContent = "Home purchase mode; no direct Business Bulk listing";
       }
       const categoryName = categoryLabelMap[selectedCategory] || "Grocery";
       const isCategoryEntry = entry === "category" && selectedCategory;
       if (isCategoryEntry) {
         topSubtitle.textContent = `${categoryName} selected from Buy`;
         shopStateTitle.textContent = `Step 2: ${categoryName} at Mahadev`;
-        shopStateCopy.textContent = "Category selected. Now compare retail, pack, wholesale MOQ and shop offer before adding.";
+        shopStateCopy.textContent = "Category selected. Choose a single quantity or fixed home value pack before adding.";
         entryPill.textContent = "category";
         entryStep.textContent = "Selected";
         entryNote.textContent = shopCapabilities.wholesale
-          ? `${categoryName} is already selected from Screen 09. Choose item and rate inside Mahadev Fresh Mart.`
-          : `${categoryName} is selected. This shop is retail/family-pack only, so wholesale MOQ is not shown.`;
+          ? `${categoryName} is selected. Business Bulk shows only products this verified seller published with MOQ and GST terms.`
+          : `${categoryName} is selected. Choose one item or a fixed home value pack; Business Bulk is not active in this shopping context.`;
         applyCategoryFilter(categoryFilterMap[selectedCategory] || "all");
         return;
       }
 
       const intentCopy = {
-        buy: ["Step 2: Mahadev Fresh Mart selected", "Skip queue: pay in app, collect from counter or choose home delivery.", "QR live", "Buy Here selected from Screen 09. Now add items from this shop."],
+        buy: ["Step 2: At Mahadev Fresh Mart", "Scan shelf items, pay in app, or send the order to your home.", "at shop", "At-shop session confirmed. Counter collection is available only in this session."],
         scan: ["Step 2: Scan item at Mahadev", "Scan or search shelf items, add to cart and pay in app.", "scan ready", "Scan Item selected from Screen 09. Search or scan barcode to add products."],
-        pickup: ["Step 2: Counter pickup selected", "Pay in app and collect packed items from Mahadev counter.", "pickup", "Counter Pickup selected from Screen 09. Add items and continue to pickup payment."],
+        pickup: ["Step 2: At-shop collection selected", "Pay in app and collect the packed items here.", "at shop", "At-shop collection selected from Screen 09. Add items and continue to payment."],
         delivery: ["Step 2: Home delivery selected", "Add products from Mahadev and choose delivery address after basket.", "delivery", "Home Delivery selected from Screen 09. Add items and confirm delivery ETA."]
       };
       const copy = intentCopy[intent] || intentCopy.buy;
@@ -1595,23 +1611,27 @@
       entryPill.textContent = copy[2];
       entryStep.textContent = "Step 2";
       entryNote.textContent = shopCapabilities.wholesale
-        ? copy[3]
-        : `${copy[3]} This retailer has not enabled wholesale MOQ during onboarding.`;
+        ? `${copy[3]} Business Bulk is a separate direct-seller mode.`
+        : `${copy[3]} Business Bulk is shown only when the seller published eligible case/MOQ terms.`;
       applyCategoryFilter("all");
     }
 
     function openProductDetail(card) {
+      const activeRate = document.querySelector(".mode-btn.active")?.dataset.mode || "now";
+      const bulkListing = activeRate === "wholesale" && card.dataset.wholesaleListed === "true";
       const detailParams = new URLSearchParams({
         product: card.dataset.product || "tomato",
         shop: "mahadev-fresh-mart",
         from: "screen10",
         entry,
         intent,
-        wholesale: shopCapabilities.wholesale ? "on" : "off",
+        wholesale: bulkListing ? "on" : "off",
         pickup: shopCapabilities.counterPickup ? "on" : "off",
         delivery: shopCapabilities.homeDelivery ? "on" : "off",
         offer: shopCapabilities.offers ? "on" : "off"
       });
+      detailParams.set("context", atShop ? "at-shop" : "home");
+      detailParams.set("rate", bulkListing ? "wholesale" : activeRate);
       window.location.href = `11-buy-product-detail.html?${detailParams.toString()}`;
     }
 
@@ -1639,6 +1659,7 @@
       const addButton = card.querySelector(".add-btn");
       const qtyText = card.querySelector(".qty-control span");
       const base = Number(card.dataset.base || 0);
+      let linePrice = base;
       let qty = 0;
 
       function syncCard() {
@@ -1653,9 +1674,10 @@
 
       addButton.addEventListener("click", (event) => {
         event.stopPropagation();
+        linePrice = Number(card.dataset.activeTotal || base);
         qty = 1;
         basketItems += 1;
-        basketTotal += base;
+        basketTotal += linePrice;
         syncCard();
         updateBasket();
       });
@@ -1666,11 +1688,11 @@
           if (button.dataset.qty === "plus") {
             qty += 1;
             basketItems += 1;
-            basketTotal += base;
+            basketTotal += linePrice;
           } else if (qty > 0) {
             qty -= 1;
             basketItems -= 1;
-            basketTotal -= base;
+            basketTotal -= linePrice;
           }
           syncCard();
           updateBasket();
@@ -1687,6 +1709,7 @@
     });
 
     applyEntryContext();
+    setMode(params.get("mode") === "wholesale" && shopCapabilities.wholesale ? "wholesale" : "now");
     updateBasket();
   </script>
 <script type="application/json" id="productionRouteContract">{"contractVersion":"mvp-route-lock-2026-07-12","prototypeScreen":10,"productionModule":"commerce","routeId":"commerce.grocery","routePath":"/buy/grocery","routeState":"store-catalog","implementation":"route-shell","launchScope":"mvp-core","separateProductionRoute":true,"productionNote":"Own production route /buy/grocery. Implement store-catalog as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.","canonicalMap":"architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"}</script><script type="application/json" id="prototypeApprovalContract">{"prototypeScreen":10,"status":"approved-and-frozen","authoritative":true,"approvedAt":"2026-07-12","approvalScope":"prototype-ui-ux-and-production-contract"}</script>  <script src="../shared/prototype-interaction-contracts.js?v=intent-completion-20260714b"></script>

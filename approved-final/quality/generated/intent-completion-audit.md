@@ -2,9 +2,9 @@
 
 Status: **passed**
 
-- Controls checked: 3191
-- High-intent controls: 483
-- Explicitly resolved: 483
+- Controls checked: 3210
+- High-intent controls: 475
+- Explicitly resolved: 475
 - Unresolved: 0 (0 P0, 0 P1)
 - Generic fallback controls: 0
 - Styled pseudo-actions: 0

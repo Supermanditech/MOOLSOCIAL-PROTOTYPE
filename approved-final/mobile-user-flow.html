@@ -65,7 +65,7 @@
     const auditMode=new URLSearchParams(location.search).get('audit')==='1';
     const flowRunToken=Date.now().toString(36);
     const wait=(normal,fast=45)=>auditMode?fast:normal;
-    const state={manifest:null,actions:null,flow:null,nodeIndex:0,actionIndex:0,timer:null,frameReady:false,bindingGeneration:0};
+    const state={manifest:null,actions:null,flow:null,nodeIndex:0,actionIndex:0,timer:null,frameReady:false,bindingGeneration:0,prepareAttempts:0};
     const frame=document.getElementById('appFrame');
     const select=document.getElementById('flowSelect');
     const instruction=document.getElementById('instruction');
@@ -82,12 +82,17 @@
     const screenNumber=url=>{const match=String(url||'').match(/\/(\d{2,3})-/);return match?Number(match[1]):null};
     const nodeUrl=node=>{
       const url=new URL(node.file,location.href);
+      Object.entries(node.query||{}).forEach(([key,value])=>url.searchParams.set(key,String(value)));
       url.searchParams.set('flowRun',flowRunToken);
       if(state.flow?.id)url.searchParams.set('flowId',state.flow.id);
       return url.href;
     };
+    const nodeQueryMatches=(node,url)=>Object.entries(node?.query||{}).every(([key,value])=>url.searchParams.get(key)===String(value));
     const controlLabel=el=>normalize(el.getAttribute('aria-label')||el.getAttribute('title')||el.getAttribute('placeholder')||el.getAttribute('name')||el.innerText||el.textContent);
-    const controls=doc=>[...doc.querySelectorAll('a,button,[role="button"],input:not([type]),input[type="text"],input[type="tel"],input[type="number"],input[type="search"],input[type="checkbox"],input[type="radio"],textarea')].filter(el=>!el.disabled&&el.getAttribute('aria-disabled')!=='true');
+    const controls=doc=>[...doc.querySelectorAll('a,button,[role="button"],input:not([type]),input[type="text"],input[type="tel"],input[type="number"],input[type="search"],input[type="checkbox"],input[type="radio"],textarea')].filter(el=>{
+      if(el.disabled||el.getAttribute('aria-disabled')==='true')return false;
+      return typeof el.checkVisibility!=='function'||el.checkVisibility({checkOpacity:true,checkVisibilityCSS:true});
+    });
     const currentContract=()=>{
       const next=state.flow?.nodes[state.nodeIndex+1];
       if(!next)return null;
@@ -191,7 +196,14 @@
         if(state.nodeIndex!==sourceIndex)return;
         let now=null;
         try{now=screenNumber(frame.contentWindow.location.href)}catch{}
-        if(now===target.screen){advance();return}
+        if(now===target.screen){
+          const currentUrl=new URL(frame.contentWindow.location.href);
+          if(!nodeQueryMatches(target,currentUrl)){
+            frame.src=nodeUrl(target);
+            return
+          }
+          advance();return
+        }
         if(Date.now()-started>=wait(timeout,2200)){
           showError('The selected action did not open the expected next step.');
           setInstruction('Blocked transition');
@@ -227,7 +239,7 @@
       populateFlows();
     }
     function advance(){
-      clearTimer();state.actionIndex=0;state.nodeIndex++;
+      clearTimer();state.actionIndex=0;state.prepareAttempts=0;state.nodeIndex++;
       setProgress();
       if(state.nodeIndex>=state.flow.nodes.length-1){markComplete();return}
       setTimeout(prepareStep,wait(160,60));
@@ -243,7 +255,14 @@
         waitForNextAction(contract,target,sourceIndex);return;
       }
       const now=screenNumber(frame.contentWindow.location.href);
-      if(now===target.screen){advance();return}
+      if(now===target.screen){
+        const currentUrl=new URL(frame.contentWindow.location.href);
+        if(!nodeQueryMatches(target,currentUrl)){
+          navigateTarget(target);
+          return
+        }
+        advance();return
+      }
       if(contract.mode.includes('handoff')){
         if(contract.event)showEvent(contract.event);
         state.timer=setTimeout(()=>navigateTarget(target),wait(700,360));
@@ -305,9 +324,15 @@
         }
         const matches=findAction(doc,action);
         if(!matches.length){
+          state.prepareAttempts++;
+          if(state.prepareAttempts<=16){
+            state.timer=setTimeout(prepareStep,wait(120,80));
+            return
+          }
           showError(`Flow contract could not find “${action}” on this state.`);
           setInstruction(`Blocked: ${action}`);return;
         }
+        state.prepareAttempts=0;
         const targetFile=new URL(nodeUrl(target)).pathname.split('/').pop();
         const directMatches=matches.filter(element=>element.tagName==='A'&&new URL(element.href,frame.contentWindow.location.href).pathname.split('/').pop()===targetFile);
         const nativeDirect=directMatches.length>0;
@@ -318,9 +343,15 @@
       }
       const direct=findDirect(doc,target);
       if(!direct.length){
+        state.prepareAttempts++;
+        if(state.prepareAttempts<=16){
+          state.timer=setTimeout(prepareStep,wait(120,80));
+          return
+        }
         showError('No verified user action connects this step to the expected next step.');
         setInstruction('Blocked transition');return;
       }
+      state.prepareAttempts=0;
       const label=(direct[0].getAttribute('aria-label')||direct[0].innerText||'continue').trim();
       const directContract={mode:'direct',actions:[label]};
       setInstruction(`Tap: ${label}`);highlight(direct);bindExpected(doc,direct,directContract,target,bindingGeneration);
@@ -338,6 +369,11 @@
       const expected=state.flow?.nodes[state.nodeIndex]?.screen;
       const next=state.flow?.nodes[state.nodeIndex+1]?.screen;
       if(actual===next){
+        const nextNode=state.flow?.nodes[state.nodeIndex+1];
+        if(!nodeQueryMatches(nextNode,loadedUrl)){
+          frame.src=nodeUrl(nextNode);
+          return
+        }
         advance();
         return
       }
@@ -354,7 +390,7 @@
     }
     function startFlow(id){
       const flow=state.manifest.flows.find(item=>item.id===id)||state.manifest.flows.find(item=>item.id===state.manifest.defaultFlow);
-      state.flow=flow;state.nodeIndex=0;state.actionIndex=0;clearTimer();clearError();finish.hidden=true;
+      state.flow=flow;state.nodeIndex=0;state.actionIndex=0;state.prepareAttempts=0;clearTimer();clearError();finish.hidden=true;
       select.value=flow.id;history.replaceState(null,'',`?flow=${encodeURIComponent(flow.id)}`);
       setProgress();setInstruction('Loading first state...');frame.src=nodeUrl(flow.nodes[0]);
     }

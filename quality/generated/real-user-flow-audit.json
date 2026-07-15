@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-15T08:41:28Z",
+  "generatedAt": "2026-07-15T13:54:52Z",
   "status": "passed",
   "source": "Microsoft Edge at 390x844 using native clicks on only highlighted, visible user controls; no forced navigation for tap or multi-action transitions",
   "viewport": {
@@ -26,8 +26,7 @@
       "screensSeen": [
         0,
         2,
-        3,
-        4
+        3
       ],
       "horizontalOverflows": [],
       "turns": [
@@ -103,7 +102,7 @@
     },
     {
       "flow": "buy-counter",
-      "title": "Buy and Counter Pickup",
+      "title": "Buy and At-Shop Collection",
       "status": "passed",
       "expectedNodes": 8,
       "interactionTurns": 9,
@@ -115,7 +114,8 @@
         11,
         12,
         14,
-        15
+        15,
+        16
       ],
       "horizontalOverflows": [],
       "turns": [
@@ -124,7 +124,7 @@
           "screen": 4,
           "file": "04-universal-focus-shell.html",
           "action": "Open product buying",
-          "intent": "Tap: Open product buying"
+          "intent": "Loading first state..."
         },
         {
           "counter": "2 / 8",
@@ -137,8 +137,8 @@
           "counter": "3 / 8",
           "screen": 10,
           "file": "10-buy-grocery-decision.html",
-          "action": "Counter Pickup pay & collect",
-          "intent": "Tap: Counter Pickup"
+          "action": "At-shop collection pay & collect here",
+          "intent": "Tap: At-shop collection"
         },
         {
           "counter": "4 / 8",
@@ -165,7 +165,7 @@
           "counter": "6 / 8",
           "screen": 14,
           "file": "14-customer-payment-order-confirmation.html",
-          "action": "Pay Rs 645",
+          "action": "Pay Rs 37",
           "intent": "Tap: Pay Rs"
         },
         {
@@ -199,7 +199,8 @@
         11,
         12,
         14,
-        17
+        17,
+        18
       ],
       "horizontalOverflows": [],
       "turns": [
@@ -214,15 +215,15 @@
           "counter": "2 / 8",
           "screen": 9,
           "file": "09-buy.html",
-          "action": "Buy Here",
-          "intent": "Tap: Buy Here"
+          "action": "Open shop buying",
+          "intent": "Tap: Shop"
         },
         {
           "counter": "3 / 8",
           "screen": 10,
           "file": "10-buy-grocery-decision.html",
-          "action": "Home Delivery 11-45 min",
-          "intent": "Tap: Home Delivery"
+          "action": "Deliver to home 11-45 min",
+          "intent": "Tap: Deliver to home"
         },
         {
           "counter": "4 / 8",
@@ -242,8 +243,8 @@
           "counter": "5 / 8",
           "screen": 12,
           "file": "12-buy-basket-checkout.html",
-          "action": "Deliver 22 min local delivery available",
-          "intent": "Tap: Deliver 22 min"
+          "action": "Deliver home in 22 min to your confirmed address",
+          "intent": "Tap: Deliver home in 22 min"
         },
         {
           "counter": "5 / 8",
@@ -256,7 +257,7 @@
           "counter": "6 / 8",
           "screen": 14,
           "file": "14-customer-payment-order-confirmation.html",
-          "action": "Pay Rs 670",
+          "action": "Pay Rs 62",
           "intent": "Tap: Pay Rs"
         },
         {
@@ -264,7 +265,7 @@
           "screen": 14,
           "file": "14-customer-payment-order-confirmation.html",
           "action": "View Order",
-          "intent": "Opening next verified state..."
+          "intent": "Tap: View Order"
         },
         {
           "counter": "7 / 8",
@@ -296,7 +297,7 @@
           "screen": 18,
           "file": "18-home-delivery-completed-bill-rating.html",
           "action": "Report Problem missing, damaged, bill",
-          "intent": "Tap: Report Problem"
+          "intent": "Loading first state..."
         },
         {
           "counter": "2 / 5",
@@ -427,7 +428,7 @@
           "screen": 4,
           "file": "04-universal-focus-shell.html",
           "action": "Open food",
-          "intent": "Tap: Open food"
+          "intent": "Loading first state..."
         },
         {
           "counter": "2 / 3",
@@ -487,7 +488,7 @@
           "screen": 4,
           "file": "04-universal-focus-shell.html",
           "action": "Open food",
-          "intent": "Tap: Open food"
+          "intent": "Loading first state..."
         },
         {
           "counter": "2 / 3",
@@ -509,7 +510,7 @@
       "screensSeen": [
         4,
         30,
-        32,
+        31,
         33,
         34
       ],
@@ -534,7 +535,7 @@
           "screen": 33,
           "file": "33-ride-payment-approval.html",
           "action": "Approve Rs 112",
-          "intent": "Automatic: Trip ended and final fare was calculated"
+          "intent": "Tap: Approve Rs 112"
         },
         {
           "counter": "6 / 7",
@@ -603,7 +604,7 @@
           "screen": 39,
           "file": "39-doctor-patient-invite-followup.html",
           "action": "Show patient QR",
-          "intent": "Tap: Show patient QR"
+          "intent": "Loading first state..."
         },
         {
           "counter": "2 / 4",
@@ -644,7 +645,7 @@
           "screen": 4,
           "file": "04-universal-focus-shell.html",
           "action": "Open booking",
-          "intent": "Tap: Open booking"
+          "intent": "Loading first state..."
         },
         {
           "counter": "2 / 8",
@@ -710,7 +711,7 @@
           "screen": 4,
           "file": "04-universal-focus-shell.html",
           "action": "Open booking",
-          "intent": "Tap: Open booking"
+          "intent": "Loading first state..."
         },
         {
           "counter": "2 / 11",
@@ -844,7 +845,7 @@
           "screen": 4,
           "file": "04-universal-focus-shell.html",
           "action": "Open payments",
-          "intent": "Tap: Open payments"
+          "intent": "Loading first state..."
         },
         {
           "counter": "2 / 5",
@@ -890,7 +891,7 @@
           "screen": 4,
           "file": "04-universal-focus-shell.html",
           "action": "Open payments",
-          "intent": "Tap: Open payments"
+          "intent": "Loading first state..."
         },
         {
           "counter": "2 / 5",
@@ -981,7 +982,8 @@
         4,
         57,
         61,
-        62
+        62,
+        65
       ],
       "horizontalOverflows": [],
       "turns": [
@@ -990,7 +992,7 @@
           "screen": 4,
           "file": "04-universal-focus-shell.html",
           "action": "Open payments",
-          "intent": "Loading first state..."
+          "intent": "Tap: Open payments"
         },
         {
           "counter": "2 / 6",
@@ -1027,8 +1029,7 @@
         4,
         57,
         61,
-        62,
-        66
+        62
       ],
       "horizontalOverflows": [],
       "turns": [
@@ -1076,7 +1077,8 @@
         68,
         69,
         70,
-        71
+        71,
+        73
       ],
       "horizontalOverflows": [],
       "turns": [
@@ -1318,8 +1320,7 @@
         74,
         78,
         79,
-        80,
-        90
+        80
       ],
       "horizontalOverflows": [],
       "turns": [
@@ -1456,7 +1457,7 @@
           "screen": 85,
           "file": "85-retailer-wholesale-goods-receipt.html",
           "action": "All Received 3 cases · good condition",
-          "intent": "Automatic: Supplier shipment arrived at the shop"
+          "intent": "Tap: All Received"
         },
         {
           "counter": "6 / 11",
@@ -1869,7 +1870,7 @@
           "screen": 107,
           "file": "107-manufacturer-supplier-workspace-home.html",
           "action": "Stock",
-          "intent": "Loading first state..."
+          "intent": "Tap: Stock"
         },
         {
           "counter": "2 / 5",
@@ -1964,7 +1965,7 @@
           "screen": 107,
           "file": "107-manufacturer-supplier-workspace-home.html",
           "action": "Review retailer demand pool",
-          "intent": "Loading first state..."
+          "intent": "Tap: Review retailer demand pool"
         },
         {
           "counter": "2 / 4",
@@ -2064,7 +2065,7 @@
           "screen": 116,
           "file": "116-captain-home-availability.html",
           "action": "R Requests",
-          "intent": "Loading first state..."
+          "intent": "Tap: R Requests"
         },
         {
           "counter": "2 / 10",
@@ -2170,7 +2171,7 @@
           "screen": 124,
           "file": "124-creator-studio-home.html",
           "action": "+ Create",
-          "intent": "Loading first state..."
+          "intent": "Tap: + Create"
         },
         {
           "counter": "2 / 15",
@@ -2292,9 +2293,7 @@
         152,
         129,
         125,
-        5,
-        154,
-        130
+        154
       ],
       "horizontalOverflows": [],
       "turns": [
@@ -2334,11 +2333,11 @@
           "intent": "Tap: Review & Publish"
         },
         {
-          "counter": "6 / 8",
+          "counter": "7 / 8",
           "screen": 154,
           "file": "154-admin-finance-reconciliation.html",
           "action": "Reconcile exceptions",
-          "intent": "Automatic: Attributed outcomes reached finance reconciliation"
+          "intent": "Tap: Reconcile exceptions"
         }
       ],
       "error": null
@@ -2359,7 +2358,6 @@
         12,
         14,
         17,
-        127,
         154
       ],
       "horizontalOverflows": [],
@@ -2387,24 +2385,24 @@
         },
         {
           "counter": "3 / 12",
-          "screen": 5,
-          "file": "05-social-shorts.html",
+          "screen": 125,
+          "file": "125-creator-create-publish.html",
           "action": "Details",
           "intent": "Opening next verified state..."
         },
         {
-          "counter": "4 / 12",
+          "counter": "5 / 12",
           "screen": 9,
           "file": "09-buy.html",
           "action": "Open basket",
-          "intent": "Opening next verified state..."
+          "intent": "Tap: Open basket"
         },
         {
           "counter": "6 / 12",
           "screen": 12,
           "file": "12-buy-basket-checkout.html",
-          "action": "Deliver 22 min local delivery available",
-          "intent": "Tap: Deliver 22 min"
+          "action": "Deliver home in 22 min to your confirmed address",
+          "intent": "Tap: Deliver home in 22 min"
         },
         {
           "counter": "6 / 12",
@@ -2425,7 +2423,7 @@
           "screen": 14,
           "file": "14-customer-payment-order-confirmation.html",
           "action": "View Order",
-          "intent": "Tap: View Order"
+          "intent": "Opening next verified state..."
         },
         {
           "counter": "8 / 12",
@@ -2435,7 +2433,7 @@
           "intent": "Tap: Refresh status"
         },
         {
-          "counter": "11 / 12",
+          "counter": "10 / 12",
           "screen": 154,
           "file": "154-admin-finance-reconciliation.html",
           "action": "Reconcile exceptions",
@@ -2454,7 +2452,8 @@
       "screensSeen": [
         132,
         7,
-        62
+        62,
+        130
       ],
       "horizontalOverflows": [],
       "turns": [
@@ -2466,11 +2465,11 @@
           "intent": "Tap: Create Membership Plan"
         },
         {
-          "counter": "1 / 5",
+          "counter": "2 / 5",
           "screen": 7,
           "file": "07-social-feed.html",
           "action": "Join membership",
-          "intent": "Opening next verified state..."
+          "intent": "Tap: Join membership"
         },
         {
           "counter": "3 / 5",
@@ -2490,18 +2489,17 @@
       "interactionTurns": 1,
       "finalCounter": "4 / 4",
       "screensSeen": [
-        127,
         154,
         130
       ],
       "horizontalOverflows": [],
       "turns": [
         {
-          "counter": "3 / 4",
+          "counter": "2 / 4",
           "screen": 154,
           "file": "154-admin-finance-reconciliation.html",
           "action": "Reconcile exceptions",
-          "intent": "Tap: Reconcile exceptions"
+          "intent": "Automatic: Qualified long-video performance was recorded"
         }
       ],
       "error": null
@@ -2551,11 +2549,11 @@
           "intent": "Tap: Open engine controls"
         },
         {
-          "counter": "5 / 6",
+          "counter": "4 / 6",
           "screen": 154,
           "file": "154-admin-finance-reconciliation.html",
           "action": "Reconcile exceptions",
-          "intent": "Tap: Reconcile exceptions"
+          "intent": "Opening next verified state..."
         }
       ],
       "error": null
@@ -2584,11 +2582,11 @@
           "intent": "Tap: Open engine controls"
         },
         {
-          "counter": "2 / 7",
+          "counter": "1 / 7",
           "screen": 133,
           "file": "133-earn-opportunities.html",
           "action": "Check eligibility",
-          "intent": "Tap: Check eligibility"
+          "intent": "Opening next verified state..."
         },
         {
           "counter": "3 / 7",
@@ -2654,11 +2652,11 @@
           "intent": "Tap: Approve controlled launch"
         },
         {
-          "counter": "2 / 9",
+          "counter": "3 / 9",
           "screen": 129,
           "file": "129-creator-campaigns.html",
           "action": "Open Deliverable",
-          "intent": "Opening next verified state..."
+          "intent": "Tap: Open Deliverable"
         },
         {
           "counter": "4 / 9",
@@ -2694,7 +2692,8 @@
       "screensSeen": [
         99,
         131,
-        154
+        154,
+        130
       ],
       "horizontalOverflows": [],
       "turns": [
@@ -2703,7 +2702,7 @@
           "screen": 99,
           "file": "99-retailer-offers-campaigns.html",
           "action": "Set terms and reserve",
-          "intent": "Loading first state..."
+          "intent": "Tap: Set terms and reserve"
         },
         {
           "counter": "2 / 4",
@@ -2750,7 +2749,7 @@
           "screen": 133,
           "file": "133-earn-opportunities.html",
           "action": "Check eligibility",
-          "intent": "Loading first state..."
+          "intent": "Tap: Check eligibility"
         },
         {
           "counter": "2 / 6",
