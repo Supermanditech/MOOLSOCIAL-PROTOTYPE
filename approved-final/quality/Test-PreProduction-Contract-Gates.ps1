@@ -65,7 +65,8 @@ foreach ($doc in @(
   'architecture\MVP-WORKSPACE-ECONOMICS-FREEZE.md',
   'architecture\PRODUCTION-DESIGN-SYSTEM-FREEZE.md',
   'architecture\MVP-API-CONTRACT-FREEZE.md',
-  'architecture\REGRESSION-QUALITY-AND-RELEASE-FREEZE.md'
+  'architecture\REGRESSION-QUALITY-AND-RELEASE-FREEZE.md',
+  'architecture\PRODUCTION-JOURNEY-IMPLEMENTATION-TICKETS-2026-07-15.md'
 )) {
   Require-File $doc
 }
@@ -87,11 +88,10 @@ if (-not (Test-Path -LiteralPath $releaseScript)) {
 $result = [ordered]@{
   generatedAt = (Get-Date).ToString('o')
   status = if ($blockers.Count -eq 0) { 'ready' } else { 'blocked' }
-  completedRequestedSteps = @(1, 2, 3, 4, 5, 7, 9)
+  completedRequestedSteps = @(1, 2, 3, 4, 5, 7, 9, 10)
   excludedByUser = @(
     '6 - domain and database architecture',
-    '8 - security and compliance',
-    '10 - production tickets'
+    '8 - security and compliance'
   )
   approvedScreens = if ($mobileGate) { [int]$mobileGate.approvedScreens } else { 0 }
   operationalFlows = if ($mobileGate) { [int]$mobileGate.operationalFlows } else { 0 }
@@ -102,6 +102,7 @@ $result = [ordered]@{
   contractArtifacts = 8
   productionComponents = if ($components) { @($components.components.PSObject.Properties).Count } else { 0 }
   economicsPolicies = if ($economics) { @($economics.sourcePolicies.PSObject.Properties).Count } else { 0 }
+  productionJourneyTickets = 16
   blockers = @($blockers)
   finalMobileTestingLinkMayBeShared = ($blockers.Count -eq 0 -and $mobileGate -and $mobileGate.finalMobileTestingLinkMayBeShared)
 }

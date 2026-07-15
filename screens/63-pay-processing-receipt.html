@@ -1091,7 +1091,7 @@
             <nav class="bottom-dock" aria-label="Payment result navigation">
               <a class="mool-button" href="04-universal-focus-shell.html">Mool</a>
               <div class="dock-track">
-                <a class="dock-tab" href="#" data-dock-ride="Receipt"><svg viewBox="0 0 24 24"><path d="M6 2h12v20l-3-2-3 2-3-2-3 2Z" /><path d="M9 7h6" /><path d="M9 11h6" /></svg>Receipt</a>
+                <a class="dock-tab" href="64-pay-receipts-history.html" data-dock-ride="Receipt" aria-label="Open all receipts"><svg viewBox="0 0 24 24"><path d="M6 2h12v20l-3-2-3 2-3-2-3 2Z" /><path d="M9 7h6" /><path d="M9 11h6" /></svg>Receipts</a>
                 <a class="dock-tab" href="#" data-dock-ride="Order"><svg viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" /><path d="M3 6h18" /></svg>Order</a>
                 <a class="dock-tab" href="#" data-dock-ride="Help"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" /><path d="M9.5 9a2.5 2.5 0 1 1 4.3 1.7c-.9.8-1.8 1.3-1.8 2.8" /><path d="M12 17h.01" /></svg>Help</a>
               </div>
@@ -1279,6 +1279,7 @@
 
     dockOptions.forEach((option) => {
       option.addEventListener("click", (event) => {
+        if (option.dataset.dockRide === "Receipt") return;
         event.preventDefault();
         applyRide(option.dataset.dockRide);
       });

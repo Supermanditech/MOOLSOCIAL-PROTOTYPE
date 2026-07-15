@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-14T21:03:22.1247798+05:30",
+  "generatedAt": "2026-07-15T11:12:31.9393056+05:30",
   "status": "ready",
   "completedRequestedSteps": [
     1,
@@ -8,12 +8,12 @@
     4,
     5,
     7,
-    9
+    9,
+    10
   ],
   "excludedByUser": [
     "6 - domain and database architecture",
-    "8 - security and compliance",
-    "10 - production tickets"
+    "8 - security and compliance"
   ],
   "approvedScreens": 166,
   "operationalFlows": 47,
@@ -24,6 +24,7 @@
   "contractArtifacts": 8,
   "productionComponents": 27,
   "economicsPolicies": 13,
+  "productionJourneyTickets": 16,
   "blockers": [],
   "finalMobileTestingLinkMayBeShared": true
 }

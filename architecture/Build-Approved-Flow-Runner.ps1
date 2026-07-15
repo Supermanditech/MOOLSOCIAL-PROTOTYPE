@@ -13,8 +13,8 @@ $flowRows = @'
 id|title|description|screens
 onboarding|Install to Universal App|Install, first open, automated setup, sign-in and universal handoff.|0,1,2,3,4
 social|Social Consumer and Creator Entry|Open a full-screen Short from the universal social surface, then move between Videos, Feed and Create.|4,5,6,7,8
-buy-counter|Buy and Counter Pickup|Discover a shop, choose products, checkout, confirm stock, pay, collect and rate.|4,9,10,11,12,13,14,15,16
-buy-delivery|Buy and Home Delivery|Discover, choose, checkout, confirm, pay, track home delivery and rate.|4,9,10,11,12,13,14,17,18
+buy-counter|Buy and Counter Pickup|Discover a shop, choose products, review the available basket, pay, collect and rate.|4,9,10,11,12,14,15,16
+buy-delivery|Buy and Home Delivery|Discover, choose, review the available basket, pay, track home delivery and rate.|4,9,10,11,12,14,17,18
 buy-issue|Order Issue and Resolution|Submit evidence, follow review, receive refund or replacement and use order support chat.|18,19,20,21,22
 chat|Chat Inbox and Threads|Open global Chat from the universal surface, enter a business conversation, return to the inbox and open a people conversation.|4,23,24,23,25
 eat-order|Eat - Order Food|Open Eat from the universal surface, choose restaurant food and place an order.|4,26,27
@@ -33,7 +33,7 @@ pay-refund|Pay Request - Pending Refund|Open Pay from the universal surface, rev
 pay-failure|Pay Request - Failure and Reversal|Open Pay from the universal surface, review a request, pass through payment processing and safely handle failure, reversal or retry.|4,57,61,62,63,66
 earn-workspace|Earn and Create Work Profile|Discover work, review terms, enter My Work, choose activity, submit proof and activate a workspace.|4,67,68,69,70,71,72,73
 retailer-onboarding|Retailer Workspace Entry|Choose retailer activity, verify it, activate the workspace and enter retailer operations.|70,71,72,73,74
-retailer-orders|Retailer Customer Order|Review an order, fulfil it, assign delivery and complete the handoff.|74,75,76,77
+retailer-orders|Retailer Customer Order|Open a paid preparation alert, start packing, return to the order queue, fulfil the order, assign delivery and complete the handoff.|13,74,75,76,77
 retailer-pos|Retailer Counter and POS|Create an assisted order, manage counters, return to the order builder, complete a POS sale and see the Sales Book.|74,78,79,78,80,90
 retailer-wholesale|Retailer Wholesale Procurement|Browse wholesale supply, place a purchase order, track and receive goods, post the bill, pay the supplier and return to the Business Book.|74,81,82,83,84,85,86,87,88,89,92
 retailer-books|Retailer Books and Reconciliation|Use the Business Book as the hub for sales, purchases, stock position and cash or bank reconciliation.|92,90,92,87,92,91,92,106
@@ -47,7 +47,7 @@ manufacturer-control|Manufacturer Claims and Team Control|Use the manufacturer w
 captain-workspace|Captain Ride and Earnings|Go online, accept a ride, navigate, complete it and receive payout, then use captain home for compliance and support.|116,117,118,119,120,121,116,122,116,123
 creator-workspace|Creator Studio and Earnings|Use Creator Studio as the hub for create, content, performance, audience, campaigns, earnings, rights and memberships.|124,125,124,126,127,124,128,124,129,124,130,124,131,124,132
 creator-funded-campaign|Creator Earning - Funded Campaign|A retailer reserves campaign money, admin governs it, a creator accepts and delivers, consumers act, attribution closes and the ledger releases payment.|100,152,129,125,5,127,154,130
-creator-commerce-share|Creator Earning - Commerce Share|A business declares an eligible share, the creator publishes linked content, the consumer completes basket review and stock confirmation before payment, and the verified share reaches the creator ledger.|99,129,125,5,9,12,13,14,18,127,154,130
+creator-commerce-share|Creator Earning - Commerce Share|A business declares an eligible share, the creator publishes linked content, the consumer completes basket review, payment and delivery, and the verified share reaches the creator ledger.|99,129,125,5,9,12,14,17,18,127,154,130
 creator-membership|Creator Earning - Membership|A creator publishes monthly or annual membership, a consumer joins and pays, and the protected recurring amount reaches the creator ledger.|132,7,62,63,130
 creator-content-pool|Creator Earning - Content Pool|Eligible original content receives a versioned performance allocation from a reserved MoolSocial pool and reaches the creator ledger after monthly close.|6,127,154,130
 creator-local-production|Creator Earning - Local Content Work|A local business funds a bounded content brief, the creator delivers it, governance closes approval and the fee reaches the creator ledger.|100,129,125,152,154,130
@@ -75,6 +75,7 @@ $flowQueryOverrides = @{
   'creator-commerce-share:5' = '?earning=attributed_commerce&content=CT-884&sku=BASKET-399'
   'creator-commerce-share:9' = '?content=CT-884&sku=BASKET-399'
   'creator-commerce-share:14' = '?content=CT-884&sku=BASKET-399&attribution=ATTR-884'
+  'creator-commerce-share:17' = '?content=CT-884&sku=BASKET-399&attribution=ATTR-884'
   'creator-commerce-share:18' = '?content=CT-884&sku=BASKET-399&attribution=ATTR-884'
   'creator-commerce-share:127' = '?engine=attributed_commerce'
   'creator-commerce-share:154' = '?engine=attributed_commerce'

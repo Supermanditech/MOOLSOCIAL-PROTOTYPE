@@ -650,13 +650,13 @@
 
     <section class="ms-panel">
       <div class="ms-section-head">
-        Screen 13: Retailer Stock Confirmation Alert
-        <span>Triggered by customer Confirm Stock First</span>
+        Screen 13: Retailer Order Preparation
+        <span>Triggered after a customer completes payment</span>
       </div>
 
       <div class="preview">
         <div class="phone" aria-label="MoolSocial retailer stock confirmation phone preview">
-          <div class="app" id="retailerApp" data-state="waiting">
+          <div class="app" id="retailerApp" data-state="new-order">
             <div class="status-row">
               <span>9:41</span>
               <span>5G 100%</span>
@@ -665,12 +665,12 @@
             <div class="top-zone">
               <div class="brand-row">
                 <div class="title-lockup">
-                  <b>Shop Alert</b>
+                  <b>New Order</b>
                   <div class="identity-line" aria-hidden="true"><span></span><span></span><span></span></div>
                   <span>Mahadev Fresh Mart workspace</span>
                 </div>
                 <div class="top-buttons">
-                  <a class="circle-btn" href="12-buy-basket-checkout.html?v=retailer-stock-lock-1" aria-label="Back to customer basket">
+                  <a class="circle-btn" href="74-retail-products-stock-setup.html?view=orders" aria-label="Back to retailer orders">
                     <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" /></svg>
                   </a>
                   <button class="circle-btn" type="button" aria-label="Open alerts">
@@ -684,21 +684,21 @@
               <section class="urgent-card">
                 <div class="urgent-head">
                   <div class="urgent-copy">
-                    <b id="alertTitle">New basket confirmation</b>
-                    <span id="alertCopy">Customer is waiting to pay. Confirm stock before payment can open.</span>
+                    <b id="alertTitle">Paid order ready to prepare</b>
+                    <span id="alertCopy">Payment is protected. Check the items, start packing and update the ready time.</span>
                   </div>
                   <div class="timer-badge">
-                    <span><strong id="timerValue">75s</strong>SLA</span>
+                    <span><strong id="timerValue">8 min</strong>ready by</span>
                   </div>
                 </div>
                 <div class="order-facts">
                   <div class="fact-chip">
                     <b>3 items</b>
-                    <span>basket from customer</span>
+                    <span>paid customer order</span>
                   </div>
                   <div class="fact-chip">
-                    <b>Est. Rs 645</b>
-                    <span>payment blocked</span>
+                    <b>Rs 645</b>
+                    <span>payment protected</span>
                   </div>
                   <div class="fact-chip">
                     <b>Pickup 8 min</b>
@@ -707,13 +707,13 @@
                 </div>
                 <div class="confirm-note">
                   <b id="alertState">Action</b>
-                  <span id="confirmNote">Confirm available quantity now. Wrong stock will be logged against shop trust.</span>
+                  <span id="confirmNote">Verify the listed quantities, start packing and hand over the correct order on time.</span>
                 </div>
               </section>
 
               <section class="panel-card">
                 <div class="panel-head">
-                  <b>Confirm item stock</b>
+                  <b>Prepare order items</b>
                   <span id="stockSummary">3 of 3 available</span>
                 </div>
                 <div class="item-list">
@@ -755,46 +755,46 @@
 
               <section class="panel-card">
                 <div class="panel-head">
-                  <b>Reply to customer</b>
-                  <span id="replyHint">one tap required</span>
+                  <b>Update order</b>
+                  <span id="replyHint">choose the next action</span>
                 </div>
                 <div class="action-grid">
                   <button class="action-btn primary" type="button" data-action="confirm">
-                    <b>Confirm All</b>
-                    <span>unlock customer payment</span>
+                    <b>Start Packing</b>
+                    <span>accept the paid order</span>
                   </button>
                   <button class="action-btn" type="button" data-action="edit">
-                    <b>Edit Qty</b>
-                    <span>send changed quantity</span>
+                    <b>Adjust Quantity</b>
+                    <span>request customer approval</span>
                   </button>
                   <button class="action-btn" type="button" data-action="unavailable">
-                    <b>Mark Unavailable</b>
-                    <span>payment stays blocked</span>
+                    <b>Report Unavailable</b>
+                    <span>offer replace or refund</span>
                   </button>
                   <button class="action-btn" type="button" data-action="time">
-                    <b>Need More Time</b>
-                    <span>customer sees delay</span>
+                    <b>Update Ready Time</b>
+                    <span>share the revised time</span>
                   </button>
                 </div>
               </section>
 
               <section class="panel-card">
                 <div class="panel-head">
-                  <b>Retailer accountability</b>
-                  <span>automatic after response</span>
+                  <b>Order service standards</b>
+                  <span>updated automatically</span>
                 </div>
                 <div class="account-grid">
                   <div class="account-card">
-                    <b>SLA</b>
-                    <span>75 sec alert</span>
+                    <b>Ready time</b>
+                    <span>8 min target</span>
                   </div>
                   <div class="account-card">
-                    <b>Mismatch</b>
-                    <span>logged if wrong</span>
+                    <b>Accuracy</b>
+                    <span>items verified</span>
                   </div>
                   <div class="account-card">
-                    <b>Visibility</b>
-                    <span>trust affected</span>
+                    <b>Customer</b>
+                    <span>updates sent</span>
                   </div>
                 </div>
               </section>
@@ -803,24 +803,24 @@
             <nav class="bottom-dock" aria-label="Retailer workspace navigation">
               <a class="mool-button" href="04-universal-focus-shell.html" aria-label="Open Mool">Mool</a>
               <div class="dock-tabs" aria-label="Retailer sub-actions">
-                <a class="dock-tab active" href="13-retailer-stock-confirmation.html" aria-label="Open orders">
+                <a class="dock-tab active" href="74-retail-products-stock-setup.html?view=orders" aria-label="Open orders">
                   <svg viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6L5 8Z" /><path d="M9 8a3 3 0 0 1 6 0" /></svg>
                   Orders
                 </a>
-                <a class="dock-tab" href="10-buy-grocery-decision.html" aria-label="Open stock">
+                <a class="dock-tab" href="74-retail-products-stock-setup.html?view=stock" aria-label="Open stock">
                   <svg viewBox="0 0 24 24"><path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z" /></svg>
                   Stock
                 </a>
-                <a class="dock-tab" href="09-buy.html" aria-label="Open payouts">
+                <a class="dock-tab" href="92-retailer-business-book-home.html?view=payouts" aria-label="Open payouts">
                   <svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7H14a3.5 3.5 0 0 1 0 7H6" /></svg>
                   Payout
                 </a>
-                <a class="dock-tab" href="08-social-create.html" aria-label="Open offers">
+                <a class="dock-tab" href="99-retailer-offers-campaigns.html" aria-label="Open offers">
                   <svg viewBox="0 0 24 24"><path d="M4 9V5h4l10 10-4 4L4 9Z" /><path d="M7 7h.01" /></svg>
                   Offers
                 </a>
               </div>
-              <a class="chat-button" href="03-login-account-handoff.html" aria-label="Open chat">
+              <a class="chat-button" href="23-chat-inbox-home.html?from=retailer-order" aria-label="Open chat">
                 <svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z" /></svg>
                 <span class="chat-count">1</span>
               </a>
@@ -830,27 +830,27 @@
 
         <div class="notes">
           <div>
-            <h1 class="ms-title">Retailer gets an urgent operating alert, not a passive order.</h1>
+            <h1 class="ms-title">The retailer receives a paid order with clear preparation actions.</h1>
             <p class="ms-lead">
-              This screen appears automatically in the verified shop workspace when a customer asks to confirm stock.
-              The customer cannot pay until the retailer locks available quantity or reports mismatch.
+              This screen appears automatically in the verified shop workspace after payment. Retailer operations never
+              block the customer payment screen; exceptions become explicit substitute, reassignment or refund tasks.
             </p>
           </div>
 
           <div class="ms-panel">
             <div class="ms-section-head">Screen Contract <span>Approved</span></div>
             <div class="state-grid">
-              <div class="state-cell"><b>Entry</b>Customer taps Confirm Stock First on Screen 12.</div>
+              <div class="state-cell"><b>Entry</b>A customer completes payment and the paid order enters the retailer queue.</div>
               <div class="state-cell"><b>Alert Surface</b>Push notification, urgent in-app banner, Orders queue and smart role panel.</div>
-              <div class="state-cell"><b>Action</b>Retailer confirms all, edits quantity, marks unavailable or asks for more time.</div>
+              <div class="state-cell"><b>Action</b>Retailer starts packing, adjusts quantity, reports an unavailable item or updates ready time.</div>
 
-              <div class="state-cell"><b>Backend</b>Payment remains blocked until confirmed stock lock is returned to customer basket.</div>
-              <div class="state-cell"><b>SLA</b>If not answered in 60-90 seconds, customer sees shop not confirming and alternatives.</div>
-              <div class="state-cell"><b>Trust</b>Mismatch and non-response are logged against shop visibility and item availability.</div>
+              <div class="state-cell"><b>Backend</b>Reserve inventory when payment succeeds and create a preparation task for the retailer.</div>
+              <div class="state-cell"><b>SLA</b>If preparation is not started, reassign the order or offer a customer-controlled substitute or refund.</div>
+              <div class="state-cell"><b>Trust</b>Accuracy and preparation performance improve future availability and fulfilment estimates.</div>
 
-              <div class="state-cell"><b>Next</b>Confirmed stock unlocks customer Proceed to Pay on Screen 12, then Screen 14 payment/order confirmation.</div>
+              <div class="state-cell"><b>Next</b>Start Packing moves the retailer task to in progress and sends the customer a ready-time update.</div>
               <div class="state-cell"><b>No Role Switch</b>Appears automatically only for verified retailer workspace with pending action.</div>
-              <div class="state-cell"><b>Fallback</b>SMS/WhatsApp can notify retailer only if app alert is not acknowledged.</div>
+              <div class="state-cell"><b>Fallback</b>SMS can notify the retailer if the in-app preparation alert is not acknowledged.</div>
             </div>
           </div>
         </div>
@@ -877,14 +877,14 @@
       });
       document.getElementById("stockSummary").textContent = `${confirmed} of ${requested} available`;
       if (confirmed < requested) {
-        document.getElementById("replyHint").textContent = "customer approval needed";
+        document.getElementById("replyHint").textContent = "resolve item exception";
         document.getElementById("alertState").textContent = "Mismatch";
-        document.getElementById("confirmNote").textContent = "Quantity changed. Customer payment stays blocked until customer accepts the change.";
+        document.getElementById("confirmNote").textContent = "Quantity changed. Send the customer a substitute, reassignment or refund choice.";
         return;
       }
-      document.getElementById("replyHint").textContent = "one tap required";
+      document.getElementById("replyHint").textContent = "ready to start";
       document.getElementById("alertState").textContent = "Action";
-      document.getElementById("confirmNote").textContent = "Confirm available quantity now. Wrong stock will be logged against shop trust.";
+      document.getElementById("confirmNote").textContent = "All quantities match. Start packing and meet the ready time shown.";
     }
 
     document.querySelectorAll("[data-stock]").forEach((button) => {
@@ -902,40 +902,40 @@
         const action = button.dataset.action;
         document.querySelectorAll("[data-action]").forEach((node) => node.classList.toggle("primary", node === button));
         if (action === "confirm") {
-          document.getElementById("alertTitle").textContent = "Stock confirmed";
-          document.getElementById("alertCopy").textContent = "Customer payment is now unlocked for confirmed items only.";
-          document.getElementById("timerValue").textContent = "Sent";
-          document.getElementById("alertState").textContent = "Done";
-          document.getElementById("confirmNote").textContent = "Confirmation sent to customer basket. Payment can proceed.";
-          app.dataset.state = "confirmed";
+          document.getElementById("alertTitle").textContent = "Packing started";
+          document.getElementById("alertCopy").textContent = "The customer can now see the live ready time and pickup status.";
+          document.getElementById("timerValue").textContent = "In progress";
+          document.getElementById("alertState").textContent = "Packing";
+          document.getElementById("confirmNote").textContent = "Prepare all listed items and mark the order ready for pickup.";
+          app.dataset.state = "packing";
         }
         if (action === "edit") {
-          document.getElementById("alertTitle").textContent = "Quantity edit sent";
-          document.getElementById("alertCopy").textContent = "Customer must approve changed quantity before payment opens.";
-          document.getElementById("alertState").textContent = "Edited";
-          document.getElementById("confirmNote").textContent = "Mismatch is logged as an edit, not a confirmed full basket.";
-          app.dataset.state = "edited";
+          document.getElementById("alertTitle").textContent = "Quantity adjustment sent";
+          document.getElementById("alertCopy").textContent = "The customer can approve the change or receive a refund for the difference.";
+          document.getElementById("alertState").textContent = "Approval";
+          document.getElementById("confirmNote").textContent = "Continue preparing unchanged items while the customer reviews the adjustment.";
+          app.dataset.state = "adjusted";
         }
         if (action === "unavailable") {
-          document.getElementById("alertTitle").textContent = "Item unavailable";
-          document.getElementById("alertCopy").textContent = "Customer payment stays blocked and alternatives can be shown.";
-          document.getElementById("alertState").textContent = "Blocked";
-          document.getElementById("confirmNote").textContent = "Unavailable item is logged; repeated misses affect trust score.";
-          app.dataset.state = "blocked";
+          document.getElementById("alertTitle").textContent = "Item exception reported";
+          document.getElementById("alertCopy").textContent = "The customer receives a substitute, reassignment or refund choice.";
+          document.getElementById("alertState").textContent = "Resolve";
+          document.getElementById("confirmNote").textContent = "Do not substitute silently. Continue only after the customer choice is recorded.";
+          app.dataset.state = "exception";
         }
         if (action === "time") {
-          document.getElementById("alertTitle").textContent = "More time requested";
-          document.getElementById("alertCopy").textContent = "Customer sees delay and can wait, pick another shop or buy at counter.";
-          document.getElementById("alertState").textContent = "Delay";
-          document.getElementById("confirmNote").textContent = "Delay is tracked against response SLA.";
-          app.dataset.state = "delayed";
+          document.getElementById("alertTitle").textContent = "Ready time updated";
+          document.getElementById("alertCopy").textContent = "The customer can see the revised time and choose to continue or cancel.";
+          document.getElementById("alertState").textContent = "Updated";
+          document.getElementById("confirmNote").textContent = "Keep the order status current until it is ready for pickup.";
+          app.dataset.state = "time-updated";
         }
       });
     });
 
     render();
   </script>
-<script type="application/json" id="productionRouteContract">{"contractVersion":"mvp-route-lock-2026-07-12","prototypeScreen":13,"productionModule":"retailer","routeId":"retailer.order","routePath":"/retailer/orders/:orderId","routeState":"stock-confirmation","implementation":"route-state","launchScope":"mvp-core","separateProductionRoute":false,"productionNote":"Do not create a separate production route. Implement stock-confirmation inside /retailer/orders/:orderId and reuse the owning route API, authorization, analytics and regression suite.","canonicalMap":"architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"}</script><script type="application/json" id="prototypeApprovalContract">{"prototypeScreen":13,"status":"approved-and-frozen","authoritative":true,"approvedAt":"2026-07-12","approvalScope":"prototype-ui-ux-and-production-contract"}</script>  <script src="../shared/prototype-interaction-contracts.js?v=intent-completion-20260714b"></script>
+<script type="application/json" id="productionRouteContract">{"contractVersion":"mvp-route-lock-2026-07-12","prototypeScreen":13,"productionModule":"retailer","routeId":"retailer.order","routePath":"/retailer/orders/:orderId","routeState":"order-preparation","implementation":"route-state","launchScope":"mvp-core","separateProductionRoute":false,"productionNote":"Do not create a separate production route. Implement order-preparation inside /retailer/orders/:orderId and reuse the owning route API, authorization, analytics and regression suite.","canonicalMap":"architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"}</script><script type="application/json" id="prototypeApprovalContract">{"prototypeScreen":13,"status":"approved-and-frozen","authoritative":true,"approvedAt":"2026-07-12","approvalScope":"prototype-ui-ux-and-production-contract"}</script>  <script src="../shared/prototype-interaction-contracts.js?v=intent-completion-20260714b"></script>
   <script src="../shared/prototype-interaction-runtime.js?v=intent-completion-20260714c"></script>
 </body>
 </html>
