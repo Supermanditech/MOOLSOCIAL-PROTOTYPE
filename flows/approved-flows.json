@@ -2672,8 +2672,8 @@
     },
     {
       "id": "buy-counter",
-      "title": "Buy and Counter Pickup",
-      "description": "Discover a shop, choose products, review the available basket, pay, collect and rate.",
+      "title": "Buy and At-Shop Collection",
+      "description": "Enter through a confirmed QR/location shop session, choose products, review the available basket, pay, collect here and rate.",
       "nodeCount": 8,
       "nodes": [
         {
@@ -2695,6 +2695,10 @@
           "index": 1,
           "screen": 9,
           "file": "screens/09-buy.html",
+          "query": {
+            "context": "at-shop",
+            "entry": "qr"
+          },
           "title": "09 Buy - MoolSocial Screenbook",
           "approval": "approved-and-frozen",
           "previousScreen": 4,

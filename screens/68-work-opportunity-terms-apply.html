@@ -2189,18 +2189,7 @@
       window.scrollTo(0, 0);
     }
 
-    window.addEventListener("load", () => {
-      resetPhoneScroll();
-      requestAnimationFrame(resetPhoneScroll);
-      setTimeout(resetPhoneScroll, 80);
-      setTimeout(resetPhoneScroll, 250);
-      setTimeout(resetPhoneScroll, 600);
-    });
-
-    window.addEventListener("pageshow", () => {
-      resetPhoneScroll();
-      setTimeout(resetPhoneScroll, 250);
-    });
+    window.addEventListener("load", resetPhoneScroll, { once: true });
 
     const viewButtons = document.querySelectorAll("[data-work-view]");
     const filterButtons = document.querySelectorAll("[data-filter]");

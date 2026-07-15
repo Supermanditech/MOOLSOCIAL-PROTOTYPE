@@ -2043,11 +2043,7 @@
       if (content) content.scrollTop = 0;
     }
 
-    window.addEventListener("load", () => {
-      resetPhoneScroll();
-      requestAnimationFrame(resetPhoneScroll);
-      setTimeout(resetPhoneScroll, 80);
-    });
+    window.addEventListener("load", resetPhoneScroll, { once: true });
 
     const actionButtons = document.querySelectorAll(".compact-action, .mini-control, .route-tag, .approve-cta, .dock-tab, .secondary-cta");
     const issueButtons = document.querySelectorAll("[data-issue]");

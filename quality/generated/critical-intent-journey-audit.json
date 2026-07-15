@@ -1,0 +1,81 @@
+{
+  "version": "critical-intent-journey-audit-2026-07-15",
+  "generatedAt": "2026-07-15T13:48:20Z",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "summary": {
+    "journeys": 5,
+    "passed": 5,
+    "failed": 0,
+    "consoleErrors": 0
+  },
+  "journeys": [
+    {
+      "id": "social-selected-video-and-nested-actions",
+      "status": "passed",
+      "elapsedMs": 2469,
+      "evidence": {
+        "selectedVideo": "Lunch thali packing live from Rasoi Kitchen",
+        "comment": "posted",
+        "more": "opened"
+      }
+    },
+    {
+      "id": "people-chat-call-media-message",
+      "status": "passed",
+      "elapsedMs": 1265,
+      "evidence": {
+        "call": "ended",
+        "photo": "saved",
+        "message": "sent",
+        "reaction": "Liked 3",
+        "voice": "playing"
+      }
+    },
+    {
+      "id": "buy-home-value-pack-delivery",
+      "status": "passed",
+      "elapsedMs": 3860,
+      "evidence": {
+        "mode": "Home Value Pack",
+        "basketLine": "Hybrid Tomato\n2 kg fixed home pack · Home Value Pack · final rate shown\nRs 136\n-\n1\n+",
+        "basketTotal": "Rs 136",
+        "paymentTotal": "Rs 136",
+        "coupon": "applied",
+        "paymentMethod": "UPI",
+        "orderRoute": "17-home-delivery-tracking.html"
+      }
+    },
+    {
+      "id": "buy-business-bulk-delivery",
+      "status": "passed",
+      "elapsedMs": 3953,
+      "evidence": {
+        "mode": "Business Bulk",
+        "basketLine": "Aashirvaad Atta\n10-bag minimum order · Business Bulk · final rate shown\nRs 4550\n-\n1\n+",
+        "basketTotal": "Rs 4575",
+        "paymentTotal": "Rs 4575",
+        "coupon": "not applied",
+        "paymentMethod": "UPI",
+        "orderRoute": "17-home-delivery-tracking.html"
+      }
+    },
+    {
+      "id": "buy-at-shop-collection",
+      "status": "passed",
+      "elapsedMs": 3812,
+      "evidence": {
+        "mode": "At-shop collection",
+        "basketLine": "Hybrid Tomato\n500 g · Single Quantity · final rate shown\nRs 37\n-\n1\n+",
+        "basketTotal": "Rs 37",
+        "paymentTotal": "Rs 37",
+        "coupon": "not applied",
+        "paymentMethod": "UPI",
+        "orderRoute": "15-counter-ready-receipt.html"
+      }
+    }
+  ],
+  "consoleErrors": []
+}

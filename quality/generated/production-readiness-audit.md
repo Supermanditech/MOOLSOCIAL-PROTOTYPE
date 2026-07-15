@@ -5,27 +5,27 @@ Status: **passed**
 - Screens checked: 166
 - Screens passed: 166
 - Screens needing correction: 0
-- High-intent controls: 497
+- High-intent controls: 490
 - P0 findings: 0
 - P1 findings: 0
 
 | Screen | Module | Controls | High intent | P0 | P1 | Status |
 | ---: | --- | ---: | ---: | ---: | ---: | --- |
 | 0 | distribution | 2 | 1 | 0 | 0 | passed |
-| 1 | launch | 1 | 0 | 0 | 0 | passed |
+| 1 | launch | 3 | 0 | 0 | 0 | passed |
 | 2 | onboarding | 4 | 1 | 0 | 0 | passed |
 | 3 | identity | 9 | 8 | 0 | 0 | passed |
 | 4 | universal | 47 | 7 | 0 | 0 | passed |
 | 5 | social | 27 | 3 | 0 | 0 | passed |
-| 6 | social | 30 | 3 | 0 | 0 | passed |
-| 7 | social | 40 | 5 | 0 | 0 | passed |
+| 6 | social | 39 | 3 | 0 | 0 | passed |
+| 7 | social | 41 | 6 | 0 | 0 | passed |
 | 8 | social | 35 | 5 | 0 | 0 | passed |
-| 9 | commerce | 29 | 8 | 0 | 0 | passed |
-| 10 | commerce | 43 | 8 | 0 | 0 | passed |
-| 11 | commerce | 28 | 8 | 0 | 0 | passed |
-| 12 | commerce | 22 | 6 | 0 | 0 | passed |
-| 13 | retailer | 19 | 2 | 0 | 0 | passed |
-| 14 | orders | 14 | 3 | 0 | 0 | passed |
+| 9 | commerce | 25 | 5 | 0 | 0 | passed |
+| 10 | commerce | 39 | 6 | 0 | 0 | passed |
+| 11 | commerce | 26 | 3 | 0 | 0 | passed |
+| 12 | commerce | 21 | 5 | 0 | 0 | passed |
+| 13 | retailer | 19 | 3 | 0 | 0 | passed |
+| 14 | orders | 13 | 2 | 0 | 0 | passed |
 | 15 | orders | 14 | 0 | 0 | 0 | passed |
 | 16 | orders | 30 | 2 | 0 | 0 | passed |
 | 17 | orders | 19 | 0 | 0 | 0 | passed |
@@ -36,30 +36,30 @@ Status: **passed**
 | 22 | chat | 37 | 3 | 0 | 0 | passed |
 | 23 | chat | 24 | 4 | 0 | 0 | passed |
 | 24 | chat | 27 | 7 | 0 | 0 | passed |
-| 25 | chat | 25 | 5 | 0 | 0 | passed |
-| 26 | eat | 26 | 8 | 0 | 0 | passed |
-| 27 | eat | 29 | 7 | 0 | 0 | passed |
-| 28 | eat | 33 | 4 | 0 | 0 | passed |
-| 29 | eat | 32 | 6 | 0 | 0 | passed |
+| 25 | chat | 30 | 6 | 0 | 0 | passed |
+| 26 | eat | 34 | 8 | 0 | 0 | passed |
+| 27 | eat | 30 | 7 | 0 | 0 | passed |
+| 28 | eat | 34 | 4 | 0 | 0 | passed |
+| 29 | eat | 33 | 6 | 0 | 0 | passed |
 | 30 | ride | 17 | 1 | 0 | 0 | passed |
 | 31 | ride | 18 | 1 | 0 | 0 | passed |
 | 32 | ride | 21 | 1 | 0 | 0 | passed |
 | 33 | ride | 17 | 5 | 0 | 0 | passed |
 | 34 | ride | 25 | 2 | 0 | 0 | passed |
 | 35 | ride | 23 | 1 | 0 | 0 | passed |
-| 36 | booking | 20 | 1 | 0 | 0 | passed |
-| 37 | health | 26 | 1 | 0 | 0 | passed |
+| 36 | booking | 21 | 1 | 0 | 0 | passed |
+| 37 | health | 27 | 1 | 0 | 0 | passed |
 | 38 | health | 29 | 5 | 0 | 0 | passed |
 | 39 | health | 29 | 2 | 0 | 0 | passed |
 | 40 | health | 29 | 6 | 0 | 0 | passed |
 | 41 | health | 29 | 3 | 0 | 0 | passed |
-| 42 | salon | 26 | 2 | 0 | 0 | passed |
+| 42 | salon | 27 | 2 | 0 | 0 | passed |
 | 43 | salon | 22 | 6 | 0 | 0 | passed |
 | 44 | salon | 20 | 3 | 0 | 0 | passed |
 | 45 | salon | 20 | 4 | 0 | 0 | passed |
 | 46 | salon | 20 | 7 | 0 | 0 | passed |
 | 47 | salon | 20 | 3 | 0 | 0 | passed |
-| 48 | tasks | 31 | 5 | 0 | 0 | passed |
+| 48 | tasks | 32 | 5 | 0 | 0 | passed |
 | 49 | tasks | 16 | 2 | 0 | 0 | passed |
 | 50 | tasks | 16 | 2 | 0 | 0 | passed |
 | 51 | tasks | 16 | 5 | 0 | 0 | passed |
@@ -72,13 +72,13 @@ Status: **passed**
 | 58 | pay | 21 | 1 | 0 | 0 | passed |
 | 59 | pay | 21 | 1 | 0 | 0 | passed |
 | 60 | pay | 21 | 1 | 0 | 0 | passed |
-| 61 | pay | 20 | 3 | 0 | 0 | passed |
+| 61 | pay | 21 | 4 | 0 | 0 | passed |
 | 62 | pay | 17 | 4 | 0 | 0 | passed |
 | 63 | pay | 13 | 2 | 0 | 0 | passed |
-| 64 | pay | 15 | 3 | 0 | 0 | passed |
+| 64 | pay | 16 | 3 | 0 | 0 | passed |
 | 65 | pay | 13 | 1 | 0 | 0 | passed |
 | 66 | pay | 13 | 1 | 0 | 0 | passed |
-| 67 | work | 19 | 0 | 0 | 0 | passed |
+| 67 | work | 16 | 1 | 0 | 0 | passed |
 | 68 | work | 9 | 1 | 0 | 0 | passed |
 | 69 | work | 8 | 1 | 0 | 0 | passed |
 | 70 | work | 14 | 1 | 0 | 0 | passed |

@@ -1095,11 +1095,7 @@
       if (content) content.scrollTop = 0;
     }
 
-    window.addEventListener("load", () => {
-      resetPhoneScroll();
-      requestAnimationFrame(resetPhoneScroll);
-      setTimeout(resetPhoneScroll, 80);
-    });
+    window.addEventListener("load", resetPhoneScroll, { once: true });
 
     const cityButtons = Array.from(document.querySelectorAll("[data-city]"));
     const taskButtons = Array.from(document.querySelectorAll("[data-task]"));

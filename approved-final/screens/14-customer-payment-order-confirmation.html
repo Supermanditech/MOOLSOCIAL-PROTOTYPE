@@ -560,6 +560,11 @@
       white-space: nowrap;
     }
 
+    .app[data-at-shop="off"] [data-method="counter"],
+    .app[data-fulfilment="delivery"] [data-pickup-only],
+    .app[data-fulfilment="schedule"] [data-pickup-only] { display: none; }
+    .app[data-fulfilment="pickup"] [data-delivery-only] { display: none; }
+
     .pay-bar {
       position: absolute;
       left: 10px;
@@ -832,7 +837,7 @@
                   <span>Basket ready to pay</span>
                 </div>
                 <div class="top-buttons">
-                  <a class="circle-btn" href="12-buy-basket-checkout.html?v=retailer-stock-lock-1" aria-label="Back to basket">
+                  <a class="circle-btn" id="backToBasket" href="12-buy-basket-checkout.html" aria-label="Back to basket" data-native-interaction>
                     <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" /></svg>
                   </a>
                   <button class="circle-btn" type="button" aria-label="Open receipt">
@@ -857,7 +862,7 @@
                 <div class="lock-row">
                   <span class="lock-pill">Availability guaranteed</span>
                   <span class="lock-pill">Final amount</span>
-                  <span class="lock-pill">Pickup 8 min</span>
+                  <span class="lock-pill" id="fulfilmentPill">Home delivery 22 min</span>
                   <span class="lock-pill">Refund rule</span>
                 </div>
                 <div class="journey-row" aria-label="Payment journey">
@@ -873,8 +878,8 @@
                   <svg viewBox="0 0 24 24"><path d="M4 7h16" /><path d="M6 7v13h12V7" /><path d="M9 7a3 3 0 0 1 6 0" /></svg>
                 </div>
                 <div class="fulfilment-copy">
-                  <b id="fulfilmentTitle">Counter pickup selected</b>
-                  <span id="fulfilmentCopy">Mahadev Fresh Mart · packet ready in 8 min</span>
+                  <b id="fulfilmentTitle">Home delivery selected</b>
+                  <span id="fulfilmentCopy">Mahadev Fresh Mart · delivery in about 22 min</span>
                 </div>
                 <span class="fulfilment-lock">Change refreshes availability</span>
               </section>
@@ -885,19 +890,19 @@
                   <span id="methodHint">UPI selected</span>
                 </div>
                 <div class="method-grid">
-                  <button class="method-btn active recommended" type="button" data-method="upi">
+                  <button class="method-btn active recommended" type="button" data-method="upi" data-native-interaction>
                     <b>UPI</b>
                     <span>recommended for fastest confirmation</span>
                   </button>
-                  <button class="method-btn" type="button" data-method="wallet">
+                  <button class="method-btn" type="button" data-method="wallet" data-native-interaction>
                     <b>Mool Wallet</b>
                     <span>instant refund path when live</span>
                   </button>
-                  <button class="method-btn" type="button" data-method="card">
+                  <button class="method-btn" type="button" data-method="card" data-native-interaction>
                     <b>Card</b>
                     <span>debit, credit and saved cards</span>
                   </button>
-                  <button class="method-btn" type="button" data-method="counter">
+                  <button class="method-btn" type="button" data-method="counter" data-native-interaction>
                     <b>Counter QR</b>
                     <span>scan and pay at the shop</span>
                   </button>
@@ -911,8 +916,8 @@
                 </div>
                 <div class="summary-grid">
                   <div class="summary-row"><span>Items</span><b id="itemsAmount">Rs 687</b></div>
-                  <div class="summary-row"><span>Pack and shop saving</span><b>- Rs 42</b></div>
-                  <div class="summary-row"><span>Pickup charge</span><b>Rs 0</b></div>
+                  <div class="summary-row"><span>Pack and shop saving</span><b id="savingAmount">- Rs 42</b></div>
+                  <div class="summary-row"><span id="fulfilmentFeeLabel">Delivery charge</span><b id="fulfilmentFee">Rs 25</b></div>
                   <div class="summary-row"><span>Platform fee</span><b>Rs 0</b></div>
                   <div class="summary-row total"><span>Payable now</span><b id="payableAmount">Rs 645</b></div>
                 </div>
@@ -933,9 +938,10 @@
 
               <section class="order-state" id="orderState">
                 <b>Order confirmed</b>
-                <span>Order MS-BUY-1042 is sent to Mahadev Fresh Mart. Collect from counter in 8 minutes or track in Orders.</span>
+                <span id="orderStateCopy">Order MS-BUY-1042 is sent to Mahadev Fresh Mart. Home-delivery tracking is ready.</span>
                 <div class="receipt-grid">
-                  <div class="receipt-cell"><b>Pickup code</b><span>7421</span></div>
+                  <div class="receipt-cell" data-pickup-only><b>At-shop collection code</b><span>7421</span></div>
+                  <div class="receipt-cell" data-delivery-only><b>Delivery tracking</b><span>ready after payment</span></div>
                   <div class="receipt-cell"><b>Shop bill</b><span>ready</span></div>
                   <div class="receipt-cell"><b>Chat shop</b><span>active</span></div>
                 </div>
@@ -996,9 +1002,9 @@
 
               <div class="state-cell"><b>Backend</b>Create the payment intent only for the validated basket and final payable amount.</div>
               <div class="state-cell"><b>Safety</b>No charge for unavailable items; refunds go to source/wallet based on payment method.</div>
-              <div class="state-cell"><b>Retailer</b>On success, shop receives paid order and counter pickup packing instruction.</div>
+              <div class="state-cell"><b>Retailer</b>On success, the shop receives the paid order with the selected home-delivery or confirmed at-shop instruction.</div>
 
-              <div class="state-cell"><b>Next</b>Payment success shows pickup code, shop bill state, chat handoff and later full Orders screen.</div>
+              <div class="state-cell"><b>Next</b>Payment success shows the at-shop collection code or home-delivery tracking, shop bill state, chat handoff and the full Orders screen.</div>
               <div class="state-cell"><b>Failure</b>Opening, pending and failed states preserve the basket briefly and show refresh, retry or change-method actions.</div>
               <div class="state-cell"><b>Dock</b>Mool, Shop, Basket, Pay, Orders and Chat remain one tap accessible.</div>
             </div>
@@ -1018,15 +1024,30 @@
     const heroSubtitle = document.getElementById("heroSubtitle");
     const availabilityTimer = document.getElementById("availabilityTimer");
     const query = new URLSearchParams(window.location.search);
-    const fulfilment = ["pickup", "delivery", "schedule"].includes(query.get("fulfilment")) ? query.get("fulfilment") : "pickup";
-    const amount = Math.max(1, Number(query.get("amount")) || 645);
+    const atShop = query.get("context") === "at-shop";
+    const requestedFulfilment = query.get("fulfilment");
+    const fulfilment = requestedFulfilment === "pickup" && atShop
+      ? "pickup"
+      : ["delivery", "schedule"].includes(requestedFulfilment) ? requestedFulfilment : "delivery";
+    app.dataset.atShop = atShop ? "on" : "off";
+    app.dataset.fulfilment = fulfilment;
+    const defaultAmount = fulfilment === "delivery" ? 670 : 645;
+    const amount = Math.max(1, Number(query.get("amount")) || defaultAmount);
     const items = Math.max(1, Number(query.get("items")) || 3);
+    const feeAmount = Math.max(0, Number(query.get("fee")) || (fulfilment === "delivery" ? 25 : 0));
+    const savingAmount = Math.max(0, Number(query.get("saving")) || 0);
+    const itemsSubtotal = Math.max(1, Number(query.get("itemsTotal")) || (amount + savingAmount - feeAmount));
+    const basketReturnParams = new URLSearchParams();
+    ["from", "product", "rate", "unit", "price", "quantity", "fulfilment", "context", "coupon"].forEach((key) => {
+      if (query.has(key)) basketReturnParams.set(key, query.get(key));
+    });
+    document.getElementById("backToBasket").href = `12-buy-basket-checkout.html?${basketReturnParams.toString()}`;
     const amountText = `Rs ${amount}`;
     const fulfilmentOptions = {
       pickup: {
-        title: "Counter pickup selected",
-        copy: "Mahadev Fresh Mart · packet ready in 8 min",
-        timer: "pickup 8 min",
+        title: "At-shop collection selected",
+        copy: "You are at Mahadev Fresh Mart · collect here in 8 min",
+        timer: "at-shop collection 8 min",
         target: "15-counter-ready-receipt.html"
       },
       delivery: {
@@ -1068,9 +1089,18 @@
     document.getElementById("amountHero").textContent = amountText;
     document.getElementById("payTotal").textContent = amountText;
     document.getElementById("payableAmount").textContent = amountText;
-    document.getElementById("itemsAmount").textContent = `Rs ${amount + 42}`;
+    document.getElementById("itemsAmount").textContent = `Rs ${itemsSubtotal}`;
+    document.getElementById("savingAmount").textContent = `- Rs ${savingAmount}`;
     document.getElementById("fulfilmentTitle").textContent = selectedFulfilment.title;
     document.getElementById("fulfilmentCopy").textContent = selectedFulfilment.copy;
+    document.getElementById("fulfilmentPill").textContent = selectedFulfilment.timer;
+    document.getElementById("fulfilmentFeeLabel").textContent = fulfilment === "delivery" ? "Delivery charge" : fulfilment === "schedule" ? "Schedule charge" : "At-shop collection";
+    document.getElementById("fulfilmentFee").textContent = `Rs ${feeAmount}`;
+    document.getElementById("orderStateCopy").textContent = fulfilment === "pickup"
+      ? "Order MS-BUY-1042 is sent to Mahadev Fresh Mart. Collect it here in 8 minutes."
+      : fulfilment === "schedule"
+        ? "Order MS-BUY-1042 is scheduled with Mahadev Fresh Mart. Tracking will begin before the selected delivery time."
+        : "Order MS-BUY-1042 is sent to Mahadev Fresh Mart. Home-delivery tracking is ready.";
     payButton.textContent = `Pay ${amountText}`;
     payMeta.textContent = methodCopy.upi;
 
@@ -1145,7 +1175,7 @@
         availabilityTimer.textContent = `Paid · ${selectedFulfilment.timer}`;
         payButton.disabled = false;
         payButton.textContent = "View Order";
-        payMeta.textContent = fulfilment === "pickup" ? "Order MS-BUY-1042 · pickup code 7421" : "Order MS-BUY-1042 · live tracking ready";
+        payMeta.textContent = fulfilment === "pickup" ? "Order MS-BUY-1042 · collection code 7421" : fulfilment === "schedule" ? "Order MS-BUY-1042 · scheduled tracking ready" : "Order MS-BUY-1042 · live tracking ready";
       }, 1600);
     });
   </script>

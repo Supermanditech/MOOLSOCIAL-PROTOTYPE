@@ -143,13 +143,15 @@
     "162>165": { "mode": "multi", "actions": ["Global preferences", "Manage preferences"] }
   },
   "flowOverrides": {
-    "buy-counter:10>11": { "mode": "tap", "actions": ["Counter Pickup"] },
-    "buy-delivery:10>11": { "mode": "tap", "actions": ["Home Delivery"] },
-    "buy-delivery:12>14": { "mode": "multi", "actions": ["Deliver 22 min", "Review & Pay"] },
+    "buy-counter:9>10": { "mode": "tap", "actions": ["Buy Here"] },
+    "buy-counter:10>11": { "mode": "tap", "actions": ["At-shop collection"] },
+    "buy-delivery:9>10": { "mode": "tap", "actions": ["Shop"] },
+    "buy-delivery:10>11": { "mode": "tap", "actions": ["Deliver to home"] },
+    "buy-delivery:12>14": { "mode": "multi", "actions": ["Deliver home in 22 min", "Review & Pay"] },
     "earn-workspace:70>71": { "mode": "tap", "actions": ["Create & Work"] },
     "retailer-onboarding:70>71": { "mode": "tap", "actions": ["Products & Trade"] },
     "creator-commerce-share:129>125": { "mode": "tap", "actions": ["Review and continue"] },
-    "creator-commerce-share:12>14": { "mode": "multi", "actions": ["Deliver 22 min", "Review & Pay"] },
+    "creator-commerce-share:12>14": { "mode": "multi", "actions": ["Deliver home in 22 min", "Review & Pay"] },
     "creator-funded-campaign:129>125": { "mode": "tap", "actions": ["Open Deliverable"] },
     "creator-live-event:129>125": { "mode": "tap", "actions": ["Open Deliverable"] },
     "creator-live-event:7>62": { "mode": "tap", "actions": ["Join live event"] }

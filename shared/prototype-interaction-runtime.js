@@ -1,14 +1,117 @@
 (function () {
   'use strict';
 
-  var registry = window.MoolPrototypeInteractionContracts;
-  if (!registry || !registry.screens) return;
+  var supplementalContracts = {
+    '5': {
+      'MS Mahadev Fresh Mart Verified local shop · Jodhpur': { type: 'route', route: '09-buy.html?shop=mahadev-fresh-mart&source=shorts', note: 'Open Mahadev Fresh Mart products, delivery choices and shop information.', ticket: 'MICRO-005-01' }
+    },
+    '22': {
+      'Call': { type: 'handoff', note: 'Start a protected support call for this order.', primaryLabel: 'Start call', ticket: 'MICRO-022-01' },
+      'Video': { type: 'handoff', note: 'Choose a video call or attach a short order video.', primaryLabel: 'Continue', ticket: 'MICRO-022-02' },
+      'Photo proof': { type: 'handoff', note: 'Choose a photo that shows the affected item or delivery proof.', primaryLabel: 'Choose photo', ticket: 'MICRO-022-03' },
+      'File': { type: 'handoff', note: 'Choose a receipt, invoice or supporting document for this order.', primaryLabel: 'Choose file', ticket: 'MICRO-022-04' },
+      'Photo': { type: 'handoff', note: 'Choose a photo and review it before sending it in this order chat.', primaryLabel: 'Choose photo', ticket: 'MICRO-022-05' },
+      'Bill': { type: 'detail', note: 'The paid bill and item-level amount are ready to review in this order chat.', ticket: 'MICRO-022-06' },
+      'Proof': { type: 'detail', note: 'Order, delivery and refund proof are ready to review.', ticket: 'MICRO-022-07' }
+    },
+    '23': {
+      'Photo image/video': { type: 'handoff', note: 'Choose a photo or video, preview it and then send it to the selected person.', primaryLabel: 'Choose media', ticket: 'MICRO-023-01' },
+      'File PDF/doc': { type: 'handoff', note: 'Choose a PDF or document and review its name before sending.', primaryLabel: 'Choose file', ticket: 'MICRO-023-02' },
+      'Call audio': { type: 'handoff', note: 'Select a person to start a protected audio call.', primaryLabel: 'Choose person', ticket: 'MICRO-023-03' },
+      'Video face call': { type: 'handoff', note: 'Select a person to start a protected video call.', primaryLabel: 'Choose person', ticket: 'MICRO-023-04' }
+    },
+    '24': {
+      'Call business': { type: 'handoff', note: 'Start an order-linked business call with the verified shop.', primaryLabel: 'Start call', ticket: 'MICRO-024-01' },
+      'Video call business': { type: 'handoff', note: 'Start an order-linked video call with the verified shop.', primaryLabel: 'Start video', ticket: 'MICRO-024-02' },
+      'More business chat options': { type: 'detail', note: 'Search this conversation, review shared files, manage notifications or report an issue.', ticket: 'MICRO-024-03' },
+      'Change items': { type: 'detail', note: 'Review the linked basket and request an item or quantity change before payment.', primaryLabel: 'Review items', ticket: 'MICRO-024-04' },
+      'Need GST bill': { type: 'terminal', note: 'GST invoice requested for this business order.', ticket: 'MICRO-024-05' },
+      'Share location': { type: 'handoff', note: 'Choose and confirm the delivery location before sharing it with the shop.', primaryLabel: 'Choose location', ticket: 'MICRO-024-06' },
+      'Home delivery': { type: 'select', note: 'Home delivery selected for the confirmed business address.', ticket: 'MICRO-024-07' },
+      'At-shop collection': { type: 'select', note: 'At-shop collection selected for a confirmed shop visit.', ticket: 'MICRO-024-08' },
+      'Send photo': { type: 'handoff', note: 'Choose and preview a product or bill photo before sending it.', primaryLabel: 'Choose photo', ticket: 'MICRO-024-09' },
+      'Send PDF': { type: 'handoff', note: 'Choose and review a PDF before sending it in this business chat.', primaryLabel: 'Choose PDF', ticket: 'MICRO-024-10' },
+      'Send final bill': { type: 'terminal', note: 'Final bill shared in this order-linked conversation.', ticket: 'MICRO-024-11' },
+      'Photo': { type: 'handoff', note: 'Choose and preview a photo before sending it.', primaryLabel: 'Choose photo', ticket: 'MICRO-024-12' },
+      'File': { type: 'handoff', note: 'Choose and review a business document before sending it.', primaryLabel: 'Choose file', ticket: 'MICRO-024-13' },
+      'Send message': { type: 'terminal', note: 'Message sent in this business conversation.', ticket: 'MICRO-024-14' }
+    },
+    '26': {
+      'Scan': { type: 'handoff', note: 'Restaurant QR scanner is ready. Scan at the restaurant to open its current menu or table service.', primaryLabel: 'Open scanner', ticket: 'MICRO-026-01' },
+      'Order now': { type: 'route', route: '27-eat-order-food.html', note: 'Open the restaurant menu and choose delivery or pickup.', ticket: 'MICRO-026-02' },
+      'Menu': { type: 'route', route: '27-eat-order-food.html', note: 'Open the selected restaurant menu.', ticket: 'MICRO-026-03' },
+      'Add pack': { type: 'terminal', note: 'Selected meal pack added to the food basket.', ticket: 'MICRO-026-04' }
+    },
+    '27': {
+      'Customize': { type: 'detail', note: 'Choose spice, ingredients and preparation notes before adding this item.', primaryLabel: 'Apply choices', ticket: 'MICRO-027-01' },
+      'Open food basket': { type: 'detail', note: 'Review selected food items, quantities, delivery choice and payable total.', primaryLabel: 'Review basket', ticket: 'MICRO-027-02' },
+      'Tiffin': { type: 'route', route: '29-eat-tiffin.html', note: 'Open verified tiffin trials and monthly meal plans.', ticket: 'MICRO-027-03' }
+    },
+    '28': {
+      'Tiffin': { type: 'route', route: '29-eat-tiffin.html', note: 'Open verified tiffin trials and monthly meal plans.', ticket: 'MICRO-028-01' }
+    },
+    '29': {
+      'Start monthly tiffin': { type: 'terminal', note: 'Monthly tiffin plan prepared. Review the address, meal calendar and payment before activation.', primaryLabel: 'Review plan', ticket: 'MICRO-029-01' }
+    },
+    '30': {
+      'Book bike saver': { type: 'route', route: '31-ride-accepted-captain-arriving.html?vehicle=bike', note: 'Search for a nearby bike captain at the shown fare.', ticket: 'MICRO-030-01' },
+      'Book auto': { type: 'route', route: '31-ride-accepted-captain-arriving.html?vehicle=auto', note: 'Search for a nearby auto captain at the shown fare.', ticket: 'MICRO-030-02' }
+    },
+    '36': {
+      'Book repair': { type: 'route', route: '48-book-get-it-done.html?task=Repair', note: 'Describe the repair, add a photo and review the visit fee before booking.', ticket: 'MICRO-036-01' }
+    },
+    '38': { 'Need': { type: 'select', note: 'Appointment need section selected. Choose the reason and add a short description.', ticket: 'MICRO-038-01' } },
+    '39': { 'Follow': { type: 'select', note: 'Follow-up options selected for this doctor invitation.', ticket: 'MICRO-039-01' } },
+    '40': { 'Follow': { type: 'select', note: 'Follow-up path selected. Review benefits and consent before joining.', ticket: 'MICRO-040-01' } },
+    '41': { 'Care': { type: 'select', note: 'Care route selected. Choose the follow-up action and records to share.', ticket: 'MICRO-041-01' } },
+    '43': { 'Pay': { type: 'route', route: '44-salon-booking-confirmed.html', note: 'Review the final salon booking amount and payment choice.', ticket: 'MICRO-043-01' } },
+    '44': {
+      'Open directions': { type: 'handoff', note: 'Directions are ready for the confirmed salon location.', primaryLabel: 'Open map', ticket: 'MICRO-044-01' },
+      'Pay via MoolSocial': { type: 'route', route: '45-salon-visit-check-in.html?pay=moolsocial', note: 'Continue to check-in and protected in-app payment.', ticket: 'MICRO-044-02' },
+      'Pay': { type: 'route', route: '45-salon-visit-check-in.html?pay=moolsocial', note: 'Continue to check-in and protected in-app payment.', ticket: 'MICRO-044-03' }
+    },
+    '45': {
+      'Service status': { type: 'select', note: 'Service status selected. Current check-in, stylist and payment state are shown.', ticket: 'MICRO-045-01' },
+      'Pay via MoolSocial': { type: 'route', route: '46-salon-service-payment-rating.html?pay=moolsocial', note: 'Open protected payment, bill and rating.', ticket: 'MICRO-045-02' },
+      'Pay': { type: 'route', route: '46-salon-service-payment-rating.html?pay=moolsocial', note: 'Open protected payment, bill and rating.', ticket: 'MICRO-045-03' }
+    },
+    '46': {
+      'Bill status': { type: 'select', note: 'Bill status selected. The payable amount and receipt state are shown.', ticket: 'MICRO-046-01' },
+      'Pay & save bill': { type: 'terminal', note: 'Payment completed and the salon bill was saved to this booking.', ticket: 'MICRO-046-02' },
+      'Bill': { type: 'detail', note: 'Salon bill is ready with service, amount, payment and support references.', ticket: 'MICRO-046-03' },
+      'Pay': { type: 'terminal', note: 'Salon payment completed and receipt saved.', ticket: 'MICRO-046-04' }
+    },
+    '47': {
+      'Issue status': { type: 'select', note: 'Issue status selected. Open and resolved requests are shown.', ticket: 'MICRO-047-01' },
+      'Choose issue': { type: 'detail', note: 'Choose the service, billing or quality issue and describe the requested resolution.', primaryLabel: 'Continue', ticket: 'MICRO-047-02' },
+      'Proof': { type: 'handoff', note: 'Choose a photo, bill or chat record to support this salon request.', primaryLabel: 'Choose proof', ticket: 'MICRO-047-03' }
+    },
+    '50': {
+      'Call': { type: 'handoff', note: 'Start a protected call with the accepted helper.', primaryLabel: 'Start call', ticket: 'MICRO-050-01' },
+      'Share': { type: 'handoff', note: 'Share the task status and meeting point through the device share sheet.', primaryLabel: 'Share', ticket: 'MICRO-050-02' }
+    },
+    '52': {
+      'Save helper prefer next time': { type: 'select', note: 'Helper saved as a preference for similar future tasks.', ticket: 'MICRO-052-01' },
+      'Share receipt/proof': { type: 'handoff', note: 'Task receipt and completion proof are ready to share.', primaryLabel: 'Share', ticket: 'MICRO-052-02' },
+      'Receipt': { type: 'detail', note: 'Task receipt is ready with amount, helper, proof and completion reference.', ticket: 'MICRO-052-03' }
+    },
+    '90': {
+      'PDF Sales Statement Invoice, payment and return summary ›': { type: 'terminal', note: 'PDF sales statement prepared for the selected period with invoices, payments and returns.', primaryLabel: 'View file', ticket: 'MICRO-090-01' },
+      'GST GST-ready Export Taxable value and invoice register ›': { type: 'terminal', note: 'GST-ready invoice register prepared for the selected period.', primaryLabel: 'View export', ticket: 'MICRO-090-02' },
+      'CA Share with Accountant Role-controlled access with audit trail ›': { type: 'handoff', note: 'Choose an accountant, confirm access and review the audit record before sharing.', primaryLabel: 'Choose accountant', ticket: 'MICRO-090-03' },
+      'WA WhatsApp Approved template or secure receipt link ›': { type: 'handoff', note: 'Secure receipt link prepared for sharing through an approved WhatsApp template.', primaryLabel: 'Open WhatsApp', ticket: 'MICRO-090-04' },
+      'QR QR or Print Counter receipt without app installation ›': { type: 'terminal', note: 'Receipt QR and print-ready receipt prepared for the customer.', primaryLabel: 'View receipt', ticket: 'MICRO-090-05' }
+    }
+  };
+
+  var registry = window.MoolPrototypeInteractionContracts || { screens: {} };
+  if (!registry.screens) registry.screens = {};
 
   var match = window.location.pathname.match(/\/(\d{2,3})-[^/]+[.]html$/);
   if (!match) return;
   var screen = String(parseInt(match[1], 10));
-  var contracts = registry.screens[screen];
-  if (!contracts) return;
+  var contracts = Object.assign({}, registry.screens[screen] || {}, supplementalContracts[screen] || {});
+  if (!Object.keys(contracts).length) return;
 
   var controlSelector = 'button, a, input, select, textarea, [role="button"], [role="tab"], [role="switch"]';
 
@@ -247,6 +350,7 @@
   document.addEventListener('click', function (event) {
     var element = event.target.closest && event.target.closest(controlSelector);
     if (!element) return;
+    if (element.closest('.mool-contract-backdrop')) return;
     var resolved = resolveContract(element);
     if (!resolved) return;
     runContract(event, element, resolved.label, resolved.contract);

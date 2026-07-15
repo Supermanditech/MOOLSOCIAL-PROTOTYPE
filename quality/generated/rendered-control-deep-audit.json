@@ -1,6 +1,6 @@
 {
   "complete": true,
-  "completedAt": "2026-07-15T08:37:41.8369744Z",
+  "completedAt": "2026-07-15T14:04:01.970Z",
   "issues": [],
   "screens": [
     {
@@ -58,11 +58,11 @@
       "skipped": 0
     },
     {
-      "controls": 37,
+      "controls": 39,
       "failed": 0,
       "file": "06-social-videos.html",
       "issues": [],
-      "passed": 37,
+      "passed": 39,
       "screen": 6,
       "skipped": 0
     },
@@ -85,38 +85,38 @@
       "skipped": 0
     },
     {
-      "controls": 29,
+      "controls": 25,
       "failed": 0,
       "file": "09-buy.html",
       "issues": [],
-      "passed": 29,
+      "passed": 25,
       "screen": 9,
       "skipped": 0
     },
     {
-      "controls": 47,
+      "controls": 39,
       "failed": 0,
       "file": "10-buy-grocery-decision.html",
       "issues": [],
-      "passed": 47,
+      "passed": 39,
       "screen": 10,
       "skipped": 0
     },
     {
-      "controls": 28,
+      "controls": 26,
       "failed": 0,
       "file": "11-buy-product-detail.html",
       "issues": [],
-      "passed": 28,
+      "passed": 26,
       "screen": 11,
       "skipped": 0
     },
     {
-      "controls": 22,
+      "controls": 21,
       "failed": 0,
       "file": "12-buy-basket-checkout.html",
       "issues": [],
-      "passed": 22,
+      "passed": 21,
       "screen": 12,
       "skipped": 0
     },
@@ -130,11 +130,11 @@
       "skipped": 0
     },
     {
-      "controls": 14,
+      "controls": 13,
       "failed": 0,
       "file": "14-customer-payment-order-confirmation.html",
       "issues": [],
-      "passed": 14,
+      "passed": 13,
       "screen": 14,
       "skipped": 0
     },
@@ -229,11 +229,11 @@
       "skipped": 0
     },
     {
-      "controls": 25,
+      "controls": 30,
       "failed": 0,
       "file": "25-chat-people-thread.html",
       "issues": [],
-      "passed": 25,
+      "passed": 30,
       "screen": 25,
       "skipped": 0
     },
@@ -607,11 +607,11 @@
       "skipped": 0
     },
     {
-      "controls": 17,
+      "controls": 16,
       "failed": 0,
       "file": "67-work.html",
       "issues": [],
-      "passed": 17,
+      "passed": 16,
       "screen": 67,
       "skipped": 0
     },
@@ -1498,13 +1498,13 @@
       "skipped": 0
     }
   ],
-  "startedAt": "2026-07-15T08:28:09.415Z",
+  "startedAt": "2026-07-15T13:55:13.221Z",
   "summary": {
     "failed": 0,
-    "passed": 3220,
+    "passed": 3210,
     "screens": 166,
     "skipped": 0,
-    "tested": 3220
+    "tested": 3210
   },
   "consoleErrors": []
 }

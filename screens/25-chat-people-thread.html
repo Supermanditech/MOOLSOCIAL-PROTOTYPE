@@ -108,6 +108,7 @@
       background: rgba(255,255,255,.12);
       color: var(--ms-white);
       text-decoration: none;
+      cursor: pointer;
     }
     .group-avatar {
       position: relative;
@@ -419,6 +420,12 @@
       font-weight: 950;
       box-shadow: 0 6px 14px rgba(0,0,128,.07);
     }
+    button.reaction-pill { cursor: pointer; font-family: inherit; }
+    button.reaction-pill[aria-pressed="true"] {
+      border-color: rgba(19,136,8,.38);
+      background: rgba(19,136,8,.10);
+      color: var(--ms-green);
+    }
     .voice-note {
       display: grid;
       grid-template-columns: 24px 1fr auto;
@@ -426,6 +433,17 @@
       gap: 8px;
       min-width: 160px;
     }
+    button.voice-note {
+      width: 100%;
+      border: 0;
+      padding: 0;
+      background: transparent;
+      color: inherit;
+      font: inherit;
+      text-align: left;
+      cursor: pointer;
+    }
+    button.voice-note[aria-pressed="true"] .wave { opacity: .88; }
     .wave {
       height: 14px;
       border-radius: 12px;
@@ -439,6 +457,13 @@
       border-radius: 15px;
       padding: 7px;
       background: rgba(255,255,255,.09);
+    }
+    button.media-preview, button.file-preview {
+      width: 100%;
+      color: inherit;
+      font: inherit;
+      text-align: left;
+      cursor: pointer;
     }
     .media-thumb {
       min-height: 86px;
@@ -551,6 +576,17 @@
       font-size: 9px;
       font-weight: 950;
     }
+    .basket-actions button, .poll-actions button {
+      min-height: 34px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(0,0,128,.14);
+      border-radius: var(--ms-pill);
+      color: var(--ms-navy);
+      background: var(--ms-white);
+      font: 950 9px var(--ms-font);
+      cursor: pointer;
+    }
     .basket-actions a.primary, .poll-actions a.primary {
       background: var(--ms-navy);
       color: var(--ms-white);
@@ -593,7 +629,7 @@
       scrollbar-width: none;
     }
     .quick-replies::-webkit-scrollbar { display: none; }
-    .quick-replies a {
+    .quick-replies a, .quick-replies button {
       flex: 0 0 auto;
       min-height: 27px;
       display: inline-flex;
@@ -607,6 +643,8 @@
       font-size: 8px;
       font-weight: 950;
       box-shadow: 0 8px 18px rgba(0,0,128,.08);
+      font-family: var(--ms-font);
+      cursor: pointer;
     }
     .reply-preview {
       display: grid;
@@ -664,6 +702,8 @@
       font-size: 7px;
       font-weight: 950;
       box-shadow: 0 8px 18px rgba(0,0,128,.08);
+      font-family: var(--ms-font);
+      cursor: pointer;
     }
     .attach-chip.primary {
       background: var(--ms-navy);
@@ -697,13 +737,16 @@
       background: rgba(0,0,128,.08);
       color: var(--ms-navy);
     }
-    .composer span {
+    .composer input {
+      min-width: 0;
+      width: 100%;
+      border: 0;
+      outline: 0;
+      background: transparent;
       color: rgba(0,0,128,.60);
       font-size: 10px;
       font-weight: 850;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      font-family: var(--ms-font);
     }
     .send-btn {
       width: 38px;
@@ -712,6 +755,31 @@
       color: var(--ms-white);
       box-shadow: inset 0 -3px 0 var(--ms-saffron);
     }
+    .chat-action-sheet {
+      position: absolute;
+      inset: auto 10px 10px;
+      z-index: 12;
+      display: grid;
+      gap: 9px;
+      max-height: 70%;
+      overflow: auto;
+      border: 1px solid rgba(0,0,128,.18);
+      border-radius: 24px;
+      padding: 14px;
+      background: rgba(255,255,255,.99);
+      color: var(--ms-navy);
+      box-shadow: 0 22px 60px rgba(0,0,128,.30);
+    }
+    .chat-action-sheet[hidden] { display: none; }
+    .chat-sheet-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .chat-sheet-head b { font-size: 14px; font-weight: 950; }
+    .chat-sheet-head button { width: 30px; height: 30px; border: 0; border-radius: 50%; background: rgba(0,0,128,.08); color: var(--ms-navy); font-weight: 950; }
+    .chat-sheet-copy { color: rgba(0,0,128,.68); font-size: 10px; font-weight: 850; line-height: 1.4; }
+    .chat-sheet-fields { display: grid; gap: 7px; }
+    .chat-sheet-fields input { min-height: 38px; border: 1px solid rgba(0,0,128,.16); border-radius: 13px; padding: 0 11px; color: var(--ms-navy); font: 850 10px var(--ms-font); }
+    .chat-sheet-actions { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 7px; }
+    .chat-sheet-actions button { min-height: 40px; border: 1px solid rgba(0,0,128,.14); border-radius: 14px; padding: 7px; background: rgba(0,0,128,.05); color: var(--ms-navy); font: 950 9px var(--ms-font); }
+    .chat-sheet-actions button.primary { background: var(--ms-navy); color: var(--ms-white); box-shadow: inset 0 -3px 0 var(--ms-saffron); }
     .notes { display: grid; gap: 16px; }
     .state-grid {
       display: grid;
@@ -773,15 +841,15 @@
                 <span>5 members - 3 online - family and neighbours</span>
               </div>
               <div class="header-actions">
-                <a class="icon-btn" href="#" aria-label="Call group">
+                <button class="icon-btn" type="button" data-chat-intent="call" aria-label="Call group">
                   <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7l.5 2.6a2 2 0 0 1-.5 1.8L8 9.2a16 16 0 0 0 6.8 6.8l1.1-1.1a2 2 0 0 1 1.8-.5l2.6.5a2 2 0 0 1 1.7 2Z" /></svg>
-                </a>
-                <a class="icon-btn" href="#" aria-label="Video call group">
+                </button>
+                <button class="icon-btn" type="button" data-chat-intent="video" aria-label="Video call group">
                   <svg viewBox="0 0 24 24"><path d="M15 10l5-3v10l-5-3Z" /><rect x="3" y="6" width="12" height="12" rx="2" /></svg>
-                </a>
-                <a class="icon-btn" href="#" aria-label="More people chat options">
+                </button>
+                <button class="icon-btn" type="button" data-chat-intent="more" aria-label="More people chat options">
                   <svg viewBox="0 0 24 24"><path d="M12 12h.01M19 12h.01M5 12h.01" /></svg>
-                </a>
+                </button>
               </div>
             </header>
 
@@ -795,11 +863,11 @@
             </div>
 
             <nav class="mode-strip" aria-label="People chat modes">
-              <a class="mode-chip active" href="#" data-mode="chat"><b>Chat</b><span>messages</span></a>
-              <a class="mode-chip" href="#" data-mode="media"><b>Media</b><span>photos</span></a>
-              <a class="mode-chip" href="#" data-mode="basket"><b>Basket</b><span>shared list</span></a>
-              <a class="mode-chip" href="#" data-mode="poll"><b>Poll</b><span>decide</span></a>
-              <a class="mode-chip" href="#" data-mode="invite"><b>Invite</b><span>members</span></a>
+              <button class="mode-chip active" type="button" data-mode="chat"><b>Chat</b><span>messages</span></button>
+              <button class="mode-chip" type="button" data-mode="media"><b>Media</b><span>photos</span></button>
+              <button class="mode-chip" type="button" data-mode="basket"><b>Basket</b><span>shared list</span></button>
+              <button class="mode-chip" type="button" data-mode="poll"><b>Poll</b><span>decide</span></button>
+              <button class="mode-chip" type="button" data-mode="invite"><b>Invite</b><span>members</span></button>
             </nav>
 
             <main class="chat-body">
@@ -840,7 +908,7 @@
                 <div class="item-line"><span>Rice 10 kg</span><b>Rs 720</b></div>
                 <div class="item-line"><span>Oil 10 L</span><b>Rs 1,340</b></div>
                 <div class="basket-actions">
-                  <a href="#">Edit list</a>
+                  <button type="button" data-chat-intent="edit-basket">Edit list</button>
                   <a class="primary" href="09-buy.html">Find price</a>
                 </div>
               </section>
@@ -855,36 +923,36 @@
 
               <div class="message-row out">
                 <div class="bubble out">
-                  <div class="media-preview">
+                  <button class="media-preview" type="button" data-chat-intent="photo-preview" aria-label="Open kitchen list image">
                     <div class="media-thumb" aria-label="Kitchen list image preview"></div>
                     <div class="media-caption">
                       <span>kitchen-list.jpg</span>
                       <span>Image</span>
                     </div>
-                  </div>
+                  </button>
                   <small>10:49 sent</small>
                 </div>
               </div>
               <div class="reaction-row" aria-label="Message reactions">
                 <span class="reaction-pill">Seen by 4</span>
-                <span class="reaction-pill">Like 2</span>
+                <button class="reaction-pill" type="button" data-message-like aria-pressed="false">Like 2</button>
               </div>
 
               <div class="message-row in">
                 <div class="bubble in">
                   <span class="sender">Rakesh</span>
-                  <div class="voice-note">
+                  <button class="voice-note" type="button" data-voice-note aria-label="Play 18 second voice note" aria-pressed="false">
                     <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7-11-7Z" /></svg>
                     <span class="wave"></span>
-                    <span>0:18</span>
-                  </div>
+                    <span data-voice-time>0:18</span>
+                  </button>
                   <small>10:50</small>
                 </div>
               </div>
 
               <div class="message-row out">
                 <div class="bubble out">
-                  <div class="file-preview">
+                  <button class="file-preview" type="button" data-chat-intent="file-preview" aria-label="Open Monthly Staples PDF">
                     <span class="file-icon">
                       <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z" /><path d="M14 2v6h6" /></svg>
                     </span>
@@ -893,7 +961,7 @@
                       <span>128 KB · sent</span>
                     </span>
                     <svg viewBox="0 0 24 24"><path d="M12 5v14" /><path d="m19 12-7 7-7-7" /></svg>
-                  </div>
+                  </button>
                   <small>10:51 sent</small>
                 </div>
               </div>
@@ -917,7 +985,7 @@
                   <div class="poll-bar"><span style="width: 25%"></span></div>
                 </div>
                 <div class="poll-actions">
-                  <a href="#">Add option</a>
+                  <button type="button" data-chat-intent="add-poll-option">Add option</button>
                   <a class="primary" href="10-buy-grocery-decision.html">Use result</a>
                 </div>
               </section>
@@ -925,12 +993,12 @@
 
             <section class="composer-zone">
               <div class="quick-replies" aria-label="People chat quick replies">
-                <a href="#">Add to basket</a>
-                <a href="#">Create poll</a>
-                <a href="#">Share photo</a>
-                <a href="#">Send file</a>
-                <a href="#">Invite member</a>
-                <a href="#">Find price</a>
+                <button type="button" data-quick-intent="basket">Add to basket</button>
+                <button type="button" data-quick-intent="poll">Create poll</button>
+                <button type="button" data-quick-intent="photo">Share photo</button>
+                <button type="button" data-quick-intent="file">Send file</button>
+                <button type="button" data-quick-intent="invite">Invite member</button>
+                <a href="09-buy.html?from=people-chat">Find price</a>
               </div>
               <div class="reply-preview" id="replyPreview">
                 <div>
@@ -940,34 +1008,34 @@
                 <button type="button" id="closeReply" aria-label="Close reply preview">x</button>
               </div>
               <div class="attachment-tray is-hidden" id="attachmentTray" aria-label="Attachment options">
-                <a class="attach-chip primary" href="#">
+                <button class="attach-chip primary" type="button" data-attachment="Camera">
                   <svg viewBox="0 0 24 24"><path d="M9 7l1.5-2h3L15 7h3a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-7a3 3 0 0 1 3-3Z" /><circle cx="12" cy="13" r="3" /></svg>
                   Camera
-                </a>
-                <a class="attach-chip" href="#">
+                </button>
+                <button class="attach-chip" type="button" data-attachment="Gallery">
                   <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 15 5-5 4 4 2-2 7 7" /></svg>
                   Gallery
-                </a>
-                <a class="attach-chip" href="#">
+                </button>
+                <button class="attach-chip" type="button" data-attachment="Video">
                   <svg viewBox="0 0 24 24"><path d="m22 8-6 4 6 4V8Z" /><rect x="2" y="6" width="14" height="12" rx="2" /></svg>
                   Video
-                </a>
-                <a class="attach-chip" href="#">
+                </button>
+                <button class="attach-chip" type="button" data-attachment="File">
                   <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z" /><path d="M14 2v6h6" /></svg>
                   File
-                </a>
-                <a class="attach-chip" href="#">
+                </button>
+                <button class="attach-chip" type="button" data-attachment="Location">
                   <svg viewBox="0 0 24 24"><path d="M12 21s7-5.3 7-11a7 7 0 1 0-14 0c0 5.7 7 11 7 11Z" /><circle cx="12" cy="10" r="2" /></svg>
                   Location
-                </a>
-                <a class="attach-chip" href="#">
+                </button>
+                <button class="attach-chip" type="button" data-attachment="Contact">
                   <svg viewBox="0 0 24 24"><path d="M16 11c1.7 0 3-1.3 3-3s-1.3-3-3-3-3 1.3-3 3 1.3 3 3 3Z" /><path d="M8 11c1.7 0 3-1.3 3-3S9.7 5 8 5 5 6.3 5 8s1.3 3 3 3Z" /><path d="M2 20c.8-3.3 3-5 6-5s5.2 1.7 6 5" /><path d="M14 15c3 0 5.2 1.7 6 5" /></svg>
                   Contact
-                </a>
-                <a class="attach-chip" href="#">
+                </button>
+                <button class="attach-chip" type="button" data-attachment="Poll">
                   <svg viewBox="0 0 24 24"><path d="M4 6h16" /><path d="M4 12h16" /><path d="M4 18h10" /></svg>
                   Poll
-                </a>
+                </button>
                 <a class="attach-chip" href="09-buy.html">
                   <svg viewBox="0 0 24 24"><path d="M6 6h15l-2 8H8L6 2H3" /><circle cx="9" cy="20" r="1" /><circle cx="18" cy="20" r="1" /></svg>
                   Basket
@@ -980,14 +1048,20 @@
                 <button type="button" id="cameraToggle" aria-label="Open camera">
                   <svg viewBox="0 0 24 24"><path d="M9 7l1.5-2h3L15 7h3a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-7a3 3 0 0 1 3-3Z" /><circle cx="12" cy="13" r="3" /></svg>
                 </button>
-                <span id="composerHint">Message Home Basket Group...</span>
-                <button type="button" aria-label="Voice message">
+                <input id="composerInput" type="text" aria-label="Message Home Basket Group" placeholder="Message Home Basket Group..." />
+                <button type="button" data-chat-intent="voice" aria-label="Record voice note">
                   <svg viewBox="0 0 24 24"><path d="M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3Z" /><path d="M19 10v2a7 7 0 0 1-14 0v-2" /></svg>
                 </button>
-                <a class="send-btn" href="#" aria-label="Send message">
+                <button class="send-btn" type="button" data-send-message aria-label="Send message">
                   <svg viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4 20-7Z" /><path d="M22 2 11 13" /></svg>
-                </a>
+                </button>
               </div>
+            </section>
+            <section class="chat-action-sheet modal" id="chatActionSheet" role="dialog" aria-modal="true" aria-labelledby="chatSheetTitle" hidden>
+              <div class="chat-sheet-head"><b id="chatSheetTitle">Chat action</b><button type="button" data-close-chat-sheet aria-label="Close chat action">x</button></div>
+              <div class="chat-sheet-copy" id="chatSheetCopy">Choose an action to continue.</div>
+              <div class="chat-sheet-fields" id="chatSheetFields"></div>
+              <div class="chat-sheet-actions" id="chatSheetActions"></div>
             </section>
           </div>
         </div>
@@ -1031,7 +1105,13 @@
     const attachmentTray = document.getElementById("attachmentTray");
     const closeReply = document.getElementById("closeReply");
     const replyPreview = document.getElementById("replyPreview");
-    const composerHint = document.getElementById("composerHint");
+    const composerInput = document.getElementById("composerInput");
+    const chatBody = document.querySelector(".chat-body");
+    const chatActionSheet = document.getElementById("chatActionSheet");
+    const chatSheetTitle = document.getElementById("chatSheetTitle");
+    const chatSheetCopy = document.getElementById("chatSheetCopy");
+    const chatSheetFields = document.getElementById("chatSheetFields");
+    const chatSheetActions = document.getElementById("chatSheetActions");
 
     const modeCopy = {
       chat: {
@@ -1063,40 +1143,308 @@
 
     modeChips.forEach((chip) => {
       chip.addEventListener("click", (event) => {
-        event.preventDefault();
         const copy = modeCopy[event.currentTarget.dataset.mode] || modeCopy.chat;
         modeChips.forEach((item) => item.classList.toggle("active", item === event.currentTarget));
+        modeChips.forEach((item) => item.setAttribute("aria-pressed", String(item === event.currentTarget)));
         modeTitle.textContent = copy.title;
         modeText.textContent = copy.text;
         modeState.textContent = copy.state;
       });
     });
 
+    function closeChatSheet() {
+      chatActionSheet.hidden = true;
+      chatActionSheet.classList.remove("open");
+    }
+
+    function openChatSheet({ title, copy, fields = [], actions = [] }) {
+      chatSheetTitle.textContent = title;
+      chatSheetCopy.textContent = copy;
+      chatSheetFields.innerHTML = "";
+      fields.forEach((field) => {
+        const input = document.createElement("input");
+        input.type = "text";
+        input.dataset.field = field.id;
+        input.setAttribute("aria-label", field.label);
+        input.placeholder = field.placeholder || field.label;
+        input.value = field.value || "";
+        chatSheetFields.append(input);
+      });
+      chatSheetActions.innerHTML = "";
+      actions.forEach((action) => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.dataset.chatAction = action.id;
+        button.textContent = action.label;
+        button.classList.toggle("primary", Boolean(action.primary));
+        chatSheetActions.append(button);
+      });
+      chatActionSheet.hidden = false;
+      chatActionSheet.classList.add("open");
+    }
+
+    const fieldValue = (id) => chatSheetFields.querySelector(`[data-field="${id}"]`)?.value.trim() || "";
+
+    function showIntent(intent) {
+      if (intent === "call") {
+        openChatSheet({
+          title: "Call Home Basket Group",
+          copy: "3 members are online. Start a private group voice call now.",
+          actions: [{ id: "start-call", label: "Start voice call", primary: true }, { id: "close", label: "Cancel" }]
+        });
+      } else if (intent === "video") {
+        openChatSheet({
+          title: "Video call Home Basket Group",
+          copy: "Camera and microphone controls remain available throughout the call.",
+          actions: [{ id: "start-video", label: "Start video call", primary: true }, { id: "close", label: "Cancel" }]
+        });
+      } else if (intent === "more") {
+        openChatSheet({
+          title: "Group options",
+          copy: "Manage this conversation without leaving the group.",
+          actions: [
+            { id: "members", label: "View members" }, { id: "search", label: "Search messages" },
+            { id: "media", label: "Shared media" }, { id: "notifications", label: "Mute notifications" },
+            { id: "leave", label: "Leave group" }, { id: "close", label: "Close" }
+          ]
+        });
+      } else if (intent === "edit-basket") {
+        openChatSheet({
+          title: "Edit shared basket",
+          copy: "Update quantities or add another item. Changes remain visible to all members.",
+          fields: [
+            { id: "atta", label: "Atta quantity", value: "10 kg" },
+            { id: "rice", label: "Rice quantity", value: "10 kg" },
+            { id: "oil", label: "Oil quantity", value: "10 L" }
+          ],
+          actions: [{ id: "add-basket-item", label: "Add item" }, { id: "save-basket", label: "Save basket", primary: true }, { id: "close", label: "Cancel" }]
+        });
+      } else if (intent === "add-poll-option") {
+        openChatSheet({
+          title: "Add poll option",
+          copy: "Add one clear choice to the active order timing poll.",
+          fields: [{ id: "poll-option", label: "New poll option", placeholder: "For example: Saturday morning" }],
+          actions: [{ id: "save-poll-option", label: "Save option", primary: true }, { id: "close", label: "Cancel" }]
+        });
+      } else if (intent === "create-poll") {
+        openChatSheet({
+          title: "Create group poll",
+          copy: "Ask one question and provide at least two choices.",
+          fields: [
+            { id: "poll-question", label: "Poll question", placeholder: "What should the group decide?" },
+            { id: "poll-first", label: "First choice" }, { id: "poll-second", label: "Second choice" }
+          ],
+          actions: [{ id: "publish-poll", label: "Publish poll", primary: true }, { id: "close", label: "Cancel" }]
+        });
+      } else if (intent === "invite") {
+        openChatSheet({
+          title: "Invite a trusted member",
+          copy: "The group will see who invited the new member.",
+          fields: [{ id: "invite-name", label: "Name or phone number" }],
+          actions: [{ id: "send-invite", label: "Send invite", primary: true }, { id: "close", label: "Cancel" }]
+        });
+      } else if (intent === "voice") {
+        openChatSheet({
+          title: "Record voice note",
+          copy: "Microphone ready. Start when you are ready to speak.",
+          actions: [{ id: "start-recording", label: "Start recording", primary: true }, { id: "close", label: "Cancel" }]
+        });
+      } else if (intent === "photo-preview") {
+        openChatSheet({
+          title: "Kitchen list image",
+          copy: "kitchen-list.jpg · shared in Home Basket Group.",
+          actions: [{ id: "share-photo", label: "Share" }, { id: "save-photo", label: "Save image", primary: true }, { id: "close", label: "Close" }]
+        });
+      } else if (intent === "file-preview") {
+        openChatSheet({
+          title: "Monthly Staples.pdf",
+          copy: "PDF · 128 KB · shared in Home Basket Group.",
+          actions: [{ id: "share-file", label: "Share" }, { id: "download-file", label: "Save file", primary: true }, { id: "close", label: "Close" }]
+        });
+      }
+    }
+
     attachToggle?.addEventListener("click", () => {
       attachmentTray?.classList.toggle("is-hidden");
-      composerHint.textContent = attachmentTray?.classList.contains("is-hidden")
+      composerInput.placeholder = attachmentTray?.classList.contains("is-hidden")
         ? "Message Home Basket Group..."
         : "Choose photo, file, poll, location or basket...";
+      modeText.textContent = attachmentTray?.classList.contains("is-hidden") ? modeCopy.chat.text : "Attachment choices are open below.";
     });
 
     cameraToggle?.addEventListener("click", () => {
       attachmentTray?.classList.remove("is-hidden");
-      composerHint.textContent = "Camera ready: take photo or record video...";
+      composerInput.placeholder = "Camera ready: take photo or record video...";
+      modeText.textContent = "Camera choice is ready. Choose Camera or Video below.";
     });
 
     closeReply?.addEventListener("click", () => {
       replyPreview?.classList.add("is-hidden");
-      composerHint.textContent = "Message Home Basket Group...";
+      composerInput.placeholder = "Message Home Basket Group...";
+      modeText.textContent = "Reply closed. Your next message goes to the group.";
     });
 
     document.querySelectorAll(".attach-chip").forEach((chip) => {
       chip.addEventListener("click", (event) => {
         const label = event.currentTarget.textContent.trim();
-        if (label !== "Basket") event.preventDefault();
-        composerHint.textContent = label === "Basket"
-          ? "Opening shared basket..."
-          : `${label} selected...`;
+        if (label === "Basket") return;
+        composerInput.placeholder = `${label} selected - add a message...`;
+        modeText.textContent = `${label} is attached and ready to send.`;
+        attachmentTray?.classList.add("is-hidden");
       });
+    });
+
+    document.querySelectorAll("[data-chat-intent]").forEach((button) => {
+      button.addEventListener("click", () => showIntent(button.dataset.chatIntent));
+    });
+
+    document.querySelector("[data-message-like]")?.addEventListener("click", (event) => {
+      const button = event.currentTarget;
+      const liked = button.getAttribute("aria-pressed") === "true";
+      button.setAttribute("aria-pressed", String(!liked));
+      button.textContent = liked ? "Like 2" : "Liked 3";
+      modeText.textContent = liked ? "Your reaction was removed." : "Your reaction was added.";
+    });
+
+    document.querySelector("[data-voice-note]")?.addEventListener("click", (event) => {
+      const button = event.currentTarget;
+      const playing = button.getAttribute("aria-pressed") === "true";
+      button.setAttribute("aria-pressed", String(!playing));
+      button.setAttribute("aria-label", playing ? "Play 18 second voice note" : "Pause voice note");
+      button.querySelector("[data-voice-time]").textContent = playing ? "0:18" : "Playing";
+      modeText.textContent = playing ? "Voice note paused." : "Playing Rakesh's 18 second voice note.";
+    });
+
+    document.querySelectorAll("[data-quick-intent]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const intent = button.dataset.quickIntent;
+        if (intent === "basket") showIntent("edit-basket");
+        else if (intent === "poll") showIntent("create-poll");
+        else if (intent === "invite") showIntent("invite");
+        else {
+          attachmentTray?.classList.remove("is-hidden");
+          composerInput.placeholder = intent === "photo" ? "Choose Camera or Gallery below..." : "Choose File below...";
+          modeText.textContent = intent === "photo" ? "Photo choices are open below." : "File attachment is ready below.";
+        }
+      });
+    });
+
+    document.querySelector("[data-close-chat-sheet]")?.addEventListener("click", closeChatSheet);
+    chatSheetActions?.addEventListener("click", (event) => {
+      const action = event.target.closest("[data-chat-action]")?.dataset.chatAction;
+      if (!action) return;
+      if (action === "close") return closeChatSheet();
+      if (action === "start-call" || action === "start-video") {
+        const video = action === "start-video";
+        openChatSheet({
+          title: video ? "Video call connected" : "Voice call connected",
+          copy: `Home Basket Group · ${video ? "camera on" : "3 members connected"}`,
+          actions: [
+            { id: "toggle-mute", label: "Mute microphone" },
+            { id: video ? "toggle-camera" : "toggle-speaker", label: video ? "Turn camera off" : "Use speaker" },
+            { id: "end-call", label: "End call", primary: true }
+          ]
+        });
+      } else if (["toggle-mute", "toggle-camera", "toggle-speaker"].includes(action)) {
+        const labels = { "toggle-mute": "Microphone muted.", "toggle-camera": "Camera is off.", "toggle-speaker": "Speaker is on." };
+        chatSheetCopy.textContent = labels[action];
+        event.target.setAttribute("aria-pressed", "true");
+      } else if (action === "end-call") {
+        closeChatSheet();
+        modeText.textContent = "Call ended. The conversation remains private.";
+        modeState.textContent = "Call ended";
+      } else if (action === "members") {
+        openChatSheet({ title: "5 group members", copy: "Amit, Maa, Rakesh, You and Neha. Three members are online.", actions: [{ id: "close", label: "Done", primary: true }] });
+      } else if (action === "search") {
+        openChatSheet({ title: "Search messages", copy: "Search messages and shared files in this group.", fields: [{ id: "search-query", label: "Search group messages" }], actions: [{ id: "run-search", label: "Search", primary: true }, { id: "close", label: "Cancel" }] });
+      } else if (action === "run-search") {
+        const query = fieldValue("search-query");
+        chatSheetCopy.textContent = query ? `2 messages found for “${query}”.` : "Type a word before searching.";
+      } else if (action === "media") {
+        closeChatSheet();
+        document.querySelector("[data-mode='media']")?.click();
+      } else if (action === "notifications") {
+        chatSheetCopy.textContent = "Notifications are muted for 8 hours. Mentions still alert you.";
+        event.target.textContent = "Notifications muted";
+        event.target.setAttribute("aria-pressed", "true");
+      } else if (action === "leave") {
+        openChatSheet({ title: "Leave this group?", copy: "You will stop receiving new messages. Shared media remains on your device.", actions: [{ id: "confirm-leave", label: "Leave group", primary: true }, { id: "close", label: "Stay" }] });
+      } else if (action === "confirm-leave") {
+        openChatSheet({ title: "You left the group", copy: "Home Basket Group was removed from your active chats.", actions: [{ id: "inbox", label: "Return to inbox", primary: true }] });
+      } else if (action === "inbox") {
+        window.location.href = "23-chat-inbox-home.html?left=home-basket-group";
+      } else if (action === "add-basket-item") {
+        const input = document.createElement("input");
+        input.type = "text";
+        input.dataset.field = "new-item";
+        input.setAttribute("aria-label", "New basket item");
+        input.placeholder = "Item and quantity";
+        chatSheetFields.append(input);
+        chatSheetCopy.textContent = "New item field added. Enter an item and save the basket.";
+      } else if (action === "save-basket") {
+        const item = fieldValue("new-item");
+        if (item) {
+          const line = document.createElement("div");
+          line.className = "item-line";
+          line.innerHTML = `<span></span><b>Price after search</b>`;
+          line.querySelector("span").textContent = item;
+          document.querySelector(".basket-card .basket-actions")?.before(line);
+        }
+        openChatSheet({ title: "Basket updated", copy: item ? `${item} was added. All members can see the change.` : "Basket quantities were saved for all members.", actions: [{ id: "close", label: "Done", primary: true }, { id: "find-price", label: "Find price" }] });
+      } else if (action === "find-price") {
+        window.location.href = "09-buy.html?from=shared-basket";
+      } else if (action === "save-poll-option") {
+        const option = fieldValue("poll-option");
+        if (!option) {
+          chatSheetCopy.textContent = "Type an option before saving.";
+          return;
+        }
+        const poll = document.createElement("div");
+        poll.className = "poll-option";
+        poll.innerHTML = `<span></span><b>0%</b><div class="poll-bar"><span style="width:0"></span></div>`;
+        poll.querySelector("span").textContent = option;
+        document.querySelector(".poll-card .poll-actions")?.before(poll);
+        openChatSheet({ title: "Poll option added", copy: `${option} is now available for group voting.`, actions: [{ id: "close", label: "Done", primary: true }] });
+      } else if (action === "publish-poll") {
+        const question = fieldValue("poll-question");
+        const first = fieldValue("poll-first");
+        const second = fieldValue("poll-second");
+        chatSheetCopy.textContent = question && first && second ? `Poll published: ${question}` : "Complete the question and both choices before publishing.";
+      } else if (action === "send-invite") {
+        const invitee = fieldValue("invite-name");
+        chatSheetCopy.textContent = invitee ? `Invite sent to ${invitee}.` : "Enter a name or phone number before sending.";
+      } else if (action === "start-recording") {
+        openChatSheet({ title: "Recording voice note", copy: "Recording · 00:03. Review or send when finished.", actions: [{ id: "send-voice", label: "Send voice note", primary: true }, { id: "close", label: "Cancel" }] });
+      } else if (action === "send-voice") {
+        closeChatSheet();
+        modeText.textContent = "Voice note sent to Home Basket Group.";
+        modeState.textContent = "Sent";
+      } else if (["share-photo", "share-file"].includes(action)) {
+        chatSheetCopy.textContent = action === "share-photo" ? "Image share options are ready." : "File share options are ready.";
+        event.target.setAttribute("aria-pressed", "true");
+      } else if (["save-photo", "download-file"].includes(action)) {
+        chatSheetCopy.textContent = action === "save-photo" ? "Image saved to this device." : "Monthly Staples.pdf saved to this device.";
+        event.target.textContent = "Saved";
+        event.target.setAttribute("aria-pressed", "true");
+      }
+    });
+
+    document.querySelector("[data-send-message]")?.addEventListener("click", () => {
+      const message = composerInput.value.trim();
+      if (!message) {
+        modeText.textContent = "Type a message or choose an attachment before sending.";
+        composerInput.focus();
+        return;
+      }
+      const row = document.createElement("div");
+      row.className = "message-row out";
+      row.innerHTML = `<div class="bubble out"><span></span><small>now · sent</small></div>`;
+      row.querySelector("span").textContent = message;
+      chatBody.append(row);
+      composerInput.value = "";
+      modeText.textContent = "Message sent to 5 members.";
+      modeState.textContent = "Sent";
+      chatBody.scrollTop = chatBody.scrollHeight;
     });
   </script>
 <script type="application/json" id="productionRouteContract">{"contractVersion":"mvp-route-lock-2026-07-12","prototypeScreen":25,"productionModule":"chat","routeId":"chat.people","routePath":"/chat/people/:threadId","routeState":"people-thread","implementation":"route-shell","launchScope":"mvp-core","separateProductionRoute":true,"productionNote":"Own production route /chat/people/:threadId. Implement people-thread as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.","canonicalMap":"architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"}</script><script type="application/json" id="prototypeApprovalContract">{"prototypeScreen":25,"status":"approved-and-frozen","authoritative":true,"approvedAt":"2026-07-12","approvalScope":"prototype-ui-ux-and-production-contract"}</script>  <script src="../shared/prototype-interaction-contracts.js?v=intent-completion-20260714b"></script>
