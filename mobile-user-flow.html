@@ -120,9 +120,27 @@
     function highlight(elements){
       elements.forEach(el=>{el.dataset.moolFlowTarget='true';el.style.setProperty('outline','3px solid #ff9933','important');el.style.setProperty('outline-offset','2px','important')});
       const first=elements[0];
+      const protectedScrollPositions=[];
+      const protectedTargetBox=first?.getBoundingClientRect();
+      let protectedAncestor=first?.parentElement;
+      while(protectedAncestor){
+        const protectedStyle=frame.contentWindow.getComputedStyle(protectedAncestor);
+        const protectedBox=protectedAncestor.getBoundingClientRect();
+        const targetAlreadyVisible=protectedTargetBox&&
+          protectedTargetBox.left>=protectedBox.left-1&&protectedTargetBox.right<=protectedBox.right+1&&
+          protectedTargetBox.top>=protectedBox.top-1&&protectedTargetBox.bottom<=protectedBox.bottom+1;
+        if(targetAlreadyVisible&&(/(hidden|clip)/.test(protectedStyle.overflowX)||/(hidden|clip)/.test(protectedStyle.overflowY))){
+          protectedScrollPositions.push({element:protectedAncestor,left:protectedAncestor.scrollLeft,top:protectedAncestor.scrollTop});
+        }
+        protectedAncestor=protectedAncestor.parentElement;
+      }
       const revealForTap=()=>{
         if(!first)return;
         first.scrollIntoView({block:'center',inline:'center',behavior:'auto'});
+        protectedScrollPositions.forEach(position=>{
+          position.element.scrollLeft=position.left;
+          position.element.scrollTop=position.top;
+        });
         const doc=first.ownerDocument;
         const blocker=[...doc.querySelectorAll('.bottom-dock,.dock')].filter(element=>{
           const box=element.getBoundingClientRect();

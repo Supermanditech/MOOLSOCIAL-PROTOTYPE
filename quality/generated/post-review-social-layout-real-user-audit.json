@@ -1,0 +1,66 @@
+{
+  "generatedAt": "2026-07-16T04:58:10Z",
+  "status": "passed",
+  "source": "Microsoft Edge at 390x844 using native clicks on only highlighted, visible user controls; no forced navigation for tap or multi-action transitions",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "summary": {
+    "operationalFlowsTested": 1,
+    "passed": 1,
+    "failed": 0,
+    "approvedScreensCoveredByManifest": 166,
+    "horizontalOverflows": 0,
+    "consoleErrors": 0
+  },
+  "consoleErrorDetails": [],
+  "flows": [
+    {
+      "flow": "social",
+      "title": "Social Consumer and Creator Entry",
+      "status": "passed",
+      "expectedNodes": 5,
+      "interactionTurns": 4,
+      "finalCounter": "5 / 5",
+      "screensSeen": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "horizontalOverflows": [],
+      "turns": [
+        {
+          "counter": "1 / 5",
+          "screen": 4,
+          "file": "04-universal-focus-shell.html",
+          "action": "Open current Short full screen",
+          "intent": "Tap: Open current Short full screen"
+        },
+        {
+          "counter": "2 / 5",
+          "screen": 5,
+          "file": "05-social-shorts.html",
+          "action": "Open Videos",
+          "intent": "Tap: Open Videos"
+        },
+        {
+          "counter": "3 / 5",
+          "screen": 6,
+          "file": "06-social-videos.html",
+          "action": "Open Feed",
+          "intent": "Tap: Open Feed"
+        },
+        {
+          "counter": "4 / 5",
+          "screen": 7,
+          "file": "07-social-feed.html",
+          "action": "Open Create",
+          "intent": "Tap: Open Create"
+        }
+      ],
+      "error": null
+    }
+  ]
+}

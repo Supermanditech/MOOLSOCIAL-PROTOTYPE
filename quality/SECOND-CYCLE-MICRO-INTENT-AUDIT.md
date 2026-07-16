@@ -49,7 +49,7 @@ The action matrix contains 940 loading, 940 offline, 940 failure, 940 duplicate,
 
 ## Defects, root causes and fixes
 
-Fifteen second-cycle defects were reproduced, ticketed, root-caused, fixed and closed. The ticket-level reproduction, resolution and evidence ledger is `quality/SECOND-CYCLE-DEFECT-TICKETS.md`.
+Sixteen second-cycle and immediate post-review defects were reproduced, ticketed, root-caused, fixed and closed. The ticket-level reproduction, resolution and evidence ledger is `quality/SECOND-CYCLE-DEFECT-TICKETS.md`.
 
 | Tickets | Final result |
 | --- | --- |
@@ -58,6 +58,7 @@ Fifteen second-cycle defects were reproduced, ticketed, root-caused, fixed and c
 | C2-VIS-008 and C2-EVENT-009 | Recovery visibility, hit testing and capture-listener order fixed |
 | C2-PROG-010 through C2-LABEL-014 | Timing, clean-state isolation, native validation verification, action scope and long labels fixed |
 | C2-CONTRACT-015 | Screen 17 `Refresh status` journey contract aligned and exact failed journeys replayed |
+| C2-LAYOUT-016 | Social Shorts master-review internal scroll corruption fixed and exact half-open state replayed |
 
 ## Exact failure replays
 
@@ -85,6 +86,9 @@ The before/after Screen 17 replay files are `quality/generated/second-cycle-repl
 | Screen 17 adverse recovery | 2 / 2 passed |
 | Buy delivery | 8 / 8 states passed |
 | Creator commerce share | 12 / 12 states passed |
+| Social Consumer and Creator Entry | 5 / 5 states passed |
+| Screen 05 rendered controls after layout fix | 27 / 27 passed |
+| Admin Operations scroll-regression guard | 12 / 12 states passed |
 
 ## Final full regression
 

@@ -1,0 +1,31 @@
+{
+  "version": "post-review-layout-replay-1",
+  "ticket": "C2-LAYOUT-016",
+  "screen": 5,
+  "flow": "social",
+  "step": "2 / 5",
+  "action": "Open Videos",
+  "status": "passed",
+  "preFixReproduction": {
+    "result": "failed",
+    "observed": "The active Short and bottom dock moved upward and a large dark lower half became visible.",
+    "shortsAppClientHeight": 742,
+    "shortsAppScrollHeight": 1484,
+    "shortsAppScrollTopBefore": 0,
+    "shortsAppScrollTopAfterCentredReveal": 338.3999938964844,
+    "documentScrollYAfterCentredReveal": 320.79998779296875
+  },
+  "rootCause": "The master review used centred scrollIntoView on a dock action inside an overflow-hidden app. Translated off-screen Shorts made the app programmatically scrollable, so reveal scrolling changed product-internal state.",
+  "resolution": "When a target is already fully contained, capture its overflow-hidden and clipped ancestor scroll positions before revealing it and restore them immediately after each reveal. Document scrolling and genuinely off-screen targets remain unrestricted.",
+  "exactReplay": {
+    "result": "passed",
+    "protectedAncestors": 3,
+    "shortsAppScrollTopAfterRestore": 0,
+    "documentScrollYRetained": 320.79998779296875,
+    "socialFlow": "5 / 5 passed",
+    "screen05RenderedControls": "27 / 27 passed",
+    "adminScrollRegressionGuard": "12 / 12 passed",
+    "horizontalOverflows": 0,
+    "consoleErrors": 0
+  }
+}

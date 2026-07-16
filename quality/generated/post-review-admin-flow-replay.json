@@ -1,0 +1,122 @@
+{
+  "generatedAt": "2026-07-16T04:58:14Z",
+  "status": "passed",
+  "source": "Microsoft Edge at 390x844 using native clicks on only highlighted, visible user controls; no forced navigation for tap or multi-action transitions",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "summary": {
+    "operationalFlowsTested": 1,
+    "passed": 1,
+    "failed": 0,
+    "approvedScreensCoveredByManifest": 166,
+    "horizontalOverflows": 0,
+    "consoleErrors": 0
+  },
+  "consoleErrorDetails": [],
+  "flows": [
+    {
+      "flow": "admin-operations",
+      "title": "MoolSocial Admin Operations",
+      "status": "passed",
+      "expectedNodes": 12,
+      "interactionTurns": 11,
+      "finalCounter": "12 / 12",
+      "screensSeen": [
+        147,
+        148,
+        149,
+        150,
+        151,
+        152,
+        153,
+        154,
+        155,
+        156,
+        163
+      ],
+      "horizontalOverflows": [],
+      "turns": [
+        {
+          "counter": "1 / 12",
+          "screen": 147,
+          "file": "147-admin-command-centre.html",
+          "action": "ID Verification",
+          "intent": "Tap: ID Verification"
+        },
+        {
+          "counter": "2 / 12",
+          "screen": 148,
+          "file": "148-admin-workspace-verification.html",
+          "action": "SKU Catalogue",
+          "intent": "Tap: SKU Catalogue"
+        },
+        {
+          "counter": "3 / 12",
+          "screen": 149,
+          "file": "149-admin-catalogue-governance.html",
+          "action": "CO Commerce",
+          "intent": "Tap: CO Commerce"
+        },
+        {
+          "counter": "4 / 12",
+          "screen": 150,
+          "file": "150-admin-commerce-exceptions.html",
+          "action": "RD Ride Ops",
+          "intent": "Tap: RD Ride Ops"
+        },
+        {
+          "counter": "5 / 12",
+          "screen": 151,
+          "file": "151-admin-ride-operations.html",
+          "action": "WK Work Ops",
+          "intent": "Tap: WK Work Ops"
+        },
+        {
+          "counter": "6 / 12",
+          "screen": 152,
+          "file": "152-admin-work-campaign-governance.html",
+          "action": "TS Trust & Safety",
+          "intent": "Tap: TS Trust & Safety"
+        },
+        {
+          "counter": "7 / 12",
+          "screen": 153,
+          "file": "153-admin-content-trust-safety.html",
+          "action": "₹ Finance",
+          "intent": "Tap: ₹ Finance"
+        },
+        {
+          "counter": "8 / 12",
+          "screen": 154,
+          "file": "154-admin-finance-reconciliation.html",
+          "action": "SP Support",
+          "intent": "Tap: SP Support"
+        },
+        {
+          "counter": "9 / 12",
+          "screen": 155,
+          "file": "155-admin-support-disputes.html",
+          "action": "LC Launch & Config",
+          "intent": "Tap: LC Launch & Config"
+        },
+        {
+          "counter": "10 / 12",
+          "screen": 156,
+          "file": "156-admin-audience-launch-configuration.html",
+          "action": "AH Activity & Health",
+          "intent": "Tap: AH Activity & Health"
+        },
+        {
+          "counter": "11 / 12",
+          "screen": 163,
+          "file": "163-admin-user-activity-product-health.html",
+          "action": "SG Signals & Privacy",
+          "intent": "Tap: SG Signals & Privacy"
+        }
+      ],
+      "error": null
+    }
+  ]
+}
