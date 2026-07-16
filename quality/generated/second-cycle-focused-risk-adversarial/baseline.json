@@ -1,0 +1,3666 @@
+{
+  "version": "second-cycle-adversarial-micro-audit-2026-07-16",
+  "generatedAt": "2026-07-16T00:21:14Z",
+  "baseUrl": "https://supermanditech.github.io/MOOLSOCIAL-PROTOTYPE",
+  "positiveReport": "C:\\GUARANTEED OUTCOME\\supermandi-uiux-screenbook\\quality\\generated\\second-cycle-focused-risk-positive\\report.json",
+  "rule": "Every forced route or action failure condition must expose a domain-specific recovery path and complete the original intent after recovery.",
+  "viewports": {
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "mobile": true
+    }
+  },
+  "summary": {
+    "status": "failed",
+    "screenViewportRuns": 5,
+    "uniqueScreens": 5,
+    "routeScenariosTested": 0,
+    "actionScenariosTested": 210,
+    "passed": 22,
+    "failed": 188,
+    "cancelBranchesVerified": 0,
+    "recoveryBranchesVerified": 22,
+    "truncatedScreens": 0,
+    "consoleErrors": 0
+  },
+  "runs": [
+    {
+      "screen": 62,
+      "file": "62-pay-request-confirmation.html",
+      "viewport": "mobile",
+      "positivePathsReferenced": 28,
+      "routeResults": [],
+      "actionResults": [
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 62,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "Pay With"
+          ],
+          "status": "failed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} panelAfter=False nativeCompletion=True",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-062-0001-action-loading.png"
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 62,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "Pay With"
+          ],
+          "status": "failed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-062-0002-action-offline.png"
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 62,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "Pay With"
+          ],
+          "status": "failed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-062-0003-action-error.png"
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 62,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "Pay With"
+          ],
+          "status": "failed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} opened=False status=Pay Mahadev Fresh Mart Order #MS2401 · grocery bill · •••• 4821. Payee, purpose and total stay visible before debit. Rs 645 total debit Payeeverified shop Purposeorder #MS2401 Pay WithUPI •••• 4821 Pay Rs 645 Decline",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-062-0004-duplicate.png"
+        }
+      ],
+      "truncated": false,
+      "queuedActionScenariosRemaining": 0
+    },
+    {
+      "screen": 70,
+      "file": "70-my-work-choose-activity.html",
+      "viewport": "mobile",
+      "positivePathsReferenced": 146,
+      "routeResults": [],
+      "actionResults": [
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "Create & Work Creator, freelancer or Get It Done"
+          ],
+          "status": "failed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} panelAfter=False nativeCompletion=True",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0005-action-loading.png"
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "Create & Work Creator, freelancer or Get It Done"
+          ],
+          "status": "failed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0006-action-offline.png"
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "Create & Work Creator, freelancer or Get It Done"
+          ],
+          "status": "failed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0007-action-error.png"
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "Create & Work Creator, freelancer or Get It Done"
+          ],
+          "status": "failed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} opened=False status=",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0008-duplicate.png"
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "Ride & Transport Captain, delivery or goods movement",
+            "Deliver Orders Restaurant, grocery or shop delivery"
+          ],
+          "status": "failed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} panelAfter=False nativeCompletion=True",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0009-action-loading.png"
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "Ride & Transport Captain, delivery or goods movement",
+            "Deliver Orders Restaurant, grocery or shop delivery"
+          ],
+          "status": "failed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0010-action-offline.png"
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "Ride & Transport Captain, delivery or goods movement",
+            "Deliver Orders Restaurant, grocery or shop delivery"
+          ],
+          "status": "failed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0011-action-error.png"
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "Ride & Transport Captain, delivery or goods movement",
+            "Deliver Orders Restaurant, grocery or shop delivery"
+          ],
+          "status": "failed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} opened=False status=Add an alternate number if available. It must be OTP verified before use.",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0012-duplicate.png"
+        },
+        {
+          "ticket": "C2-VAL-007",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "empty-input",
+          "path": [
+            "My work is not shown",
+            "Example: tailoring shop"
+          ],
+          "status": "failed",
+          "expectedResult": "Identify the required empty field, retain the task and clear the error after valid input.",
+          "observedResult": "invalidState={'error': '', 'errorVisible': False, 'invalid': False, 'nativeValid': False, 'value': ''} recoveredState={'error': '', 'errorVisible': False, 'invalid': False, 'nativeValid': True, 'value': 'verified audit value'}",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0013-empty-input.png"
+        },
+        {
+          "ticket": "C2-VAL-007",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "invalid-input",
+          "path": [
+            "My work is not shown",
+            "Example: tailoring shop"
+          ],
+          "status": "passed",
+          "expectedResult": "Identify the invalid value, retain the task and clear the error after valid input.",
+          "observedResult": "The browser prevented the invalid value and accepted the valid replacement.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-VAL-007",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "empty-input",
+          "path": [
+            "My work is not shown",
+            "City, area or pincode"
+          ],
+          "status": "failed",
+          "expectedResult": "Identify the required empty field, retain the task and clear the error after valid input.",
+          "observedResult": "invalidState={'error': '', 'errorVisible': False, 'invalid': False, 'nativeValid': False, 'value': ''} recoveredState={'error': '', 'errorVisible': False, 'invalid': False, 'nativeValid': True, 'value': 'verified audit value'}",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0015-empty-input.png"
+        },
+        {
+          "ticket": "C2-VAL-007",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "invalid-input",
+          "path": [
+            "My work is not shown",
+            "City, area or pincode"
+          ],
+          "status": "passed",
+          "expectedResult": "Identify the invalid value, retain the task and clear the error after valid input.",
+          "observedResult": "The browser prevented the invalid value and accepted the valid replacement.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "My work is not shown",
+            "Send request"
+          ],
+          "status": "failed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} panelAfter=False nativeCompletion=True",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0017-action-loading.png"
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "My work is not shown",
+            "Send request"
+          ],
+          "status": "failed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0018-action-offline.png"
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "My work is not shown",
+            "Send request"
+          ],
+          "status": "failed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0019-action-error.png"
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "My work is not shown",
+            "Send request"
+          ],
+          "status": "failed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} opened=False status=Nothing has been submitted yet. Review before confirming.",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0020-duplicate.png"
+        },
+        {
+          "ticket": "C2-VAL-007",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "invalid-input",
+          "path": [
+            "Food Business Restaurant, cloud kitchen or tiffin",
+            "Restaurant / Dhaba / Cafe Food orders, tables, takeaway and delivery",
+            "Alternate mobile (optional)"
+          ],
+          "status": "passed",
+          "expectedResult": "Identify the invalid value, retain the task and clear the error after valid input.",
+          "observedResult": "The browser prevented the invalid value and accepted the valid replacement.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "Food Business Restaurant, cloud kitchen or tiffin",
+            "Restaurant / Dhaba / Cafe Food orders, tables, takeaway and delivery",
+            "Send OTP"
+          ],
+          "status": "failed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} panelAfter=False nativeCompletion=True",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0022-action-loading.png"
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "Food Business Restaurant, cloud kitchen or tiffin",
+            "Restaurant / Dhaba / Cafe Food orders, tables, takeaway and delivery",
+            "Send OTP"
+          ],
+          "status": "failed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0023-action-offline.png"
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "Food Business Restaurant, cloud kitchen or tiffin",
+            "Restaurant / Dhaba / Cafe Food orders, tables, takeaway and delivery",
+            "Send OTP"
+          ],
+          "status": "failed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0024-action-error.png"
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "Food Business Restaurant, cloud kitchen or tiffin",
+            "Restaurant / Dhaba / Cafe Food orders, tables, takeaway and delivery",
+            "Send OTP"
+          ],
+          "status": "failed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} opened=False status=Enter a 10-digit alternate mobile number first.",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0025-duplicate.png"
+        },
+        {
+          "ticket": "C2-VAL-007",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "invalid-input",
+          "path": [
+            "Food Business Restaurant, cloud kitchen or tiffin",
+            "Cloud Kitchen Delivery or takeaway kitchen without customer tables",
+            "Alternate mobile (optional)"
+          ],
+          "status": "passed",
+          "expectedResult": "Identify the invalid value, retain the task and clear the error after valid input.",
+          "observedResult": "The browser prevented the invalid value and accepted the valid replacement.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "Food Business Restaurant, cloud kitchen or tiffin",
+            "Cloud Kitchen Delivery or takeaway kitchen without customer tables",
+            "Send OTP"
+          ],
+          "status": "failed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} panelAfter=False nativeCompletion=True",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0027-action-loading.png"
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "Food Business Restaurant, cloud kitchen or tiffin",
+            "Cloud Kitchen Delivery or takeaway kitchen without customer tables",
+            "Send OTP"
+          ],
+          "status": "failed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0028-action-offline.png"
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "Food Business Restaurant, cloud kitchen or tiffin",
+            "Cloud Kitchen Delivery or takeaway kitchen without customer tables",
+            "Send OTP"
+          ],
+          "status": "failed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0029-action-error.png"
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "Food Business Restaurant, cloud kitchen or tiffin",
+            "Cloud Kitchen Delivery or takeaway kitchen without customer tables",
+            "Send OTP"
+          ],
+          "status": "failed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} opened=False status=Enter a 10-digit alternate mobile number first.",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0030-duplicate.png"
+        },
+        {
+          "ticket": "C2-VAL-007",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "invalid-input",
+          "path": [
+            "Food Business Restaurant, cloud kitchen or tiffin",
+            "Tiffin Provider Recurring or scheduled meal plans",
+            "Alternate mobile (optional)"
+          ],
+          "status": "passed",
+          "expectedResult": "Identify the invalid value, retain the task and clear the error after valid input.",
+          "observedResult": "The browser prevented the invalid value and accepted the valid replacement.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "Food Business Restaurant, cloud kitchen or tiffin",
+            "Tiffin Provider Recurring or scheduled meal plans",
+            "Send OTP"
+          ],
+          "status": "failed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} panelAfter=False nativeCompletion=True",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0032-action-loading.png"
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "Food Business Restaurant, cloud kitchen or tiffin",
+            "Tiffin Provider Recurring or scheduled meal plans",
+            "Send OTP"
+          ],
+          "status": "failed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0033-action-offline.png"
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "Food Business Restaurant, cloud kitchen or tiffin",
+            "Tiffin Provider Recurring or scheduled meal plans",
+            "Send OTP"
+          ],
+          "status": "failed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0034-action-error.png"
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "Food Business Restaurant, cloud kitchen or tiffin",
+            "Tiffin Provider Recurring or scheduled meal plans",
+            "Send OTP"
+          ],
+          "status": "failed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} opened=False status=Enter a 10-digit alternate mobile number first.",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0035-duplicate.png"
+        },
+        {
+          "ticket": "C2-VAL-007",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "invalid-input",
+          "path": [
+            "Health & Medicine Doctor, clinic, hospital or pharmacy",
+            "Individual Doctor Your own professional practice and appointments",
+            "Alternate mobile (optional)"
+          ],
+          "status": "passed",
+          "expectedResult": "Identify the invalid value, retain the task and clear the error after valid input.",
+          "observedResult": "The browser prevented the invalid value and accepted the valid replacement.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "Health & Medicine Doctor, clinic, hospital or pharmacy",
+            "Individual Doctor Your own professional practice and appointments",
+            "Send OTP"
+          ],
+          "status": "failed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} panelAfter=False nativeCompletion=True",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0037-action-loading.png"
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "Health & Medicine Doctor, clinic, hospital or pharmacy",
+            "Individual Doctor Your own professional practice and appointments",
+            "Send OTP"
+          ],
+          "status": "failed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0038-action-offline.png"
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "Health & Medicine Doctor, clinic, hospital or pharmacy",
+            "Individual Doctor Your own professional practice and appointments",
+            "Send OTP"
+          ],
+          "status": "failed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0039-action-error.png"
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "Health & Medicine Doctor, clinic, hospital or pharmacy",
+            "Individual Doctor Your own professional practice and appointments",
+            "Send OTP"
+          ],
+          "status": "failed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} opened=False status=Enter a 10-digit alternate mobile number first.",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0040-duplicate.png"
+        },
+        {
+          "ticket": "C2-VAL-007",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "invalid-input",
+          "path": [
+            "Health & Medicine Doctor, clinic, hospital or pharmacy",
+            "Clinic A healthcare establishment with one or more practitioners",
+            "Alternate mobile (optional)"
+          ],
+          "status": "passed",
+          "expectedResult": "Identify the invalid value, retain the task and clear the error after valid input.",
+          "observedResult": "The browser prevented the invalid value and accepted the valid replacement.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "Health & Medicine Doctor, clinic, hospital or pharmacy",
+            "Clinic A healthcare establishment with one or more practitioners",
+            "Send OTP"
+          ],
+          "status": "failed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} panelAfter=False nativeCompletion=True",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0042-action-loading.png"
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "Health & Medicine Doctor, clinic, hospital or pharmacy",
+            "Clinic A healthcare establishment with one or more practitioners",
+            "Send OTP"
+          ],
+          "status": "failed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0043-action-offline.png"
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "Health & Medicine Doctor, clinic, hospital or pharmacy",
+            "Clinic A healthcare establishment with one or more practitioners",
+            "Send OTP"
+          ],
+          "status": "failed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0044-action-error.png"
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "Health & Medicine Doctor, clinic, hospital or pharmacy",
+            "Clinic A healthcare establishment with one or more practitioners",
+            "Send OTP"
+          ],
+          "status": "failed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} opened=False status=Enter a 10-digit alternate mobile number first.",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0045-duplicate.png"
+        },
+        {
+          "ticket": "C2-VAL-007",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "invalid-input",
+          "path": [
+            "Health & Medicine Doctor, clinic, hospital or pharmacy",
+            "Hospital Departments, doctors and hospital operations",
+            "Alternate mobile (optional)"
+          ],
+          "status": "passed",
+          "expectedResult": "Identify the invalid value, retain the task and clear the error after valid input.",
+          "observedResult": "The browser prevented the invalid value and accepted the valid replacement.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "Health & Medicine Doctor, clinic, hospital or pharmacy",
+            "Hospital Departments, doctors and hospital operations",
+            "Send OTP"
+          ],
+          "status": "failed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} panelAfter=False nativeCompletion=True",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0047-action-loading.png"
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "Health & Medicine Doctor, clinic, hospital or pharmacy",
+            "Hospital Departments, doctors and hospital operations",
+            "Send OTP"
+          ],
+          "status": "failed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0048-action-offline.png"
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "Health & Medicine Doctor, clinic, hospital or pharmacy",
+            "Hospital Departments, doctors and hospital operations",
+            "Send OTP"
+          ],
+          "status": "failed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0049-action-error.png"
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "Health & Medicine Doctor, clinic, hospital or pharmacy",
+            "Hospital Departments, doctors and hospital operations",
+            "Send OTP"
+          ],
+          "status": "failed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} opened=False status=Enter a 10-digit alternate mobile number first.",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0050-duplicate.png"
+        },
+        {
+          "ticket": "C2-VAL-007",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "invalid-input",
+          "path": [
+            "Health & Medicine Doctor, clinic, hospital or pharmacy",
+            "Medical Store / Pharmacy Licensed medicine, refill and pharmacy operations",
+            "Alternate mobile (optional)"
+          ],
+          "status": "passed",
+          "expectedResult": "Identify the invalid value, retain the task and clear the error after valid input.",
+          "observedResult": "The browser prevented the invalid value and accepted the valid replacement.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "Health & Medicine Doctor, clinic, hospital or pharmacy",
+            "Medical Store / Pharmacy Licensed medicine, refill and pharmacy operations",
+            "Send OTP"
+          ],
+          "status": "failed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} panelAfter=False nativeCompletion=True",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0052-action-loading.png"
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "Health & Medicine Doctor, clinic, hospital or pharmacy",
+            "Medical Store / Pharmacy Licensed medicine, refill and pharmacy operations",
+            "Send OTP"
+          ],
+          "status": "failed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0053-action-offline.png"
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "Health & Medicine Doctor, clinic, hospital or pharmacy",
+            "Medical Store / Pharmacy Licensed medicine, refill and pharmacy operations",
+            "Send OTP"
+          ],
+          "status": "failed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0054-action-error.png"
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "Health & Medicine Doctor, clinic, hospital or pharmacy",
+            "Medical Store / Pharmacy Licensed medicine, refill and pharmacy operations",
+            "Send OTP"
+          ],
+          "status": "failed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} opened=False status=Enter a 10-digit alternate mobile number first.",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0055-duplicate.png"
+        },
+        {
+          "ticket": "C2-VAL-007",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "invalid-input",
+          "path": [
+            "Ride & Transport Captain, delivery or goods movement",
+            "Deliver Orders Restaurant, grocery or shop delivery",
+            "Alternate mobile (optional)"
+          ],
+          "status": "passed",
+          "expectedResult": "Identify the invalid value, retain the task and clear the error after valid input.",
+          "observedResult": "The browser prevented the invalid value and accepted the valid replacement.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "Ride & Transport Captain, delivery or goods movement",
+            "Deliver Orders Restaurant, grocery or shop delivery",
+            "Send OTP"
+          ],
+          "status": "failed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} panelAfter=False nativeCompletion=True",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0057-action-loading.png"
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "Ride & Transport Captain, delivery or goods movement",
+            "Deliver Orders Restaurant, grocery or shop delivery",
+            "Send OTP"
+          ],
+          "status": "failed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0058-action-offline.png"
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "Ride & Transport Captain, delivery or goods movement",
+            "Deliver Orders Restaurant, grocery or shop delivery",
+            "Send OTP"
+          ],
+          "status": "failed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0059-action-error.png"
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "Ride & Transport Captain, delivery or goods movement",
+            "Deliver Orders Restaurant, grocery or shop delivery",
+            "Send OTP"
+          ],
+          "status": "failed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} opened=False status=Enter a 10-digit alternate mobile number first.",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0060-duplicate.png"
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "My work is not shown",
+            "Example: tailoring shop",
+            "Send request"
+          ],
+          "status": "failed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} panelAfter=False nativeCompletion=True",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0061-action-loading.png"
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "My work is not shown",
+            "Example: tailoring shop",
+            "Send request"
+          ],
+          "status": "failed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0062-action-offline.png"
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "My work is not shown",
+            "Example: tailoring shop",
+            "Send request"
+          ],
+          "status": "failed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0063-action-error.png"
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "My work is not shown",
+            "Example: tailoring shop",
+            "Send request"
+          ],
+          "status": "failed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} opened=False status=Nothing has been submitted yet. Review before confirming.",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0064-duplicate.png"
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "My work is not shown",
+            "Choose one Products & Trade Food Business Health & Medicine Services & Salon Ride & Transport Create & Work Other",
+            "Send request"
+          ],
+          "status": "failed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} panelAfter=False nativeCompletion=True",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0065-action-loading.png"
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "My work is not shown",
+            "Choose one Products & Trade Food Business Health & Medicine Services & Salon Ride & Transport Create & Work Other",
+            "Send request"
+          ],
+          "status": "failed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0066-action-offline.png"
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "My work is not shown",
+            "Choose one Products & Trade Food Business Health & Medicine Services & Salon Ride & Transport Create & Work Other",
+            "Send request"
+          ],
+          "status": "failed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0067-action-error.png"
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "My work is not shown",
+            "Choose one Products & Trade Food Business Health & Medicine Services & Salon Ride & Transport Create & Work Other",
+            "Send request"
+          ],
+          "status": "failed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} opened=False status=Nothing has been submitted yet. Review before confirming.",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0068-duplicate.png"
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "My work is not shown",
+            "City, area or pincode",
+            "Send request"
+          ],
+          "status": "failed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} panelAfter=False nativeCompletion=True",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0069-action-loading.png"
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "My work is not shown",
+            "City, area or pincode",
+            "Send request"
+          ],
+          "status": "failed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0070-action-offline.png"
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "My work is not shown",
+            "City, area or pincode",
+            "Send request"
+          ],
+          "status": "failed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0071-action-error.png"
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "My work is not shown",
+            "City, area or pincode",
+            "Send request"
+          ],
+          "status": "failed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} opened=False status=Nothing has been submitted yet. Review before confirming.",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0072-duplicate.png"
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "My work is not shown",
+            "Send request",
+            "Confirm"
+          ],
+          "status": "failed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} panelAfter=False nativeCompletion=True",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0073-action-loading.png"
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "My work is not shown",
+            "Send request",
+            "Confirm"
+          ],
+          "status": "failed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0074-action-offline.png"
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "My work is not shown",
+            "Send request",
+            "Confirm"
+          ],
+          "status": "failed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0075-action-error.png"
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "My work is not shown",
+            "Send request",
+            "Confirm"
+          ],
+          "status": "failed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} opened=False status=Send request completed successfully. Choice: Summary.",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0076-duplicate.png"
+        },
+        {
+          "ticket": "C2-VAL-007",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "invalid-input",
+          "path": [
+            "Services & Salon Salon, home beauty or local service",
+            "Salon & Personal Care Salon, parlour or home beauty",
+            "Salon / Parlour Operate services from a salon or parlour",
+            "Alternate mobile (optional)"
+          ],
+          "status": "passed",
+          "expectedResult": "Identify the invalid value, retain the task and clear the error after valid input.",
+          "observedResult": "The browser prevented the invalid value and accepted the valid replacement.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "Services & Salon Salon, home beauty or local service",
+            "Salon & Personal Care Salon, parlour or home beauty",
+            "Salon / Parlour Operate services from a salon or parlour",
+            "Send OTP"
+          ],
+          "status": "failed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} panelAfter=False nativeCompletion=True",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0078-action-loading.png"
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "Services & Salon Salon, home beauty or local service",
+            "Salon & Personal Care Salon, parlour or home beauty",
+            "Salon / Parlour Operate services from a salon or parlour",
+            "Send OTP"
+          ],
+          "status": "failed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0079-action-offline.png"
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "Services & Salon Salon, home beauty or local service",
+            "Salon & Personal Care Salon, parlour or home beauty",
+            "Salon / Parlour Operate services from a salon or parlour",
+            "Send OTP"
+          ],
+          "status": "failed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0080-action-error.png"
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "Services & Salon Salon, home beauty or local service",
+            "Salon & Personal Care Salon, parlour or home beauty",
+            "Salon / Parlour Operate services from a salon or parlour",
+            "Send OTP"
+          ],
+          "status": "failed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} opened=False status=Enter a 10-digit alternate mobile number first.",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0081-duplicate.png"
+        },
+        {
+          "ticket": "C2-VAL-007",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "invalid-input",
+          "path": [
+            "Services & Salon Salon, home beauty or local service",
+            "Salon & Personal Care Salon, parlour or home beauty",
+            "Home Beauty Provider Provide enabled beauty and occasion services at home",
+            "Alternate mobile (optional)"
+          ],
+          "status": "passed",
+          "expectedResult": "Identify the invalid value, retain the task and clear the error after valid input.",
+          "observedResult": "The browser prevented the invalid value and accepted the valid replacement.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "Services & Salon Salon, home beauty or local service",
+            "Salon & Personal Care Salon, parlour or home beauty",
+            "Home Beauty Provider Provide enabled beauty and occasion services at home",
+            "Send OTP"
+          ],
+          "status": "failed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} panelAfter=False nativeCompletion=True",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0083-action-loading.png"
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "Services & Salon Salon, home beauty or local service",
+            "Salon & Personal Care Salon, parlour or home beauty",
+            "Home Beauty Provider Provide enabled beauty and occasion services at home",
+            "Send OTP"
+          ],
+          "status": "failed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0084-action-offline.png"
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "Services & Salon Salon, home beauty or local service",
+            "Salon & Personal Care Salon, parlour or home beauty",
+            "Home Beauty Provider Provide enabled beauty and occasion services at home",
+            "Send OTP"
+          ],
+          "status": "failed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0085-action-error.png"
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "Services & Salon Salon, home beauty or local service",
+            "Salon & Personal Care Salon, parlour or home beauty",
+            "Home Beauty Provider Provide enabled beauty and occasion services at home",
+            "Send OTP"
+          ],
+          "status": "failed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} opened=False status=Enter a 10-digit alternate mobile number first.",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0086-duplicate.png"
+        },
+        {
+          "ticket": "C2-VAL-007",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "invalid-input",
+          "path": [
+            "Services & Salon Salon, home beauty or local service",
+            "Home & Local Services Individual services for nearby customers",
+            "Individual Service Provider Offer an enabled skill or service to customers",
+            "Alternate mobile (optional)"
+          ],
+          "status": "passed",
+          "expectedResult": "Identify the invalid value, retain the task and clear the error after valid input.",
+          "observedResult": "The browser prevented the invalid value and accepted the valid replacement.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "Services & Salon Salon, home beauty or local service",
+            "Home & Local Services Individual services for nearby customers",
+            "Individual Service Provider Offer an enabled skill or service to customers",
+            "Send OTP"
+          ],
+          "status": "failed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} panelAfter=False nativeCompletion=True",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0088-action-loading.png"
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "Services & Salon Salon, home beauty or local service",
+            "Home & Local Services Individual services for nearby customers",
+            "Individual Service Provider Offer an enabled skill or service to customers",
+            "Send OTP"
+          ],
+          "status": "failed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0089-action-offline.png"
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "Services & Salon Salon, home beauty or local service",
+            "Home & Local Services Individual services for nearby customers",
+            "Individual Service Provider Offer an enabled skill or service to customers",
+            "Send OTP"
+          ],
+          "status": "failed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0090-action-error.png"
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "Services & Salon Salon, home beauty or local service",
+            "Home & Local Services Individual services for nearby customers",
+            "Individual Service Provider Offer an enabled skill or service to customers",
+            "Send OTP"
+          ],
+          "status": "failed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} opened=False status=Enter a 10-digit alternate mobile number first.",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0091-duplicate.png"
+        },
+        {
+          "ticket": "C2-VAL-007",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "invalid-input",
+          "path": [
+            "Ride & Transport Captain, delivery or goods movement",
+            "Carry Passengers Bike, auto or car rides",
+            "Bike Captain Passenger rides using an eligible bike",
+            "Alternate mobile (optional)"
+          ],
+          "status": "passed",
+          "expectedResult": "Identify the invalid value, retain the task and clear the error after valid input.",
+          "observedResult": "The browser prevented the invalid value and accepted the valid replacement.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "Ride & Transport Captain, delivery or goods movement",
+            "Carry Passengers Bike, auto or car rides",
+            "Bike Captain Passenger rides using an eligible bike",
+            "Send OTP"
+          ],
+          "status": "failed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} panelAfter=False nativeCompletion=True",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0093-action-loading.png"
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "Ride & Transport Captain, delivery or goods movement",
+            "Carry Passengers Bike, auto or car rides",
+            "Bike Captain Passenger rides using an eligible bike",
+            "Send OTP"
+          ],
+          "status": "failed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0094-action-offline.png"
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "Ride & Transport Captain, delivery or goods movement",
+            "Carry Passengers Bike, auto or car rides",
+            "Bike Captain Passenger rides using an eligible bike",
+            "Send OTP"
+          ],
+          "status": "failed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0095-action-error.png"
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "Ride & Transport Captain, delivery or goods movement",
+            "Carry Passengers Bike, auto or car rides",
+            "Bike Captain Passenger rides using an eligible bike",
+            "Send OTP"
+          ],
+          "status": "failed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} opened=False status=Enter a 10-digit alternate mobile number first.",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0096-duplicate.png"
+        },
+        {
+          "ticket": "C2-VAL-007",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "invalid-input",
+          "path": [
+            "Ride & Transport Captain, delivery or goods movement",
+            "Carry Passengers Bike, auto or car rides",
+            "Auto Captain Passenger rides using an eligible auto",
+            "Alternate mobile (optional)"
+          ],
+          "status": "passed",
+          "expectedResult": "Identify the invalid value, retain the task and clear the error after valid input.",
+          "observedResult": "The browser prevented the invalid value and accepted the valid replacement.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "Ride & Transport Captain, delivery or goods movement",
+            "Carry Passengers Bike, auto or car rides",
+            "Auto Captain Passenger rides using an eligible auto",
+            "Send OTP"
+          ],
+          "status": "failed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} panelAfter=False nativeCompletion=True",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0098-action-loading.png"
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "Ride & Transport Captain, delivery or goods movement",
+            "Carry Passengers Bike, auto or car rides",
+            "Auto Captain Passenger rides using an eligible auto",
+            "Send OTP"
+          ],
+          "status": "failed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0099-action-offline.png"
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "Ride & Transport Captain, delivery or goods movement",
+            "Carry Passengers Bike, auto or car rides",
+            "Auto Captain Passenger rides using an eligible auto",
+            "Send OTP"
+          ],
+          "status": "failed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0100-action-error.png"
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "Ride & Transport Captain, delivery or goods movement",
+            "Carry Passengers Bike, auto or car rides",
+            "Auto Captain Passenger rides using an eligible auto",
+            "Send OTP"
+          ],
+          "status": "failed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} opened=False status=Enter a 10-digit alternate mobile number first.",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0101-duplicate.png"
+        },
+        {
+          "ticket": "C2-VAL-007",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "invalid-input",
+          "path": [
+            "Ride & Transport Captain, delivery or goods movement",
+            "Carry Passengers Bike, auto or car rides",
+            "Cab / Car Captain Passenger rides using an eligible car",
+            "Alternate mobile (optional)"
+          ],
+          "status": "passed",
+          "expectedResult": "Identify the invalid value, retain the task and clear the error after valid input.",
+          "observedResult": "The browser prevented the invalid value and accepted the valid replacement.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "Ride & Transport Captain, delivery or goods movement",
+            "Carry Passengers Bike, auto or car rides",
+            "Cab / Car Captain Passenger rides using an eligible car",
+            "Send OTP"
+          ],
+          "status": "failed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} panelAfter=False nativeCompletion=True",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0103-action-loading.png"
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "Ride & Transport Captain, delivery or goods movement",
+            "Carry Passengers Bike, auto or car rides",
+            "Cab / Car Captain Passenger rides using an eligible car",
+            "Send OTP"
+          ],
+          "status": "failed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0104-action-offline.png"
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "Ride & Transport Captain, delivery or goods movement",
+            "Carry Passengers Bike, auto or car rides",
+            "Cab / Car Captain Passenger rides using an eligible car",
+            "Send OTP"
+          ],
+          "status": "failed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0105-action-error.png"
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "Ride & Transport Captain, delivery or goods movement",
+            "Carry Passengers Bike, auto or car rides",
+            "Cab / Car Captain Passenger rides using an eligible car",
+            "Send OTP"
+          ],
+          "status": "failed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} opened=False status=Enter a 10-digit alternate mobile number first.",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0106-duplicate.png"
+        },
+        {
+          "ticket": "C2-VAL-007",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "invalid-input",
+          "path": [
+            "Ride & Transport Captain, delivery or goods movement",
+            "Move Goods Porter, goods vehicle or fleet operation",
+            "Local Porter / Goods Transporter Move eligible goods locally",
+            "Alternate mobile (optional)"
+          ],
+          "status": "passed",
+          "expectedResult": "Identify the invalid value, retain the task and clear the error after valid input.",
+          "observedResult": "The browser prevented the invalid value and accepted the valid replacement.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "Ride & Transport Captain, delivery or goods movement",
+            "Move Goods Porter, goods vehicle or fleet operation",
+            "Local Porter / Goods Transporter Move eligible goods locally",
+            "Send OTP"
+          ],
+          "status": "failed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} panelAfter=False nativeCompletion=True",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0108-action-loading.png"
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "Ride & Transport Captain, delivery or goods movement",
+            "Move Goods Porter, goods vehicle or fleet operation",
+            "Local Porter / Goods Transporter Move eligible goods locally",
+            "Send OTP"
+          ],
+          "status": "failed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0109-action-offline.png"
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "Ride & Transport Captain, delivery or goods movement",
+            "Move Goods Porter, goods vehicle or fleet operation",
+            "Local Porter / Goods Transporter Move eligible goods locally",
+            "Send OTP"
+          ],
+          "status": "failed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0110-action-error.png"
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "Ride & Transport Captain, delivery or goods movement",
+            "Move Goods Porter, goods vehicle or fleet operation",
+            "Local Porter / Goods Transporter Move eligible goods locally",
+            "Send OTP"
+          ],
+          "status": "failed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} opened=False status=Enter a 10-digit alternate mobile number first.",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0111-duplicate.png"
+        },
+        {
+          "ticket": "C2-VAL-007",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "invalid-input",
+          "path": [
+            "Ride & Transport Captain, delivery or goods movement",
+            "Move Goods Porter, goods vehicle or fleet operation",
+            "Transport / Fleet Operator Operate multiple eligible goods vehicles",
+            "Alternate mobile (optional)"
+          ],
+          "status": "passed",
+          "expectedResult": "Identify the invalid value, retain the task and clear the error after valid input.",
+          "observedResult": "The browser prevented the invalid value and accepted the valid replacement.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "Ride & Transport Captain, delivery or goods movement",
+            "Move Goods Porter, goods vehicle or fleet operation",
+            "Transport / Fleet Operator Operate multiple eligible goods vehicles",
+            "Send OTP"
+          ],
+          "status": "failed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} panelAfter=False nativeCompletion=True",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0113-action-loading.png"
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "Ride & Transport Captain, delivery or goods movement",
+            "Move Goods Porter, goods vehicle or fleet operation",
+            "Transport / Fleet Operator Operate multiple eligible goods vehicles",
+            "Send OTP"
+          ],
+          "status": "failed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0114-action-offline.png"
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "Ride & Transport Captain, delivery or goods movement",
+            "Move Goods Porter, goods vehicle or fleet operation",
+            "Transport / Fleet Operator Operate multiple eligible goods vehicles",
+            "Send OTP"
+          ],
+          "status": "failed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0115-action-error.png"
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "Ride & Transport Captain, delivery or goods movement",
+            "Move Goods Porter, goods vehicle or fleet operation",
+            "Transport / Fleet Operator Operate multiple eligible goods vehicles",
+            "Send OTP"
+          ],
+          "status": "failed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} opened=False status=Enter a 10-digit alternate mobile number first.",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0116-duplicate.png"
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "My work is not shown",
+            "Example: tailoring shop",
+            "Send request",
+            "Confirm"
+          ],
+          "status": "failed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} panelAfter=False nativeCompletion=True",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0117-action-loading.png"
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "My work is not shown",
+            "Example: tailoring shop",
+            "Send request",
+            "Confirm"
+          ],
+          "status": "failed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0118-action-offline.png"
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "My work is not shown",
+            "Example: tailoring shop",
+            "Send request",
+            "Confirm"
+          ],
+          "status": "failed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0119-action-error.png"
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "My work is not shown",
+            "Example: tailoring shop",
+            "Send request",
+            "Confirm"
+          ],
+          "status": "failed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} opened=False status=Send request completed successfully. Choice: Summary.",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0120-duplicate.png"
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "My work is not shown",
+            "Choose one Products & Trade Food Business Health & Medicine Services & Salon Ride & Transport Create & Work Other",
+            "Send request",
+            "Confirm"
+          ],
+          "status": "failed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} panelAfter=False nativeCompletion=True",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0121-action-loading.png"
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "My work is not shown",
+            "Choose one Products & Trade Food Business Health & Medicine Services & Salon Ride & Transport Create & Work Other",
+            "Send request",
+            "Confirm"
+          ],
+          "status": "failed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0122-action-offline.png"
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "My work is not shown",
+            "Choose one Products & Trade Food Business Health & Medicine Services & Salon Ride & Transport Create & Work Other",
+            "Send request",
+            "Confirm"
+          ],
+          "status": "failed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0123-action-error.png"
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "My work is not shown",
+            "Choose one Products & Trade Food Business Health & Medicine Services & Salon Ride & Transport Create & Work Other",
+            "Send request",
+            "Confirm"
+          ],
+          "status": "failed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} opened=False status=Send request completed successfully. Choice: Summary.",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0124-duplicate.png"
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "My work is not shown",
+            "City, area or pincode",
+            "Send request",
+            "Confirm"
+          ],
+          "status": "failed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} panelAfter=False nativeCompletion=True",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0125-action-loading.png"
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "My work is not shown",
+            "City, area or pincode",
+            "Send request",
+            "Confirm"
+          ],
+          "status": "failed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0126-action-offline.png"
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "My work is not shown",
+            "City, area or pincode",
+            "Send request",
+            "Confirm"
+          ],
+          "status": "failed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0127-action-error.png"
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "My work is not shown",
+            "City, area or pincode",
+            "Send request",
+            "Confirm"
+          ],
+          "status": "failed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} opened=False status=Send request completed successfully. Choice: Summary.",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0128-duplicate.png"
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "My work is not shown",
+            "Send request",
+            "Summary",
+            "Confirm"
+          ],
+          "status": "failed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} panelAfter=False nativeCompletion=True",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0129-action-loading.png"
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "My work is not shown",
+            "Send request",
+            "Summary",
+            "Confirm"
+          ],
+          "status": "failed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0130-action-offline.png"
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "My work is not shown",
+            "Send request",
+            "Summary",
+            "Confirm"
+          ],
+          "status": "failed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0131-action-error.png"
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "My work is not shown",
+            "Send request",
+            "Summary",
+            "Confirm"
+          ],
+          "status": "failed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} opened=False status=Send request completed successfully. Choice: Summary.",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0132-duplicate.png"
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "My work is not shown",
+            "Send request",
+            "Support",
+            "Confirm"
+          ],
+          "status": "failed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} panelAfter=False nativeCompletion=True",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0133-action-loading.png"
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "My work is not shown",
+            "Send request",
+            "Support",
+            "Confirm"
+          ],
+          "status": "failed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0134-action-offline.png"
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "My work is not shown",
+            "Send request",
+            "Support",
+            "Confirm"
+          ],
+          "status": "failed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0135-action-error.png"
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "My work is not shown",
+            "Send request",
+            "Support",
+            "Confirm"
+          ],
+          "status": "failed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} opened=False status=Send request completed successfully. Choice: Support.",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0136-duplicate.png"
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "My work is not shown",
+            "Example: tailoring shop",
+            "Send request",
+            "Summary",
+            "Confirm"
+          ],
+          "status": "failed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} panelAfter=False nativeCompletion=True",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0137-action-loading.png"
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "My work is not shown",
+            "Example: tailoring shop",
+            "Send request",
+            "Summary",
+            "Confirm"
+          ],
+          "status": "failed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0138-action-offline.png"
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "My work is not shown",
+            "Example: tailoring shop",
+            "Send request",
+            "Summary",
+            "Confirm"
+          ],
+          "status": "failed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0139-action-error.png"
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "My work is not shown",
+            "Example: tailoring shop",
+            "Send request",
+            "Summary",
+            "Confirm"
+          ],
+          "status": "failed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} opened=False status=Send request completed successfully. Choice: Summary.",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0140-duplicate.png"
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "My work is not shown",
+            "Example: tailoring shop",
+            "Send request",
+            "Support",
+            "Confirm"
+          ],
+          "status": "failed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} panelAfter=False nativeCompletion=True",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0141-action-loading.png"
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "My work is not shown",
+            "Example: tailoring shop",
+            "Send request",
+            "Support",
+            "Confirm"
+          ],
+          "status": "failed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0142-action-offline.png"
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "My work is not shown",
+            "Example: tailoring shop",
+            "Send request",
+            "Support",
+            "Confirm"
+          ],
+          "status": "failed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0143-action-error.png"
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "My work is not shown",
+            "Example: tailoring shop",
+            "Send request",
+            "Support",
+            "Confirm"
+          ],
+          "status": "failed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} opened=False status=Send request completed successfully. Choice: Support.",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0144-duplicate.png"
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "My work is not shown",
+            "Choose one Products & Trade Food Business Health & Medicine Services & Salon Ride & Transport Create & Work Other",
+            "Send request",
+            "Summary",
+            "Confirm"
+          ],
+          "status": "failed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} panelAfter=False nativeCompletion=True",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0145-action-loading.png"
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "My work is not shown",
+            "Choose one Products & Trade Food Business Health & Medicine Services & Salon Ride & Transport Create & Work Other",
+            "Send request",
+            "Summary",
+            "Confirm"
+          ],
+          "status": "failed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0146-action-offline.png"
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "My work is not shown",
+            "Choose one Products & Trade Food Business Health & Medicine Services & Salon Ride & Transport Create & Work Other",
+            "Send request",
+            "Summary",
+            "Confirm"
+          ],
+          "status": "failed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0147-action-error.png"
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "My work is not shown",
+            "Choose one Products & Trade Food Business Health & Medicine Services & Salon Ride & Transport Create & Work Other",
+            "Send request",
+            "Summary",
+            "Confirm"
+          ],
+          "status": "failed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} opened=False status=Send request completed successfully. Choice: Summary.",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0148-duplicate.png"
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "My work is not shown",
+            "Choose one Products & Trade Food Business Health & Medicine Services & Salon Ride & Transport Create & Work Other",
+            "Send request",
+            "Support",
+            "Confirm"
+          ],
+          "status": "failed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} panelAfter=False nativeCompletion=True",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0149-action-loading.png"
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "My work is not shown",
+            "Choose one Products & Trade Food Business Health & Medicine Services & Salon Ride & Transport Create & Work Other",
+            "Send request",
+            "Support",
+            "Confirm"
+          ],
+          "status": "failed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0150-action-offline.png"
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "My work is not shown",
+            "Choose one Products & Trade Food Business Health & Medicine Services & Salon Ride & Transport Create & Work Other",
+            "Send request",
+            "Support",
+            "Confirm"
+          ],
+          "status": "failed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0151-action-error.png"
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "My work is not shown",
+            "Choose one Products & Trade Food Business Health & Medicine Services & Salon Ride & Transport Create & Work Other",
+            "Send request",
+            "Support",
+            "Confirm"
+          ],
+          "status": "failed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} opened=False status=Send request completed successfully. Choice: Support.",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0152-duplicate.png"
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "My work is not shown",
+            "City, area or pincode",
+            "Send request",
+            "Summary",
+            "Confirm"
+          ],
+          "status": "failed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} panelAfter=False nativeCompletion=True",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0153-action-loading.png"
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "My work is not shown",
+            "City, area or pincode",
+            "Send request",
+            "Summary",
+            "Confirm"
+          ],
+          "status": "failed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0154-action-offline.png"
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "My work is not shown",
+            "City, area or pincode",
+            "Send request",
+            "Summary",
+            "Confirm"
+          ],
+          "status": "failed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0155-action-error.png"
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "My work is not shown",
+            "City, area or pincode",
+            "Send request",
+            "Summary",
+            "Confirm"
+          ],
+          "status": "failed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} opened=False status=Send request completed successfully. Choice: Summary.",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0156-duplicate.png"
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "My work is not shown",
+            "City, area or pincode",
+            "Send request",
+            "Support",
+            "Confirm"
+          ],
+          "status": "failed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} panelAfter=False nativeCompletion=True",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0157-action-loading.png"
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "My work is not shown",
+            "City, area or pincode",
+            "Send request",
+            "Support",
+            "Confirm"
+          ],
+          "status": "failed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0158-action-offline.png"
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "My work is not shown",
+            "City, area or pincode",
+            "Send request",
+            "Support",
+            "Confirm"
+          ],
+          "status": "failed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0159-action-error.png"
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 70,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "My work is not shown",
+            "City, area or pincode",
+            "Send request",
+            "Support",
+            "Confirm"
+          ],
+          "status": "failed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} opened=False status=Send request completed successfully. Choice: Support.",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-070-0160-duplicate.png"
+        }
+      ],
+      "truncated": false,
+      "queuedActionScenariosRemaining": 0
+    },
+    {
+      "screen": 71,
+      "file": "71-work-profile-proof.html",
+      "viewport": "mobile",
+      "positivePathsReferenced": 13,
+      "routeResults": [],
+      "actionResults": [
+        {
+          "ticket": "C2-VAL-007",
+          "screen": 71,
+          "viewport": "mobile",
+          "scenario": "empty-input",
+          "path": [
+            "[unlabelled input]"
+          ],
+          "status": "failed",
+          "expectedResult": "Identify the required empty field, retain the task and clear the error after valid input.",
+          "observedResult": "invalidState={'error': '', 'errorVisible': False, 'invalid': False, 'nativeValid': False, 'value': ''} recoveredState={'error': '', 'errorVisible': False, 'invalid': False, 'nativeValid': True, 'value': 'verified audit value'}",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-071-0161-empty-input.png"
+        },
+        {
+          "ticket": "C2-VAL-007",
+          "screen": 71,
+          "viewport": "mobile",
+          "scenario": "invalid-input",
+          "path": [
+            "[unlabelled input]"
+          ],
+          "status": "passed",
+          "expectedResult": "Identify the invalid value, retain the task and clear the error after valid input.",
+          "observedResult": "The browser prevented the invalid value and accepted the valid replacement.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-VAL-007",
+          "screen": 71,
+          "viewport": "mobile",
+          "scenario": "empty-input",
+          "path": [
+            "Jodhpur"
+          ],
+          "status": "failed",
+          "expectedResult": "Identify the required empty field, retain the task and clear the error after valid input.",
+          "observedResult": "invalidState={'error': '', 'errorVisible': False, 'invalid': False, 'nativeValid': False, 'value': ''} recoveredState={'error': '', 'errorVisible': False, 'invalid': False, 'nativeValid': True, 'value': 'verified audit value'}",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-071-0163-empty-input.png"
+        },
+        {
+          "ticket": "C2-VAL-007",
+          "screen": 71,
+          "viewport": "mobile",
+          "scenario": "invalid-input",
+          "path": [
+            "Jodhpur"
+          ],
+          "status": "passed",
+          "expectedResult": "Identify the invalid value, retain the task and clear the error after valid input.",
+          "observedResult": "The browser prevented the invalid value and accepted the valid replacement.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-VAL-007",
+          "screen": 71,
+          "viewport": "mobile",
+          "scenario": "empty-input",
+          "path": [
+            "[unlabelled input]"
+          ],
+          "status": "failed",
+          "expectedResult": "Identify the required empty field, retain the task and clear the error after valid input.",
+          "observedResult": "invalidState={'error': '', 'errorVisible': False, 'invalid': False, 'nativeValid': False, 'value': ''} recoveredState={'error': '', 'errorVisible': False, 'invalid': False, 'nativeValid': True, 'value': 'verified audit value'}",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-071-0165-empty-input.png"
+        },
+        {
+          "ticket": "C2-VAL-007",
+          "screen": 71,
+          "viewport": "mobile",
+          "scenario": "invalid-input",
+          "path": [
+            "[unlabelled input]"
+          ],
+          "status": "passed",
+          "expectedResult": "Identify the invalid value, retain the task and clear the error after valid input.",
+          "observedResult": "The browser prevented the invalid value and accepted the valid replacement.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        }
+      ],
+      "truncated": false,
+      "queuedActionScenariosRemaining": 0
+    },
+    {
+      "screen": 118,
+      "file": "118-captain-pickup-navigation.html",
+      "viewport": "mobile",
+      "positivePathsReferenced": 18,
+      "routeResults": [],
+      "actionResults": [
+        {
+          "ticket": "C2-VAL-007",
+          "screen": 118,
+          "viewport": "mobile",
+          "scenario": "invalid-input",
+          "path": [
+            "Call",
+            "----"
+          ],
+          "status": "failed",
+          "expectedResult": "Identify the invalid value, retain the task and clear the error after valid input.",
+          "observedResult": "invalidState={'error': '', 'errorVisible': False, 'invalid': False, 'nativeValid': True, 'value': '12x'} recoveredState={'error': '', 'errorVisible': False, 'invalid': False, 'nativeValid': True, 'value': '42'}",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-118-0167-invalid-input.png"
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 118,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "Call",
+            "Verify OTP & Start"
+          ],
+          "status": "failed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} panelAfter=False nativeCompletion=True",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-118-0168-action-loading.png"
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 118,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "Call",
+            "Verify OTP & Start"
+          ],
+          "status": "failed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-118-0169-action-offline.png"
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 118,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "Call",
+            "Verify OTP & Start"
+          ],
+          "status": "failed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-118-0170-action-error.png"
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 118,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "Call",
+            "Verify OTP & Start"
+          ],
+          "status": "failed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} opened=False status=Enter the rider’s 4-digit OTP to verify and start this trip.",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-118-0171-duplicate.png"
+        },
+        {
+          "ticket": "C2-VAL-007",
+          "screen": 118,
+          "viewport": "mobile",
+          "scenario": "invalid-input",
+          "path": [
+            "I Have Arrived",
+            "----"
+          ],
+          "status": "failed",
+          "expectedResult": "Identify the invalid value, retain the task and clear the error after valid input.",
+          "observedResult": "invalidState={'error': '', 'errorVisible': False, 'invalid': False, 'nativeValid': True, 'value': '12x'} recoveredState={'error': '', 'errorVisible': False, 'invalid': False, 'nativeValid': True, 'value': '42'}",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-118-0172-invalid-input.png"
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 118,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "I Have Arrived",
+            "Verify OTP & Start"
+          ],
+          "status": "failed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} panelAfter=False nativeCompletion=True",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-118-0173-action-loading.png"
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 118,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "I Have Arrived",
+            "Verify OTP & Start"
+          ],
+          "status": "failed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-118-0174-action-offline.png"
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 118,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "I Have Arrived",
+            "Verify OTP & Start"
+          ],
+          "status": "failed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-118-0175-action-error.png"
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 118,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "I Have Arrived",
+            "Verify OTP & Start"
+          ],
+          "status": "failed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} opened=False status=Enter the rider’s 4-digit OTP to verify and start this trip.",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-118-0176-duplicate.png"
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 118,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "Call",
+            "----",
+            "Verify OTP & Start"
+          ],
+          "status": "failed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} panelAfter=False nativeCompletion=True",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-118-0177-action-loading.png"
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 118,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "Call",
+            "----",
+            "Verify OTP & Start"
+          ],
+          "status": "failed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-118-0178-action-offline.png"
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 118,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "Call",
+            "----",
+            "Verify OTP & Start"
+          ],
+          "status": "failed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-118-0179-action-error.png"
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 118,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "Call",
+            "----",
+            "Verify OTP & Start"
+          ],
+          "status": "failed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} opened=False status=Enter the rider’s 4-digit OTP to verify and start this trip.",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-118-0180-duplicate.png"
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 118,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "I Have Arrived",
+            "----",
+            "Verify OTP & Start"
+          ],
+          "status": "failed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} panelAfter=False nativeCompletion=True",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-118-0181-action-loading.png"
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 118,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "I Have Arrived",
+            "----",
+            "Verify OTP & Start"
+          ],
+          "status": "failed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-118-0182-action-offline.png"
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 118,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "I Have Arrived",
+            "----",
+            "Verify OTP & Start"
+          ],
+          "status": "failed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-118-0183-action-error.png"
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 118,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "I Have Arrived",
+            "----",
+            "Verify OTP & Start"
+          ],
+          "status": "failed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} opened=False status=Enter the rider’s 4-digit OTP to verify and start this trip.",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-118-0184-duplicate.png"
+        }
+      ],
+      "truncated": false,
+      "queuedActionScenariosRemaining": 0
+    },
+    {
+      "screen": 125,
+      "file": "125-creator-create-publish.html",
+      "viewport": "mobile",
+      "positivePathsReferenced": 47,
+      "routeResults": [],
+      "actionResults": [
+        {
+          "ticket": "C2-PERM-006",
+          "screen": 125,
+          "viewport": "mobile",
+          "scenario": "permission-denied",
+          "path": [
+            "Camera"
+          ],
+          "status": "failed",
+          "expectedResult": "Explain the denied device permission and provide settings, fallback and cancel actions.",
+          "observedResult": "panel=False settings=False fallback=False fallbackResult=False settingsResult=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-125-0185-permission-denied.png"
+        },
+        {
+          "ticket": "C2-VAL-007",
+          "screen": 125,
+          "viewport": "mobile",
+          "scenario": "invalid-input",
+          "path": [
+            "How local baskets save time"
+          ],
+          "status": "passed",
+          "expectedResult": "Identify the invalid value, retain the task and clear the error after valid input.",
+          "observedResult": "The browser prevented the invalid value and accepted the valid replacement.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-PERM-006",
+          "screen": 125,
+          "viewport": "mobile",
+          "scenario": "permission-denied",
+          "path": [
+            "Location"
+          ],
+          "status": "failed",
+          "expectedResult": "Explain the denied device permission and provide settings, fallback and cancel actions.",
+          "observedResult": "panel=False settings=False fallback=False fallbackResult=False settingsResult=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-125-0187-permission-denied.png"
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 125,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "Review & Publish"
+          ],
+          "status": "failed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} panelAfter=False nativeCompletion=True",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-125-0188-action-loading.png"
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 125,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "Review & Publish"
+          ],
+          "status": "failed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-125-0189-action-offline.png"
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 125,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "Review & Publish"
+          ],
+          "status": "failed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-125-0190-action-error.png"
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 125,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "Review & Publish"
+          ],
+          "status": "failed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} opened=False status=",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-125-0191-duplicate.png"
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 125,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "Schedule",
+            "Confirm schedule"
+          ],
+          "status": "failed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} panelAfter=False nativeCompletion=True",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-125-0192-action-loading.png"
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 125,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "Schedule",
+            "Confirm schedule"
+          ],
+          "status": "failed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-125-0193-action-offline.png"
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 125,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "Schedule",
+            "Confirm schedule"
+          ],
+          "status": "failed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-125-0194-action-error.png"
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 125,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "Schedule",
+            "Confirm schedule"
+          ],
+          "status": "failed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} opened=False status=Choose both a date and time before confirming the schedule.",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-125-0195-duplicate.png"
+        },
+        {
+          "ticket": "C2-PERM-006",
+          "screen": 125,
+          "viewport": "mobile",
+          "scenario": "permission-denied",
+          "path": [
+            "Location",
+            "Current location"
+          ],
+          "status": "failed",
+          "expectedResult": "Explain the denied device permission and provide settings, fallback and cancel actions.",
+          "observedResult": "panel=False settings=False fallback=False fallbackResult=False settingsResult=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-125-0196-permission-denied.png"
+        },
+        {
+          "ticket": "C2-PERM-006",
+          "screen": 125,
+          "viewport": "mobile",
+          "scenario": "permission-denied",
+          "path": [
+            "Location",
+            "Choose on map"
+          ],
+          "status": "failed",
+          "expectedResult": "Explain the denied device permission and provide settings, fallback and cancel actions.",
+          "observedResult": "panel=False settings=False fallback=False fallbackResult=False settingsResult=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-125-0197-permission-denied.png"
+        },
+        {
+          "ticket": "C2-PERM-006",
+          "screen": 125,
+          "viewport": "mobile",
+          "scenario": "permission-denied",
+          "path": [
+            "Location",
+            "Confirm location"
+          ],
+          "status": "failed",
+          "expectedResult": "Explain the denied device permission and provide settings, fallback and cancel actions.",
+          "observedResult": "panel=False settings=False fallback=False fallbackResult=False settingsResult=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-125-0198-permission-denied.png"
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 125,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "Review & Publish",
+            "Publish"
+          ],
+          "status": "failed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} panelAfter=False nativeCompletion=True",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-125-0199-action-loading.png"
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 125,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "Review & Publish",
+            "Publish"
+          ],
+          "status": "failed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-125-0200-action-offline.png"
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 125,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "Review & Publish",
+            "Publish"
+          ],
+          "status": "failed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-125-0201-action-error.png"
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 125,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "Review & Publish",
+            "Publish"
+          ],
+          "status": "failed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} opened=False status=",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-125-0202-duplicate.png"
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 125,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "Schedule",
+            "Date for Schedule",
+            "Confirm schedule"
+          ],
+          "status": "failed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} panelAfter=False nativeCompletion=True",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-125-0203-action-loading.png"
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 125,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "Schedule",
+            "Date for Schedule",
+            "Confirm schedule"
+          ],
+          "status": "failed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-125-0204-action-offline.png"
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 125,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "Schedule",
+            "Date for Schedule",
+            "Confirm schedule"
+          ],
+          "status": "failed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-125-0205-action-error.png"
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 125,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "Schedule",
+            "Date for Schedule",
+            "Confirm schedule"
+          ],
+          "status": "failed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} opened=False status=Choose both a date and time before confirming the schedule.",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-125-0206-duplicate.png"
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 125,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "Schedule",
+            "Time for Schedule",
+            "Confirm schedule"
+          ],
+          "status": "failed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} panelAfter=False nativeCompletion=True",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-125-0207-action-loading.png"
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 125,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "Schedule",
+            "Time for Schedule",
+            "Confirm schedule"
+          ],
+          "status": "failed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-125-0208-action-offline.png"
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 125,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "Schedule",
+            "Time for Schedule",
+            "Confirm schedule"
+          ],
+          "status": "failed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "panel=False cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-125-0209-action-error.png"
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 125,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "Schedule",
+            "Time for Schedule",
+            "Confirm schedule"
+          ],
+          "status": "failed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "panel={'busy': False, 'buttons': [], 'contentVisible': False, 'scenario': '', 'text': '', 'title': '', 'visible': False, 'visibleButtons': []} opened=False status=Choose both a date and time before confirming the schedule.",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-risk-adversarial/baseline-evidence/mobile-125-0210-duplicate.png"
+        }
+      ],
+      "truncated": false,
+      "queuedActionScenariosRemaining": 0
+    }
+  ],
+  "consoleErrors": []
+}

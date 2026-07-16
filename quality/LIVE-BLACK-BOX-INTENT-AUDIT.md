@@ -4,7 +4,7 @@
 
 This audit verifies whether a real user can complete the intent promised by every visible tap. It does not treat a JavaScript event, generic toast, selection outline or automatically generated “ready/completed” sheet as proof of completion.
 
-The deployed or approved prototype is opened as a black box in Microsoft Edge. Every control is physically hit-tested, replayed from a clean page, compared before and after, and recursively followed through the states it reveals.
+The deployed or approved prototype is opened as a black box in Microsoft Edge. Every control is physically hit-tested, replayed from a clean page, compared before and after, and recursively followed through the states it reveals. Clean means the runner clears local storage, session storage, origin data and cookies at the inert `quality/audit-clean-state.html` boundary before every reproduction; a reload by itself is not accepted as isolation.
 
 ## Required viewports
 
@@ -104,7 +104,7 @@ python quality/Run-Live-Black-Box-Intent-Audit.py --screen 6 --viewport mobile
 Run a screen shard:
 
 ```powershell
-python quality/Run-Live-Black-Box-Intent-Audit.py --screen-from 0 --screen-to 41 --max-depth 12 --max-paths-per-screen 400
+python quality/Run-Live-Black-Box-Intent-Audit.py --screen-from 0 --screen-to 41 --max-depth 20 --max-paths-per-screen 1200
 ```
 
 Merge shard reports:
@@ -112,3 +112,11 @@ Merge shard reports:
 ```powershell
 python quality/Merge-Live-Black-Box-Audit-Shards.py --input shard-000-041.json --input shard-042-083.json --input shard-084-124.json --input shard-125-165.json --output quality/generated/live-black-box-intent-audit.json
 ```
+
+Run the independent adverse-state cycle from the completed positive report:
+
+```powershell
+python quality/Run-Adversarial-Micro-Interaction-Audit.py --positive-report quality/generated/second-cycle-live-black-box-audit.json --max-action-scenarios-per-screen 1200 --output quality/generated/second-cycle-adversarial-audit.json --markdown-output quality/generated/second-cycle-adversarial-audit.md
+```
+
+The adverse runner starts every scenario from a clean URL and physically verifies loading, empty, offline, unauthorized, error, retry, cancellation, duplicate, permission-denied, empty-input and invalid-input outcomes. A browser-enforced constraint counts as a pass only when the invalid value cannot enter the field and a valid replacement is subsequently accepted.

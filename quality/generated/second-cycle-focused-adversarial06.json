@@ -1,0 +1,755 @@
+{
+  "version": "second-cycle-adversarial-micro-audit-2026-07-16",
+  "generatedAt": "2026-07-15T23:24:42Z",
+  "baseUrl": "http://127.0.0.1:8765",
+  "positiveReport": "C:\\GUARANTEED OUTCOME\\supermandi-uiux-screenbook\\quality\\generated\\second-cycle-focused-positive06.json",
+  "rule": "Every forced route or action failure condition must expose a domain-specific recovery path and complete the original intent after recovery.",
+  "viewports": {
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "mobile": true
+    }
+  },
+  "summary": {
+    "status": "passed",
+    "screenViewportRuns": 1,
+    "uniqueScreens": 1,
+    "routeScenariosTested": 0,
+    "actionScenariosTested": 45,
+    "passed": 45,
+    "failed": 0,
+    "cancelBranchesVerified": 20,
+    "recoveryBranchesVerified": 45,
+    "truncatedScreens": 0,
+    "consoleErrors": 0
+  },
+  "runs": [
+    {
+      "screen": 6,
+      "file": "06-social-videos.html",
+      "viewport": "mobile",
+      "positivePathsReferenced": 206,
+      "routeResults": [],
+      "actionResults": [
+        {
+          "ticket": "C2-PERM-006",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "permission-denied",
+          "path": [
+            "Search videos",
+            "Ask Voice"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the denied device permission and provide settings, fallback and cancel actions.",
+          "observedResult": "Permission denial offered settings, a usable fallback and cancellation without losing context.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "Grow your shop with verified product videos and local orders",
+            "Start Create shop page"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "Grow your shop with verified product videos and local orders",
+            "Start Create shop page"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "Grow your shop with verified product videos and local orders",
+            "Start Create shop page"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "Grow your shop with verified product videos and local orders",
+            "Start Create shop page"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-006-49811 retained.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "Grow your shop with verified product videos and local orders",
+            "Create Publish product video"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "Grow your shop with verified product videos and local orders",
+            "Create Publish product video"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "Grow your shop with verified product videos and local orders",
+            "Create Publish product video"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "Grow your shop with verified product videos and local orders",
+            "Create Publish product video"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-006-07765 retained.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "Grow your shop with verified product videos and local orders",
+            "Continue Start shop setup"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "Grow your shop with verified product videos and local orders",
+            "Continue Start shop setup"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "Grow your shop with verified product videos and local orders",
+            "Continue Start shop setup"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "Grow your shop with verified product videos and local orders",
+            "Continue Start shop setup"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-006-11498 retained.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-PERM-006",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "permission-denied",
+          "path": [
+            "Proof",
+            "Required Location proof"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the denied device permission and provide settings, fallback and cancel actions.",
+          "observedResult": "Permission denial offered settings, a usable fallback and cancellation without losing context.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "Proof",
+            "Continue Apply for task"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "Proof",
+            "Continue Apply for task"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "Proof",
+            "Continue Apply for task"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "Proof",
+            "Continue Apply for task"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-006-87527 retained.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-PERM-006",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "permission-denied",
+          "path": [
+            "Watch how this Jodhpur shop packs a fresh morning basket",
+            "More",
+            "Jodhpur Location"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the denied device permission and provide settings, fallback and cancel actions.",
+          "observedResult": "Permission denial offered settings, a usable fallback and cancellation without losing context.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "Watch how this Jodhpur shop packs a fresh morning basket",
+            "Open proof",
+            "Rule Refund"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "Watch how this Jodhpur shop packs a fresh morning basket",
+            "Open proof",
+            "Rule Refund"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "Watch how this Jodhpur shop packs a fresh morning basket",
+            "Open proof",
+            "Rule Refund"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "Watch how this Jodhpur shop packs a fresh morning basket",
+            "Open proof",
+            "Rule Refund"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-006-98684 retained.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "Watch how this Jodhpur shop packs a fresh morning basket",
+            "Open proof",
+            "Order Open"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "Watch how this Jodhpur shop packs a fresh morning basket",
+            "Open proof",
+            "Order Open"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "Watch how this Jodhpur shop packs a fresh morning basket",
+            "Open proof",
+            "Order Open"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "Watch how this Jodhpur shop packs a fresh morning basket",
+            "Open proof",
+            "Order Open"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-006-96892 retained.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-PERM-006",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "permission-denied",
+          "path": [
+            "Watch how QR proof tasks are checked before payout",
+            "More",
+            "Jodhpur Location"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the denied device permission and provide settings, fallback and cancel actions.",
+          "observedResult": "Permission denial offered settings, a usable fallback and cancellation without losing context.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-PERM-006",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "permission-denied",
+          "path": [
+            "Watch how QR proof tasks are checked before payout",
+            "Open proof",
+            "Required Location proof"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the denied device permission and provide settings, fallback and cancel actions.",
+          "observedResult": "Permission denial offered settings, a usable fallback and cancellation without losing context.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "Watch how QR proof tasks are checked before payout",
+            "Open proof",
+            "Continue Apply for task"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "Watch how QR proof tasks are checked before payout",
+            "Open proof",
+            "Continue Apply for task"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "Watch how QR proof tasks are checked before payout",
+            "Open proof",
+            "Continue Apply for task"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "Watch how QR proof tasks are checked before payout",
+            "Open proof",
+            "Continue Apply for task"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-006-87527 retained.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "Watch how this Jodhpur shop packs a fresh morning basket",
+            "Open proof",
+            "Rs 399 Price",
+            "Order Open"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "Watch how this Jodhpur shop packs a fresh morning basket",
+            "Open proof",
+            "Rs 399 Price",
+            "Order Open"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "Watch how this Jodhpur shop packs a fresh morning basket",
+            "Open proof",
+            "Rs 399 Price",
+            "Order Open"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "Watch how this Jodhpur shop packs a fresh morning basket",
+            "Open proof",
+            "Rs 399 Price",
+            "Order Open"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-006-96892 retained.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "Watch how this Jodhpur shop packs a fresh morning basket",
+            "Open proof",
+            "45 min Time",
+            "Order Open"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "Watch how this Jodhpur shop packs a fresh morning basket",
+            "Open proof",
+            "45 min Time",
+            "Order Open"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "Watch how this Jodhpur shop packs a fresh morning basket",
+            "Open proof",
+            "45 min Time",
+            "Order Open"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "Watch how this Jodhpur shop packs a fresh morning basket",
+            "Open proof",
+            "45 min Time",
+            "Order Open"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-006-96892 retained.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "Watch how this Jodhpur shop packs a fresh morning basket",
+            "Open proof",
+            "Rule Refund",
+            "Order Open"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "Watch how this Jodhpur shop packs a fresh morning basket",
+            "Open proof",
+            "Rule Refund",
+            "Order Open"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "Watch how this Jodhpur shop packs a fresh morning basket",
+            "Open proof",
+            "Rule Refund",
+            "Order Open"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "Watch how this Jodhpur shop packs a fresh morning basket",
+            "Open proof",
+            "Rule Refund",
+            "Order Open"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-006-96892 retained.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        }
+      ],
+      "truncated": false,
+      "queuedActionScenariosRemaining": 0
+    }
+  ],
+  "consoleErrors": []
+}

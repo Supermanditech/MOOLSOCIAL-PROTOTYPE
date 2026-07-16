@@ -1,13 +1,13 @@
-# Prototype Flow Static Audit
+﻿# Prototype Flow Static Audit
 
 - Status: **passed**
 - Screens: **166** source / **166** approved
 - Operational flows: **47**
 - Flow nodes checked: **483**
-- Local navigation targets checked: **1104**
-- Local assets checked: **475**
-- Buttons indexed for browser testing: **1942**
-- Static button candidates requiring tap confirmation: **103**
+- Local navigation targets checked: **1124**
+- Local assets checked: **641**
+- Buttons indexed for browser testing: **2001**
+- Static button candidates requiring tap confirmation: **98**
 - Missing navigation targets: **0**
 - Missing assets: **0**
 - Machine-contract issues: **0**

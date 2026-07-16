@@ -1,0 +1,85 @@
+{
+  "version": "second-cycle-failure-replay-reconciliation-2026-07-16",
+  "generatedAt": "2026-07-15T23:35:24Z",
+  "baseline": "quality\\generated\\second-cycle-overlay-visibility-baseline-screen06.json",
+  "final": "quality\\generated\\second-cycle-overlay-visibility-replay-screen06.json",
+  "summary": {
+    "baselineFailures": 5,
+    "verifiedPassed": 5,
+    "stillFailed": 0,
+    "missing": 0,
+    "status": "passed"
+  },
+  "replays": [
+    {
+      "viewport": "desktop",
+      "screen": 6,
+      "scenario": "route-loading",
+      "path": [
+        "route-loading"
+      ],
+      "ticket": "C2-RES-001",
+      "baselineObserved": "busy=True panelVisible=True contentVisible=False visibleAfter=False",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-overlay-visibility-baseline-screen06-evidence/desktop-006-0001-route-loading.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Route-specific busy state settled into the usable screen.",
+      "recoveryVerified": true
+    },
+    {
+      "viewport": "desktop",
+      "screen": 6,
+      "scenario": "route-empty",
+      "path": [
+        "route-empty"
+      ],
+      "ticket": "C2-RES-001",
+      "baselineObserved": "Forced state was not rendered with its required visible action. panel=True content=False visibleButtons=[] allButtons=['Refresh', 'Return']",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-overlay-visibility-baseline-screen06-evidence/desktop-006-0001-route-loading.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Refresh completed the recovery path.",
+      "recoveryVerified": true
+    },
+    {
+      "viewport": "desktop",
+      "screen": 6,
+      "scenario": "route-offline",
+      "path": [
+        "route-offline"
+      ],
+      "ticket": "C2-RES-001",
+      "baselineObserved": "Forced state was not rendered with its required visible action. panel=True content=False visibleButtons=[] allButtons=['Retry connection', 'Cancel']",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-overlay-visibility-baseline-screen06-evidence/desktop-006-0001-route-loading.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Retry connection completed the recovery path.",
+      "recoveryVerified": true
+    },
+    {
+      "viewport": "desktop",
+      "screen": 6,
+      "scenario": "route-unauthorized",
+      "path": [
+        "route-unauthorized"
+      ],
+      "ticket": "C2-RES-001",
+      "baselineObserved": "Forced state was not rendered with its required visible action. panel=True content=False visibleButtons=[] allButtons=['Sign in again', 'Return']",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-overlay-visibility-baseline-screen06-evidence/desktop-006-0001-route-loading.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Sign in again completed the recovery path.",
+      "recoveryVerified": true
+    },
+    {
+      "viewport": "desktop",
+      "screen": 6,
+      "scenario": "route-error",
+      "path": [
+        "route-error"
+      ],
+      "ticket": "C2-RES-001",
+      "baselineObserved": "Forced state was not rendered with its required visible action. panel=True content=False visibleButtons=[] allButtons=['Try again', 'Cancel']",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-overlay-visibility-baseline-screen06-evidence/desktop-006-0001-route-loading.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Try again completed the recovery path.",
+      "recoveryVerified": true
+    }
+  ]
+}

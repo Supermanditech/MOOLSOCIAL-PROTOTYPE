@@ -1,0 +1,55 @@
+{
+  "version": "second-cycle-adversarial-micro-audit-2026-07-16",
+  "generatedAt": "2026-07-16T03:29:37Z",
+  "baseUrl": "http://127.0.0.1:8765",
+  "positiveReport": "C:\\GUARANTEED OUTCOME\\supermandi-uiux-screenbook\\quality\\generated\\second-cycle-affected-screen17-after-contract-fix\\positive-desktop.json",
+  "rule": "Every forced route or action failure condition must expose a domain-specific recovery path and complete the original intent after recovery.",
+  "viewports": {
+    "desktop": {
+      "width": 1440,
+      "height": 1000,
+      "mobile": false
+    }
+  },
+  "summary": {
+    "status": "passed",
+    "screenViewportRuns": 1,
+    "uniqueScreens": 1,
+    "routeScenariosTested": 0,
+    "actionScenariosTested": 1,
+    "passed": 1,
+    "failed": 0,
+    "cancelBranchesVerified": 0,
+    "recoveryBranchesVerified": 1,
+    "truncatedScreens": 0,
+    "consoleErrors": 0
+  },
+  "runs": [
+    {
+      "screen": 17,
+      "file": "17-home-delivery-tracking.html",
+      "viewport": "desktop",
+      "positivePathsReferenced": 17,
+      "routeResults": [],
+      "actionResults": [
+        {
+          "ticket": "C2-PERM-006",
+          "screen": 17,
+          "viewport": "desktop",
+          "scenario": "permission-denied",
+          "path": [
+            "Share live location"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the denied device permission and provide settings, fallback and cancel actions.",
+          "observedResult": "Permission denial offered settings, a usable fallback and cancellation without losing context.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        }
+      ],
+      "truncated": false,
+      "queuedActionScenariosRemaining": 0
+    }
+  ],
+  "consoleErrors": []
+}

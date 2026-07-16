@@ -1,0 +1,105 @@
+{
+  "generatedAt": "2026-07-16T03:25:21Z",
+  "status": "failed",
+  "source": "Microsoft Edge at 390x844 using native clicks on only highlighted, visible user controls; no forced navigation for tap or multi-action transitions",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "summary": {
+    "operationalFlowsTested": 1,
+    "passed": 0,
+    "failed": 1,
+    "approvedScreensCoveredByManifest": 166,
+    "horizontalOverflows": 0,
+    "consoleErrors": 0
+  },
+  "consoleErrorDetails": [],
+  "flows": [
+    {
+      "flow": "creator-commerce-share",
+      "title": "Creator Earning - Commerce Share",
+      "status": "failed",
+      "expectedNodes": 12,
+      "interactionTurns": 9,
+      "finalCounter": "8 / 12",
+      "screensSeen": [
+        99,
+        129,
+        125,
+        5,
+        9,
+        12,
+        14,
+        17
+      ],
+      "horizontalOverflows": [],
+      "turns": [
+        {
+          "counter": "1 / 12",
+          "screen": 99,
+          "file": "99-retailer-offers-campaigns.html",
+          "action": "Preview creator view",
+          "intent": "Tap: Preview creator view"
+        },
+        {
+          "counter": "2 / 12",
+          "screen": 129,
+          "file": "129-creator-campaigns.html",
+          "action": "Review and continue",
+          "intent": "Tap: Review and continue"
+        },
+        {
+          "counter": "3 / 12",
+          "screen": 125,
+          "file": "125-creator-create-publish.html",
+          "action": "Review & Publish",
+          "intent": "Tap: Review & Publish"
+        },
+        {
+          "counter": "4 / 12",
+          "screen": 5,
+          "file": "05-social-shorts.html",
+          "action": "Details",
+          "intent": "Tap: Details"
+        },
+        {
+          "counter": "5 / 12",
+          "screen": 9,
+          "file": "09-buy.html",
+          "action": "Open basket",
+          "intent": "Tap: Open basket"
+        },
+        {
+          "counter": "6 / 12",
+          "screen": 12,
+          "file": "12-buy-basket-checkout.html",
+          "action": "Deliver home in 22 min to your confirmed address",
+          "intent": "Tap: Deliver home in 22 min"
+        },
+        {
+          "counter": "6 / 12",
+          "screen": 12,
+          "file": "12-buy-basket-checkout.html",
+          "action": "Review & Pay",
+          "intent": "Tap: Review & Pay"
+        },
+        {
+          "counter": "7 / 12",
+          "screen": 14,
+          "file": "14-customer-payment-order-confirmation.html",
+          "action": "Pay Rs 670",
+          "intent": "Tap: Pay Rs"
+        },
+        {
+          "counter": "7 / 12",
+          "screen": 14,
+          "file": "14-customer-payment-order-confirmation.html",
+          "action": "View Order",
+          "intent": "Tap: View Order"
+        }
+      ],
+      "error": "Flow contract could not find “Refresh status” on this state."
+    }
+  ]
+}

@@ -1,0 +1,729 @@
+{
+  "version": "second-cycle-failure-replay-reconciliation-2026-07-16",
+  "generatedAt": "2026-07-15T23:28:18Z",
+  "baseline": "quality\\generated\\second-cycle-baseline-screen06-actions.json",
+  "final": "quality\\generated\\second-cycle-focused-adversarial06.json",
+  "summary": {
+    "baselineFailures": 45,
+    "verifiedPassed": 45,
+    "stillFailed": 0,
+    "missing": 0,
+    "status": "passed"
+  },
+  "replays": [
+    {
+      "viewport": "mobile",
+      "screen": 6,
+      "scenario": "permission-denied",
+      "path": [
+        "Search videos",
+        "Ask Voice"
+      ],
+      "ticket": "C2-PERM-006",
+      "baselineObserved": "panel=False settings=False fallback=False fallbackResult=False settingsResult=False",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-baseline-screen06-actions-evidence/mobile-006-0001-permission-denied.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Permission denial offered settings, a usable fallback and cancellation without losing context.",
+      "recoveryVerified": true
+    },
+    {
+      "viewport": "mobile",
+      "screen": 6,
+      "scenario": "action-loading",
+      "path": [
+        "Grow your shop with verified product videos and local orders",
+        "Start Create shop page"
+      ],
+      "ticket": "C2-ACT-002",
+      "baselineObserved": "panel={'busy': False, 'buttons': [], 'scenario': '', 'text': '', 'title': '', 'visible': False} panelAfter=False nativeCompletion=True",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-baseline-screen06-actions-evidence/mobile-006-0002-action-loading.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Progress appeared immediately and the original action completed.",
+      "recoveryVerified": true
+    },
+    {
+      "viewport": "mobile",
+      "screen": 6,
+      "scenario": "action-offline",
+      "path": [
+        "Grow your shop with verified product videos and local orders",
+        "Start Create shop page"
+      ],
+      "ticket": "C2-ACT-003",
+      "baselineObserved": "panel=False cancel=False retryAction=False recovery=False",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-baseline-screen06-actions-evidence/mobile-006-0003-action-offline.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Cancel preserved context and Retry completed the exact original action.",
+      "recoveryVerified": true
+    },
+    {
+      "viewport": "mobile",
+      "screen": 6,
+      "scenario": "action-error",
+      "path": [
+        "Grow your shop with verified product videos and local orders",
+        "Start Create shop page"
+      ],
+      "ticket": "C2-ACT-004",
+      "baselineObserved": "panel=False cancel=False retryAction=False recovery=False",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-baseline-screen06-actions-evidence/mobile-006-0004-action-error.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Cancel preserved context and Retry completed the exact original action.",
+      "recoveryVerified": true
+    },
+    {
+      "viewport": "mobile",
+      "screen": 6,
+      "scenario": "duplicate",
+      "path": [
+        "Grow your shop with verified product videos and local orders",
+        "Start Create shop page"
+      ],
+      "ticket": "C2-IDEMP-005",
+      "baselineObserved": "panel={'busy': False, 'buttons': [], 'scenario': '', 'text': '', 'title': '', 'visible': False}",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-baseline-screen06-actions-evidence/mobile-006-0005-duplicate.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Duplicate stopped; original reference C2-006-49811 retained.",
+      "recoveryVerified": true
+    },
+    {
+      "viewport": "mobile",
+      "screen": 6,
+      "scenario": "action-loading",
+      "path": [
+        "Grow your shop with verified product videos and local orders",
+        "Create Publish product video"
+      ],
+      "ticket": "C2-ACT-002",
+      "baselineObserved": "panel={'busy': False, 'buttons': [], 'scenario': '', 'text': '', 'title': '', 'visible': False} panelAfter=False nativeCompletion=True",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-baseline-screen06-actions-evidence/mobile-006-0006-action-loading.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Progress appeared immediately and the original action completed.",
+      "recoveryVerified": true
+    },
+    {
+      "viewport": "mobile",
+      "screen": 6,
+      "scenario": "action-offline",
+      "path": [
+        "Grow your shop with verified product videos and local orders",
+        "Create Publish product video"
+      ],
+      "ticket": "C2-ACT-003",
+      "baselineObserved": "panel=False cancel=False retryAction=False recovery=False",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-baseline-screen06-actions-evidence/mobile-006-0007-action-offline.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Cancel preserved context and Retry completed the exact original action.",
+      "recoveryVerified": true
+    },
+    {
+      "viewport": "mobile",
+      "screen": 6,
+      "scenario": "action-error",
+      "path": [
+        "Grow your shop with verified product videos and local orders",
+        "Create Publish product video"
+      ],
+      "ticket": "C2-ACT-004",
+      "baselineObserved": "panel=False cancel=False retryAction=False recovery=False",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-baseline-screen06-actions-evidence/mobile-006-0008-action-error.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Cancel preserved context and Retry completed the exact original action.",
+      "recoveryVerified": true
+    },
+    {
+      "viewport": "mobile",
+      "screen": 6,
+      "scenario": "duplicate",
+      "path": [
+        "Grow your shop with verified product videos and local orders",
+        "Create Publish product video"
+      ],
+      "ticket": "C2-IDEMP-005",
+      "baselineObserved": "panel={'busy': False, 'buttons': [], 'scenario': '', 'text': '', 'title': '', 'visible': False}",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-baseline-screen06-actions-evidence/mobile-006-0009-duplicate.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Duplicate stopped; original reference C2-006-07765 retained.",
+      "recoveryVerified": true
+    },
+    {
+      "viewport": "mobile",
+      "screen": 6,
+      "scenario": "action-loading",
+      "path": [
+        "Grow your shop with verified product videos and local orders",
+        "Continue Start shop setup"
+      ],
+      "ticket": "C2-ACT-002",
+      "baselineObserved": "panel={'busy': False, 'buttons': [], 'scenario': '', 'text': '', 'title': '', 'visible': False} panelAfter=False nativeCompletion=True",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-baseline-screen06-actions-evidence/mobile-006-0010-action-loading.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Progress appeared immediately and the original action completed.",
+      "recoveryVerified": true
+    },
+    {
+      "viewport": "mobile",
+      "screen": 6,
+      "scenario": "action-offline",
+      "path": [
+        "Grow your shop with verified product videos and local orders",
+        "Continue Start shop setup"
+      ],
+      "ticket": "C2-ACT-003",
+      "baselineObserved": "panel=False cancel=False retryAction=False recovery=False",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-baseline-screen06-actions-evidence/mobile-006-0011-action-offline.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Cancel preserved context and Retry completed the exact original action.",
+      "recoveryVerified": true
+    },
+    {
+      "viewport": "mobile",
+      "screen": 6,
+      "scenario": "action-error",
+      "path": [
+        "Grow your shop with verified product videos and local orders",
+        "Continue Start shop setup"
+      ],
+      "ticket": "C2-ACT-004",
+      "baselineObserved": "panel=False cancel=False retryAction=False recovery=False",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-baseline-screen06-actions-evidence/mobile-006-0012-action-error.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Cancel preserved context and Retry completed the exact original action.",
+      "recoveryVerified": true
+    },
+    {
+      "viewport": "mobile",
+      "screen": 6,
+      "scenario": "duplicate",
+      "path": [
+        "Grow your shop with verified product videos and local orders",
+        "Continue Start shop setup"
+      ],
+      "ticket": "C2-IDEMP-005",
+      "baselineObserved": "panel={'busy': False, 'buttons': [], 'scenario': '', 'text': '', 'title': '', 'visible': False}",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-baseline-screen06-actions-evidence/mobile-006-0013-duplicate.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Duplicate stopped; original reference C2-006-11498 retained.",
+      "recoveryVerified": true
+    },
+    {
+      "viewport": "mobile",
+      "screen": 6,
+      "scenario": "permission-denied",
+      "path": [
+        "Proof",
+        "Required Location proof"
+      ],
+      "ticket": "C2-PERM-006",
+      "baselineObserved": "panel=False settings=False fallback=False fallbackResult=False settingsResult=False",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-baseline-screen06-actions-evidence/mobile-006-0014-permission-denied.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Permission denial offered settings, a usable fallback and cancellation without losing context.",
+      "recoveryVerified": true
+    },
+    {
+      "viewport": "mobile",
+      "screen": 6,
+      "scenario": "action-loading",
+      "path": [
+        "Proof",
+        "Continue Apply for task"
+      ],
+      "ticket": "C2-ACT-002",
+      "baselineObserved": "panel={'busy': False, 'buttons': [], 'scenario': '', 'text': '', 'title': '', 'visible': False} panelAfter=False nativeCompletion=True",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-baseline-screen06-actions-evidence/mobile-006-0015-action-loading.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Progress appeared immediately and the original action completed.",
+      "recoveryVerified": true
+    },
+    {
+      "viewport": "mobile",
+      "screen": 6,
+      "scenario": "action-offline",
+      "path": [
+        "Proof",
+        "Continue Apply for task"
+      ],
+      "ticket": "C2-ACT-003",
+      "baselineObserved": "panel=False cancel=False retryAction=False recovery=False",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-baseline-screen06-actions-evidence/mobile-006-0016-action-offline.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Cancel preserved context and Retry completed the exact original action.",
+      "recoveryVerified": true
+    },
+    {
+      "viewport": "mobile",
+      "screen": 6,
+      "scenario": "action-error",
+      "path": [
+        "Proof",
+        "Continue Apply for task"
+      ],
+      "ticket": "C2-ACT-004",
+      "baselineObserved": "panel=False cancel=False retryAction=False recovery=False",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-baseline-screen06-actions-evidence/mobile-006-0017-action-error.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Cancel preserved context and Retry completed the exact original action.",
+      "recoveryVerified": true
+    },
+    {
+      "viewport": "mobile",
+      "screen": 6,
+      "scenario": "duplicate",
+      "path": [
+        "Proof",
+        "Continue Apply for task"
+      ],
+      "ticket": "C2-IDEMP-005",
+      "baselineObserved": "panel={'busy': False, 'buttons': [], 'scenario': '', 'text': '', 'title': '', 'visible': False}",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-baseline-screen06-actions-evidence/mobile-006-0018-duplicate.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Duplicate stopped; original reference C2-006-87527 retained.",
+      "recoveryVerified": true
+    },
+    {
+      "viewport": "mobile",
+      "screen": 6,
+      "scenario": "permission-denied",
+      "path": [
+        "Watch how this Jodhpur shop packs a fresh morning basket",
+        "More",
+        "Jodhpur Location"
+      ],
+      "ticket": "C2-PERM-006",
+      "baselineObserved": "panel=False settings=False fallback=False fallbackResult=False settingsResult=False",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-baseline-screen06-actions-evidence/mobile-006-0019-permission-denied.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Permission denial offered settings, a usable fallback and cancellation without losing context.",
+      "recoveryVerified": true
+    },
+    {
+      "viewport": "mobile",
+      "screen": 6,
+      "scenario": "action-loading",
+      "path": [
+        "Watch how this Jodhpur shop packs a fresh morning basket",
+        "Open proof",
+        "Rule Refund"
+      ],
+      "ticket": "C2-ACT-002",
+      "baselineObserved": "panel={'busy': False, 'buttons': [], 'scenario': '', 'text': '', 'title': '', 'visible': False} panelAfter=False nativeCompletion=True",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-baseline-screen06-actions-evidence/mobile-006-0020-action-loading.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Progress appeared immediately and the original action completed.",
+      "recoveryVerified": true
+    },
+    {
+      "viewport": "mobile",
+      "screen": 6,
+      "scenario": "action-offline",
+      "path": [
+        "Watch how this Jodhpur shop packs a fresh morning basket",
+        "Open proof",
+        "Rule Refund"
+      ],
+      "ticket": "C2-ACT-003",
+      "baselineObserved": "panel=False cancel=False retryAction=False recovery=False",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-baseline-screen06-actions-evidence/mobile-006-0021-action-offline.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Cancel preserved context and Retry completed the exact original action.",
+      "recoveryVerified": true
+    },
+    {
+      "viewport": "mobile",
+      "screen": 6,
+      "scenario": "action-error",
+      "path": [
+        "Watch how this Jodhpur shop packs a fresh morning basket",
+        "Open proof",
+        "Rule Refund"
+      ],
+      "ticket": "C2-ACT-004",
+      "baselineObserved": "panel=False cancel=False retryAction=False recovery=False",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-baseline-screen06-actions-evidence/mobile-006-0022-action-error.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Cancel preserved context and Retry completed the exact original action.",
+      "recoveryVerified": true
+    },
+    {
+      "viewport": "mobile",
+      "screen": 6,
+      "scenario": "duplicate",
+      "path": [
+        "Watch how this Jodhpur shop packs a fresh morning basket",
+        "Open proof",
+        "Rule Refund"
+      ],
+      "ticket": "C2-IDEMP-005",
+      "baselineObserved": "panel={'busy': False, 'buttons': [], 'scenario': '', 'text': '', 'title': '', 'visible': False}",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-baseline-screen06-actions-evidence/mobile-006-0023-duplicate.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Duplicate stopped; original reference C2-006-98684 retained.",
+      "recoveryVerified": true
+    },
+    {
+      "viewport": "mobile",
+      "screen": 6,
+      "scenario": "action-loading",
+      "path": [
+        "Watch how this Jodhpur shop packs a fresh morning basket",
+        "Open proof",
+        "Order Open"
+      ],
+      "ticket": "C2-ACT-002",
+      "baselineObserved": "panel={'busy': False, 'buttons': [], 'scenario': '', 'text': '', 'title': '', 'visible': False} panelAfter=False nativeCompletion=True",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-baseline-screen06-actions-evidence/mobile-006-0024-action-loading.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Progress appeared immediately and the original action completed.",
+      "recoveryVerified": true
+    },
+    {
+      "viewport": "mobile",
+      "screen": 6,
+      "scenario": "action-offline",
+      "path": [
+        "Watch how this Jodhpur shop packs a fresh morning basket",
+        "Open proof",
+        "Order Open"
+      ],
+      "ticket": "C2-ACT-003",
+      "baselineObserved": "panel=False cancel=False retryAction=False recovery=False",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-baseline-screen06-actions-evidence/mobile-006-0025-action-offline.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Cancel preserved context and Retry completed the exact original action.",
+      "recoveryVerified": true
+    },
+    {
+      "viewport": "mobile",
+      "screen": 6,
+      "scenario": "action-error",
+      "path": [
+        "Watch how this Jodhpur shop packs a fresh morning basket",
+        "Open proof",
+        "Order Open"
+      ],
+      "ticket": "C2-ACT-004",
+      "baselineObserved": "panel=False cancel=False retryAction=False recovery=False",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-baseline-screen06-actions-evidence/mobile-006-0026-action-error.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Cancel preserved context and Retry completed the exact original action.",
+      "recoveryVerified": true
+    },
+    {
+      "viewport": "mobile",
+      "screen": 6,
+      "scenario": "duplicate",
+      "path": [
+        "Watch how this Jodhpur shop packs a fresh morning basket",
+        "Open proof",
+        "Order Open"
+      ],
+      "ticket": "C2-IDEMP-005",
+      "baselineObserved": "panel={'busy': False, 'buttons': [], 'scenario': '', 'text': '', 'title': '', 'visible': False}",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-baseline-screen06-actions-evidence/mobile-006-0027-duplicate.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Duplicate stopped; original reference C2-006-96892 retained.",
+      "recoveryVerified": true
+    },
+    {
+      "viewport": "mobile",
+      "screen": 6,
+      "scenario": "permission-denied",
+      "path": [
+        "Watch how QR proof tasks are checked before payout",
+        "More",
+        "Jodhpur Location"
+      ],
+      "ticket": "C2-PERM-006",
+      "baselineObserved": "panel=False settings=False fallback=False fallbackResult=False settingsResult=False",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-baseline-screen06-actions-evidence/mobile-006-0028-permission-denied.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Permission denial offered settings, a usable fallback and cancellation without losing context.",
+      "recoveryVerified": true
+    },
+    {
+      "viewport": "mobile",
+      "screen": 6,
+      "scenario": "permission-denied",
+      "path": [
+        "Watch how QR proof tasks are checked before payout",
+        "Open proof",
+        "Required Location proof"
+      ],
+      "ticket": "C2-PERM-006",
+      "baselineObserved": "panel=False settings=False fallback=False fallbackResult=False settingsResult=False",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-baseline-screen06-actions-evidence/mobile-006-0029-permission-denied.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Permission denial offered settings, a usable fallback and cancellation without losing context.",
+      "recoveryVerified": true
+    },
+    {
+      "viewport": "mobile",
+      "screen": 6,
+      "scenario": "action-loading",
+      "path": [
+        "Watch how QR proof tasks are checked before payout",
+        "Open proof",
+        "Continue Apply for task"
+      ],
+      "ticket": "C2-ACT-002",
+      "baselineObserved": "panel={'busy': False, 'buttons': [], 'scenario': '', 'text': '', 'title': '', 'visible': False} panelAfter=False nativeCompletion=True",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-baseline-screen06-actions-evidence/mobile-006-0030-action-loading.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Progress appeared immediately and the original action completed.",
+      "recoveryVerified": true
+    },
+    {
+      "viewport": "mobile",
+      "screen": 6,
+      "scenario": "action-offline",
+      "path": [
+        "Watch how QR proof tasks are checked before payout",
+        "Open proof",
+        "Continue Apply for task"
+      ],
+      "ticket": "C2-ACT-003",
+      "baselineObserved": "panel=False cancel=False retryAction=False recovery=False",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-baseline-screen06-actions-evidence/mobile-006-0031-action-offline.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Cancel preserved context and Retry completed the exact original action.",
+      "recoveryVerified": true
+    },
+    {
+      "viewport": "mobile",
+      "screen": 6,
+      "scenario": "action-error",
+      "path": [
+        "Watch how QR proof tasks are checked before payout",
+        "Open proof",
+        "Continue Apply for task"
+      ],
+      "ticket": "C2-ACT-004",
+      "baselineObserved": "panel=False cancel=False retryAction=False recovery=False",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-baseline-screen06-actions-evidence/mobile-006-0032-action-error.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Cancel preserved context and Retry completed the exact original action.",
+      "recoveryVerified": true
+    },
+    {
+      "viewport": "mobile",
+      "screen": 6,
+      "scenario": "duplicate",
+      "path": [
+        "Watch how QR proof tasks are checked before payout",
+        "Open proof",
+        "Continue Apply for task"
+      ],
+      "ticket": "C2-IDEMP-005",
+      "baselineObserved": "panel={'busy': False, 'buttons': [], 'scenario': '', 'text': '', 'title': '', 'visible': False}",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-baseline-screen06-actions-evidence/mobile-006-0033-duplicate.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Duplicate stopped; original reference C2-006-87527 retained.",
+      "recoveryVerified": true
+    },
+    {
+      "viewport": "mobile",
+      "screen": 6,
+      "scenario": "action-loading",
+      "path": [
+        "Watch how this Jodhpur shop packs a fresh morning basket",
+        "Open proof",
+        "Rs 399 Price",
+        "Order Open"
+      ],
+      "ticket": "C2-ACT-002",
+      "baselineObserved": "panel={'busy': False, 'buttons': [], 'scenario': '', 'text': '', 'title': '', 'visible': False} panelAfter=False nativeCompletion=True",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-baseline-screen06-actions-evidence/mobile-006-0034-action-loading.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Progress appeared immediately and the original action completed.",
+      "recoveryVerified": true
+    },
+    {
+      "viewport": "mobile",
+      "screen": 6,
+      "scenario": "action-offline",
+      "path": [
+        "Watch how this Jodhpur shop packs a fresh morning basket",
+        "Open proof",
+        "Rs 399 Price",
+        "Order Open"
+      ],
+      "ticket": "C2-ACT-003",
+      "baselineObserved": "panel=False cancel=False retryAction=False recovery=False",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-baseline-screen06-actions-evidence/mobile-006-0035-action-offline.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Cancel preserved context and Retry completed the exact original action.",
+      "recoveryVerified": true
+    },
+    {
+      "viewport": "mobile",
+      "screen": 6,
+      "scenario": "action-error",
+      "path": [
+        "Watch how this Jodhpur shop packs a fresh morning basket",
+        "Open proof",
+        "Rs 399 Price",
+        "Order Open"
+      ],
+      "ticket": "C2-ACT-004",
+      "baselineObserved": "panel=False cancel=False retryAction=False recovery=False",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-baseline-screen06-actions-evidence/mobile-006-0036-action-error.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Cancel preserved context and Retry completed the exact original action.",
+      "recoveryVerified": true
+    },
+    {
+      "viewport": "mobile",
+      "screen": 6,
+      "scenario": "duplicate",
+      "path": [
+        "Watch how this Jodhpur shop packs a fresh morning basket",
+        "Open proof",
+        "Rs 399 Price",
+        "Order Open"
+      ],
+      "ticket": "C2-IDEMP-005",
+      "baselineObserved": "panel={'busy': False, 'buttons': [], 'scenario': '', 'text': '', 'title': '', 'visible': False}",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-baseline-screen06-actions-evidence/mobile-006-0037-duplicate.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Duplicate stopped; original reference C2-006-96892 retained.",
+      "recoveryVerified": true
+    },
+    {
+      "viewport": "mobile",
+      "screen": 6,
+      "scenario": "action-loading",
+      "path": [
+        "Watch how this Jodhpur shop packs a fresh morning basket",
+        "Open proof",
+        "45 min Time",
+        "Order Open"
+      ],
+      "ticket": "C2-ACT-002",
+      "baselineObserved": "panel={'busy': False, 'buttons': [], 'scenario': '', 'text': '', 'title': '', 'visible': False} panelAfter=False nativeCompletion=True",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-baseline-screen06-actions-evidence/mobile-006-0038-action-loading.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Progress appeared immediately and the original action completed.",
+      "recoveryVerified": true
+    },
+    {
+      "viewport": "mobile",
+      "screen": 6,
+      "scenario": "action-offline",
+      "path": [
+        "Watch how this Jodhpur shop packs a fresh morning basket",
+        "Open proof",
+        "45 min Time",
+        "Order Open"
+      ],
+      "ticket": "C2-ACT-003",
+      "baselineObserved": "panel=False cancel=False retryAction=False recovery=False",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-baseline-screen06-actions-evidence/mobile-006-0039-action-offline.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Cancel preserved context and Retry completed the exact original action.",
+      "recoveryVerified": true
+    },
+    {
+      "viewport": "mobile",
+      "screen": 6,
+      "scenario": "action-error",
+      "path": [
+        "Watch how this Jodhpur shop packs a fresh morning basket",
+        "Open proof",
+        "45 min Time",
+        "Order Open"
+      ],
+      "ticket": "C2-ACT-004",
+      "baselineObserved": "panel=False cancel=False retryAction=False recovery=False",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-baseline-screen06-actions-evidence/mobile-006-0040-action-error.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Cancel preserved context and Retry completed the exact original action.",
+      "recoveryVerified": true
+    },
+    {
+      "viewport": "mobile",
+      "screen": 6,
+      "scenario": "duplicate",
+      "path": [
+        "Watch how this Jodhpur shop packs a fresh morning basket",
+        "Open proof",
+        "45 min Time",
+        "Order Open"
+      ],
+      "ticket": "C2-IDEMP-005",
+      "baselineObserved": "panel={'busy': False, 'buttons': [], 'scenario': '', 'text': '', 'title': '', 'visible': False}",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-baseline-screen06-actions-evidence/mobile-006-0041-duplicate.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Duplicate stopped; original reference C2-006-96892 retained.",
+      "recoveryVerified": true
+    },
+    {
+      "viewport": "mobile",
+      "screen": 6,
+      "scenario": "action-loading",
+      "path": [
+        "Watch how this Jodhpur shop packs a fresh morning basket",
+        "Open proof",
+        "Rule Refund",
+        "Order Open"
+      ],
+      "ticket": "C2-ACT-002",
+      "baselineObserved": "panel={'busy': False, 'buttons': [], 'scenario': '', 'text': '', 'title': '', 'visible': False} panelAfter=False nativeCompletion=True",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-baseline-screen06-actions-evidence/mobile-006-0042-action-loading.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Progress appeared immediately and the original action completed.",
+      "recoveryVerified": true
+    },
+    {
+      "viewport": "mobile",
+      "screen": 6,
+      "scenario": "action-offline",
+      "path": [
+        "Watch how this Jodhpur shop packs a fresh morning basket",
+        "Open proof",
+        "Rule Refund",
+        "Order Open"
+      ],
+      "ticket": "C2-ACT-003",
+      "baselineObserved": "panel=False cancel=False retryAction=False recovery=False",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-baseline-screen06-actions-evidence/mobile-006-0043-action-offline.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Cancel preserved context and Retry completed the exact original action.",
+      "recoveryVerified": true
+    },
+    {
+      "viewport": "mobile",
+      "screen": 6,
+      "scenario": "action-error",
+      "path": [
+        "Watch how this Jodhpur shop packs a fresh morning basket",
+        "Open proof",
+        "Rule Refund",
+        "Order Open"
+      ],
+      "ticket": "C2-ACT-004",
+      "baselineObserved": "panel=False cancel=False retryAction=False recovery=False",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-baseline-screen06-actions-evidence/mobile-006-0044-action-error.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Cancel preserved context and Retry completed the exact original action.",
+      "recoveryVerified": true
+    },
+    {
+      "viewport": "mobile",
+      "screen": 6,
+      "scenario": "duplicate",
+      "path": [
+        "Watch how this Jodhpur shop packs a fresh morning basket",
+        "Open proof",
+        "Rule Refund",
+        "Order Open"
+      ],
+      "ticket": "C2-IDEMP-005",
+      "baselineObserved": "panel={'busy': False, 'buttons': [], 'scenario': '', 'text': '', 'title': '', 'visible': False}",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-baseline-screen06-actions-evidence/mobile-006-0045-duplicate.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Duplicate stopped; original reference C2-006-96892 retained.",
+      "recoveryVerified": true
+    }
+  ]
+}

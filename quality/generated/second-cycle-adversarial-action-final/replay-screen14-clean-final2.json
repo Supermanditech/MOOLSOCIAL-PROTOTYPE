@@ -1,0 +1,153 @@
+{
+  "version": "second-cycle-adversarial-micro-audit-2026-07-16",
+  "generatedAt": "2026-07-16T01:10:56Z",
+  "baseUrl": "http://127.0.0.1:8765",
+  "positiveReport": "C:\\GUARANTEED OUTCOME\\supermandi-uiux-screenbook\\quality\\generated\\second-cycle-positive-final-shard1-split\\shard-2.json",
+  "rule": "Every forced route or action failure condition must expose a domain-specific recovery path and complete the original intent after recovery.",
+  "viewports": {
+    "desktop": {
+      "width": 1440,
+      "height": 1000,
+      "mobile": false
+    }
+  },
+  "summary": {
+    "status": "passed",
+    "screenViewportRuns": 1,
+    "uniqueScreens": 1,
+    "routeScenariosTested": 0,
+    "actionScenariosTested": 8,
+    "passed": 8,
+    "failed": 0,
+    "cancelBranchesVerified": 4,
+    "recoveryBranchesVerified": 8,
+    "truncatedScreens": 0,
+    "consoleErrors": 0
+  },
+  "runs": [
+    {
+      "screen": 14,
+      "file": "14-customer-payment-order-confirmation.html",
+      "viewport": "desktop",
+      "positivePathsReferenced": 22,
+      "routeResults": [],
+      "actionResults": [
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 14,
+          "viewport": "desktop",
+          "scenario": "action-loading",
+          "path": [
+            "Mool Wallet instant refund path when live"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 14,
+          "viewport": "desktop",
+          "scenario": "action-offline",
+          "path": [
+            "Mool Wallet instant refund path when live"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 14,
+          "viewport": "desktop",
+          "scenario": "action-error",
+          "path": [
+            "Mool Wallet instant refund path when live"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 14,
+          "viewport": "desktop",
+          "scenario": "duplicate",
+          "path": [
+            "Mool Wallet instant refund path when live"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-014-05658 retained and opened.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 14,
+          "viewport": "desktop",
+          "scenario": "action-loading",
+          "path": [
+            "Pay Rs 670"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 14,
+          "viewport": "desktop",
+          "scenario": "action-offline",
+          "path": [
+            "Pay Rs 670"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 14,
+          "viewport": "desktop",
+          "scenario": "action-error",
+          "path": [
+            "Pay Rs 670"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 14,
+          "viewport": "desktop",
+          "scenario": "duplicate",
+          "path": [
+            "Pay Rs 670"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-014-67016 retained and opened.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        }
+      ],
+      "truncated": false,
+      "queuedActionScenariosRemaining": 0
+    }
+  ],
+  "consoleErrors": []
+}

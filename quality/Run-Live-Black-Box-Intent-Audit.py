@@ -84,6 +84,7 @@ return all.map((el,index)=>{
   const contract=registry[text]||null;
   return {
     label:text,tag,role:el.getAttribute('role')||'',occurrence,index,identity,href:el.href||'',type:el.type||'',inputmode:el.getAttribute('inputmode')||'',contenteditable:el.isContentEditable,
+    required:el.required||el.getAttribute('aria-required')==='true',pattern:el.getAttribute('pattern')||'',min:el.getAttribute('min')||'',max:el.getAttribute('max')||'',minlength:el.getAttribute('minlength')||'',maxlength:el.getAttribute('maxlength')||'',
     context:context?normalize(context.getAttribute('aria-label')||context.className||context.id||context.getAttribute('role')):'',
     tappable:exposed,selected,directSurface,width:Math.round(r.width),height:Math.round(r.height),
     contractTicket:el.getAttribute('data-mool-contract')||'',contractType:contract&&contract.type||''
@@ -211,6 +212,27 @@ def meaningful_url_change(before: str, after: str) -> bool:
     return canonical_location(before) != canonical_location(after)
 
 
+def clear_origin_state(driver: webdriver.Edge, url: str) -> None:
+    """Remove state that could make a reproduction inherit an earlier result."""
+    target = urlparse(url)
+    origin = f"{target.scheme}://{target.netloc}"
+    current = urlparse(driver.current_url)
+    if (current.scheme, current.netloc) != (target.scheme, target.netloc):
+        driver.get(f"{origin}/quality/audit-clean-state.html?run={time.time_ns()}")
+    try:
+        driver.execute_script("window.localStorage.clear(); window.sessionStorage.clear();")
+    except WebDriverException:
+        pass
+    try:
+        driver.execute_cdp_cmd("Storage.clearDataForOrigin", {"origin": origin, "storageTypes": "all"})
+    except WebDriverException:
+        pass
+    try:
+        driver.delete_all_cookies()
+    except WebDriverException:
+        pass
+
+
 def signature(control: dict) -> str:
     return f"{control.get('tag')}|{control.get('label')}|{control.get('occurrence', 0)}"
 
@@ -225,6 +247,12 @@ def compact(control: dict) -> dict:
         "type": control.get("type", ""),
         "inputmode": control.get("inputmode", ""),
         "contenteditable": bool(control.get("contenteditable")),
+        "required": bool(control.get("required")),
+        "pattern": control.get("pattern", ""),
+        "min": control.get("min", ""),
+        "max": control.get("max", ""),
+        "minlength": control.get("minlength", ""),
+        "maxlength": control.get("maxlength", ""),
         "context": control.get("context", ""),
         "identity": control.get("identity", ""),
         "tappable": bool(control.get("tappable")),
@@ -571,6 +599,7 @@ def classify_observation(
 
 
 def replay(driver: webdriver.Edge, url: str, path: list[dict], settle: float) -> dict:
+    clear_origin_state(driver, url)
     driver.get(f"{url}{'&' if '?' in url else '?'}blackBoxAudit={time.time_ns()}")
     time.sleep(max(settle, 0.12))
     before: dict = {}
@@ -627,6 +656,7 @@ def audit_screen(
     evidence_dir: Path,
 ) -> dict:
     url = f"{base_url.rstrip('/')}/screens/{file}"
+    clear_origin_state(driver, url)
     driver.get(f"{url}?blackBoxAudit={time.time_ns()}")
     time.sleep(max(settle, 0.12))
     initial = controls(driver)
@@ -647,6 +677,7 @@ def audit_screen(
             record = {
                 "depth": len(path),
                 "path": [item.get("label", "") for item in path],
+                "pathDescriptors": [compact(item) for item in path],
                 "control": path[-1].get("label", ""),
                 "tag": path[-1].get("tag", ""),
                 "contractTicket": path[-1].get("contractTicket", ""),
@@ -739,6 +770,7 @@ def audit_screen(
             record = {
                 "depth": len(path),
                 "path": [item.get("label", "") for item in path],
+                "pathDescriptors": [compact(item) for item in path],
                 "control": path[-1].get("label", ""),
                 "status": "failed",
                 "outcome": "browser-error",

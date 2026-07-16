@@ -1,0 +1,4361 @@
+{
+  "version": "second-cycle-adversarial-micro-audit-2026-07-16",
+  "generatedAt": "2026-07-16T02:10:50Z",
+  "baseUrl": "http://127.0.0.1:8765",
+  "positiveReport": "C:\\GUARANTEED OUTCOME\\supermandi-uiux-screenbook\\quality\\generated\\second-cycle-positive-clean-final\\shard-7.json",
+  "rule": "Every forced route or action failure condition must expose a domain-specific recovery path and complete the original intent after recovery.",
+  "viewports": {
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "mobile": true
+    },
+    "desktop": {
+      "width": 1440,
+      "height": 1000,
+      "mobile": false
+    }
+  },
+  "summary": {
+    "status": "passed",
+    "screenViewportRuns": 42,
+    "uniqueScreens": 21,
+    "routeScenariosTested": 0,
+    "actionScenariosTested": 261,
+    "passed": 261,
+    "failed": 0,
+    "cancelBranchesVerified": 112,
+    "recoveryBranchesVerified": 261,
+    "truncatedScreens": 0,
+    "consoleErrors": 0
+  },
+  "runs": [
+    {
+      "screen": 125,
+      "file": "125-creator-create-publish.html",
+      "viewport": "mobile",
+      "positivePathsReferenced": 47,
+      "routeResults": [],
+      "actionResults": [
+        {
+          "ticket": "C2-PERM-006",
+          "screen": 125,
+          "viewport": "mobile",
+          "scenario": "permission-denied",
+          "path": [
+            "Camera"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the denied device permission and provide settings, fallback and cancel actions.",
+          "observedResult": "Permission denial offered settings, a usable fallback and cancellation without losing context.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-VAL-007",
+          "screen": 125,
+          "viewport": "mobile",
+          "scenario": "invalid-input",
+          "path": [
+            "How local baskets save time"
+          ],
+          "status": "passed",
+          "expectedResult": "Identify the invalid value, retain the task and clear the error after valid input.",
+          "observedResult": "The browser prevented the invalid value and accepted the valid replacement.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-PERM-006",
+          "screen": 125,
+          "viewport": "mobile",
+          "scenario": "permission-denied",
+          "path": [
+            "Location"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the denied device permission and provide settings, fallback and cancel actions.",
+          "observedResult": "Permission denial offered settings, a usable fallback and cancellation without losing context.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 125,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "Review & Publish"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 125,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "Review & Publish"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 125,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "Review & Publish"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 125,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "Review & Publish"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-125-19661 retained and opened.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 125,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "Schedule",
+            "Confirm schedule"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 125,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "Schedule",
+            "Confirm schedule"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 125,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "Schedule",
+            "Confirm schedule"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 125,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "Schedule",
+            "Confirm schedule"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-125-66999 retained and opened.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-PERM-006",
+          "screen": 125,
+          "viewport": "mobile",
+          "scenario": "permission-denied",
+          "path": [
+            "Location",
+            "Current location"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the denied device permission and provide settings, fallback and cancel actions.",
+          "observedResult": "Permission denial offered settings, a usable fallback and cancellation without losing context.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-PERM-006",
+          "screen": 125,
+          "viewport": "mobile",
+          "scenario": "permission-denied",
+          "path": [
+            "Location",
+            "Choose on map"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the denied device permission and provide settings, fallback and cancel actions.",
+          "observedResult": "Permission denial offered settings, a usable fallback and cancellation without losing context.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-PERM-006",
+          "screen": 125,
+          "viewport": "mobile",
+          "scenario": "permission-denied",
+          "path": [
+            "Location",
+            "Confirm location"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the denied device permission and provide settings, fallback and cancel actions.",
+          "observedResult": "Permission denial offered settings, a usable fallback and cancellation without losing context.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 125,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "Review & Publish",
+            "Publish"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 125,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "Review & Publish",
+            "Publish"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 125,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "Review & Publish",
+            "Publish"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 125,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "Review & Publish",
+            "Publish"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-125-88175 retained and opened.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 125,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "Schedule",
+            "Date for Schedule",
+            "Confirm schedule"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 125,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "Schedule",
+            "Date for Schedule",
+            "Confirm schedule"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 125,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "Schedule",
+            "Date for Schedule",
+            "Confirm schedule"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 125,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "Schedule",
+            "Date for Schedule",
+            "Confirm schedule"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-125-66999 retained and opened.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 125,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "Schedule",
+            "Time for Schedule",
+            "Confirm schedule"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 125,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "Schedule",
+            "Time for Schedule",
+            "Confirm schedule"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 125,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "Schedule",
+            "Time for Schedule",
+            "Confirm schedule"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 125,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "Schedule",
+            "Time for Schedule",
+            "Confirm schedule"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-125-66999 retained and opened.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        }
+      ],
+      "truncated": false,
+      "queuedActionScenariosRemaining": 0
+    },
+    {
+      "screen": 126,
+      "file": "126-creator-content-library.html",
+      "viewport": "mobile",
+      "positivePathsReferenced": 26,
+      "routeResults": [],
+      "actionResults": [],
+      "truncated": false,
+      "queuedActionScenariosRemaining": 0
+    },
+    {
+      "screen": 127,
+      "file": "127-creator-content-performance.html",
+      "viewport": "mobile",
+      "positivePathsReferenced": 35,
+      "routeResults": [],
+      "actionResults": [
+        {
+          "ticket": "C2-PERM-006",
+          "screen": 127,
+          "viewport": "mobile",
+          "scenario": "permission-denied",
+          "path": [
+            "↓",
+            "Prepare Export",
+            "Prepare file"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the denied device permission and provide settings, fallback and cancel actions.",
+          "observedResult": "Permission denial offered settings, a usable fallback and cancellation without losing context.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-PERM-006",
+          "screen": 127,
+          "viewport": "mobile",
+          "scenario": "permission-denied",
+          "path": [
+            "↓",
+            "Prepare Export",
+            "PDF",
+            "Prepare file"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the denied device permission and provide settings, fallback and cancel actions.",
+          "observedResult": "Permission denial offered settings, a usable fallback and cancellation without losing context.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-PERM-006",
+          "screen": 127,
+          "viewport": "mobile",
+          "scenario": "permission-denied",
+          "path": [
+            "↓",
+            "Prepare Export",
+            "Date range",
+            "Prepare file"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the denied device permission and provide settings, fallback and cancel actions.",
+          "observedResult": "Permission denial offered settings, a usable fallback and cancellation without losing context.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-PERM-006",
+          "screen": 127,
+          "viewport": "mobile",
+          "scenario": "permission-denied",
+          "path": [
+            "↓",
+            "Prepare Export",
+            "Share securely",
+            "Prepare file"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the denied device permission and provide settings, fallback and cancel actions.",
+          "observedResult": "Permission denial offered settings, a usable fallback and cancellation without losing context.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        }
+      ],
+      "truncated": false,
+      "queuedActionScenariosRemaining": 0
+    },
+    {
+      "screen": 128,
+      "file": "128-creator-audience-community.html",
+      "viewport": "mobile",
+      "positivePathsReferenced": 12,
+      "routeResults": [],
+      "actionResults": [
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 128,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "Q Ask your audience Create a post, poll or demand question Build a verified demand signal ›"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 128,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "Q Ask your audience Create a post, poll or demand question Build a verified demand signal ›"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 128,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "Q Ask your audience Create a post, poll or demand question Build a verified demand signal ›"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 128,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "Q Ask your audience Create a post, poll or demand question Build a verified demand signal ›"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-128-30275 retained and opened.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        }
+      ],
+      "truncated": false,
+      "queuedActionScenariosRemaining": 0
+    },
+    {
+      "screen": 129,
+      "file": "129-creator-campaigns.html",
+      "viewport": "mobile",
+      "positivePathsReferenced": 27,
+      "routeResults": [],
+      "actionResults": [
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 129,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "F",
+            "Accept Campaign"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 129,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "F",
+            "Accept Campaign"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 129,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "F",
+            "Accept Campaign"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 129,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "F",
+            "Accept Campaign"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-129-54536 retained and opened.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        }
+      ],
+      "truncated": false,
+      "queuedActionScenariosRemaining": 0
+    },
+    {
+      "screen": 130,
+      "file": "130-creator-earnings-payouts.html",
+      "viewport": "mobile",
+      "positivePathsReferenced": 19,
+      "routeResults": [],
+      "actionResults": [],
+      "truncated": false,
+      "queuedActionScenariosRemaining": 0
+    },
+    {
+      "screen": 131,
+      "file": "131-creator-verification-rights-safety.html",
+      "viewport": "mobile",
+      "positivePathsReferenced": 35,
+      "routeResults": [],
+      "actionResults": [],
+      "truncated": false,
+      "queuedActionScenariosRemaining": 0
+    },
+    {
+      "screen": 132,
+      "file": "132-creator-memberships.html",
+      "viewport": "mobile",
+      "positivePathsReferenced": 20,
+      "routeResults": [],
+      "actionResults": [
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 132,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "Create Membership Plan"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 132,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "Create Membership Plan"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 132,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "Create Membership Plan"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 132,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "Create Membership Plan"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-132-80399 retained and opened.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        }
+      ],
+      "truncated": false,
+      "queuedActionScenariosRemaining": 0
+    },
+    {
+      "screen": 133,
+      "file": "133-earn-opportunities.html",
+      "viewport": "mobile",
+      "positivePathsReferenced": 24,
+      "routeResults": [],
+      "actionResults": [
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 133,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "Review & Apply"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 133,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "Review & Apply"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 133,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "Review & Apply"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 133,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "Review & Apply"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-133-16012 retained and opened.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 133,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "Review & Apply"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 133,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "Review & Apply"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 133,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "Review & Apply"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 133,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "Review & Apply"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-133-16012 retained and opened.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 133,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "Review & Apply"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 133,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "Review & Apply"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 133,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "Review & Apply"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 133,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "Review & Apply"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-133-16012 retained and opened.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 133,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "F",
+            "Apply"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 133,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "F",
+            "Apply"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 133,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "F",
+            "Apply"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 133,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "F",
+            "Apply"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-133-76558 retained and opened.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 133,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "Review & Apply",
+            "Apply"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 133,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "Review & Apply",
+            "Apply"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 133,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "Review & Apply",
+            "Apply"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 133,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "Review & Apply",
+            "Apply"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-133-76558 retained and opened.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 133,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "Review & Apply",
+            "Apply"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 133,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "Review & Apply",
+            "Apply"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 133,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "Review & Apply",
+            "Apply"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 133,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "Review & Apply",
+            "Apply"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-133-76558 retained and opened.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 133,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "Review & Apply",
+            "Apply"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 133,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "Review & Apply",
+            "Apply"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 133,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "Review & Apply",
+            "Apply"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 133,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "Review & Apply",
+            "Apply"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-133-76558 retained and opened.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        }
+      ],
+      "truncated": false,
+      "queuedActionScenariosRemaining": 0
+    },
+    {
+      "screen": 134,
+      "file": "134-earn-applications-eligibility.html",
+      "viewport": "mobile",
+      "positivePathsReferenced": 26,
+      "routeResults": [],
+      "actionResults": [
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 134,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "View Status",
+            "Start Work"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 134,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "View Status",
+            "Start Work"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 134,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "View Status",
+            "Start Work"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 134,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "View Status",
+            "Start Work"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-134-79567 retained and opened.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        }
+      ],
+      "truncated": false,
+      "queuedActionScenariosRemaining": 0
+    },
+    {
+      "screen": 135,
+      "file": "135-earn-active-work.html",
+      "viewport": "mobile",
+      "positivePathsReferenced": 10,
+      "routeResults": [],
+      "actionResults": [
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 135,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "?",
+            "Start Support"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 135,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "?",
+            "Start Support"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 135,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "?",
+            "Start Support"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 135,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "?",
+            "Start Support"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-135-76433 retained and opened.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        }
+      ],
+      "truncated": false,
+      "queuedActionScenariosRemaining": 0
+    },
+    {
+      "screen": 136,
+      "file": "136-earn-proof-outcome.html",
+      "viewport": "mobile",
+      "positivePathsReferenced": 39,
+      "routeResults": [],
+      "actionResults": [
+        {
+          "ticket": "C2-PERM-006",
+          "screen": 136,
+          "viewport": "mobile",
+          "scenario": "permission-denied",
+          "path": [
+            "✓ QR Scan Test Activation event"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the denied device permission and provide settings, fallback and cancel actions.",
+          "observedResult": "Permission denial offered settings, a usable fallback and cancellation without losing context.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 136,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "Submit for Verification"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 136,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "Submit for Verification"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 136,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "Submit for Verification"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 136,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "Submit for Verification"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-136-97338 retained and opened.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-PERM-006",
+          "screen": 136,
+          "viewport": "mobile",
+          "scenario": "permission-denied",
+          "path": [
+            "✓ QR Scan Test Activation event",
+            "Scan with camera"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the denied device permission and provide settings, fallback and cancel actions.",
+          "observedResult": "Permission denial offered settings, a usable fallback and cancellation without losing context.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 136,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "✓ QR Scan Test Activation event",
+            "Start scanner"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 136,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "✓ QR Scan Test Activation event",
+            "Start scanner"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 136,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "✓ QR Scan Test Activation event",
+            "Start scanner"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 136,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "✓ QR Scan Test Activation event",
+            "Start scanner"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-136-51968 retained and opened.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        }
+      ],
+      "truncated": false,
+      "queuedActionScenariosRemaining": 0
+    },
+    {
+      "screen": 137,
+      "file": "137-earn-earnings-payout.html",
+      "viewport": "mobile",
+      "positivePathsReferenced": 10,
+      "routeResults": [],
+      "actionResults": [],
+      "truncated": false,
+      "queuedActionScenariosRemaining": 0
+    },
+    {
+      "screen": 138,
+      "file": "138-earn-issues-ratings-history.html",
+      "viewport": "mobile",
+      "positivePathsReferenced": 20,
+      "routeResults": [],
+      "actionResults": [
+        {
+          "ticket": "C2-PERM-006",
+          "screen": 138,
+          "viewport": "mobile",
+          "scenario": "permission-denied",
+          "path": [
+            "Issues",
+            "! Shop photo needs rework · WRK-4799 Reason: storefront not fully visible Rework allowed until 6 PM Action"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the denied device permission and provide settings, fallback and cancel actions.",
+          "observedResult": "Permission denial offered settings, a usable fallback and cancellation without losing context.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 138,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "Growth",
+            "L4 Next: Category Specialist Complete advanced catalogue training Unlocks ₹800–₹2,500 funded work ›"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 138,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "Growth",
+            "L4 Next: Category Specialist Complete advanced catalogue training Unlocks ₹800–₹2,500 funded work ›"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 138,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "Growth",
+            "L4 Next: Category Specialist Complete advanced catalogue training Unlocks ₹800–₹2,500 funded work ›"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 138,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "Growth",
+            "L4 Next: Category Specialist Complete advanced catalogue training Unlocks ₹800–₹2,500 funded work ›"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-138-57906 retained and opened.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        }
+      ],
+      "truncated": false,
+      "queuedActionScenariosRemaining": 0
+    },
+    {
+      "screen": 139,
+      "file": "139-provider-home-readiness.html",
+      "viewport": "mobile",
+      "positivePathsReferenced": 14,
+      "routeResults": [],
+      "actionResults": [],
+      "truncated": false,
+      "queuedActionScenariosRemaining": 0
+    },
+    {
+      "screen": 140,
+      "file": "140-provider-catalogue.html",
+      "viewport": "mobile",
+      "positivePathsReferenced": 27,
+      "routeResults": [],
+      "actionResults": [],
+      "truncated": false,
+      "queuedActionScenariosRemaining": 0
+    },
+    {
+      "screen": 141,
+      "file": "141-provider-availability.html",
+      "viewport": "mobile",
+      "positivePathsReferenced": 45,
+      "routeResults": [],
+      "actionResults": [],
+      "truncated": false,
+      "queuedActionScenariosRemaining": 0
+    },
+    {
+      "screen": 142,
+      "file": "142-provider-requests.html",
+      "viewport": "mobile",
+      "positivePathsReferenced": 29,
+      "routeResults": [],
+      "actionResults": [
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 142,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "Accept"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 142,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "Accept"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 142,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "Accept"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 142,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "Accept"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-142-73352 retained and opened.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 142,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "Accept"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 142,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "Accept"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 142,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "Accept"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 142,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "Accept"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-142-73352 retained and opened.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 142,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "F",
+            "Confirm and open work"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 142,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "F",
+            "Confirm and open work"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 142,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "F",
+            "Confirm and open work"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 142,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "F",
+            "Confirm and open work"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-142-49950 retained and opened.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 142,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "Cannot take",
+            "Confirm and open work"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 142,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "Cannot take",
+            "Confirm and open work"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 142,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "Cannot take",
+            "Confirm and open work"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 142,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "Cannot take",
+            "Confirm and open work"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-142-49950 retained and opened.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 142,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "Accept",
+            "Confirm and open work"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 142,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "Accept",
+            "Confirm and open work"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 142,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "Accept",
+            "Confirm and open work"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 142,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "Accept",
+            "Confirm and open work"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-142-49950 retained and opened.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        }
+      ],
+      "truncated": false,
+      "queuedActionScenariosRemaining": 0
+    },
+    {
+      "screen": 143,
+      "file": "143-provider-fulfilment.html",
+      "viewport": "mobile",
+      "positivePathsReferenced": 15,
+      "routeResults": [],
+      "actionResults": [],
+      "truncated": false,
+      "queuedActionScenariosRemaining": 0
+    },
+    {
+      "screen": 144,
+      "file": "144-provider-business.html",
+      "viewport": "mobile",
+      "positivePathsReferenced": 82,
+      "routeResults": [],
+      "actionResults": [
+        {
+          "ticket": "C2-PERM-006",
+          "screen": 144,
+          "viewport": "mobile",
+          "scenario": "permission-denied",
+          "path": [
+            "↓",
+            "Generate secure file"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the denied device permission and provide settings, fallback and cancel actions.",
+          "observedResult": "Permission denial offered settings, a usable fallback and cancellation without losing context.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-PERM-006",
+          "screen": 144,
+          "viewport": "mobile",
+          "scenario": "permission-denied",
+          "path": [
+            "INV Receipt MS-2941 Tax and provider details recorded Download ›",
+            "Prepare file"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the denied device permission and provide settings, fallback and cancel actions.",
+          "observedResult": "Permission denial offered settings, a usable fallback and cancellation without losing context.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-PERM-006",
+          "screen": 144,
+          "viewport": "mobile",
+          "scenario": "permission-denied",
+          "path": [
+            "↓",
+            "Generate secure file",
+            "Camera"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the denied device permission and provide settings, fallback and cancel actions.",
+          "observedResult": "Permission denial offered settings, a usable fallback and cancellation without losing context.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-PERM-006",
+          "screen": 144,
+          "viewport": "mobile",
+          "scenario": "permission-denied",
+          "path": [
+            "INV Receipt MS-2941 Tax and provider details recorded Download ›",
+            "PDF",
+            "Prepare file"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the denied device permission and provide settings, fallback and cancel actions.",
+          "observedResult": "Permission denial offered settings, a usable fallback and cancellation without losing context.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-PERM-006",
+          "screen": 144,
+          "viewport": "mobile",
+          "scenario": "permission-denied",
+          "path": [
+            "INV Receipt MS-2941 Tax and provider details recorded Download ›",
+            "Date range",
+            "Prepare file"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the denied device permission and provide settings, fallback and cancel actions.",
+          "observedResult": "Permission denial offered settings, a usable fallback and cancellation without losing context.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-PERM-006",
+          "screen": 144,
+          "viewport": "mobile",
+          "scenario": "permission-denied",
+          "path": [
+            "INV Receipt MS-2941 Tax and provider details recorded Download ›",
+            "Share securely",
+            "Prepare file"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the denied device permission and provide settings, fallback and cancel actions.",
+          "observedResult": "Permission denial offered settings, a usable fallback and cancellation without losing context.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        }
+      ],
+      "truncated": false,
+      "queuedActionScenariosRemaining": 0
+    },
+    {
+      "screen": 145,
+      "file": "145-provider-growth.html",
+      "viewport": "mobile",
+      "positivePathsReferenced": 22,
+      "routeResults": [],
+      "actionResults": [
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 145,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "F",
+            "Accept funded work"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 145,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "F",
+            "Accept funded work"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 145,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "F",
+            "Accept funded work"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 145,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "F",
+            "Accept funded work"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-145-32149 retained and opened.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        }
+      ],
+      "truncated": false,
+      "queuedActionScenariosRemaining": 0
+    },
+    {
+      "screen": 125,
+      "file": "125-creator-create-publish.html",
+      "viewport": "desktop",
+      "positivePathsReferenced": 43,
+      "routeResults": [],
+      "actionResults": [
+        {
+          "ticket": "C2-VAL-007",
+          "screen": 125,
+          "viewport": "desktop",
+          "scenario": "invalid-input",
+          "path": [
+            "How local baskets save time"
+          ],
+          "status": "passed",
+          "expectedResult": "Identify the invalid value, retain the task and clear the error after valid input.",
+          "observedResult": "The browser prevented the invalid value and accepted the valid replacement.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-PERM-006",
+          "screen": 125,
+          "viewport": "desktop",
+          "scenario": "permission-denied",
+          "path": [
+            "Location"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the denied device permission and provide settings, fallback and cancel actions.",
+          "observedResult": "Permission denial offered settings, a usable fallback and cancellation without losing context.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 125,
+          "viewport": "desktop",
+          "scenario": "action-loading",
+          "path": [
+            "Review & Publish"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 125,
+          "viewport": "desktop",
+          "scenario": "action-offline",
+          "path": [
+            "Review & Publish"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 125,
+          "viewport": "desktop",
+          "scenario": "action-error",
+          "path": [
+            "Review & Publish"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 125,
+          "viewport": "desktop",
+          "scenario": "duplicate",
+          "path": [
+            "Review & Publish"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-125-19661 retained and opened.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 125,
+          "viewport": "desktop",
+          "scenario": "action-loading",
+          "path": [
+            "Schedule",
+            "Confirm schedule"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 125,
+          "viewport": "desktop",
+          "scenario": "action-offline",
+          "path": [
+            "Schedule",
+            "Confirm schedule"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 125,
+          "viewport": "desktop",
+          "scenario": "action-error",
+          "path": [
+            "Schedule",
+            "Confirm schedule"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 125,
+          "viewport": "desktop",
+          "scenario": "duplicate",
+          "path": [
+            "Schedule",
+            "Confirm schedule"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-125-66999 retained and opened.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-PERM-006",
+          "screen": 125,
+          "viewport": "desktop",
+          "scenario": "permission-denied",
+          "path": [
+            "Location",
+            "Current location"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the denied device permission and provide settings, fallback and cancel actions.",
+          "observedResult": "Permission denial offered settings, a usable fallback and cancellation without losing context.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-PERM-006",
+          "screen": 125,
+          "viewport": "desktop",
+          "scenario": "permission-denied",
+          "path": [
+            "Location",
+            "Choose on map"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the denied device permission and provide settings, fallback and cancel actions.",
+          "observedResult": "Permission denial offered settings, a usable fallback and cancellation without losing context.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-PERM-006",
+          "screen": 125,
+          "viewport": "desktop",
+          "scenario": "permission-denied",
+          "path": [
+            "Location",
+            "Confirm location"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the denied device permission and provide settings, fallback and cancel actions.",
+          "observedResult": "Permission denial offered settings, a usable fallback and cancellation without losing context.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 125,
+          "viewport": "desktop",
+          "scenario": "action-loading",
+          "path": [
+            "Review & Publish",
+            "Publish"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 125,
+          "viewport": "desktop",
+          "scenario": "action-offline",
+          "path": [
+            "Review & Publish",
+            "Publish"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 125,
+          "viewport": "desktop",
+          "scenario": "action-error",
+          "path": [
+            "Review & Publish",
+            "Publish"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 125,
+          "viewport": "desktop",
+          "scenario": "duplicate",
+          "path": [
+            "Review & Publish",
+            "Publish"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-125-88175 retained and opened.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 125,
+          "viewport": "desktop",
+          "scenario": "action-loading",
+          "path": [
+            "Schedule",
+            "Date for Schedule",
+            "Confirm schedule"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 125,
+          "viewport": "desktop",
+          "scenario": "action-offline",
+          "path": [
+            "Schedule",
+            "Date for Schedule",
+            "Confirm schedule"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 125,
+          "viewport": "desktop",
+          "scenario": "action-error",
+          "path": [
+            "Schedule",
+            "Date for Schedule",
+            "Confirm schedule"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 125,
+          "viewport": "desktop",
+          "scenario": "duplicate",
+          "path": [
+            "Schedule",
+            "Date for Schedule",
+            "Confirm schedule"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-125-66999 retained and opened.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 125,
+          "viewport": "desktop",
+          "scenario": "action-loading",
+          "path": [
+            "Schedule",
+            "Time for Schedule",
+            "Confirm schedule"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 125,
+          "viewport": "desktop",
+          "scenario": "action-offline",
+          "path": [
+            "Schedule",
+            "Time for Schedule",
+            "Confirm schedule"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 125,
+          "viewport": "desktop",
+          "scenario": "action-error",
+          "path": [
+            "Schedule",
+            "Time for Schedule",
+            "Confirm schedule"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 125,
+          "viewport": "desktop",
+          "scenario": "duplicate",
+          "path": [
+            "Schedule",
+            "Time for Schedule",
+            "Confirm schedule"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-125-66999 retained and opened.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        }
+      ],
+      "truncated": false,
+      "queuedActionScenariosRemaining": 0
+    },
+    {
+      "screen": 126,
+      "file": "126-creator-content-library.html",
+      "viewport": "desktop",
+      "positivePathsReferenced": 26,
+      "routeResults": [],
+      "actionResults": [],
+      "truncated": false,
+      "queuedActionScenariosRemaining": 0
+    },
+    {
+      "screen": 127,
+      "file": "127-creator-content-performance.html",
+      "viewport": "desktop",
+      "positivePathsReferenced": 35,
+      "routeResults": [],
+      "actionResults": [
+        {
+          "ticket": "C2-PERM-006",
+          "screen": 127,
+          "viewport": "desktop",
+          "scenario": "permission-denied",
+          "path": [
+            "↓",
+            "Prepare Export",
+            "Prepare file"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the denied device permission and provide settings, fallback and cancel actions.",
+          "observedResult": "Permission denial offered settings, a usable fallback and cancellation without losing context.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-PERM-006",
+          "screen": 127,
+          "viewport": "desktop",
+          "scenario": "permission-denied",
+          "path": [
+            "↓",
+            "Prepare Export",
+            "PDF",
+            "Prepare file"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the denied device permission and provide settings, fallback and cancel actions.",
+          "observedResult": "Permission denial offered settings, a usable fallback and cancellation without losing context.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-PERM-006",
+          "screen": 127,
+          "viewport": "desktop",
+          "scenario": "permission-denied",
+          "path": [
+            "↓",
+            "Prepare Export",
+            "Date range",
+            "Prepare file"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the denied device permission and provide settings, fallback and cancel actions.",
+          "observedResult": "Permission denial offered settings, a usable fallback and cancellation without losing context.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-PERM-006",
+          "screen": 127,
+          "viewport": "desktop",
+          "scenario": "permission-denied",
+          "path": [
+            "↓",
+            "Prepare Export",
+            "Share securely",
+            "Prepare file"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the denied device permission and provide settings, fallback and cancel actions.",
+          "observedResult": "Permission denial offered settings, a usable fallback and cancellation without losing context.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        }
+      ],
+      "truncated": false,
+      "queuedActionScenariosRemaining": 0
+    },
+    {
+      "screen": 128,
+      "file": "128-creator-audience-community.html",
+      "viewport": "desktop",
+      "positivePathsReferenced": 12,
+      "routeResults": [],
+      "actionResults": [
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 128,
+          "viewport": "desktop",
+          "scenario": "action-loading",
+          "path": [
+            "Q Ask your audience Create a post, poll or demand question Build a verified demand signal ›"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 128,
+          "viewport": "desktop",
+          "scenario": "action-offline",
+          "path": [
+            "Q Ask your audience Create a post, poll or demand question Build a verified demand signal ›"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 128,
+          "viewport": "desktop",
+          "scenario": "action-error",
+          "path": [
+            "Q Ask your audience Create a post, poll or demand question Build a verified demand signal ›"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 128,
+          "viewport": "desktop",
+          "scenario": "duplicate",
+          "path": [
+            "Q Ask your audience Create a post, poll or demand question Build a verified demand signal ›"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-128-30275 retained and opened.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        }
+      ],
+      "truncated": false,
+      "queuedActionScenariosRemaining": 0
+    },
+    {
+      "screen": 129,
+      "file": "129-creator-campaigns.html",
+      "viewport": "desktop",
+      "positivePathsReferenced": 27,
+      "routeResults": [],
+      "actionResults": [
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 129,
+          "viewport": "desktop",
+          "scenario": "action-loading",
+          "path": [
+            "F",
+            "Accept Campaign"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 129,
+          "viewport": "desktop",
+          "scenario": "action-offline",
+          "path": [
+            "F",
+            "Accept Campaign"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 129,
+          "viewport": "desktop",
+          "scenario": "action-error",
+          "path": [
+            "F",
+            "Accept Campaign"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 129,
+          "viewport": "desktop",
+          "scenario": "duplicate",
+          "path": [
+            "F",
+            "Accept Campaign"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-129-54536 retained and opened.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        }
+      ],
+      "truncated": false,
+      "queuedActionScenariosRemaining": 0
+    },
+    {
+      "screen": 130,
+      "file": "130-creator-earnings-payouts.html",
+      "viewport": "desktop",
+      "positivePathsReferenced": 19,
+      "routeResults": [],
+      "actionResults": [],
+      "truncated": false,
+      "queuedActionScenariosRemaining": 0
+    },
+    {
+      "screen": 131,
+      "file": "131-creator-verification-rights-safety.html",
+      "viewport": "desktop",
+      "positivePathsReferenced": 35,
+      "routeResults": [],
+      "actionResults": [],
+      "truncated": false,
+      "queuedActionScenariosRemaining": 0
+    },
+    {
+      "screen": 132,
+      "file": "132-creator-memberships.html",
+      "viewport": "desktop",
+      "positivePathsReferenced": 20,
+      "routeResults": [],
+      "actionResults": [
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 132,
+          "viewport": "desktop",
+          "scenario": "action-loading",
+          "path": [
+            "Create Membership Plan"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 132,
+          "viewport": "desktop",
+          "scenario": "action-offline",
+          "path": [
+            "Create Membership Plan"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 132,
+          "viewport": "desktop",
+          "scenario": "action-error",
+          "path": [
+            "Create Membership Plan"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 132,
+          "viewport": "desktop",
+          "scenario": "duplicate",
+          "path": [
+            "Create Membership Plan"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-132-80399 retained and opened.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        }
+      ],
+      "truncated": false,
+      "queuedActionScenariosRemaining": 0
+    },
+    {
+      "screen": 133,
+      "file": "133-earn-opportunities.html",
+      "viewport": "desktop",
+      "positivePathsReferenced": 24,
+      "routeResults": [],
+      "actionResults": [
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 133,
+          "viewport": "desktop",
+          "scenario": "action-loading",
+          "path": [
+            "Review & Apply"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 133,
+          "viewport": "desktop",
+          "scenario": "action-offline",
+          "path": [
+            "Review & Apply"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 133,
+          "viewport": "desktop",
+          "scenario": "action-error",
+          "path": [
+            "Review & Apply"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 133,
+          "viewport": "desktop",
+          "scenario": "duplicate",
+          "path": [
+            "Review & Apply"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-133-16012 retained and opened.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 133,
+          "viewport": "desktop",
+          "scenario": "action-loading",
+          "path": [
+            "Review & Apply"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 133,
+          "viewport": "desktop",
+          "scenario": "action-offline",
+          "path": [
+            "Review & Apply"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 133,
+          "viewport": "desktop",
+          "scenario": "action-error",
+          "path": [
+            "Review & Apply"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 133,
+          "viewport": "desktop",
+          "scenario": "duplicate",
+          "path": [
+            "Review & Apply"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-133-16012 retained and opened.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 133,
+          "viewport": "desktop",
+          "scenario": "action-loading",
+          "path": [
+            "Review & Apply"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 133,
+          "viewport": "desktop",
+          "scenario": "action-offline",
+          "path": [
+            "Review & Apply"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 133,
+          "viewport": "desktop",
+          "scenario": "action-error",
+          "path": [
+            "Review & Apply"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 133,
+          "viewport": "desktop",
+          "scenario": "duplicate",
+          "path": [
+            "Review & Apply"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-133-16012 retained and opened.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 133,
+          "viewport": "desktop",
+          "scenario": "action-loading",
+          "path": [
+            "F",
+            "Apply"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 133,
+          "viewport": "desktop",
+          "scenario": "action-offline",
+          "path": [
+            "F",
+            "Apply"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 133,
+          "viewport": "desktop",
+          "scenario": "action-error",
+          "path": [
+            "F",
+            "Apply"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 133,
+          "viewport": "desktop",
+          "scenario": "duplicate",
+          "path": [
+            "F",
+            "Apply"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-133-76558 retained and opened.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 133,
+          "viewport": "desktop",
+          "scenario": "action-loading",
+          "path": [
+            "Review & Apply",
+            "Apply"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 133,
+          "viewport": "desktop",
+          "scenario": "action-offline",
+          "path": [
+            "Review & Apply",
+            "Apply"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 133,
+          "viewport": "desktop",
+          "scenario": "action-error",
+          "path": [
+            "Review & Apply",
+            "Apply"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 133,
+          "viewport": "desktop",
+          "scenario": "duplicate",
+          "path": [
+            "Review & Apply",
+            "Apply"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-133-76558 retained and opened.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 133,
+          "viewport": "desktop",
+          "scenario": "action-loading",
+          "path": [
+            "Review & Apply",
+            "Apply"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 133,
+          "viewport": "desktop",
+          "scenario": "action-offline",
+          "path": [
+            "Review & Apply",
+            "Apply"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 133,
+          "viewport": "desktop",
+          "scenario": "action-error",
+          "path": [
+            "Review & Apply",
+            "Apply"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 133,
+          "viewport": "desktop",
+          "scenario": "duplicate",
+          "path": [
+            "Review & Apply",
+            "Apply"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-133-76558 retained and opened.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 133,
+          "viewport": "desktop",
+          "scenario": "action-loading",
+          "path": [
+            "Review & Apply",
+            "Apply"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 133,
+          "viewport": "desktop",
+          "scenario": "action-offline",
+          "path": [
+            "Review & Apply",
+            "Apply"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 133,
+          "viewport": "desktop",
+          "scenario": "action-error",
+          "path": [
+            "Review & Apply",
+            "Apply"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 133,
+          "viewport": "desktop",
+          "scenario": "duplicate",
+          "path": [
+            "Review & Apply",
+            "Apply"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-133-76558 retained and opened.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        }
+      ],
+      "truncated": false,
+      "queuedActionScenariosRemaining": 0
+    },
+    {
+      "screen": 134,
+      "file": "134-earn-applications-eligibility.html",
+      "viewport": "desktop",
+      "positivePathsReferenced": 26,
+      "routeResults": [],
+      "actionResults": [
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 134,
+          "viewport": "desktop",
+          "scenario": "action-loading",
+          "path": [
+            "View Status",
+            "Start Work"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 134,
+          "viewport": "desktop",
+          "scenario": "action-offline",
+          "path": [
+            "View Status",
+            "Start Work"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 134,
+          "viewport": "desktop",
+          "scenario": "action-error",
+          "path": [
+            "View Status",
+            "Start Work"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 134,
+          "viewport": "desktop",
+          "scenario": "duplicate",
+          "path": [
+            "View Status",
+            "Start Work"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-134-79567 retained and opened.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        }
+      ],
+      "truncated": false,
+      "queuedActionScenariosRemaining": 0
+    },
+    {
+      "screen": 135,
+      "file": "135-earn-active-work.html",
+      "viewport": "desktop",
+      "positivePathsReferenced": 10,
+      "routeResults": [],
+      "actionResults": [
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 135,
+          "viewport": "desktop",
+          "scenario": "action-loading",
+          "path": [
+            "?",
+            "Start Support"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 135,
+          "viewport": "desktop",
+          "scenario": "action-offline",
+          "path": [
+            "?",
+            "Start Support"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 135,
+          "viewport": "desktop",
+          "scenario": "action-error",
+          "path": [
+            "?",
+            "Start Support"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 135,
+          "viewport": "desktop",
+          "scenario": "duplicate",
+          "path": [
+            "?",
+            "Start Support"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-135-76433 retained and opened.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        }
+      ],
+      "truncated": false,
+      "queuedActionScenariosRemaining": 0
+    },
+    {
+      "screen": 136,
+      "file": "136-earn-proof-outcome.html",
+      "viewport": "desktop",
+      "positivePathsReferenced": 39,
+      "routeResults": [],
+      "actionResults": [
+        {
+          "ticket": "C2-PERM-006",
+          "screen": 136,
+          "viewport": "desktop",
+          "scenario": "permission-denied",
+          "path": [
+            "✓ QR Scan Test Activation event"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the denied device permission and provide settings, fallback and cancel actions.",
+          "observedResult": "Permission denial offered settings, a usable fallback and cancellation without losing context.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 136,
+          "viewport": "desktop",
+          "scenario": "action-loading",
+          "path": [
+            "Submit for Verification"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 136,
+          "viewport": "desktop",
+          "scenario": "action-offline",
+          "path": [
+            "Submit for Verification"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 136,
+          "viewport": "desktop",
+          "scenario": "action-error",
+          "path": [
+            "Submit for Verification"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 136,
+          "viewport": "desktop",
+          "scenario": "duplicate",
+          "path": [
+            "Submit for Verification"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-136-97338 retained and opened.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-PERM-006",
+          "screen": 136,
+          "viewport": "desktop",
+          "scenario": "permission-denied",
+          "path": [
+            "✓ QR Scan Test Activation event",
+            "Scan with camera"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the denied device permission and provide settings, fallback and cancel actions.",
+          "observedResult": "Permission denial offered settings, a usable fallback and cancellation without losing context.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 136,
+          "viewport": "desktop",
+          "scenario": "action-loading",
+          "path": [
+            "✓ QR Scan Test Activation event",
+            "Start scanner"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 136,
+          "viewport": "desktop",
+          "scenario": "action-offline",
+          "path": [
+            "✓ QR Scan Test Activation event",
+            "Start scanner"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 136,
+          "viewport": "desktop",
+          "scenario": "action-error",
+          "path": [
+            "✓ QR Scan Test Activation event",
+            "Start scanner"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 136,
+          "viewport": "desktop",
+          "scenario": "duplicate",
+          "path": [
+            "✓ QR Scan Test Activation event",
+            "Start scanner"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-136-51968 retained and opened.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        }
+      ],
+      "truncated": false,
+      "queuedActionScenariosRemaining": 0
+    },
+    {
+      "screen": 137,
+      "file": "137-earn-earnings-payout.html",
+      "viewport": "desktop",
+      "positivePathsReferenced": 10,
+      "routeResults": [],
+      "actionResults": [],
+      "truncated": false,
+      "queuedActionScenariosRemaining": 0
+    },
+    {
+      "screen": 138,
+      "file": "138-earn-issues-ratings-history.html",
+      "viewport": "desktop",
+      "positivePathsReferenced": 20,
+      "routeResults": [],
+      "actionResults": [
+        {
+          "ticket": "C2-PERM-006",
+          "screen": 138,
+          "viewport": "desktop",
+          "scenario": "permission-denied",
+          "path": [
+            "Issues",
+            "! Shop photo needs rework · WRK-4799 Reason: storefront not fully visible Rework allowed until 6 PM Action"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the denied device permission and provide settings, fallback and cancel actions.",
+          "observedResult": "Permission denial offered settings, a usable fallback and cancellation without losing context.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 138,
+          "viewport": "desktop",
+          "scenario": "action-loading",
+          "path": [
+            "Growth",
+            "L4 Next: Category Specialist Complete advanced catalogue training Unlocks ₹800–₹2,500 funded work ›"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 138,
+          "viewport": "desktop",
+          "scenario": "action-offline",
+          "path": [
+            "Growth",
+            "L4 Next: Category Specialist Complete advanced catalogue training Unlocks ₹800–₹2,500 funded work ›"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 138,
+          "viewport": "desktop",
+          "scenario": "action-error",
+          "path": [
+            "Growth",
+            "L4 Next: Category Specialist Complete advanced catalogue training Unlocks ₹800–₹2,500 funded work ›"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 138,
+          "viewport": "desktop",
+          "scenario": "duplicate",
+          "path": [
+            "Growth",
+            "L4 Next: Category Specialist Complete advanced catalogue training Unlocks ₹800–₹2,500 funded work ›"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-138-57906 retained and opened.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        }
+      ],
+      "truncated": false,
+      "queuedActionScenariosRemaining": 0
+    },
+    {
+      "screen": 139,
+      "file": "139-provider-home-readiness.html",
+      "viewport": "desktop",
+      "positivePathsReferenced": 14,
+      "routeResults": [],
+      "actionResults": [],
+      "truncated": false,
+      "queuedActionScenariosRemaining": 0
+    },
+    {
+      "screen": 140,
+      "file": "140-provider-catalogue.html",
+      "viewport": "desktop",
+      "positivePathsReferenced": 27,
+      "routeResults": [],
+      "actionResults": [],
+      "truncated": false,
+      "queuedActionScenariosRemaining": 0
+    },
+    {
+      "screen": 141,
+      "file": "141-provider-availability.html",
+      "viewport": "desktop",
+      "positivePathsReferenced": 54,
+      "routeResults": [],
+      "actionResults": [
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 141,
+          "viewport": "desktop",
+          "scenario": "action-loading",
+          "path": [
+            "Save availability",
+            "Confirm"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 141,
+          "viewport": "desktop",
+          "scenario": "action-offline",
+          "path": [
+            "Save availability",
+            "Confirm"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 141,
+          "viewport": "desktop",
+          "scenario": "action-error",
+          "path": [
+            "Save availability",
+            "Confirm"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 141,
+          "viewport": "desktop",
+          "scenario": "duplicate",
+          "path": [
+            "Save availability",
+            "Confirm"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-141-70784 retained and opened.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 141,
+          "viewport": "desktop",
+          "scenario": "action-loading",
+          "path": [
+            "Save availability",
+            "Summary",
+            "Confirm"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 141,
+          "viewport": "desktop",
+          "scenario": "action-offline",
+          "path": [
+            "Save availability",
+            "Summary",
+            "Confirm"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 141,
+          "viewport": "desktop",
+          "scenario": "action-error",
+          "path": [
+            "Save availability",
+            "Summary",
+            "Confirm"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 141,
+          "viewport": "desktop",
+          "scenario": "duplicate",
+          "path": [
+            "Save availability",
+            "Summary",
+            "Confirm"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-141-70784 retained and opened.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 141,
+          "viewport": "desktop",
+          "scenario": "action-loading",
+          "path": [
+            "Save availability",
+            "Support",
+            "Confirm"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 141,
+          "viewport": "desktop",
+          "scenario": "action-offline",
+          "path": [
+            "Save availability",
+            "Support",
+            "Confirm"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 141,
+          "viewport": "desktop",
+          "scenario": "action-error",
+          "path": [
+            "Save availability",
+            "Support",
+            "Confirm"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 141,
+          "viewport": "desktop",
+          "scenario": "duplicate",
+          "path": [
+            "Save availability",
+            "Support",
+            "Confirm"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-141-70784 retained and opened.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        }
+      ],
+      "truncated": false,
+      "queuedActionScenariosRemaining": 0
+    },
+    {
+      "screen": 142,
+      "file": "142-provider-requests.html",
+      "viewport": "desktop",
+      "positivePathsReferenced": 29,
+      "routeResults": [],
+      "actionResults": [
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 142,
+          "viewport": "desktop",
+          "scenario": "action-loading",
+          "path": [
+            "Accept"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 142,
+          "viewport": "desktop",
+          "scenario": "action-offline",
+          "path": [
+            "Accept"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 142,
+          "viewport": "desktop",
+          "scenario": "action-error",
+          "path": [
+            "Accept"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 142,
+          "viewport": "desktop",
+          "scenario": "duplicate",
+          "path": [
+            "Accept"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-142-73352 retained and opened.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 142,
+          "viewport": "desktop",
+          "scenario": "action-loading",
+          "path": [
+            "Accept"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 142,
+          "viewport": "desktop",
+          "scenario": "action-offline",
+          "path": [
+            "Accept"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 142,
+          "viewport": "desktop",
+          "scenario": "action-error",
+          "path": [
+            "Accept"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 142,
+          "viewport": "desktop",
+          "scenario": "duplicate",
+          "path": [
+            "Accept"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-142-73352 retained and opened.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 142,
+          "viewport": "desktop",
+          "scenario": "action-loading",
+          "path": [
+            "F",
+            "Confirm and open work"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 142,
+          "viewport": "desktop",
+          "scenario": "action-offline",
+          "path": [
+            "F",
+            "Confirm and open work"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 142,
+          "viewport": "desktop",
+          "scenario": "action-error",
+          "path": [
+            "F",
+            "Confirm and open work"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 142,
+          "viewport": "desktop",
+          "scenario": "duplicate",
+          "path": [
+            "F",
+            "Confirm and open work"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-142-49950 retained and opened.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 142,
+          "viewport": "desktop",
+          "scenario": "action-loading",
+          "path": [
+            "Cannot take",
+            "Confirm and open work"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 142,
+          "viewport": "desktop",
+          "scenario": "action-offline",
+          "path": [
+            "Cannot take",
+            "Confirm and open work"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 142,
+          "viewport": "desktop",
+          "scenario": "action-error",
+          "path": [
+            "Cannot take",
+            "Confirm and open work"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 142,
+          "viewport": "desktop",
+          "scenario": "duplicate",
+          "path": [
+            "Cannot take",
+            "Confirm and open work"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-142-49950 retained and opened.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 142,
+          "viewport": "desktop",
+          "scenario": "action-loading",
+          "path": [
+            "Accept",
+            "Confirm and open work"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 142,
+          "viewport": "desktop",
+          "scenario": "action-offline",
+          "path": [
+            "Accept",
+            "Confirm and open work"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 142,
+          "viewport": "desktop",
+          "scenario": "action-error",
+          "path": [
+            "Accept",
+            "Confirm and open work"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 142,
+          "viewport": "desktop",
+          "scenario": "duplicate",
+          "path": [
+            "Accept",
+            "Confirm and open work"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-142-49950 retained and opened.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        }
+      ],
+      "truncated": false,
+      "queuedActionScenariosRemaining": 0
+    },
+    {
+      "screen": 143,
+      "file": "143-provider-fulfilment.html",
+      "viewport": "desktop",
+      "positivePathsReferenced": 16,
+      "routeResults": [],
+      "actionResults": [
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 143,
+          "viewport": "desktop",
+          "scenario": "action-loading",
+          "path": [
+            "Confirm and continue"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 143,
+          "viewport": "desktop",
+          "scenario": "action-offline",
+          "path": [
+            "Confirm and continue"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 143,
+          "viewport": "desktop",
+          "scenario": "action-error",
+          "path": [
+            "Confirm and continue"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 143,
+          "viewport": "desktop",
+          "scenario": "duplicate",
+          "path": [
+            "Confirm and continue"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-143-17104 retained and opened.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        }
+      ],
+      "truncated": false,
+      "queuedActionScenariosRemaining": 0
+    },
+    {
+      "screen": 144,
+      "file": "144-provider-business.html",
+      "viewport": "desktop",
+      "positivePathsReferenced": 82,
+      "routeResults": [],
+      "actionResults": [
+        {
+          "ticket": "C2-PERM-006",
+          "screen": 144,
+          "viewport": "desktop",
+          "scenario": "permission-denied",
+          "path": [
+            "↓",
+            "Generate secure file"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the denied device permission and provide settings, fallback and cancel actions.",
+          "observedResult": "Permission denial offered settings, a usable fallback and cancellation without losing context.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-PERM-006",
+          "screen": 144,
+          "viewport": "desktop",
+          "scenario": "permission-denied",
+          "path": [
+            "INV Receipt MS-2941 Tax and provider details recorded Download ›",
+            "Prepare file"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the denied device permission and provide settings, fallback and cancel actions.",
+          "observedResult": "Permission denial offered settings, a usable fallback and cancellation without losing context.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-PERM-006",
+          "screen": 144,
+          "viewport": "desktop",
+          "scenario": "permission-denied",
+          "path": [
+            "↓",
+            "Generate secure file",
+            "Camera"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the denied device permission and provide settings, fallback and cancel actions.",
+          "observedResult": "Permission denial offered settings, a usable fallback and cancellation without losing context.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-PERM-006",
+          "screen": 144,
+          "viewport": "desktop",
+          "scenario": "permission-denied",
+          "path": [
+            "INV Receipt MS-2941 Tax and provider details recorded Download ›",
+            "PDF",
+            "Prepare file"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the denied device permission and provide settings, fallback and cancel actions.",
+          "observedResult": "Permission denial offered settings, a usable fallback and cancellation without losing context.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-PERM-006",
+          "screen": 144,
+          "viewport": "desktop",
+          "scenario": "permission-denied",
+          "path": [
+            "INV Receipt MS-2941 Tax and provider details recorded Download ›",
+            "Date range",
+            "Prepare file"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the denied device permission and provide settings, fallback and cancel actions.",
+          "observedResult": "Permission denial offered settings, a usable fallback and cancellation without losing context.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-PERM-006",
+          "screen": 144,
+          "viewport": "desktop",
+          "scenario": "permission-denied",
+          "path": [
+            "INV Receipt MS-2941 Tax and provider details recorded Download ›",
+            "Share securely",
+            "Prepare file"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the denied device permission and provide settings, fallback and cancel actions.",
+          "observedResult": "Permission denial offered settings, a usable fallback and cancellation without losing context.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        }
+      ],
+      "truncated": false,
+      "queuedActionScenariosRemaining": 0
+    },
+    {
+      "screen": 145,
+      "file": "145-provider-growth.html",
+      "viewport": "desktop",
+      "positivePathsReferenced": 22,
+      "routeResults": [],
+      "actionResults": [
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 145,
+          "viewport": "desktop",
+          "scenario": "action-loading",
+          "path": [
+            "F",
+            "Accept funded work"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 145,
+          "viewport": "desktop",
+          "scenario": "action-offline",
+          "path": [
+            "F",
+            "Accept funded work"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 145,
+          "viewport": "desktop",
+          "scenario": "action-error",
+          "path": [
+            "F",
+            "Accept funded work"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 145,
+          "viewport": "desktop",
+          "scenario": "duplicate",
+          "path": [
+            "F",
+            "Accept funded work"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-145-32149 retained and opened.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        }
+      ],
+      "truncated": false,
+      "queuedActionScenariosRemaining": 0
+    }
+  ],
+  "consoleErrors": []
+}

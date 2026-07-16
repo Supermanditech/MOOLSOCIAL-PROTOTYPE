@@ -1,0 +1,153 @@
+{
+  "version": "second-cycle-adversarial-micro-audit-2026-07-16",
+  "generatedAt": "2026-07-16T01:06:01Z",
+  "baseUrl": "http://127.0.0.1:8765",
+  "positiveReport": "C:\\GUARANTEED OUTCOME\\supermandi-uiux-screenbook\\quality\\generated\\second-cycle-positive-final-shard1-split\\shard-2.json",
+  "rule": "Every forced route or action failure condition must expose a domain-specific recovery path and complete the original intent after recovery.",
+  "viewports": {
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "mobile": true
+    }
+  },
+  "summary": {
+    "status": "passed",
+    "screenViewportRuns": 1,
+    "uniqueScreens": 1,
+    "routeScenariosTested": 0,
+    "actionScenariosTested": 8,
+    "passed": 8,
+    "failed": 0,
+    "cancelBranchesVerified": 4,
+    "recoveryBranchesVerified": 8,
+    "truncatedScreens": 0,
+    "consoleErrors": 0
+  },
+  "runs": [
+    {
+      "screen": 12,
+      "file": "12-buy-basket-checkout.html",
+      "viewport": "mobile",
+      "positivePathsReferenced": 20,
+      "routeResults": [],
+      "actionResults": [
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 12,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "Remove Item pay only available items"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 12,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "Remove Item pay only available items"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 12,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "Remove Item pay only available items"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 12,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "Remove Item pay only available items"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-012-36382 retained and opened.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 12,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "Review & Pay"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 12,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "Review & Pay"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 12,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "Review & Pay"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 12,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "Review & Pay"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-012-40422 retained and opened.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        }
+      ],
+      "truncated": false,
+      "queuedActionScenariosRemaining": 0
+    }
+  ],
+  "consoleErrors": []
+}

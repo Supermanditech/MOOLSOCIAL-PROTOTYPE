@@ -1,0 +1,111 @@
+{
+  "version": "second-cycle-adversarial-micro-audit-2026-07-16",
+  "generatedAt": "2026-07-15T23:07:56Z",
+  "baseUrl": "http://127.0.0.1:8765",
+  "positiveReport": "",
+  "rule": "Every forced route or action failure condition must expose a domain-specific recovery path and complete the original intent after recovery.",
+  "viewports": {
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "mobile": true
+    }
+  },
+  "summary": {
+    "status": "failed",
+    "screenViewportRuns": 1,
+    "uniqueScreens": 1,
+    "routeScenariosTested": 5,
+    "actionScenariosTested": 0,
+    "passed": 0,
+    "failed": 5,
+    "cancelBranchesVerified": 0,
+    "recoveryBranchesVerified": 0,
+    "truncatedScreens": 0,
+    "consoleErrors": 0
+  },
+  "runs": [
+    {
+      "screen": 6,
+      "file": "06-social-videos.html",
+      "viewport": "mobile",
+      "positivePathsReferenced": 0,
+      "routeResults": [
+        {
+          "ticket": "C2-RES-001",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "route-loading",
+          "path": [
+            "route-loading"
+          ],
+          "status": "failed",
+          "expectedResult": "Show a route-specific busy state, then settle into the requested screen without trapping the user.",
+          "observedResult": "busy=False visibleBefore=False visibleAfter=False",
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-baseline-evidence/mobile-006-0001-route-loading.png"
+        },
+        {
+          "ticket": "C2-RES-001",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "route-empty",
+          "path": [
+            "route-empty"
+          ],
+          "status": "failed",
+          "expectedResult": "Explain that no current items are available and let the user refresh or return.",
+          "observedResult": "Forced state was not rendered with its required action. panel=False buttons=[]",
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-baseline-evidence/mobile-006-0001-route-loading.png"
+        },
+        {
+          "ticket": "C2-RES-001",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "route-offline",
+          "path": [
+            "route-offline"
+          ],
+          "status": "failed",
+          "expectedResult": "Preserve the task context, explain the lost connection and complete a retry after reconnection.",
+          "observedResult": "Forced state was not rendered with its required action. panel=False buttons=[]",
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-baseline-evidence/mobile-006-0001-route-loading.png"
+        },
+        {
+          "ticket": "C2-RES-001",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "route-unauthorized",
+          "path": [
+            "route-unauthorized"
+          ],
+          "status": "failed",
+          "expectedResult": "Explain that access expired and route to secure sign-in while retaining the intended return screen.",
+          "observedResult": "Forced state was not rendered with its required action. panel=False buttons=[]",
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-baseline-evidence/mobile-006-0001-route-loading.png"
+        },
+        {
+          "ticket": "C2-RES-001",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "route-error",
+          "path": [
+            "route-error"
+          ],
+          "status": "failed",
+          "expectedResult": "Show a calm route-specific error with a working retry and return path.",
+          "observedResult": "Forced state was not rendered with its required action. panel=False buttons=[]",
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-baseline-evidence/mobile-006-0001-route-loading.png"
+        }
+      ],
+      "actionResults": [],
+      "truncated": false,
+      "queuedActionScenariosRemaining": 0
+    }
+  ],
+  "consoleErrors": []
+}

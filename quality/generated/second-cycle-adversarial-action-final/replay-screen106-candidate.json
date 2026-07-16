@@ -1,0 +1,113 @@
+{
+  "version": "second-cycle-adversarial-micro-audit-2026-07-16",
+  "generatedAt": "2026-07-16T01:03:29Z",
+  "baseUrl": "http://127.0.0.1:8765",
+  "positiveReport": "C:\\GUARANTEED OUTCOME\\supermandi-uiux-screenbook\\quality\\generated\\second-cycle-positive-final-20260716\\shard-3.json",
+  "rule": "Every forced route or action failure condition must expose a domain-specific recovery path and complete the original intent after recovery.",
+  "viewports": {
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "mobile": true
+    }
+  },
+  "summary": {
+    "status": "failed",
+    "screenViewportRuns": 1,
+    "uniqueScreens": 1,
+    "routeScenariosTested": 0,
+    "actionScenariosTested": 5,
+    "passed": 4,
+    "failed": 1,
+    "cancelBranchesVerified": 2,
+    "recoveryBranchesVerified": 4,
+    "truncatedScreens": 0,
+    "consoleErrors": 0
+  },
+  "runs": [
+    {
+      "screen": 106,
+      "file": "106-retailer-cash-bank-expenses-reconciliation.html",
+      "viewport": "mobile",
+      "positivePathsReferenced": 33,
+      "routeResults": [],
+      "actionResults": [
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 106,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "Resolve"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 106,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "Resolve"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 106,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "Resolve"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 106,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "Resolve"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-106-21324 retained and opened.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-VAL-007",
+          "screen": 106,
+          "viewport": "mobile",
+          "scenario": "invalid-input",
+          "path": [
+            "Add expense",
+            "850"
+          ],
+          "status": "failed",
+          "expectedResult": "Identify the invalid value, retain the task and clear the error after valid input.",
+          "observedResult": "invalidState={'error': '', 'errorVisible': False, 'invalid': False, 'nativeValid': False, 'value': ''} recoveredState={'error': '', 'errorVisible': False, 'invalid': False, 'nativeValid': True, 'value': '42'}",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-adversarial-action-final/evidence-replay-screen106-candidate/mobile-106-0005-invalid-input.png"
+        }
+      ],
+      "truncated": false,
+      "queuedActionScenariosRemaining": 0
+    }
+  ],
+  "consoleErrors": []
+}

@@ -1,18 +1,28 @@
-{
-  "generatedAt": "2026-07-15T19:43:02.9978840+05:30",
-  "status": "passed",
-  "screens": 166,
-  "approvedScreens": 166,
-  "operationalFlows": 47,
-  "flowNodesChecked": 483,
-  "localNavigationTargetsChecked": 1104,
-  "localAssetsChecked": 475,
-  "buttonsIndexed": 1942,
-  "staticButtonCandidatesForBrowserTapTest": 103,
-  "missingTargets": [],
-  "missingAssets": [],
-  "contractIssues": [],
-  "flowIssues": [],
-  "creatorEconomicsIssues": [],
-  "browserTapReport": "quality/generated/flow-browser-tap-audit.json"
+﻿{
+    "generatedAt":  "2026-07-16T09:56:46.1409247+05:30",
+    "status":  "passed",
+    "screens":  166,
+    "approvedScreens":  166,
+    "operationalFlows":  47,
+    "flowNodesChecked":  483,
+    "localNavigationTargetsChecked":  1124,
+    "localAssetsChecked":  641,
+    "buttonsIndexed":  2001,
+    "staticButtonCandidatesForBrowserTapTest":  98,
+    "missingTargets":  [
+
+                       ],
+    "missingAssets":  [
+
+                      ],
+    "contractIssues":  [
+
+                       ],
+    "flowIssues":  [
+
+                   ],
+    "creatorEconomicsIssues":  [
+
+                               ],
+    "browserTapReport":  "quality/generated/flow-browser-tap-audit.json"
 }

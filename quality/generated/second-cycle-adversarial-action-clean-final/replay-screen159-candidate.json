@@ -1,0 +1,134 @@
+{
+  "version": "second-cycle-adversarial-micro-audit-2026-07-16",
+  "generatedAt": "2026-07-16T02:54:54Z",
+  "baseUrl": "http://127.0.0.1:8765",
+  "positiveReport": "C:\\GUARANTEED OUTCOME\\supermandi-uiux-screenbook\\quality\\generated\\second-cycle-positive-clean-final\\shard-8.json",
+  "rule": "Every forced route or action failure condition must expose a domain-specific recovery path and complete the original intent after recovery.",
+  "viewports": {
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "mobile": true
+    }
+  },
+  "summary": {
+    "status": "failed",
+    "screenViewportRuns": 1,
+    "uniqueScreens": 1,
+    "routeScenariosTested": 0,
+    "actionScenariosTested": 6,
+    "passed": 2,
+    "failed": 4,
+    "cancelBranchesVerified": 0,
+    "recoveryBranchesVerified": 2,
+    "truncatedScreens": 0,
+    "consoleErrors": 0
+  },
+  "runs": [
+    {
+      "screen": 159,
+      "file": "159-shared-universal-input.html",
+      "viewport": "mobile",
+      "positivePathsReferenced": 23,
+      "routeResults": [],
+      "actionResults": [
+        {
+          "ticket": "C2-PERM-006",
+          "screen": 159,
+          "viewport": "mobile",
+          "scenario": "permission-denied",
+          "path": [
+            "Scan"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the denied device permission and provide settings, fallback and cancel actions.",
+          "observedResult": "Permission denial offered settings, a usable fallback and cancellation without losing context.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 159,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "Buy",
+            "• Atta under ₹300 delivered today BUY Compare final price, pack, delivery and refund before adding. Personal · current area ›"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 159,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "Buy",
+            "• Atta under ₹300 delivered today BUY Compare final price, pack, delivery and refund before adding. Personal · current area ›"
+          ],
+          "status": "failed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "panel=True cancel=False retryAction=True recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-adversarial-action-clean-final/evidence-replay-screen159-candidate/mobile-159-0003-action-offline.png"
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 159,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "Buy",
+            "• Atta under ₹300 delivered today BUY Compare final price, pack, delivery and refund before adding. Personal · current area ›"
+          ],
+          "status": "failed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "panel=True cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-adversarial-action-clean-final/evidence-replay-screen159-candidate/mobile-159-0004-action-error.png"
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 159,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "Buy",
+            "• Atta under ₹300 delivered today BUY Compare final price, pack, delivery and refund before adding. Personal · current area ›"
+          ],
+          "status": "failed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "panel={'busy': False, 'buttons': ['View result', 'Close'], 'contentVisible': True, 'scenario': 'duplicate', 'text': 'Shared · Universal InputDuplicate stoppedOriginal request C2-159-85866 remains active. No second order, payment, message or submission was created.• Atta under ₹300 delivered today BUY Compare final price, pack, delivery and refund before adding. Personal · current area › can continue from its one retained result.View resultClose', 'title': 'Duplicate stopped', 'visible': True, 'visibleButtons': ['View result', 'Close']} opened=False status=",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-adversarial-action-clean-final/evidence-replay-screen159-candidate/mobile-159-0005-duplicate.png"
+        },
+        {
+          "ticket": "C2-PERM-006",
+          "screen": 159,
+          "viewport": "mobile",
+          "scenario": "permission-denied",
+          "path": [
+            "Book",
+            "• Book a cab to Jodhpur Airport BOOK Set pickup, compare ride options and confirm fare. Personal · location needed ›"
+          ],
+          "status": "failed",
+          "expectedResult": "Explain the denied device permission and provide settings, fallback and cancel actions.",
+          "observedResult": "panel=True settings=True fallback=True fallbackResult=False settingsResult=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-adversarial-action-clean-final/evidence-replay-screen159-candidate/mobile-159-0006-permission-denied.png"
+        }
+      ],
+      "truncated": false,
+      "queuedActionScenariosRemaining": 0
+    }
+  ],
+  "consoleErrors": []
+}

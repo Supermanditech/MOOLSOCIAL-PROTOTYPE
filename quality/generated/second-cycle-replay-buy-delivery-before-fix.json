@@ -1,0 +1,104 @@
+{
+  "generatedAt": "2026-07-16T03:25:05Z",
+  "status": "failed",
+  "source": "Microsoft Edge at 390x844 using native clicks on only highlighted, visible user controls; no forced navigation for tap or multi-action transitions",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "summary": {
+    "operationalFlowsTested": 1,
+    "passed": 0,
+    "failed": 1,
+    "approvedScreensCoveredByManifest": 166,
+    "horizontalOverflows": 0,
+    "consoleErrors": 0
+  },
+  "consoleErrorDetails": [],
+  "flows": [
+    {
+      "flow": "buy-delivery",
+      "title": "Buy and Home Delivery",
+      "status": "failed",
+      "expectedNodes": 8,
+      "interactionTurns": 9,
+      "finalCounter": "7 / 8",
+      "screensSeen": [
+        4,
+        9,
+        10,
+        11,
+        12,
+        14,
+        17
+      ],
+      "horizontalOverflows": [],
+      "turns": [
+        {
+          "counter": "1 / 8",
+          "screen": 4,
+          "file": "04-universal-focus-shell.html",
+          "action": "Open product buying",
+          "intent": "Tap: Open product buying"
+        },
+        {
+          "counter": "2 / 8",
+          "screen": 9,
+          "file": "09-buy.html",
+          "action": "Open shop buying",
+          "intent": "Tap: Shop"
+        },
+        {
+          "counter": "3 / 8",
+          "screen": 10,
+          "file": "10-buy-grocery-decision.html",
+          "action": "Deliver to home 11-45 min",
+          "intent": "Tap: Deliver to home"
+        },
+        {
+          "counter": "4 / 8",
+          "screen": 11,
+          "file": "11-buy-product-detail.html",
+          "action": "Add Basket",
+          "intent": "Tap: Add Basket"
+        },
+        {
+          "counter": "4 / 8",
+          "screen": 11,
+          "file": "11-buy-product-detail.html",
+          "action": "Open basket",
+          "intent": "Tap: Open basket"
+        },
+        {
+          "counter": "5 / 8",
+          "screen": 12,
+          "file": "12-buy-basket-checkout.html",
+          "action": "Deliver home in 22 min to your confirmed address",
+          "intent": "Tap: Deliver home in 22 min"
+        },
+        {
+          "counter": "5 / 8",
+          "screen": 12,
+          "file": "12-buy-basket-checkout.html",
+          "action": "Review & Pay",
+          "intent": "Tap: Review & Pay"
+        },
+        {
+          "counter": "6 / 8",
+          "screen": 14,
+          "file": "14-customer-payment-order-confirmation.html",
+          "action": "Pay Rs 62",
+          "intent": "Tap: Pay Rs"
+        },
+        {
+          "counter": "6 / 8",
+          "screen": 14,
+          "file": "14-customer-payment-order-confirmation.html",
+          "action": "View Order",
+          "intent": "Tap: View Order"
+        }
+      ],
+      "error": "Flow contract could not find “Refresh status” on this state."
+    }
+  ]
+}

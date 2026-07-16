@@ -1,0 +1,285 @@
+{
+  "version": "second-cycle-failure-replay-reconciliation-2026-07-16",
+  "generatedAt": "2026-07-15T23:43:20Z",
+  "baseline": "quality\\generated\\second-cycle-focused-adversarial06-physical.json",
+  "final": "quality\\generated\\second-cycle-focused-adversarial06-physical-replay.json",
+  "summary": {
+    "baselineFailures": 18,
+    "verifiedPassed": 18,
+    "stillFailed": 0,
+    "missing": 0,
+    "status": "passed"
+  },
+  "replays": [
+    {
+      "viewport": "mobile",
+      "screen": 6,
+      "scenario": "permission-denied",
+      "path": [
+        "Search videos",
+        "Ask Voice"
+      ],
+      "ticket": "C2-PERM-006",
+      "baselineObserved": "panel=True settings=False fallback=False fallbackResult=False settingsResult=False",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-adversarial06-physical-evidence/mobile-006-0001-permission-denied.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Permission denial offered settings, a usable fallback and cancellation without losing context.",
+      "recoveryVerified": true
+    },
+    {
+      "viewport": "mobile",
+      "screen": 6,
+      "scenario": "action-loading",
+      "path": [
+        "Grow your shop with verified product videos and local orders",
+        "Start Create shop page"
+      ],
+      "ticket": "C2-ACT-002",
+      "baselineObserved": "panel={'busy': True, 'buttons': [], 'contentVisible': False, 'scenario': 'action-loading', 'text': 'Social · Catalog PlayerStart Create shop page is in progressPlease wait while MoolSocial completes this exact action.Repeated taps are temporarily blocked.', 'title': 'Start Create shop page is in progress', 'visible': True, 'visibleButtons': []} panelAfter=False nativeCompletion=True",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-adversarial06-physical-evidence/mobile-006-0002-action-loading.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Progress appeared immediately and the original action completed.",
+      "recoveryVerified": true
+    },
+    {
+      "viewport": "mobile",
+      "screen": 6,
+      "scenario": "action-offline",
+      "path": [
+        "Grow your shop with verified product videos and local orders",
+        "Start Create shop page"
+      ],
+      "ticket": "C2-ACT-003",
+      "baselineObserved": "panel=True cancel=False retryAction=False recovery=False",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-adversarial06-physical-evidence/mobile-006-0003-action-offline.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Cancel preserved context and Retry completed the exact original action.",
+      "recoveryVerified": true
+    },
+    {
+      "viewport": "mobile",
+      "screen": 6,
+      "scenario": "action-error",
+      "path": [
+        "Grow your shop with verified product videos and local orders",
+        "Start Create shop page"
+      ],
+      "ticket": "C2-ACT-004",
+      "baselineObserved": "panel=True cancel=False retryAction=False recovery=False",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-adversarial06-physical-evidence/mobile-006-0004-action-error.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Cancel preserved context and Retry completed the exact original action.",
+      "recoveryVerified": true
+    },
+    {
+      "viewport": "mobile",
+      "screen": 6,
+      "scenario": "duplicate",
+      "path": [
+        "Grow your shop with verified product videos and local orders",
+        "Start Create shop page"
+      ],
+      "ticket": "C2-IDEMP-005",
+      "baselineObserved": "panel={'busy': False, 'buttons': ['View result', 'Close'], 'contentVisible': False, 'scenario': 'duplicate', 'text': 'Social · Catalog PlayerDuplicate stoppedOriginal request C2-006-49811 remains active. No second order, payment, message or submission was created.Start Create shop page can continue from its one retained result.View resultClose', 'title': 'Duplicate stopped', 'visible': True, 'visibleButtons': []} opened=False status=Showing all videos | Grow your shop X 2 minWatch overview StartCreate shop page CreatePublish product video Set upReceive local orders PlansView pricing ContinueStart shop setup Choose how you want to turn verified product videos into local customer orders.",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-adversarial06-physical-evidence/mobile-006-0005-duplicate.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Duplicate stopped; original reference C2-006-49811 retained and opened.",
+      "recoveryVerified": true
+    },
+    {
+      "viewport": "mobile",
+      "screen": 6,
+      "scenario": "action-loading",
+      "path": [
+        "Grow your shop with verified product videos and local orders",
+        "Create Publish product video"
+      ],
+      "ticket": "C2-ACT-002",
+      "baselineObserved": "panel={'busy': True, 'buttons': [], 'contentVisible': False, 'scenario': 'action-loading', 'text': 'Social · Catalog PlayerCreate Publish product video is in progressPlease wait while MoolSocial completes this exact action.Repeated taps are temporarily blocked.', 'title': 'Create Publish product video is in progress', 'visible': True, 'visibleButtons': []} panelAfter=False nativeCompletion=True",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-adversarial06-physical-evidence/mobile-006-0006-action-loading.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Progress appeared immediately and the original action completed.",
+      "recoveryVerified": true
+    },
+    {
+      "viewport": "mobile",
+      "screen": 6,
+      "scenario": "action-offline",
+      "path": [
+        "Grow your shop with verified product videos and local orders",
+        "Create Publish product video"
+      ],
+      "ticket": "C2-ACT-003",
+      "baselineObserved": "panel=True cancel=False retryAction=False recovery=False",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-adversarial06-physical-evidence/mobile-006-0007-action-offline.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Cancel preserved context and Retry completed the exact original action.",
+      "recoveryVerified": true
+    },
+    {
+      "viewport": "mobile",
+      "screen": 6,
+      "scenario": "action-error",
+      "path": [
+        "Grow your shop with verified product videos and local orders",
+        "Create Publish product video"
+      ],
+      "ticket": "C2-ACT-004",
+      "baselineObserved": "panel=True cancel=False retryAction=False recovery=False",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-adversarial06-physical-evidence/mobile-006-0008-action-error.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Cancel preserved context and Retry completed the exact original action.",
+      "recoveryVerified": true
+    },
+    {
+      "viewport": "mobile",
+      "screen": 6,
+      "scenario": "duplicate",
+      "path": [
+        "Grow your shop with verified product videos and local orders",
+        "Create Publish product video"
+      ],
+      "ticket": "C2-IDEMP-005",
+      "baselineObserved": "panel={'busy': False, 'buttons': ['View result', 'Close'], 'contentVisible': False, 'scenario': 'duplicate', 'text': 'Social · Catalog PlayerDuplicate stoppedOriginal request C2-006-07765 remains active. No second order, payment, message or submission was created.Create Publish product video can continue from its one retained result.View resultClose', 'title': 'Duplicate stopped', 'visible': True, 'visibleButtons': []} opened=False status=Showing all videos | Grow your shop X 2 minWatch overview StartCreate shop page CreatePublish product video Set upReceive local orders PlansView pricing ContinueStart shop setup Choose how you want to turn verified product videos into local customer orders.",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-adversarial06-physical-evidence/mobile-006-0009-duplicate.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Duplicate stopped; original reference C2-006-07765 retained and opened.",
+      "recoveryVerified": true
+    },
+    {
+      "viewport": "mobile",
+      "screen": 6,
+      "scenario": "action-loading",
+      "path": [
+        "Grow your shop with verified product videos and local orders",
+        "Continue Start shop setup"
+      ],
+      "ticket": "C2-ACT-002",
+      "baselineObserved": "panel={'busy': True, 'buttons': [], 'contentVisible': False, 'scenario': 'action-loading', 'text': 'Social · Catalog PlayerContinue Start shop setup is in progressPlease wait while MoolSocial completes this exact action.Repeated taps are temporarily blocked.', 'title': 'Continue Start shop setup is in progress', 'visible': True, 'visibleButtons': []} panelAfter=False nativeCompletion=True",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-adversarial06-physical-evidence/mobile-006-0010-action-loading.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Progress appeared immediately and the original action completed.",
+      "recoveryVerified": true
+    },
+    {
+      "viewport": "mobile",
+      "screen": 6,
+      "scenario": "action-offline",
+      "path": [
+        "Grow your shop with verified product videos and local orders",
+        "Continue Start shop setup"
+      ],
+      "ticket": "C2-ACT-003",
+      "baselineObserved": "panel=True cancel=False retryAction=False recovery=False",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-adversarial06-physical-evidence/mobile-006-0011-action-offline.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Cancel preserved context and Retry completed the exact original action.",
+      "recoveryVerified": true
+    },
+    {
+      "viewport": "mobile",
+      "screen": 6,
+      "scenario": "action-error",
+      "path": [
+        "Grow your shop with verified product videos and local orders",
+        "Continue Start shop setup"
+      ],
+      "ticket": "C2-ACT-004",
+      "baselineObserved": "panel=True cancel=False retryAction=False recovery=False",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-adversarial06-physical-evidence/mobile-006-0012-action-error.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Cancel preserved context and Retry completed the exact original action.",
+      "recoveryVerified": true
+    },
+    {
+      "viewport": "mobile",
+      "screen": 6,
+      "scenario": "duplicate",
+      "path": [
+        "Grow your shop with verified product videos and local orders",
+        "Continue Start shop setup"
+      ],
+      "ticket": "C2-IDEMP-005",
+      "baselineObserved": "panel={'busy': False, 'buttons': ['View result', 'Close'], 'contentVisible': False, 'scenario': 'duplicate', 'text': 'Social · Catalog PlayerDuplicate stoppedOriginal request C2-006-11498 remains active. No second order, payment, message or submission was created.Continue Start shop setup can continue from its one retained result.View resultClose', 'title': 'Duplicate stopped', 'visible': True, 'visibleButtons': []} opened=False status=Showing all videos | Grow your shop X 2 minWatch overview StartCreate shop page CreatePublish product video Set upReceive local orders PlansView pricing ContinueStart shop setup Choose how you want to turn verified product videos into local customer orders.",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-adversarial06-physical-evidence/mobile-006-0013-duplicate.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Duplicate stopped; original reference C2-006-11498 retained and opened.",
+      "recoveryVerified": true
+    },
+    {
+      "viewport": "mobile",
+      "screen": 6,
+      "scenario": "permission-denied",
+      "path": [
+        "Proof",
+        "Required Location proof"
+      ],
+      "ticket": "C2-PERM-006",
+      "baselineObserved": "panel=True settings=False fallback=False fallbackResult=False settingsResult=False",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-adversarial06-physical-evidence/mobile-006-0014-permission-denied.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Permission denial offered settings, a usable fallback and cancellation without losing context.",
+      "recoveryVerified": true
+    },
+    {
+      "viewport": "mobile",
+      "screen": 6,
+      "scenario": "action-loading",
+      "path": [
+        "Proof",
+        "Continue Apply for task"
+      ],
+      "ticket": "C2-ACT-002",
+      "baselineObserved": "panel={'busy': True, 'buttons': [], 'contentVisible': False, 'scenario': 'action-loading', 'text': 'Social · Catalog PlayerContinue Apply for task is in progressPlease wait while MoolSocial completes this exact action.Repeated taps are temporarily blocked.', 'title': 'Continue Apply for task is in progress', 'visible': True, 'visibleButtons': []} panelAfter=False nativeCompletion=True",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-adversarial06-physical-evidence/mobile-006-0015-action-loading.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Progress appeared immediately and the original action completed.",
+      "recoveryVerified": true
+    },
+    {
+      "viewport": "mobile",
+      "screen": 6,
+      "scenario": "action-offline",
+      "path": [
+        "Proof",
+        "Continue Apply for task"
+      ],
+      "ticket": "C2-ACT-003",
+      "baselineObserved": "panel=True cancel=False retryAction=False recovery=False",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-adversarial06-physical-evidence/mobile-006-0016-action-offline.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Cancel preserved context and Retry completed the exact original action.",
+      "recoveryVerified": true
+    },
+    {
+      "viewport": "mobile",
+      "screen": 6,
+      "scenario": "action-error",
+      "path": [
+        "Proof",
+        "Continue Apply for task"
+      ],
+      "ticket": "C2-ACT-004",
+      "baselineObserved": "panel=True cancel=False retryAction=False recovery=False",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-adversarial06-physical-evidence/mobile-006-0017-action-error.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Cancel preserved context and Retry completed the exact original action.",
+      "recoveryVerified": true
+    },
+    {
+      "viewport": "mobile",
+      "screen": 6,
+      "scenario": "duplicate",
+      "path": [
+        "Proof",
+        "Continue Apply for task"
+      ],
+      "ticket": "C2-IDEMP-005",
+      "baselineObserved": "panel={'busy': False, 'buttons': ['View result', 'Close'], 'contentVisible': False, 'scenario': 'duplicate', 'text': 'Social · Catalog PlayerDuplicate stoppedOriginal request C2-006-87527 remains active. No second order, payment, message or submission was created.Continue Apply for task can continue from its one retained result.View resultClose', 'title': 'Duplicate stopped', 'visible': True, 'visibleButtons': []} opened=False status=Showing all videos | Paid task proof X ConfirmedFunding RequiredLocation proof 24 hoursReview time Rs 450Payout LaterSave task ContinueApply for task Review funded status, required proof, review time and payout before applying.",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-adversarial06-physical-evidence/mobile-006-0018-duplicate.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Duplicate stopped; original reference C2-006-87527 retained and opened.",
+      "recoveryVerified": true
+    }
+  ]
+}

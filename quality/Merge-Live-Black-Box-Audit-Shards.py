@@ -64,11 +64,24 @@ def write_markdown(report: dict, output: Path) -> None:
         "",
         "Generated contract toasts, orange selection outlines and generic contract sheets are excluded from completion evidence.",
         "",
+        "## Screen-by-screen tap coverage",
+        "",
+        "| Viewport | Screen | Tap paths | Nested paths | Passed | Failed | No-op | Truncated |",
+        "| --- | ---: | ---: | ---: | ---: | ---: | ---: | --- |",
+    ]
+    for run in report["runs"]:
+        lines.append(
+            f"| {run['viewport']} | {run['screen']:03d} | {run.get('pathsTested', 0)} | "
+            f"{run.get('nestedPathsTested', 0)} | {run.get('passed', 0)} | {run.get('failed', 0)} | "
+            f"{run.get('noOp', 0)} | {'yes' if run.get('truncated') else 'no'} |"
+        )
+    lines.extend([
+        "",
         "## Screenwise findings",
         "",
         "| Ticket | Viewport | Screen | Tap path | Intent | Failure | Evidence |",
         "| --- | --- | ---: | --- | --- | --- | --- |",
-    ]
+    ])
     for run in report["runs"]:
         for issue in run["issues"]:
             links = " / ".join(

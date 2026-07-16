@@ -1,0 +1,85 @@
+{
+  "version": "second-cycle-failure-replay-reconciliation-2026-07-16",
+  "generatedAt": "2026-07-15T23:28:18Z",
+  "baseline": "quality\\generated\\second-cycle-baseline-screen06.json",
+  "final": "quality\\generated\\second-cycle-replay-screen06.json",
+  "summary": {
+    "baselineFailures": 5,
+    "verifiedPassed": 5,
+    "stillFailed": 0,
+    "missing": 0,
+    "status": "passed"
+  },
+  "replays": [
+    {
+      "viewport": "mobile",
+      "screen": 6,
+      "scenario": "route-loading",
+      "path": [
+        "route-loading"
+      ],
+      "ticket": "C2-RES-001",
+      "baselineObserved": "busy=False visibleBefore=False visibleAfter=False",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-baseline-evidence/mobile-006-0001-route-loading.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Route-specific busy state settled into the usable screen.",
+      "recoveryVerified": true
+    },
+    {
+      "viewport": "mobile",
+      "screen": 6,
+      "scenario": "route-empty",
+      "path": [
+        "route-empty"
+      ],
+      "ticket": "C2-RES-001",
+      "baselineObserved": "Forced state was not rendered with its required action. panel=False buttons=[]",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-baseline-evidence/mobile-006-0001-route-loading.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Refresh completed the recovery path.",
+      "recoveryVerified": true
+    },
+    {
+      "viewport": "mobile",
+      "screen": 6,
+      "scenario": "route-offline",
+      "path": [
+        "route-offline"
+      ],
+      "ticket": "C2-RES-001",
+      "baselineObserved": "Forced state was not rendered with its required action. panel=False buttons=[]",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-baseline-evidence/mobile-006-0001-route-loading.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Retry connection completed the recovery path.",
+      "recoveryVerified": true
+    },
+    {
+      "viewport": "mobile",
+      "screen": 6,
+      "scenario": "route-unauthorized",
+      "path": [
+        "route-unauthorized"
+      ],
+      "ticket": "C2-RES-001",
+      "baselineObserved": "Forced state was not rendered with its required action. panel=False buttons=[]",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-baseline-evidence/mobile-006-0001-route-loading.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Sign in again completed the recovery path.",
+      "recoveryVerified": true
+    },
+    {
+      "viewport": "mobile",
+      "screen": 6,
+      "scenario": "route-error",
+      "path": [
+        "route-error"
+      ],
+      "ticket": "C2-RES-001",
+      "baselineObserved": "Forced state was not rendered with its required action. panel=False buttons=[]",
+      "baselineEvidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-baseline-evidence/mobile-006-0001-route-loading.png",
+      "replayStatus": "verified-passed",
+      "replayObserved": "Try again completed the recovery path.",
+      "recoveryVerified": true
+    }
+  ]
+}

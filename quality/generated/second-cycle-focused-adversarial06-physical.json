@@ -1,0 +1,773 @@
+{
+  "version": "second-cycle-adversarial-micro-audit-2026-07-16",
+  "generatedAt": "2026-07-15T23:39:51Z",
+  "baseUrl": "http://127.0.0.1:8765",
+  "positiveReport": "C:\\GUARANTEED OUTCOME\\supermandi-uiux-screenbook\\quality\\generated\\second-cycle-focused-positive06.json",
+  "rule": "Every forced route or action failure condition must expose a domain-specific recovery path and complete the original intent after recovery.",
+  "viewports": {
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "mobile": true
+    }
+  },
+  "summary": {
+    "status": "failed",
+    "screenViewportRuns": 1,
+    "uniqueScreens": 1,
+    "routeScenariosTested": 0,
+    "actionScenariosTested": 45,
+    "passed": 27,
+    "failed": 18,
+    "cancelBranchesVerified": 12,
+    "recoveryBranchesVerified": 27,
+    "truncatedScreens": 0,
+    "consoleErrors": 0
+  },
+  "runs": [
+    {
+      "screen": 6,
+      "file": "06-social-videos.html",
+      "viewport": "mobile",
+      "positivePathsReferenced": 206,
+      "routeResults": [],
+      "actionResults": [
+        {
+          "ticket": "C2-PERM-006",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "permission-denied",
+          "path": [
+            "Search videos",
+            "Ask Voice"
+          ],
+          "status": "failed",
+          "expectedResult": "Explain the denied device permission and provide settings, fallback and cancel actions.",
+          "observedResult": "panel=True settings=False fallback=False fallbackResult=False settingsResult=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-adversarial06-physical-evidence/mobile-006-0001-permission-denied.png"
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "Grow your shop with verified product videos and local orders",
+            "Start Create shop page"
+          ],
+          "status": "failed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "panel={'busy': True, 'buttons': [], 'contentVisible': False, 'scenario': 'action-loading', 'text': 'Social · Catalog PlayerStart Create shop page is in progressPlease wait while MoolSocial completes this exact action.Repeated taps are temporarily blocked.', 'title': 'Start Create shop page is in progress', 'visible': True, 'visibleButtons': []} panelAfter=False nativeCompletion=True",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-adversarial06-physical-evidence/mobile-006-0002-action-loading.png"
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "Grow your shop with verified product videos and local orders",
+            "Start Create shop page"
+          ],
+          "status": "failed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "panel=True cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-adversarial06-physical-evidence/mobile-006-0003-action-offline.png"
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "Grow your shop with verified product videos and local orders",
+            "Start Create shop page"
+          ],
+          "status": "failed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "panel=True cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-adversarial06-physical-evidence/mobile-006-0004-action-error.png"
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "Grow your shop with verified product videos and local orders",
+            "Start Create shop page"
+          ],
+          "status": "failed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "panel={'busy': False, 'buttons': ['View result', 'Close'], 'contentVisible': False, 'scenario': 'duplicate', 'text': 'Social · Catalog PlayerDuplicate stoppedOriginal request C2-006-49811 remains active. No second order, payment, message or submission was created.Start Create shop page can continue from its one retained result.View resultClose', 'title': 'Duplicate stopped', 'visible': True, 'visibleButtons': []} opened=False status=Showing all videos | Grow your shop X 2 minWatch overview StartCreate shop page CreatePublish product video Set upReceive local orders PlansView pricing ContinueStart shop setup Choose how you want to turn verified product videos into local customer orders.",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-adversarial06-physical-evidence/mobile-006-0005-duplicate.png"
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "Grow your shop with verified product videos and local orders",
+            "Create Publish product video"
+          ],
+          "status": "failed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "panel={'busy': True, 'buttons': [], 'contentVisible': False, 'scenario': 'action-loading', 'text': 'Social · Catalog PlayerCreate Publish product video is in progressPlease wait while MoolSocial completes this exact action.Repeated taps are temporarily blocked.', 'title': 'Create Publish product video is in progress', 'visible': True, 'visibleButtons': []} panelAfter=False nativeCompletion=True",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-adversarial06-physical-evidence/mobile-006-0006-action-loading.png"
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "Grow your shop with verified product videos and local orders",
+            "Create Publish product video"
+          ],
+          "status": "failed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "panel=True cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-adversarial06-physical-evidence/mobile-006-0007-action-offline.png"
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "Grow your shop with verified product videos and local orders",
+            "Create Publish product video"
+          ],
+          "status": "failed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "panel=True cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-adversarial06-physical-evidence/mobile-006-0008-action-error.png"
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "Grow your shop with verified product videos and local orders",
+            "Create Publish product video"
+          ],
+          "status": "failed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "panel={'busy': False, 'buttons': ['View result', 'Close'], 'contentVisible': False, 'scenario': 'duplicate', 'text': 'Social · Catalog PlayerDuplicate stoppedOriginal request C2-006-07765 remains active. No second order, payment, message or submission was created.Create Publish product video can continue from its one retained result.View resultClose', 'title': 'Duplicate stopped', 'visible': True, 'visibleButtons': []} opened=False status=Showing all videos | Grow your shop X 2 minWatch overview StartCreate shop page CreatePublish product video Set upReceive local orders PlansView pricing ContinueStart shop setup Choose how you want to turn verified product videos into local customer orders.",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-adversarial06-physical-evidence/mobile-006-0009-duplicate.png"
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "Grow your shop with verified product videos and local orders",
+            "Continue Start shop setup"
+          ],
+          "status": "failed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "panel={'busy': True, 'buttons': [], 'contentVisible': False, 'scenario': 'action-loading', 'text': 'Social · Catalog PlayerContinue Start shop setup is in progressPlease wait while MoolSocial completes this exact action.Repeated taps are temporarily blocked.', 'title': 'Continue Start shop setup is in progress', 'visible': True, 'visibleButtons': []} panelAfter=False nativeCompletion=True",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-adversarial06-physical-evidence/mobile-006-0010-action-loading.png"
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "Grow your shop with verified product videos and local orders",
+            "Continue Start shop setup"
+          ],
+          "status": "failed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "panel=True cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-adversarial06-physical-evidence/mobile-006-0011-action-offline.png"
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "Grow your shop with verified product videos and local orders",
+            "Continue Start shop setup"
+          ],
+          "status": "failed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "panel=True cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-adversarial06-physical-evidence/mobile-006-0012-action-error.png"
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "Grow your shop with verified product videos and local orders",
+            "Continue Start shop setup"
+          ],
+          "status": "failed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "panel={'busy': False, 'buttons': ['View result', 'Close'], 'contentVisible': False, 'scenario': 'duplicate', 'text': 'Social · Catalog PlayerDuplicate stoppedOriginal request C2-006-11498 remains active. No second order, payment, message or submission was created.Continue Start shop setup can continue from its one retained result.View resultClose', 'title': 'Duplicate stopped', 'visible': True, 'visibleButtons': []} opened=False status=Showing all videos | Grow your shop X 2 minWatch overview StartCreate shop page CreatePublish product video Set upReceive local orders PlansView pricing ContinueStart shop setup Choose how you want to turn verified product videos into local customer orders.",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-adversarial06-physical-evidence/mobile-006-0013-duplicate.png"
+        },
+        {
+          "ticket": "C2-PERM-006",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "permission-denied",
+          "path": [
+            "Proof",
+            "Required Location proof"
+          ],
+          "status": "failed",
+          "expectedResult": "Explain the denied device permission and provide settings, fallback and cancel actions.",
+          "observedResult": "panel=True settings=False fallback=False fallbackResult=False settingsResult=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-adversarial06-physical-evidence/mobile-006-0014-permission-denied.png"
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "Proof",
+            "Continue Apply for task"
+          ],
+          "status": "failed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "panel={'busy': True, 'buttons': [], 'contentVisible': False, 'scenario': 'action-loading', 'text': 'Social · Catalog PlayerContinue Apply for task is in progressPlease wait while MoolSocial completes this exact action.Repeated taps are temporarily blocked.', 'title': 'Continue Apply for task is in progress', 'visible': True, 'visibleButtons': []} panelAfter=False nativeCompletion=True",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-adversarial06-physical-evidence/mobile-006-0015-action-loading.png"
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "Proof",
+            "Continue Apply for task"
+          ],
+          "status": "failed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "panel=True cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-adversarial06-physical-evidence/mobile-006-0016-action-offline.png"
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "Proof",
+            "Continue Apply for task"
+          ],
+          "status": "failed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "panel=True cancel=False retryAction=False recovery=False",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-adversarial06-physical-evidence/mobile-006-0017-action-error.png"
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "Proof",
+            "Continue Apply for task"
+          ],
+          "status": "failed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "panel={'busy': False, 'buttons': ['View result', 'Close'], 'contentVisible': False, 'scenario': 'duplicate', 'text': 'Social · Catalog PlayerDuplicate stoppedOriginal request C2-006-87527 remains active. No second order, payment, message or submission was created.Continue Apply for task can continue from its one retained result.View resultClose', 'title': 'Duplicate stopped', 'visible': True, 'visibleButtons': []} opened=False status=Showing all videos | Paid task proof X ConfirmedFunding RequiredLocation proof 24 hoursReview time Rs 450Payout LaterSave task ContinueApply for task Review funded status, required proof, review time and payout before applying.",
+          "cancelVerified": false,
+          "recoveryVerified": false,
+          "evidence": "C:/GUARANTEED OUTCOME/supermandi-uiux-screenbook/quality/generated/second-cycle-focused-adversarial06-physical-evidence/mobile-006-0018-duplicate.png"
+        },
+        {
+          "ticket": "C2-PERM-006",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "permission-denied",
+          "path": [
+            "Watch how this Jodhpur shop packs a fresh morning basket",
+            "More",
+            "Jodhpur Location"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the denied device permission and provide settings, fallback and cancel actions.",
+          "observedResult": "Permission denial offered settings, a usable fallback and cancellation without losing context.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "Watch how this Jodhpur shop packs a fresh morning basket",
+            "Open proof",
+            "Rule Refund"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "Watch how this Jodhpur shop packs a fresh morning basket",
+            "Open proof",
+            "Rule Refund"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "Watch how this Jodhpur shop packs a fresh morning basket",
+            "Open proof",
+            "Rule Refund"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "Watch how this Jodhpur shop packs a fresh morning basket",
+            "Open proof",
+            "Rule Refund"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-006-98684 retained and opened.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "Watch how this Jodhpur shop packs a fresh morning basket",
+            "Open proof",
+            "Order Open"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "Watch how this Jodhpur shop packs a fresh morning basket",
+            "Open proof",
+            "Order Open"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "Watch how this Jodhpur shop packs a fresh morning basket",
+            "Open proof",
+            "Order Open"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "Watch how this Jodhpur shop packs a fresh morning basket",
+            "Open proof",
+            "Order Open"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-006-96892 retained and opened.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-PERM-006",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "permission-denied",
+          "path": [
+            "Watch how QR proof tasks are checked before payout",
+            "More",
+            "Jodhpur Location"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the denied device permission and provide settings, fallback and cancel actions.",
+          "observedResult": "Permission denial offered settings, a usable fallback and cancellation without losing context.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-PERM-006",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "permission-denied",
+          "path": [
+            "Watch how QR proof tasks are checked before payout",
+            "Open proof",
+            "Required Location proof"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the denied device permission and provide settings, fallback and cancel actions.",
+          "observedResult": "Permission denial offered settings, a usable fallback and cancellation without losing context.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "Watch how QR proof tasks are checked before payout",
+            "Open proof",
+            "Continue Apply for task"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "Watch how QR proof tasks are checked before payout",
+            "Open proof",
+            "Continue Apply for task"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "Watch how QR proof tasks are checked before payout",
+            "Open proof",
+            "Continue Apply for task"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "Watch how QR proof tasks are checked before payout",
+            "Open proof",
+            "Continue Apply for task"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-006-87527 retained and opened.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "Watch how this Jodhpur shop packs a fresh morning basket",
+            "Open proof",
+            "Rs 399 Price",
+            "Order Open"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "Watch how this Jodhpur shop packs a fresh morning basket",
+            "Open proof",
+            "Rs 399 Price",
+            "Order Open"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "Watch how this Jodhpur shop packs a fresh morning basket",
+            "Open proof",
+            "Rs 399 Price",
+            "Order Open"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "Watch how this Jodhpur shop packs a fresh morning basket",
+            "Open proof",
+            "Rs 399 Price",
+            "Order Open"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-006-96892 retained and opened.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "Watch how this Jodhpur shop packs a fresh morning basket",
+            "Open proof",
+            "45 min Time",
+            "Order Open"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "Watch how this Jodhpur shop packs a fresh morning basket",
+            "Open proof",
+            "45 min Time",
+            "Order Open"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "Watch how this Jodhpur shop packs a fresh morning basket",
+            "Open proof",
+            "45 min Time",
+            "Order Open"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "Watch how this Jodhpur shop packs a fresh morning basket",
+            "Open proof",
+            "45 min Time",
+            "Order Open"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-006-96892 retained and opened.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-002",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "action-loading",
+          "path": [
+            "Watch how this Jodhpur shop packs a fresh morning basket",
+            "Open proof",
+            "Rule Refund",
+            "Order Open"
+          ],
+          "status": "passed",
+          "expectedResult": "Show immediate action-specific progress and then complete the original end intent.",
+          "observedResult": "Progress appeared immediately and the original action completed.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-003",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "action-offline",
+          "path": [
+            "Watch how this Jodhpur shop packs a fresh morning basket",
+            "Open proof",
+            "Rule Refund",
+            "Order Open"
+          ],
+          "status": "passed",
+          "expectedResult": "Explain the offline interruption, preserve state, support Cancel and complete Retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-ACT-004",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "action-error",
+          "path": [
+            "Watch how this Jodhpur shop packs a fresh morning basket",
+            "Open proof",
+            "Rule Refund",
+            "Order Open"
+          ],
+          "status": "passed",
+          "expectedResult": "Show the failed action, support Cancel and complete the exact retry.",
+          "observedResult": "Cancel preserved context and Retry completed the exact original action.",
+          "cancelVerified": true,
+          "recoveryVerified": true
+        },
+        {
+          "ticket": "C2-IDEMP-005",
+          "screen": 6,
+          "viewport": "mobile",
+          "scenario": "duplicate",
+          "path": [
+            "Watch how this Jodhpur shop packs a fresh morning basket",
+            "Open proof",
+            "Rule Refund",
+            "Order Open"
+          ],
+          "status": "passed",
+          "expectedResult": "Stop the duplicate submission and retain one stable result reference.",
+          "observedResult": "Duplicate stopped; original reference C2-006-96892 retained and opened.",
+          "cancelVerified": false,
+          "recoveryVerified": true
+        }
+      ],
+      "truncated": false,
+      "queuedActionScenariosRemaining": 0
+    }
+  ],
+  "consoleErrors": []
+}
