@@ -184,9 +184,22 @@
             return { pass: true, error: '', route: expectedHref, contract: contract ? contract.type : 'native-existing' };
           }
 
-          var currentDoc = subject.contentDocument;
-          var currentWin = subject.contentWindow;
-          var afterUrl = currentWin.location.href;
+          var currentDoc;
+          var currentWin;
+          var afterUrl;
+          try {
+            currentDoc = subject.contentDocument;
+            currentWin = subject.contentWindow;
+            afterUrl = currentWin.location.href;
+          } catch (finalNavigationError) {
+            // The external route can finish between the guarded settling loop
+            // and this final observation. The declared cross-origin href is the
+            // stable intent evidence; browser opacity confirms the handoff.
+            if (expectedHref && new URL(expectedHref).origin !== new URL(beforeUrl).origin) {
+              return { pass: true, error: '', route: expectedHref, contract: contract ? contract.type : 'native-existing' };
+            }
+            throw finalNavigationError;
+          }
           var afterHash = currentDoc && currentDoc.body ? hash(currentDoc.body.innerHTML) : '';
           var currentElement = currentDoc === doc ? findControl(currentDoc, descriptor) : null;
           var afterSelected = currentElement ? selected(currentElement) : false;

@@ -1,0 +1,64 @@
+{
+  "version": "post-review-integrated-dock-replay-1",
+  "ticket": "C2-UX-020",
+  "status": "passed",
+  "preFixReproduction": {
+    "result": "failed",
+    "action": "Tap Mool on Screen 04",
+    "observed": "A separate pale two-row action panel opened above a bottom dock that already displayed the same universal actions, producing duplicate navigation, heavy borders and an outdated prototype appearance."
+  },
+  "rootCause": "The compact launcher was implemented as a second surface while the centre dock remained permanently bound to the universal root-action carousel. The product description called for Mool to transform the dock, but the UI stacked both states.",
+  "resolution": [
+    "The centre dock now shows focused feature actions during normal use, such as Shorts, Videos, Feed and Create for Social.",
+    "Tapping Mool replaces that same centre area with a single horizontal universal-action rail; no upper panel or duplicated root rail remains.",
+    "The open dock uses a dark navy glass surface, saffron Mool state, one white current-action capsule, subtle edge fade and 40-pixel action targets.",
+    "Closing Mool restores the prior focused actions without changing or losing the current screen state.",
+    "Guided journey contracts now explicitly test Mool followed by the selected universal action."
+  ],
+  "exactReplay": {
+    "closedState": {
+      "launcherPanelsAboveDock": 0,
+      "visibleFocusedActions": ["Shorts", "Videos", "Feed", "Create"],
+      "moolExpanded": false
+    },
+    "openState": {
+      "integratedIntoBottomDock": true,
+      "duplicateUniversalRails": 0,
+      "universalActions": ["Social", "Buy", "Eat", "Ride", "Book", "Pay", "Work"],
+      "horizontalAccess": true,
+      "moolExpanded": true
+    },
+    "destinations": {
+      "tested": 7,
+      "passed": 7
+    },
+    "guidedWorkSequence": [
+      "Tap: Show Mool actions",
+      "Tap: Open work",
+      "Screen 67 reached at Earn and Create Work Profile 2 / 8"
+    ]
+  },
+  "affectedVerification": {
+    "screen04RenderedControls": "30 / 30 passed",
+    "buyDelivery": "8 / 8 passed",
+    "ride": "7 / 7 passed",
+    "earnWorkspace": "8 / 8 passed",
+    "horizontalOverflows": 0,
+    "consoleErrors": 0
+  },
+  "auditReconciliation": {
+    "initialAggregateIssue": "Screen 44 external map route became cross-origin between the guarded settling loop and final verifier URL read.",
+    "rootCause": "Audit observation timing race after a successful external handoff; no product failure.",
+    "resolution": "Accept browser opacity as handoff evidence when the tapped anchor declared a cross-origin destination, including at final observation.",
+    "exactScreen44Replay": "20 / 20 passed"
+  },
+  "fullRegression": {
+    "operationalJourneys": "47 / 47 passed",
+    "approvedScreens": "166 / 166",
+    "renderedControls": "3179 / 3179 passed",
+    "mobileReleaseGate": "ready",
+    "preProductionGate": "ready",
+    "horizontalOverflows": 0,
+    "consoleErrors": 0
+  }
+}

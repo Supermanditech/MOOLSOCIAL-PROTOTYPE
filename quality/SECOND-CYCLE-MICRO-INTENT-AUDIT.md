@@ -49,7 +49,7 @@ The action matrix contains 940 loading, 940 offline, 940 failure, 940 duplicate,
 
 ## Defects, root causes and fixes
 
-Nineteen second-cycle and immediate post-review defects were reproduced, ticketed, root-caused, fixed and closed. The ticket-level reproduction, resolution and evidence ledger is `quality/SECOND-CYCLE-DEFECT-TICKETS.md`.
+Twenty second-cycle and immediate post-review defects were reproduced, ticketed, root-caused, fixed and closed. The ticket-level reproduction, resolution and evidence ledger is `quality/SECOND-CYCLE-DEFECT-TICKETS.md`.
 
 | Tickets | Final result |
 | --- | --- |
@@ -62,6 +62,7 @@ Nineteen second-cycle and immediate post-review defects were reproduced, tickete
 | C2-NAV-017 | People and Business chat threads gained a persistent one-tap Mool-home return |
 | C2-UX-018 | Oversized generic Mool modal replaced with a minimal two-row action ribbon |
 | C2-NAV-019 | Mool Work now opens the canonical opportunity list on the first selection and the master walkthrough adopts the Earn journey without a false route error |
+| C2-UX-020 | Duplicate Mool panel and root rail replaced with one integrated, state-preserving dark-glass dock switcher |
 
 ## Exact failure replays
 
@@ -101,6 +102,8 @@ The before/after Screen 17 replay files are `quality/generated/second-cycle-repl
 | Onboarding and Social affected journeys | 10 / 10 states passed |
 | Screen 04/05/23/25 controls after Mool Work fix | 129 / 129 passed |
 | Social and Earn affected journeys after route fix | 13 / 13 states passed |
+| Integrated Mool dock controls | 30 / 30 passed |
+| Integrated Mool destination routes | 7 / 7 passed |
 
 ## Final full regression
 
@@ -108,7 +111,7 @@ The before/after Screen 17 replay files are `quality/generated/second-cycle-repl
 | --- | ---: |
 | Approved operational journeys | 47 / 47 passed |
 | Approved screens covered by journey manifest | 166 / 166 |
-| Rendered visible controls | 3,196 / 3,196 passed |
+| Rendered visible controls | 3,179 / 3,179 passed; 17 duplicate controls removed by the integrated-dock redesign |
 | Critical intent journeys | 6 / 6 passed |
 | Visual action semantics | 166 screens, 0 findings |
 | Static navigation targets | 1,124 checked, 0 missing |

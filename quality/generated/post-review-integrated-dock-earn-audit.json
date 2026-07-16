@@ -1,0 +1,96 @@
+{
+  "generatedAt": "2026-07-16T06:37:25Z",
+  "status": "passed",
+  "source": "Microsoft Edge at 390x844 using native clicks on only highlighted, visible user controls; no forced navigation for tap or multi-action transitions",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "summary": {
+    "operationalFlowsTested": 1,
+    "passed": 1,
+    "failed": 0,
+    "approvedScreensCoveredByManifest": 166,
+    "horizontalOverflows": 0,
+    "consoleErrors": 0
+  },
+  "consoleErrorDetails": [],
+  "flows": [
+    {
+      "flow": "earn-workspace",
+      "title": "Earn and Create Work Profile",
+      "status": "passed",
+      "expectedNodes": 8,
+      "interactionTurns": 8,
+      "finalCounter": "8 / 8",
+      "screensSeen": [
+        4,
+        67,
+        68,
+        69,
+        70,
+        71
+      ],
+      "horizontalOverflows": [],
+      "turns": [
+        {
+          "counter": "1 / 8",
+          "screen": 4,
+          "file": "04-universal-focus-shell.html",
+          "action": "Show Mool actions",
+          "intent": "Tap: Show Mool actions"
+        },
+        {
+          "counter": "1 / 8",
+          "screen": 4,
+          "file": "04-universal-focus-shell.html",
+          "action": "Open work",
+          "intent": "Tap: Open work"
+        },
+        {
+          "counter": "2 / 8",
+          "screen": 67,
+          "file": "67-work.html",
+          "action": "View featured opportunity details",
+          "intent": "Tap: View featured opportunity details"
+        },
+        {
+          "counter": "2 / 8",
+          "screen": 67,
+          "file": "67-work.html",
+          "action": "Review & Apply →",
+          "intent": "Tap: Review & Apply"
+        },
+        {
+          "counter": "3 / 8",
+          "screen": 68,
+          "file": "68-work-opportunity-terms-apply.html",
+          "action": "Apply now Freelancer setup opens next",
+          "intent": "Tap: Apply now"
+        },
+        {
+          "counter": "4 / 8",
+          "screen": 69,
+          "file": "69-my-work-setup.html",
+          "action": "Start My Work",
+          "intent": "Tap: Start My Work"
+        },
+        {
+          "counter": "5 / 8",
+          "screen": 70,
+          "file": "70-my-work-choose-activity.html",
+          "action": "Create & Work Creator, freelancer or Get It Done",
+          "intent": "Tap: Create & Work"
+        },
+        {
+          "counter": "6 / 8",
+          "screen": 71,
+          "file": "71-work-profile-proof.html",
+          "action": "Continue to proof",
+          "intent": "Tap: Continue to proof"
+        }
+      ],
+      "error": null
+    }
+  ]
+}

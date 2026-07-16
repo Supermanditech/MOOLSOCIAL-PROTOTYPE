@@ -1,0 +1,73 @@
+{
+  "generatedAt": "2026-07-16T06:37:22Z",
+  "status": "passed",
+  "source": "Microsoft Edge at 390x844 using native clicks on only highlighted, visible user controls; no forced navigation for tap or multi-action transitions",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "summary": {
+    "operationalFlowsTested": 1,
+    "passed": 1,
+    "failed": 0,
+    "approvedScreensCoveredByManifest": 166,
+    "horizontalOverflows": 0,
+    "consoleErrors": 0
+  },
+  "consoleErrorDetails": [],
+  "flows": [
+    {
+      "flow": "ride",
+      "title": "Ride Consumer Journey",
+      "status": "passed",
+      "expectedNodes": 7,
+      "interactionTurns": 5,
+      "finalCounter": "7 / 7",
+      "screensSeen": [
+        4,
+        30,
+        33,
+        34
+      ],
+      "horizontalOverflows": [],
+      "turns": [
+        {
+          "counter": "1 / 7",
+          "screen": 4,
+          "file": "04-universal-focus-shell.html",
+          "action": "Show Mool actions",
+          "intent": "Tap: Show Mool actions"
+        },
+        {
+          "counter": "1 / 7",
+          "screen": 4,
+          "file": "04-universal-focus-shell.html",
+          "action": "Open ride",
+          "intent": "Tap: Open ride"
+        },
+        {
+          "counter": "2 / 7",
+          "screen": 30,
+          "file": "30-ride.html",
+          "action": "Auto from Rs 112 routine fare · local",
+          "intent": "Tap: Auto from Rs 112"
+        },
+        {
+          "counter": "2 / 7",
+          "screen": 33,
+          "file": "33-ride-payment-approval.html",
+          "action": "Approve Rs 112",
+          "intent": "Opening next verified state..."
+        },
+        {
+          "counter": "6 / 7",
+          "screen": 34,
+          "file": "34-ride-receipt-rating.html",
+          "action": "Support",
+          "intent": "Tap: Support"
+        }
+      ],
+      "error": null
+    }
+  ]
+}
