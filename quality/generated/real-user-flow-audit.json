@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-16T05:01:59Z",
+  "generatedAt": "2026-07-16T05:18:42Z",
   "status": "passed",
   "source": "Microsoft Edge at 390x844 using native clicks on only highlighted, visible user controls; no forced navigation for tap or multi-action transitions",
   "viewport": {
@@ -124,7 +124,7 @@
           "screen": 4,
           "file": "04-universal-focus-shell.html",
           "action": "Open product buying",
-          "intent": "Loading first state..."
+          "intent": "Tap: Open product buying"
         },
         {
           "counter": "2 / 8",
@@ -199,8 +199,7 @@
         11,
         12,
         14,
-        17,
-        18
+        17
       ],
       "horizontalOverflows": [],
       "turns": [
@@ -342,11 +341,11 @@
           "intent": "Tap: Refresh"
         },
         {
-          "counter": "3 / 5",
+          "counter": "4 / 5",
           "screen": 21,
           "file": "21-issue-result-refund-replacement.html",
           "action": "Chat case support",
-          "intent": "Opening next verified state..."
+          "intent": "Tap: Chat case support"
         }
       ],
       "error": null
@@ -428,7 +427,7 @@
           "screen": 4,
           "file": "04-universal-focus-shell.html",
           "action": "Open food",
-          "intent": "Loading first state..."
+          "intent": "Tap: Open food"
         },
         {
           "counter": "2 / 3",
@@ -488,7 +487,7 @@
           "screen": 4,
           "file": "04-universal-focus-shell.html",
           "action": "Open food",
-          "intent": "Tap: Open food"
+          "intent": "Loading first state..."
         },
         {
           "counter": "2 / 3",
@@ -531,7 +530,7 @@
           "intent": "Tap: Auto from Rs 112"
         },
         {
-          "counter": "4 / 7",
+          "counter": "5 / 7",
           "screen": 33,
           "file": "33-ride-payment-approval.html",
           "action": "Approve Rs 112",
@@ -645,7 +644,7 @@
           "screen": 4,
           "file": "04-universal-focus-shell.html",
           "action": "Open booking",
-          "intent": "Tap: Open booking"
+          "intent": "Loading first state..."
         },
         {
           "counter": "2 / 8",
@@ -673,7 +672,7 @@
           "screen": 45,
           "file": "45-salon-visit-check-in.html",
           "action": "Service done",
-          "intent": "Automatic: Customer arrived and the salon checked in the visit"
+          "intent": "Tap: Service done"
         },
         {
           "counter": "7 / 8",
@@ -711,7 +710,7 @@
           "screen": 4,
           "file": "04-universal-focus-shell.html",
           "action": "Open booking",
-          "intent": "Tap: Open booking"
+          "intent": "Loading first state..."
         },
         {
           "counter": "2 / 11",
@@ -799,7 +798,7 @@
           "screen": 4,
           "file": "04-universal-focus-shell.html",
           "action": "Open payments",
-          "intent": "Loading first state..."
+          "intent": "Tap: Open payments"
         },
         {
           "counter": "2 / 5",
@@ -845,7 +844,7 @@
           "screen": 4,
           "file": "04-universal-focus-shell.html",
           "action": "Open payments",
-          "intent": "Loading first state..."
+          "intent": "Tap: Open payments"
         },
         {
           "counter": "2 / 5",
@@ -891,7 +890,7 @@
           "screen": 4,
           "file": "04-universal-focus-shell.html",
           "action": "Open payments",
-          "intent": "Loading first state..."
+          "intent": "Tap: Open payments"
         },
         {
           "counter": "2 / 5",
@@ -938,7 +937,7 @@
           "screen": 4,
           "file": "04-universal-focus-shell.html",
           "action": "Open payments",
-          "intent": "Loading first state..."
+          "intent": "Tap: Open payments"
         },
         {
           "counter": "2 / 6",
@@ -982,7 +981,8 @@
         4,
         57,
         61,
-        62
+        62,
+        65
       ],
       "horizontalOverflows": [],
       "turns": [
@@ -1028,7 +1028,8 @@
         4,
         57,
         61,
-        62
+        62,
+        66
       ],
       "horizontalOverflows": [],
       "turns": [
@@ -1085,7 +1086,7 @@
           "screen": 4,
           "file": "04-universal-focus-shell.html",
           "action": "Open work",
-          "intent": "Tap: Open work"
+          "intent": "Loading first state..."
         },
         {
           "counter": "2 / 8",
@@ -1190,7 +1191,7 @@
           "screen": 13,
           "file": "13-retailer-stock-confirmation.html",
           "action": "Start Packing accept the paid order",
-          "intent": "Tap: Start Packing"
+          "intent": "Loading first state..."
         },
         {
           "counter": "1 / 5",
@@ -1391,7 +1392,8 @@
         86,
         87,
         88,
-        89
+        89,
+        92
       ],
       "horizontalOverflows": [],
       "turns": [
@@ -1456,7 +1458,7 @@
           "screen": 85,
           "file": "85-retailer-wholesale-goods-receipt.html",
           "action": "All Received 3 cases · good condition",
-          "intent": "Tap: All Received"
+          "intent": "Automatic: Supplier shipment arrived at the shop"
         },
         {
           "counter": "6 / 11",
@@ -1572,7 +1574,7 @@
           "screen": 92,
           "file": "92-retailer-business-book-home.html",
           "action": "S Sales Book App, counter, phone and Chat sales ₹4,82,900 42 today",
-          "intent": "Loading first state..."
+          "intent": "Tap: S Sales Book App, counter, phone and Chat sales ₹4,82,900 42 today"
         },
         {
           "counter": "2 / 8",
@@ -2292,7 +2294,7 @@
         152,
         129,
         125,
-        127,
+        5,
         154,
         130
       ],
@@ -2334,11 +2336,11 @@
           "intent": "Tap: Review & Publish"
         },
         {
-          "counter": "7 / 8",
+          "counter": "6 / 8",
           "screen": 154,
           "file": "154-admin-finance-reconciliation.html",
           "action": "Reconcile exceptions",
-          "intent": "Tap: Reconcile exceptions"
+          "intent": "Automatic: Attributed outcomes reached finance reconciliation"
         }
       ],
       "error": null
@@ -2360,7 +2362,8 @@
         14,
         17,
         18,
-        154
+        154,
+        130
       ],
       "horizontalOverflows": [],
       "turns": [
@@ -2386,11 +2389,11 @@
           "intent": "Tap: Review & Publish"
         },
         {
-          "counter": "3 / 12",
+          "counter": "4 / 12",
           "screen": 5,
           "file": "05-social-shorts.html",
           "action": "Details",
-          "intent": "Opening next verified state..."
+          "intent": "Tap: Details"
         },
         {
           "counter": "5 / 12",
@@ -2439,7 +2442,7 @@
           "screen": 154,
           "file": "154-admin-finance-reconciliation.html",
           "action": "Reconcile exceptions",
-          "intent": "Automatic: Attributed outcomes reached finance reconciliation"
+          "intent": "Tap: Reconcile exceptions"
         }
       ],
       "error": null
@@ -2471,7 +2474,7 @@
           "screen": 7,
           "file": "07-social-feed.html",
           "action": "Join membership",
-          "intent": "Tap: Join membership"
+          "intent": "Opening next verified state..."
         },
         {
           "counter": "3 / 5",
@@ -2491,16 +2494,17 @@
       "interactionTurns": 1,
       "finalCounter": "4 / 4",
       "screensSeen": [
+        127,
         154
       ],
       "horizontalOverflows": [],
       "turns": [
         {
-          "counter": "1 / 4",
+          "counter": "3 / 4",
           "screen": 154,
           "file": "154-admin-finance-reconciliation.html",
           "action": "Reconcile exceptions",
-          "intent": "Automatic: Qualified long-video performance was recorded"
+          "intent": "Tap: Reconcile exceptions"
         }
       ],
       "error": null
@@ -2517,7 +2521,8 @@
         129,
         125,
         152,
-        154
+        154,
+        130
       ],
       "horizontalOverflows": [],
       "turns": [
@@ -2526,7 +2531,7 @@
           "screen": 100,
           "file": "100-retailer-offer-campaign-builder.html",
           "action": "Preview creator view",
-          "intent": "Loading first state..."
+          "intent": "Tap: Preview creator view"
         },
         {
           "counter": "2 / 6",
@@ -2583,7 +2588,7 @@
           "intent": "Tap: Open engine controls"
         },
         {
-          "counter": "2 / 7",
+          "counter": "1 / 7",
           "screen": 133,
           "file": "133-earn-opportunities.html",
           "action": "Check eligibility",
@@ -2634,7 +2639,7 @@
         125,
         7,
         62,
-        130
+        127
       ],
       "horizontalOverflows": [],
       "turns": [
@@ -2643,7 +2648,7 @@
           "screen": 113,
           "file": "113-manufacturer-buyers-demand-campaigns.html",
           "action": "Set terms and reserve",
-          "intent": "Tap: Set terms and reserve"
+          "intent": "Loading first state..."
         },
         {
           "counter": "2 / 9",
@@ -2667,11 +2672,11 @@
           "intent": "Tap: Review & Publish"
         },
         {
-          "counter": "5 / 9",
+          "counter": "4 / 9",
           "screen": 7,
           "file": "07-social-feed.html",
           "action": "Join live event",
-          "intent": "Tap: Join live event"
+          "intent": "Opening next verified state..."
         },
         {
           "counter": "6 / 9",
@@ -2750,7 +2755,7 @@
           "screen": 133,
           "file": "133-earn-opportunities.html",
           "action": "Check eligibility",
-          "intent": "Tap: Check eligibility"
+          "intent": "Loading first state..."
         },
         {
           "counter": "2 / 6",
@@ -2820,7 +2825,7 @@
           "screen": 139,
           "file": "139-provider-home-readiness.html",
           "action": "KEEP CURRENT Services 8 consumer-ready",
-          "intent": "Loading first state..."
+          "intent": "Tap: KEEP CURRENT Services 8 consumer-ready"
         },
         {
           "counter": "2 / 12",

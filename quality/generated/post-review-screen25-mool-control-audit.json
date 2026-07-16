@@ -1,0 +1,25 @@
+{
+  "complete": true,
+  "completedAt": "2026-07-16T05:12:45.331Z",
+  "issues": [],
+  "screens": [
+    {
+      "controls": 31,
+      "failed": 0,
+      "file": "25-chat-people-thread.html",
+      "issues": [],
+      "passed": 31,
+      "screen": 25,
+      "skipped": 0
+    }
+  ],
+  "startedAt": "2026-07-16T05:12:39.350Z",
+  "summary": {
+    "failed": 0,
+    "passed": 31,
+    "screens": 1,
+    "skipped": 0,
+    "tested": 31
+  },
+  "consoleErrors": []
+}

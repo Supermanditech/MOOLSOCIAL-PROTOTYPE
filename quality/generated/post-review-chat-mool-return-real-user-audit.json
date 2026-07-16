@@ -1,0 +1,79 @@
+{
+  "generatedAt": "2026-07-16T05:12:51Z",
+  "status": "passed",
+  "source": "Microsoft Edge at 390x844 using native clicks on only highlighted, visible user controls; no forced navigation for tap or multi-action transitions",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "summary": {
+    "operationalFlowsTested": 1,
+    "passed": 1,
+    "failed": 0,
+    "approvedScreensCoveredByManifest": 166,
+    "horizontalOverflows": 0,
+    "consoleErrors": 0
+  },
+  "consoleErrorDetails": [],
+  "flows": [
+    {
+      "flow": "chat",
+      "title": "Chat Inbox and Threads",
+      "status": "passed",
+      "expectedNodes": 5,
+      "interactionTurns": 6,
+      "finalCounter": "5 / 5",
+      "screensSeen": [
+        4,
+        23,
+        24
+      ],
+      "horizontalOverflows": [],
+      "turns": [
+        {
+          "counter": "1 / 5",
+          "screen": 4,
+          "file": "04-universal-focus-shell.html",
+          "action": "Open chats, 2 unread messages",
+          "intent": "Tap: Open chats, 2 unread messages"
+        },
+        {
+          "counter": "2 / 5",
+          "screen": 23,
+          "file": "23-chat-inbox-home.html",
+          "action": "Business",
+          "intent": "Tap: Business"
+        },
+        {
+          "counter": "2 / 5",
+          "screen": 23,
+          "file": "23-chat-inbox-home.html",
+          "action": "JW Jodhpur Wholesale Supplier V Price list reply for oil, pulses and monthly basket MOQ. Business Price list 6m 1",
+          "intent": "Tap: Jodhpur Wholesale Supplier"
+        },
+        {
+          "counter": "3 / 5",
+          "screen": 24,
+          "file": "24-chat-business-thread.html",
+          "action": "Back to chat inbox",
+          "intent": "Tap: Back to chat inbox"
+        },
+        {
+          "counter": "4 / 5",
+          "screen": 23,
+          "file": "23-chat-inbox-home.html",
+          "action": "People",
+          "intent": "Tap: People"
+        },
+        {
+          "counter": "4 / 5",
+          "screen": 23,
+          "file": "23-chat-inbox-home.html",
+          "action": "AV Amit Vyas Shared monthly basket list: atta, rice and fruits. People Basket group 18m sent",
+          "intent": "Tap: Amit Vyas"
+        }
+      ],
+      "error": null
+    }
+  ]
+}

@@ -542,7 +542,7 @@
     .composer {
       height: 54px;
       display: grid;
-      grid-template-columns: 34px 34px 1fr 34px 38px;
+      grid-template-columns: 40px 34px 34px 1fr 34px 38px;
       gap: 6px;
       align-items: center;
       border: 1px solid rgba(0,0,128,.20);
@@ -550,6 +550,19 @@
       padding: 7px;
       background: rgba(255,255,255,.98);
       box-shadow: 0 14px 32px rgba(0,0,128,.20);
+    }
+    .composer .mool-home-button {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--ms-navy);
+      color: var(--ms-white);
+      text-decoration: none;
+      font-size: 8px;
+      font-weight: 950;
+      box-shadow: inset 0 -3px 0 var(--ms-saffron), 0 8px 18px rgba(0,0,128,.18);
     }
     .composer button, .send-btn {
       width: 34px;
@@ -799,6 +812,7 @@
                 <a href="22-chat-order-support-thread.html">Support</a>
               </div>
               <div class="composer">
+                <a class="mool-home-button" href="04-universal-focus-shell.html" aria-label="Open Mool home">Mool</a>
                 <button type="button" aria-label="Attach item or bill">
                   <svg viewBox="0 0 24 24"><path d="M21.4 11.6 12 21a6 6 0 0 1-8.5-8.5l9.4-9.4a4 4 0 0 1 5.7 5.7L9.2 18.2a2 2 0 1 1-2.8-2.8l8.7-8.7" /></svg>
                 </button>
@@ -831,7 +845,7 @@
             <div class="state-grid">
               <div class="state-cell"><b>Entry</b>From Chat Inbox Business thread, shop profile, product quote, QR shop scan, order chat or business notification.</div>
               <div class="state-cell"><b>User Sees</b>Verified business header, audio/video call, media/file sharing, live shop status, quote expiry, fulfilment choice and smart commerce actions.</div>
-              <div class="state-cell"><b>Decision</b>User can chat, call, video call, share photo/video/file/location, view catalog, request/change quote, choose pickup/delivery, confirm quote, pay, open order or escalate to support.</div>
+              <div class="state-cell"><b>Decision</b>User can return to Mool in one tap, chat, call, video call, share photo/video/file/location, view catalog, request/change quote, choose pickup/delivery, confirm quote, pay, open order or escalate to support.</div>
 
               <div class="state-cell"><b>Backend</b>Thread service links business profile, catalog, quote engine, basket checkout, payment intent and order/support records.</div>
               <div class="state-cell"><b>Trust</b>Verified badge, stock update time, quote expiry, fulfilment option, bill/payment rule and support route reduce off-platform confusion.</div>

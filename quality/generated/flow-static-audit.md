@@ -4,7 +4,7 @@
 - Screens: **166** source / **166** approved
 - Operational flows: **47**
 - Flow nodes checked: **483**
-- Local navigation targets checked: **1124**
+- Local navigation targets checked: **1126**
 - Local assets checked: **641**
 - Buttons indexed for browser testing: **2001**
 - Static button candidates requiring tap confirmation: **98**

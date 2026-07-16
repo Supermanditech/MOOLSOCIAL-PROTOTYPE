@@ -1,0 +1,30 @@
+{
+  "version": "post-review-chat-navigation-replay-1",
+  "ticket": "C2-NAV-017",
+  "status": "passed",
+  "preFixReproduction": {
+    "result": "failed",
+    "path": [
+      "Screen 05 Social Shorts: Open chats",
+      "Screen 23 Chat Inbox: Open People thread",
+      "Screen 25 People thread"
+    ],
+    "observed": "The full People thread had only Back to chat inbox and no direct product-level Mool-home control."
+  },
+  "rootCause": "The full-screen composer designs on Screens 24 and 25 omitted the persistent Mool destination already provided by the Chat Inbox and Order/Support thread.",
+  "resolution": "Add a labelled Mool control as the first persistent composer action on People and Business threads, routing directly to Screen 04 without removing any existing chat control.",
+  "exactReplay": {
+    "result": "passed",
+    "path": [
+      "Screen 05 Social Shorts: Open chats",
+      "Screen 23 Chat Inbox: Open Amit Vyas People thread",
+      "Screen 25 People thread: Open Mool home",
+      "Screen 04 Universal Focus Shell"
+    ],
+    "peopleThreadRenderedControls": "31 / 31 passed",
+    "businessThreadRenderedControls": "29 / 29 passed",
+    "chatFlow": "5 / 5 passed",
+    "horizontalOverflows": 0,
+    "consoleErrors": 0
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "complete": true,
+  "completedAt": "2026-07-16T05:12:46.312Z",
+  "issues": [],
+  "screens": [
+    {
+      "controls": 29,
+      "failed": 0,
+      "file": "24-chat-business-thread.html",
+      "issues": [],
+      "passed": 29,
+      "screen": 24,
+      "skipped": 0
+    }
+  ],
+  "startedAt": "2026-07-16T05:12:39.609Z",
+  "summary": {
+    "failed": 0,
+    "passed": 29,
+    "screens": 1,
+    "skipped": 0,
+    "tested": 29
+  },
+  "consoleErrors": []
+}

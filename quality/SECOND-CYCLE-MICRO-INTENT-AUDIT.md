@@ -49,7 +49,7 @@ The action matrix contains 940 loading, 940 offline, 940 failure, 940 duplicate,
 
 ## Defects, root causes and fixes
 
-Sixteen second-cycle and immediate post-review defects were reproduced, ticketed, root-caused, fixed and closed. The ticket-level reproduction, resolution and evidence ledger is `quality/SECOND-CYCLE-DEFECT-TICKETS.md`.
+Seventeen second-cycle and immediate post-review defects were reproduced, ticketed, root-caused, fixed and closed. The ticket-level reproduction, resolution and evidence ledger is `quality/SECOND-CYCLE-DEFECT-TICKETS.md`.
 
 | Tickets | Final result |
 | --- | --- |
@@ -59,6 +59,7 @@ Sixteen second-cycle and immediate post-review defects were reproduced, ticketed
 | C2-PROG-010 through C2-LABEL-014 | Timing, clean-state isolation, native validation verification, action scope and long labels fixed |
 | C2-CONTRACT-015 | Screen 17 `Refresh status` journey contract aligned and exact failed journeys replayed |
 | C2-LAYOUT-016 | Social Shorts master-review internal scroll corruption fixed and exact half-open state replayed |
+| C2-NAV-017 | People and Business chat threads gained a persistent one-tap Mool-home return |
 
 ## Exact failure replays
 
@@ -89,6 +90,9 @@ The before/after Screen 17 replay files are `quality/generated/second-cycle-repl
 | Social Consumer and Creator Entry | 5 / 5 states passed |
 | Screen 05 rendered controls after layout fix | 27 / 27 passed |
 | Admin Operations scroll-regression guard | 12 / 12 states passed |
+| Screen 24 Business chat controls after Mool fix | 29 / 29 passed |
+| Screen 25 People chat controls after Mool fix | 31 / 31 passed |
+| Chat journey after Mool fix | 5 / 5 states passed |
 
 ## Final full regression
 
