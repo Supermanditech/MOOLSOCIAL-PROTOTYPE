@@ -1,0 +1,30 @@
+{
+  "ticket": "C2-QA-022",
+  "generatedAt": "2026-07-16T09:13:00.000Z",
+  "preFixReproduction": {
+    "retailerWholesale": {
+      "result": "failed",
+      "stalledAt": "2 / 11",
+      "instruction": "Type Fortune in product search",
+      "observed": "The auditor repeatedly clicked the highlighted search input and never entered Fortune."
+    },
+    "captainWorkspace": {
+      "result": "failed",
+      "instruction": "Type the trip OTP",
+      "observed": "The auditor clicked the OTP field and exceeded the maximum interaction turns."
+    }
+  },
+  "rootCause": "The semantic audit harness treated every highlighted target as a click, even when the flow contract exposed data-mool-flow-input-value for a typed interaction.",
+  "fix": "The harness now focuses typed targets, applies the exact contract value, and dispatches input and change events in the application frame. A focused flow query was also added for exact clean-state replays.",
+  "exactFailedSequenceReplays": {
+    "retailerWholesale": "1 / 1 passed; 11 / 11 states completed",
+    "captainWorkspace": "1 / 1 passed; 10 / 10 states completed"
+  },
+  "finalRegression": {
+    "operationalJourneys": "47 / 47 passed",
+    "approvedScreensCovered": "166 / 166",
+    "failed": 0,
+    "horizontalOverflows": 0,
+    "consoleErrors": 0
+  }
+}

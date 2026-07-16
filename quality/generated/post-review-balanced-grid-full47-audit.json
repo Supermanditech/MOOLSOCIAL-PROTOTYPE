@@ -1,0 +1,17 @@
+{
+  "generatedAt": "2026-07-16T09:13:00.000Z",
+  "status": "passed",
+  "source": "mobile-user-flow.html audit mode using highlighted visible user controls, including contract-driven typed input",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "summary": {
+    "operationalFlowsTested": 47,
+    "passed": 47,
+    "failed": 0,
+    "approvedScreensCoveredByManifest": 166,
+    "horizontalOverflows": 0,
+    "consoleErrors": 0
+  }
+}

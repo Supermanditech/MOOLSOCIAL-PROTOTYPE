@@ -49,7 +49,7 @@ The action matrix contains 940 loading, 940 offline, 940 failure, 940 duplicate,
 
 ## Defects, root causes and fixes
 
-Twenty second-cycle and immediate post-review defects were reproduced, ticketed, root-caused, fixed and closed. The ticket-level reproduction, resolution and evidence ledger is `quality/SECOND-CYCLE-DEFECT-TICKETS.md`.
+Twenty-two second-cycle and immediate post-review defects were reproduced, ticketed, root-caused, fixed and closed. The ticket-level reproduction, resolution and evidence ledger is `quality/SECOND-CYCLE-DEFECT-TICKETS.md`.
 
 | Tickets | Final result |
 | --- | --- |
@@ -63,6 +63,8 @@ Twenty second-cycle and immediate post-review defects were reproduced, ticketed,
 | C2-UX-018 | Oversized generic Mool modal replaced with a minimal two-row action ribbon |
 | C2-NAV-019 | Mool Work now opens the canonical opportunity list on the first selection and the master walkthrough adopts the Earn journey without a false route error |
 | C2-UX-020 | Duplicate Mool panel and root rail replaced with one integrated, state-preserving dark-glass dock switcher |
+| C2-UX-021 | Cramped seven-label strip replaced by a readable 4+3 grid inside the same integrated dock |
+| C2-QA-022 | Semantic auditor now performs contract-driven typing instead of false click-only input replays |
 
 ## Exact failure replays
 
@@ -79,6 +81,9 @@ Twenty second-cycle and immediate post-review defects were reproduced, ticketed,
 | Buy delivery failed sequence | 8 / 8 journey states passed |
 | Creator commerce share failed sequence | 12 / 12 journey states passed |
 | Social → Shorts → Mool → Work failed sequence | Screen 67 reached on first Work selection; Earn journey adopted at 2/8; no route error |
+| Cramped integrated Mool dock | 7 / 7 actions visible; 0 clipped; 46–63 x 44 px tap targets |
+| Retailer Wholesale typed-search stall | 11 / 11 journey states passed |
+| Captain Workspace typed-OTP stall | 10 / 10 journey states passed |
 
 The before/after Screen 17 replay files are `quality/generated/second-cycle-replay-buy-delivery-before-fix.json`, `quality/generated/second-cycle-replay-buy-delivery-after-fix.json`, `quality/generated/second-cycle-replay-creator-commerce-before-fix.json` and `quality/generated/second-cycle-replay-creator-commerce-after-fix.json`.
 
@@ -104,6 +109,8 @@ The before/after Screen 17 replay files are `quality/generated/second-cycle-repl
 | Social and Earn affected journeys after route fix | 13 / 13 states passed |
 | Integrated Mool dock controls | 30 / 30 passed |
 | Integrated Mool destination routes | 7 / 7 passed |
+| Balanced Mool grid controls | 30 / 30 passed |
+| Typed semantic-flow replays | Retailer Wholesale 1/1 and Captain Workspace 1/1 passed |
 
 ## Final full regression
 

@@ -630,6 +630,9 @@
     }
 
     .bottom-dock.mool-mode {
+      grid-template-columns: 50px minmax(0, 1fr) 50px;
+      gap: 5px;
+      padding: 6px;
       border-color: rgba(255, 255, 255, .14);
       background:
         radial-gradient(circle at 18% -30%, rgba(69, 82, 255, .74), transparent 48%),
@@ -1051,10 +1054,10 @@
       grid-area: tabs;
       min-width: 0;
       display: grid;
-      grid-template-columns: repeat(7, minmax(0, 1fr));
+      grid-template-columns: repeat(12, minmax(0, 1fr));
       align-items: center;
-      gap: 2px;
-      overflow: hidden;
+      gap: 5px;
+      overflow: visible;
       padding: 4px;
       border: 1px solid rgba(255, 255, 255, .12);
       border-radius: 18px;
@@ -1071,19 +1074,23 @@
 
     .mool-action-ribbon button {
       appearance: none;
+      grid-column: span 3;
       min-width: 0;
-      min-height: 40px;
+      min-height: 44px;
       border: 0;
-      border-radius: 14px;
-      padding: 0 2px;
+      border-radius: 15px;
+      padding: 0 6px;
       background: transparent;
       color: rgba(255,255,255,.68);
       font: inherit;
-      font-size: 8.5px;
+      font-size: 11px;
       font-weight: 950;
+      white-space: nowrap;
       cursor: pointer;
       transition: transform 140ms ease, background 140ms ease, color 140ms ease, box-shadow 140ms ease;
     }
+
+    .mool-action-ribbon button:nth-child(n+5) { grid-column: span 4; }
 
     .mool-action-ribbon button:hover,
     .mool-action-ribbon button:focus-visible {

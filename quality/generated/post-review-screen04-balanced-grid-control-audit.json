@@ -1,0 +1,25 @@
+{
+  "complete": true,
+  "completedAt": "2026-07-16T09:02:15.191Z",
+  "issues": [],
+  "screens": [
+    {
+      "controls": 30,
+      "failed": 0,
+      "file": "04-universal-focus-shell.html",
+      "issues": [],
+      "passed": 30,
+      "screen": 4,
+      "skipped": 0
+    }
+  ],
+  "startedAt": "2026-07-16T09:02:10.897Z",
+  "summary": {
+    "failed": 0,
+    "passed": 30,
+    "screens": 1,
+    "skipped": 0,
+    "tested": 30
+  },
+  "consoleErrors": []
+}

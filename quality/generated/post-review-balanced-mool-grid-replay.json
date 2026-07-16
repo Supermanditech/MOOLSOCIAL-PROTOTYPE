@@ -1,0 +1,29 @@
+{
+  "ticket": "C2-UX-021",
+  "generatedAt": "2026-07-16T09:13:00.000Z",
+  "screen": 4,
+  "preFixReproduction": {
+    "result": "failed",
+    "sequence": ["Open Screen 04", "Tap Mool"],
+    "observed": "Seven world labels were compressed into one narrow row between Mool and Chat, producing crowded text and undersized tap areas."
+  },
+  "rootCause": "The integrated dock kept all seven destinations in a single equal-width row and reduced typography instead of allowing the same dock surface to expand.",
+  "fix": "The integrated dark dock now expands into a balanced 4+3 action grid while retaining Mool and Chat on the same surface. The root actions use 11 px labels and minimum 44 px tap height without a popup, duplicate navigation rail or swipe dependency.",
+  "exactReplay": {
+    "result": "passed",
+    "actionsVisible": 7,
+    "clippedActions": 0,
+    "tapTargetGeometryPx": {
+      "firstRow": "46 x 44",
+      "secondRow": "63 x 44"
+    },
+    "layout": "Social, Buy, Eat and Ride on row one; Book, Pay and Work on row two"
+  },
+  "verification": {
+    "screen04RenderedControls": "30 / 30 passed",
+    "operationalJourneys": "47 / 47 passed",
+    "approvedScreensCovered": "166 / 166",
+    "horizontalOverflows": 0,
+    "consoleErrors": 0
+  }
+}

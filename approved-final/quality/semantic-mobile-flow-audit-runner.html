@@ -33,6 +33,7 @@
       var progress=document.getElementById('progress');
       var reportJson=document.getElementById('reportJson');
       var runToken=Date.now();
+      var selectedFlow=new URLSearchParams(location.search).get('flow')||'';
       var sleep=function(ms){return new Promise(function(resolve){setTimeout(resolve,ms)})};
 
       function waitFor(check,timeout,message){
@@ -108,10 +109,18 @@
           var contentWidth=Math.max(appDoc.documentElement.scrollWidth,appDoc.body?appDoc.body.scrollWidth:0);
           if(contentWidth>viewportWidth+2){overflows.push({screen:screen,file:file,viewportWidth:viewportWidth,contentWidth:contentWidth})}
 
+          var inputValue=target.getAttribute('data-mool-flow-input-value');
           var label=(target.getAttribute('aria-label')||target.getAttribute('title')||target.innerText||target.textContent||'').replace(/\s+/g,' ').trim();
           var counter=runner.getElementById('counter').textContent.trim();
-          turns.push({counter:counter,screen:screen,file:file,action:label});
-          target.click();
+          turns.push({counter:counter,screen:screen,file:file,action:inputValue!==null?'Type '+inputValue+' in '+label:label});
+          if(inputValue!==null&&'value' in target){
+            target.focus();
+            target.value=inputValue;
+            target.dispatchEvent(new appWin.Event('input',{bubbles:true}));
+            target.dispatchEvent(new appWin.Event('change',{bubbles:true}));
+          }else{
+            target.click();
+          }
           await sleep(220);
         }
 
@@ -123,7 +132,8 @@
           if(!response.ok)throw new Error('Could not load approved flow manifest');
           return response.json();
         });
-        var flows=manifest.flows.filter(function(flow){return flow.id!=='all-approved'});
+        var flows=manifest.flows.filter(function(flow){return flow.id!=='all-approved'&&(!selectedFlow||flow.id===selectedFlow)});
+        if(!flows.length)throw new Error('Requested operational flow was not found');
         progress.max=flows.length;
         var results=[];
 

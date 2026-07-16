@@ -1,32 +1,30 @@
-﻿{
-    "generatedAt":  "2026-07-16T12:10:21.5766262+05:30",
-    "status":  "ready",
-    "completedRequestedSteps":  [
-                                    1,
-                                    2,
-                                    3,
-                                    4,
-                                    5,
-                                    7,
-                                    9,
-                                    10
-                                ],
-    "excludedByUser":  [
-                           "6 - domain and database architecture",
-                           "8 - security and compliance"
-                       ],
-    "approvedScreens":  166,
-    "operationalFlows":  47,
-    "strictInteractions":  3210,
-    "highIntentControls":  475,
-    "curatedIntentOutcomes":  63,
-    "openInteractions":  0,
-    "contractArtifacts":  8,
-    "productionComponents":  27,
-    "economicsPolicies":  13,
-    "productionJourneyTickets":  21,
-    "blockers":  [
-
-                 ],
-    "finalMobileTestingLinkMayBeShared":  true
+{
+  "generatedAt": "2026-07-16T14:44:24.0952504+05:30",
+  "status": "ready",
+  "completedRequestedSteps": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    7,
+    9,
+    10
+  ],
+  "excludedByUser": [
+    "6 - domain and database architecture",
+    "8 - security and compliance"
+  ],
+  "approvedScreens": 166,
+  "operationalFlows": 47,
+  "strictInteractions": 3210,
+  "highIntentControls": 475,
+  "curatedIntentOutcomes": 63,
+  "openInteractions": 0,
+  "contractArtifacts": 8,
+  "productionComponents": 27,
+  "economicsPolicies": 13,
+  "productionJourneyTickets": 21,
+  "blockers": [],
+  "finalMobileTestingLinkMayBeShared": true
 }
