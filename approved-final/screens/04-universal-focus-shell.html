@@ -1050,20 +1050,19 @@
     .mool-action-ribbon {
       grid-area: tabs;
       min-width: 0;
-      display: flex;
+      display: grid;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
       align-items: center;
-      gap: 5px;
-      overflow-x: auto;
+      gap: 2px;
+      overflow: hidden;
       padding: 4px;
       border: 1px solid rgba(255, 255, 255, .12);
       border-radius: 18px;
       background: rgba(0, 0, 50, .18);
       box-shadow: inset 0 1px 10px rgba(0, 0, 30, .22);
-      scrollbar-width: none;
-      scroll-snap-type: x proximity;
       animation: mool-ribbon-in 180ms cubic-bezier(.2,.8,.2,1);
-      mask-image: linear-gradient(90deg, #000 0, #000 calc(100% - 18px), transparent 100%);
-      -webkit-mask-image: linear-gradient(90deg, #000 0, #000 calc(100% - 18px), transparent 100%);
+      mask-image: none;
+      -webkit-mask-image: none;
     }
 
     .mool-action-ribbon::-webkit-scrollbar { display: none; }
@@ -1072,19 +1071,17 @@
 
     .mool-action-ribbon button {
       appearance: none;
-      flex: 0 0 auto;
-      min-width: 58px;
+      min-width: 0;
       min-height: 40px;
       border: 0;
       border-radius: 14px;
-      padding: 0 13px;
+      padding: 0 2px;
       background: transparent;
       color: rgba(255,255,255,.68);
       font: inherit;
-      font-size: 10px;
+      font-size: 8.5px;
       font-weight: 950;
       cursor: pointer;
-      scroll-snap-align: center;
       transition: transform 140ms ease, background 140ms ease, color 140ms ease, box-shadow 140ms ease;
     }
 
