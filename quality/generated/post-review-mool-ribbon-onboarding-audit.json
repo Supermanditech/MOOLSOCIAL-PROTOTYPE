@@ -1,0 +1,58 @@
+{
+  "generatedAt": "2026-07-16T05:32:55Z",
+  "status": "passed",
+  "source": "Microsoft Edge at 390x844 using native clicks on only highlighted, visible user controls; no forced navigation for tap or multi-action transitions",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "summary": {
+    "operationalFlowsTested": 1,
+    "passed": 1,
+    "failed": 0,
+    "approvedScreensCoveredByManifest": 166,
+    "horizontalOverflows": 0,
+    "consoleErrors": 0
+  },
+  "consoleErrorDetails": [],
+  "flows": [
+    {
+      "flow": "onboarding",
+      "title": "Install to Universal App",
+      "status": "passed",
+      "expectedNodes": 5,
+      "interactionTurns": 3,
+      "finalCounter": "5 / 5",
+      "screensSeen": [
+        0,
+        2,
+        3
+      ],
+      "horizontalOverflows": [],
+      "turns": [
+        {
+          "counter": "1 / 5",
+          "screen": 0,
+          "file": "00-install-app.html",
+          "action": "Install and open MoolSocial",
+          "intent": "Tap: Install and open MoolSocial"
+        },
+        {
+          "counter": "3 / 5",
+          "screen": 2,
+          "file": "02-first-setup-language-location.html",
+          "action": "Skip now Continue to login and set area after signup",
+          "intent": "Tap: Skip now"
+        },
+        {
+          "counter": "4 / 5",
+          "screen": 3,
+          "file": "03-login-account-handoff.html",
+          "action": "Continue with Google",
+          "intent": "Tap: Continue with Google"
+        }
+      ],
+      "error": null
+    }
+  ]
+}

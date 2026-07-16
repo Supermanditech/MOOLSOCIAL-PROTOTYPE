@@ -6,7 +6,7 @@
 - Flow nodes checked: **483**
 - Local navigation targets checked: **1126**
 - Local assets checked: **641**
-- Buttons indexed for browser testing: **2001**
+- Buttons indexed for browser testing: **2002**
 - Static button candidates requiring tap confirmation: **98**
 - Missing navigation targets: **0**
 - Missing assets: **0**

@@ -1031,6 +1031,67 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
+    .mool-action-ribbon {
+      position: absolute;
+      left: 14px;
+      right: 14px;
+      bottom: 86px;
+      z-index: 32;
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 6px;
+      padding: 8px;
+      border: 1px solid rgba(0, 0, 128, .20);
+      border-radius: 26px;
+      background: linear-gradient(145deg, rgba(255,255,255,.98), rgba(238,242,255,.94));
+      box-shadow: 0 18px 46px rgba(0,0,96,.24), inset 0 1px 0 rgba(255,255,255,.92);
+      backdrop-filter: blur(18px);
+      transform-origin: 28px 100%;
+      animation: mool-ribbon-in 160ms ease-out;
+    }
+
+    .mool-action-ribbon[hidden] { display: none; }
+
+    .mool-action-ribbon button {
+      appearance: none;
+      box-sizing: border-box;
+      grid-column: span 3;
+      min-width: 0;
+      min-height: 44px;
+      border: 0;
+      border-radius: 18px;
+      padding: 0 10px;
+      background: transparent;
+      color: rgba(0,0,128,.72);
+      font: inherit;
+      font-size: 11px;
+      font-weight: 950;
+      cursor: pointer;
+      transition: transform 120ms ease, background 120ms ease, color 120ms ease, box-shadow 120ms ease;
+    }
+
+    .mool-action-ribbon button:nth-child(n+5) { grid-column: span 4; }
+
+    .mool-action-ribbon button:hover,
+    .mool-action-ribbon button:focus-visible {
+      background: rgba(0,0,128,.07);
+      color: var(--ms-navy);
+      outline: none;
+    }
+
+    .mool-action-ribbon button[aria-pressed="true"] {
+      background: linear-gradient(145deg, #1717ba, var(--ms-navy) 72%);
+      color: var(--ms-white);
+      box-shadow: inset 0 -4px 0 var(--ms-saffron), 0 8px 18px rgba(0,0,128,.22);
+    }
+
+    .mool-action-ribbon button:active { transform: scale(.97); }
+
+    @keyframes mool-ribbon-in {
+      from { opacity: 0; transform: translateY(8px) scale(.97); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
     .universal-action-sheet {
       position: absolute;
       inset: auto 14px 86px;
@@ -1577,6 +1638,7 @@
 
             <aside class="content-action-rail" aria-label="Content actions" data-action-rail></aside>
 
+            <nav class="mool-action-ribbon" id="moolActionRibbon" data-mool-launcher aria-label="Mool actions" hidden></nav>
             <section class="universal-action-sheet" data-universal-sheet aria-live="polite" aria-label="Action details">
               <b data-universal-sheet-title>Continue</b>
               <p data-universal-sheet-note>Choose the next action.</p>
@@ -1589,7 +1651,7 @@
             <div class="universal-toast" data-universal-toast role="status"></div>
 
             <nav class="bottom-dock" aria-label="Current mode tabs">
-              <button class="mool-trigger" type="button" data-mool-open aria-label="Open Mool actions">
+              <button class="mool-trigger" type="button" data-mool-open aria-label="Show Mool actions" aria-controls="moolActionRibbon" aria-expanded="false">
                 Mool
               </button>
               <div data-context-dock data-dock-mode="context"></div>
@@ -2242,6 +2304,7 @@
       renderRootStrip();
       renderSubActionStrip(world);
       setTab(world, activeTabs[world] || config.defaultTab);
+      syncMoolLauncher();
       if (focusBody) focusBody.scrollTo({ top: 0, behavior: "smooth" });
     }
 
@@ -2289,8 +2352,40 @@
     const universalSheetOptions = document.querySelector("[data-universal-sheet-options]");
     const universalSheetContinue = document.querySelector("[data-universal-sheet-continue]");
     const universalToast = document.querySelector("[data-universal-toast]");
+    const moolLauncher = document.querySelector("[data-mool-launcher]");
+    const moolTrigger = document.querySelector("[data-mool-open]");
     let universalNextRoute = "";
     let universalToastTimer;
+
+    function syncMoolLauncher() {
+      moolLauncher?.querySelectorAll("[data-mool-world]").forEach((button) => {
+        button.setAttribute("aria-pressed", String(button.dataset.moolWorld === activeWorldName));
+      });
+    }
+
+    function renderMoolLauncher() {
+      if (!moolLauncher) return;
+      moolLauncher.innerHTML = rootActions.map((action) => `
+        <button type="button" data-mool-world="${action.id}" aria-pressed="${action.id === activeWorldName}">${action.label}</button>
+      `).join("");
+    }
+
+    function closeMoolLauncher() {
+      if (!moolLauncher || moolLauncher.hidden) return;
+      moolLauncher.hidden = true;
+      moolTrigger?.setAttribute("aria-expanded", "false");
+      moolTrigger?.classList.remove("active");
+    }
+
+    function toggleMoolLauncher() {
+      if (!moolLauncher) return;
+      const willOpen = moolLauncher.hidden;
+      universalSheet?.classList.remove("open");
+      moolLauncher.hidden = !willOpen;
+      moolTrigger?.setAttribute("aria-expanded", String(willOpen));
+      moolTrigger?.classList.toggle("active", willOpen);
+      if (willOpen) syncMoolLauncher();
+    }
 
     function showUniversalToast(message) {
       if (!universalToast) return;
@@ -2302,6 +2397,7 @@
 
     function openUniversalSheet(title, note, route = "", options = []) {
       if (!universalSheet) return;
+      closeMoolLauncher();
       universalNextRoute = route;
       universalSheetTitle.textContent = title;
       universalSheetNote.textContent = note;
@@ -2412,15 +2508,22 @@
     universalSheetContinue?.addEventListener("click", () => continueTo(universalNextRoute));
     document.querySelector(".chat-trigger")?.addEventListener("click", () => continueTo("23-chat-inbox-home.html"));
 
-    document.querySelector("[data-mool-open]")?.addEventListener("click", () => {
-      openUniversalSheet(
-        "Choose a Mool action",
-        "Open the product or service you want. Your current screen remains available when you return.",
-        "",
-        rootActions.map((action) => ({ id: action.id, label: action.label }))
-      );
+    moolTrigger?.addEventListener("click", () => toggleMoolLauncher());
+    moolLauncher?.addEventListener("click", (event) => {
+      const choice = event.target.closest("[data-mool-world]");
+      if (!choice) return;
+      setWorld(choice.dataset.moolWorld, { resetToDefault: true });
+      closeMoolLauncher();
+    });
+    document.addEventListener("click", (event) => {
+      if (moolLauncher?.hidden || moolLauncher?.contains(event.target) || moolTrigger?.contains(event.target)) return;
+      closeMoolLauncher();
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeMoolLauncher();
     });
 
+    renderMoolLauncher();
     setWorld("social");
   </script>
 <script type="application/json" id="productionRouteContract">{"contractVersion":"mvp-route-lock-2026-07-12","prototypeScreen":4,"productionModule":"universal","routeId":"universal.app","routePath":"/app","routeState":"social-default-focus-shell","implementation":"route-shell","launchScope":"mvp-core","separateProductionRoute":true,"productionNote":"Own production route /app. Implement social-default-focus-shell as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.","canonicalMap":"architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"}</script><script type="application/json" id="prototypeApprovalContract">{"prototypeScreen":4,"status":"approved-and-frozen","authoritative":true,"approvedAt":"2026-07-12","approvalScope":"prototype-ui-ux-and-production-contract"}</script>  <script src="../shared/resilience-state-runtime.js?v=micro-cycle-2-20260716c"></script>

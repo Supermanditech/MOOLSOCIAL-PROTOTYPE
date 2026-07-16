@@ -1,5 +1,5 @@
 ﻿{
-    "generatedAt":  "2026-07-16T10:49:06.3563896+05:30",
+    "generatedAt":  "2026-07-16T11:08:39.0973493+05:30",
     "status":  "passed",
     "screens":  166,
     "approvedScreens":  166,
@@ -7,7 +7,7 @@
     "flowNodesChecked":  483,
     "localNavigationTargetsChecked":  1126,
     "localAssetsChecked":  641,
-    "buttonsIndexed":  2001,
+    "buttonsIndexed":  2002,
     "staticButtonCandidatesForBrowserTapTest":  98,
     "missingTargets":  [
 

@@ -1,0 +1,28 @@
+{
+  "version": "post-review-mool-ribbon-replay-1",
+  "ticket": "C2-UX-018",
+  "status": "passed",
+  "preFixReproduction": {
+    "result": "failed",
+    "action": "Tap Mool on Screen 04",
+    "observed": "A tall generic modal displayed a title, explanatory paragraph, seven boxed buttons, unused space and a separate Close button for a simple world switch."
+  },
+  "rootCause": "The Mool world switch reused the generic action-confirmation sheet intended for search and detailed continuation flows.",
+  "resolution": "Use a dedicated compact glass action ribbon above the dock with only Social, Buy, Eat, Ride, Book, Pay and Work. Highlight the current world and close after selection, a second Mool tap, an outside tap or Escape.",
+  "exactReplay": {
+    "result": "passed",
+    "layout": "Two rows: four actions then three actions",
+    "visibleWords": ["Social", "Buy", "Eat", "Ride", "Book", "Pay", "Work"],
+    "worldSwitches": {
+      "tested": 7,
+      "passed": 7,
+      "legacyModalOpened": 0
+    },
+    "closePaths": ["Select action", "Tap Mool again", "Tap outside", "Press Escape"],
+    "screen04RenderedControls": "47 / 47 passed",
+    "onboardingFlow": "5 / 5 passed",
+    "socialFlow": "5 / 5 passed",
+    "horizontalOverflows": 0,
+    "consoleErrors": 0
+  }
+}
