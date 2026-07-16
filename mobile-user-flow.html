@@ -111,6 +111,27 @@
       counter.textContent=`${Math.min(state.nodeIndex+1,total)} / ${total}`;
       progressBar.style.width=`${((state.nodeIndex+1)/total)*100}%`;
     }
+    function findUniqueOperationalRoute(actual,url){
+      const matches=[];
+      state.manifest.flows.filter(flow=>flow.id!=='all-approved').forEach(flow=>{
+        flow.nodes.forEach((node,index)=>{
+          if(index>0&&node.screen===actual&&nodeQueryMatches(node,url))matches.push({flow,nodeIndex:index});
+        });
+      });
+      return matches.length===1?matches[0]:null;
+    }
+    function waitAtMoolHub(){
+      state.actionIndex=0;state.prepareAttempts=0;clearTimer();clearError();finish.hidden=true;
+      counter.textContent='Mool';progressBar.style.width='0%';
+      setInstruction('Choose a Mool action');
+    }
+    function adoptOperationalRoute(match){
+      state.flow=match.flow;state.nodeIndex=match.nodeIndex;state.actionIndex=0;state.prepareAttempts=0;clearTimer();clearError();finish.hidden=true;
+      select.value=match.flow.id;history.replaceState(null,'',`?flow=${encodeURIComponent(match.flow.id)}`);
+      setProgress();showEvent(`Continuing: ${match.flow.title}`,1600);
+      if(state.nodeIndex>=state.flow.nodes.length-1){markComplete();return}
+      setTimeout(prepareStep,wait(180,90));
+    }
     function setInstruction(text){instruction.textContent=text}
     function clearTimer(){if(state.timer){clearTimeout(state.timer);state.timer=null}}
     function clearHighlights(doc){
@@ -396,6 +417,9 @@
         return
       }
       if(actual!==expected&&state.actionIndex===0){
+        if(actual===4){waitAtMoolHub();return}
+        const routeMatch=findUniqueOperationalRoute(actual,loadedUrl);
+        if(routeMatch){adoptOperationalRoute(routeMatch);return}
         showError('An unexpected route opened instead of the expected next step.');return
       }
       if(state.actionIndex>0){

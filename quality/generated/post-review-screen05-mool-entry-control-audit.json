@@ -1,0 +1,25 @@
+{
+  "complete": true,
+  "completedAt": "2026-07-16T05:56:10.370Z",
+  "issues": [],
+  "screens": [
+    {
+      "controls": 27,
+      "failed": 0,
+      "file": "05-social-shorts.html",
+      "issues": [],
+      "passed": 27,
+      "screen": 5,
+      "skipped": 0
+    }
+  ],
+  "startedAt": "2026-07-16T05:56:02.717Z",
+  "summary": {
+    "failed": 0,
+    "passed": 27,
+    "screens": 1,
+    "skipped": 0,
+    "tested": 27
+  },
+  "consoleErrors": []
+}

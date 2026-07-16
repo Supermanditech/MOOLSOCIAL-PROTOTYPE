@@ -2329,7 +2329,7 @@
     document.querySelector("[aria-label='Search videos']")?.addEventListener("click", () => openSheet("search"));
     document.querySelector("[aria-label='Account']")?.addEventListener("click", () => openSheet("account"));
     document.querySelector(".mool-button")?.addEventListener("click", () => {
-      window.location.href = "04-universal-focus-shell.html?world=social";
+      window.location.href = "04-universal-focus-shell.html?world=social&openMool=1";
     });
     document.querySelector(".video-tab.active")?.addEventListener("click", () => {
       if (topicResult) topicResult.textContent = "Videos is already open";

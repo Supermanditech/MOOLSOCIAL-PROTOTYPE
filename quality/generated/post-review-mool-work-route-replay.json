@@ -1,0 +1,77 @@
+{
+  "version": "post-review-mool-work-route-replay-1",
+  "ticket": "C2-NAV-019",
+  "status": "passed",
+  "preFixReproduction": {
+    "result": "failed",
+    "sequence": [
+      "Open Social Consumer and Creator Entry",
+      "Open Shorts",
+      "Tap Mool",
+      "Tap Work"
+    ],
+    "observed": "The embedded legacy Work state opened on Screen 04 and the master walkthrough displayed an unexpected-route error. A further Work tap was required to reach the canonical opportunity list on Screen 67."
+  },
+  "rootCause": [
+    "The compact Mool launcher called setWorld for every selection, while the canonical bottom action strip used rootEntryRoutes for Buy, Eat, Ride, Book, Pay and Work.",
+    "The master walkthrough rejected all valid cross-feature navigation outside the currently selected journey instead of pausing at the universal Mool hub and adopting a unique matching operational journey."
+  ],
+  "resolution": [
+    "Make the Mool launcher use the same canonical route map as the bottom action strip; Work now opens screens/67-work.html on the first selection.",
+    "Open the compact Mool launcher automatically from labelled Mool controls on Social, Buy, order, issue and Chat consumer screens.",
+    "Allow the master walkthrough to wait at Screen 04 as the universal hub and adopt a unique matching operational route after the user chooses a destination."
+  ],
+  "exactReplay": {
+    "result": "passed",
+    "hubState": {
+      "counter": "Mool",
+      "instruction": "Choose a Mool action",
+      "launcherOpen": true,
+      "unexpectedRouteError": false
+    },
+    "workDestination": {
+      "screen": 67,
+      "flow": "earn-workspace",
+      "flowTitle": "Earn and Create Work Profile",
+      "counter": "2 / 8",
+      "instruction": "Tap: View featured opportunity details",
+      "unexpectedRouteError": false
+    },
+    "moolDestinations": {
+      "tested": 7,
+      "passed": 7,
+      "routes": {
+        "Social": "04-universal-focus-shell.html",
+        "Buy": "09-buy.html",
+        "Eat": "26-eat.html",
+        "Ride": "30-ride.html",
+        "Book": "36-book.html",
+        "Pay": "57-pay.html",
+        "Work": "67-work.html"
+      }
+    },
+    "sampleOneTapEntries": {
+      "tested": 3,
+      "passed": 3,
+      "screens": [9, 23, 25]
+    }
+  },
+  "affectedVerification": {
+    "screen04": "47 / 47 passed",
+    "screen05": "27 / 27 passed",
+    "screen23": "24 / 24 passed",
+    "screen25": "31 / 31 passed",
+    "socialFlow": "5 / 5 passed",
+    "earnWorkspaceFlow": "8 / 8 passed"
+  },
+  "fullRegression": {
+    "operationalJourneys": "47 / 47 passed",
+    "approvedScreens": "166 / 166",
+    "renderedControls": "3196 / 3196 passed",
+    "screen44IsolatedReplayAfterAggregateTimingFailure": "20 / 20 passed",
+    "mobileReleaseGate": "ready",
+    "preProductionGate": "ready",
+    "horizontalOverflows": 0,
+    "consoleErrors": 0
+  }
+}

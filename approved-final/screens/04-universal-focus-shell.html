@@ -2512,8 +2512,13 @@
     moolLauncher?.addEventListener("click", (event) => {
       const choice = event.target.closest("[data-mool-world]");
       if (!choice) return;
-      setWorld(choice.dataset.moolWorld, { resetToDefault: true });
+      const action = choice.dataset.moolWorld;
       closeMoolLauncher();
+      if (rootEntryRoutes[action]) {
+        continueTo(rootEntryRoutes[action]);
+        return;
+      }
+      setWorld(action, { resetToDefault: true });
     });
     document.addEventListener("click", (event) => {
       if (moolLauncher?.hidden || moolLauncher?.contains(event.target) || moolTrigger?.contains(event.target)) return;
@@ -2525,6 +2530,9 @@
 
     renderMoolLauncher();
     setWorld("social");
+    if (new URLSearchParams(window.location.search).get("openMool") === "1") {
+      requestAnimationFrame(() => toggleMoolLauncher());
+    }
   </script>
 <script type="application/json" id="productionRouteContract">{"contractVersion":"mvp-route-lock-2026-07-12","prototypeScreen":4,"productionModule":"universal","routeId":"universal.app","routePath":"/app","routeState":"social-default-focus-shell","implementation":"route-shell","launchScope":"mvp-core","separateProductionRoute":true,"productionNote":"Own production route /app. Implement social-default-focus-shell as its initial or named state and include loading, empty, offline, unauthorized, error and retry behavior inside this route.","canonicalMap":"architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md"}</script><script type="application/json" id="prototypeApprovalContract">{"prototypeScreen":4,"status":"approved-and-frozen","authoritative":true,"approvedAt":"2026-07-12","approvalScope":"prototype-ui-ux-and-production-contract"}</script>  <script src="../shared/resilience-state-runtime.js?v=micro-cycle-2-20260716c"></script>
 <script src="../shared/prototype-interaction-contracts.js?v=intent-completion-20260714b"></script>

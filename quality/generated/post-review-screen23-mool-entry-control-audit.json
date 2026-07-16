@@ -1,0 +1,25 @@
+{
+  "complete": true,
+  "completedAt": "2026-07-16T05:56:09.124Z",
+  "issues": [],
+  "screens": [
+    {
+      "controls": 24,
+      "failed": 0,
+      "file": "23-chat-inbox-home.html",
+      "issues": [],
+      "passed": 24,
+      "screen": 23,
+      "skipped": 0
+    }
+  ],
+  "startedAt": "2026-07-16T05:56:03.468Z",
+  "summary": {
+    "failed": 0,
+    "passed": 24,
+    "screens": 1,
+    "skipped": 0,
+    "tested": 24
+  },
+  "consoleErrors": []
+}

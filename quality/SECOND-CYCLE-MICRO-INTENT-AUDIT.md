@@ -49,7 +49,7 @@ The action matrix contains 940 loading, 940 offline, 940 failure, 940 duplicate,
 
 ## Defects, root causes and fixes
 
-Eighteen second-cycle and immediate post-review defects were reproduced, ticketed, root-caused, fixed and closed. The ticket-level reproduction, resolution and evidence ledger is `quality/SECOND-CYCLE-DEFECT-TICKETS.md`.
+Nineteen second-cycle and immediate post-review defects were reproduced, ticketed, root-caused, fixed and closed. The ticket-level reproduction, resolution and evidence ledger is `quality/SECOND-CYCLE-DEFECT-TICKETS.md`.
 
 | Tickets | Final result |
 | --- | --- |
@@ -61,6 +61,7 @@ Eighteen second-cycle and immediate post-review defects were reproduced, tickete
 | C2-LAYOUT-016 | Social Shorts master-review internal scroll corruption fixed and exact half-open state replayed |
 | C2-NAV-017 | People and Business chat threads gained a persistent one-tap Mool-home return |
 | C2-UX-018 | Oversized generic Mool modal replaced with a minimal two-row action ribbon |
+| C2-NAV-019 | Mool Work now opens the canonical opportunity list on the first selection and the master walkthrough adopts the Earn journey without a false route error |
 
 ## Exact failure replays
 
@@ -76,6 +77,7 @@ Eighteen second-cycle and immediate post-review defects were reproduced, tickete
 | Screen 159 long-label recovery | 6 / 6 passed |
 | Buy delivery failed sequence | 8 / 8 journey states passed |
 | Creator commerce share failed sequence | 12 / 12 journey states passed |
+| Social → Shorts → Mool → Work failed sequence | Screen 67 reached on first Work selection; Earn journey adopted at 2/8; no route error |
 
 The before/after Screen 17 replay files are `quality/generated/second-cycle-replay-buy-delivery-before-fix.json`, `quality/generated/second-cycle-replay-buy-delivery-after-fix.json`, `quality/generated/second-cycle-replay-creator-commerce-before-fix.json` and `quality/generated/second-cycle-replay-creator-commerce-after-fix.json`.
 
@@ -97,6 +99,8 @@ The before/after Screen 17 replay files are `quality/generated/second-cycle-repl
 | Screen 04 controls after Mool ribbon redesign | 47 / 47 passed |
 | All seven Mool action switches | 7 / 7 passed |
 | Onboarding and Social affected journeys | 10 / 10 states passed |
+| Screen 04/05/23/25 controls after Mool Work fix | 129 / 129 passed |
+| Social and Earn affected journeys after route fix | 13 / 13 states passed |
 
 ## Final full regression
 
@@ -104,7 +108,7 @@ The before/after Screen 17 replay files are `quality/generated/second-cycle-repl
 | --- | ---: |
 | Approved operational journeys | 47 / 47 passed |
 | Approved screens covered by journey manifest | 166 / 166 |
-| Rendered visible controls | 3,194 / 3,194 passed |
+| Rendered visible controls | 3,196 / 3,196 passed |
 | Critical intent journeys | 6 / 6 passed |
 | Visual action semantics | 166 screens, 0 findings |
 | Static navigation targets | 1,124 checked, 0 missing |
