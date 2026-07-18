@@ -1,0 +1,369 @@
+{
+  "contractVersion": "outcome-product-execution-v1-2026-07-17",
+  "status": "production-architecture-contract",
+  "scope": {
+    "workspaceProfiles": 28,
+    "catalogue": "architecture/WORKSPACE-SPECIFIC-360-OUTCOME-PRODUCT-CATALOGUE-PENDING-UIUX.md",
+    "uxAndBackend": "architecture/OUTCOME-PRODUCT-EXECUTION-UIUX-AND-BACKEND-LOGIC.md",
+    "managedOfferings": "architecture/WORKSPACE-SPECIFIC-MOOL-OPERATED-MANAGED-OFFERINGS.md",
+    "commercialRoleContract": "shared/managed-offering-contract.json",
+    "implementationTicket": "PROD-JRN-023"
+  },
+  "invariants": [
+    "one shared outcome engine uses versioned profile and business-activity adapters",
+    "grow-my-business and earn-from-work are separate user intentions, contracts and money directions",
+    "the plan coordinates authoritative commerce booking ride work content payment and ledger domains but never replaces them",
+    "the client requests commands and renders server-owned state",
+    "all writes require actor workspace role idempotency key expected aggregate version and audit correlation ID",
+    "market performance is a target and not an unconditional revenue income or clinical-outcome guarantee",
+    "result fees and participant earnings require an authoritative qualified outcome or accepted milestone",
+    "views clicks page events and YouTube engagement cannot qualify a sale or payout",
+    "healthcare products use non-referral administrative outcomes",
+    "refunds disputes and reversals create holds or compensating entries and never rewrite history",
+    "every plan explicitly declares marketplace managed-service sourcing principal-purchase capacity-reservation or professional-coordination responsibility"
+  ],
+  "actorIntentions": {
+    "grow_my_business": {
+      "funder": "workspace",
+      "completion": "contracted controlled work plus verified business outcomes",
+      "entryLabel": "Grow my business"
+    },
+    "earn_from_work": {
+      "funder": "eligible business or MoolSocial with reserved funds",
+      "completion": "accepted execution proof or verified outcome plus payable ledger entry",
+      "entryLabel": "Earn from work"
+    }
+  },
+  "routeOwners": {
+    "retailer": [
+      "/retailer/services",
+      "/retailer/services/:serviceId"
+    ],
+    "supply": [
+      "/supply/services"
+    ],
+    "provider": [
+      "/provider/growth"
+    ],
+    "captain": [
+      "/captain",
+      "/captain/requests",
+      "/captain/support-work"
+    ],
+    "creator": [
+      "/creator/campaigns",
+      "/creator/performance",
+      "/creator/earnings"
+    ],
+    "earn": [
+      "/earn",
+      "/earn/opportunities/:opportunityId",
+      "/earn/earnings"
+    ]
+  },
+  "uiJourney": [
+    "workspace_result_entry",
+    "goal_and_baseline",
+    "readiness_and_capacity",
+    "plan_builder",
+    "contract_authorization_and_funding",
+    "setup_completion",
+    "live_result_centre",
+    "result_report_and_next_decision"
+  ],
+  "planStateMachine": {
+    "primary": [
+      "DRAFT",
+      "BASELINE_PENDING",
+      "PREREQUISITES_PENDING",
+      "QUOTED",
+      "AUTHORIZATION_PENDING",
+      "FUNDING_PENDING",
+      "SETUP_PENDING",
+      "READY",
+      "ACTIVE",
+      "OUTCOME_REVIEW",
+      "COMPLETED",
+      "RENEWED",
+      "CLOSED"
+    ],
+    "exceptions": [
+      "REVIEW_REQUIRED",
+      "PAUSED",
+      "FUNDING_FAILED",
+      "EXPIRED",
+      "CANCELLED",
+      "DISPUTED",
+      "PARTIALLY_COMPLETED",
+      "SERVICE_FAILURE"
+    ],
+    "serverOwned": true
+  },
+  "qualification": {
+    "requiredChecks": [
+      "eligible_profile_and_activity",
+      "eligible_item_or_service",
+      "plan_time_and_geography",
+      "authoritative_transaction_or_milestone",
+      "committed_attribution_winner",
+      "valid_payment_or_funding",
+      "fulfilment_or_acceptance_evidence",
+      "refund_return_or_hold_rule",
+      "duplicate_self_dealing_collusion_and_fraud",
+      "plan_actor_and_liability_caps"
+    ],
+    "analyticsEventsAuthorizeMoney": false,
+    "lateReversalRule": "post a compensating outcome and ledger entry"
+  },
+  "pricing": {
+    "formula": "base_operating_fee + approved_third_party_spend + qualified_result_fees + tax - service_credits",
+    "capRequired": true,
+    "clientHardcodingAllowed": false
+  },
+  "domains": [
+    "profile_registry",
+    "outcome_product_catalogue",
+    "diagnostic_engine",
+    "eligibility_and_capacity",
+    "quote_and_contract",
+    "funding_and_mandate",
+    "outcome_orchestrator",
+    "execution_manager",
+    "attribution_and_qualification",
+    "evidence",
+    "money_ledger",
+    "cases_and_disputes",
+    "admin_configuration"
+  ],
+  "apis": [
+    "GET /v1/workspaces/{workspaceId}/outcome-products/recommendations",
+    "POST /v1/workspaces/{workspaceId}/outcome-baselines",
+    "POST /v1/workspaces/{workspaceId}/outcome-quotes",
+    "GET /v1/outcome-quotes/{quoteId}",
+    "POST /v1/outcome-quotes/{quoteId}/accept",
+    "POST /v1/outcome-plans/{planId}/reserve-funding",
+    "POST /v1/outcome-plans/{planId}/activate",
+    "GET /v1/outcome-plans/{planId}",
+    "GET /v1/outcome-plans/{planId}/milestones",
+    "POST /v1/outcome-plans/{planId}/pause",
+    "POST /v1/outcome-plans/{planId}/resume",
+    "POST /v1/outcome-plans/{planId}/close",
+    "GET /v1/outcome-plans/{planId}/outcomes",
+    "GET /v1/outcome-plans/{planId}/ledger",
+    "GET /v1/outcome-plans/{planId}/report",
+    "POST /v1/outcome-plans/{planId}/cases"
+  ],
+  "profileAdapters": [
+    {
+      "profileId": 1,
+      "profile": "FMCG Manufacturer",
+      "primaryInput": "SKU territory production and dispatch capacity",
+      "primaryOutcome": "retained_order",
+      "operatingDomains": ["catalogue", "stock", "buyer_order", "dispatch", "receivables"]
+    },
+    {
+      "profileId": 2,
+      "profile": "FMCG Supplier / Distributor",
+      "primaryInput": "brand SKU route stock and credit terms",
+      "primaryOutcome": "retained_reorder",
+      "operatingDomains": ["stock", "retailer_order", "route", "delivery", "receivables"]
+    },
+    {
+      "profileId": 3,
+      "profile": "Raw Material Supplier",
+      "primaryInput": "material specification MOQ capacity and lane",
+      "primaryOutcome": "purchase_order_accepted",
+      "operatingDomains": ["sample", "quote", "purchase_order", "goods_receipt", "receivables"]
+    },
+    {
+      "profileId": 4,
+      "profile": "Packaging Supplier",
+      "primaryInput": "packaging specification artwork MOQ and lead time",
+      "primaryOutcome": "purchase_order_accepted",
+      "operatingDomains": ["specification", "sample", "artwork", "purchase_order", "quality_claim"]
+    },
+    {
+      "profileId": 5,
+      "profile": "Grocery / Kirana Shop",
+      "primaryInput": "assortment stock price service area and delivery capacity",
+      "primaryOutcome": "retained_order",
+      "operatingDomains": ["catalogue", "stock", "order", "delivery", "refund"]
+    },
+    {
+      "profileId": 6,
+      "profile": "General Retail Shop / Dukaan",
+      "primaryInput": "assortment stock fulfilment mode and customer segment",
+      "primaryOutcome": "retained_order",
+      "operatingDomains": ["catalogue", "stock", "order", "loyalty", "return"]
+    },
+    {
+      "profileId": 7,
+      "profile": "Individual Product Seller",
+      "primaryInput": "source proof product stock price and fulfilment",
+      "primaryOutcome": "retained_order",
+      "operatingDomains": ["verification", "listing", "order", "fulfilment", "payout"]
+    },
+    {
+      "profileId": 8,
+      "profile": "Restaurant / Dhaba / Cafe",
+      "primaryInput": "menu meal period table or order capacity and service area",
+      "primaryOutcome": "completed_booking_or_retained_order",
+      "operatingDomains": ["menu", "availability", "booking", "order", "fulfilment"]
+    },
+    {
+      "profileId": 9,
+      "profile": "Cloud Kitchen",
+      "primaryInput": "menu preparation capacity delivery radius and packaging",
+      "primaryOutcome": "retained_order",
+      "operatingDomains": ["menu", "kitchen_capacity", "order", "packing", "delivery"]
+    },
+    {
+      "profileId": 10,
+      "profile": "Tiffin Provider",
+      "primaryInput": "meal plan daily capacity route and pause rules",
+      "primaryOutcome": "paid_renewal_retained",
+      "operatingDomains": ["plan", "subscriber", "meal_calendar", "route", "collection"]
+    },
+    {
+      "profileId": 11,
+      "profile": "Individual Doctor",
+      "primaryInput": "verified practice speciality schedule and fees",
+      "primaryOutcome": "administrative_appointment_completed",
+      "operatingDomains": ["verification", "availability", "appointment", "receipt", "followup_admin"]
+    },
+    {
+      "profileId": 12,
+      "profile": "Clinic",
+      "primaryInput": "establishment practitioner roster services and slots",
+      "primaryOutcome": "administrative_workflow_completed",
+      "operatingDomains": ["verification", "roster", "appointment", "queue", "billing_admin"]
+    },
+    {
+      "profileId": 13,
+      "profile": "Hospital",
+      "primaryInput": "institution department capacity scope and governance approval",
+      "primaryOutcome": "professional_milestone_accepted",
+      "operatingDomains": ["governance", "department", "scheduling", "document_handoff", "case"]
+    },
+    {
+      "profileId": 14,
+      "profile": "Medical Store / Licensed Pharmacy",
+      "primaryInput": "licence premises eligible catalogue stock batch and order mode",
+      "primaryOutcome": "eligible_fulfilment_accepted",
+      "operatingDomains": ["licence", "catalogue", "prescription_gate", "invoice", "delivery"]
+    },
+    {
+      "profileId": 15,
+      "profile": "Salon / Parlour",
+      "primaryInput": "services staff duration price and slot capacity",
+      "primaryOutcome": "completed_booking",
+      "operatingDomains": ["service_catalogue", "staff", "availability", "booking", "membership"]
+    },
+    {
+      "profileId": 16,
+      "profile": "Home Beauty Provider",
+      "primaryInput": "services radius schedule travel buffer and safety preferences",
+      "primaryOutcome": "otp_completed_booking",
+      "operatingDomains": ["service_catalogue", "availability", "booking", "visit_proof", "payout"]
+    },
+    {
+      "profileId": 17,
+      "profile": "Individual Service Provider",
+      "primaryInput": "service scope price basis area parts and SLA",
+      "primaryOutcome": "job_outcome_accepted",
+      "operatingDomains": ["quote", "schedule", "job", "change_order", "invoice"]
+    },
+    {
+      "profileId": 18,
+      "profile": "Bike Captain",
+      "primaryInput": "vehicle service area demand hours and route preference",
+      "primaryOutcome": "trip_completed_settled",
+      "operatingDomains": ["availability", "request", "pickup", "trip", "payout"]
+    },
+    {
+      "profileId": 19,
+      "profile": "Auto Captain",
+      "primaryInput": "zone capacity availability and recurring preference",
+      "primaryOutcome": "trip_completed_settled",
+      "operatingDomains": ["availability", "request", "pickup", "trip", "payout"]
+    },
+    {
+      "profileId": 20,
+      "profile": "Cab / Car Captain",
+      "primaryInput": "vehicle class schedule service area and trip capability",
+      "primaryOutcome": "trip_completed_settled",
+      "operatingDomains": ["availability", "scheduled_request", "pickup", "trip", "payout"]
+    },
+    {
+      "profileId": 21,
+      "profile": "Delivery Partner",
+      "primaryInput": "area shift carrying capacity and equipment",
+      "primaryOutcome": "delivery_accepted",
+      "operatingDomains": ["availability", "batch", "pickup", "delivery_proof", "cash_reconciliation"]
+    },
+    {
+      "profileId": 22,
+      "profile": "Local Porter / Goods Transporter",
+      "primaryInput": "vehicle equipment load dimensions handling and price basis",
+      "primaryOutcome": "goods_delivery_accepted",
+      "operatingDomains": ["quote", "custody", "pickup", "goods_receipt", "claim"]
+    },
+    {
+      "profileId": 23,
+      "profile": "Transport / Fleet Operator",
+      "primaryInput": "fleet lane driver capacity SLA and receivables",
+      "primaryOutcome": "contracted_trip_accepted",
+      "operatingDomains": ["contract", "vehicle_assignment", "dispatch", "delivery", "receivables"]
+    },
+    {
+      "profileId": 24,
+      "profile": "Shorts Creator",
+      "primaryInput": "YouTube authority brief rights disclosure and connected action",
+      "primaryOutcome": "campaign_deliverable_accepted",
+      "operatingDomains": ["youtube_connect", "brief", "content_review", "commerce_attribution", "payout"]
+    },
+    {
+      "profileId": 25,
+      "profile": "Long-Form Video Creator",
+      "primaryInput": "YouTube plan deliverables rights deadline and revisions",
+      "primaryOutcome": "campaign_deliverable_accepted",
+      "operatingDomains": ["youtube_connect", "brief", "content_review", "licence", "payout"]
+    },
+    {
+      "profileId": 26,
+      "profile": "Multi-Format Creator",
+      "primaryInput": "asset mix territory schedule rights and connected action",
+      "primaryOutcome": "campaign_deliverable_accepted",
+      "operatingDomains": ["brief", "native_publish", "youtube_connect", "attribution", "payout"]
+    },
+    {
+      "profileId": 27,
+      "profile": "Freelancer / Field Partner",
+      "primaryInput": "funded scope eligibility geography proof and deadline",
+      "primaryOutcome": "task_outcome_accepted",
+      "operatingDomains": ["opportunity", "assignment", "field_execution", "proof_review", "payout"]
+    },
+    {
+      "profileId": 28,
+      "profile": "Get It Done Provider",
+      "primaryInput": "destination steps spending cap custody timing and proof",
+      "primaryOutcome": "destination_task_accepted",
+      "operatingDomains": ["task", "approval", "custody", "evidence", "expense_reconciliation"]
+    }
+  ],
+  "requiredTestFamilies": [
+    "recommendation_and_explanation",
+    "ineligible_and_prerequisite_failed",
+    "quote_arithmetic_and_cap",
+    "duplicate_acceptance_and_funding",
+    "operating_route_deep_link_and_return",
+    "qualified_outcome",
+    "excluded_outcome",
+    "refund_and_reversal",
+    "dispute_and_service_failure",
+    "pause_resume_close",
+    "mobile_web_parity",
+    "authorization_denial",
+    "ledger_and_result_report_reconciliation"
+  ]
+}

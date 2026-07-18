@@ -1,7 +1,7 @@
 {
   "contractVersion": "mvp-route-machine-flex-2026-07-12",
   "generatedAt": "2026-07-12",
-  "prototypeScreenCount": 166,
+  "prototypeScreenCount": 167,
   "productionRouteGroupCount": 129,
   "canonicalMap": "architecture/MVP-PRODUCTION-ROUTE-CONSOLIDATION.md",
   "crossCuttingContracts": [
@@ -623,10 +623,12 @@
       "routePath": "/creator/publish",
       "productionModule": "creator",
       "prototypeScreens": [
-        125
+        125,
+        166
       ],
       "routeStates": [
-        "composer"
+        "composer",
+        "youtube-connect-action-attach"
       ],
       "launchScopes": [
         "mvp-core"
@@ -4102,18 +4104,18 @@
       "implementation": "route-shell",
       "launchScope": "mvp-core",
       "separateProductionRoute": true,
-      "painSolved": "Creators need mobile capture plus web resumable long-form upload with titles captions thumbnails subtitles scheduling rights disclosure and reliable publishing states.",
+      "painSolved": "Creators need a reliable mobile and web flow to validate eligible public YouTube content, attach one governed Mool action, review rights and disclosure, and publish without native video hosting.",
       "capabilityKeys": [
         "publish"
       ],
       "featureOutcomes": [
-        "Create Shorts videos and posts on mobile",
-        "Use drag and drop resumable web uploads",
-        "Review rights disclosure visibility and schedule before publishing"
+        "Validate pasted links or connected channel content",
+        "Attach one Buy Book Order Apply Visit or Chat action",
+        "Review rights disclosure availability and campaign association before publishing"
       ],
       "budgetExtension": false,
       "budgetExtensionReason": null,
-      "productionNote": "Own production route /creator/publish and keep all progressive states inside it.",
+      "productionNote": "Own /creator/publish. Keep native text and image composition plus YouTube validation, connection, action attachment, review and unavailable-content states inside this route.",
       "canonicalMap": "architecture/MVP-120-ROUTE-MACHINE.md"
     },
     {
@@ -4128,14 +4130,14 @@
       "implementation": "route-shell",
       "launchScope": "mvp-core",
       "separateProductionRoute": true,
-      "painSolved": "Creators need one searchable mobile and web library for drafts uploads processing scheduled published limited removed and appealed content.",
+      "painSolved": "Creators need one searchable mobile and web library for native posts, connected YouTube content, scheduled, unavailable, removed and appealed records.",
       "capabilityKeys": [
         "content-library"
       ],
       "featureOutcomes": [
-        "Manage every content format and state",
+        "Manage native posts and YouTube-connected content states",
         "Search filter and paginate large libraries",
-        "Keep rights campaign performance and monetisation attached to content IDs"
+        "Keep availability rights campaign performance and Mool outcomes attached to durable content records"
       ],
       "budgetExtension": false,
       "budgetExtensionReason": null,
@@ -5156,6 +5158,32 @@
       "budgetExtension": false,
       "budgetExtensionReason": null,
       "productionNote": "Do not create a route. Implement personalized-controls inside /account/workspaces.",
+      "canonicalMap": "architecture/MVP-120-ROUTE-MACHINE.md"
+    },
+    {
+      "contractVersion": "mvp-route-machine-flex-2026-07-12",
+      "prototypeScreen": 166,
+      "prototypeName": "YouTube Connect and Mool Action",
+      "productionModule": "creator",
+      "budgetBucket": "creator",
+      "routeId": "creator.publish",
+      "routePath": "/creator/publish",
+      "routeState": "youtube-connect-action-attach",
+      "implementation": "route-state",
+      "launchScope": "mvp-core",
+      "separateProductionRoute": false,
+      "painSolved": "Creators need economical YouTube-hosted discovery with one decisive MoolSocial action and an exact funded placement window, without permanent native video-hosting cost.",
+      "capabilityKeys": [
+        "publish"
+      ],
+      "featureOutcomes": [
+        "Connect or validate eligible public YouTube content",
+        "Attach one governed Buy Book Order Apply Visit or Chat action",
+        "Choose an exact 24 to 168 hour Campaign Reel placement after approved activation"
+      ],
+      "budgetExtension": false,
+      "budgetExtensionReason": null,
+      "productionNote": "Do not create a route. Implement youtube-connect-action-attach inside /creator/publish.",
       "canonicalMap": "architecture/MVP-120-ROUTE-MACHINE.md"
     }
   ]

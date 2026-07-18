@@ -110,8 +110,9 @@ Every ticket requires loading, empty, offline, denied, timeout, duplicate/retry 
 
 - Users: creator, paid worker and service provider.
 - Prototype: 124-146.
-- Outcome: publish governed content, deliver funded campaign/work proof, accept provider request, complete fulfilment and receive traceable earnings/payout.
-- Acceptance: every earning has funder, eligible actor, verified outcome, gross-to-net, release/dispute rule and cap; disclosure/rights/safety checks gate publication and payout.
+- Pending replacement: `YOUTUBE-CONNECT-CAMPAIGN-REELS-AND-DISTRIBUTED-EARNING-PENDING-UIUX.md`.
+- Outcome: connect eligible YouTube content, attach independent MoolSocial commerce/work actions, deliver funded campaign/work proof, accept provider requests, complete fulfilment and receive traceable earnings/payout.
+- Acceptance: launch video remains YouTube-hosted; viewer YouTube engagement is never incentivized; every creator or distributed-work earning has a reserved funder, eligible actor, verified MoolSocial outcome or approved deliverable, gross-to-net, release/dispute rule and cap; disclosure/rights/safety checks gate campaign activation and payout.
 
 ## PROD-JRN-016 - Admin governance and shared controls
 
@@ -123,9 +124,10 @@ Every ticket requires loading, empty, offline, denied, timeout, duplicate/retry 
 ## PROD-JRN-017 - Social discovery, engagement and publishing
 
 - Users: viewer, follower, creator and verified business.
-- Prototype: 04-08.
-- Outcome: enter Social once, move between Shorts, Videos, Feed and Create, open selected content, follow, like, comment/reply, share, remix, save, inspect contextual actions and publish governed content.
-- Acceptance: back navigation preserves selected content and scroll; engagement commands are idempotent and reconcile counts; comments support pagination, moderation and creator replies; share uses an approved device handoff; remix checks rights and attribution; save persists per account; sponsored content opens the exact product/service CTA; record, caption, draft, schedule and publish expose specific completion states.
+- Prototype: 04-08 plus pending Screen 166.
+- Pending replacement: `YOUTUBE-CONNECT-CAMPAIGN-REELS-AND-DISTRIBUTED-EARNING-PENDING-UIUX.md`.
+- Outcome: enter Social once, move between Campaign Reels, YouTube Videos, Feed and Create, open selected content, complete MoolSocial follow/comment/share/save actions, inspect contextual actions, publish native text/images and connect eligible YouTube content.
+- Acceptance: YouTube playback is click-to-play and clearly attributed; MoolSocial controls never obscure the YouTube player; MoolSocial metrics remain separate from YouTube metrics; viewer YouTube engagement is not rewarded; Campaign Reels use funded one-day, two-day or seven-day placement and disappear from promotional surfaces on expiry; back navigation preserves selected content and scroll; MoolSocial engagement commands are idempotent; sponsored content opens the exact product/service CTA; paste-link, channel-connect, denial, revoke, unavailable-video, expiry and renewal paths expose specific completion states.
 - Events: `social_surface_opened`, `content_opened`, `follow_changed`, `reaction_changed`, `comment_submitted`, `share_started`, `remix_started`, `content_saved`, `publish_completed`.
 
 ## PROD-JRN-018 - Business Book periods, reports and operational sheets
@@ -157,6 +159,39 @@ Every ticket requires loading, empty, offline, denied, timeout, duplicate/retry 
 - Outcome: each tap, subtap, input, choice, search, composer, menu, popup and terminal action completes the intent stated by its label in mobile and laptop layouts.
 - Acceptance: controls have accessible names and physical hit targets; fixed rails never cover the intended action; selected/current states are explicit; typed input is retained and applied; searches expose relevant results; task actions advance to a domain-specific next step or final result; completion records include a useful reference and recovery path; navigation opens the promised destination; no fragment-only link, scroll/focus-only change, generic acknowledgement or synthetic runtime fallback passes as completion.
 - Quality evidence: `quality/generated/live-black-box-intent-audit.json` must contain all 166 screens in both required viewports with zero failed paths, no-op outcomes, synthetic-runtime-only outcomes, truncations and severe console errors.
+
+## PROD-JRN-022 - Enterprise revenue targets and distributed attributed earning
+
+- Users: verified operators across the 28 launch workspace profiles; eligible creators, freelancers, providers and individual campaign participants.
+- Prototype: existing campaign and Earn states plus the pending contract in `YOUTUBE-CONNECT-CAMPAIGN-REELS-AND-DISTRIBUTED-EARNING-PENDING-UIUX.md`.
+- Outcome: a business defines a daily, weekly or monthly incremental sales/order/booking/activation target; MoolSocial validates target arithmetic, operating capacity and maximum liability; the business reserves the full campaign funding; eligible individuals accept funded seats; customers transact through MoolSocial; retained outcomes release one attributable earning and an evidence-backed enterprise result.
+- Acceptance: target revenue, retained average order value, required outcomes, commission and maximum funding reconcile before publication; eligible products/services are authoritative and serviceable; inventory, production, staff, slot, delivery and geography capacity are enforced; every seat, participant and campaign has a cap; competing attribution follows one disclosed versioned rule; self-purchase, duplicate, collusive and fabricated outcomes do not qualify; cancellation, return, refund and chargeback create holds or compensating entries; YouTube engagement never qualifies payment; healthcare and other regulated profiles use approved non-referral outcomes; one configurable engine changes profile rules without creating 28 separate systems.
+- Events: `growth_target_priced`, `campaign_funding_reserved`, `campaign_seat_accepted`, `attributed_transaction_created`, `attributed_outcome_retained`, `participant_earning_qualified`, `participant_earning_reversed`, `campaign_target_closed`.
+
+## PROD-JRN-023 - Workspace-specific 360-degree Outcome Products
+
+- Users: verified operators across all 28 launch workspace profiles; authorized staff, execution participants and MoolSocial operations.
+- Prototype: Retailer Screen 93 onward, Manufacturer Screen 115, Provider Screen 145, Creator/Earn Screens 124-146 and each workspace home; detailed pending contract in `WORKSPACE-SPECIFIC-360-OUTCOME-PRODUCT-CATALOGUE-PENDING-UIUX.md`.
+- Execution architecture: `OUTCOME-PRODUCT-EXECUTION-UIUX-AND-BACKEND-LOGIC.md`; machine contract: `shared/outcome-product-execution-contract.json`.
+- Concrete managed packages: `WORKSPACE-SPECIFIC-MOOL-OPERATED-MANAGED-OFFERINGS.md`; commercial-role machine contract: `shared/managed-offering-contract.json`.
+- Outcome: diagnose the workspace's business activity, current baseline, capacity and bottleneck; recommend three to five activity-specific Outcome Products across acquisition, conversion, operation, fulfilment, retention, sourcing, cash and protection; price and activate one exact plan; perform controlled work; verify conversions or accepted milestones; settle within the accepted cap; and show the achieved result, evidence and next-best action.
+- Acceptance: every product version declares eligible profile/activity, controlled deliverables, commercial role, buyer/seller/invoice/inventory/refund/tax responsibility, primary conversion, required inputs, capacity/geography/licence gates, base fee, third-party spend, result fee, tax, cap, evidence, attribution, exclusions, SLA, dispute and stop rules; “unlimited” is never used for unfunded quantity or credit and “dedicated” capacity preserves worker eligibility, safety and limits; marketplace and MoolSocial-principal stock never mix; no raw lead/view/click is billed as a sale; no uncontrollable revenue, income or clinical outcome is guaranteed; healthcare uses non-referral administrative outcomes; YouTube engagement never qualifies payment; a failed prerequisite blocks activation with an exact corrective action; one shared outcome engine plus profile adapters prevents divergent workspace backends; all charges and payouts reference authoritative domain events and compensating entries.
+- Events: `outcome_product_recommended`, `outcome_product_quote_created`, `outcome_product_prerequisite_failed`, `outcome_product_activated`, `outcome_milestone_accepted`, `qualified_outcome_recorded`, `outcome_charge_posted`, `outcome_result_reported`, `outcome_product_paused`, `outcome_product_closed`.
+
+## PROD-JRN-024 - Future-ready platform primitives and innovation portfolio
+
+- Users: all personal and workspace users over time; initial implementation is limited to shared foundations and approved pilots.
+- Strategy: `MOOLSOCIAL-2026-2076-INNOVATION-PORTFOLIO.md`; machine portfolio: `shared/fifty-year-innovation-portfolio.json`.
+- Outcome: build canonical identity/capability, product/service/activity, demand/capacity, place, event/evidence, money/rights, consent/authority and device contracts that serve today's production journeys while preserving migration paths to multilingual agents, portable trust, open networks, traceability, digital twins and human-supervised physical automation.
+- MVP boundary: no speculative robot, autonomous vehicle, clinical AI, universal score, digital-twin claim or future screen becomes a launch dependency. MVP implements only foundations already required for reliable transactions, bounded agent actions, evidence, money, consent and interoperability.
+- Acceptance: schemas and events are versioned, exportable and vendor-neutral; agent recommendation/simulation/execution states are distinct; consequential actions retain data snapshot, policy/model reference, confidence, approval and receipt; credentials are contextual and revocable; adapters isolate external networks; device events require identity and integrity; experiments carry cohort, consent, exposure cap, success/harm metrics, feature flag, kill switch, retention and retirement decision; regulated capabilities remain disabled until authorized.
+
+## PROD-JRN-025 - Workspace-specific paid technology products
+
+- Users and payers: verified workspace owners, authorized organizations and enterprise/API customers; workers receive free funded-work access and may optionally buy productivity tools.
+- Product strategy: `WORKSPACE-SPECIFIC-REVENUE-TECHNOLOGY-PRODUCTS.md`; machine contract: `shared/revenue-technology-product-contract.json`.
+- Outcome: sell profile-specific CoreOS subscriptions, measurable automation/intelligence add-ons and metered network/API products across all 28 workspace profiles using seven configurable engines rather than separate applications.
+- Acceptance: every SKU declares eligible activity, payer, modules, workspace/location, seats/assets, included usage, meter, overage and hard cap, trial, billing/tax, support, cancel/export, data retention, version/migration, ROI measure and MoolSocial cost driver; the UI reports subscription/usage paid against time, cost, capacity, collection and retained-transaction value; healthcare never uses referral/prescription/clinical-outcome pricing; funded work has no pay-to-apply fee; AI, maps, voice, messages, hardware and partner costs are metered into cohort contribution; a SKU cannot scale without positive contribution, reliable execution and renewal evidence.
 
 ## Release acceptance for every ticket
 

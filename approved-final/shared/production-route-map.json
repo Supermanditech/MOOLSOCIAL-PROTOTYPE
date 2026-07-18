@@ -4102,18 +4102,18 @@
       "implementation": "route-shell",
       "launchScope": "mvp-core",
       "separateProductionRoute": true,
-      "painSolved": "Creators need mobile capture plus web resumable long-form upload with titles captions thumbnails subtitles scheduling rights disclosure and reliable publishing states.",
+      "painSolved": "Creators need a reliable mobile and web flow to validate eligible public YouTube content, attach one governed Mool action, review rights and disclosure, and publish without native video hosting.",
       "capabilityKeys": [
         "publish"
       ],
       "featureOutcomes": [
-        "Create Shorts videos and posts on mobile",
-        "Use drag and drop resumable web uploads",
-        "Review rights disclosure visibility and schedule before publishing"
+        "Validate pasted links or connected channel content",
+        "Attach one Buy Book Order Apply Visit or Chat action",
+        "Review rights disclosure availability and campaign association before publishing"
       ],
       "budgetExtension": false,
       "budgetExtensionReason": null,
-      "productionNote": "Own production route /creator/publish and keep all progressive states inside it.",
+      "productionNote": "Own /creator/publish. Keep native text and image composition plus YouTube validation, connection, action attachment, review and unavailable-content states inside this route.",
       "canonicalMap": "architecture/MVP-120-ROUTE-MACHINE.md"
     },
     {
@@ -4128,14 +4128,14 @@
       "implementation": "route-shell",
       "launchScope": "mvp-core",
       "separateProductionRoute": true,
-      "painSolved": "Creators need one searchable mobile and web library for drafts uploads processing scheduled published limited removed and appealed content.",
+      "painSolved": "Creators need one searchable mobile and web library for native posts, connected YouTube content, scheduled, unavailable, removed and appealed records.",
       "capabilityKeys": [
         "content-library"
       ],
       "featureOutcomes": [
-        "Manage every content format and state",
+        "Manage native posts and YouTube-connected content states",
         "Search filter and paginate large libraries",
-        "Keep rights campaign performance and monetisation attached to content IDs"
+        "Keep availability rights campaign performance and Mool outcomes attached to durable content records"
       ],
       "budgetExtension": false,
       "budgetExtensionReason": null,

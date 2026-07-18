@@ -6,7 +6,7 @@ $ErrorActionPreference = 'Stop'
 $approvedScreens = Join-Path $Root 'approved-final\screens'
 $sourceFlowDir = Join-Path $Root 'flows'
 $approvedFlowDir = Join-Path $Root 'approved-final\flows'
-$maxScreen = 165
+$maxScreen = 166
 New-Item -ItemType Directory -Path $sourceFlowDir,$approvedFlowDir -Force | Out-Null
 
 $flowRows = @'
@@ -45,7 +45,8 @@ manufacturer-procurement|Manufacturer Input Procurement|Use the manufacturer wor
 manufacturer-growth|Manufacturer Demand and Services|Use the manufacturer workspace as the hub for buyer demand, campaigns and manufacturer-specific paid business services.|107,113,107,115
 manufacturer-control|Manufacturer Claims and Team Control|Use the manufacturer workspace as the hub for claims, staff control and the manufacturer business position.|107,114,107,108
 captain-workspace|Captain Ride and Earnings|Go online, accept a ride, navigate, complete it and receive payout, then use captain home for compliance and support.|116,117,118,119,120,121,116,122,116,123
-creator-workspace|Creator Studio and Earnings|Use Creator Studio as the hub for create, content, performance, audience, campaigns, earnings, rights and memberships.|124,125,124,126,127,124,128,124,129,124,130,124,131,124,132
+creator-workspace|Creator Studio and Earnings|Use Creator Studio as the hub for YouTube Connect, decisive Mool actions, content, performance, audience, campaigns, earnings, rights and memberships.|124,125,166,124,126,127,124,128,124,129,124,130,124,131,124,132
+youtube-connect|YouTube Connect and Campaign Reel|Connect an eligible public YouTube item, attach one Mool action, choose an optional exact 1 to 7 day funded placement and publish a durable reference.|8,166,6
 creator-funded-campaign|Creator Earning - Funded Campaign|A retailer reserves campaign money, admin governs it, a creator accepts and delivers, consumers act, attribution closes and the ledger releases payment.|100,152,129,125,5,127,154,130
 creator-commerce-share|Creator Earning - Commerce Share|A business declares an eligible share, the creator publishes linked content, the consumer completes basket review, payment and delivery, and the verified share reaches the creator ledger.|99,129,125,5,9,12,14,17,18,127,154,130
 creator-membership|Creator Earning - Membership|A creator publishes monthly or annual membership, a consumer joins and pays, and the protected recurring amount reaches the creator ledger.|132,7,62,63,130

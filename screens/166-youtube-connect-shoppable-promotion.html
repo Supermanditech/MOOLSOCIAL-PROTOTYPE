@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Screen 166 · YouTube Connect and Mool Action</title>
+  <link rel="stylesheet" href="../shared/creator-workspace.css">
+  <link rel="stylesheet" href="../shared/creator-workspace-web.css">
+  <style>
+    :root{--yt:#ff0033}
+    *{box-sizing:border-box}
+    [hidden]{display:none!important}
+    .connect-head{display:grid;grid-template-columns:46px minmax(0,1fr);gap:10px;align-items:center;border:1px solid #cdd1e7;border-radius:14px;background:linear-gradient(145deg,#fff,#f3f4ff);padding:13px}
+    .yt-mark{width:46px;height:34px;display:grid;place-items:center;border-radius:10px;background:var(--yt);color:#fff;font-size:16px;font-weight:950}
+    .connect-head span{display:grid;gap:3px}.connect-head small{color:var(--green);font-size:7px;font-weight:950}.connect-head b{color:var(--navy);font-size:14px}.connect-head p{margin:0;color:var(--muted);font-size:8px;line-height:1.4}
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);border-radius:10px;background:#fff;overflow:hidden}
+    .steps button{min-height:46px;border:0;border-bottom:3px solid transparent;background:#fff;color:var(--muted);font-size:8px;font-weight:950}.steps button.active{border-color:var(--saffron);background:#f0f1ff;color:var(--navy)}.steps button i{display:inline-grid;place-items:center;width:20px;height:20px;margin-right:4px;border-radius:50%;background:#e8eaf5;font-style:normal}.steps button.active i,.steps button.done i{background:var(--navy);color:#fff}
+    .flow-panel{display:none}.flow-panel.active{display:grid;gap:10px}
+    .section-copy{display:grid;gap:3px}.section-copy small{color:var(--green);font-size:7px;font-weight:950}.section-copy h2{margin:0;color:var(--navy);font-size:17px}.section-copy p{margin:0;color:var(--muted);font-size:9px;line-height:1.5}
+    .source-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.source-card{display:grid;gap:7px;border:1px solid var(--line);border-radius:10px;background:#fff;padding:11px;text-align:left;color:var(--ink)}.source-card.active{border-color:var(--navy);box-shadow:inset 3px 0 0 var(--saffron)}.source-card small{color:var(--green);font-size:7px;font-weight:950}.source-card b{font-size:11px}.source-card span{color:var(--muted);font-size:8px;line-height:1.4}
+    .url-box{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px}.url-box input{min-width:0;border:1px solid var(--line);border-radius:8px;padding:10px;font-size:10px}.url-box button{border:0;border-radius:8px;background:var(--navy);padding:8px 12px;color:#fff;font-size:9px;font-weight:950}
+    .flow-status{border-left:3px solid var(--green);border-radius:5px;background:#edf8ec;padding:9px;color:#285427;font-size:8px;line-height:1.4}.flow-status.warn{border-color:var(--saffron);background:#fff8ec;color:#6b480e}.flow-status.error{border-color:#b42318;background:#fff0ee;color:#7a1f17}
+    .connected{display:grid;grid-template-columns:36px minmax(0,1fr) auto;gap:8px;align-items:center;border:1px solid #a8d9a3;border-radius:10px;background:#f1f9f0;padding:9px}.connected i{display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:var(--green);color:#fff;font-style:normal;font-weight:950}.connected span{display:grid;gap:2px}.connected b{font-size:10px}.connected small{color:#456744;font-size:7px}.connected button{border:1px solid var(--navy);border-radius:7px;background:#fff;padding:7px;color:var(--navy);font-size:8px;font-weight:950}
+    .content-list{display:grid;gap:7px}.yt-item{display:grid;grid-template-columns:72px minmax(0,1fr) auto;gap:8px;align-items:center;border:1px solid var(--line);border-radius:10px;background:#fff;padding:8px;text-align:left;color:var(--ink)}.yt-item.selected{border-color:var(--navy);background:#f1f2ff;box-shadow:inset 3px 0 0 var(--saffron)}.yt-thumb{width:72px;height:52px;display:grid;place-items:center;border-radius:8px;background:linear-gradient(145deg,rgba(0,0,80,.1),rgba(255,153,51,.35)),url("../assets/shorts-market-grocery.png") center/cover;color:#fff;font-size:15px}.yt-copy{display:grid;gap:3px}.yt-copy small{color:var(--green);font-size:7px;font-weight:950}.yt-copy b{font-size:10px}.yt-copy span{color:var(--muted);font-size:7px}.yt-state{border-radius:999px;background:#e9f7e7;padding:5px 7px;color:var(--green);font-size:7px;font-weight:950}.yt-item:disabled{cursor:not-allowed;opacity:.7}.yt-item:disabled .yt-state{background:#fff1df;color:#8a4c00}
+    .action-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}.action-option{min-height:54px;display:grid;place-items:center;gap:3px;border:1px solid var(--line);border-radius:9px;background:#fff;color:var(--navy);font-size:9px;font-weight:950}.action-option i{font-size:15px;font-style:normal}.action-option.active{border-color:var(--navy);background:var(--navy);color:#fff;box-shadow:inset 0 -3px 0 var(--saffron)}
+    .form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.field{display:grid;gap:4px}.field.wide{grid-column:1/-1}.field label{font-size:8px;font-weight:950}.field input,.field select,.field textarea{width:100%;min-height:40px;border:1px solid var(--line);border-radius:8px;background:#fff;padding:9px;color:var(--ink);font-size:9px}.field textarea{min-height:62px;resize:vertical}
+    .confirm-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.confirm{display:grid;grid-template-columns:28px minmax(0,1fr);gap:8px;border:1px solid var(--line);border-radius:9px;background:#fff;padding:9px;text-align:left}.confirm i{display:grid;place-items:center;width:28px;height:28px;border-radius:8px;background:#eef0f8;color:var(--navy);font-style:normal;font-weight:950}.confirm span{display:grid;gap:2px}.confirm b{font-size:9px}.confirm small{color:var(--muted);font-size:7px;line-height:1.3}.confirm.on{border-color:var(--green);background:#f1f9f0}.confirm.on i{background:var(--green);color:#fff}
+    .campaign-box{display:grid;gap:8px;border:1px solid #efcf9e;border-radius:11px;background:#fff8ec;padding:11px}.campaign-toggle{display:flex;justify-content:space-between;gap:10px;align-items:center}.campaign-toggle span{display:grid;gap:2px}.campaign-toggle b{font-size:10px}.campaign-toggle small{color:#73512a;font-size:7px}.campaign-toggle button{border:1px solid var(--navy);border-radius:999px;background:#fff;padding:7px 10px;color:var(--navy);font-size:8px;font-weight:950}.campaign-toggle button.on{background:var(--navy);color:#fff}
+    .days{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px}.days button{min-height:38px;border:1px solid var(--line);border-radius:7px;background:#fff;color:var(--navy);font-size:8px;font-weight:950}.days button.active{border-color:var(--navy);background:var(--navy);color:#fff;box-shadow:inset 0 -3px 0 var(--saffron)}
+    .time-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}.time-grid span{display:grid;gap:3px;border-left:3px solid var(--saffron);background:#fff;padding:8px}.time-grid small{color:var(--muted);font-size:7px}.time-grid b{font-size:8px}
+    .preview-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:10px}.player{position:relative;min-height:205px;display:grid;place-items:center;border-radius:14px;overflow:hidden;background:linear-gradient(rgba(0,0,55,.1),rgba(0,0,55,.65)),url("../assets/shorts-market-grocery.png") center/cover;color:#fff}.player:after{content:"YouTube";position:absolute;left:10px;top:10px;border-radius:6px;background:var(--yt);padding:5px 7px;font-size:8px;font-weight:950}.play{display:grid;place-items:center;width:54px;height:40px;border-radius:12px;background:var(--yt);font-size:18px}.player-copy{position:absolute;left:12px;right:12px;bottom:12px;display:grid;gap:3px}.player-copy b{font-size:12px}.player-copy span{font-size:8px}.mool-action-card{align-self:stretch;display:grid;align-content:start;gap:8px;border:1px solid #cdd1e7;border-radius:14px;background:#fff;padding:13px}.mool-action-card>small{color:var(--green);font-size:7px;font-weight:950}.mool-action-card h3{margin:0;color:var(--navy);font-size:16px}.mool-action-card p{margin:0;color:var(--muted);font-size:8px;line-height:1.5}.mool-action-card button{min-height:40px;border:0;border-radius:8px;background:var(--navy);color:#fff;font-size:9px;font-weight:950}.metric-separation{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.metric-separation span{display:grid;gap:3px;border:1px solid var(--line);border-radius:9px;background:#fff;padding:10px}.metric-separation small{color:var(--muted);font-size:7px}.metric-separation b{color:var(--navy);font-size:9px}
+    .flow-actions{display:grid;grid-template-columns:1fr 1.3fr;gap:7px;position:sticky;bottom:0;background:linear-gradient(rgba(244,246,251,0),#f4f6fb 22%);padding-top:14px}.flow-actions button{min-height:42px;border-radius:8px;font-size:9px;font-weight:950}.back-step{border:1px solid var(--navy);background:#fff;color:var(--navy)}.next-step{border:0;background:var(--navy);color:#fff}
+    .receipt{display:grid;justify-items:center;gap:8px;text-align:center;padding:12px 0}.receipt>i{display:grid;place-items:center;width:58px;height:58px;border-radius:50%;background:var(--green);color:#fff;font-size:24px;font-style:normal}.receipt small{color:var(--green);font-size:7px;font-weight:950}.receipt h2{margin:0;color:var(--navy);font-size:20px}.receipt p{max-width:520px;margin:0;color:var(--muted);font-size:9px;line-height:1.5}.reference{display:flex;gap:8px;align-items:center;border-radius:999px;background:#e9ebff;padding:8px 12px}.reference span{color:var(--muted);font-size:7px}.reference b{color:var(--navy);font-size:10px}
+    .auth-layer{position:fixed;z-index:300;inset:0;display:grid;place-items:center;background:rgba(5,7,30,.72);padding:16px}.auth-layer[hidden]{display:none}.auth-sheet{width:min(460px,100%);display:grid;gap:10px;border-radius:18px;background:#fff;padding:17px}.auth-sheet h2{margin:0;color:var(--navy);font-size:18px}.auth-sheet p{margin:0;color:var(--muted);font-size:9px;line-height:1.5}.permission-list{display:grid;gap:6px}.permission-list span{display:grid;grid-template-columns:24px minmax(0,1fr);gap:7px;align-items:center;border:1px solid var(--line);border-radius:8px;padding:8px;font-size:8px}.permission-list i{display:grid;place-items:center;width:24px;height:24px;border-radius:7px;background:#e9f7e7;color:var(--green);font-style:normal;font-weight:950}.auth-actions{display:grid;grid-template-columns:1fr 1.25fr;gap:7px}.auth-actions button{min-height:40px;border-radius:8px;font-size:9px;font-weight:950}
+    @media(max-width:850px){.source-grid,.preview-grid{grid-template-columns:1fr}.form-grid,.confirm-grid{grid-template-columns:1fr}.field.wide{grid-column:auto}.action-grid{grid-template-columns:repeat(3,1fr)}.days{grid-template-columns:repeat(4,1fr)}.player{min-height:190px}.content{padding-bottom:90px}.auth-layer{align-items:end;padding:0}.auth-sheet{border-radius:18px 18px 0 0}.notes{display:none}}
+  </style>
+</head>
+<body>
+  <main class="stage">
+    <section class="phone">
+      <header class="status"><span>9:48</span><span>YouTube Connect</span></header>
+      <div class="appbar">
+        <a class="icon-btn" href="08-social-create.html" aria-label="Back to Create">‹</a>
+        <span class="app-title"><b>YouTube Connect</b><span>Video on YouTube · outcome on MoolSocial</span></span>
+        <button class="icon-btn" id="help" aria-label="YouTube Connect help">?</button>
+      </div>
+      <div class="content">
+        <section class="connect-head">
+          <i class="yt-mark">▶</i>
+          <span><small>LAUNCH VIDEO MODEL</small><b>Keep your video on YouTube</b><p>Add local discovery and one useful MoolSocial action without uploading the video again.</p></span>
+        </section>
+        <div class="steps" style="margin-top:9px">
+          <button class="active" data-step-button="0"><i>1</i>Source</button>
+          <button data-step-button="1" disabled><i>2</i>Action</button>
+          <button data-step-button="2" disabled><i>3</i>Review</button>
+        </div>
+        <div id="flowStatus" class="flow-status warn" style="margin-top:9px" role="status" aria-live="polite">Choose a public YouTube link or connect your channel. No Google permission is requested until you continue.</div>
+
+        <section class="flow-panel active" data-step-panel="0" style="margin-top:10px">
+          <div class="section-copy"><small>STEP 1 · SOURCE</small><h2>Choose eligible YouTube content</h2><p>MoolSocial checks that the video is public, available and permitted for embedding.</p></div>
+          <div class="source-grid">
+            <button class="source-card active" id="pasteMethod" type="button"><small>FASTEST</small><b>Paste YouTube link</b><span>Validate one public video or Short without connecting the complete channel.</span></button>
+            <button class="source-card" id="connectMethod" type="button"><small>REUSABLE</small><b>Connect my channel</b><span>Review Google authorization, then choose from eligible channel content.</span></button>
+          </div>
+          <div class="url-box" id="urlBox">
+            <input id="youtubeUrl" aria-label="Public YouTube video or Short link" placeholder="https://youtube.com/watch?v=..." autocomplete="off">
+            <button id="validateLink" type="button" data-testid="validate-youtube-link">Validate link</button>
+          </div>
+          <div class="connected" id="connectionCard" hidden>
+            <i>✓</i><span><b>@JodhpurDaily connected</b><small>Read-only content access · revoke anytime</small></span><button id="connectionControl" type="button">Connection controls</button>
+          </div>
+          <div class="content-list" id="youtubeItems" hidden>
+            <button class="yt-item selected" type="button" data-video="basket" aria-pressed="true">
+              <i class="yt-thumb">▶</i><span class="yt-copy"><small>PUBLIC · YOUTUBE SHORT</small><b>How local baskets save time</b><span>@JodhpurDaily · embedding allowed</span></span><em class="yt-state">Eligible</em>
+            </button>
+            <button class="yt-item" type="button" data-video="payment" aria-pressed="false">
+              <i class="yt-thumb">▶</i><span class="yt-copy"><small>PUBLIC · YOUTUBE VIDEO</small><b>Safer digital payment for shops</b><span>@JodhpurDaily · 4:28 · embedding allowed</span></span><em class="yt-state">Eligible</em>
+            </button>
+            <button class="yt-item" type="button" disabled>
+              <i class="yt-thumb">—</i><span class="yt-copy"><small>PRIVATE</small><b>Festival buying guide draft</b><span>Change visibility on YouTube before using it</span></span><em class="yt-state">Blocked</em>
+            </button>
+            <button class="yt-item" type="button" disabled>
+              <i class="yt-thumb">—</i><span class="yt-copy"><small>EMBEDDING DISABLED</small><b>Store launch recording</b><span>Enable embedding on YouTube or choose another video</span></span><em class="yt-state">Blocked</em>
+            </button>
+          </div>
+          <div class="flow-actions"><button class="back-step" id="cancelSource" type="button">Cancel</button><button class="next-step" id="sourceNext" type="button">Continue with selected video</button></div>
+        </section>
+
+        <section class="flow-panel" data-step-panel="1" style="margin-top:10px">
+          <div class="section-copy"><small>STEP 2 · MOOL ACTION</small><h2>What should the user accomplish?</h2><p>Attach exactly one decisive MoolSocial action outside the YouTube player.</p></div>
+          <div class="action-grid">
+            <button class="action-option active" type="button" data-action="Buy"><i>🛒</i>Buy</button>
+            <button class="action-option" type="button" data-action="Book"><i>▣</i>Book</button>
+            <button class="action-option" type="button" data-action="Order"><i>✓</i>Order</button>
+            <button class="action-option" type="button" data-action="Apply"><i>→</i>Apply</button>
+            <button class="action-option" type="button" data-action="Visit"><i>⌖</i>Visit</button>
+            <button class="action-option" type="button" data-action="Chat"><i>◻</i>Chat</button>
+          </div>
+          <div class="form-grid">
+            <label class="field"><span>Category</span><select id="category"><option>Grocery and daily needs</option><option>Restaurant and food</option><option>Local service</option><option>Funded work</option></select></label>
+            <label class="field"><span>Location</span><select id="location"><option>Jodhpur pilot area</option><option>Rajasthan enabled areas</option><option>India enabled areas</option></select></label>
+            <label class="field wide"><span>Product, service or work reference</span><select id="reference"><option>Monthly Fresh Basket · ₹399</option><option>Restaurant lunch thali · ₹129</option><option>Verified QR proof task · funded</option></select></label>
+            <label class="field wide"><span>User-facing context</span><textarea id="context">See the exact basket price, delivery time and refund rule before ordering.</textarea></label>
+            <label class="field"><span>Commercial disclosure</span><select id="disclosure"><option value="paid">Paid partnership</option><option value="organic">Not sponsored</option></select></label>
+            <label class="field"><span>Campaign association</span><select id="campaign"><option value="none">No Campaign Reel</option><option value="funded">Funded Campaign Reel · CR-2048</option></select></label>
+          </div>
+          <div class="confirm-grid">
+            <button class="confirm on" id="rightsConfirm" type="button" aria-pressed="true"><i>✓</i><span><b>I control the required rights</b><small>Video rights remain managed on YouTube; Mool context and disclosure are accurate.</small></span></button>
+            <button class="confirm on" id="truthConfirm" type="button" aria-pressed="true"><i>✓</i><span><b>The attached action is truthful</b><small>Price, availability, evidence, refund and destination are authoritative.</small></span></button>
+          </div>
+          <section class="campaign-box" id="campaignBox">
+            <div class="campaign-toggle"><span><b>Campaign Reel placement</b><small>Optional funded discovery placement; never payment for YouTube engagement.</small></span><button id="campaignToggle" type="button" aria-pressed="false">Off</button></div>
+            <div id="campaignControls" hidden>
+              <div class="days" aria-label="Campaign Reel duration">
+                <button type="button" data-day="1">1<br>day</button><button class="active" type="button" data-day="2">2<br>days</button><button type="button" data-day="3">3<br>days</button><button type="button" data-day="4">4<br>days</button><button type="button" data-day="5">5<br>days</button><button type="button" data-day="6">6<br>days</button><button type="button" data-day="7">7<br>days</button>
+              </div>
+              <div class="time-grid" style="margin-top:7px"><span><small>START</small><b>After approval · 18 Jul, 6:00 PM IST</b></span><span><small>EXACT END</small><b id="exactEnd">20 Jul, 6:00 PM IST · 48 hours</b></span></div>
+              <div class="flow-status warn" id="durationStatus" style="margin-top:7px">Approval delay and failed activation consume no purchased time. Renewal is never automatic.</div>
+            </div>
+          </section>
+          <div class="flow-actions"><button class="back-step" id="actionBack" type="button">Back</button><button class="next-step" id="actionNext" type="button">Preview post</button></div>
+        </section>
+
+        <section class="flow-panel" data-step-panel="2" style="margin-top:10px">
+          <div id="reviewContent">
+            <div class="section-copy"><small>STEP 3 · REVIEW</small><h2>YouTube attribution and Mool action stay separate</h2><p>The player never disguises a paid Mool outcome as a YouTube engagement reward.</p></div>
+            <div class="preview-grid" style="margin-top:10px">
+              <section class="player"><i class="play">▶</i><span class="player-copy"><b id="previewTitle">How local baskets save time</b><span>@JodhpurDaily · video and playback controlled by YouTube</span></span></section>
+              <section class="mool-action-card"><small>MOOLSOCIAL ACTION · OUTSIDE PLAYER</small><h3 id="previewAction">Buy Monthly Fresh Basket</h3><p id="previewContext">See the exact basket price, delivery time and refund rule before ordering.</p><button type="button" disabled aria-disabled="true">Preview only</button><span class="flow-status">Why shown: location, category and eligible campaign rules matched.</span></section>
+            </div>
+            <div class="metric-separation" style="margin-top:8px"><span><small>YOUTUBE-PROVIDED</small><b>Views, watch time and channel engagement</b></span><span><small>MOOLSOCIAL-VERIFIED</small><b>Opens, actions, leads, retained orders or bookings</b></span></div>
+            <div class="flow-status warn" id="reviewCampaign" style="margin-top:8px">Organic connected post · no MoolSocial placement duration.</div>
+            <div class="flow-actions"><button class="back-step" id="reviewBack" type="button">Back</button><button class="next-step" id="publishPost" type="button" data-testid="publish-youtube-connected-post">Publish connected post</button></div>
+          </div>
+          <section class="receipt" id="receipt" hidden>
+            <i>✓</i><small>CONNECTED POST CREATED</small><h2>Your YouTube video now has a MoolSocial action</h2><p>The video remains on YouTube. MoolSocial published only the validated connection, context and independently governed action.</p>
+            <div class="reference"><span>REFERENCE</span><b>YT-MOOL-20260718-166</b></div>
+            <div class="metric-separation" style="width:100%"><span><small>VIDEO</small><b>YouTube · @JodhpurDaily</b></span><span><small>MOOL ACTION</small><b id="receiptAction">Buy · Monthly Fresh Basket</b></span><span><small>CAMPAIGN</small><b id="receiptCampaign">Not attached</b></span><span><small>STATUS</small><b>Published</b></span></div>
+            <div class="flow-status" id="receiptNext">Users can open the connected post and complete the attached MoolSocial action.</div>
+            <div class="flow-actions" style="width:100%"><button class="back-step" id="createAnother" type="button">Create another</button><a class="next-step" style="display:grid;place-items:center;text-decoration:none" href="06-social-videos.html?connected=1">View connected post</a></div>
+          </section>
+        </section>
+      </div>
+      <nav class="dock">
+        <a class="mool" href="04-universal-focus-shell.html">Mool</a>
+        <div class="dock-rail"><a class="dock-link active" href="166-youtube-connect-shoppable-promotion.html"><i>▶</i><span>Connect</span></a><a class="dock-link" href="124-creator-studio-home.html"><i>S</i><span>Studio</span></a><a class="dock-link" href="129-creator-campaigns.html"><i>₹</i><span>Campaigns</span></a></div>
+        <a class="chat" href="23-chat-inbox-home.html">Chat</a>
+      </nav>
+    </section>
+
+    <aside class="notes">
+      <small>SCREEN 166 · FOUNDER UI/UX REVIEW</small>
+      <h1>YouTube Connect and Mool Action</h1>
+      <p>Creators retain their YouTube asset while MoolSocial adds local discovery, decisive commerce/service/work actions and optional 24–168-hour funded placements.</p>
+      <section class="contract">
+        <div><b>Economic lock</b>No permanent native video hosting and no payment for YouTube engagement.</div>
+        <div><b>Duration lock</b>1–7 days equals exactly 24–168 hours from approved activation with a visible end time.</div>
+        <div><b>Attribution lock</b>YouTube metrics remain separate from independently verified MoolSocial outcomes.</div>
+        <div><b>Control lock</b>OAuth is explained, revocable and resilient to deny, cancel, expiry and unavailable content.</div>
+      </section>
+    </aside>
+  </main>
+
+  <div class="auth-layer" id="authLayer" hidden>
+    <section class="auth-sheet" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+      <div class="sheet-head"><span><h2 id="authTitle">Connect your YouTube channel</h2><p>MoolSocial will open Google authorization only after you continue.</p></span><button class="sheet-close" id="authClose" aria-label="Close Google authorization explanation">×</button></div>
+      <div class="permission-list"><span><i>✓</i>View your channel identity and public content list</span><span><i>✓</i>Validate availability and embedding status</span><span><i>✓</i>Refresh the connection until you revoke access</span><span><i>—</i>MoolSocial cannot edit or delete your YouTube videos</span></div>
+      <div class="flow-status warn">You can cancel now, deny access on Google, revoke later or reconnect after expiry. Link paste remains available.</div>
+      <div class="auth-actions"><button class="back-step" id="authCancel" type="button">Cancel</button><button class="next-step" id="authAllow" type="button" data-testid="allow-youtube-connection">Continue to Google</button></div>
+    </section>
+  </div>
+
+  <script>
+    (function(){
+      "use strict";
+      var state={step:0,sourceReady:false,video:"basket",action:"Buy",campaign:false,days:2,rights:true,truth:true,connected:false};
+      var status=document.getElementById("flowStatus");
+      var panels=document.querySelectorAll("[data-step-panel]");
+      var stepButtons=document.querySelectorAll("[data-step-button]");
+      var authLayer=document.getElementById("authLayer");
+      var youtubeItems=document.getElementById("youtubeItems");
+      var connectionCard=document.getElementById("connectionCard");
+
+      function setStatus(message,tone){
+        status.textContent=message;
+        status.className="flow-status"+(tone?" "+tone:"");
+      }
+      function showStep(step){
+        state.step=step;
+        panels.forEach(function(panel,index){panel.classList.toggle("active",index===step)});
+        stepButtons.forEach(function(button,index){
+          button.classList.toggle("active",index===step);
+          button.classList.toggle("done",index<step);
+          button.disabled=index>step;
+        });
+        document.querySelector(".content").scrollTop=0;
+      }
+      function exposeContent(connected){
+        state.sourceReady=true;
+        state.connected=connected;
+        youtubeItems.hidden=false;
+        connectionCard.hidden=!connected;
+        setStatus(connected?"Channel connected. Choose one eligible public video or Short.":"Public YouTube link is eligible for embedding. Continue to attach one MoolSocial action.","");
+      }
+      function validYoutube(value){
+        return /^(https?:\/\/)?(www\.)?(youtube\.com\/(watch\?v=|shorts\/)|youtu\.be\/)[A-Za-z0-9_-]+/i.test(value.trim());
+      }
+      function openAuth(){authLayer.hidden=false;document.getElementById("authClose").focus()}
+      function closeAuth(cancelled){
+        authLayer.hidden=true;
+        if(cancelled)setStatus("YouTube connection was cancelled. No Google permission was granted; you can paste a public link instead.","warn");
+      }
+      function updateDuration(){
+        var hours=state.days*24;
+        var end=new Date(Date.UTC(2026,6,18,12,30)+hours*60*60*1000);
+        var format=new Intl.DateTimeFormat("en-IN",{day:"numeric",month:"short",hour:"numeric",minute:"2-digit",timeZone:"Asia/Kolkata",timeZoneName:"short"});
+        document.getElementById("exactEnd").textContent=format.format(end)+" · "+hours+" hours";
+        document.getElementById("durationStatus").textContent=state.days+"-day placement selected. Exact expiry is locked before funding; approval delay consumes no time. Renewal is never automatic.";
+      }
+      function updatePreview(){
+        var title=state.video==="payment"?"Safer digital payment for shops":"How local baskets save time";
+        var reference=document.getElementById("reference").value;
+        var context=document.getElementById("context").value.trim();
+        document.getElementById("previewTitle").textContent=title;
+        document.getElementById("previewAction").textContent=state.action+" · "+reference;
+        document.getElementById("previewContext").textContent=context;
+        document.getElementById("reviewCampaign").textContent=state.campaign?state.days+"-day Campaign Reel · "+(state.days*24)+" hours from approved activation · exact expiry visible":"Organic connected post · no MoolSocial placement duration.";
+      }
+      function applyQueryState(){
+        var params=new URLSearchParams(location.search);
+        var mode=params.get("mode")||"";
+        var connectionState=params.get("state");
+        if(/campaign/.test(mode)){
+          state.campaign=true;
+          document.getElementById("campaignToggle").classList.add("on");
+          document.getElementById("campaignToggle").textContent="On";
+          document.getElementById("campaignToggle").setAttribute("aria-pressed","true");
+          document.getElementById("campaignControls").hidden=false;
+          document.getElementById("campaign").value="funded";
+        }
+        if(connectionState==="denied")setStatus("Google authorization was denied. Nothing was connected; paste a public link or try again.","error");
+        if(connectionState==="expired")setStatus("YouTube connection expired. Reconnect to refresh channel content; existing unavailable posts remain clearly labelled.","error");
+        if(connectionState==="revoked")setStatus("YouTube access was revoked. MoolSocial stopped refreshing channel content and retained only required audit records.","warn");
+        if(connectionState==="unavailable")setStatus("This YouTube video is private, removed or unavailable for embedding. Choose another eligible video.","error");
+      }
+
+      document.getElementById("pasteMethod").addEventListener("click",function(){
+        this.classList.add("active");document.getElementById("connectMethod").classList.remove("active");document.getElementById("urlBox").hidden=false;
+      });
+      document.getElementById("connectMethod").addEventListener("click",function(){
+        this.classList.add("active");document.getElementById("pasteMethod").classList.remove("active");openAuth();
+      });
+      document.getElementById("validateLink").addEventListener("click",function(){
+        var value=document.getElementById("youtubeUrl").value;
+        if(!validYoutube(value)){setStatus("Enter a valid public YouTube video or Short link. Private, removed or unsupported links cannot continue.","error");return}
+        exposeContent(false);
+      });
+      document.querySelectorAll("[data-video]").forEach(function(item){
+        item.addEventListener("click",function(){
+          document.querySelectorAll("[data-video]").forEach(function(other){other.classList.toggle("selected",other===item);other.setAttribute("aria-pressed",String(other===item))});
+          state.video=item.dataset.video;
+        });
+      });
+      document.getElementById("sourceNext").addEventListener("click",function(){
+        if(!state.sourceReady){setStatus("Validate a public YouTube link or connect your channel before continuing.","error");return}
+        showStep(1);setStatus("Eligible video selected. Attach exactly one MoolSocial action and confirm rights.","");
+      });
+      document.getElementById("cancelSource").addEventListener("click",function(){location.href="08-social-create.html"});
+      document.querySelectorAll("[data-action]").forEach(function(button){
+        button.addEventListener("click",function(){
+          document.querySelectorAll("[data-action]").forEach(function(other){other.classList.toggle("active",other===button)});
+          state.action=button.dataset.action;
+        });
+      });
+      [document.getElementById("rightsConfirm"),document.getElementById("truthConfirm")].forEach(function(button){
+        button.addEventListener("click",function(){
+          var key=button.id==="rightsConfirm"?"rights":"truth";state[key]=!state[key];
+          button.classList.toggle("on",state[key]);button.setAttribute("aria-pressed",String(state[key]));button.querySelector("i").textContent=state[key]?"✓":"+";
+        });
+      });
+      document.getElementById("campaignToggle").addEventListener("click",function(){
+        state.campaign=!state.campaign;this.classList.toggle("on",state.campaign);this.textContent=state.campaign?"On":"Off";this.setAttribute("aria-pressed",String(state.campaign));
+        document.getElementById("campaignControls").hidden=!state.campaign;document.getElementById("campaign").value=state.campaign?"funded":"none";
+      });
+      document.querySelectorAll("[data-day]").forEach(function(button){
+        button.addEventListener("click",function(){
+          state.days=Number(button.dataset.day);document.querySelectorAll("[data-day]").forEach(function(other){other.classList.toggle("active",other===button)});updateDuration();
+        });
+      });
+      document.getElementById("campaign").addEventListener("change",function(){
+        state.campaign=this.value==="funded";document.getElementById("campaignControls").hidden=!state.campaign;document.getElementById("campaignToggle").classList.toggle("on",state.campaign);document.getElementById("campaignToggle").textContent=state.campaign?"On":"Off";
+      });
+      document.getElementById("actionBack").addEventListener("click",function(){showStep(0);setStatus("Choose or validate another eligible YouTube source.","warn")});
+      document.getElementById("actionNext").addEventListener("click",function(){
+        if(!state.rights||!state.truth){setStatus("Confirm both rights and truthful action information before previewing.","error");return}
+        if(!document.getElementById("context").value.trim()){setStatus("Add clear user-facing context before previewing.","error");return}
+        updatePreview();showStep(2);setStatus("Review YouTube attribution, Mool action and campaign expiry before publishing.","");
+      });
+      document.getElementById("reviewBack").addEventListener("click",function(){showStep(1);setStatus("Update the action, disclosure, rights or Campaign Reel duration.","warn")});
+      document.getElementById("publishPost").addEventListener("click",function(){
+        document.getElementById("reviewContent").hidden=true;document.getElementById("receipt").hidden=false;
+        document.getElementById("receiptAction").textContent=state.action+" · "+document.getElementById("reference").value;
+        document.getElementById("receiptCampaign").textContent=state.campaign?state.days+" days · "+(state.days*24)+" hours · approval pending":"Not attached";
+        document.getElementById("receiptNext").textContent=state.campaign?"Connected post created. Campaign placement remains held until funding, approval and activation; only then does the duration begin.":"Connected post published. Users can complete the independent MoolSocial action.";
+        setStatus("Connected post created with durable reference YT-MOOL-20260718-166.","");
+      });
+      document.getElementById("createAnother").addEventListener("click",function(){
+        document.getElementById("receipt").hidden=true;document.getElementById("reviewContent").hidden=false;showStep(0);setStatus("Start another YouTube-connected post. Previous reference remains available in Content Library.","warn");
+      });
+      document.getElementById("authClose").addEventListener("click",function(){closeAuth(true)});
+      document.getElementById("authCancel").addEventListener("click",function(){closeAuth(true)});
+      document.getElementById("authAllow").addEventListener("click",function(){authLayer.hidden=true;exposeContent(true)});
+      document.getElementById("connectionControl").addEventListener("click",function(){setStatus("Connection controls open: revoke access, refresh now or reconnect after expiry. Revoking never deletes YouTube videos.","warn")});
+      document.getElementById("help").addEventListener("click",openAuth);
+      authLayer.addEventListener("click",function(event){if(event.target===authLayer)closeAuth(true)});
+      applyQueryState();updateDuration();
+    }());
+  </script>
+  <script type="application/json" id="screen166ProductionContract">{"screen":166,"contract":"shared/youtube-connect-campaign-contract.json","clients":["mobile","web"],"states":["source","oauth-explainer","connected","content-selected","action-bound","campaign-priced","review","published","unavailable","reconnect"],"durationHours":[24,48,72,96,120,144,168],"nativeVideoHosting":false}</script>
+  <script type="application/json" id="youtubeConnectBinding">{"contract":"shared/youtube-connect-campaign-contract.json","host":"youtube","moolActions":["buy","book","order","apply","visit","chat"],"approvalStatus":"founder-uiux-review-pending"}</script>
+  <script type="application/json" id="prototypeApprovalContract">{"prototypeScreen":166,"status":"draft-until-user-approval","authoritative":true,"approvedAt":null}</script>
+  <script type="application/json" id="productionRouteContract">{"contractVersion":"mvp-route-machine-flex-2026-07-12","prototypeScreen":166,"prototypeName":"YouTube Connect and Mool Action","productionModule":"creator","budgetBucket":"creator","routeId":"creator.publish","routePath":"/creator/publish","routeState":"youtube-connect-action-attach","implementation":"route-state","launchScope":"mvp-core","separateProductionRoute":false,"painSolved":"Creators need economical YouTube-hosted discovery with one decisive MoolSocial action and an exact funded placement window, without permanent native video-hosting cost.","capabilityKeys":["publish"],"featureOutcomes":["Connect or validate eligible public YouTube content","Attach one governed Buy Book Order Apply Visit or Chat action","Choose an exact 24 to 168 hour Campaign Reel placement after approved activation"],"budgetExtension":false,"budgetExtensionReason":null,"productionNote":"Do not create a route. Implement youtube-connect-action-attach inside /creator/publish.","canonicalMap":"architecture/MVP-120-ROUTE-MACHINE.md"}</script>
+  <script src="../shared/resilience-state-runtime.js?v=youtube-connect-20260718h"></script>
+  <script src="../shared/prototype-interaction-contracts.js?v=intent-completion-20260714b"></script>
+  <script src="../shared/prototype-interaction-runtime.js?v=intent-completion-20260714c"></script>
+</body>
+</html>

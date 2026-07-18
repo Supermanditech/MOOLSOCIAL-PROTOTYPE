@@ -351,8 +351,7 @@
           label: 'View result',
           kind: 'primary',
           run: function () {
-            removePanel();
-            showStatus('Original result ' + reference + ' is open.');
+            replayOriginal(element, 'Original result ' + reference + ' is open.');
           }
         },
         { label: 'Close', kind: 'secondary', run: removePanel }
@@ -479,4 +478,17 @@
       showDuplicate(element, label);
     }
   }, true);
+}());
+
+(function () {
+  "use strict";
+  var match = location.pathname.match(/\/(\d{2,3})-[^/]+\.html$/);
+  if (!match || [4, 5, 6, 7, 8, 113, 124, 125, 126, 127, 129, 131].indexOf(Number(match[1])) === -1) return;
+  if (document.querySelector('script[data-youtube-connect-surface]')) return;
+  var source = document.currentScript && document.currentScript.src;
+  if (!source) return;
+  var script = document.createElement("script");
+  script.src = new URL("youtube-connect-surface-runtime.js?v=20260718d", source).href;
+  script.dataset.youtubeConnectSurface = "true";
+  document.head.appendChild(script);
 }());
