@@ -2,6 +2,12 @@
 
 Date: 12 July 2026
 
+## Superseding pending media decision — 17 July 2026
+
+The launch assumptions for native permanent Shorts and long-form video upload are superseded by `YOUTUBE-CONNECT-CAMPAIGN-REELS-AND-DISTRIBUTED-EARNING-PENDING-UIUX.md`.
+
+The approved direction is native MoolSocial text/images, YouTube-hosted creator video through YouTube Connect, and funded one-day, two-day or seven-day Campaign Reel placements that expire from MoolSocial promotional surfaces without deleting the creator's YouTube asset. Existing prototype UI and media contracts remain visible only until the replacement screen set is implemented and fully regressed; they are not the production-development source of truth for launch media architecture.
+
 ## Core Boundary
 
 Every MoolSocial account may publish eligible text, photos, Shorts and long-form video from Social. A user does not need a Creator workspace merely to post.

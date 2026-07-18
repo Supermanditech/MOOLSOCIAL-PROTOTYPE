@@ -1,0 +1,173 @@
+{
+  "contractVersion": "superadmin-offering-provisioning-2026-07-18",
+  "status": "prototype-review",
+  "owner": {
+    "prototypeScreen": 156,
+    "productionRoute": "/admin/configuration",
+    "routeState": "offering-provisioning",
+    "architecture": "architecture/SUPERADMIN-WORKSPACE-OFFERING-PROVISIONING-LOCK.md",
+    "catalogue": "architecture/WORKSPACE-WISE-MOOLSOCIAL-USER-OFFERING-DECISION-CATALOGUE.md",
+    "profileRegistry": "shared/workspace-profile-registry.js"
+  },
+  "principles": [
+    "the server owns product versions eligibility price terms authority and rollout state",
+    "the client renders an eligible product and sends registered commands",
+    "configuration composes only capabilities already registered and production-ready",
+    "one offering version targets one compatible profile family so route terms evidence and wording remain authoritative",
+    "new money regulated integration evidence or irreversible capability requires development first",
+    "one admin role cannot create fund approve and publish a high-risk offering",
+    "recipient personal data is not exported from the eligibility resolver"
+  ],
+  "foundations": [
+    {
+      "id": "future_demand",
+      "label": "Future demand product"
+    },
+    {
+      "id": "managed_service",
+      "label": "Managed Mool service"
+    },
+    {
+      "id": "outcome_contract",
+      "label": "Outcome contract"
+    },
+    {
+      "id": "software_entitlement",
+      "label": "Software entitlement"
+    },
+    {
+      "id": "funded_work",
+      "label": "Funded work"
+    },
+    {
+      "id": "required_action",
+      "label": "Required action"
+    }
+  ],
+  "provisioningSteps": [
+    "result_and_foundation",
+    "eligibility",
+    "commercial_and_guarantee",
+    "user_experience_binding",
+    "governance_and_rollout",
+    "review_and_provision"
+  ],
+  "lifecycle": [
+    "draft",
+    "readiness_checked",
+    "approval_requested",
+    "product_approved",
+    "finance_approved",
+    "compliance_approved",
+    "scheduled",
+    "canary_live",
+    "live",
+    "paused",
+    "stopped",
+    "completed",
+    "retired"
+  ],
+  "requiredEntities": [
+    "offering_template",
+    "offering_version",
+    "capability_binding",
+    "workspace_profile_eligibility",
+    "activity_and_subtype_policy",
+    "geography_policy",
+    "readiness_policy",
+    "commercial_terms",
+    "guarantee_contract",
+    "evidence_contract",
+    "route_binding",
+    "surface_binding",
+    "workspace_entitlement",
+    "funding_reservation",
+    "approval_case",
+    "rollout",
+    "offering_exposure",
+    "offering_action",
+    "offering_outcome",
+    "offering_health",
+    "audit_event"
+  ],
+  "authorities": [
+    "product_provisioner",
+    "product_owner",
+    "finance_approver",
+    "compliance_approver",
+    "operations_capacity_owner",
+    "launch_controller",
+    "emergency_pause_controller",
+    "auditor"
+  ],
+  "apiCommands": [
+    "POST /v1/admin/offering-drafts",
+    "PUT /v1/admin/offering-drafts/{offeringId}",
+    "POST /v1/admin/offering-drafts/{offeringId}:estimate",
+    "POST /v1/admin/offering-drafts/{offeringId}:validate",
+    "POST /v1/admin/offering-drafts/{offeringId}:request-approval",
+    "POST /v1/admin/offerings/{offeringId}:approve-product",
+    "POST /v1/admin/offerings/{offeringId}:approve-finance",
+    "POST /v1/admin/offerings/{offeringId}:approve-compliance",
+    "POST /v1/admin/offerings/{offeringId}:schedule",
+    "POST /v1/admin/offerings/{offeringId}:launch-canary",
+    "POST /v1/admin/offerings/{offeringId}:expand",
+    "POST /v1/admin/offerings/{offeringId}:pause",
+    "POST /v1/admin/offerings/{offeringId}:stop",
+    "POST /v1/admin/offerings/{offeringId}:rollback"
+  ],
+  "readApis": [
+    "GET /v1/admin/offering-templates",
+    "GET /v1/admin/capabilities",
+    "GET /v1/admin/offering-drafts/{offeringId}",
+    "GET /v1/admin/offerings/{offeringId}",
+    "GET /v1/admin/offerings/{offeringId}/health",
+    "GET /v1/workspaces/{workspaceId}/eligible-offerings"
+  ],
+  "writeRequirements": [
+    "actor id and authority",
+    "idempotency key",
+    "expected offering version",
+    "audit correlation id",
+    "reason for high-risk changes"
+  ],
+  "prototypeExample": {
+    "offeringId": "OFR-20260718-301",
+    "foundation": "outcome_contract",
+    "name": "Neighbourhood Basket Growth",
+    "result": "Get 100 paid fulfilled monthly basket customers",
+    "commercialDirection": "grow_my_business",
+    "profileIds": [
+      "grocery_retailer"
+    ],
+    "geography": "Jodhpur pilot area",
+    "readiness": [
+      "verified_owner",
+      "authoritative_catalogue",
+      "stock_and_price_ready",
+      "home_delivery_ready",
+      "payment_and_refund_ready"
+    ],
+    "priceModel": "per_retained_outcome_with_cap",
+    "qualifyingEvent": "retained_household_basket_cycle",
+    "makeGood": "continue_until_target_or_refund_undelivered_units",
+    "routeBinding": {
+      "route": "/retailer/services/:serviceId",
+      "state": "outcome-plan"
+    },
+    "surfaces": [
+      "workspace_home",
+      "workspace_services",
+      "priority_inbox"
+    ],
+    "rollout": "five_percent_canary"
+  },
+  "releaseLocks": [
+    "all 29 personal/workspace contexts resolve without hardcoded client eligibility",
+    "draft close back invalid empty and duplicate actions preserve safe state",
+    "price funding guarantee evidence destination and stop rule are visible before approval",
+    "canary pause rollback and kill switch are tested",
+    "mobile and laptop layouts pass live tap-through",
+    "regulated profile exclusions and authority checks pass"
+  ]
+}

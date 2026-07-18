@@ -1,0 +1,25 @@
+{
+  "complete": true,
+  "completedAt": "2026-07-18T07:21:06.774Z",
+  "issues": [],
+  "screens": [
+    {
+      "controls": 14,
+      "failed": 0,
+      "file": "166-youtube-connect-shoppable-promotion.html",
+      "issues": [],
+      "passed": 14,
+      "screen": 166,
+      "skipped": 0
+    }
+  ],
+  "startedAt": "2026-07-18T07:21:02.930Z",
+  "summary": {
+    "failed": 0,
+    "passed": 14,
+    "screens": 1,
+    "skipped": 0,
+    "tested": 14
+  },
+  "consoleErrors": []
+}

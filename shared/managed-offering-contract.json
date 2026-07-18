@@ -1,0 +1,203 @@
+{
+  "contractVersion": "managed-offering-v1-2026-07-17",
+  "status": "product-model-approved-commercial-pilot-pending",
+  "humanContract": "architecture/WORKSPACE-SPECIFIC-MOOL-OPERATED-MANAGED-OFFERINGS.md",
+  "appliesToProfiles": 28,
+  "offeringArchetypes": {
+    "reserved_capacity": {
+      "commercialRole": "managed_service_provider",
+      "userPromise": "reserved eligible capacity within accepted shift geography workload and SLA",
+      "pricing": "reservation_fee + completed_unit_fee + disclosed_third_party_cost + tax",
+      "completion": "capacity SLA and accepted completed units",
+      "prohibitedClaim": "unlimited labour or guaranteed immediate service without accepted capacity"
+    },
+    "managed_sourcing": {
+      "commercialRole": "sourcing_agent",
+      "userPromise": "operate unlimited requests where subscribed and present decision-ready eligible offers",
+      "pricing": "subscription + accepted_purchase_order_fee_or_disclosed_margin + logistics + tax",
+      "completion": "accepted offer purchase order delivery and goods receipt",
+      "prohibitedClaim": "unlimited product quantity credit or fulfilment"
+    },
+    "results_workforce": {
+      "commercialRole": "managed_service_provider",
+      "userPromise": "assign and operate eligible execution capacity against a funded target",
+      "pricing": "setup_or_operating_fee + qualified_result_fee subject_to_cap",
+      "completion": "retained transaction or accepted milestone",
+      "prohibitedClaim": "billable raw lead visit view click or unfulfilled order"
+    },
+    "principal_purchase_or_capacity": {
+      "commercialRole": "principal_buyer_and_reseller_or_capacity_reserver",
+      "userPromise": "make and honour an accepted time-limited bid or funded capacity reservation",
+      "pricing": "accepted_buying_quote_or_capacity_contract",
+      "completion": "accepted goods receipt and title transfer or contracted capacity milestone",
+      "prohibitedClaim": "automatic platform purchase before accepted bid"
+    },
+    "managed_back_office": {
+      "commercialRole": "professional_coordinator",
+      "userPromise": "operate defined books reconciliation document and filing-coordination milestones",
+      "pricing": "fixed_package + approved_professional_or_statutory_fees + tax",
+      "completion": "accepted bookkeeping reconciliation submission or filing milestone",
+      "prohibitedClaim": "guaranteed tax saving regulatory acceptance or professional outcome"
+    }
+  },
+  "requiredCommercialAuthority": [
+    "seller_of_record",
+    "buyer_of_record",
+    "invoice_issuer",
+    "inventory_owner_by_stage",
+    "customer_contract_owner",
+    "refund_and_claim_owner",
+    "tax_responsibility",
+    "funding_source",
+    "working_capital_cap",
+    "worker_capacity_model",
+    "qualifying_result",
+    "evidence",
+    "price_formula",
+    "maximum_liability"
+  ],
+  "retailerOfferings": [
+    {
+      "id": "retailer.shop-rider-reserve",
+      "name": "Shop Rider Reserve",
+      "archetype": "reserved_capacity",
+      "primaryAction": "Choose shifts and area",
+      "qualifyingResult": "delivery_accepted"
+    },
+    {
+      "id": "retailer.target-price-procurement",
+      "name": "Unlimited Target-Price Procurement Desk",
+      "archetype": "managed_sourcing",
+      "primaryAction": "Add sourcing request",
+      "qualifyingResult": "goods_received_accepted"
+    },
+    {
+      "id": "retailer.household-basket-sales",
+      "name": "Household Basket Sales Team",
+      "archetype": "results_workforce",
+      "primaryAction": "Set basket sales target",
+      "qualifyingResult": "paid_subscription_cycle_retained"
+    },
+    {
+      "id": "retailer.moolsocial-stock-buy",
+      "name": "MoolSocial Stock Buy",
+      "archetype": "principal_purchase_or_capacity",
+      "primaryAction": "Select stock for a quote",
+      "qualifyingResult": "principal_goods_receipt_accepted"
+    },
+    {
+      "id": "retailer.business-back-office",
+      "name": "Retail Business Back Office",
+      "archetype": "managed_back_office",
+      "primaryAction": "Choose back-office package",
+      "qualifyingResult": "professional_milestone_accepted"
+    }
+  ],
+  "householdBasket": {
+    "launchModel": "marketplace_allocation",
+    "states": [
+      "plan_selected",
+      "subscription_payment_succeeded",
+      "allocation_pending",
+      "retailer_offered",
+      "retailer_accepted",
+      "order_terms_locked",
+      "packing",
+      "delivery_assigned",
+      "delivered",
+      "retention_window",
+      "retained",
+      "settled"
+    ],
+    "exceptions": [
+      "retailer_declined",
+      "retailer_timeout",
+      "reallocation_required",
+      "substitution_approval_required",
+      "delivery_failed",
+      "cancelled",
+      "refunded",
+      "disputed"
+    ],
+    "allocationInputs": [
+      "serviceability",
+      "fresh_stock",
+      "locked_settlement_price",
+      "fulfilment_reliability",
+      "delivery_capacity",
+      "consumer_preferences",
+      "conflict_and_concentration_limits"
+    ]
+  },
+  "principalStockBuy": {
+    "eligibilityChecks": [
+      "approved_category_and_brand",
+      "source_invoice_and_title",
+      "batch_condition_and_remaining_shelf_life",
+      "quantity_and_location",
+      "recall_and_restriction_status",
+      "buying_rate_version",
+      "city_category_and_workspace_cap",
+      "applicable_tax_food_storage_distribution_and_transport_readiness"
+    ],
+    "states": [
+      "liquidation_requested",
+      "eligibility_review",
+      "bid_ready",
+      "bid_accepted",
+      "pickup_scheduled",
+      "goods_receipt_pending",
+      "goods_receipt_accepted",
+      "title_transferred",
+      "seller_payable",
+      "seller_paid",
+      "platform_inventory_available"
+    ],
+    "exceptions": [
+      "ineligible",
+      "bid_rejected",
+      "bid_expired",
+      "quantity_adjusted",
+      "goods_rejected",
+      "shortage_or_condition_case",
+      "payment_held",
+      "recalled"
+    ],
+    "ownershipRule": "requesting or accepting a review never changes title; title changes only at the contracted event after accepted goods receipt",
+    "fallback": "managed marketplace liquidation where eligible"
+  },
+  "requiredAggregates": [
+    "capacity_reservation_contract",
+    "capacity_shift",
+    "sourcing_mandate",
+    "sourcing_request",
+    "sourcing_offer",
+    "sales_program",
+    "household_basket_plan",
+    "household_subscription",
+    "order_allocation",
+    "inventory_liquidation_request",
+    "principal_purchase_bid",
+    "principal_goods_receipt",
+    "inventory_title_event",
+    "compliance_engagement",
+    "professional_milestone"
+  ],
+  "launchGatesForPrincipalStockBuy": [
+    "approved_sku_and_buying_rate_engine",
+    "working_capital_and_city_exposure_cap",
+    "tax_accounting_and_seller_of_record",
+    "applicable_food_business_storage_and_transport_authority",
+    "source_batch_condition_expiry_and_recall",
+    "pickup_goods_receipt_and_title_transfer",
+    "resale_return_warranty_and_grievance",
+    "fraud_counterfeit_and_price_risk"
+  ],
+  "globalInvariants": [
+    "marketplace and principal roles cannot be ambiguous",
+    "unlimited applies only to requests unless value and capacity are explicitly funded",
+    "dedicated capacity preserves worker eligibility safety and limits",
+    "regulated profile rules override generic offering availability",
+    "every offering exposes accepted result evidence total cost and recovery path"
+  ]
+}

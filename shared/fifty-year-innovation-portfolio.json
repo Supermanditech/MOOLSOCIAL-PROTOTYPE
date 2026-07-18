@@ -1,0 +1,276 @@
+{
+  "portfolioVersion": "moolsocial-innovation-2026-2076-v1",
+  "status": "long-range-strategy-not-mvp-commitment",
+  "humanContract": "architecture/MOOLSOCIAL-2026-2076-INNOVATION-PORTFOLIO.md",
+  "thesis": "evolve from a multi-workspace super-app into a trusted local economic operating network connecting consented intent verified capacity AI and human execution physical fulfilment evidence money and rights",
+  "horizons": [
+    {
+      "id": "H1",
+      "years": "2026-2029",
+      "name": "Outcome Network",
+      "objective": "reliably complete measurable business outcomes"
+    },
+    {
+      "id": "H2",
+      "years": "2029-2035",
+      "name": "Agentic Operating Network",
+      "objective": "scale owner capacity through bounded AI and connected operations"
+    },
+    {
+      "id": "H3",
+      "years": "2035-2045",
+      "name": "Twin And Capacity Network",
+      "objective": "simulate and reserve trusted capacity before commitment"
+    },
+    {
+      "id": "H4",
+      "years": "2045-2060",
+      "name": "Autonomous Physical Network",
+      "objective": "coordinate human-supervised robotic production service and logistics"
+    },
+    {
+      "id": "H5",
+      "years": "2060-2076",
+      "name": "Community Economic Utility",
+      "objective": "provide governed outcome infrastructure rather than attention-maximizing engagement"
+    }
+  ],
+  "compoundingProducts": [
+    "mool_passport",
+    "mool_voice",
+    "mool_agent",
+    "mool_demand_vault",
+    "mool_graph",
+    "mool_twin",
+    "mool_proof_and_trace",
+    "mool_money_and_rights",
+    "mool_capacity_exchange",
+    "mool_physical_network"
+  ],
+  "foundationNow": [
+    "canonical_economic_schema",
+    "authoritative_event_and_evidence_spine",
+    "agent_simulation_approval_and_receipt_sandbox",
+    "structured_local_language_intent",
+    "consent_receipt_and_contextual_portable_trust",
+    "time_versioned_digital_twin_ready_snapshots",
+    "open_integration_adapter_boundary",
+    "experiment_feature_flag_kill_switch_and_retirement_framework"
+  ],
+  "profileTracks": [
+    {
+      "profileId": 1,
+      "profile": "FMCG Manufacturer",
+      "now": "AI territory and input co-operator with batch passports",
+      "next": "validated factory digital twin",
+      "longOption": "demand-configured modular microfactory network"
+    },
+    {
+      "profileId": 2,
+      "profile": "FMCG Supplier / Distributor",
+      "now": "autonomous replenishment preparation and route batching",
+      "next": "self-balancing distribution twin",
+      "longOption": "robotic local distribution mesh"
+    },
+    {
+      "profileId": 3,
+      "profile": "Raw Material Supplier",
+      "now": "material passport and specification agent",
+      "next": "sensor-verified contract supply",
+      "longOption": "regenerative material network"
+    },
+    {
+      "profileId": 4,
+      "profile": "Packaging Supplier",
+      "now": "packaging configurator",
+      "next": "demand-pooled digital packaging and smart labels",
+      "longOption": "adaptive circular packaging grid"
+    },
+    {
+      "profileId": 5,
+      "profile": "Grocery / Kirana Shop",
+      "now": "household pantry autopilot",
+      "next": "neighbourhood store twin and micro-fulfilment",
+      "longOption": "autonomous community pantry node"
+    },
+    {
+      "profileId": 6,
+      "profile": "General Retail Shop / Dukaan",
+      "now": "AI assortment and local demand studio",
+      "next": "spatial store repair and recommerce hub",
+      "longOption": "local customization and circular-commerce node"
+    },
+    {
+      "profileId": 7,
+      "profile": "Individual Product Seller",
+      "now": "one-person business agent",
+      "next": "made-to-order microbrand network",
+      "longOption": "human-governed autonomous micro-enterprise franchise"
+    },
+    {
+      "profileId": 8,
+      "profile": "Restaurant / Dhaba / Cafe",
+      "now": "voice kitchen and capacity co-operator",
+      "next": "kitchen and guest-flow twin with robot assistance",
+      "longOption": "human-governed local food utility"
+    },
+    {
+      "profileId": 9,
+      "profile": "Cloud Kitchen",
+      "now": "demand-zone menu agent",
+      "next": "robotic multi-brand kitchen twin",
+      "longOption": "distributed autonomous meal production network"
+    },
+    {
+      "profileId": 10,
+      "profile": "Tiffin Provider",
+      "now": "household meal autopilot",
+      "next": "consent-based preference plan and smart reusable containers",
+      "longOption": "community nutrition infrastructure"
+    },
+    {
+      "profileId": 11,
+      "profile": "Individual Doctor",
+      "now": "practice administration copilot",
+      "next": "clinician-governed longitudinal care workspace",
+      "longOption": "clinician-governed preventive-care simulation"
+    },
+    {
+      "profileId": 12,
+      "profile": "Clinic",
+      "now": "clinic flow and roster agent",
+      "next": "clinic operations twin",
+      "longOption": "distributed community care node"
+    },
+    {
+      "profileId": 13,
+      "profile": "Hospital",
+      "now": "patient-flow and vendor control tower",
+      "next": "hospital operations twin and internal robotic logistics",
+      "longOption": "continuous distributed care network"
+    },
+    {
+      "profileId": 14,
+      "profile": "Medical Store / Licensed Pharmacy",
+      "now": "traceable refill and expiry agent",
+      "next": "licensed robotic dispensing and cold-chain twin",
+      "longOption": "regulated personalized fulfilment node if future law permits"
+    },
+    {
+      "profileId": 15,
+      "profile": "Salon / Parlour",
+      "now": "booking staff and visual-choice agent",
+      "next": "personal-care studio twin and robot assistance",
+      "longOption": "adaptive personal-care studio"
+    },
+    {
+      "profileId": 16,
+      "profile": "Home Beauty Provider",
+      "now": "mobile studio agent",
+      "next": "portable smart-tool workspace",
+      "longOption": "human-supervised mobile service pod network"
+    },
+    {
+      "profileId": 17,
+      "profile": "Individual Service Provider",
+      "now": "visual diagnose-and-quote assistant",
+      "next": "AR repair and predictive maintenance",
+      "longOption": "human-robot maintenance network"
+    },
+    {
+      "profileId": 18,
+      "profile": "Bike Captain",
+      "now": "demand safety and earnings copilot",
+      "next": "connected EV and battery plan",
+      "longOption": "captain-owned supervised autonomous fleet"
+    },
+    {
+      "profileId": 19,
+      "profile": "Auto Captain",
+      "now": "recurring mobility subscription",
+      "next": "connected electric auto twin",
+      "longOption": "captain-operated neighbourhood mobility pods"
+    },
+    {
+      "profileId": 20,
+      "profile": "Cab / Car Captain",
+      "now": "corporate and airport account agent",
+      "next": "premium EV fleet twin",
+      "longOption": "human-governed autonomous premium fleet"
+    },
+    {
+      "profileId": 21,
+      "profile": "Delivery Partner",
+      "now": "route-batch and proof copilot",
+      "next": "locker drone and sidewalk-robot orchestration",
+      "longOption": "human-supervised autonomous last-metre grid"
+    },
+    {
+      "profileId": 22,
+      "profile": "Local Porter / Goods Transporter",
+      "now": "load-vision and custody agent",
+      "next": "wearable and robot-assisted handling",
+      "longOption": "human-supervised autonomous goods-movement cells"
+    },
+    {
+      "profileId": 23,
+      "profile": "Transport / Fleet Operator",
+      "now": "fleet control tower",
+      "next": "fleet digital twin and electric transition",
+      "longOption": "multimodal autonomous logistics network"
+    },
+    {
+      "profileId": 24,
+      "profile": "Shorts Creator",
+      "now": "multilingual commerce studio agent",
+      "next": "verified synthetic studio",
+      "longOption": "human-governed persistent creator media agent"
+    },
+    {
+      "profileId": 25,
+      "profile": "Long-Form Video Creator",
+      "now": "research rights and conversion copilot",
+      "next": "interactive adaptive knowledge channel",
+      "longOption": "living human-governed knowledge companion"
+    },
+    {
+      "profileId": 26,
+      "profile": "Multi-Format Creator",
+      "now": "agentic campaign studio",
+      "next": "spatial and digital-twin content studio",
+      "longOption": "immersive economic experience operator"
+    },
+    {
+      "profileId": 27,
+      "profile": "Freelancer / Field Partner",
+      "now": "portable skill passport and microbusiness agent",
+      "next": "human-AI team outcome contracts",
+      "longOption": "physical-automation orchestrator"
+    },
+    {
+      "profileId": 28,
+      "profile": "Get It Done Provider",
+      "now": "universal task planner",
+      "next": "teleoperation and robot-assisted errands",
+      "longOption": "recoverable personal physical-agent network"
+    }
+  ],
+  "portfolioStatuses": [
+    "FOUNDATION_NOW",
+    "PILOT_NEXT",
+    "RESEARCH_OPTION",
+    "PARTNER_DEPENDENT",
+    "REGULATED_HOLD",
+    "RETIRE"
+  ],
+  "globalGuards": [
+    "the far horizon is an option and not a promised release",
+    "no universal social or credit score",
+    "AI recommendation simulation and execution remain distinguishable",
+    "consequential AI actions retain model policy data snapshot confidence approval and receipt",
+    "clinical legal tax lending and safety authority remain with authorized humans and institutions",
+    "hardware integrations require device identity signed events limits and emergency stop",
+    "future products remain feature flagged until economics safety regulation and recovery pass",
+    "portfolio success is measured by net user and business outcome rather than engagement"
+  ]
+}

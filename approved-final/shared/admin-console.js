@@ -111,4 +111,7 @@
     detail.scrollIntoView({block:"nearest"});
   }));
   render(0);
+  if (window.matchMedia("(max-width: 900px)").matches) {
+    detail.classList.remove("open");
+  }
 })();

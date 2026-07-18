@@ -1,0 +1,134 @@
+{
+  "contractVersion": "youtube-connect-campaign-reels-2026-07-18",
+  "status": "founder-uiux-review",
+  "launchModel": {
+    "nativeTextAndImages": true,
+    "nativePermanentVideoHosting": false,
+    "videoHost": "youtube",
+    "player": "youtube_iframe_player_api",
+    "viewerEngagementReward": false,
+    "qualifyingMoolOutcomeRequiredForOutcomePay": true
+  },
+  "affectedPrototypeScreens": [4, 5, 6, 7, 8, 113, 124, 125, 126, 127, 129, 131, 166],
+  "productionRoutes": [
+    "/app",
+    "/social/shorts",
+    "/social/videos",
+    "/social/feed",
+    "/social/create",
+    "/manufacturer/campaigns",
+    "/creator",
+    "/creator/publish",
+    "/creator/content",
+    "/creator/performance",
+    "/creator/campaigns",
+    "/creator/control"
+  ],
+  "connectionStates": [
+    "not_connected",
+    "explainer",
+    "authorization_pending",
+    "connected",
+    "denied",
+    "cancelled",
+    "expired",
+    "revoked",
+    "reconnect_required"
+  ],
+  "contentStates": [
+    "eligible_public_embeddable",
+    "private",
+    "embedding_disabled",
+    "age_restricted",
+    "made_for_kids_restricted",
+    "removed",
+    "unavailable",
+    "policy_blocked",
+    "revalidation_required"
+  ],
+  "moolActions": [
+    "buy",
+    "book",
+    "order",
+    "apply",
+    "visit",
+    "chat"
+  ],
+  "campaignDurations": [
+    {"days": 1, "hours": 24},
+    {"days": 2, "hours": 48},
+    {"days": 3, "hours": 72},
+    {"days": 4, "hours": 96},
+    {"days": 5, "hours": 120},
+    {"days": 6, "hours": 144},
+    {"days": 7, "hours": 168}
+  ],
+  "durationRules": [
+    "duration begins at approved activation",
+    "payment initiation approval delay failed activation and retry do not consume duration",
+    "exact start and end timestamps are visible before funding and after activation",
+    "expiry removes MoolSocial placement but never deletes the YouTube asset",
+    "renewal requires a newly accepted and funded placement",
+    "no reach or sales result is guaranteed by duration alone",
+    "sub-day burst placements are post-launch and separately governed"
+  ],
+  "campaignStates": [
+    "draft",
+    "priced",
+    "funding_reserved",
+    "approval_pending",
+    "scheduled",
+    "active",
+    "paused",
+    "expired",
+    "renewal_offered",
+    "renewed",
+    "completed",
+    "cancelled",
+    "refunded",
+    "disputed"
+  ],
+  "publishSteps": [
+    "choose_source",
+    "validate_youtube_content",
+    "attach_one_mool_action",
+    "add_context_disclosure_and_rights",
+    "preview_separate_attribution",
+    "publish_and_receive_reference"
+  ],
+  "requiredRecords": [
+    "youtube_connection",
+    "youtube_external_content",
+    "mool_post",
+    "mool_action_binding",
+    "campaign_placement",
+    "funding_reservation",
+    "approval_case",
+    "placement_exposure",
+    "qualifying_outcome",
+    "creator_deliverable",
+    "settlement",
+    "expiry_event",
+    "revocation_event",
+    "audit_event"
+  ],
+  "blockedAtLaunch": [
+    "unrestricted native reel or long-form hosting",
+    "payment for YouTube view like comment share or subscription",
+    "direct MoolSocial recording to YouTube upload before Google verification quota and compliance approval",
+    "private embedding-disabled removed age-restricted or policy-blocked publication",
+    "campaign activation before maximum payable amount is reserved",
+    "automatic renewal",
+    "claiming YouTube metrics as MoolSocial metrics"
+  ],
+  "prototypeAcceptance": [
+    "paste valid and invalid YouTube links",
+    "connect allow deny cancel expire revoke and reconnect",
+    "select eligible content and reject unsupported content",
+    "attach exactly one decisive MoolSocial action",
+    "show YouTube attribution separately from MoolSocial outcomes",
+    "exercise all seven durations and exact expiry",
+    "publish durable MoolSocial reference",
+    "replay mobile and laptop journeys without console errors"
+  ]
+}

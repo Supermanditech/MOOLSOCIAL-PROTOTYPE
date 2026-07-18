@@ -1,0 +1,179 @@
+{
+  "generatedAt": "2026-07-18T07:21:03.192Z",
+  "screens": [
+    {
+      "controls": [
+        {
+          "cls": "icon-btn",
+          "contract": "",
+          "href": "http://127.0.0.1:61971/screens/08-social-create.html",
+          "i": 0,
+          "id": "",
+          "label": "Back to Create",
+          "occurrence": 0,
+          "role": "",
+          "tag": "A",
+          "visibleIndex": 0
+        },
+        {
+          "cls": "icon-btn",
+          "contract": "",
+          "href": "",
+          "i": 1,
+          "id": "help",
+          "label": "YouTube Connect help",
+          "occurrence": 0,
+          "role": "",
+          "tag": "BUTTON",
+          "visibleIndex": 1
+        },
+        {
+          "cls": "active",
+          "contract": "",
+          "href": "",
+          "i": 2,
+          "id": "",
+          "label": "1Source",
+          "occurrence": 0,
+          "role": "",
+          "tag": "BUTTON",
+          "visibleIndex": 2
+        },
+        {
+          "cls": "source-card active",
+          "contract": "",
+          "href": "",
+          "i": 3,
+          "id": "pasteMethod",
+          "label": "FASTEST Paste YouTube link Validate one public video or Short without connecting the complete channel.",
+          "occurrence": 0,
+          "role": "",
+          "tag": "BUTTON",
+          "visibleIndex": 3
+        },
+        {
+          "cls": "source-card",
+          "contract": "",
+          "href": "",
+          "i": 4,
+          "id": "connectMethod",
+          "label": "REUSABLE Connect my channel Review Google authorization, then choose from eligible channel content.",
+          "occurrence": 0,
+          "role": "",
+          "tag": "BUTTON",
+          "visibleIndex": 4
+        },
+        {
+          "cls": "",
+          "contract": "",
+          "href": "",
+          "i": 5,
+          "id": "youtubeUrl",
+          "label": "Public YouTube video or Short link",
+          "occurrence": 0,
+          "role": "",
+          "tag": "INPUT",
+          "visibleIndex": 5
+        },
+        {
+          "cls": "",
+          "contract": "",
+          "href": "",
+          "i": 6,
+          "id": "validateLink",
+          "label": "Validate link",
+          "occurrence": 0,
+          "role": "",
+          "tag": "BUTTON",
+          "visibleIndex": 6
+        },
+        {
+          "cls": "back-step",
+          "contract": "",
+          "href": "",
+          "i": 7,
+          "id": "cancelSource",
+          "label": "Cancel",
+          "occurrence": 0,
+          "role": "",
+          "tag": "BUTTON",
+          "visibleIndex": 7
+        },
+        {
+          "cls": "next-step",
+          "contract": "",
+          "href": "",
+          "i": 8,
+          "id": "sourceNext",
+          "label": "Continue with selected video",
+          "occurrence": 0,
+          "role": "",
+          "tag": "BUTTON",
+          "visibleIndex": 8
+        },
+        {
+          "cls": "mool",
+          "contract": "",
+          "href": "http://127.0.0.1:61971/screens/04-universal-focus-shell.html",
+          "i": 9,
+          "id": "",
+          "label": "Mool",
+          "occurrence": 0,
+          "role": "",
+          "tag": "A",
+          "visibleIndex": 9
+        },
+        {
+          "cls": "dock-link active",
+          "contract": "",
+          "href": "http://127.0.0.1:61971/screens/166-youtube-connect-shoppable-promotion.html",
+          "i": 10,
+          "id": "",
+          "label": "▶ Connect",
+          "occurrence": 0,
+          "role": "",
+          "tag": "A",
+          "visibleIndex": 10
+        },
+        {
+          "cls": "dock-link",
+          "contract": "",
+          "href": "http://127.0.0.1:61971/screens/124-creator-studio-home.html",
+          "i": 11,
+          "id": "",
+          "label": "S Studio",
+          "occurrence": 0,
+          "role": "",
+          "tag": "A",
+          "visibleIndex": 11
+        },
+        {
+          "cls": "dock-link",
+          "contract": "",
+          "href": "http://127.0.0.1:61971/screens/129-creator-campaigns.html",
+          "i": 12,
+          "id": "",
+          "label": "₹ Campaigns",
+          "occurrence": 0,
+          "role": "",
+          "tag": "A",
+          "visibleIndex": 12
+        },
+        {
+          "cls": "chat",
+          "contract": "",
+          "href": "http://127.0.0.1:61971/screens/23-chat-inbox-home.html",
+          "i": 13,
+          "id": "",
+          "label": "Chat",
+          "occurrence": 0,
+          "role": "",
+          "tag": "A",
+          "visibleIndex": 13
+        }
+      ],
+      "file": "166-youtube-connect-shoppable-promotion.html",
+      "screen": 166
+    }
+  ]
+}
